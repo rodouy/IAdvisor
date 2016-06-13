@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B9DDB8D-8420-4D0E-851A-584DB79DAF16}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IrrigationAdvisor</RootNamespace>
+    <AssemblyName>IrrigationAdvisor</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GridMvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Agriculture\CropCoefficientsController.cs" />
+    <Compile Include="Controllers\Agriculture\CropInformationByDatesController.cs" />
+    <Compile Include="Controllers\Agriculture\CropsController.cs" />
+    <Compile Include="Controllers\Agriculture\HorizonsController.cs" />
+    <Compile Include="Controllers\Agriculture\KCsController.cs" />
+    <Compile Include="Controllers\Agriculture\PhenologicalStageAdjustmentsController.cs" />
+    <Compile Include="Controllers\Agriculture\PhenologicalStagesController.cs" />
+    <Compile Include="Controllers\Agriculture\SoilsController.cs" />
+    <Compile Include="Controllers\Agriculture\SpecieCyclesController.cs" />
+    <Compile Include="Controllers\Agriculture\SpeciesController.cs" />
+    <Compile Include="Controllers\Agriculture\StagesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Irrigation\BombsController.cs" />
+    <Compile Include="Controllers\Irrigation\DripsController.cs" />
+    <Compile Include="Controllers\Irrigation\PivotsController.cs" />
+    <Compile Include="Controllers\Irrigation\SprinklersController.cs" />
+    <Compile Include="Controllers\Language\LanguagesController.cs" />
+    <Compile Include="Controllers\Localization\CitiesController.cs" />
+    <Compile Include="Controllers\Localization\CountriesController.cs" />
+    <Compile Include="Controllers\Localization\FarmsController.cs" />
+    <Compile Include="Controllers\Localization\PositionsController.cs" />
+    <Compile Include="Controllers\Localization\RegionsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Management\CropIrrigationWeathersController.cs" />
+    <Compile Include="Controllers\Management\DailyRecordsController.cs" />
+    <Compile Include="Controllers\Management\MessagesController.cs" />
+    <Compile Include="Controllers\Management\TitlesController.cs" />
+    <Compile Include="Controllers\Security\AccessesController.cs" />
+    <Compile Include="Controllers\Security\MenusController.cs" />
+    <Compile Include="Controllers\Security\RolesController.cs" />
+    <Compile Include="Controllers\Security\SiteItemsController.cs" />
+    <Compile Include="Controllers\Security\SiteMapsController.cs" />
+    <Compile Include="Controllers\Security\UsersController.cs" />
+    <Compile Include="Controllers\Water\EffectiveRainsController.cs" />
+    <Compile Include="Controllers\Water\EvapotranspirationCropsController.cs" />
+    <Compile Include="Controllers\Water\IrrigationsController.cs" />
+    <Compile Include="Controllers\Water\RainsController.cs" />
+    <Compile Include="Controllers\Weather\TemperatureDatasController.cs" />
+    <Compile Include="Controllers\Weather\WeatherDatasController.cs" />
+    <Compile Include="Controllers\Weather\WeatherInformationsController.cs" />
+    <Compile Include="Controllers\Weather\WeatherStationsController.cs" />
+    <Compile Include="DBContext\Agriculture\CropCoefficientConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\CropInformationByDateConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\HorizonConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\KCConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\PhenologicalStageAdjustmentConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\PhenologicalStageConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\SoilConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\SpecieConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\SpecieCycleConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\StageConfiguration.cs" />
+    <Compile Include="DBContext\IrrigationAdvisorContext.cs" />
+    <Compile Include="DBContext\Irrigation\BombConfiguration.cs" />
+    <Compile Include="DBContext\Irrigation\DripConfiguration.cs" />
+    <Compile Include="DBContext\Irrigation\IrrigationUnitConfigurarion.cs" />
+    <Compile Include="DBContext\Irrigation\PivotConfiguration.cs" />
+    <Compile Include="DBContext\Irrigation\SprinklerConfiguration.cs" />
+    <Compile Include="DBContext\Language\LanguageConfiguration.cs" />
+    <Compile Include="DBContext\Localization\CityConfiguration.cs" />
+    <Compile Include="DBContext\Localization\CountryConfiguration.cs" />
+    <Compile Include="DBContext\Localization\FarmConfiguration.cs" />
+    <Compile Include="DBContext\Localization\LocationConfiguration.cs" />
+    <Compile Include="DBContext\Localization\PositionConfiguration.cs" />
+    <Compile Include="DBContext\Localization\RegionConfiguration.cs" />
+    <Compile Include="DBContext\Management\CropIrrigationWeatherConfiguration.cs" />
+    <Compile Include="DBContext\Management\DailyRecordConfiguration.cs" />
+    <Compile Include="DBContext\Management\MessageConfiguration.cs" />
+    <Compile Include="DBContext\Management\TitleConfiguration.cs" />
+    <Compile Include="DBContext\Security\AccessConfiguration.cs" />
+    <Compile Include="DBContext\Security\MenuConfiguration.cs" />
+    <Compile Include="DBContext\Security\RoleConfiguration.cs" />
+    <Compile Include="DBContext\Security\SiteItemConfiguration.cs" />
+    <Compile Include="DBContext\Security\SiteMapConfiguration.cs" />
+    <Compile Include="DBContext\Security\UserConfiguration.cs" />
+    <Compile Include="DBContext\Water\EffectiveRainConfiguration.cs" />
+    <Compile Include="DBContext\Water\EvapotranspirationCropConfiguration.cs" />
+    <Compile Include="DBContext\Water\IrrigationConfiguration.cs" />
+    <Compile Include="DBContext\Water\RainConfiguration.cs" />
+    <Compile Include="DBContext\Water\WaterInputConfiguration.cs" />
+    <Compile Include="DBContext\Water\WaterOutputConfiguration.cs" />
+    <Compile Include="DBContext\Weather\TemperatureDataConfiguration.cs" />
+    <Compile Include="DBContext\Weather\WeatherDataConfiguration.cs" />
+    <Compile Include="DBContext\Weather\WeatherInformationConfiguration.cs" />
+    <Compile Include="DBContext\Weather\WeatherStationConfiguration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Agriculture\Crop.cs" />
+    <Compile Include="Models\Agriculture\CropCoefficient.cs" />
+    <Compile Include="Models\Agriculture\CropCoefficientGraph.cs" />
+    <Compile Include="Models\Agriculture\CropInformationByDate.cs" />
+    <Compile Include="Models\Agriculture\Horizon.cs" />
+    <Compile Include="Models\Agriculture\KC.cs" />
+    <Compile Include="Models\Agriculture\PhenologicalStage.cs" />
+    <Compile Include="Models\Agriculture\PhenologicalStageAdjustment.cs" />
+    <Compile Include="Models\Agriculture\Soil.cs" />
+    <Compile Include="Models\Agriculture\Specie.cs" />
+    <Compile Include="Models\Agriculture\SpecieCycle.cs" />
+    <Compile Include="Models\Agriculture\Stage.cs" />
+    <Compile Include="Models\Agriculture\CropCoefficientTable.cs" />
+    <Compile Include="Models\Data\ExternalData.cs" />
+    <Compile Include="Models\Data\InitialTables.cs" />
+    <Compile Include="Models\GridHome\GridDetailPivottHome.cs" />
+    <Compile Include="Models\GridHome\GriPivotHome .cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Language\LanguageContext.cs" />
+    <Compile Include="Models\Localization\Farm.cs" />
+    <Compile Include="Models\Management\IrrigationSystem.cs" />
+    <Compile Include="Models\Irrigation\Bomb.cs" />
+    <Compile Include="Models\Irrigation\Drip.cs" />
+    <Compile Include="Models\Irrigation\IrrigationUnit.cs" />
+    <Compile Include="Models\Irrigation\Pivot.cs" />
+    <Compile Include="Models\Irrigation\Sprinkler.cs" />
+    <Compile Include="Models\Language\Language.cs" />
+    <Compile Include="Models\Localization\City.cs" />
+    <Compile Include="Models\Localization\Country.cs" />
+    <Compile Include="Models\Localization\Location.cs" />
+    <Compile Include="Models\Localization\Position.cs" />
+    <Compile Include="Models\Localization\Region.cs" />
+    <Compile Include="Models\Management\CalculusAvailableWater.cs" />
+    <Compile Include="Models\Management\CalculusEvapotranspiration.cs" />
+    <Compile Include="Models\Management\CropIrrigationWeather.cs" />
+    <Compile Include="Models\Management\CropIrrigationWeatherRecord.cs" />
+    <Compile Include="Models\Management\DailyRecord.cs" />
+    <Compile Include="Models\Management\IrrigationCalculus.cs" />
+    <Compile Include="Models\Management\Message.cs" />
+    <Compile Include="Models\Management\Title.cs" />
+    <Compile Include="Models\Utilities\OutputFileCSV.cs" />
+    <Compile Include="Models\Water\EffectiveRain.cs" />
+    <Compile Include="Models\Water\EvapotranspirationCrop.cs" />
+    <Compile Include="Models\Water\Irrigation.cs" />
+    <Compile Include="Models\Water\Rain.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Security\Access.cs" />
+    <Compile Include="Models\Security\Menu.cs" />
+    <Compile Include="Models\Security\Role.cs" />
+    <Compile Include="Models\Security\SiteItem.cs" />
+    <Compile Include="Models\Security\SiteMap.cs" />
+    <Compile Include="Models\Security\User.cs" />
+    <Compile Include="Models\Utilities\ColorName.cs" />
+    <Compile Include="Models\Utilities\Pair.cs" />
+    <Compile Include="Models\Utilities\TextFileLogger.cs" />
+    <Compile Include="Models\Utilities\Utils.cs" />
+    <Compile Include="Models\Water\WaterInput.cs" />
+    <Compile Include="Models\Water\WaterOutput.cs" />
+    <Compile Include="Models\Weather\ResultUnderGroundToSharp.cs" />
+    <Compile Include="Models\Weather\TemperatureData.cs" />
+    <Compile Include="Models\Weather\WeatherData.cs" />
+    <Compile Include="Models\Weather\WeatherInformation.cs" />
+    <Compile Include="Models\Weather\WeatherStation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Templates\ClassTemplate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\Image\Farm.jpg" />
+    <Content Include="Content\Image\logo.svg" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\metro-icons.css" />
+    <Content Include="Content\metro-icons.min.css" />
+    <Content Include="Content\metro-responsive.css" />
+    <Content Include="Content\metro-responsive.min.css" />
+    <Content Include="Content\metro-rtl.css" />
+    <Content Include="Content\metro-rtl.min.css" />
+    <Content Include="Content\metro-schemes.css" />
+    <Content Include="Content\metro-schemes.min.css" />
+    <Content Include="Content\metro.css" />
+    <Content Include="Content\metro.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\weather.css" />
+    <Content Include="css\flatWeather-index.css" />
+    <Content Include="css\flatWeatherPlugin.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\fonts\fontawesome-webfont.svg" />
+    <Content Include="css\library\bootstrap.min.css" />
+    <Content Include="css\library\font-awesome.min.css" />
+    <Content Include="css\library\owl.carousel.css" />
+    <Content Include="css\md-font.css" />
+    <Content Include="css\mdfonts\md-font.svg" />
+    <Content Include="css\modal.css" />
+    <Content Include="css\slippry.css" />
+    <Content Include="css\slippry.min.js" />
+    <Content Include="css\style-1.css" />
+    <Content Include="css\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\metro.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\metro.eot" />
+    <Content Include="fonts\metro.ttf" />
+    <Content Include="fonts\metro.woff" />
+    <Content Include="fonts\selection.json" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Grid.mvc.readme" />
+    <None Include="Properties\Settings.settings" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="images\company\img-1.jpg" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="images\homeslider\img-1.jpg" />
+    <Content Include="images\homeslider\img-2.jpg" />
+    <Content Include="images\homeslider\img-3.jpg" />
+    <Content Include="images\icon-user.png" />
+    <Content Include="images\icons-weather\cloud-md.png" />
+    <Content Include="images\icons-weather\cloud-sm.png" />
+    <Content Include="images\icons-weather\eto.png" />
+    <Content Include="images\icons-weather\humidity.png" />
+    <Content Include="images\icons-weather\radiaction.png" />
+    <Content Include="images\icons-weather\rain-md.png" />
+    <Content Include="images\icons-weather\rain-sm.png" />
+    <Content Include="images\icons-weather\rainy-md.png" />
+    <Content Include="images\icons-weather\rainy-sm.png" />
+    <Content Include="images\icons-weather\rainy12.png" />
+    <Content Include="images\icons-weather\sun-md.png" />
+    <Content Include="images\icons-weather\sun-sm.png" />
+    <Content Include="images\icons-weather\sunrise.png" />
+    <Content Include="images\icons-weather\wind.png" />
+    <Content Include="images\image.png" />
+    <Content Include="images\img-diagrama-riego-1.png" />
+    <Content Include="images\img-loc.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="img\1920\blue.jpg" />
+    <Content Include="img\1920\purple.jpg" />
+    <Content Include="img\1920\red.jpg" />
+    <Content Include="img\a11.png" />
+    <Content Include="img\a21.png" />
+    <Content Include="img\b05.png" />
+    <Content Include="img\b21.png" />
+    <Content Include="img\home\01.jpg" />
+    <Content Include="img\home\02.jpg" />
+    <Content Include="img\home\03.jpg" />
+    <Content Include="img\home\04.jpg" />
+    <Content Include="js\library\bootstrap.min.js" />
+    <Content Include="js\library\jquery-1.11.0.min.js" />
+    <Content Include="js\library\jquery-2.1.1.min.js" />
+    <Content Include="js\library\jquery.appear.min.js" />
+    <Content Include="js\library\jquery.easing.min.js" />
+    <Content Include="js\library\jquery.flatWeatherPlugin.js" />
+    <Content Include="js\library\jquery.flatWeatherPlugin.min.js" />
+    <Content Include="js\library\jquery.magnific-popup.min.js" />
+    <Content Include="js\library\jquery.owl.carousel.js" />
+    <Content Include="js\library\perfect-scrollbar.min.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="css\.DS_Store" />
+    <Content Include="css\fonts\.DS_Store" />
+    <Content Include="css\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\fonts\fontawesome-webfont.woff" />
+    <Content Include="css\fonts\FontAwesome.otf" />
+    <Content Include="css\library\.DS_Store" />
+    <Content Include="css\mdfonts\md-font.eot" />
+    <Content Include="css\mdfonts\md-font.ttf" />
+    <Content Include="css\mdfonts\md-font.woff" />
+    <Content Include="images\.DS_Store" />
+    <Content Include="images\homeslider\.DS_Store" />
+    <Content Include="images\icons-weather\.DS_Store" />
+    <Content Include="js\.DS_Store" />
+    <Content Include="js\library\.DS_Store" />
+    <None Include="Properties\PublishProfiles\prueba.pubxml" />
+    <Content Include="Scripts\jssor.slider.mini.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Language\Languages\Create.cshtml" />
+    <Content Include="Views\Language\Languages\Delete.cshtml" />
+    <Content Include="Views\Language\Languages\Details.cshtml" />
+    <Content Include="Views\Language\Languages\Edit.cshtml" />
+    <Content Include="Views\Language\Languages\Index.cshtml" />
+    <Content Include="Views\Localization\Cities\Create.cshtml" />
+    <Content Include="Views\Localization\Cities\Delete.cshtml" />
+    <Content Include="Views\Localization\Cities\Details.cshtml" />
+    <Content Include="Views\Localization\Cities\Edit.cshtml" />
+    <Content Include="Views\Localization\Cities\Index.cshtml" />
+    <Content Include="Views\Localization\Countries\Create.cshtml" />
+    <Content Include="Views\Localization\Countries\Delete.cshtml" />
+    <Content Include="Views\Localization\Countries\Details.cshtml" />
+    <Content Include="Views\Localization\Countries\Edit.cshtml" />
+    <Content Include="Views\Localization\Countries\Index.cshtml" />
+    <Content Include="Views\Localization\Positions\Create.cshtml" />
+    <Content Include="Views\Localization\Positions\Delete.cshtml" />
+    <Content Include="Views\Localization\Positions\Details.cshtml" />
+    <Content Include="Views\Localization\Positions\Edit.cshtml" />
+    <Content Include="Views\Localization\Positions\Index.cshtml" />
+    <Content Include="Views\Localization\Regions\Create.cshtml" />
+    <Content Include="Views\Localization\Regions\Delete.cshtml" />
+    <Content Include="Views\Localization\Regions\Details.cshtml" />
+    <Content Include="Views\Localization\Regions\Edit.cshtml" />
+    <Content Include="Views\Localization\Regions\Index.cshtml" />
+    <Content Include="Views\Localization\Farms\Create.cshtml" />
+    <Content Include="Views\Localization\Farms\Delete.cshtml" />
+    <Content Include="Views\Localization\Farms\Details.cshtml" />
+    <Content Include="Views\Localization\Farms\Edit.cshtml" />
+    <Content Include="Views\Localization\Farms\Index.cshtml" />
+    <Content Include="Views\Irrigation\Bombs\Create.cshtml" />
+    <Content Include="Views\Irrigation\Bombs\Delete.cshtml" />
+    <Content Include="Views\Irrigation\Bombs\Details.cshtml" />
+    <Content Include="Views\Irrigation\Bombs\Edit.cshtml" />
+    <Content Include="Views\Irrigation\Bombs\Index.cshtml" />
+    <Content Include="Views\Irrigation\Drips\Create.cshtml" />
+    <Content Include="Views\Irrigation\Drips\Delete.cshtml" />
+    <Content Include="Views\Irrigation\Drips\Details.cshtml" />
+    <Content Include="Views\Irrigation\Drips\Edit.cshtml" />
+    <Content Include="Views\Irrigation\Drips\Index.cshtml" />
+    <Content Include="Views\Irrigation\Sprinklers\Create.cshtml" />
+    <Content Include="Views\Irrigation\Sprinklers\Delete.cshtml" />
+    <Content Include="Views\Irrigation\Sprinklers\Details.cshtml" />
+    <Content Include="Views\Irrigation\Sprinklers\Edit.cshtml" />
+    <Content Include="Views\Irrigation\Sprinklers\Index.cshtml" />
+    <Content Include="Views\Irrigation\Pivots\Create.cshtml" />
+    <Content Include="Views\Irrigation\Pivots\Delete.cshtml" />
+    <Content Include="Views\Irrigation\Pivots\Details.cshtml" />
+    <Content Include="Views\Irrigation\Pivots\Edit.cshtml" />
+    <Content Include="Views\Irrigation\Pivots\Index.cshtml" />
+    <Content Include="Views\Agriculture\Crops\Create.cshtml" />
+    <Content Include="Views\Agriculture\Crops\Delete.cshtml" />
+    <Content Include="Views\Agriculture\Crops\Details.cshtml" />
+    <Content Include="Views\Agriculture\Crops\Edit.cshtml" />
+    <Content Include="Views\Agriculture\Crops\Index.cshtml" />
+    <Content Include="Views\Agriculture\CropCoefficients\Create.cshtml" />
+    <Content Include="Views\Agriculture\CropCoefficients\Delete.cshtml" />
+    <Content Include="Views\Agriculture\CropCoefficients\Details.cshtml" />
+    <Content Include="Views\Agriculture\CropCoefficients\Edit.cshtml" />
+    <Content Include="Views\Agriculture\CropCoefficients\Index.cshtml" />
+    <Content Include="Views\Agriculture\Soils\Create.cshtml" />
+    <Content Include="Views\Agriculture\Soils\Delete.cshtml" />
+    <Content Include="Views\Agriculture\Soils\Details.cshtml" />
+    <Content Include="Views\Agriculture\Soils\Edit.cshtml" />
+    <Content Include="Views\Agriculture\Soils\Index.cshtml" />
+    <Content Include="Views\Agriculture\Species\Create.cshtml" />
+    <Content Include="Views\Agriculture\Species\Delete.cshtml" />
+    <Content Include="Views\Agriculture\Species\Details.cshtml" />
+    <Content Include="Views\Agriculture\Species\Edit.cshtml" />
+    <Content Include="Views\Agriculture\Species\Index.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStages\Create.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStages\Delete.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStages\Details.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStages\Edit.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStages\Index.cshtml" />
+    <Content Include="Views\Agriculture\Horizons\Create.cshtml" />
+    <Content Include="Views\Agriculture\Horizons\Delete.cshtml" />
+    <Content Include="Views\Agriculture\Horizons\Details.cshtml" />
+    <Content Include="Views\Agriculture\Horizons\Edit.cshtml" />
+    <Content Include="Views\Agriculture\Horizons\Index.cshtml" />
+    <Content Include="Views\Agriculture\SpecieCycles\Create.cshtml" />
+    <Content Include="Views\Agriculture\SpecieCycles\Delete.cshtml" />
+    <Content Include="Views\Agriculture\SpecieCycles\Details.cshtml" />
+    <Content Include="Views\Agriculture\SpecieCycles\Edit.cshtml" />
+    <Content Include="Views\Agriculture\SpecieCycles\Index.cshtml" />
+    <Content Include="Views\Agriculture\CropInformationByDates\Create.cshtml" />
+    <Content Include="Views\Agriculture\CropInformationByDates\Delete.cshtml" />
+    <Content Include="Views\Agriculture\CropInformationByDates\Details.cshtml" />
+    <Content Include="Views\Agriculture\CropInformationByDates\Edit.cshtml" />
+    <Content Include="Views\Agriculture\CropInformationByDates\Index.cshtml" />
+    <Content Include="Views\Agriculture\Stages\Create.cshtml" />
+    <Content Include="Views\Agriculture\Stages\Delete.cshtml" />
+    <Content Include="Views\Agriculture\Stages\Details.cshtml" />
+    <Content Include="Views\Agriculture\Stages\Edit.cshtml" />
+    <Content Include="Views\Agriculture\Stages\Index.cshtml" />
+    <Content Include="Views\Water\EffectiveRains\Create.cshtml" />
+    <Content Include="Views\Water\EffectiveRains\Delete.cshtml" />
+    <Content Include="Views\Water\EffectiveRains\Details.cshtml" />
+    <Content Include="Views\Water\EffectiveRains\Edit.cshtml" />
+    <Content Include="Views\Water\EffectiveRains\Index.cshtml" />
+    <Content Include="Views\Home\_AddIrrigation.cshtml" />
+    <Content Include="Views\Home\_FrontPagePartial.cshtml" />
+    <Content Include="Views\Home\_WeatherPartial.cshtml" />
+    <Content Include="Views\Home\_AddPhenology.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Create.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Delete.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Details.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Edit.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Index.cshtml" />
+    <Content Include="Views\Weather\WeatherInformations\Create.cshtml" />
+    <Content Include="Views\Weather\WeatherInformations\Delete.cshtml" />
+    <Content Include="Views\Weather\WeatherInformations\Details.cshtml" />
+    <Content Include="Views\Weather\WeatherInformations\Edit.cshtml" />
+    <Content Include="Views\Weather\WeatherInformations\Index.cshtml" />
+    <Content Include="Views\Weather\WeatherStations\Create.cshtml" />
+    <Content Include="Views\Weather\WeatherStations\Delete.cshtml" />
+    <Content Include="Views\Weather\WeatherStations\Details.cshtml" />
+    <Content Include="Views\Weather\WeatherStations\Edit.cshtml" />
+    <Content Include="Views\Weather\WeatherStations\Index.cshtml" />
+    <Content Include="Views\Water\Irrigations\Create.cshtml" />
+    <Content Include="Views\Water\Irrigations\Delete.cshtml" />
+    <Content Include="Views\Water\Irrigations\Details.cshtml" />
+    <Content Include="Views\Water\Irrigations\Edit.cshtml" />
+    <Content Include="Views\Water\Irrigations\Index.cshtml" />
+    <Content Include="Views\Water\Rains\Create.cshtml" />
+    <Content Include="Views\Water\Rains\Delete.cshtml" />
+    <Content Include="Views\Water\Rains\Details.cshtml" />
+    <Content Include="Views\Water\Rains\Edit.cshtml" />
+    <Content Include="Views\Water\Rains\Index.cshtml" />
+    <Content Include="Views\Water\EvapotranspirationCrops\Create.cshtml" />
+    <Content Include="Views\Water\EvapotranspirationCrops\Delete.cshtml" />
+    <Content Include="Views\Water\EvapotranspirationCrops\Details.cshtml" />
+    <Content Include="Views\Water\EvapotranspirationCrops\Edit.cshtml" />
+    <Content Include="Views\Water\EvapotranspirationCrops\Index.cshtml" />
+    <Content Include="Views\Management\CropIrrigationWeathers\Create.cshtml" />
+    <Content Include="Views\Management\CropIrrigationWeathers\Delete.cshtml" />
+    <Content Include="Views\Management\CropIrrigationWeathers\Details.cshtml" />
+    <Content Include="Views\Management\CropIrrigationWeathers\Edit.cshtml" />
+    <Content Include="Views\Management\CropIrrigationWeathers\Index.cshtml" />
+    <Content Include="Views\Management\DailyRecords\Create.cshtml" />
+    <Content Include="Views\Management\DailyRecords\Delete.cshtml" />
+    <Content Include="Views\Management\DailyRecords\Details.cshtml" />
+    <Content Include="Views\Management\DailyRecords\Edit.cshtml" />
+    <Content Include="Views\Management\DailyRecords\Index.cshtml" />
+    <Content Include="Views\Security\Users\Create.cshtml" />
+    <Content Include="Views\Security\Users\Delete.cshtml" />
+    <Content Include="Views\Security\Users\Details.cshtml" />
+    <Content Include="Views\Security\Users\Edit.cshtml" />
+    <Content Include="Views\Security\Users\Index.cshtml" />
+    <Content Include="Views\Security\Menus\Create.cshtml" />
+    <Content Include="Views\Security\Menus\Delete.cshtml" />
+    <Content Include="Views\Security\Menus\Details.cshtml" />
+    <Content Include="Views\Security\Menus\Edit.cshtml" />
+    <Content Include="Views\Security\Menus\Index.cshtml" />
+    <Content Include="Views\Security\Roles\Create.cshtml" />
+    <Content Include="Views\Security\Roles\Delete.cshtml" />
+    <Content Include="Views\Security\Roles\Details.cshtml" />
+    <Content Include="Views\Security\Roles\Edit.cshtml" />
+    <Content Include="Views\Security\Roles\Index.cshtml" />
+    <Content Include="Views\Security\Accesses\Create.cshtml" />
+    <Content Include="Views\Security\Accesses\Delete.cshtml" />
+    <Content Include="Views\Security\Accesses\Details.cshtml" />
+    <Content Include="Views\Security\Accesses\Edit.cshtml" />
+    <Content Include="Views\Security\Accesses\Index.cshtml" />
+    <Content Include="Views\Security\SiteItems\Create.cshtml" />
+    <Content Include="Views\Security\SiteItems\Delete.cshtml" />
+    <Content Include="Views\Security\SiteItems\Details.cshtml" />
+    <Content Include="Views\Security\SiteItems\Edit.cshtml" />
+    <Content Include="Views\Security\SiteItems\Index.cshtml" />
+    <Content Include="Views\Security\SiteMaps\Create.cshtml" />
+    <Content Include="Views\Security\SiteMaps\Delete.cshtml" />
+    <Content Include="Views\Security\SiteMaps\Details.cshtml" />
+    <Content Include="Views\Security\SiteMaps\Edit.cshtml" />
+    <Content Include="Views\Security\SiteMaps\Index.cshtml" />
+    <Content Include="Views\Home\_WeatherHomePartial.cshtml" />
+    <Content Include="Views\Account\_LoginHomePartial.cshtml" />
+    <Content Include="Views\Home\_LoginHomePartial.cshtml" />
+    <Content Include="Views\Home\_FrontPageHeaderPartial.cshtml" />
+    <Content Include="Views\Home\_ContactPartial.cshtml" />
+    <Content Include="Views\Home\Company.cshtml" />
+    <Content Include="Views\Agriculture\KCs\Create.cshtml" />
+    <Content Include="Views\Agriculture\KCs\Delete.cshtml" />
+    <Content Include="Views\Agriculture\KCs\Details.cshtml" />
+    <Content Include="Views\Agriculture\KCs\Edit.cshtml" />
+    <Content Include="Views\Agriculture\KCs\Index.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStageAdjustments\Create.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStageAdjustments\Delete.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStageAdjustments\Details.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStageAdjustments\Edit.cshtml" />
+    <Content Include="Views\Agriculture\PhenologicalStageAdjustments\Index.cshtml" />
+    <Content Include="Views\Management\Messages\Create.cshtml" />
+    <Content Include="Views\Management\Messages\Delete.cshtml" />
+    <Content Include="Views\Management\Messages\Details.cshtml" />
+    <Content Include="Views\Management\Messages\Edit.cshtml" />
+    <Content Include="Views\Management\Messages\Index.cshtml" />
+    <Content Include="Views\Management\Titles\Create.cshtml" />
+    <Content Include="Views\Management\Titles\Delete.cshtml" />
+    <Content Include="Views\Management\Titles\Details.cshtml" />
+    <Content Include="Views\Management\Titles\Edit.cshtml" />
+    <Content Include="Views\Management\Titles\Index.cshtml" />
+    <Content Include="Views\Weather\TemperatureDatas\Create.cshtml" />
+    <Content Include="Views\Weather\TemperatureDatas\Delete.cshtml" />
+    <Content Include="Views\Weather\TemperatureDatas\Details.cshtml" />
+    <Content Include="Views\Weather\TemperatureDatas\Edit.cshtml" />
+    <Content Include="Views\Weather\TemperatureDatas\Index.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Scripts\Tables\" />
+    <Folder Include="Controllers\Data\" />
+    <Folder Include="Controllers\Utilities\" />
+    <Folder Include="DBContext\Data\" />
+    <Folder Include="DBContext\Utilities\" />
+    <Folder Include="Views\Company\" />
+    <Folder Include="Views\Data\" />
+    <Folder Include="Views\TemperatureDatas\" />
+    <Folder Include="Views\Utilities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1939</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1938/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:1938/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

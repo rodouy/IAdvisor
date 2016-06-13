@@ -1,0 +1,64 @@
+﻿@model IEnumerable<IrrigationAdvisor.Models.Agriculture.PhenologicalStageAdjustment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "Weather";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Crop.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhenologicalStage.PhenologicalStageId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stage.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfChange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Crop.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhenologicalStage.PhenologicalStageId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stage.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfChange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PhenologicalStageAdjustmentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PhenologicalStageAdjustmentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PhenologicalStageAdjustmentId })
+        </td>
+    </tr>
+}
+
+</table>

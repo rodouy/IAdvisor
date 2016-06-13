@@ -1,0 +1,67 @@
+﻿@model IrrigationAdvisor.Models.Agriculture.PhenologicalStageAdjustment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "Weather";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhenologicalStageAdjustment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Crop.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Crop.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhenologicalStage.PhenologicalStageId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhenologicalStage.PhenologicalStageId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stage.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stage.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfChange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfChange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PhenologicalStageAdjustmentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

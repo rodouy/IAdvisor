@@ -1,0 +1,43 @@
+﻿@model IrrigationAdvisor.Models.Agriculture.KC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "Agriculture";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Specie.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specie.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DayAfterSowing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayAfterSowing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coefficient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coefficient)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KCId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,83 @@
+﻿@model IrrigationAdvisor.Models.Weather.TemperatureData
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "Weather";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TemperatureData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Region.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Min)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Min)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Max)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Max)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Average)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Average)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ETC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ETC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rain)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TemperatureDataId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

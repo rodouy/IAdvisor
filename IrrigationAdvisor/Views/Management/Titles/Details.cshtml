@@ -1,0 +1,27 @@
+﻿@model IrrigationAdvisor.Models.Management.Title
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "Management";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CropIrrigationWeatherId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CropIrrigationWeatherId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TitleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
