@@ -14,9 +14,10 @@
                 <div class="form-login">
                     @*@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {*@
-                        @Html.AntiForgeryToken()
+                    <form action="../home/home" method="post">
+                        @*@Html.AntiForgeryToken()*@
 
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
 
                         <h2 class="text-uppercase">Ingresar</h2>
                         <div class="form-email">
@@ -33,20 +34,20 @@
                                 <i class="icon md-check-2"></i>
                                 @Html.CheckBoxFor(m => m.RememberMe)
                                 @Html.LabelFor(m => m.RememberMe)
-                               
+
                             </label>
                             <a href="#">Olvidó su contraseña?</a>
                         </div>
                         <div class="form-submit-1">
-                            <input type="submit" value="Sign In" class="mc-btn btn-style-1" onclick="window.location='../home/home';">  @*@Html.ActionLink("Register as a new user", "Register")*@
-                        </div> 
+                            <input type="submit" value="Sign In" class="mc-btn btn-style-1">  @*@Html.ActionLink("Register as a new user", "Register")*@
+                        </div>
                         <div class="link">
                             <a href="register.html">
                                 @*<i class="icon md-arrow-right"></i>No estas registrado? Registrarme*@
                             </a>
                         </div>
-                    @*}*@
-
+                        @*}*@
+                    </form>
                 </div>
             </div>
 

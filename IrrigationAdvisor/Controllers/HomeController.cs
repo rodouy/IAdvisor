@@ -1,4 +1,6 @@
-﻿using IrrigationAdvisor.DBContext;
+﻿using IrrigationAdvisor.Authorize;
+using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.GridHome;
 using IrrigationAdvisor.Models.Irrigation;
 using IrrigationAdvisor.Models.Localization;
@@ -22,6 +24,7 @@ namespace IrrigationAdvisor.Controllers
 
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();
@@ -39,9 +42,20 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
-        public ActionResult Home()
+        public RedirectToRouteResult Home(LoginViewModel loginViewModel)
         {
-            return View();
+
+            ManageSession.SetUserName(loginViewModel.Email);
+            ManageSession.SetUserPassword(loginViewModel.Password);
+            ViewBag.PasswordInvalid = "Credenciales inválidas";
+            return RedirectToAction("HomeAuth");
+        }
+
+        [CustomAuthorize]
+        public ActionResult HomeAuth()
+        {
+
+            return View("Home");
         }
 
         public ActionResult Company()
@@ -53,7 +67,6 @@ namespace IrrigationAdvisor.Controllers
         [HttpPost]
         public ActionResult AddIrrigation(string irrigation, string pivot)
         {
-
 
             return Json("Finished");
         }
@@ -121,11 +134,11 @@ namespace IrrigationAdvisor.Controllers
             //Generate an email message object to send
             var emailUser = new StringBuilder();
             string EmailUserLineFormat = "<p>{0}</p>";
-         
 
 
 
-            emailUser.AppendFormat(EmailUserLineFormat, mensaje );
+
+            emailUser.AppendFormat(EmailUserLineFormat, mensaje);
 
 
 
@@ -136,13 +149,13 @@ namespace IrrigationAdvisor.Controllers
             server.Host = "smtp.live.com";
             server.Port = 587;
             server.UseDefaultCredentials = false;
-          
+
             server.EnableSsl = true;
             server.Credentials = new System.Net.NetworkCredential("despinosa@overactiveinc.com", "Diego4749");
             server.Timeout = 5000;
- 
 
-     
+
+
 
             //send the message
 
@@ -156,7 +169,7 @@ namespace IrrigationAdvisor.Controllers
 
             try
             {
-             
+
             }
             catch (Exception ex)
             {
