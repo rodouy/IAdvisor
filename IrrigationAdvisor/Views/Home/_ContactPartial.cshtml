@@ -1,17 +1,8 @@
 ﻿
-
-
 <div class="row">
     <div class="col-md-7">
-
-
-
         <h3 class="md">Enviar mensaje</h3>
-
         <div id="contact-form-wrap">
-
-
-
             <span class="c-note"></span>
             <div class="contact-left">
                 <p class="input-block clearfix">
@@ -22,7 +13,6 @@
                     <label class="required" for="contact_email"><span>*</span></label>
                     <input type="email" placeholder="Email" class="valid" name="email" id="contact_email" value="">
                 </p>
-
             </div><!--end:contact-left-->
             <div class="contact-right">
                 <p class="textarea-block">
@@ -35,11 +25,7 @@
                 <input type="submit" id="btnEmail" value="Enviar mensaje">
             </p>
             <div class="clear"></div>
-
-
         </div><!--contact-form-wrap-->
-
-
     </div>
 </div>
 
@@ -53,9 +39,6 @@
         var contact_email = $("#contact_email").val()
         var contact_message = $("#contact_message").val()
         var contact_name = $("#contact_name").val()
-
-        
-
         $.ajax({
             url: "/Home/SaveDetailedInfo",
             type: "POST",

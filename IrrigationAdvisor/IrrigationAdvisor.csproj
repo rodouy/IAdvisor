@@ -375,6 +375,7 @@
     <Content Include="Content\weather.css" />
     <Content Include="css\flatWeather-index.css" />
     <Content Include="css\flatWeatherPlugin.css" />
+    <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\fonts\fontawesome-webfont.svg" />
     <Content Include="css\library\bootstrap.min.css" />
@@ -388,6 +389,7 @@
     <Content Include="css\style-1.css" />
     <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\metro.svg" />
     <Content Include="Global.asax" />
@@ -403,7 +405,15 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Grid.mvc.readme" />
-    <None Include="Properties\Settings.settings" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\company\img-1.jpg" />
     <Content Include="Scripts\gridmvc.js" />
@@ -428,7 +438,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
-    <Content Include="Scripts\respond.min.js" />
+    <Content Include="respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="images\homeslider\img-1.jpg" />

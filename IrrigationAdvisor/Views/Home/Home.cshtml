@@ -26,11 +26,9 @@
 <section class="profile">
     <div class="container">
 
-
         <div class="row">
             <div class="col-md-8">
                 <div class="avatar-acount">
-
                     <div class="info-acount">
                         <h3 class="fa fa-dashboard fa-2x"> Pivots </h3>
                         <div class="add-btn-grid-2">
@@ -39,17 +37,11 @@
                                     <span class="glyphicon glyphicon-plus"></span>Agregar lluvia
                                 </a>
                             </p>
-
                             <p>
                                 <a href="#modal" class="btn go btn-pivots btn-md">
                                     <span class="glyphicon glyphicon-plus"></span>Agregar riego
                                 </a>
                             </p>
-
-
-
-
-
                             <!-- modal agregar riego--->
                             <div id="modal">
                                 <div class="modal-content">
@@ -60,7 +52,6 @@
                                         <p>  </p>
                                         <form role="form">
                                             <div class="form-group">
-
                                                 <input type="text" placeholder="Ingrese la lluvia en 'ml'" class="form-control" id="lluvia">
                                                 <br />
                                                 <div class="dropdown">
@@ -84,7 +75,6 @@
                                                         <span class="caret"></span>
                                                     </button>
 
-
                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="font-size:13px !important">
                                                         <li><a href="#">Pivot 1</a></li>
                                                         <li><a href="#">Pivot 2</a></li>
@@ -92,23 +82,18 @@
                                                         <li><a href="#">Pivot 4</a></li>
                                                     </ul>
 
-
                                                     <br />
                                                 </div>
-
 
                                             </div>
                                         </form>
                                     </div>
                                     <div class="cf footer">
-
                                         <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-
                                         <button type="button" class="btn btn-success">Guardar</button>
                                     </div>
                                 </div>
                             </div>
-
                             <!-- end modal agregar riego --->
                             <!-- modal agregar lluvia--->
                             <div id="modal-lluvia">
@@ -120,7 +105,6 @@
                                         <p>  </p>
                                         <form role="form">
                                             <div class="form-group">
-
                                                 <input type="text" placeholder="Ingrese la lluvia en 'ml'" class="form-control" id="lluvia">
                                                 <br />
                                                 <div class="dropdown">
@@ -144,7 +128,6 @@
                                                         <span class="caret"></span>
                                                     </button>
 
-
                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="font-size:13px !important">
                                                         <li><a href="#">Pivot 1</a></li>
                                                         <li><a href="#">Pivot 2</a></li>
@@ -152,24 +135,19 @@
                                                         <li><a href="#">Pivot 4</a></li>
                                                     </ul>
 
-
                                                     <br />
                                                 </div>
-
 
                                             </div>
                                         </form>
                                     </div>
                                     <div class="cf footer">
-
                                         <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-
                                         <button type="button" class="btn btn-success">Guardar</button>
                                     </div>
                                 </div>
                                 <div class="overlay"></div>
                             </div>
-
                             <!-- end modal agregar lluvia --->
                             <!-- modal agregar fenologia--->
                             <div id="modal-fenologia">
@@ -227,23 +205,18 @@
                                         </form>
                                     </div>
                                     <div class="cf footer">
-
                                         <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-
                                         <button type="button" class="btn btn-success">Guardar</button>
                                     </div>
                                 </div>
                                 <div class="overlay"></div>
                             </div>
-
                             <!-- end modal agregar fenologia --->
-
                             <p>
                                 <a href="#modal-fenologia" class="btn go btn-pivots btn-md">
                                     <span class="glyphicon glyphicon-plus"></span>Agregar fenología
                                 </a>
                             </p>
-
                         </div>
                         <!-- Grid -->
                         <div class="table-asignment">
@@ -256,8 +229,6 @@
                                         <!-- End Grid Head -->
                                         <!-- Table -->
                                         <div class="table-body">
-
-
                                             <!--table-->
                                             <table>
                                                 <thead>
@@ -267,43 +238,24 @@
                                                 </thead>
                                                 <tbody>
                                                     @{ Html.RenderAction("FrontPagePartial", "Home"); }
-
                                                 </tbody>
                                             </table>
-
-
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
-
-                            <!-- End Grid Pivot -->
-
-
-
+                            <!-- End Table -->
                         </div>
-
-
-
-
+                        <!-- End Grid Pivot -->
                     </div>
-
                 </div>
-
                 <!--reference-->
-
                 <div class="container">
-
-
                     <div class="row">
                         <div class="col-md-8">
                             <div class="mod-reference">
-
                                 <div class="title-reference">
                                     <h3 class="fa fa-list fa-2x"> Referencias</h3>
-
                                     <div class="regado"><h5>Campo regado</h5></div>
                                     <div class="proximo-riego"><h5>Próximo riego</h5></div>
                                     <div class="lluvia-registrada"><h5>Lluvia registrada</h5></div>
@@ -313,14 +265,8 @@
                         </div>
                     </div>
                 </div>
-
-
                 <!-- end reference-->
-
-
             </div>
-
-
 
             <!-- location pivots-->
             <section class="pivot-ub">
@@ -329,12 +275,10 @@
                         <div class="location-pivot">
                             <h3 class="fa fa-location-arrow fa-2x"> Ubicación </h3>
                         </div>
-
                         <div class="box-images"></div>
                     </div>
                 </div>
             </section>
-
             <!-- end Location pivots-->
             <!-- weather-->
             <section class="pivot-ub">
@@ -344,20 +288,13 @@
                             <h3 class="fa fa-cloud fa-2x"> Clima </h3>
                         </div>
                         <div id="example">
-
                             @{ Html.RenderAction("WeatherHomePartial", "Home"); }
-
                         </div>
                     </div>
                 </div>
-
             </section>
-
-
             <!-- end weather-->
-
-
-
-
+        </div>
+    </div>
 </section>
  
