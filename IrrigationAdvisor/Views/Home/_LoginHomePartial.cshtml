@@ -27,6 +27,8 @@
                         <div class="form-password">
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            
+                            <span style="color:red">@Model.InvalidPasswordMessage</span>
                         </div>
                         <div class="form-check">
                             <input type="checkbox" id="check">

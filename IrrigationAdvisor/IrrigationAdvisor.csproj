@@ -45,6 +45,10 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=5.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.0.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -193,6 +197,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Authorize\Authentication.cs" />
     <Compile Include="Authorize\CustomAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Agriculture\CropCoefficientsController.cs" />
@@ -355,6 +360,7 @@
     <Compile Include="Templates\ClassTemplate.cs" />
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\ManageSession.cs" />
+    <Compile Include="ViewModels\Security\CreateUserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -736,6 +742,7 @@
     <Content Include="Views\Shared\_Grid.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\Scripts\Data\" />
     <Folder Include="App_Data\Scripts\Tables\" />
     <Folder Include="Controllers\Data\" />
     <Folder Include="Controllers\Utilities\" />
