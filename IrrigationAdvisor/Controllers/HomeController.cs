@@ -24,6 +24,7 @@ namespace IrrigationAdvisor.Controllers
 
     public class HomeController : Controller
     {
+        private const string AUTHENTICATION_ERROR = "Credenciales inválidas";
 
         public ActionResult Index()
         {
@@ -42,13 +43,28 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
-        public RedirectToRouteResult Home(LoginViewModel loginViewModel)
+        public ActionResult Home(LoginViewModel loginViewModel)
         {
+            
 
             ManageSession.SetUserName(loginViewModel.Email);
             ManageSession.SetUserPassword(loginViewModel.Password);
-            ViewBag.PasswordInvalid = "Credenciales inválidas";
-            return RedirectToAction("HomeAuth");
+
+
+            Authentication authenticion = new Authentication(loginViewModel.Email, loginViewModel.Password);
+
+            
+            if(!authenticion.IsAuthenticated())
+            {
+                loginViewModel.InvalidPasswordMessage = AUTHENTICATION_ERROR;
+                return View("Index", loginViewModel);
+                
+            }
+            else
+                return RedirectToAction("HomeAuth");
+
+         
+
         }
 
         [CustomAuthorize]
@@ -61,6 +77,13 @@ namespace IrrigationAdvisor.Controllers
         public ActionResult Company()
         {
             return View();
+        }
+
+        public ActionResult LogOut()
+        {
+            ManageSession.CleanSession();
+            return View("Index", new LoginViewModel());
+
         }
 
 
@@ -95,7 +118,21 @@ namespace IrrigationAdvisor.Controllers
         [ChildActionOnly]
         public PartialViewResult LoginHomePartial()
         {
-            return PartialView("_LoginHomePartial");
+
+
+            if(ManageSession.GetUserName() == null)
+                return PartialView("_LoginHomePartial", new LoginViewModel());
+
+            
+            Authentication auth = new Authentication(ManageSession.GetUserName(), ManageSession.GetUserPassword());
+            LoginViewModel login = new LoginViewModel();
+            if (!auth.IsAuthenticated())
+            {
+                
+                login.InvalidPasswordMessage = AUTHENTICATION_ERROR;
+            }
+                
+            return PartialView("_LoginHomePartial", login);
         }
 
 
@@ -103,10 +140,7 @@ namespace IrrigationAdvisor.Controllers
         {
             return PartialView("_ContactPartial");
         }
-
-
-
-
+        
         [HttpPost]
         public void SendEmail()
         {

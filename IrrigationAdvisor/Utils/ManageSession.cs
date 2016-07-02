@@ -41,5 +41,11 @@ namespace IrrigationAdvisor
             HttpContext.Current.Session["UserPassword"] = password;
         }
 
+        public static void CleanSession()
+        {
+            HttpContext.Current.Session["UserName"] = null;
+            HttpContext.Current.Session["UserPassword"] = null;
+        }
+
     }
 }

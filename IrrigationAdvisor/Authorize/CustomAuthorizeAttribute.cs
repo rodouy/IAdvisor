@@ -13,23 +13,16 @@ namespace IrrigationAdvisor.Authorize
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            string userName = ManageSession.GetUserName();
 
-            string userPassword = ManageSession.GetUserPassword();
+            Authentication authentication = new Authentication(ManageSession.GetUserName(),
+                                                                 ManageSession.GetUserPassword());
 
-            UserConfiguration uc = new UserConfiguration();
+            return authentication.IsAuthenticated();
 
-            string dbPassword = uc.GetPasswordFor(userName);
 
-            MD5 md5Hash = MD5.Create();
-
-            string passwordHash = CryptoUtils.GetMd5Hash(md5Hash, userPassword);
-
-            if (!String.IsNullOrEmpty(dbPassword) && CryptoUtils.VerifyMd5Hash(md5Hash, userPassword, passwordHash))
-                return true;
-
-            return false;
         }
+
+       
 
 
     }

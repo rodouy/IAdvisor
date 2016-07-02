@@ -48,6 +48,14 @@ namespace IrrigationAdvisor.Models
 
     public class LoginViewModel
     {
+        public LoginViewModel()
+        {
+            Email = string.Empty;
+            Password = string.Empty;
+            RememberMe = false;
+            InvalidPasswordMessage = string.Empty;
+        }
+
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
@@ -60,6 +68,9 @@ namespace IrrigationAdvisor.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        
+        public string InvalidPasswordMessage { get; set; }
     }
 
     public class RegisterViewModel
