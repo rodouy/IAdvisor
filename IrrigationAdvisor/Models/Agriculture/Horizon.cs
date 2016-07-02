@@ -27,7 +27,7 @@ namespace IrrigationAdvisor.Models.Agriculture
     ///     
     /// -----------------------------------------------------------------
     /// Fields of Class:
-    ///     - soilId long
+    ///     - horizonId long
     ///     - name String
     ///     - location Location
     ///     - order int
@@ -68,8 +68,6 @@ namespace IrrigationAdvisor.Models.Agriculture
         ///     - clay: double                  - PK
         ///     - organicMatter: double         - PK
         ///     - nitrogenAnalysis: int
-        ///     - fieldCapacity: double
-        ///     - permanentWiltingPoint: double
         ///     - bulkDensitySoil: double
         /// </summary>
 

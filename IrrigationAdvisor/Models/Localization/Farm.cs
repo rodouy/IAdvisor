@@ -67,12 +67,12 @@ namespace IrrigationAdvisor.Models.Localization
         private List<Bomb> bombList;
         private List<IrrigationUnit> irrigationUnitList;
         private long userId;
+        private User user;
 
         #endregion
 
         #region Properties
 
-        
         public long FarmId
         {
             get { return farmId; }
@@ -121,10 +121,10 @@ namespace IrrigationAdvisor.Models.Localization
             set { weatherStationId = value; }
         }
 
-        public WeatherStation WeatherStation
+        public virtual WeatherStation WeatherStation
         {
-            get { return weatherStation; }
-            set { weatherStation = value; }
+            get;
+            set;
         }
         
         public List<Soil> SoilList
@@ -151,6 +151,12 @@ namespace IrrigationAdvisor.Models.Localization
             set { userId = value; }
         }
 
+        public virtual User User
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region Construction
@@ -167,7 +173,6 @@ namespace IrrigationAdvisor.Models.Localization
             this.PositionId = 0;
             this.Has = 0;
             this.WeatherStationId = 0;
-            this.WeatherStation = new WeatherStation();
             this.SoilList = new List<Soil>();
             this.BombList = new List<Bomb>();
             this.IrrigationUnitList = new List<IrrigationUnit>();
@@ -190,7 +195,7 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pUserId"></param>
         public Farm(long pFarmId, String pName, String pCompany,
                     String pAddress,String pPhone, long pPositionId, 
-                    int pHas, WeatherStation pWeatherStation, 
+                    int pHas, long pWeatherStationId, 
                     List<Soil> pSoilList, List<Bomb> pBombList,
                     List<IrrigationUnit> pIrrigationUnitList,
                     long pUserId)
@@ -202,8 +207,7 @@ namespace IrrigationAdvisor.Models.Localization
             this.Phone = pPhone;
             this.PositionId = pPositionId;
             this.Has = pHas;
-            this.WeatherStationId = pWeatherStation.WeatherStationId;
-            this.WeatherStation = pWeatherStation;
+            this.WeatherStationId = pWeatherStationId;
             this.SoilList = pSoilList;
             this.BombList = pBombList;
             this.IrrigationUnitList = pIrrigationUnitList;

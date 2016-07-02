@@ -355,6 +355,27 @@
     <Compile Include="Templates\ClassTemplate.cs" />
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\ManageSession.cs" />
+    <Compile Include="ViewModels\Agriculture\CropViewModel.cs" />
+    <Compile Include="ViewModels\Agriculture\SpecieViewModel.cs" />
+    <Compile Include="ViewModels\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Home\IrrigationAdvisorViewModel.cs" />
+    <Compile Include="ViewModels\Irrigation\BombViewModel.cs" />
+    <Compile Include="ViewModels\Irrigation\IrrigationUnitViewModel.cs" />
+    <Compile Include="ViewModels\Irrigation\PivotViewModel.cs" />
+    <Compile Include="ViewModels\Localization\CityViewModel.cs" />
+    <Compile Include="ViewModels\Localization\CountryViewModel.cs" />
+    <Compile Include="ViewModels\Localization\FarmViewModel.cs" />
+    <Compile Include="ViewModels\Localization\PositionViewModel.cs" />
+    <Compile Include="ViewModels\Localization\RegionViewModel.cs" />
+    <Compile Include="ViewModels\Management\CropIrrigationWeatherViewModel.cs" />
+    <Compile Include="ViewModels\Management\DailyRecordViewModel.cs" />
+    <Compile Include="ViewModels\Management\MessageViewModel.cs" />
+    <Compile Include="ViewModels\Management\TitleViewModel.cs" />
+    <Compile Include="ViewModels\Security\RoleViewModel.cs" />
+    <Compile Include="ViewModels\Security\UserViewModel.cs" />
+    <Compile Include="ViewModels\Water\WaterInputViewModel.cs" />
+    <Compile Include="ViewModels\Water\WaterOutputViewModel.cs" />
+    <Compile Include="ViewModels\Weather\WeatherStationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -752,6 +773,7 @@
     <Folder Include="Controllers\Utilities\" />
     <Folder Include="DBContext\Data\" />
     <Folder Include="DBContext\Utilities\" />
+    <Folder Include="ViewModels\Data\" />
     <Folder Include="Views\Authenticate\" />
     <Folder Include="Views\Company\" />
     <Folder Include="Views\Data\" />

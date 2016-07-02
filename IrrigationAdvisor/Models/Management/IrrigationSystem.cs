@@ -1588,7 +1588,7 @@ namespace IrrigationAdvisor.Models.Management
             Farm lReturn = null;
             long lFarmId = this.FarmList.Count();
             Farm lFarm = new Farm(lFarmId, pName, pCompany, pAddress, pPhone,
-                            pPositionId, pHas, pWeatherStation, 
+                            pPositionId, pHas, pWeatherStation.WeatherStationId, 
                             pSoilList, pBombList,
                             pIrrigationUnitList, pUserId);
             if(ExistFarm(lFarm) == null)
@@ -1621,7 +1621,7 @@ namespace IrrigationAdvisor.Models.Management
         {
             Farm lReturn = null;
             Farm lFarm = new Farm(0, pName, pCompany, pAddress, pPhone,
-                            pPositionId, pHas, pWeatherStation,
+                            pPositionId, pHas, pWeatherStation.WeatherStationId,
                             pSoilList, pBombList,
                             pIrrigationUnitList, pUserId);
             lReturn = ExistFarm(lFarm);

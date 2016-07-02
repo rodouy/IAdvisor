@@ -1,6 +1,6 @@
-﻿using System;
+﻿using IrrigationAdvisor.Models.Localization;
+using System;
 using System.Collections.Generic;
-
 using System.Linq;
 using System.Web;
 
@@ -14,10 +14,10 @@ namespace IrrigationAdvisor.Models.Security
     /// 
     /// References:
     ///     Language
-    ///     Farm
     ///     Role
     /// 
     /// Dependencies:
+    ///     Farm
     /// 
     /// TODO:
     ///     UnitTest
@@ -26,11 +26,11 @@ namespace IrrigationAdvisor.Models.Security
     /// Fields of User:
     ///     - name String
     ///     - surname String
+    ///     - phone String
     ///     - address String
     ///     - email String
     ///     - userName String
     ///     - password String
-    ///     - farms List<Farm>
     ///     - language Language
     ///     - roles List<Role>
     /// 
@@ -51,14 +51,13 @@ namespace IrrigationAdvisor.Models.Security
         /// <summary>
         /// The fields are:
         ///     - userId
-        ///     - name: the name of the instance
+        ///     - name
         ///     - surname
         ///     - phone
         ///     - address
         ///     - email
         ///     - userName
         ///     - password
-        ///     
         /// </summary>
 
         private long userId;
@@ -69,7 +68,6 @@ namespace IrrigationAdvisor.Models.Security
         private String email;
         private String userName;
         private String password;
-
 
         #endregion
 
@@ -213,8 +211,6 @@ namespace IrrigationAdvisor.Models.Security
         /// Method to set the name field
         /// </summary>
         /// <param name="pName">new name</param>
-         
-
         public void SetName(string pNewName)
         {
             this.Name = this.setUpper(pNewName);
