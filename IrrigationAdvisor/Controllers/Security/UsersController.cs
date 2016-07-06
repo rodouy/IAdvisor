@@ -13,12 +13,15 @@ using IrrigationAdvisor.ComplementedUtils;
 using IrrigationAdvisor.DBContext;
 using IrrigationAdvisor.ViewModels.Security;
 using AutoMapper;
+using IrrigationAdvisor.DBContext.Security;
 
 namespace IrrigationAdvisor.Controllers.Security
 {
     public class UsersController : Controller
     {
         private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+
+        private const string USERNAME_EXISTS_ERROR = "El nombre de usuario ya existe";
 
         // GET: Users
         public ActionResult Index()
@@ -48,29 +51,56 @@ namespace IrrigationAdvisor.Controllers.Security
             return View("~/Views/Security/Users/Create.cshtml");
         }
 
-        // POST: Users/Create
+        // POST: Users/Create;
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password")] User user)
-        public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password")] CreateUserViewModel user)
+        public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,ConfirmPassword,RoleId")] CreateUserViewModel user)
         {
+           
             if (ModelState.IsValid)
             {
+                
                 MD5 md5Hash = MD5.Create();
+                
+                var userMapped = new User
+                {
+                    Address = user.Address,
+                    Email = user.Email,
+                    Name = user.Name,
+                    Password = user.Password,
+                    Phone = user.Phone,
+                    RoleId = user.RoleId,
+                    Surname = user.Surname,
+                    UserName =user.UserName 
+                };
 
-                var userMapped = Mapper.Map<CreateUserViewModel, User>(user);
-
-
+                
                 user.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
                 
                 db.Users.Add(userMapped);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
+            return View("~/Views/Security/Users/Create.cshtml", user);
+        }
 
-            return View(user);
+        private List<string> Validation(CreateUserViewModel user)
+        {
+            List<string> messages = new List<string>();
+
+            UserConfiguration uc = new UserConfiguration();
+
+            User userExists = uc.GetUserBy(user.UserName);
+
+            if (user != null)
+                messages.Add(USERNAME_EXISTS_ERROR);
+
+            return messages;
+
         }
 
         // GET: Users/Edit/5

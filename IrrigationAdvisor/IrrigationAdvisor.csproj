@@ -361,6 +361,8 @@
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\ManageSession.cs" />
     <Compile Include="ViewModels\Security\CreateUserViewModel.cs" />
+    <Compile Include="ViewModels\Security\UserEmailExistsAttribute.cs" />
+    <Compile Include="ViewModels\Security\UserNameExistsAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

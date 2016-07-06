@@ -33,26 +33,27 @@ namespace IrrigationAdvisorConsole
             {
                 //IASystem IASystem = new IrrigationAdvisorConsole.IASystem();
 
-                #if false
+#if false
                 Database.SetInitializer < IrrigationAdvisorContext>
                     (new DropCreateDatabaseIfModelChanges<IrrigationAdvisorContext>());
-                #endif
+#endif
 
-                #if false
+#if false
                 Database.SetInitializer < IrrigationAdvisorContext>
                     (new CreateDatabaseIfNotExists<IrrigationAdvisorContext>());
-                #endif
+#endif
                 /*
                  * Changing from DropCreateDatabaseIfModelChanges to DropCreateDatabaseAlways works, 
                  * the latter configuration causes the database to be recreated no matter what, 
                  * bypassing any sort of database versioning that might be causing an error.
                  */
-                #if true
+#if true
                 Database.SetInitializer<IrrigationAdvisorContext>
                     (new DropCreateDatabaseAlways<IrrigationAdvisorContext>());
-                #endif
+#endif
 
                 #region Lenguage
+                InsertRoles();
                 InsertLanguages();
                 #endregion
 
@@ -258,24 +259,66 @@ namespace IrrigationAdvisorConsole
                 context.SaveChanges();
             }
         }
-        
+
         #endregion
 
         #region Security
 
+        private static void InsertRoles()
+        {
+
+            var lRoleAdministrator = new Role()
+            {
+                MenuId = 1,
+                Name = "Administrador",
+                RoleId = 1,
+                SiteId = 1
+            };
+
+            var lRoleIntermediate = new Role()
+            {
+                MenuId = 2,
+                Name = "Intermedio",
+                RoleId = 2,
+                SiteId = 1
+            };
+
+            var lRoleStandard = new Role()
+            {
+                MenuId = 2,
+                Name = "Estándar",
+                RoleId = 3,
+                SiteId = 1
+
+            };
+
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                context.Roles.Add(lRoleAdministrator);
+                context.Roles.Add(lRoleIntermediate);
+                context.Roles.Add(lRoleStandard);
+                context.SaveChanges();
+            }
+
+
+
+
+        }
+
         private static void InsertUsers()
         {
             #region Base
-            var lBase = new User()
-            {
-                Name = Utils.NameBase,
-                Surname = "",
-                Phone = "",
-                Address = "",
-                Email = "",
-                UserName = "",
-                Password = "",
-            };
+            //var lBase = new User()
+            //{
+            //    Name = Utils.NameBase,
+            //    Surname = "",
+            //    Phone = "",
+            //    Address = "",
+            //    Email = "",
+            //    UserName = "",
+            //    Password = "",
+            //};
             #endregion
 
             #region Demo
@@ -288,6 +331,7 @@ namespace IrrigationAdvisorConsole
                 Email = "riegopgw@googlegroups.com",
                 UserName = Utils.NameUserDemo,
                 Password = "lluvia",
+                RoleId = 3
             };
             #endregion
 
@@ -301,6 +345,7 @@ namespace IrrigationAdvisorConsole
                 Email = "scasanova@pgwwater.com.uy",
                 UserName = "scasanova",
                 Password = "SCasanova",
+                RoleId = 3
             };
 
             var lAdmin = new User()
@@ -312,6 +357,7 @@ namespace IrrigationAdvisorConsole
                 Email = "riegopgw@googlegroups.com",
                 UserName = Utils.NameUserAdmin,
                 Password = "Irrigation4dvis0r",
+                RoleId = 3
             };
             #endregion
 
@@ -325,6 +371,7 @@ namespace IrrigationAdvisorConsole
                 Email = "jplatero@delcarmen.com.uy",
                 UserName = Utils.NameUserDelCarmen,
                 Password = "Laperdiz",
+                RoleId = 3
             };
             #endregion
 
@@ -338,6 +385,7 @@ namespace IrrigationAdvisorConsole
                 Email = "guzman.irazabal@estanciasdellago.com ",
                 UserName = Utils.NameUserDelLago,
                 Password = "Dellago",
+                RoleId = 3
             };
             #endregion
 
@@ -351,6 +399,7 @@ namespace IrrigationAdvisorConsole
                 Email = "pablo.tarigo@LaPalma.com.uy",
                 UserName = Utils.NameUserLaPalma,
                 Password = "gmo",
+                RoleId = 3
             };
             #endregion
 
