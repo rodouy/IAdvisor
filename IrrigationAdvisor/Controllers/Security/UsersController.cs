@@ -48,7 +48,11 @@ namespace IrrigationAdvisor.Controllers.Security
         // GET: Users/Create
         public ActionResult Create()
         {
-            return View("~/Views/Security/Users/Create.cshtml");
+            CreateUserViewModel userVM = new CreateUserViewModel();
+
+            userVM.Roles = this.LoadRoles();
+
+            return View("~/Views/Security/Users/Create.cshtml", userVM);
         }
 
         // POST: Users/Create;
@@ -77,8 +81,8 @@ namespace IrrigationAdvisor.Controllers.Security
                     UserName =user.UserName 
                 };
 
-                
-                user.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
+
+                userMapped.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
                 
                 db.Users.Add(userMapped);
                 db.SaveChanges();
@@ -115,7 +119,54 @@ namespace IrrigationAdvisor.Controllers.Security
             {
                 return HttpNotFound();
             }
-            return View("~/Views/Security/Users/Edit.cshtml", user);
+
+            EditUserViewModel userVM = new EditUserViewModel()
+            {
+                Address = user.Address,
+                Email = user.Email,
+                Name = user.Name,
+                Password = user.Password,
+                Phone = user.Phone,
+                RoleId = user.RoleId,
+                Surname = user.Surname,
+                UserId = user.UserId,
+                UserName = user.UserName
+            };
+
+            userVM.Roles = this.LoadRoles(user.RoleId, user);
+            
+            return View("~/Views/Security/Users/Edit.cshtml", userVM);
+        }
+
+        
+
+        private List<System.Web.Mvc.SelectListItem> LoadRoles(long? roleId = null, User user = null)
+        {
+
+            RoleConfiguration rc = new RoleConfiguration();
+            List<Role> roles = rc.GetAllRoles();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in roles)
+            {
+
+                bool isSelected = false;
+                if(user != null && roleId.HasValue)
+                {
+                    isSelected = (user.RoleId == roleId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.RoleId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
+            }
+
+            return result;
         }
 
         // POST: Users/Edit/5
@@ -123,17 +174,29 @@ namespace IrrigationAdvisor.Controllers.Security
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password")] User user)
+        public ActionResult Edit([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,RoleId")] EditUserViewModel user)
         {
             if (ModelState.IsValid)
             {
 
                 MD5 md5Hash = MD5.Create();
 
+                User updatedUser = db.Users.Find(user.UserId);
 
-                user.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
+                if (updatedUser == null)
+                {
+                    return HttpNotFound();
+                }
 
-                db.Entry(user).State = EntityState.Modified;
+                //user.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
+                updatedUser.Address = user.Address;
+
+                updatedUser.Name = user.Name;
+                updatedUser.Phone = user.Phone;
+                updatedUser.RoleId = user.RoleId;
+                updatedUser.Surname = user.Surname;
+                    
+                db.Entry(updatedUser).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

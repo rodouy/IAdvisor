@@ -11,6 +11,9 @@ namespace IrrigationAdvisor.DBContext.Security
     public class RoleConfiguration:
         EntityTypeConfiguration<Role>
     {
+
+        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+
         public RoleConfiguration()
         {
             ToTable("Role");
@@ -23,5 +26,11 @@ namespace IrrigationAdvisor.DBContext.Security
                 .HasMaxLength(50);
             
         }
+
+        public List<Role> GetAllRoles()
+        {
+            return db.Roles.ToList();
+        }
+
     }
 }
