@@ -78,6 +78,27 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
 
         #region Enums
+        /// <summary>
+        /// Roles Types.
+        /// </summary>
+        public enum UserRoles
+        {
+
+            /// <summary>
+            /// The highest role.
+            /// </summary>
+            Administrator = 1,
+            /// <summary>
+            /// The medium role.
+            /// </summary>
+            Intermediate = 2,
+            /// <summary>
+            /// The lowest role.
+            /// </summary>
+            Standard = 3
+
+        }
+
 
         /// <summary>
         /// Notification Types
@@ -305,6 +326,8 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             All,
         }
+
+        
 
         #endregion
 
