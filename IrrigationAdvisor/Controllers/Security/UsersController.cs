@@ -53,7 +53,7 @@ namespace IrrigationAdvisor.Controllers.Security
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password")] User user)
+        //public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,UserName,UserName,Password")] User user)
         public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password")] CreateUserViewModel user)
         {
             if (ModelState.IsValid)

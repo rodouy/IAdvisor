@@ -267,7 +267,7 @@ namespace IrrigationAdvisor.DBContext
             #endregion
 
             #region Security
-            #if false
+            #if true
 
             modelBuilder.Configurations.Add(new AccessConfiguration());
             modelBuilder.Configurations.Add(new MenuConfiguration());

@@ -36,7 +36,7 @@ namespace IrrigationAdvisor.Models.Localization
     ///     - location Location
     ///     - has int
     ///     - soilList List<Soil>
-    ///     - bombList List<Bomb>
+    ///     - lBombList List<Bomb>
     ///     - weatherStation WeatherStation
     ///     - referentUser User
     ///     - irrigationUnitList List<IrrigationUnit>
@@ -195,7 +195,7 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pUserId"></param>
         public Farm(long pFarmId, String pName, String pCompany,
                     String pAddress,String pPhone, long pPositionId, 
-                    int pHas, long pWeatherStationId, 
+                    int pHas, long pWeatherStationId,
                     List<Soil> pSoilList, List<Bomb> pBombList,
                     List<IrrigationUnit> pIrrigationUnitList,
                     long pUserId)

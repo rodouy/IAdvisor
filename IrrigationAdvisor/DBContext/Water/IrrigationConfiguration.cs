@@ -11,6 +11,9 @@ namespace IrrigationAdvisor.DBContext.Water
     public class IrrigationConfiguration:
         EntityTypeConfiguration<Models.Water.Irrigation>
     {
+
+        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+
         public IrrigationConfiguration()
         {
             ToTable("Irrigation");
@@ -24,5 +27,8 @@ namespace IrrigationAdvisor.DBContext.Water
                 .IsRequired();
             
         }
+
+
+
     }
 }

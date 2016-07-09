@@ -1,4 +1,5 @@
-﻿using IrrigationAdvisor.Models.Localization;
+﻿using IrrigationAdvisor.Models.Irrigation;
+using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.ViewModels.Irrigation;
 using IrrigationAdvisor.ViewModels.Security;
 using IrrigationAdvisor.ViewModels.Weather;
@@ -17,54 +18,106 @@ namespace IrrigationAdvisor.ViewModels.Localization
 
         #region Fields
 
-        private Farm farm;
-        private String name;
-        private String company;
-        private String phone;
-        private int has;
-        private WeatherStationViewModel weatherStationViewModel;
-        private List<BombViewModel> bombViewModelList;
-        private List<IrrigationUnitViewModel> irrigationUnitViewModelList;
-        private UserViewModel userViewModel;
-
         #endregion
 
         #region Properties
 
-        private Farm Farm {get;set;}
+        public long FarmId { get; set; }
 
-        public String Name
-        {
-            get { return Farm.Name; }
-        }
+        public String Name { get; set; }
+
+        public String Company { get; set; }
+
+        public String Address { get; set; }
+
+        public String Phone { get; set; }
+
+        public long PositionId { get; set; }
+        
+        public int Has { get; set;}
+
+        public long WeatherStationId { get; set; }
+
+        public WeatherStationViewModel WeatherStationViewModel { get; set; }
+
+        public List<BombViewModel> BombViewModelList { get; set; }
+
+        public List<IrrigationUnitViewModel> IrrigationUnitViewModelList { get; set; }
+
+        public UserViewModel UserViewModel { get; set; }
+
+
         #endregion
 
         #region Construction
+        
         public FarmViewModel(Farm pFarm)
         {
-            this.Farm = pFarm;
-            this.name = pFarm.Name;
-            this.has = pFarm.Has;
-            this.irrigationUnitViewModelList = this.getIrrigationUnitViewModelListBy(pFarm);
+            this.FarmId = pFarm.FarmId;
+            this.Name = pFarm.Name;
+            this.Company = pFarm.Company;
+            this.Address = pFarm.Address;
+            this.Phone = pFarm.Phone;
+            this.PositionId = pFarm.PositionId;
+            this.Has = pFarm.Has;
+            this.WeatherStationId = pFarm.WeatherStationId;
+
+            this.BombViewModelList = this.GetBombListBy(pFarm.BombList);
+            this.IrrigationUnitViewModelList = this.GetIrrigationUnitListBy(pFarm.IrrigationUnitList);
+            this.UserViewModel = new UserViewModel(pFarm.User);
 
         }
+
         #endregion
 
         #region Private Helpers
 
-
-        private List<IrrigationUnitViewModel> getIrrigationUnitViewModelListBy(Farm pFarm)
-        {
-            List<IrrigationUnitViewModel> lReturn;
-
-            lReturn = new List<IrrigationUnitViewModel>();
-            //TODO: finalize getIrrigationUnitViewModelListBy
-            return lReturn;
-        }
-
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Get BombViewModel list by Bomb list
+        /// </summary>
+        /// <param name="pBombList"></param>
+        /// <returns></returns>
+        public List<BombViewModel> GetBombListBy (List<Bomb> pBombList)
+        {
+            List<BombViewModel> lReturn = new List<BombViewModel>();
+
+            if(pBombList != null && pBombList.Count() > 0)
+            {
+                foreach (Bomb item in pBombList)
+                {
+                    BombViewModel lBomb = new BombViewModel(item);
+                    lReturn.Add(lBomb);
+                }
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get IrrigationUnitViewModel list by IrrigationUnit list
+        /// </summary>
+        /// <param name="pIrrigationUnitList"></param>
+        /// <returns></returns>
+        public List<IrrigationUnitViewModel> GetIrrigationUnitListBy(List<IrrigationUnit> pIrrigationUnitList)
+        {
+            List<IrrigationUnitViewModel> lReturn = new List<IrrigationUnitViewModel>();
+
+            if(pIrrigationUnitList !=null && pIrrigationUnitList.Count() > 0)
+            {
+                foreach (IrrigationUnit item in pIrrigationUnitList)
+                {
+                    IrrigationUnitViewModel lIrrigationUnit = new IrrigationUnitViewModel(item);
+                    lReturn.Add(lIrrigationUnit);
+                }
+            }
+
+            return lReturn;
+        }
+
         #endregion
 
         #region Overrides

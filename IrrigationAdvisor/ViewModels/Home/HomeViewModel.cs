@@ -1,4 +1,5 @@
 ﻿using IrrigationAdvisor.Models.Security;
+using IrrigationAdvisor.ViewModels.Irrigation;
 using IrrigationAdvisor.ViewModels.Localization;
 using System;
 using System.Collections.Generic;
@@ -14,18 +15,31 @@ namespace IrrigationAdvisor.ViewModels.Home
         #endregion
 
         #region Fields
-        private List<FarmViewModel> farmList { get; set; }
-
+        
         #endregion
 
         #region Properties
+
+        public List<FarmViewModel> FarmList { get; set; }
+
+        public FarmViewModel DefaultFarm { get; set; }
+
+        public List<IrrigationUnitViewModel> IrrigationUnitList {get; set; }
+
         #endregion
 
         #region Construction
 
-        public HomeViewModel(User pUser)
+        public HomeViewModel(User pUser, List<FarmViewModel> pFarmList)
         {
-            
+            FarmList = pFarmList;
+            if(FarmList != null && FarmList.Count() > 0)
+            {
+                DefaultFarm = FarmList.FirstOrDefault();
+
+                IrrigationUnitList = DefaultFarm.IrrigationUnitViewModelList;
+            }
+            //TODO: when no farm is assigned to user
         }
 
         #endregion

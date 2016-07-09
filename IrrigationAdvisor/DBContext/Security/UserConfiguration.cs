@@ -33,8 +33,7 @@ namespace IrrigationAdvisor.DBContext.Security
                 .IsRequired()
                 .HasMaxLength(50);
             Property(s => s.Password)
-                .IsRequired()
-                .HasColumnType("Password");
+                .IsRequired();
             Property(s => s.Phone)
                 .IsRequired();
 
@@ -55,5 +54,24 @@ namespace IrrigationAdvisor.DBContext.Security
 
             return result;
         }
+
+
+        public User GetUserByName(String pName)
+        {
+            User lReturn;
+
+            if(db.Users.Where(u => u.UserName == pName).Count() > 0)
+            {
+                lReturn = db.Users.Where(u => u.UserName == pName).FirstOrDefault();
+            }
+            else
+            {
+                lReturn = null;
+            }
+
+            return lReturn;
+        }
+
+
     }
 }

@@ -50,16 +50,16 @@ namespace IrrigationAdvisor.Models
     {
         public LoginViewModel()
         {
-            Email = string.Empty;
+            UserName = string.Empty;
             Password = string.Empty;
             RememberMe = false;
             InvalidPasswordMessage = string.Empty;
         }
 
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "User Name")]
         [EmailAddress]
-        public string Email { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

@@ -21,8 +21,8 @@
 
                         <h2 class="text-uppercase">Ingresar</h2>
                         <div class="form-email">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-password">
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
