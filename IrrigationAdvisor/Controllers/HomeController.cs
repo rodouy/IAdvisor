@@ -1,9 +1,18 @@
-﻿using IrrigationAdvisor.DBContext;
+﻿using AutoMapper;
+using IrrigationAdvisor.Authorize;
+using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.DBContext.Irrigation;
+using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.DBContext.Security;
+using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.GridHome;
 using IrrigationAdvisor.Models.Irrigation;
 using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.Models.Management;
+using IrrigationAdvisor.Models.Security;
 using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.ViewModels.Home;
+using IrrigationAdvisor.ViewModels.Localization;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -22,6 +31,8 @@ namespace IrrigationAdvisor.Controllers
 
     public class HomeController : Controller
     {
+        private const string AUTHENTICATION_ERROR = "Credenciales inválidas";
+
         public ActionResult Index()
         {
             return View();
@@ -39,9 +50,80 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
-        public ActionResult Home()
+        public ActionResult Home(LoginViewModel loginViewModel)
         {
-            return View();
+            Authentication lAuthentication;
+            UserConfiguration uc;
+            FarmConfiguration fc;
+            BombConfiguration bc;
+            IrrigationUnitConfigurarion iuc;
+
+            User lLoggedUser;
+            List<Farm> lFarmList;
+            List<FarmViewModel> lFarmViewModelList;
+            List<Bomb> lBombList;
+            List<IrrigationUnit> lIrrigationUnitList;
+
+            ManageSession.SetUserName(loginViewModel.UserName);
+            ManageSession.SetUserPassword(loginViewModel.Password);
+
+
+            lAuthentication = new Authentication(loginViewModel.UserName, loginViewModel.Password);
+
+            uc = new UserConfiguration();
+            fc = new FarmConfiguration();
+            bc = new BombConfiguration();
+            iuc = new IrrigationUnitConfigurarion();
+
+            FarmViewModel lFarmViewModel;
+
+            if(!lAuthentication.IsAuthenticated())
+            {
+                loginViewModel.InvalidPasswordMessage = AUTHENTICATION_ERROR;
+                return View("Index", loginViewModel);
+                
+            }
+            else
+            {
+                //Obtain logged user
+                lLoggedUser = uc.GetUserByName(loginViewModel.UserName);
+
+                //Get list of Farms from User
+                lFarmList = fc.GetFarmListBy(lLoggedUser);
+
+                //Create View Model Farm list
+                lFarmViewModelList = new List<FarmViewModel>();
+
+                //Create Bomb List
+                lBombList = new List<Bomb>();
+
+                //Create Irrigation Units List
+                lIrrigationUnitList = new List<IrrigationUnit>();
+
+                //Map each farm with FarmViewModel and add to a list
+                foreach (var farm in lFarmList)
+                {
+                    lBombList = farm.BombList;
+                    lIrrigationUnitList = farm.IrrigationUnitList;
+                    lFarmViewModel = new FarmViewModel(farm);
+                    lFarmViewModelList.Add(lFarmViewModel);
+
+                }
+                //Create View Model of Home
+                HomeViewModel HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList);
+                return View(HVM);
+            }
+                
+
+         
+
+        }
+
+        [CustomAuthorize]
+        public ActionResult HomeAuth()
+        {
+
+            return View("Home");
         }
 
         public ActionResult Company()
@@ -49,11 +131,17 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
+        public ActionResult LogOut()
+        {
+            ManageSession.CleanSession();
+            return View("Index", new LoginViewModel());
+
+        }
+
 
         [HttpPost]
         public ActionResult AddIrrigation(string irrigation, string pivot)
         {
-
 
             return Json("Finished");
         }
@@ -82,7 +170,21 @@ namespace IrrigationAdvisor.Controllers
         [ChildActionOnly]
         public PartialViewResult LoginHomePartial()
         {
-            return PartialView("_LoginHomePartial");
+
+
+            if(ManageSession.GetUserName() == null)
+                return PartialView("_LoginHomePartial", new LoginViewModel());
+
+            
+            Authentication auth = new Authentication(ManageSession.GetUserName(), ManageSession.GetUserPassword());
+            LoginViewModel login = new LoginViewModel();
+            if (!auth.IsAuthenticated())
+            {
+                
+                login.InvalidPasswordMessage = AUTHENTICATION_ERROR;
+            }
+                
+            return PartialView("_LoginHomePartial", login);
         }
 
 
@@ -90,10 +192,7 @@ namespace IrrigationAdvisor.Controllers
         {
             return PartialView("_ContactPartial");
         }
-
-
-
-
+        
         [HttpPost]
         public void SendEmail()
         {
@@ -108,7 +207,6 @@ namespace IrrigationAdvisor.Controllers
         public ActionResult SaveDetailedInfo(string mensaje, string nombre, string email)
         {
 
-
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
 
             //set the addresses
@@ -121,33 +219,22 @@ namespace IrrigationAdvisor.Controllers
             //Generate an email message object to send
             var emailUser = new StringBuilder();
             string EmailUserLineFormat = "<p>{0}</p>";
-         
 
-
-
-            emailUser.AppendFormat(EmailUserLineFormat, mensaje );
-
-
-
-
+            emailUser.AppendFormat(EmailUserLineFormat, mensaje);
 
             SmtpClient server = new SmtpClient();
             server.EnableSsl = true;
             server.Host = "smtp.live.com";
             server.Port = 587;
             server.UseDefaultCredentials = false;
-          
+
             server.EnableSsl = true;
             server.Credentials = new System.Net.NetworkCredential("despinosa@overactiveinc.com", "Diego4749");
             server.Timeout = 5000;
- 
-
-     
 
             //send the message
 
             server.DeliveryMethod = SmtpDeliveryMethod.Network;
-
 
             server.Send(mail);
 
@@ -156,7 +243,7 @@ namespace IrrigationAdvisor.Controllers
 
             try
             {
-             
+
             }
             catch (Exception ex)
             {

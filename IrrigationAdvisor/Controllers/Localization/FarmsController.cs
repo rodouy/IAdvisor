@@ -20,7 +20,9 @@ namespace IrrigationAdvisor.Controllers.Localization
         // GET: Farms
         public ActionResult Index()
         {
-            return View(db.Farms.ToList());
+            var lFarmList = db.Farms.Include(b => b.BombList);
+            return View(lFarmList.ToList());
+            //return View(db.Farms.ToList());
         }
 
         // GET: Farms/Details/5

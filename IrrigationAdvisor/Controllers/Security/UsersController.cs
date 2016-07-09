@@ -8,8 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Security;
-
+using System.Security.Cryptography;
+using IrrigationAdvisor.ComplementedUtils;
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.ViewModels.Security;
+using AutoMapper;
 
 namespace IrrigationAdvisor.Controllers.Security
 {
@@ -20,7 +23,8 @@ namespace IrrigationAdvisor.Controllers.Security
         // GET: Users
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            //TO-DO: Not use access directly to database. Access via controllers.
+            return View("~/Views/Security/Users/Index.cshtml", db.Users.ToList());
         }
 
         // GET: Users/Details/5
@@ -35,13 +39,13 @@ namespace IrrigationAdvisor.Controllers.Security
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View("~/Views/Security/Users/Details.cshtml", user);
         }
 
         // GET: Users/Create
         public ActionResult Create()
         {
-            return View();
+            return View("~/Views/Security/Users/Create.cshtml");
         }
 
         // POST: Users/Create
@@ -49,11 +53,19 @@ namespace IrrigationAdvisor.Controllers.Security
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password")] User user)
+        //public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,UserName,UserName,Password")] User user)
+        public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password")] CreateUserViewModel user)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                MD5 md5Hash = MD5.Create();
+
+                var userMapped = Mapper.Map<CreateUserViewModel, User>(user);
+
+
+                user.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
+                
+                db.Users.Add(userMapped);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -73,7 +85,7 @@ namespace IrrigationAdvisor.Controllers.Security
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View("~/Views/Security/Users/Edit.cshtml", user);
         }
 
         // POST: Users/Edit/5
@@ -85,11 +97,17 @@ namespace IrrigationAdvisor.Controllers.Security
         {
             if (ModelState.IsValid)
             {
+
+                MD5 md5Hash = MD5.Create();
+
+
+                user.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
+
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return View("~/Views/Security/Users/Edit.cshtml", user);
         }
 
         // GET: Users/Delete/5
@@ -104,7 +122,7 @@ namespace IrrigationAdvisor.Controllers.Security
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View("~/Views/Security/Users/Delete.cshtml", user);
         }
 
         // POST: Users/Delete/5

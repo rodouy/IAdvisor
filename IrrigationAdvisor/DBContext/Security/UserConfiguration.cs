@@ -8,9 +8,14 @@ using IrrigationAdvisor.Models.Security;
 
 namespace IrrigationAdvisor.DBContext.Security
 {
-    public class UserConfiguration:
+    public class UserConfiguration :
         EntityTypeConfiguration<User>
     {
+
+        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+
+        private const string ERROR_USER_EXISTS = "User not found";
+
         public UserConfiguration()
         {
             ToTable("User");
@@ -28,12 +33,45 @@ namespace IrrigationAdvisor.DBContext.Security
                 .IsRequired()
                 .HasMaxLength(50);
             Property(s => s.Password)
-                .IsRequired()
-                .HasColumnType("Password");
+                .IsRequired();
             Property(s => s.Phone)
                 .IsRequired();
 
-            
+
         }
+
+        public string GetPasswordFor(string userName)
+        {
+
+            string result = null;
+            if (db.Users.Where(u => u.UserName == userName).Count() > 0)
+            {
+
+                result = db.Users.Where(u => u.UserName == userName).FirstOrDefault().Password;
+
+            }
+
+
+            return result;
+        }
+
+
+        public User GetUserByName(String pName)
+        {
+            User lReturn;
+
+            if(db.Users.Where(u => u.UserName == pName).Count() > 0)
+            {
+                lReturn = db.Users.Where(u => u.UserName == pName).FirstOrDefault();
+            }
+            else
+            {
+                lReturn = null;
+            }
+
+            return lReturn;
+        }
+
+
     }
 }
