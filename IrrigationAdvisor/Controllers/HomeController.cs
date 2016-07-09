@@ -13,6 +13,7 @@ using IrrigationAdvisor.Models.Security;
 using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.ViewModels.Home;
 using IrrigationAdvisor.ViewModels.Localization;
+using IrrigationAdvisor.ViewModels.Errors;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace IrrigationAdvisor.Controllers
     public class HomeController : Controller
     {
         private const string AUTHENTICATION_ERROR = "Credenciales inválidas";
+        private const string NO_FARMS_FOR_USER = "El usuario no tiene granjas asignadas";
 
         public ActionResult Index()
         {
@@ -90,6 +92,20 @@ namespace IrrigationAdvisor.Controllers
 
                 //Get list of Farms from User
                 lFarmList = fc.GetFarmListBy(lLoggedUser);
+
+                ErrorViewModel errorVM = new ErrorViewModel();
+
+                // If the user doesnt have farms
+                if (lFarmList.Count == 0)
+                {
+                    errorVM.Code = "1";
+                    errorVM.Description = NO_FARMS_FOR_USER;
+
+                    HomeViewModel HVMError = new HomeViewModel(errorVM);
+
+                    return View(HVMError);
+                }
+                
 
                 //Create View Model Farm list
                 lFarmViewModelList = new List<FarmViewModel>();
@@ -187,11 +203,30 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("_LoginHomePartial", login);
         }
 
+        public PartialViewResult GenerateMenu()
+        {
+
+            MenuViewModel menuVM = new MenuViewModel();
+            
+            string lLoggedUser = ManageSession.GetUserName();
+
+            UserConfiguration uc = new UserConfiguration();
+            User user = uc.GetUserByName(lLoggedUser);
+
+            if (user != null && user.RoleId == (int)Utils.UserRoles.Administrator)
+                menuVM.IsAdministrator = true;
+            else
+                menuVM.IsAdministrator = false;
+
+            return PartialView("_GenerateMenu", menuVM);
+        }
 
         public PartialViewResult ContactPartial()
         {
             return PartialView("_ContactPartial");
         }
+
+        
         
         [HttpPost]
         public void SendEmail()

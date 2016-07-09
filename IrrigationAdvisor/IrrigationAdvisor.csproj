@@ -335,8 +335,10 @@
     <Compile Include="Properties\Settings.Designer.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Templates\ClassTemplate.cs" />
-    <Compile Include="Utils\CryptoUtils.cs" />
-    <Compile Include="Utils\ManageSession.cs" />
+    <Compile Include="Models\Utilities\CryptoUtils.cs" />
+    <Compile Include="Models\Utilities\ManageSession.cs" />
+    <Compile Include="ViewModels\Errors\ErrorViewModel.cs" />
+    <Compile Include="ViewModels\Home\MenuViewModel.cs" />
     <Compile Include="ViewModels\Security\CreateUserViewModel.cs" />
     <Compile Include="ViewModels\Agriculture\CropViewModel.cs" />
     <Compile Include="ViewModels\Agriculture\SpecieViewModel.cs" />
@@ -754,6 +756,8 @@
     <Content Include="Views\Weather\TemperatureDatas\Index.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Home\_GenerateMenu.cshtml" />
+    <Content Include="Views\Errors\_Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />

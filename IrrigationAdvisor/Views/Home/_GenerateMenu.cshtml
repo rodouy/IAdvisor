@@ -1,0 +1,24 @@
+﻿@model IrrigationAdvisor.ViewModels.Home.MenuViewModel
+
+<li class="current-menu-item">
+    <a href="../">Inicio</a>
+</li>
+<li>
+    <a href="../Home/Company">Empresa</a>
+</li>
+<li>
+    <a href="../Home/Contact">Contacto</a>
+</li>
+@{
+    if (Model.IsAdministrator)
+    {
+        <li>
+            <a href="../Users">Usuarios</a>
+        </li>
+    }
+
+}
+
+<li>
+    <a href="../Home/LogOut">Log Out</a>
+</li>
