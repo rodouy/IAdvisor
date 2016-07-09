@@ -98,10 +98,7 @@
                     </div>
                     <!-- Menu -->
                     <ul class="menu">
-                        <li class="current-menu-item"><a href="../">Inicio</a></li>
-                        <li><a href="../Home/Company">Empresa</a></li>
-                        <li><a href="../Home/Contact">Contacto</a></li>
-                        <li><a href="../Home/LogOut">Log Out</a></li>
+                        @{ Html.RenderAction("GenerateMenu", "Home"); }
                     </ul>
                     <!-- End menu -->
                 </nav>

@@ -187,6 +187,23 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("_LoginHomePartial", login);
         }
 
+        public PartialViewResult GenerateMenu()
+        {
+
+            MenuViewModel menuVM = new MenuViewModel();
+            
+            string lLoggedUser = ManageSession.GetUserName();
+
+            UserConfiguration uc = new UserConfiguration();
+            User user = uc.GetUserByName(lLoggedUser);
+
+            if (user != null && user.RoleId == 1)
+                menuVM.IsAdministrator = true;
+            else
+                menuVM.IsAdministrator = false;
+
+            return PartialView("_GenerateMenu", menuVM);
+        }
 
         public PartialViewResult ContactPartial()
         {
