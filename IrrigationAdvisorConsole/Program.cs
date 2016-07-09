@@ -59,6 +59,7 @@ namespace IrrigationAdvisorConsole
                 #endregion
 
                 #region Security
+                InsertRoles();
                 InsertUsers();
                 #endregion
 
