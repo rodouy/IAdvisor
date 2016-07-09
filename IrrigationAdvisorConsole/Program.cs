@@ -330,6 +330,7 @@ namespace IrrigationAdvisorConsole
                 Email = "riegopgw@googlegroups.com",
                 UserName = Utils.NameUserDemo,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "lluvia"),
+                RoleId = 3,
             };
             #endregion
 
@@ -343,6 +344,7 @@ namespace IrrigationAdvisorConsole
                 Email = "scasanova@pgwwater.com.uy",
                 UserName = "scasanova",
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "SCasanova"),
+                RoleId = 1,
             };
 
             var lAdmin = new User()
@@ -354,6 +356,7 @@ namespace IrrigationAdvisorConsole
                 Email = "riegopgw@googlegroups.com",
                 UserName = Utils.NameUserAdmin,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "Irrigation4dvis0r"),
+                RoleId = 3,
             };
             #endregion
 
@@ -367,6 +370,7 @@ namespace IrrigationAdvisorConsole
                 Email = "jplatero@delcarmen.com.uy",
                 UserName = Utils.NameUserDelCarmen,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "Laperdiz"),
+                RoleId = 3,
             };
             #endregion
 
@@ -380,6 +384,7 @@ namespace IrrigationAdvisorConsole
                 Email = "guzman.irazabal@estanciasdellago.com ",
                 UserName = Utils.NameUserDelLago,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "Dellago"),
+                RoleId = 3,
             };
             #endregion
 
@@ -393,6 +398,7 @@ namespace IrrigationAdvisorConsole
                 Email = "pablo.tarigo@LaPalma.com.uy",
                 UserName = Utils.NameUserLaPalma,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "gmo"),
+                RoleId = 3,
             };
             #endregion
 

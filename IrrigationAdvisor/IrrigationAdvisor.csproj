@@ -342,6 +342,10 @@
     <Compile Include="ViewModels\Agriculture\SpecieViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\Home\IrrigationAdvisorViewModel.cs" />
+    <Compile Include="ViewModels\Security\CRUDUserViewModel.cs" />
+    <Compile Include="ViewModels\Security\EditUserViewModel.cs" />
+    <Compile Include="ViewModels\Security\UserEmailExistsAttribute.cs" />
+    <Compile Include="ViewModels\Security\UserNameExistsAttribute.cs" />
     <Compile Include="ViewModels\Irrigation\BombViewModel.cs" />
     <Compile Include="ViewModels\Irrigation\IrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Irrigation\PivotViewModel.cs" />

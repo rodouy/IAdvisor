@@ -36,6 +36,8 @@ namespace IrrigationAdvisor.DBContext.Security
                 .IsRequired();
             Property(s => s.Phone)
                 .IsRequired();
+            Property(s => s.RoleId)
+                .IsRequired();
 
 
         }
@@ -72,6 +74,12 @@ namespace IrrigationAdvisor.DBContext.Security
             return lReturn;
         }
 
+        public User GetUserByEmail(string email)
+        {
 
+            return db.Users.Where(u => u.Email == email).FirstOrDefault();
+        }
+
+        
     }
 }

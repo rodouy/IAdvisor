@@ -56,6 +56,7 @@ namespace IrrigationAdvisor.Models.Security
         ///     - phone
         ///     - address
         ///     - email
+        ///     - roleId
         ///     - userName
         ///     - password
         /// </summary>
@@ -66,6 +67,7 @@ namespace IrrigationAdvisor.Models.Security
         private String phone;
         private String address;
         private String email;
+        private long roleId;
         private String userName;
         private String password;
 
@@ -80,6 +82,7 @@ namespace IrrigationAdvisor.Models.Security
         ///     - Phone
         ///     - Address
         ///     - EMail
+        ///     - RoleId
         ///     - UserName
         ///     - Password
         /// </summary>
@@ -121,6 +124,12 @@ namespace IrrigationAdvisor.Models.Security
             set { email = value; }
         }
 
+        public long RoleId
+        {
+            get { return roleId; }
+            set { roleId = value; }
+        }
+
         public string UserName
         {
             get { return userName; }
@@ -147,6 +156,7 @@ namespace IrrigationAdvisor.Models.Security
             this.Phone = "";
             this.Address = "";
             this.Email = "";
+            this.RoleId = 3;
             this.UserName = "";
             this.Password = "";
         }
@@ -163,7 +173,7 @@ namespace IrrigationAdvisor.Models.Security
         /// <param name="pUserName"></param>
         /// <param name="pPassword"></param>
         public User(long pUserId, String pName, String pSurname, String pPhone,
-                    String pAddress, String pEmail, String pUserName, String pPassword)
+                    String pAddress, String pEmail, int pRoleId, String pUserName, String pPassword)
         {
             this.UserId = pUserId;
             this.Name = pName;
@@ -171,6 +181,7 @@ namespace IrrigationAdvisor.Models.Security
             this.Phone = pPhone;
             this.Address = pAddress;
             this.Email = pEmail;
+            this.RoleId = pRoleId;
             this.UserName = pUserName;
             this.Password = pPassword;
         }

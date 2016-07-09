@@ -269,8 +269,8 @@ namespace IrrigationAdvisor.DBContext
             #region Security
             #if true
 
-            modelBuilder.Configurations.Add(new AccessConfiguration());
-            modelBuilder.Configurations.Add(new MenuConfiguration());
+            //modelBuilder.Configurations.Add(new AccessConfiguration());
+            //modelBuilder.Configurations.Add(new MenuConfiguration());
             modelBuilder.Configurations.Add(new RoleConfiguration());
             //modelBuilder.Configurations.Add(new SiteItemConfiguration());
             //modelBuilder.Configurations.Add(new SiteMapConfiguration());
