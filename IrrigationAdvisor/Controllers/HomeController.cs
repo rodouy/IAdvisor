@@ -239,32 +239,40 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("_ContactPartial");
         }
 
-        public ActionResult SaveDetailedInfo(string mensaje, string nombre, string email)
+        public ActionResult SendMail(   string pMessage, 
+                                        string pEmail, 
+                                        string pSubject, 
+                                        string pFrom, 
+                                        string pPass, 
+                                        string pSmtp = "smtp.live.com", 
+                                        int pPort = 587, 
+                                        bool pUserDefualtCredentials = false, 
+                                        bool pEnableSsl = true)
         {
 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
 
             //set the addresses
-            mail.From = new MailAddress(email);
-            mail.To.Add(email);
+            mail.From = new MailAddress(pEmail);
+            mail.To.Add(pEmail);
 
             //set the content
-            mail.Subject = "Valorem - Start a project";
+            mail.Subject = pSubject;
 
             //Generate an email message object to send
             var emailUser = new StringBuilder();
             string EmailUserLineFormat = "<p>{0}</p>";
 
-            emailUser.AppendFormat(EmailUserLineFormat, mensaje);
+            emailUser.AppendFormat(EmailUserLineFormat, pMessage);
 
             SmtpClient server = new SmtpClient();
-            server.EnableSsl = true;
-            server.Host = "smtp.live.com";
-            server.Port = 587;
-            server.UseDefaultCredentials = false;
+            server.EnableSsl = pEnableSsl;
+            server.Host = pSmtp;
+            server.Port = pPort;
+            server.UseDefaultCredentials = pUserDefualtCredentials;
 
             server.EnableSsl = true;
-            server.Credentials = new System.Net.NetworkCredential("despinosa@overactiveinc.com", "Diego4749");
+            server.Credentials = new System.Net.NetworkCredential(pFrom, pPass);
             server.Timeout = 5000;
 
             //send the message
