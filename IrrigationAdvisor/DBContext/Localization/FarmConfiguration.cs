@@ -60,7 +60,9 @@ namespace IrrigationAdvisor.DBContext.Localization
         {
             Double lReturn = 0;
 
-            lReturn = db.Positions.Where(p => p.PositionId == pPositionId).FirstOrDefault().Latitude;
+            lReturn = db.Positions
+                            .Where(p => p.PositionId == pPositionId)
+                            .FirstOrDefault().Latitude;
 
             return lReturn;
         }
@@ -74,7 +76,9 @@ namespace IrrigationAdvisor.DBContext.Localization
         {
             Double lReturn = 0;
 
-            lReturn = db.Positions.Where(p => p.PositionId == pPositionId).FirstOrDefault().Longitude;
+            lReturn = db.Positions
+                            .Where(p => p.PositionId == pPositionId)
+                            .FirstOrDefault().Longitude;
 
             return lReturn;
         }

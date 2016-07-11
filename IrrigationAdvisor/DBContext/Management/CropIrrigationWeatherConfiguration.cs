@@ -4,17 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity.ModelConfiguration;
 using IrrigationAdvisor.Models.Management;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using IrrigationAdvisor.Models.Agriculture;
 
 namespace IrrigationAdvisor.DBContext.Management
 {
     public class CropIrrigationWeatherConfiguration:
         EntityTypeConfiguration<CropIrrigationWeather>
     {
+
+        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+
         public CropIrrigationWeatherConfiguration()
         {
             ToTable("CropIrrigationWeather");
             HasKey(c => c.CropIrrigationWeatherId);
-            Property(c => c.CropIrrigationWeatherId).IsRequired();
+            Property(c => c.CropIrrigationWeatherId)
+                .IsRequired()
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             #region Agriculture
             Property(m => m.SowingDate)
@@ -99,5 +107,53 @@ namespace IrrigationAdvisor.DBContext.Management
             #endregion
 
         }
+
+
+
+        /// <summary>
+        /// Get Crop by CropId
+        /// Include: CropCoefficient; PhenologicalStageList; StageList;
+        ///         Specie; Region;
+        /// </summary>
+        /// <param name="pSoilId"></param>
+        /// <returns></returns>
+        public Crop GetCropBy(long pCropId)
+        {
+            Crop lReturn = null;
+
+            if (pCropId > 0)
+            {
+                lReturn = db.Crops
+                    .Include(c => c.CropCoefficient)
+                    .Include(c => c.PhenologicalStageList)
+                    .Include(c => c.StageList)
+                    .Include(c => c.Specie)
+                    .Include(c => c.Region)
+                    .Where(c => c.CropId == pCropId).FirstOrDefault();
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get Soil by SoilId
+        /// Include: HorizonList;
+        /// </summary>
+        /// <param name="pSoilId"></param>
+        /// <returns></returns>
+        public Soil GetSoilBy(long pSoilId)
+        {
+            Soil lReturn = null;
+
+            if(pSoilId > 0)
+            {
+                lReturn = db.Soils
+                    .Include(s => s.HorizonList)
+                    .Where(s => s.SoilId == pSoilId).FirstOrDefault();
+            }
+
+            return lReturn;
+        }
+
     }
 }
