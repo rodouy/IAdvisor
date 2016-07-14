@@ -127,6 +127,7 @@ namespace IrrigationAdvisor.Controllers
                 }
                 //Create View Model of Home
                 HomeViewModel HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList);
+                HVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
                 return View(HVM);
             }
                 

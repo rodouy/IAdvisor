@@ -222,11 +222,16 @@
                             <div class="overlay"></div>
                         </div>
                         <!-- end modal agregar fenologia --->
-                        <p>
-                            <a href="#modal-fenologia" class="btn go btn-pivots btn-md">
-                                <span class="glyphicon glyphicon-plus"></span>Agregar Fenología
-                            </a>
-                        </p>
+                        @{ if (Model.IsUserAdministrator)
+                            {
+                                <p>
+                                    <a href="#modal-fenologia" class="btn go btn-pivots btn-md">
+                                        <span class="glyphicon glyphicon-plus"></span>Agregar Fenología
+                                    </a>
+                                </p>
+                            }
+
+                        }
                     </div>
                     <!-- Grid -->
                     <div class="table-asignment">

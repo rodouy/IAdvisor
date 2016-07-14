@@ -30,6 +30,7 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         public ErrorViewModel ErrorViewModel { get; set; }
 
+        public bool IsUserAdministrator { get; set; }
         #endregion
 
         #region Construction
