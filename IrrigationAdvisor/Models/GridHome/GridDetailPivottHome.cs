@@ -22,49 +22,52 @@ namespace IrrigationAdvisor.Models.GridHome
 
         /// <summary>
         /// Fields of Class:
-        ///     -  string day
+        ///     -  string Day
         ///     -  string pivotDate
-        ///     -  IrrigationAdvisor.Models.Utilities.Utils.WeatherGrid irrigation
+        ///     -  IrrigationAdvisor.Models.Utilities.Utils.WeatherGrid irrigationQuantity
 
         /// </summary>
 
-        private decimal irrigation; // Riego
-        private decimal rain; // Lluvia
-        private decimal forecastIrrigation;
-        private DateTime dateTime;
+        private Double irrigationQuantity; // Riego
+        private Double rainQuantity; // Lluvia
+        private Double forecastIrrigationQuantity;
+        private DateTime dateOfData;
         private bool isToday;
-        private IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus irrigationStatus;
+        private Utils.IrrigationStatus irrigationStatus;
+
         #endregion
 
-        #region properties
-        public decimal Irrigation
+        #region Properties
+
+        public Double IrrigationQuantity
         {
-            get { return irrigation; }
-            set { irrigation = value; }
-        }
-        public decimal Rain
-        {
-            get { return rain; }
-            set { rain = value; }
-        }
-        public decimal ForecastIrrigation
-        {
-            get { return forecastIrrigation; }
-            set { forecastIrrigation = value; }
-        }
-        public DateTime DateTime
-        {
-            get { return dateTime; }
-            set { dateTime = value; }
+            get { return irrigationQuantity; }
+            set { irrigationQuantity = value; }
         }
 
-        public string day
+        public Double RainQuantity
+        {
+            get { return rainQuantity; }
+            set { rainQuantity = value; }
+        }
+
+        public Double ForecastIrrigationQuantity
+        {
+            get { return forecastIrrigationQuantity; }
+            set { forecastIrrigationQuantity = value; }
+        }
+
+        public DateTime DateOfData
+        {
+            get { return dateOfData; }
+            set { dateOfData = value; }
+        }
+
+        public String Day
         {
             get
             {
-                //{ culture.DateTimeFormat.GetDayName(DateTime.DayOfWeek).ToString();
-
-                return dateTime.DayOfWeek.ToString();
+                return Utils.DayOfWeekInSpanish(DateOfData.DayOfWeek);
             }
         }
 
@@ -82,12 +85,14 @@ namespace IrrigationAdvisor.Models.GridHome
 
         #endregion
 
-        public GridPivotDetailHome(decimal pIrrigation, decimal pRain, decimal pForecastIrrigation, DateTime pDateTime, bool pIsToday, IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus pIrrigationStatus)
+        public GridPivotDetailHome(Double pIrrigationQuantity, Double pRainQuantity,
+                                    Double pForecastIrrigationQuantity, DateTime pDateOfData, 
+                                    bool pIsToday, Utils.IrrigationStatus pIrrigationStatus)
         {
-            this.Irrigation = pIrrigation;
-            this.Rain = pRain;
-            this.ForecastIrrigation = pForecastIrrigation;
-            this.DateTime = pDateTime;
+            this.IrrigationQuantity = pIrrigationQuantity;
+            this.RainQuantity = pRainQuantity;
+            this.ForecastIrrigationQuantity = pForecastIrrigationQuantity;
+            this.DateOfData = pDateOfData;
             this.IsToday = pIsToday;
             this.IrrigationStatus = pIrrigationStatus;
         }

@@ -1,4 +1,5 @@
-﻿using IrrigationAdvisor.Models.Water;
+﻿using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.Models.Water;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace IrrigationAdvisor.ViewModels.Water
 {
-    public class WaterInputViewModel
+    public class RainViewModel
     {
 
         #region Consts
@@ -18,6 +19,8 @@ namespace IrrigationAdvisor.ViewModels.Water
         #region Properties
 
         public long WaterInputId { get; set; }
+
+        public Utils.WaterInputType Type { get; set; }
 
         public DateTime Date { get; set; }
 
@@ -32,15 +35,16 @@ namespace IrrigationAdvisor.ViewModels.Water
         #endregion
 
         #region Construction
-        
-        public WaterInputViewModel(WaterInput pWaterInput)
+
+        public RainViewModel(Rain pRain)
         {
-            this.WaterInputId = pWaterInput.WaterInputId;
-            this.Date = pWaterInput.Date;
-            this.Input = pWaterInput.Input;
-            this.ExtraDate = pWaterInput.ExtraDate;
-            this.ExtraInput = pWaterInput.ExtraInput;
-            this.CropIrrigationWeatherId = pWaterInput.CropIrrigationWeatherId;
+            this.WaterInputId = pRain.WaterInputId;
+            this.Type = pRain.Type;
+            this.Date = pRain.Date;
+            this.Input = pRain.Input;
+            this.ExtraDate = pRain.ExtraDate;
+            this.ExtraInput = pRain.ExtraInput;
+            this.CropIrrigationWeatherId = pRain.CropIrrigationWeatherId;
         }
 
         #endregion

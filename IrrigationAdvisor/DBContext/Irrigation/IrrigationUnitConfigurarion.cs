@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using IrrigationAdvisor.Models.Irrigation;
 using IrrigationAdvisor.Models.Localization;
 using System.Data.Entity;
+using IrrigationAdvisor.Models.Management;
 
 namespace IrrigationAdvisor.DBContext.Irrigation
 {
@@ -27,6 +28,29 @@ namespace IrrigationAdvisor.DBContext.Irrigation
                 .IsRequired();
         }
 
+
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherListBy(
+                                            IrrigationUnit pIrrigationUnit,
+                                            DateTime pDateOfReference)
+        {
+            List<CropIrrigationWeather> lReturn = null;
+            long lIrrigationUnitId;
+            if(pIrrigationUnit != null)
+            {
+                lIrrigationUnitId = pIrrigationUnit.IrrigationUnitId;
+                lReturn = db.CropIrrigationWeathers
+                    .Include(ciw => ciw.RainList)
+                    .Include(ciw => ciw.IrrigationList)
+                    .Include(ciw => ciw.Crop)
+                    .Include(ciw => ciw.Soil)
+                    .Include(ciw => ciw.DailyRecordList)
+                    .Where(ciw => ciw.IrrigationUnitId == lIrrigationUnitId
+                        && ciw.SowingDate <= pDateOfReference
+                        && ciw.HarvestDate >= pDateOfReference).ToList();
+            }
+
+            return lReturn;
+        }
 
         /// <summary>
         /// Get List of IrrigationUnit by Farm

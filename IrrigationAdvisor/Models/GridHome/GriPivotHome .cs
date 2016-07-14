@@ -22,39 +22,39 @@ namespace IrrigationAdvisor.Models.GridHome
         ///      
         ///
         /// </summary>
-        private string pivotName;
-        private string phenology;
-        private string cultivation;
+        private string irrigationUnitName;
+        private string phenologyName;
+        private string cropName;
         private List<GridPivotDetailHome> listGridPivotDetailHome;
 
         #endregion
 
         #region Properties
 
-        public virtual string PivotName
+        public virtual string IrrigationUnitName
         {
-            get { return pivotName; }
+            get { return irrigationUnitName; }
             set
             {
-                pivotName = value;
+                irrigationUnitName = value;
             }
         }
 
-        public string Phenology
+        public string PhenologyName
         {
-            get { return phenology; }
+            get { return phenologyName; }
             set
             {
-                phenology = value;
+                phenologyName = value;
             }
         }
 
-        public string Cultivation
+        public string CropName
         {
-            get { return cultivation; }
+            get { return cropName; }
             set
             {
-                cultivation = value;
+                cropName = value;
             }
         }
 
@@ -70,11 +70,12 @@ namespace IrrigationAdvisor.Models.GridHome
         #endregion
 
 
-        public GridPivotHome(string pPivotName, string pPhenology, string pCultivation, List<GridPivotDetailHome> plistGridPivotDetailHome)
+        public GridPivotHome(String pIrrigationUnitName, String pPhenologyName, String pCropName, 
+                            List<GridPivotDetailHome> plistGridPivotDetailHome)
         {
-            this.PivotName = pPivotName;
-            this.Phenology = pPhenology;
-            this.Cultivation = pCultivation;
+            this.IrrigationUnitName = pIrrigationUnitName;
+            this.PhenologyName = pPhenologyName;
+            this.CropName = pCropName;
             this.ListGridPivotDetailHome = plistGridPivotDetailHome;
         }
 
