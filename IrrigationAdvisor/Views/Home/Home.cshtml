@@ -123,11 +123,12 @@
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                    <li><a href="#">Miercoles 04/11</a></li>
-                                                    <li><a href="#">Jueves 05/11</a></li>
-                                                    <li><a href="#">Viernes 06/11</a></li>
-                                                    <li><a href="#">Sabado 07/11</a></li>
-                                                    <li><a href="#">Domingo 08/11</a></li>
+                                                    @* TODO: Change when the reference will implement *@
+                                                    <li><a href="#">@DateTime.Now.AddDays(-1).ToShortDateString()</a></li>
+                                                    <li><a href="#">@DateTime.Now.AddDays(-2).ToShortDateString()</a></li>
+                                                    <li><a href="#">@DateTime.Now.AddDays(-3).ToShortDateString()</a></li>
+                                                    <li><a href="#">@DateTime.Now.AddDays(-4).ToShortDateString()</a></li>
+                                                    <li><a href="#">@DateTime.Now.AddDays(-5).ToShortDateString()</a></li>
                                                 </ul>
                                                 <br />
                                             </div>
@@ -139,10 +140,14 @@
                                                 </button>
 
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="font-size:13px !important">
-                                                    <li><a href="#">Pivot 1</a></li>
-                                                    <li><a href="#">Pivot 2</a></li>
-                                                    <li><a href="#">Pivot 3</a></li>
-                                                    <li><a href="#">Pivot 4</a></li>
+                                                    @{
+                                                        foreach (var item in Model.IrrigationUnitList)
+                                                        {
+                                                            <li>@item.Name</li>
+                                                            
+                                                        }
+                                                    }
+                                                    
                                                 </ul>
 
                                                 <br />
