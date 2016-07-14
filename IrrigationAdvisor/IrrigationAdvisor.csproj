@@ -362,6 +362,9 @@
     <Compile Include="ViewModels\Management\TitleViewModel.cs" />
     <Compile Include="ViewModels\Security\RoleViewModel.cs" />
     <Compile Include="ViewModels\Security\UserViewModel.cs" />
+    <Compile Include="ViewModels\Water\EvapotranspirationCropViewModel.cs" />
+    <Compile Include="ViewModels\Water\IrrigationViewModel.cs" />
+    <Compile Include="ViewModels\Water\RainViewModel.cs" />
     <Compile Include="ViewModels\Water\WaterInputViewModel.cs" />
     <Compile Include="ViewModels\Water\WaterOutputViewModel.cs" />
     <Compile Include="ViewModels\Weather\WeatherStationViewModel.cs" />

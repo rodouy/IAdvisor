@@ -16,9 +16,9 @@
         <ul class="bar-resp" style="width: 713px;">
             @{ if (Model.ErrorViewModel == null)
                 {
-                    <li> <a> <em class="icon md-flag"></em> Establecimiento: "@Model.DefaultFarm.Name" </a> </li>
-                    <li> <a> <em class="icon md-crop"></em> Área bajo riego: @Model.DefaultFarm.Has há </a> </li>
-                    <li> <a> <em class="icon md-time"></em> Último acceso: 30/09/2015 </a> </li>
+                    <li> <a> <em class="icon md-flag"></em> Establecimiento: "@Model.DefaultFarmViewModel.Name" </a> </li>
+                    <li> <a> <em class="icon md-crop"></em> Área bajo riego: @Model.DefaultFarmViewModel.Has há </a> </li>
+                    <li> <a> <em class="icon md-time"></em> Última actualización: @Model.DateOfReference </a> </li>
                 }
 
             }
@@ -86,7 +86,7 @@
                                                 </button>
 
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="font-size:13px !important">
-                                                    <li><a href="#">Pivot 1</a></li>
+                                                    <li><a href="#">@Model.IrrigationUnitViewModelList[0].Name</a></li>
                                                     <li><a href="#">Pivot 2</a></li>
                                                     <li><a href="#">Pivot 3</a></li>
                                                     <li><a href="#">Pivot 4</a></li>
@@ -250,7 +250,7 @@
                                     <!-- Table -->
                                     <div class="table-body">
                                         <!--table-->
-                                        <table>
+                                        <table cellspacing="10">
                                             <thead>
                                                 <tr>
                                                     @{ Html.RenderAction("FrontPageHeaderPartial", "Home"); }
@@ -279,7 +279,7 @@
                                 <div class="regado"><h5>Campo regado</h5></div>
                                 <div class="proximo-riego"><h5>Próximo riego</h5></div>
                                 <div class="lluvia-registrada"><h5>Lluvia registrada</h5></div>
-                                <div class="por-defecto"><h5>Valor por defecto</h5></div>
+                                <div class="por-defecto"><h5>Sin Riego</h5></div>
                             </div>
                         </div>
                     </div>

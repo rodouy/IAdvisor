@@ -40,6 +40,7 @@ namespace IrrigationAdvisor.ViewModels.Irrigation
 
         public Double PredeterminatedIrrigationQuantity { get; set; }
 
+
         #endregion
 
         #region Construction
@@ -55,6 +56,7 @@ namespace IrrigationAdvisor.ViewModels.Irrigation
             this.BombId = pIrrigationUnit.BombId;
             this.Bomb = new BombViewModel(pIrrigationUnit.Bomb);
             this.PositionId = pIrrigationUnit.PositionId;
+            this.PredeterminatedIrrigationQuantity = pIrrigationUnit.PredeterminatedIrrigationQuantity;
         }
 
         #endregion
@@ -63,13 +65,6 @@ namespace IrrigationAdvisor.ViewModels.Irrigation
         #endregion
 
         #region Public Methods
-
-        public Double getLatitudeBy( long pPositionId)
-        {
-            Double lReturn = 0;
-
-            return lReturn;
-        }
 
         #endregion
 
