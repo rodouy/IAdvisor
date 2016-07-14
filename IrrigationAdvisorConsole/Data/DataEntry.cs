@@ -80,17 +80,17 @@ namespace IrrigationAdvisorConsole
         #region Santa Lucia
         public static DateTime SowingDate_CornSouth_SantaLuciaPivot1_2015 = new DateTime(2015, 10, 01);
         public static Double PredeterminatedIrrigationQuantity_SantaLuciaPivot1_2015 = 15;
-        //public static DateTime SowingDate_CornSouth_SantaLuciaPivot2_2015 = new DateTime(2015, 9, 16);
+        //public static DateOfData SowingDate_CornSouth_SantaLuciaPivot2_2015 = new DateOfData(2015, 9, 16);
         //public static Double PredeterminatedIrrigationQuantity_SantaLuciaPivot2_2015 = 15;
-        //public static DateTime SowingDate_CornSouth_SantaLuciaPivot3_2015 = new DateTime(2015, 9, 16);
+        //public static DateOfData SowingDate_CornSouth_SantaLuciaPivot3_2015 = new DateOfData(2015, 9, 16);
         //public static Double PredeterminatedIrrigationQuantity_SantaLuciaPivot3_2015 = 15;
-        //public static DateTime SowingDate_CornSouth_SantaLuciaPivot5_2015 = new DateTime(2015, 9, 16);
+        //public static DateOfData SowingDate_CornSouth_SantaLuciaPivot5_2015 = new DateOfData(2015, 9, 16);
         //public static Double PredeterminatedIrrigationQuantity_SantaLuciaPivot5_2015 = 15;
         #endregion
 
         #region La Perdiz
         //2015 Pivot 1 was not used
-        //public static DateTime SowingDate_CornSouth_LaPerdizPivot1_2015 = new DateTime(2015, 9, 16);
+        //public static DateOfData SowingDate_CornSouth_LaPerdizPivot1_2015 = new DateOfData(2015, 9, 16);
         //public static Double PredeterminatedIrrigationQuantity_LaPerdizPivot1_2015 = 15;
         public static DateTime SowingDate_CornSouth_LaPerdizPivot2_2015 = new DateTime(2015, 9, 16);
         public static Double PredeterminatedIrrigationQuantity_LaPerdizPivot2_2015 = 15;
@@ -6839,7 +6839,7 @@ namespace IrrigationAdvisorConsole
         #region Demo - La Perdiz
 
         /// <summary>
-        /// Add rain data to Farm Demo - La Perdiz in Pivot 1 for 2015
+        /// Add rainQuantity data to Farm Demo - La Perdiz in Pivot 1 for 2015
         /// </summary>
         /// <param name="context"></param>
         public static void AddRainDataDemoPivot1_2015(IrrigationAdvisorContext context)
@@ -6885,7 +6885,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add rain data to Farm Demo - La Perdiz in Pivot 2 for 2015
+        /// Add rainQuantity data to Farm Demo - La Perdiz in Pivot 2 for 2015
         /// </summary>
         /// <param name="context"></param>
         public static void AddRainDataDemoPivot2_2015(IrrigationAdvisorContext context)
@@ -6931,7 +6931,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add rain data to Farm Demo - La Perdiz in Pivot 3 for 2015
+        /// Add rainQuantity data to Farm Demo - La Perdiz in Pivot 3 for 2015
         /// </summary>
         /// <param name="context"></param>
         public static void AddRainDataDemoPivot3_2015(IrrigationAdvisorContext context)
@@ -6977,7 +6977,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add rain data to Farm Demo - La Perdiz in Pivot 5 for 2015
+        /// Add rainQuantity data to Farm Demo - La Perdiz in Pivot 5 for 2015
         /// </summary>
         /// <param name="context"></param>
         public static void AddRainDataDemoPivot5_2015(IrrigationAdvisorContext context)
@@ -7031,7 +7031,7 @@ namespace IrrigationAdvisorConsole
 
         #region La Perdiz
         /// <summary>
-        /// Add rain data to Farm La Perdiz in Pivot 2 for 2015
+        /// Add rainQuantity data to Farm La Perdiz in Pivot 2 for 2015
         /// </summary>
         /// <param name="context"></param>
         public static void AddRainDataLaPerdizPivot2_2015(IrrigationAdvisorContext context)
@@ -7077,7 +7077,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add rain data to Farm La Perdiz in Pivot 3 for 2015
+        /// Add rainQuantity data to Farm La Perdiz in Pivot 3 for 2015
         /// </summary>
         /// <param name="context"></param>
         public static void AddRainDataLaPerdizPivot3_2015(IrrigationAdvisorContext context)
@@ -7123,7 +7123,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add rain data to Farm La Perdiz in Pivot 5 for 2015
+        /// Add rainQuantity data to Farm La Perdiz in Pivot 5 for 2015
         /// </summary>
         /// <param name="context"></param>
         public static void AddRainDataLaPerdizPivot5_2015(IrrigationAdvisorContext context)
@@ -7422,8 +7422,8 @@ namespace IrrigationAdvisorConsole
                                           && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
                                       select ciw).FirstOrDefault();
 
-            //lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 10, 18), 19.2);
-            //lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 10, 26), 15.4);
+            //lCropIrrigationWeather.AddRainDataToList(new DateOfData(2015, 10, 18), 19.2);
+            //lCropIrrigationWeather.AddRainDataToList(new DateOfData(2015, 10, 26), 15.4);
             lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 11, 12), 25.6);
             lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 11, 17), 8.4);
             lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 11, 19), 6.8);
@@ -7464,8 +7464,8 @@ namespace IrrigationAdvisorConsole
                                           && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
                                       select ciw).FirstOrDefault();
 
-            //lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 10, 18), 19.2);
-            //lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 10, 26), 15.4);
+            //lCropIrrigationWeather.AddRainDataToList(new DateOfData(2015, 10, 18), 19.2);
+            //lCropIrrigationWeather.AddRainDataToList(new DateOfData(2015, 10, 26), 15.4);
             lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 11, 12), 25.6);
             lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 11, 17), 8.4);
             lCropIrrigationWeather.AddRainDataToList(new DateTime(2015, 11, 19), 6.8);
@@ -7664,7 +7664,7 @@ namespace IrrigationAdvisorConsole
         #endregion
 
         /// <summary>
-        /// Example for Add Rain Data
+        /// Example for Add RainQuantity Data
         /// </summary>
         /// <param name="context"></param>
         public static void AddRainData(IrrigationAdvisorContext context)
@@ -7706,7 +7706,7 @@ namespace IrrigationAdvisorConsole
         #region Demo - La Perdiz
 
         /// <summary>
-        /// Add Irrigation Data to Demo - La Perdiz Pivot 1 for 2015-16
+        /// Add IrrigationQuantity Data to Demo - La Perdiz Pivot 1 for 2015-16
         /// </summary>
         /// <param name="context"></param>
         public static void AddIrrigationDataDemoPivot1_2015(IrrigationAdvisorContext context)
@@ -7771,7 +7771,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add Irrigation Data to Demo - La Perdiz Pivot 2 for 2015-16
+        /// Add IrrigationQuantity Data to Demo - La Perdiz Pivot 2 for 2015-16
         /// </summary>
         /// <param name="context"></param>
         public static void AddIrrigationDataDemoPivot2_2015(IrrigationAdvisorContext context)
@@ -7836,7 +7836,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add Irrigation Data to La Perdiz Pivot 3 for 2015-16
+        /// Add IrrigationQuantity Data to La Perdiz Pivot 3 for 2015-16
         /// </summary>
         /// <param name="context"></param>
         public static void AddIrrigationDataDemoPivot3_2015(IrrigationAdvisorContext context)
@@ -7902,7 +7902,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add Irrigation Data to La Perdiz Pivot 5 for 2015-16
+        /// Add IrrigationQuantity Data to La Perdiz Pivot 5 for 2015-16
         /// </summary>
         /// <param name="context"></param>
         public static void AddIrrigationDataDemoPivot5_2015(IrrigationAdvisorContext context)
@@ -7974,7 +7974,7 @@ namespace IrrigationAdvisorConsole
         #region La Perdiz
 
         /// <summary>
-        /// Add Irrigation Data to La Perdiz Pivot 2 for 2015-16
+        /// Add IrrigationQuantity Data to La Perdiz Pivot 2 for 2015-16
         /// </summary>
         /// <param name="context"></param>
         public static void AddIrrigationDataLaPerdizPivot2_2015(IrrigationAdvisorContext context)
@@ -8039,7 +8039,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add Irrigation Data to La Perdiz Pivot 3 for 2015-16
+        /// Add IrrigationQuantity Data to La Perdiz Pivot 3 for 2015-16
         /// </summary>
         /// <param name="context"></param>
         public static void AddIrrigationDataLaPerdizPivot3_2015(IrrigationAdvisorContext context)
@@ -8105,7 +8105,7 @@ namespace IrrigationAdvisorConsole
         }
 
         /// <summary>
-        /// Add Irrigation Data to La Perdiz Pivot 5 for 2015-16
+        /// Add IrrigationQuantity Data to La Perdiz Pivot 5 for 2015-16
         /// </summary>
         /// <param name="context"></param>
         public static void AddIrrigationDataLaPerdizPivot5_2015(IrrigationAdvisorContext context)
@@ -8656,8 +8656,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDemo1)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -8834,8 +8834,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDemo2)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -9013,8 +9013,8 @@ namespace IrrigationAdvisorConsole
                             select horizon)
                             .ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -9184,8 +9184,8 @@ namespace IrrigationAdvisorConsole
                             select horizon)
                             .ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -9358,8 +9358,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotLaPerdiz2)
                             select horizon).ToList<Horizon>();
             
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -9536,8 +9536,8 @@ namespace IrrigationAdvisorConsole
                             select horizon)
                             .ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -9706,8 +9706,8 @@ namespace IrrigationAdvisorConsole
                             select horizon)
                             .ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -9879,8 +9879,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoSanPedro5)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -10056,8 +10056,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoSanPedro6)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -10233,8 +10233,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoSanPedro7)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -10410,8 +10410,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoSanPedro8)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -10592,8 +10592,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador6)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -10769,8 +10769,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador7)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -10946,8 +10946,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador8)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -11123,8 +11123,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador9)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -11304,8 +11304,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotLaPalma2A)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -11481,8 +11481,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotLaPalma3)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
@@ -11658,8 +11658,8 @@ namespace IrrigationAdvisorConsole
                             where horizon.Name.StartsWith(Utils.NamePivotLaPalma4)
                             select horizon).ToList<Horizon>();
 
-            //The start day is one day after sowing 
-            //because the first day is created when the testCrop is created
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {

@@ -26,13 +26,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using IrrigationAdvisor.DBContext.Management;
+using IrrigationAdvisor.DBContext.Water;
+using IrrigationAdvisor.Models.Water;
+using IrrigationAdvisor.ViewModels.Management;
+using IrrigationAdvisor.ViewModels.Water;
 
 namespace IrrigationAdvisor.Controllers
 {
 
     public class HomeController : Controller
     {
+        //TODO: Refactor ErrorClass with code and text
+        private const int AUTHENTICATION_ERROR_NR = 10001;
         private const string AUTHENTICATION_ERROR = "Credenciales inválidas";
+        private const int NO_FARMS_FOR_USER_NR = 10002;
         private const string NO_FARMS_FOR_USER = "El usuario no tiene granjas asignadas";
 
         public ActionResult Index()
@@ -44,7 +52,7 @@ namespace IrrigationAdvisor.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            return View(getGridPivotHome());
+            return View(GetGridPivotHome());
         }
 
         public ActionResult Contact()
@@ -52,56 +60,86 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
-        public ActionResult Home(LoginViewModel loginViewModel)
+        public ActionResult Home(LoginViewModel pLoginViewModel)
         {
             Authentication lAuthentication;
+            HomeViewModel HVM;
+
+            #region Configuration Variables
             UserConfiguration uc;
             FarmConfiguration fc;
             BombConfiguration bc;
             IrrigationUnitConfigurarion iuc;
+            CropIrrigationWeatherConfiguration ciwc;
+            DailyRecordConfiguration drc;
+            RainConfiguration rc;
+            IrrigationConfiguration ic;
+            #endregion
 
+            #region Local Variables
+            DateTime lDateOfReference;
+            ErrorViewModel lErrorVM;
+            FarmViewModel lFarmViewModel;
             User lLoggedUser;
             List<Farm> lFarmList;
+            Farm lFirstFarm;
             List<FarmViewModel> lFarmViewModelList;
             List<Bomb> lBombList;
             List<IrrigationUnit> lIrrigationUnitList;
+            List<CropIrrigationWeather> lCropIrrigationWeatherList;
+            CropIrrigationWeather lFirstCropIrrigationWeather;
+            List<Rain> lRainList;
+            List<Models.Water.Irrigation> lIrrigationList;
+            List<DailyRecord> lDailyRecordList;
 
-            ManageSession.SetUserName(loginViewModel.UserName);
-            ManageSession.SetUserPassword(loginViewModel.Password);
+            List<DailyRecordViewModel> lDailyRecordViewModelList;
+            List<RainViewModel> lRainViewModelList;
+            List<IrrigationViewModel> lIrrigationViewModelList;
+
+            #endregion
+            try 
+	            {	        
+		
+                ManageSession.SetUserName(pLoginViewModel.UserName);
+                ManageSession.SetUserPassword(pLoginViewModel.Password);
 
 
-            lAuthentication = new Authentication(loginViewModel.UserName, loginViewModel.Password);
+                lAuthentication = new Authentication(pLoginViewModel.UserName, pLoginViewModel.Password);
+            
+                if(!lAuthentication.IsAuthenticated())
+                {
+                    pLoginViewModel.InvalidPasswordMessage = AUTHENTICATION_ERROR;
+                    return View("Index", pLoginViewModel);
+                }
 
-            uc = new UserConfiguration();
-            fc = new FarmConfiguration();
-            bc = new BombConfiguration();
-            iuc = new IrrigationUnitConfigurarion();
+                #region Configuration - Instance
+                uc = new UserConfiguration();
+                fc = new FarmConfiguration();
+                bc = new BombConfiguration();
+                iuc = new IrrigationUnitConfigurarion();
+                ciwc = new CropIrrigationWeatherConfiguration();
+                drc = new DailyRecordConfiguration();
+                rc = new RainConfiguration();
+                ic = new IrrigationConfiguration();
+                #endregion
 
-            FarmViewModel lFarmViewModel;
+                lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
 
-            if(!lAuthentication.IsAuthenticated())
-            {
-                loginViewModel.InvalidPasswordMessage = AUTHENTICATION_ERROR;
-                return View("Index", loginViewModel);
-                
-            }
-            else
-            {
                 //Obtain logged user
-                lLoggedUser = uc.GetUserByName(loginViewModel.UserName);
+                lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
 
                 //Get list of Farms from User
                 lFarmList = fc.GetFarmListBy(lLoggedUser);
 
-                ErrorViewModel errorVM = new ErrorViewModel();
+                lErrorVM = new ErrorViewModel();
 
                 // If the user doesnt have farms
                 if (lFarmList.Count == 0)
                 {
-                    errorVM.Code = "1";
-                    errorVM.Description = NO_FARMS_FOR_USER;
+                    lErrorVM.Code = NO_FARMS_FOR_USER_NR;
+                    lErrorVM.Description = NO_FARMS_FOR_USER;
 
-                    HomeViewModel HVMError = new HomeViewModel(errorVM);
+                    HomeViewModel HVMError = new HomeViewModel(lErrorVM);
 
                     return View(HVMError);
                 }
@@ -113,7 +151,7 @@ namespace IrrigationAdvisor.Controllers
                 //Create Bomb List
                 lBombList = new List<Bomb>();
 
-                //Create Irrigation Units List
+                //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
 
                 //Map each farm with FarmViewModel and add to a list
@@ -123,22 +161,65 @@ namespace IrrigationAdvisor.Controllers
                     lIrrigationUnitList = farm.IrrigationUnitList;
                     lFarmViewModel = new FarmViewModel(farm);
                     lFarmViewModelList.Add(lFarmViewModel);
+                }
+
+                lFirstFarm = lFarmList.FirstOrDefault();
+                lFarmViewModel = new FarmViewModel(lFirstFarm);
+                lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lFirstFarm);
+
+                lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+                lDailyRecordList = new List<DailyRecord>();
+                foreach (var lIrrigationUnit in lIrrigationUnitList)
+                {
+                    lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lDateOfReference);
+                    lDailyRecordList = ciwc.GetDailyRecordListBy(lIrrigationUnit, lDateOfReference);
 
                 }
-                //Create View Model of Home
-                HomeViewModel HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList);
-                return View(HVM);
-            }
-                
 
-         
+                //Demo - First CropIrrigationWeather
+                lFirstCropIrrigationWeather = lCropIrrigationWeatherList.FirstOrDefault();
+                //lDailyRecordList = lFirstCropIrrigationWeather.DailyRecordList;
+                
+                lRainList = lFirstCropIrrigationWeather.RainList;
+                lRainViewModelList = new List<RainViewModel>();
+                foreach (var rain in lRainList)
+                {
+                    lRainViewModelList.Add(new RainViewModel(rain));
+                }
+
+                lIrrigationList = lFirstCropIrrigationWeather.IrrigationList;
+                lIrrigationViewModelList = new List<IrrigationViewModel>();
+                foreach (var irrigation in lIrrigationList)
+                {
+                    lIrrigationViewModelList.Add(new IrrigationViewModel(irrigation));
+                }
+
+                lDailyRecordViewModelList = new List<DailyRecordViewModel>();
+                foreach (var daily in lDailyRecordList)
+                {
+                    lDailyRecordViewModelList.Add(new DailyRecordViewModel(daily));
+                }
+
+                //Demo - One Pivot
+                HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
+                    lFarmViewModel, lFirstCropIrrigationWeather, lDailyRecordViewModelList,
+                    lRainViewModelList, lIrrigationViewModelList);
+                
+                //Create View Model of Home
+                //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
+                return View(HVM);
+
+	        }
+	        catch (Exception ex)
+	        {
+		        throw ex;
+	        }
 
         }
 
         [CustomAuthorize]
         public ActionResult HomeAuth()
         {
-
             return View("Home");
         }
 
@@ -151,33 +232,33 @@ namespace IrrigationAdvisor.Controllers
         {
             ManageSession.CleanSession();
             return View("Index", new LoginViewModel());
-
         }
 
 
         [HttpPost]
         public ActionResult AddIrrigation(string irrigation, string pivot)
         {
-
             return Json("Finished");
         }
 
         [ChildActionOnly]
         public PartialViewResult FrontPagePartial()
         {
-            return PartialView("_FrontPagePartial", getGridPivotHome());
+            return PartialView("_FrontPagePartial", GetGridPivotHome());
         }
 
         [ChildActionOnly]
         public PartialViewResult FrontPageHeaderPartial()
         {
-            return PartialView("_FrontPageHeaderPartial", getGridPivotHome());
+            return PartialView("_FrontPageHeaderPartial", GetGridPivotHome());
         }
+
         [ChildActionOnly]
         public PartialViewResult WeatherPartial()
         {
             return PartialView("_WeatherPartial", getWeatherHome());
         }
+
         public PartialViewResult WeatherHomePartial()
         {
             return PartialView("_WeatherHomePartial", getWeatherHome());
@@ -187,19 +268,18 @@ namespace IrrigationAdvisor.Controllers
         public PartialViewResult LoginHomePartial()
         {
 
-
-            if(ManageSession.GetUserName() == null)
+            if (ManageSession.GetUserName() == null)
+            {
                 return PartialView("_LoginHomePartial", new LoginViewModel());
+            }
 
-            
             Authentication auth = new Authentication(ManageSession.GetUserName(), ManageSession.GetUserPassword());
             LoginViewModel login = new LoginViewModel();
             if (!auth.IsAuthenticated())
             {
-                
                 login.InvalidPasswordMessage = AUTHENTICATION_ERROR;
             }
-                
+
             return PartialView("_LoginHomePartial", login);
         }
 
@@ -207,7 +287,7 @@ namespace IrrigationAdvisor.Controllers
         {
 
             MenuViewModel menuVM = new MenuViewModel();
-            
+
             string lLoggedUser = ManageSession.GetUserName();
 
             UserConfiguration uc = new UserConfiguration();
@@ -226,8 +306,7 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("_ContactPartial");
         }
 
-        
-        
+
         [HttpPost]
         public void SendEmail()
         {
@@ -290,8 +369,9 @@ namespace IrrigationAdvisor.Controllers
         }
 
 
-        private readonly List<GridPivotHome> gridPivotHome = new List<GridPivotHome>();
-        public List<GridPivotHome> getGridPivotHome()
+        private readonly List<GridPivotHome> gridIrrigationUnitHomeList = new List<GridPivotHome>();
+
+        public List<GridPivotHome> GetGridPivotHome()
         {
             List<GridPivotDetailHome> gridPivotDetailHome2 = new List<GridPivotDetailHome>();
             List<GridPivotDetailHome> gridPivotDetailHome1 = new List<GridPivotDetailHome>();
@@ -315,10 +395,10 @@ namespace IrrigationAdvisor.Controllers
 
 
 
-            gridPivotHome.Add(new GridPivotHome("Piv. 1", "v0", "Maiz", gridPivotDetailHome2));
-            gridPivotHome.Add(new GridPivotHome("Piv. 2", "v2", "Soja", gridPivotDetailHome1));
+            gridIrrigationUnitHomeList.Add(new GridPivotHome("Piv. 1", "v0", "Maiz", gridPivotDetailHome2));
+            gridIrrigationUnitHomeList.Add(new GridPivotHome("Piv. 2", "v2", "Soja", gridPivotDetailHome1));
 
-            return gridPivotHome;
+            return gridIrrigationUnitHomeList;
 
         }
 
@@ -441,7 +521,7 @@ namespace IrrigationAdvisor.Controllers
             testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 5", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
 
             IrrigationAdvisorContext var = new IrrigationAdvisorContext();
-            //var.Farms.Where(q => q.Name == "Santa Lucia").First().IrrigationUnitList
+            //var.Farms.Where(q => q.Name == "Santa Lucia").First().IrrigationUnitViewModelList
             // var x =  var.Stages.Add(new Models.Agriculture.Stage(1,"Prueba", "desc"));
 
             return PartialView("_AddIrrigation", testIrrigationSystem.IrrigationUnitList);

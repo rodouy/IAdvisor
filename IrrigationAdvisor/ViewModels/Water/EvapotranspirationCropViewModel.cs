@@ -1,4 +1,5 @@
-﻿using IrrigationAdvisor.Models.Water;
+﻿using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.Models.Water;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace IrrigationAdvisor.ViewModels.Water
 {
-    public class WaterOutputViewModel
+    public class EvapotranspirationCropViewModel
     {
         
         #region Consts
@@ -18,6 +19,8 @@ namespace IrrigationAdvisor.ViewModels.Water
         #region Properties
 
         public long WaterOutputId { get; set; }
+
+        public Utils.WaterOutputType Type { get; set; }
 
         public DateTime Date { get; set; }
 
@@ -33,14 +36,15 @@ namespace IrrigationAdvisor.ViewModels.Water
         
         #region Construction
 
-        public WaterOutputViewModel(WaterOutput pWaterOutput)
+        public EvapotranspirationCropViewModel(EvapotranspirationCrop pEvapotranspirationCrop)
         {
-            this.WaterOutputId = pWaterOutput.WaterOutputId;
-            this.Date = pWaterOutput.Date;
-            this.Output = pWaterOutput.Output;
-            this.ExtraDate = pWaterOutput.ExtraDate;
-            this.ExtraOutput = pWaterOutput.ExtraOutput;
-            this.CropIrrigationWeatherId = pWaterOutput.CropIrrigationWeatherId;
+            this.WaterOutputId = pEvapotranspirationCrop.WaterOutputId;
+            this.Type = pEvapotranspirationCrop.Type;
+            this.Date = pEvapotranspirationCrop.Date;
+            this.Output = pEvapotranspirationCrop.Output;
+            this.ExtraDate = pEvapotranspirationCrop.ExtraDate;
+            this.ExtraOutput = pEvapotranspirationCrop.ExtraOutput;
+            this.CropIrrigationWeatherId = pEvapotranspirationCrop.CropIrrigationWeatherId;
         }
 
         #endregion
@@ -55,5 +59,4 @@ namespace IrrigationAdvisor.ViewModels.Water
         #endregion
 
     }
-
 }

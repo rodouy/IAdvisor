@@ -243,6 +243,42 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             Green
         }
+        
+        /// <summary>
+        /// The days of the week in Spanish
+        /// </summary>
+        public enum DayOfWeekSpanish
+        {
+            /// <summary>
+            /// Sunday
+            /// </summary>
+            Domingo,
+            /// <summary>
+            /// Monday
+            /// </summary>
+            Lunes,
+            /// <summary>
+            /// Tuesday
+            /// </summary>
+            Martes,
+            /// <summary>
+            /// Wednesday
+            /// </summary>
+            Miércoles,
+            /// <summary>
+            /// Thursday
+            /// </summary>
+            Jueves,
+            /// <summary>
+            /// Friday
+            /// </summary>
+            Viernes,
+            /// <summary>
+            /// Saturday
+            /// </summary>
+            Sábado
+        }
+
 
         //For Processing
         /// <summary>
@@ -776,6 +812,42 @@ namespace IrrigationAdvisor.Models.Utilities
                 && dateOne.Hour == dateTwo.Hour)
             {
                 lReturn = true;
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Return the day of the week in spanish
+        /// </summary>
+        /// <param name="pDayOfWeek"></param>
+        /// <returns></returns>
+        public static String DayOfWeekInSpanish(DayOfWeek pDayOfWeek)
+        {
+            String lReturn = "";
+
+            switch (pDayOfWeek)
+            {
+                case DayOfWeek.Sunday:
+                    lReturn = "Domingo";
+                    break;
+                case DayOfWeek.Monday:
+                    lReturn = "Lunes";
+                    break;
+                case DayOfWeek.Tuesday:
+                    lReturn = "Martes";
+                    break;
+                case DayOfWeek.Wednesday:
+                    lReturn = "Miércoles";
+                    break;
+                case DayOfWeek.Thursday:
+                    lReturn = "Jueves";
+                    break;
+                case DayOfWeek.Friday:
+                    lReturn = "Viernes";
+                    break;
+                case DayOfWeek.Saturday:
+                    lReturn = "Sábado";
+                    break;
             }
             return lReturn;
         }
