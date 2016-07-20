@@ -7,7 +7,8 @@
 <link rel="stylesheet" type="text/css" href="../css/modal.css">
 <link rel="stylesheet" type="text/css" href="../css/style-1.css">
 <link rel="stylesheet" type="text/css" href="../css/md-font.css">
-
+<script src="~/js/Home.js"></script>
+<script src="~/Scripts/moment.js"></script>
 
 <!-- Content Bar -->
 
@@ -113,47 +114,64 @@
                                 </div>
                                 <div class="copy">
                                     <p>  </p>
-                                    <form role="form">
+                              
                                         <div class="form-group">
-                                            <input type="text" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="lluvia">
+                                            <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain">
                                             <br />
                                             <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                     Seleccionar Día
                                                     <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                    <li><a href="#">Miercoles 04/11</a></li>
-                                                    <li><a href="#">Jueves 05/11</a></li>
-                                                    <li><a href="#">Viernes 06/11</a></li>
-                                                    <li><a href="#">Sabado 07/11</a></li>
-                                                    <li><a href="#">Domingo 08/11</a></li>
-                                                </ul>
+                                                    </button>
+                                                *@
+                                                Seleccionar Día
+                                                
+                                                <select id="rainDate">
+                                                    <option value="@DateTime.Now.AddDays(-1).ToShortDateString()">@DateTime.Now.AddDays(-1).ToShortDateString()</option>
+                                                    <option value="@DateTime.Now.AddDays(-2).ToShortDateString()">@DateTime.Now.AddDays(-2).ToShortDateString()</option>
+                                                    <option value="@DateTime.Now.AddDays(-3).ToShortDateString()">@DateTime.Now.AddDays(-3).ToShortDateString()</option>
+                                                    <option value="@DateTime.Now.AddDays(-4).ToShortDateString()">@DateTime.Now.AddDays(-4).ToShortDateString()</option>
+                                                    <option value="@DateTime.Now.AddDays(-5).ToShortDateString()">@DateTime.Now.AddDays(-5).ToShortDateString()</option>
+                                                </select>
+                                                
                                                 <br />
                                             </div>
                                             <br />
                                             <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                     Seleccionar Unidad de Riego
                                                     <span class="caret"></span>
-                                                </button>
+                                                </button>*@
+                                                Seleccionar Unidad de Riego
+                                                    <select id="IrrigationUnit">
+                                                        <option value="-1">Todos</option>
+                                                       @foreach (var item in Model.IrrigationUnitViewModelList)
+                                                        {
+                                                            <option value="@item.IrrigationUnitId">@item.Name</option>
 
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="font-size:13px !important">
-                                                    <li><a href="#">Pivot 1</a></li>
-                                                    <li><a href="#">Pivot 2</a></li>
-                                                    <li><a href="#">Pivot 3</a></li>
-                                                    <li><a href="#">Pivot 4</a></li>
-                                                </ul>
-
+                                                        }
+                                                    </select>
+                                                        
                                                 <br />
                                             </div>
 
                                         </div>
-                                    </form>
+                                    
                                 </div>
                                 <div class="cf footer">
-                                    <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-                                    <button type="button" class="btn btn-success">Guardar</button>
+                                    <p> 
+                                        <a href="#" class="btn  btn-style-2">
+                                        Cancelar
+                                        </a>
+                                    
+                                    </p>
+                                    
+                                    
+                                        <button id="SaveRain" class="btn  btn-style-2">
+                                            Guardar
+                                        </button>
+                                    
+                                    
                                 </div>
                             </div>
                             <div class="overlay"></div>

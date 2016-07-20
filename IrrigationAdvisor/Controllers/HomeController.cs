@@ -31,6 +31,8 @@ using IrrigationAdvisor.DBContext.Water;
 using IrrigationAdvisor.Models.Water;
 using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.ViewModels.Water;
+using IrrigationAdvisor.ViewModels.Irrigation;
+using System.Globalization;
 
 namespace IrrigationAdvisor.Controllers
 {
@@ -124,6 +126,7 @@ namespace IrrigationAdvisor.Controllers
                 #endregion
 
                 lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
+                ManageSession.SetDateOfReference(lDateOfReference);
 
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
@@ -210,6 +213,8 @@ namespace IrrigationAdvisor.Controllers
 
                 HVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
 
+                ManageSession.SetHomeViewModel(HVM);
+
                 return View(HVM);
 
 	        }
@@ -238,10 +243,54 @@ namespace IrrigationAdvisor.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult AddIrrigation(string irrigation, string pivot)
+        [HttpGet]
+        public ActionResult AddRain(double pMilimeters, 
+                                    int pIrrigationUnitId, 
+                                    int pDay, 
+                                    int pMonth, 
+                                    int pYear)
         {
-            return Json("Finished");
+
+            try
+            {
+                
+                HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
+               
+                DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
+                DateTime? lReferenceDate = ManageSession.GetDateOfReference();
+
+                IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+                CropIrrigationWeatherConfiguration lCropConf = new CropIrrigationWeatherConfiguration();
+
+                CropIrrigationWeather lCropIrrigationWeather = null;
+
+                if (pIrrigationUnitId > -1)
+                {
+                    lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == pIrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
+                    lCropIrrigationWeather.AddRainDataToList(lDateResult, pMilimeters);
+                    lContext.SaveChanges();
+                }
+                else
+                {
+                    foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
+                    {
+                        lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == item.IrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
+                        lCropIrrigationWeather.AddRainDataToList(lDateResult, pMilimeters);
+                        lContext.SaveChanges();
+                    }
+                }
+                
+               
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
+
+            return RedirectToAction("Home");
         }
 
         [ChildActionOnly]

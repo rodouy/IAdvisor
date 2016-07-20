@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IrrigationAdvisor.ViewModels.Home;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -39,6 +40,37 @@ namespace IrrigationAdvisor
         public static void SetUserPassword(string password)
         {
             HttpContext.Current.Session["UserPassword"] = password;
+        }
+
+        public static HomeViewModel GetHomeViewModel()
+        {
+            HomeViewModel result = null;
+
+            if (HttpContext.Current.Session["HomeViewModelModel"] != null)
+                result = (HomeViewModel)HttpContext.Current.Session["HomeViewModelModel"];
+
+            return result;
+        }
+
+        public static void SetHomeViewModel(HomeViewModel pHomeViewModel)
+        {
+            HttpContext.Current.Session["HomeViewModelModel"] = pHomeViewModel;
+        }
+
+        public static void SetDateOfReference(DateTime pDateOfReference)
+        {
+            HttpContext.Current.Session["DateOfReference"] = pDateOfReference;
+        }
+
+
+        public static DateTime? GetDateOfReference()
+        {
+            DateTime? result = null;
+
+            if (HttpContext.Current.Session["DateOfReference"] != null)
+                result = (DateTime)HttpContext.Current.Session["DateOfReference"];
+
+            return result;
         }
 
         public static void CleanSession()
