@@ -144,7 +144,7 @@
                                                 </button>*@
                                                 Seleccionar Unidad de Riego
                                                     <select id="IrrigationUnit">
-
+                                                        <option value="-1">Todos</option>
                                                        @foreach (var item in Model.IrrigationUnitViewModelList)
                                                         {
                                                             <option value="@item.IrrigationUnitId">@item.Name</option>

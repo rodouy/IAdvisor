@@ -30,12 +30,13 @@
             url: pUrl,
             success:function()
             {
-                
+                $('#myModal').modal('hide');
             },
             error: function(data)
             {
-                debugger;
-                alert(data);
+                
+                console.log("Error on AddRain");
+                $('#myModal').modal('hide');
             }
         });
 

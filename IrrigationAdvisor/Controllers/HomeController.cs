@@ -126,6 +126,7 @@ namespace IrrigationAdvisor.Controllers
                 #endregion
 
                 lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
+                ManageSession.SetDateOfReference(lDateOfReference);
 
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
@@ -252,17 +253,34 @@ namespace IrrigationAdvisor.Controllers
 
             try
             {
+                
                 HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
                
                 DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
-                IrrigationAdvisorContext context = new IrrigationAdvisorContext();
+                DateTime? lReferenceDate = ManageSession.GetDateOfReference();
+
+                IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
                 CropIrrigationWeatherConfiguration lCropConf = new CropIrrigationWeatherConfiguration();
 
-                CropIrrigationWeather lCropIrrigationWeather = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == lHomeViewModel.CropIrrigationWeatherViewModel.CropIrrigationWeatherId).FirstOrDefault();
+                CropIrrigationWeather lCropIrrigationWeather = null;
 
-                lCropIrrigationWeather.AddRainDataToList(lDateResult, pMilimeters);
-
-                context.SaveChanges();
+                if (pIrrigationUnitId > -1)
+                {
+                    lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == pIrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
+                    lCropIrrigationWeather.AddRainDataToList(lDateResult, pMilimeters);
+                    lContext.SaveChanges();
+                }
+                else
+                {
+                    foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
+                    {
+                        lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == item.IrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
+                        lCropIrrigationWeather.AddRainDataToList(lDateResult, pMilimeters);
+                        lContext.SaveChanges();
+                    }
+                }
+                
+               
 
             }
             catch (Exception ex)

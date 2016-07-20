@@ -57,6 +57,22 @@ namespace IrrigationAdvisor
             HttpContext.Current.Session["HomeViewModelModel"] = pHomeViewModel;
         }
 
+        public static void SetDateOfReference(DateTime pDateOfReference)
+        {
+            HttpContext.Current.Session["DateOfReference"] = pDateOfReference;
+        }
+
+
+        public static DateTime? GetDateOfReference()
+        {
+            DateTime? result = null;
+
+            if (HttpContext.Current.Session["DateOfReference"] != null)
+                result = (DateTime)HttpContext.Current.Session["DateOfReference"];
+
+            return result;
+        }
+
         public static void CleanSession()
         {
             HttpContext.Current.Session["UserName"] = null;
