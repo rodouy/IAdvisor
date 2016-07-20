@@ -1,16 +1,16 @@
 ﻿$(document).ready(function () {
 
-
-
-    
-
     $('#SaveRain').click(function()
     {
+
+
         var rainDate = moment($('#rainDate :selected').val(),'dd/mm/yyyy');
 
         addIrrigation(  $('#rain').val(),
                         $('#IrrigationUnit :selected').val(),
                         rainDate);
+
+        
 
     });
    
@@ -30,7 +30,9 @@
             url: pUrl,
             success:function()
             {
-                $('#myModal').modal('hide');
+
+                location.reload();
+                
             },
             error: function(data)
             {

@@ -35,7 +35,7 @@
 <section class="profile">
     <div class="container">
         @{
-            if(Model.ErrorViewModel == null)
+            if (Model.ErrorViewModel == null)
             {
                 @:<div class="row">
         <div class="col-md-8">
@@ -44,7 +44,7 @@
                     <h3 class="fa fa-dashboard fa-2x"> Pivots </h3>
                     <div class="add-btn-grid-2">
                         <p>
-                            <a href="#modal-lluvia" class="btn go btn-pivots btn-md">
+                            <a class="btn go btn-pivots btn-md" href="#modal-lluvia">
                                 <span class="glyphicon glyphicon-plus"></span>Agregar lluvia
                             </a>
                         </p>
@@ -125,13 +125,15 @@
                                                     </button>
                                                 *@
                                                 Seleccionar Día
-                                                
+                                                @{
+                                                    DateTime dateValue = Convert.ToDateTime(ViewBag.DateOfReference);
+                                                }
                                                 <select id="rainDate">
-                                                    <option value="@DateTime.Now.AddDays(-1).ToShortDateString()">@DateTime.Now.AddDays(-1).ToShortDateString()</option>
-                                                    <option value="@DateTime.Now.AddDays(-2).ToShortDateString()">@DateTime.Now.AddDays(-2).ToShortDateString()</option>
-                                                    <option value="@DateTime.Now.AddDays(-3).ToShortDateString()">@DateTime.Now.AddDays(-3).ToShortDateString()</option>
-                                                    <option value="@DateTime.Now.AddDays(-4).ToShortDateString()">@DateTime.Now.AddDays(-4).ToShortDateString()</option>
-                                                    <option value="@DateTime.Now.AddDays(-5).ToShortDateString()">@DateTime.Now.AddDays(-5).ToShortDateString()</option>
+                                                    <option value="@(dateValue.ToShortDateString())">@(dateValue.ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-1).ToShortDateString())">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-2).ToShortDateString())">@(dateValue.AddDays(-2).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-3).ToShortDateString())">@(dateValue.AddDays(-3).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-4).ToShortDateString())">@(dateValue.AddDays(-4).ToShortDateString())</option>
                                                 </select>
                                                 
                                                 <br />
@@ -166,12 +168,10 @@
                                     
                                     </p>
                                     
-                                    
-                                        <button id="SaveRain" class="btn  btn-style-2">
+                                        <a  id="SaveRain" class="btn  btn-style-2" href="#">
                                             Guardar
-                                        </button>
-                                    
-                                    
+                                        </a>
+                                        
                                 </div>
                             </div>
                             <div class="overlay"></div>
@@ -233,8 +233,8 @@
                                     </form>
                                 </div>
                                 <div class="cf footer">
-                                    <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-                                    <button type="button" class="btn btn-success">Guardar</button>
+                                    <p> <a href="#" class="btn  btn-style-2" >Cancelar</a></p>
+                                    <button type="button" class="btn btn-success" >Guardar</button>
                                 </div>
                             </div>
                             <div class="overlay"></div>

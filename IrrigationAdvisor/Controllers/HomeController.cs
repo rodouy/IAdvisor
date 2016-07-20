@@ -127,7 +127,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
                 ManageSession.SetDateOfReference(lDateOfReference);
-
+                ViewBag.DateOfReference = lDateOfReference;
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
 
