@@ -31,6 +31,8 @@ using IrrigationAdvisor.DBContext.Water;
 using IrrigationAdvisor.Models.Water;
 using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.ViewModels.Water;
+using IrrigationAdvisor.ViewModels.Irrigation;
+using System.Globalization;
 
 namespace IrrigationAdvisor.Controllers
 {
@@ -210,6 +212,8 @@ namespace IrrigationAdvisor.Controllers
 
                 HVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
 
+                ManageSession.SetHomeViewModel(HVM);
+
                 return View(HVM);
 
 	        }
@@ -238,10 +242,37 @@ namespace IrrigationAdvisor.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult AddIrrigation(string irrigation, string pivot)
+        [HttpGet]
+        public ActionResult AddRain(double pMilimeters, 
+                                    int pIrrigationUnitId, 
+                                    int pDay, 
+                                    int pMonth, 
+                                    int pYear)
         {
-            return Json("Finished");
+
+            try
+            {
+                HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
+               
+                DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
+                IrrigationAdvisorContext context = new IrrigationAdvisorContext();
+                CropIrrigationWeatherConfiguration lCropConf = new CropIrrigationWeatherConfiguration();
+
+                CropIrrigationWeather lCropIrrigationWeather = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == lHomeViewModel.CropIrrigationWeatherViewModel.CropIrrigationWeatherId).FirstOrDefault();
+
+                lCropIrrigationWeather.AddRainDataToList(lDateResult, pMilimeters);
+
+                context.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
+
+            return RedirectToAction("Home");
         }
 
         [ChildActionOnly]
