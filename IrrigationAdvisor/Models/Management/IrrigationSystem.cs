@@ -596,16 +596,18 @@ namespace IrrigationAdvisor.Models.Management
         ///     if exist in the list, return the crop from the list.
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pRegion"></param>
-        /// <param name="pSpecieCycle"></param>
+        /// <param name="pSpecie"></param>
         /// <param name="pCropCoefficient"></param>
         /// <param name="pStageList"></param>
         /// <param name="pPhenologicalStageList"></param>
         /// <param name="pDensity"></param>
         /// <param name="pMaxEvapotranspirationToIrrigate"></param>
         /// <param name="pMinEvapotranspirationToIrrigate"></param>
+        /// <param name="pStopIrrigationStageId"></param>
         /// <returns></returns>
-        public Crop AddCrop(String pName, Region pRegion, Specie pSpecie, 
+        public Crop AddCrop(String pName, String pShortName, Region pRegion, Specie pSpecie, 
                         CropCoefficient pCropCoefficient, List<Stage> pStageList,
                         List<PhenologicalStage> pPhenologicalStageList, 
                         Double pDensity, Double pMaxEvapotranspirationToIrrigate,
@@ -613,7 +615,7 @@ namespace IrrigationAdvisor.Models.Management
         {
             Crop lReturn = null;
             int lCropId = this.CropList.Count();
-            Crop lCrop = new Crop(lCropId, pName, pRegion.RegionId, pSpecie.SpecieId, 
+            Crop lCrop = new Crop(lCropId, pName, pShortName, pRegion.RegionId, pSpecie.SpecieId, 
                                 pCropCoefficient.CropCoefficientId, pPhenologicalStageList,
                                 pDensity, pMaxEvapotranspirationToIrrigate, pMinEvapotranspirationToIrrigate,
                                 pStopIrrigationStageId);
@@ -646,10 +648,12 @@ namespace IrrigationAdvisor.Models.Management
             return lReturn;
         }
 
+        
         /// <summary>
         /// Update the crop if exists in CropList, else return null
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pRegion"></param>
         /// <param name="pSpecie"></param>
         /// <param name="pCropCoefficient"></param>
@@ -659,13 +663,13 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pMinEvapotranspirationToIrrigate"></param>
         /// <param name="pStopIrrigationStageId"></param>
         /// <returns></returns>
-        public Crop UpdateCrop(String pName, Region pRegion, Specie pSpecie,
+        public Crop UpdateCrop(String pName, String pShortName, Region pRegion, Specie pSpecie,
                         CropCoefficient pCropCoefficient, List<PhenologicalStage> pPhenologicalStageList, 
                         Double pDensity, Double pMaxEvapotranspirationToIrrigate, Double pMinEvapotranspirationToIrrigate,
                         long pStopIrrigationStageId)
         {
             Crop lReturn = null;
-            Crop lCrop = new Crop(0, pName, pRegion.RegionId, pSpecie.SpecieId, 
+            Crop lCrop = new Crop(0, pName, pShortName, pRegion.RegionId, pSpecie.SpecieId, 
                             pCropCoefficient.CropCoefficientId, pPhenologicalStageList,
                             pDensity, pMaxEvapotranspirationToIrrigate, pMinEvapotranspirationToIrrigate,
                             pStopIrrigationStageId);
@@ -1024,14 +1028,17 @@ namespace IrrigationAdvisor.Models.Management
         /// Add IrrigationUnit
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pIrrigationType"></param>
         /// <param name="pIrrigationEfficiency"></param>
         /// <param name="pIrrigationList"></param>
         /// <param name="pSurface"></param>
-        /// <param name="pBomb"></param>
-        /// <param name="pLocation"></param>
+        /// <param name="pBombId"></param>
+        /// <param name="pPositionId"></param>
+        /// <param name="pPredeterminatedIrrigationQuantity"></param>
         /// <returns></returns>
-        public IrrigationUnit AddIrrigationUnit(String pName, Utils.IrrigationUnitType pIrrigationType,
+        public IrrigationUnit AddIrrigationUnit(String pName, String pShortName, 
+                                                Utils.IrrigationUnitType pIrrigationType,
                                                 Double pIrrigationEfficiency, 
                                                 List<Pair<DateTime, double>>  pIrrigationList, 
                                                 Double pSurface, long pBombId, long pPositionId,
@@ -1039,8 +1046,8 @@ namespace IrrigationAdvisor.Models.Management
         {
             IrrigationUnit lReturn = null;
             long lIrrigationUnitId = this.irrigationUnitList.Count();
-            IrrigationUnit lIrrigationUnit = new IrrigationUnit(lIrrigationUnitId, pName, pIrrigationType,
-                                                pIrrigationEfficiency, pIrrigationList, 
+            IrrigationUnit lIrrigationUnit = new IrrigationUnit(lIrrigationUnitId, pName, pShortName, 
+                                                pIrrigationType, pIrrigationEfficiency, pIrrigationList, 
                                                 pSurface, pBombId, pPositionId, pPredeterminatedIrrigationQuantity);
             lReturn = ExistIrrigationUnit(lIrrigationUnit);
             if(lReturn == null)
@@ -1055,6 +1062,7 @@ namespace IrrigationAdvisor.Models.Management
         /// Update Irrigation Unit if Exists
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pIrrigationType"></param>
         /// <param name="pIrrigationEfficiency"></param>
         /// <param name="pIrrigationList"></param>
@@ -1063,14 +1071,15 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pPositionId"></param>
         /// <param name="pPredeterminatedIrrigationQuantity"></param>
         /// <returns></returns>
-        public IrrigationUnit UpdateIrrrigationUnit(String pName, Utils.IrrigationUnitType pIrrigationType,
+        public IrrigationUnit UpdateIrrrigationUnit(String pName, String pShortName, 
+                                                Utils.IrrigationUnitType pIrrigationType,
                                                 Double pIrrigationEfficiency,
                                                 List<Pair<DateTime, double>> pIrrigationList,
                                                 Double pSurface, long pBombId, long pPositionId,
                                                 Double pPredeterminatedIrrigationQuantity)
         {
             IrrigationUnit lReturn = null;
-            IrrigationUnit lIrrigationUnit = new IrrigationUnit(0, pName, pIrrigationType,
+            IrrigationUnit lIrrigationUnit = new IrrigationUnit(0, pName, pShortName, pIrrigationType,
                                                 pIrrigationEfficiency, pIrrigationList, 
                                                 pSurface, pBombId, pPositionId,
                                                 pPredeterminatedIrrigationQuantity);
@@ -1078,6 +1087,7 @@ namespace IrrigationAdvisor.Models.Management
             if(lReturn != null)
             {
                 lReturn.Name = pName;
+                lReturn.ShortName = pShortName;
                 lReturn.IrrigationType = pIrrigationType;
                 lReturn.IrrigationEfficiency = pIrrigationEfficiency;
                 lReturn.IrrigationList = pIrrigationList;

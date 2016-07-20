@@ -43,10 +43,11 @@ namespace IrrigationAdvisor.Models.Irrigation
 
         private long irrigationUnitId;
         private String name;
+        private String shortName;
         private Utils.IrrigationUnitType irrigationType;
-        private double irrigationEfficiency;
-        private List<Pair<DateTime, double>> irrigationList;
-        private double surface;
+        private Double irrigationEfficiency;
+        private List<Pair<DateTime, Double>> irrigationList;
+        private Double surface;
         private long bombId;
         private long positionId;
         private Double predeterminatedIrrigationQuantity;
@@ -67,6 +68,12 @@ namespace IrrigationAdvisor.Models.Irrigation
             get { return name; }
             set { name = value; }
         }
+
+        public String ShortName
+        {
+            get { return shortName; }
+            set { shortName = value; }
+        }
         
         public Utils.IrrigationUnitType IrrigationType
         {
@@ -74,7 +81,7 @@ namespace IrrigationAdvisor.Models.Irrigation
             set { irrigationType = value; }
         }
         
-        public double IrrigationEfficiency
+        public Double IrrigationEfficiency
         {
             get { return irrigationEfficiency; }
             set { irrigationEfficiency = value; }
@@ -86,7 +93,7 @@ namespace IrrigationAdvisor.Models.Irrigation
             set { irrigationList = value; }
         }
         
-        public double Surface
+        public Double Surface
         {
             get { return surface; }
             set { surface = value; }
@@ -127,6 +134,7 @@ namespace IrrigationAdvisor.Models.Irrigation
         {
             this.IrrigationUnitId = 0;
             this.Name = "noname";
+            this.ShortName = "";
             this.IrrigationType = 0;
             this.IrrigationEfficiency = 0;
             this.IrrigationList = new List<Pair<DateTime, double>>();
@@ -141,18 +149,22 @@ namespace IrrigationAdvisor.Models.Irrigation
         /// </summary>
         /// <param name="pIrrigationUnitId"></param>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pIrrigationType"></param>
         /// <param name="pIrrigationEfficiency"></param>
         /// <param name="pIrrigationList"></param>
         /// <param name="pSurface"></param>
-        /// <param name="pBomb"></param>
-        /// <param name="pLocation"></param>
-        public IrrigationUnit(long pIrrigationUnitId, String pName, Utils.IrrigationUnitType pIrrigationType,
-            double pIrrigationEfficiency, List<Pair<DateTime, double>> pIrrigationList,
-            double pSurface, long pBombId, long pPositionId, Double pPredeterminatedIrrigationQuantity)
+        /// <param name="pBombId"></param>
+        /// <param name="pPositionId"></param>
+        /// <param name="pPredeterminatedIrrigationQuantity"></param>
+        public IrrigationUnit(long pIrrigationUnitId, String pName, 
+            String pShortName, Utils.IrrigationUnitType pIrrigationType,
+            Double pIrrigationEfficiency, List<Pair<DateTime, Double>> pIrrigationList,
+            Double pSurface, long pBombId, long pPositionId, Double pPredeterminatedIrrigationQuantity)
         {
             this.IrrigationUnitId = pIrrigationUnitId;
             this.Name = pName;
+            this.ShortName = pShortName;
             this.IrrigationType = pIrrigationType;
             this.IrrigationEfficiency = pIrrigationEfficiency;
             this.IrrigationList = pIrrigationList;

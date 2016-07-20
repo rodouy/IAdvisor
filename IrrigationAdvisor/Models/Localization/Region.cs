@@ -647,7 +647,7 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pSpecieCycle"></param>
         /// <param name="pBaseTemperature"></param>
         /// <returns></returns>
-        public Specie AddSpecie(String pName, String pSpecieCycleName, 
+        public Specie AddSpecie(String pName, String pShortName, String pSpecieCycleName, 
                                 Double pBaseTemperature, Double pStressTemperarute)
         {
             Specie lReturn = null;
@@ -660,7 +660,7 @@ namespace IrrigationAdvisor.Models.Localization
             {
                 lSpecieCycle = this.AddSpecieCycle(pSpecieCycleName);
             }
-            lSpecie = new Specie(lSpecieId, pName, lSpecieCycle.SpecieCycleId, 
+            lSpecie = new Specie(lSpecieId, pName, pShortName, lSpecieCycle.SpecieCycleId, 
                                         pBaseTemperature, pStressTemperarute);
             lSpecie.SpecieCycle = lSpecieCycle;
             lReturn = this.ExistSpecie(lSpecie);
@@ -711,7 +711,7 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pSpecieCycleName"></param>
         /// <param name="pBaseTemperature"></param>
         /// <returns></returns>
-        public Specie UpdateSpecie(String pName, String pSpecieCycleName,
+        public Specie UpdateSpecie(String pName, String pShortName, String pSpecieCycleName,
                                     Double pBaseTemperature, Double pStressTemperature)
         {
             Specie lReturn = null;
@@ -728,12 +728,13 @@ namespace IrrigationAdvisor.Models.Localization
             //If not exists SpecieCycle, its create a new SpecieCycle.
             //In both cases, lSpecieCycle isnt null
             lSpecieCycleId = lSpecieCycle.SpecieCycleId;
-            lSpecie = new Specie(lSpecieId, pName, lSpecieCycleId,
+            lSpecie = new Specie(lSpecieId, pName, pShortName, lSpecieCycleId,
                                  pBaseTemperature, pStressTemperature);
             lReturn = ExistSpecie(lSpecie);
             if (lReturn != null)
             {
                 lReturn.Name = pName;
+                lReturn.ShortName = pShortName;
                 lReturn.SpecieCycleId = lSpecieCycleId;
                 lReturn.BaseTemperature = pBaseTemperature;
                 lReturn.StressTemperature = pStressTemperature;

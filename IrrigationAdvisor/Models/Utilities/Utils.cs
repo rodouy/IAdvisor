@@ -227,19 +227,19 @@ namespace IrrigationAdvisor.Models.Utilities
         public enum IrrigationStatus
         {
             /// <summary>
-            /// 
+            /// Rain data
             /// </summary>
             Cyan, 
             /// <summary>
-            ///  
+            ///  Irrigation data, not rain
             /// </summary>
             Blue,
             /// <summary>
-            ///  
+            ///  Next irrigation
             /// </summary>
             Red,
             /// <summary>
-            ///  
+            ///  Default, no irrigation nor rain
             /// </summary>
             Green
         }
@@ -326,6 +326,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// Print all Farms
             /// </summary>
             All,
+
+            /// <summary>
+            /// None
+            /// </summary>
+            NONE,
         }
 
 
@@ -375,6 +380,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// Print all Farms
             /// </summary>
             All,
+
+            /// <summary>
+            /// None
+            /// </summary>
+            NONE,
         }
 
         

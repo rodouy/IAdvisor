@@ -5,8 +5,8 @@
 }
 
 @helper CustomRain(Double value)
-{ 
-    <td>@value <div class="ref-next-irrigation"></div></td>
+{
+    <td>@value <div class="ref-rain"></div></td>
 }
 
 @helper CustomIrrigation(Double value)
@@ -14,9 +14,9 @@
     <td>@value <div class="ref-irrigated"></div></td>
 }
 
-@helper forecastIrrigation(Double value)
+@helper ForecastIrrigation(Double value)
 {
-    <td>@value <div class="ref-rain"></div></td>
+    <td>@value <div class="ref-next-irrigation"></div></td>
 }
 
 @foreach (var item in Model)
@@ -28,7 +28,7 @@
 {
     <tr>
         <td>@gridPivotItem.IrrigationUnitName</td>
-        <td>@gridPivotItem.Crop</td>
+        <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.PhenologyName</td>
 
         @foreach (var detail in Model.First().ListGridPivotDetailHome)
@@ -44,7 +44,7 @@
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Red)
             {
-                @forecastIrrigation(detail.ForecastIrrigationQuantity)
+                @ForecastIrrigation(detail.ForecastIrrigationQuantity)
             }
             else
             {

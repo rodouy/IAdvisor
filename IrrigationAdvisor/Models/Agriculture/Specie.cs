@@ -57,10 +57,11 @@ namespace IrrigationAdvisor.Models.Agriculture
         ///     
         /// </summary>
         private long specieId;
-        private string name;
+        private String name;
+        private String shortName;
         private long specieCycleId;
-        private double baseTemperature;
-        private double stressTemperature;
+        private Double baseTemperature;
+        private Double stressTemperature;
                 
         #endregion
 
@@ -79,19 +80,25 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { name = value; }
         }
 
+        public String ShortName
+        {
+            get { return shortName; }
+            set { shortName = value; }
+        }
+        
         public long SpecieCycleId
         {
             get { return specieCycleId; }
             set { specieCycleId = value; }
         }
         
-        public double BaseTemperature
+        public Double BaseTemperature
         {
             get { return baseTemperature; }
             set { baseTemperature = value; }
         }
         
-        public double StressTemperature
+        public Double StressTemperature
         {
             get { return stressTemperature; }
             set { stressTemperature = value; }
@@ -114,6 +121,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             this.specieId = 0;
             this.Name = "noName";
+            this.ShortName = "";
             this.SpecieCycleId = 0;
             this.BaseTemperature = 0;
             this.StressTemperature = 0;
@@ -124,14 +132,17 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         /// <param name="pSpecieId"></param>
         /// <param name="pName"></param>
-        /// <param name="pSpecieCycle"></param>
+        /// <param name="pShortName"></param>
+        /// <param name="pSpecieCycleId"></param>
         /// <param name="pBaseTemperature"></param>
-        public Specie(long pSpecieId, String pName,  
+        /// <param name="pStressTemperature"></param>
+        public Specie(long pSpecieId, String pName, String pShortName,
                     long pSpecieCycleId, Double pBaseTemperature,
                     Double pStressTemperature)
         {
             this.specieId = pSpecieId;
             this.Name = pName;
+            this.ShortName = pShortName;
             this.SpecieCycleId = pSpecieCycleId;
             this.BaseTemperature = pBaseTemperature;
             this.StressTemperature = pStressTemperature;

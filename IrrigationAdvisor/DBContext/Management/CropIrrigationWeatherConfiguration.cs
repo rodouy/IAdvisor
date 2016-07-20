@@ -8,6 +8,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using IrrigationAdvisor.Models.Agriculture;
 using IrrigationAdvisor.Models.Irrigation;
+using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.Models.Data;
 
 namespace IrrigationAdvisor.DBContext.Management
 {
@@ -147,7 +149,7 @@ namespace IrrigationAdvisor.DBContext.Management
         /// <summary>
         /// Get a DailyRecord in CropIrrigationWeather list 
         /// Where CropIrrigationWeather is the IrrigationUnit instance
-        ///     And DailyRecord Date equals Date of Reference
+        ///     And DailyRecord Date equals Date of Reference plus DAYS_FOR_PREDICTION
         /// </summary>
         /// <param name="pIrrigationUnit"></param>
         /// <param name="pDateOfReference"></param>
@@ -188,7 +190,7 @@ namespace IrrigationAdvisor.DBContext.Management
                         lCropIrrigationWeather = item;
                         foreach (var record in lCropIrrigationWeather.DailyRecordList)
                         {
-                            if(record.DailyRecordDateTime <= pDateOfReference)
+                            if (record.DailyRecordDateTime <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
                             {
                                 lNewDailyRecordList.Add(record);
                             }

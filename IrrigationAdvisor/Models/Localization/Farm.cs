@@ -366,22 +366,23 @@ namespace IrrigationAdvisor.Models.Localization
         /// If exists return null
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pIrrigationType"></param>
         /// <param name="pIrrigationEfficiency"></param>
         /// <param name="pIrrigationList"></param>
         /// <param name="pSurface"></param>
-        /// <param name="pCropList"></param>
-        /// <param name="pBomb"></param>
-        /// <param name="pLocation"></param>
+        /// <param name="pBombId"></param>
+        /// <param name="pPositionId"></param>
+        /// <param name="pPredeterminatedIrrigationQuantity"></param>
         /// <returns></returns>
-        public IrrigationUnit AddIrrigationUnit(String pName, Utils.IrrigationUnitType pIrrigationType, 
+        public IrrigationUnit AddIrrigationUnit(String pName, String pShortName, Utils.IrrigationUnitType pIrrigationType, 
                                     double pIrrigationEfficiency, List<Pair<DateTime, double>> pIrrigationList,
                                     double pSurface, long pBombId, long pPositionId, Double pPredeterminatedIrrigationQuantity)
         {
             IrrigationUnit lReturn = null;
             long lIdIrrigationUnit = this.IrrigationUnitList.Count();
-            IrrigationUnit lIrrigationUnit = new IrrigationUnit(lIdIrrigationUnit,
-                                            pName, pIrrigationType, pIrrigationEfficiency,
+            IrrigationUnit lIrrigationUnit = new IrrigationUnit(lIdIrrigationUnit, pName,
+                                            pShortName, pIrrigationType, pIrrigationEfficiency,
                                             pIrrigationList, pSurface, pBombId, pPositionId,
                                             pPredeterminatedIrrigationQuantity);
             if(ExistIrrigationUnit(lIrrigationUnit) == null)
@@ -397,6 +398,7 @@ namespace IrrigationAdvisor.Models.Localization
         /// If do not exists return null
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pIrrigationType"></param>
         /// <param name="pIrrigationEfficiency"></param>
         /// <param name="pIrrigationList"></param>
@@ -405,19 +407,20 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pPositionId"></param>
         /// <param name="pPredeterminatedIrrigationQuantity"></param>
         /// <returns></returns>
-        public IrrigationUnit UpdateIrrigationUnit(String pName, Utils.IrrigationUnitType pIrrigationType,
+        public IrrigationUnit UpdateIrrigationUnit(String pName, String pShortName, Utils.IrrigationUnitType pIrrigationType,
                                     double pIrrigationEfficiency, List<Pair<DateTime, double>> pIrrigationList,
                                     double pSurface, long pBombId, long pPositionId, Double pPredeterminatedIrrigationQuantity)
         {
             IrrigationUnit lReturn = null;
-            IrrigationUnit lIrrigationUnit = new IrrigationUnit(0,
-                                            pName, pIrrigationType, pIrrigationEfficiency,
+            IrrigationUnit lIrrigationUnit = new IrrigationUnit(0, pName, pShortName,
+                                            pIrrigationType, pIrrigationEfficiency,
                                             pIrrigationList, pSurface, pBombId, pPositionId, 
                                             pPredeterminatedIrrigationQuantity);
             lReturn = ExistIrrigationUnit(lIrrigationUnit);
             if (lReturn != null)
             {
                 lReturn.Name = pName;
+                lReturn.ShortName = pShortName;
                 lReturn.IrrigationType = pIrrigationType;
                 lReturn.IrrigationEfficiency = pIrrigationEfficiency;
                 lReturn.IrrigationList = pIrrigationList;

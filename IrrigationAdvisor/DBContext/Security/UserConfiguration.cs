@@ -62,7 +62,7 @@ namespace IrrigationAdvisor.DBContext.Security
         {
             User lReturn;
 
-            if(db.Users.Where(u => u.UserName == pName).Count() > 0)
+            if(pName != null && db.Users.Where(u => u.UserName == pName).Count() > 0)
             {
                 lReturn = db.Users.Where(u => u.UserName == pName).FirstOrDefault();
             }

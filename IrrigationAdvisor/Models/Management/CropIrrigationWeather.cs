@@ -2320,7 +2320,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pQuantityOfWaterToIrrigateAndTypeOfIrrigation"></param>
         /// <param name="pIsExtraIrrigation"></param>
         public void AddOrUpdateIrrigationDataToList(DateTime pIrrigationDate,
-                                                    Pair<double, Utils.WaterInputType> pQuantityOfWaterToIrrigateAndTypeOfIrrigation,
+                                                    Pair<Double, Utils.WaterInputType> pQuantityOfWaterToIrrigateAndTypeOfIrrigation,
                                                     bool pIsExtraIrrigation)
         {
             Water.Irrigation lNewIrrigation = null;

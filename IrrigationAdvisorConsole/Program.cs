@@ -27,7 +27,7 @@ namespace IrrigationAdvisorConsole
     {
         public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Demo;
         
-        public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.Demo;
+        public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
         
         static void Main(string[] args)
         {
@@ -100,7 +100,7 @@ namespace IrrigationAdvisorConsole
                 #if true
 
                 InsertBombs();
-                InsertPivots();
+                InsertIrrigationUnits();
                 UpdateSoilsBombsIrrigationUnitsByFarm();
                 InsertCrops();
                 InsertCropsInformationByDate();
@@ -202,7 +202,7 @@ namespace IrrigationAdvisorConsole
         */
 
         /* 7.- Pivots
-         * InsertPivots()
+         * InsertIrrigationUnits()
         */
 
         /* 8.- WeatherStations
@@ -2103,6 +2103,7 @@ namespace IrrigationAdvisorConsole
                 var lCornSouthShort = new Specie
                 {
                     Name = Utils.NameSpecieCornSouthShort,
+                    ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_CornSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_CornSouth_2015,
@@ -2122,6 +2123,7 @@ namespace IrrigationAdvisorConsole
                 var lSoyaSouthShort = new Specie
                 {
                     Name = Utils.NameSpecieSoyaSouthShort,
+                    ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_SoyaSouth_2015,
@@ -2141,6 +2143,7 @@ namespace IrrigationAdvisorConsole
                 var lSoyaSouthMedium = new Specie
                 {
                     Name = Utils.NameSpecieSoyaSouthMedium,
+                    ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_SoyaSouth_2015,
@@ -2160,6 +2163,7 @@ namespace IrrigationAdvisorConsole
                 var lForageSorghumSouthShort = new Specie
                 {
                     Name = Utils.NameSpecieForageSorghumSouthShort,
+                    ShortName = "Sorgo Forrajero",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_ForageSorghumSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_ForageSorghumSouth_2015,
@@ -2179,6 +2183,7 @@ namespace IrrigationAdvisorConsole
                 var lGrainSorghumSouthShort = new Specie
                 {
                     Name = Utils.NameSpecieGrainSorghumSouthShort,
+                    ShortName = "Sorgo Granifero",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_GrainSorghumSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_GrainSorghumSouth_2015,
@@ -2198,6 +2203,7 @@ namespace IrrigationAdvisorConsole
                 var lAlfalfaSouthShort = new Specie
                 {
                     Name = Utils.NameSpecieAlfalfaSouthShort,
+                    ShortName = "Alfalfa",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_AlfalfaSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_AlfalfaSouth_2015,
@@ -2217,6 +2223,7 @@ namespace IrrigationAdvisorConsole
                 var lRedCloverSouthShort = new Specie
                 {
                     Name = Utils.NameSpecieRedCloverSouthShort,
+                    ShortName = "Trebol Rojo",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_RedCloverSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_RedCloverSouth_2015,
@@ -2236,6 +2243,7 @@ namespace IrrigationAdvisorConsole
                 var lFescueSouthShort = new Specie
                 {
                     Name = Utils.NameSpecieFescueSouthShort,
+                    ShortName = "Festuca",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_FescueSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_FescueSouth_2015,
@@ -2258,6 +2266,7 @@ namespace IrrigationAdvisorConsole
             var lCornNorthShort = new Specie
             {
                 Name = Utils.NameSpecieCornNorthShort,
+                ShortName = "Maíz",
                 SpecieCycleId = lSpecieCycle.SpecieCycleId,
                 BaseTemperature = 10,
                 StressTemperature = 40
@@ -2272,6 +2281,7 @@ namespace IrrigationAdvisorConsole
             var lSoyaNorthShort = new Specie
             {
                 Name = Utils.NameSpecieSoyaNorthShort,
+                ShortName = "Soja",
                 SpecieCycleId = lSpecieCycle.SpecieCycleId,
                 BaseTemperature = 8,
                 StressTemperature = 40
@@ -2342,30 +2352,30 @@ namespace IrrigationAdvisorConsole
                 Description = "",
             };
 
-            var lStageMv0 = new Stage { Name = Utils.NameStagesCorn + " V0", Description = "Siembra",};
-            var lStageMve = new Stage { Name = Utils.NameStagesCorn + " VE", Description = "Emergencia", };
-            var lStageMv1 = new Stage { Name = Utils.NameStagesCorn + " V1", Description = "1 nudo", };
-            var lStageMv2 = new Stage { Name = Utils.NameStagesCorn + " V2", Description = "2 nudos", };
-            var lStageMv3 = new Stage { Name = Utils.NameStagesCorn + " V3", Description = "3 nudos", };
-            var lStageMv4 = new Stage { Name = Utils.NameStagesCorn + " V4", Description = "4 nudos", };
-            var lStageMv5 = new Stage { Name = Utils.NameStagesCorn + " V5", Description = "5 nudos", };
-            var lStageMv6 = new Stage { Name = Utils.NameStagesCorn + " V6", Description = "6 nudos", };
-            var lStageMv7 = new Stage { Name = Utils.NameStagesCorn + " V7", Description = "7 nudos", };
-            var lStageMv8 = new Stage { Name = Utils.NameStagesCorn + " V8", Description = "8 nudos", };
-            var lStageMv9 = new Stage { Name = Utils.NameStagesCorn + " V9", Description = "9 nudos", };
-            var lStageMv10 = new Stage { Name = Utils.NameStagesCorn + " V10", Description = "10 nudos", };
-            var lStageMv11 = new Stage { Name = Utils.NameStagesCorn + " V11", Description = "11 nudo", };
-            var lStageMv12 = new Stage { Name = Utils.NameStagesCorn + " V12", Description = "12 nudos", };
-            var lStageMv13 = new Stage { Name = Utils.NameStagesCorn + " V13", Description = "13 nudos", };
-            var lStageMv14 = new Stage { Name = Utils.NameStagesCorn + " V14", Description = "14 nudos", };
-            var lStageMv15 = new Stage { Name = Utils.NameStagesCorn + " V15", Description = "15 nudos", };
-            var lStageMvt = new Stage { Name = Utils.NameStagesCorn + " VT", Description = "Floracion", };
-            var lStageMr1 = new Stage { Name = Utils.NameStagesCorn + " R1", Description = "Estambres 50%", };
-            var lStageMr2 = new Stage { Name = Utils.NameStagesCorn + " R2", Description = "Granos hinchados", };
-            var lStageMr3 = new Stage { Name = Utils.NameStagesCorn + " R3", Description = "Estado lechoso", };
-            var lStageMr4 = new Stage { Name = Utils.NameStagesCorn + " R4", Description = "Estado pastoso", };
-            var lStageMr5 = new Stage { Name = Utils.NameStagesCorn + " R5", Description = "Estado de diente", };
-            var lStageMr6 = new Stage { Name = Utils.NameStagesCorn + " R6", Description = "Madurez fisiologica", };
+            var lStageMv0 = new Stage { Name = Utils.NameStagesCorn + " V0", ShortName = "V0", Description = "Siembra", };
+            var lStageMve = new Stage { Name = Utils.NameStagesCorn + " VE", ShortName = "VE", Description = "Emergencia", };
+            var lStageMv1 = new Stage { Name = Utils.NameStagesCorn + " V1", ShortName = "V1", Description = "1 nudo", };
+            var lStageMv2 = new Stage { Name = Utils.NameStagesCorn + " V2", ShortName = "V2", Description = "2 nudos", };
+            var lStageMv3 = new Stage { Name = Utils.NameStagesCorn + " V3", ShortName = "V3", Description = "3 nudos", };
+            var lStageMv4 = new Stage { Name = Utils.NameStagesCorn + " V4", ShortName = "V4", Description = "4 nudos", };
+            var lStageMv5 = new Stage { Name = Utils.NameStagesCorn + " V5", ShortName = "V5", Description = "5 nudos", };
+            var lStageMv6 = new Stage { Name = Utils.NameStagesCorn + " V6", ShortName = "V6", Description = "6 nudos", };
+            var lStageMv7 = new Stage { Name = Utils.NameStagesCorn + " V7", ShortName = "V7", Description = "7 nudos", };
+            var lStageMv8 = new Stage { Name = Utils.NameStagesCorn + " V8", ShortName = "V8", Description = "8 nudos", };
+            var lStageMv9 = new Stage { Name = Utils.NameStagesCorn + " V9", ShortName = "V9", Description = "9 nudos", };
+            var lStageMv10 = new Stage { Name = Utils.NameStagesCorn + " V10", ShortName = "V10", Description = "10 nudos", };
+            var lStageMv11 = new Stage { Name = Utils.NameStagesCorn + " V11", ShortName = "V11", Description = "11 nudo", };
+            var lStageMv12 = new Stage { Name = Utils.NameStagesCorn + " V12", ShortName = "V12", Description = "12 nudos", };
+            var lStageMv13 = new Stage { Name = Utils.NameStagesCorn + " V13", ShortName = "V13", Description = "13 nudos", };
+            var lStageMv14 = new Stage { Name = Utils.NameStagesCorn + " V14", ShortName = "V14", Description = "14 nudos", };
+            var lStageMv15 = new Stage { Name = Utils.NameStagesCorn + " V15", ShortName = "V15", Description = "15 nudos", };
+            var lStageMvt = new Stage { Name = Utils.NameStagesCorn + " VT", ShortName = "VT", Description = "Floracion", };
+            var lStageMr1 = new Stage { Name = Utils.NameStagesCorn + " R1", ShortName = "R1", Description = "Estambres 50%", };
+            var lStageMr2 = new Stage { Name = Utils.NameStagesCorn + " R2", ShortName = "R2", Description = "Granos hinchados", };
+            var lStageMr3 = new Stage { Name = Utils.NameStagesCorn + " R3", ShortName = "R3", Description = "Estado lechoso", };
+            var lStageMr4 = new Stage { Name = Utils.NameStagesCorn + " R4", ShortName = "R4", Description = "Estado pastoso", };
+            var lStageMr5 = new Stage { Name = Utils.NameStagesCorn + " R5", ShortName = "R5", Description = "Estado de diente", };
+            var lStageMr6 = new Stage { Name = Utils.NameStagesCorn + " R6", ShortName = "R6", Description = "Madurez fisiologica", };
             
             
             using(var context = new IrrigationAdvisorContext())
@@ -2408,27 +2418,27 @@ namespace IrrigationAdvisorConsole
                 Description = "",
             };
 
-            var lStageSv0 = new Stage { Name = Utils.NameStagesSoya + " V0", Description = "Siembra", };
-            var lStageSve = new Stage { Name = Utils.NameStagesSoya + " VE", Description = "Emergencia", };
-            var lStageSv1 = new Stage { Name = Utils.NameStagesSoya + " V1", Description = "1 nudo", };
-            var lStageSv2 = new Stage { Name = Utils.NameStagesSoya + " V2", Description = "2 nudos", };
-            var lStageSv3 = new Stage { Name = Utils.NameStagesSoya + " V3", Description = "3 nudos", };
-            var lStageSv4 = new Stage { Name = Utils.NameStagesSoya + " V4", Description = "4 nudos", };
-            var lStageSv5 = new Stage { Name = Utils.NameStagesSoya + " V5", Description = "5 nudos", };
-            var lStageSv6 = new Stage { Name = Utils.NameStagesSoya + " V6", Description = "6 nudos", };
-            var lStageSv7 = new Stage { Name = Utils.NameStagesSoya + " V7", Description = "7 nudos", };
-            var lStageSv8 = new Stage { Name = Utils.NameStagesSoya + " V8", Description = "8 nudos", };
-            var lStageSv9 = new Stage { Name = Utils.NameStagesSoya + " V9", Description = "9 nudos", };
-            var lStageSv10 = new Stage { Name = Utils.NameStagesSoya + " V10", Description = "10 nudos", };
-            var lStageSv11 = new Stage { Name = Utils.NameStagesSoya + " V11", Description = "11 nudo", };
-            var lStageSr1 = new Stage { Name = Utils.NameStagesSoya + " R1", Description = "Inicio Floracion", };
-            var lStageSr2 = new Stage { Name = Utils.NameStagesSoya + " R2", Description = "Floracion Completa", };
-            var lStageSr3 = new Stage { Name = Utils.NameStagesSoya + " R3", Description = "Inicio Vainas", };
-            var lStageSr4 = new Stage { Name = Utils.NameStagesSoya + " R4", Description = "Vainas Completas", };
-            var lStageSr5 = new Stage { Name = Utils.NameStagesSoya + " R5", Description = "Formacion de semillas", };
-            var lStageSr6 = new Stage { Name = Utils.NameStagesSoya + " R6", Description = "Semillas Completas", };
-            var lStageSr7 = new Stage { Name = Utils.NameStagesSoya + " R7", Description = "Inicio Maduracion", };
-            var lStageSr8 = new Stage { Name = Utils.NameStagesSoya + " R8", Description = "Maduracion Completa", };
+            var lStageSv0 = new Stage { Name = Utils.NameStagesSoya + " V0", ShortName = "V0", Description = "Siembra", };
+            var lStageSve = new Stage { Name = Utils.NameStagesSoya + " VE", ShortName = "VE", Description = "Emergencia", };
+            var lStageSv1 = new Stage { Name = Utils.NameStagesSoya + " V1", ShortName = "V1", Description = "1 nudo", };
+            var lStageSv2 = new Stage { Name = Utils.NameStagesSoya + " V2", ShortName = "V2", Description = "2 nudos", };
+            var lStageSv3 = new Stage { Name = Utils.NameStagesSoya + " V3", ShortName = "V3", Description = "3 nudos", };
+            var lStageSv4 = new Stage { Name = Utils.NameStagesSoya + " V4", ShortName = "V4", Description = "4 nudos", };
+            var lStageSv5 = new Stage { Name = Utils.NameStagesSoya + " V5", ShortName = "V5", Description = "5 nudos", };
+            var lStageSv6 = new Stage { Name = Utils.NameStagesSoya + " V6", ShortName = "V6", Description = "6 nudos", };
+            var lStageSv7 = new Stage { Name = Utils.NameStagesSoya + " V7", ShortName = "V7", Description = "7 nudos", };
+            var lStageSv8 = new Stage { Name = Utils.NameStagesSoya + " V8", ShortName = "V8", Description = "8 nudos", };
+            var lStageSv9 = new Stage { Name = Utils.NameStagesSoya + " V9", ShortName = "V9", Description = "9 nudos", };
+            var lStageSv10 = new Stage { Name = Utils.NameStagesSoya + " V10", ShortName = "V10", Description = "10 nudos", };
+            var lStageSv11 = new Stage { Name = Utils.NameStagesSoya + " V11", ShortName = "V11", Description = "11 nudo", };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesSoya + " R1", ShortName = "R1", Description = "Inicio Floracion", };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesSoya + " R2", ShortName = "R2", Description = "Floracion Completa", };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesSoya + " R3", ShortName = "R3", Description = "Inicio Vainas", };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesSoya + " R4", ShortName = "R4", Description = "Vainas Completas", };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesSoya + " R5", ShortName = "R5", Description = "Formacion de semillas", };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesSoya + " R6", ShortName = "R6", Description = "Semillas Completas", };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesSoya + " R7", ShortName = "R7", Description = "Inicio Maduracion", };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesSoya + " R8", ShortName = "R8", Description = "Maduracion Completa", };
 
 
             using (var context = new IrrigationAdvisorContext())
@@ -2461,16 +2471,16 @@ namespace IrrigationAdvisorConsole
 
         private static void InsertStagesForageSorghum()
         {
-            var lStageV0 = new Stage { Name = Utils.NameStagesForageSorghum + " V0", Description = "Emergencia ", };
-            var lStageV3 = new Stage { Name = Utils.NameStagesForageSorghum + " V3", Description = "3 hojas ", };
-            var lStageV5 = new Stage { Name = Utils.NameStagesForageSorghum + " V5", Description = "5 hojas ", };
-            var lStageV8 = new Stage { Name = Utils.NameStagesForageSorghum + " V8", Description = "8 hojas ", };
-            var lStageHF = new Stage { Name = Utils.NameStagesForageSorghum + " HF", Description = "Hoja Final ", };
-            var lStageEM = new Stage { Name = Utils.NameStagesForageSorghum + " EM", Description = "Embuche ", };
-            var lStageFF = new Stage { Name = Utils.NameStagesForageSorghum + " FF", Description = "Floracion ", };
-            var lStageGL = new Stage { Name = Utils.NameStagesForageSorghum + " GL", Description = "Grano Lechoso ", };
-            var lStageGP = new Stage { Name = Utils.NameStagesForageSorghum + " GP", Description = "Grano pastoso ", };
-            var lStageMF = new Stage { Name = Utils.NameStagesForageSorghum + " MF", Description = "Madurez Fisiologica ", };
+            var lStageV0 = new Stage { Name = Utils.NameStagesForageSorghum + " V0", ShortName = "V0", Description = "Emergencia ", };
+            var lStageV3 = new Stage { Name = Utils.NameStagesForageSorghum + " V3", ShortName = "V3", Description = "3 hojas ", };
+            var lStageV5 = new Stage { Name = Utils.NameStagesForageSorghum + " V5", ShortName = "V5", Description = "5 hojas ", };
+            var lStageV8 = new Stage { Name = Utils.NameStagesForageSorghum + " V8", ShortName = "V8", Description = "8 hojas ", };
+            var lStageHF = new Stage { Name = Utils.NameStagesForageSorghum + " HF", ShortName = "HF", Description = "Hoja Final ", };
+            var lStageEM = new Stage { Name = Utils.NameStagesForageSorghum + " EM", ShortName = "EM", Description = "Embuche ", };
+            var lStageFF = new Stage { Name = Utils.NameStagesForageSorghum + " FF", ShortName = "FF", Description = "Floracion ", };
+            var lStageGL = new Stage { Name = Utils.NameStagesForageSorghum + " GL", ShortName = "GL", Description = "Grano Lechoso ", };
+            var lStageGP = new Stage { Name = Utils.NameStagesForageSorghum + " GP", ShortName = "GP", Description = "Grano pastoso ", };
+            var lStageMF = new Stage { Name = Utils.NameStagesForageSorghum + " MF", ShortName = "MF", Description = "Madurez Fisiologica ", };
     
             using (var context = new IrrigationAdvisorContext())
             {
@@ -2490,16 +2500,16 @@ namespace IrrigationAdvisorConsole
 
         private static void InsertStagesGrainSorghum()
         {
-            var lStageV0 = new Stage { Name = Utils.NameStagesForageSorghum + " V0", Description = "Emergencia ", };
-            var lStageV3 = new Stage { Name = Utils.NameStagesForageSorghum + " V3", Description = "3 hojas ", };
-            var lStageV5 = new Stage { Name = Utils.NameStagesForageSorghum + " V5", Description = "5 hojas ", };
-            var lStageV8 = new Stage { Name = Utils.NameStagesForageSorghum + " V8", Description = "8 hojas ", };
-            var lStageHF = new Stage { Name = Utils.NameStagesForageSorghum + " HF", Description = "Hoja Final ", };
-            var lStageEM = new Stage { Name = Utils.NameStagesForageSorghum + " EM", Description = "Embuche ", };
-            var lStageFF = new Stage { Name = Utils.NameStagesForageSorghum + " FF", Description = "Floracion ", };
-            var lStageGL = new Stage { Name = Utils.NameStagesForageSorghum + " GL", Description = "Grano Lechoso ", };
-            var lStageGP = new Stage { Name = Utils.NameStagesForageSorghum + " GP", Description = "Grano pastoso ", };
-            var lStageMF = new Stage { Name = Utils.NameStagesForageSorghum + " MF", Description = "Madurez Fisiologica ", };
+            var lStageV0 = new Stage { Name = Utils.NameStagesForageSorghum + " V0", ShortName = "V0", Description = "Emergencia ", };
+            var lStageV3 = new Stage { Name = Utils.NameStagesForageSorghum + " V3", ShortName = "V3", Description = "3 hojas ", };
+            var lStageV5 = new Stage { Name = Utils.NameStagesForageSorghum + " V5", ShortName = "V5", Description = "5 hojas ", };
+            var lStageV8 = new Stage { Name = Utils.NameStagesForageSorghum + " V8", ShortName = "V8", Description = "8 hojas ", };
+            var lStageHF = new Stage { Name = Utils.NameStagesForageSorghum + " HF", ShortName = "HF", Description = "Hoja Final ", };
+            var lStageEM = new Stage { Name = Utils.NameStagesForageSorghum + " EM", ShortName = "EM", Description = "Embuche ", };
+            var lStageFF = new Stage { Name = Utils.NameStagesForageSorghum + " FF", ShortName = "FF", Description = "Floracion ", };
+            var lStageGL = new Stage { Name = Utils.NameStagesForageSorghum + " GL", ShortName = "GL", Description = "Grano Lechoso ", };
+            var lStageGP = new Stage { Name = Utils.NameStagesForageSorghum + " GP", ShortName = "GP", Description = "Grano pastoso ", };
+            var lStageMF = new Stage { Name = Utils.NameStagesForageSorghum + " MF", ShortName = "MF", Description = "Madurez Fisiologica ", };
 
             using (var context = new IrrigationAdvisorContext())
             {
@@ -2538,14 +2548,14 @@ namespace IrrigationAdvisorConsole
             var lStageSv9 = new Stage { Name = Utils.NameStagesAlfalfa + " V9", Description = "9 nudos", };
             var lStageSv10 = new Stage { Name = Utils.NameStagesAlfalfa + " V10", Description = "10 nudos", };
             var lStageSv11 = new Stage { Name = Utils.NameStagesAlfalfa + " V11", Description = "11 nudo", };
-            var lStageSr1 = new Stage { Name = Utils.NameStagesAlfalfa + " R1", Description = "Inicio Floracion", };
-            var lStageSr2 = new Stage { Name = Utils.NameStagesAlfalfa + " R2", Description = "Floracion Completa", };
-            var lStageSr3 = new Stage { Name = Utils.NameStagesAlfalfa + " R3", Description = "Inicio Vainas", };
-            var lStageSr4 = new Stage { Name = Utils.NameStagesAlfalfa + " R4", Description = "Vainas Completas", };
-            var lStageSr5 = new Stage { Name = Utils.NameStagesAlfalfa + " R5", Description = "Formacion de semillas", };
-            var lStageSr6 = new Stage { Name = Utils.NameStagesAlfalfa + " R6", Description = "Semillas Completas", };
-            var lStageSr7 = new Stage { Name = Utils.NameStagesAlfalfa + " R7", Description = "Inicio Maduracion", };
-            var lStageSr8 = new Stage { Name = Utils.NameStagesAlfalfa + " R8", Description = "Maduracion Completa", };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesAlfalfa + " R1", ShortName = "R1", Description = "Inicio Floracion", };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesAlfalfa + " R2", ShortName = "R2", Description = "Floracion Completa", };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesAlfalfa + " R3", ShortName = "R3", Description = "Inicio Vainas", };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesAlfalfa + " R4", ShortName = "R4", Description = "Vainas Completas", };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesAlfalfa + " R5", ShortName = "R5", Description = "Formacion de semillas", };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesAlfalfa + " R6", ShortName = "R6", Description = "Semillas Completas", };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesAlfalfa + " R7", ShortName = "R7", Description = "Inicio Maduracion", };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesAlfalfa + " R8", ShortName = "R8", Description = "Maduracion Completa", };
 
 
             using (var context = new IrrigationAdvisorContext())
@@ -2597,14 +2607,14 @@ namespace IrrigationAdvisorConsole
             var lStageSv9 = new Stage { Name = Utils.NameStagesRedClover + " V9", Description = "9 nudos", };
             var lStageSv10 = new Stage { Name = Utils.NameStagesRedClover + " V10", Description = "10 nudos", };
             var lStageSv11 = new Stage { Name = Utils.NameStagesRedClover + " V11", Description = "11 nudo", };
-            var lStageSr1 = new Stage { Name = Utils.NameStagesRedClover + " R1", Description = "Inicio Floracion", };
-            var lStageSr2 = new Stage { Name = Utils.NameStagesRedClover + " R2", Description = "Floracion Completa", };
-            var lStageSr3 = new Stage { Name = Utils.NameStagesRedClover + " R3", Description = "Inicio Vainas", };
-            var lStageSr4 = new Stage { Name = Utils.NameStagesRedClover + " R4", Description = "Vainas Completas", };
-            var lStageSr5 = new Stage { Name = Utils.NameStagesRedClover + " R5", Description = "Formacion de semillas", };
-            var lStageSr6 = new Stage { Name = Utils.NameStagesRedClover + " R6", Description = "Semillas Completas", };
-            var lStageSr7 = new Stage { Name = Utils.NameStagesRedClover + " R7", Description = "Inicio Maduracion", };
-            var lStageSr8 = new Stage { Name = Utils.NameStagesRedClover + " R8", Description = "Maduracion Completa", };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesRedClover + " R1", ShortName = "R1", Description = "Inicio Floracion", };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesRedClover + " R2", ShortName = "R2", Description = "Floracion Completa", };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesRedClover + " R3", ShortName = "R3", Description = "Inicio Vainas", };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesRedClover + " R4", ShortName = "R4", Description = "Vainas Completas", };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesRedClover + " R5", ShortName = "R5", Description = "Formacion de semillas", };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesRedClover + " R6", ShortName = "R6", Description = "Semillas Completas", };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesRedClover + " R7", ShortName = "R7", Description = "Inicio Maduracion", };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesRedClover + " R8", ShortName = "R8", Description = "Maduracion Completa", };
 
 
             using (var context = new IrrigationAdvisorContext())
@@ -2643,27 +2653,27 @@ namespace IrrigationAdvisorConsole
                 Description = "",
             };
 
-            var lStageSv0 = new Stage { Name = Utils.NameStagesFescue + " V0", Description = "Siembra", };
-            var lStageSve = new Stage { Name = Utils.NameStagesFescue + " VE", Description = "Emergencia", };
-            var lStageSv1 = new Stage { Name = Utils.NameStagesFescue + " V1", Description = "1 nudo", };
-            var lStageSv2 = new Stage { Name = Utils.NameStagesFescue + " V2", Description = "2 nudos", };
-            var lStageSv3 = new Stage { Name = Utils.NameStagesFescue + " V3", Description = "3 nudos", };
-            var lStageSv4 = new Stage { Name = Utils.NameStagesFescue + " V4", Description = "4 nudos", };
-            var lStageSv5 = new Stage { Name = Utils.NameStagesFescue + " V5", Description = "5 nudos", };
-            var lStageSv6 = new Stage { Name = Utils.NameStagesFescue + " V6", Description = "6 nudos", };
-            var lStageSv7 = new Stage { Name = Utils.NameStagesFescue + " V7", Description = "7 nudos", };
-            var lStageSv8 = new Stage { Name = Utils.NameStagesFescue + " V8", Description = "8 nudos", };
-            var lStageSv9 = new Stage { Name = Utils.NameStagesFescue + " V9", Description = "9 nudos", };
-            var lStageSv10 = new Stage { Name = Utils.NameStagesFescue + " V10", Description = "10 nudos", };
-            var lStageSv11 = new Stage { Name = Utils.NameStagesFescue + " V11", Description = "11 nudo", };
-            var lStageSr1 = new Stage { Name = Utils.NameStagesFescue + " R1", Description = "Inicio Floracion", };
-            var lStageSr2 = new Stage { Name = Utils.NameStagesFescue + " R2", Description = "Floracion Completa", };
-            var lStageSr3 = new Stage { Name = Utils.NameStagesFescue + " R3", Description = "Inicio Vainas", };
-            var lStageSr4 = new Stage { Name = Utils.NameStagesFescue + " R4", Description = "Vainas Completas", };
-            var lStageSr5 = new Stage { Name = Utils.NameStagesFescue + " R5", Description = "Formacion de semillas", };
-            var lStageSr6 = new Stage { Name = Utils.NameStagesFescue + " R6", Description = "Semillas Completas", };
-            var lStageSr7 = new Stage { Name = Utils.NameStagesFescue + " R7", Description = "Inicio Maduracion", };
-            var lStageSr8 = new Stage { Name = Utils.NameStagesFescue + " R8", Description = "Maduracion Completa", };
+            var lStageSv0 = new Stage { Name = Utils.NameStagesFescue + " V0", ShortName = "V0", Description = "Siembra", };
+            var lStageSve = new Stage { Name = Utils.NameStagesFescue + " VE", ShortName = "VE", Description = "Emergencia", };
+            var lStageSv1 = new Stage { Name = Utils.NameStagesFescue + " V1", ShortName = "V1", Description = "1 nudo", };
+            var lStageSv2 = new Stage { Name = Utils.NameStagesFescue + " V2", ShortName = "V2", Description = "2 nudos", };
+            var lStageSv3 = new Stage { Name = Utils.NameStagesFescue + " V3", ShortName = "V3", Description = "3 nudos", };
+            var lStageSv4 = new Stage { Name = Utils.NameStagesFescue + " V4", ShortName = "V4", Description = "4 nudos", };
+            var lStageSv5 = new Stage { Name = Utils.NameStagesFescue + " V5", ShortName = "V5", Description = "5 nudos", };
+            var lStageSv6 = new Stage { Name = Utils.NameStagesFescue + " V6", ShortName = "V6", Description = "6 nudos", };
+            var lStageSv7 = new Stage { Name = Utils.NameStagesFescue + " V7", ShortName = "V7", Description = "7 nudos", };
+            var lStageSv8 = new Stage { Name = Utils.NameStagesFescue + " V8", ShortName = "V8", Description = "8 nudos", };
+            var lStageSv9 = new Stage { Name = Utils.NameStagesFescue + " V9", ShortName = "V9", Description = "9 nudos", };
+            var lStageSv10 = new Stage { Name = Utils.NameStagesFescue + " V10", ShortName = "V10", Description = "10 nudos", };
+            var lStageSv11 = new Stage { Name = Utils.NameStagesFescue + " V11", ShortName = "V11", Description = "11 nudo", };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesFescue + " R1", ShortName = "R1", Description = "Inicio Floracion", };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesFescue + " R2", ShortName = "R2", Description = "Floracion Completa", };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesFescue + " R3", ShortName = "R3", Description = "Inicio Vainas", };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesFescue + " R4", ShortName = "R4", Description = "Vainas Completas", };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesFescue + " R5", ShortName = "R5", Description = "Formacion de semillas", };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesFescue + " R6", ShortName = "R6", Description = "Semillas Completas", };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesFescue + " R7", ShortName = "R7", Description = "Inicio Maduracion", };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesFescue + " R8", ShortName = "R8", Description = "Maduracion Completa", };
 
 
             using (var context = new IrrigationAdvisorContext())
@@ -5145,7 +5155,7 @@ namespace IrrigationAdvisorConsole
 
         }
 
-        private static void InsertPivots()
+        private static void InsertIrrigationUnits()
         {
             Bomb lBomb = null;
             Position lPosition = null;
@@ -5181,6 +5191,7 @@ namespace IrrigationAdvisorConsole
                     var lDemoPivot1 = new Pivot
                     {
                         Name = Utils.NamePivotDemo1,
+                        ShortName = "Pivot 1",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5202,6 +5213,7 @@ namespace IrrigationAdvisorConsole
                     var lDemoPivot2 = new Pivot
                     {
                         Name = Utils.NamePivotDemo2,
+                        ShortName = "Pivot 2",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5223,6 +5235,7 @@ namespace IrrigationAdvisorConsole
                     var lDemoPivot3 = new Pivot
                     {
                         Name = Utils.NamePivotDemo3,
+                        ShortName = "Pivot 3",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5244,6 +5257,7 @@ namespace IrrigationAdvisorConsole
                     var lDemoPivot5 = new Pivot
                     {
                         Name = Utils.NamePivotDemo5,
+                        ShortName = "Pivot 5",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5280,6 +5294,7 @@ namespace IrrigationAdvisorConsole
                     var lSantaLuciaPivot1 = new Pivot
                     {
                         Name = Utils.NamePivotSantaLucia1,
+                        ShortName = "Pivot 1",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5298,6 +5313,7 @@ namespace IrrigationAdvisorConsole
                     var lSantaLuciaPivot2 = new Pivot
                     {
                         Name = Utils.NamePivotSantaLucia2,
+                        ShortName = "Pivot 2",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5316,6 +5332,7 @@ namespace IrrigationAdvisorConsole
                     var lSantaLuciaPivot3 = new Pivot
                     {
                         Name = Utils.NamePivotSantaLucia3,
+                        ShortName = "Pivot 3",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5334,6 +5351,7 @@ namespace IrrigationAdvisorConsole
                     var lSantaLuciaPivot4 = new Pivot
                     {
                         Name = Utils.NamePivotSantaLucia4,
+                        ShortName = "Pivot 4",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5352,6 +5370,7 @@ namespace IrrigationAdvisorConsole
                     var lSantaLuciaPivot5 = new Pivot
                     {
                         Name = Utils.NamePivotSantaLucia5,
+                        ShortName = "Pivot 5",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5390,6 +5409,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPerdizPivot1 = new Pivot
                     {
                         Name = Utils.NamePivotLaPerdiz1,
+                        ShortName = "Pivot 1",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5411,6 +5431,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPerdizPivot2 = new Pivot
                     {
                         Name = Utils.NamePivotLaPerdiz2,
+                        ShortName = "Pivot 2",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5432,6 +5453,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPerdizPivot3 = new Pivot
                     {
                         Name = Utils.NamePivotLaPerdiz3,
+                        ShortName = "Pivot 3",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5453,6 +5475,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPerdizPivot5 = new Pivot
                     {
                         Name = Utils.NamePivotLaPerdiz5,
+                        ShortName = "Pivot 5",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5474,6 +5497,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPerdizPivot14 = new Pivot
                     {
                         Name = Utils.NamePivotLaPerdiz14,
+                        ShortName = "Pivot 4",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5511,6 +5535,7 @@ namespace IrrigationAdvisorConsole
                     var lDelLagoSanPedroPivot5 = new Pivot
                     {
                         Name = Utils.NamePivotDelLagoSanPedro5,
+                        ShortName = "Pivot 5",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5532,6 +5557,7 @@ namespace IrrigationAdvisorConsole
                     var lDelLagoSanPedroPivot6 = new Pivot
                     {
                         Name = Utils.NamePivotDelLagoSanPedro6,
+                        ShortName = "Pivot 6",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5553,6 +5579,7 @@ namespace IrrigationAdvisorConsole
                     var lDelLagoSanPedroPivot7 = new Pivot
                     {
                         Name = Utils.NamePivotDelLagoSanPedro7,
+                        ShortName = "Pivot 7",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5574,6 +5601,7 @@ namespace IrrigationAdvisorConsole
                     var lDelLagoSanPedroPivot8 = new Pivot
                     {
                         Name = Utils.NamePivotDelLagoSanPedro8,
+                        ShortName = "Pivot 8",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5610,6 +5638,7 @@ namespace IrrigationAdvisorConsole
                     var lDelLagoElMiradorPivot6 = new Pivot
                     {
                         Name = Utils.NamePivotDelLagoElMirador6,
+                        ShortName = "Pivot 6",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5631,6 +5660,7 @@ namespace IrrigationAdvisorConsole
                     var lDelLagoElMiradorPivot7 = new Pivot
                     {
                         Name = Utils.NamePivotDelLagoElMirador7,
+                        ShortName = "Pivot 7",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5652,6 +5682,7 @@ namespace IrrigationAdvisorConsole
                     var lDelLagoElMiradorPivot8 = new Pivot
                     {
                         Name = Utils.NamePivotDelLagoElMirador8,
+                        ShortName = "Pivot 8",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5673,6 +5704,7 @@ namespace IrrigationAdvisorConsole
                     var lDelLagoElMiradorPivot9 = new Pivot
                     {
                         Name = Utils.NamePivotDelLagoElMirador9,
+                        ShortName = "Pivot 9",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5709,6 +5741,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPalmaPivot1 = new Pivot
                     {
                         Name = Utils.NamePivotLaPalma1,
+                        ShortName = "Pivot 1",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5730,6 +5763,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPalmaPivot2 = new Pivot
                     {
                         Name = Utils.NamePivotLaPalma2A,
+                        ShortName = "Pivot 2A",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5751,6 +5785,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPalmaPivot3 = new Pivot
                     {
                         Name = Utils.NamePivotLaPalma3,
+                        ShortName = "Pivot 3",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5772,6 +5807,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPalmaPivot4 = new Pivot
                     {
                         Name = Utils.NamePivotLaPalma4,
+                        ShortName = "Pivot 4",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5793,6 +5829,7 @@ namespace IrrigationAdvisorConsole
                     var lLaPalmaPivot5 = new Pivot
                     {
                         Name = Utils.NamePivotLaPalma5,
+                        ShortName = "Pivot 5",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
@@ -5900,6 +5937,7 @@ namespace IrrigationAdvisorConsole
                 var lCropMaizSur = new Crop
                 {
                     Name = Utils.NameSpecieCornSouthShort,
+                    ShortName = "Maíz",
                     RegionId = lRegion.RegionId,
                     Region = lRegion,
                     SpecieId = lSpecie.SpecieId,
@@ -5942,6 +5980,7 @@ namespace IrrigationAdvisorConsole
                 var lCropSojaSur = new Crop
                 {
                     Name = Utils.NameSpecieSoyaSouthShort,
+                    ShortName = "Soja",
                     RegionId = lRegion.RegionId,
                     SpecieId = lSpecie.SpecieId,
                     Density = Utils.CropDensity_Corn,

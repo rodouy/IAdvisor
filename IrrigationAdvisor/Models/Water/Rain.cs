@@ -47,7 +47,6 @@ namespace IrrigationAdvisor.Models.Water
         public Utils.WaterInputType Type
         {
             get { return type; }
-            set { type = value;}
         }
 
         #endregion

@@ -8661,7 +8661,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -8839,7 +8839,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -9018,7 +9018,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -9189,7 +9189,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -9363,7 +9363,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -9541,7 +9541,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -9711,7 +9711,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -9884,7 +9884,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -10061,7 +10061,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -10238,7 +10238,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -10415,7 +10415,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -10597,7 +10597,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -10774,7 +10774,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -10951,7 +10951,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -11128,7 +11128,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -11309,7 +11309,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -11486,7 +11486,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -11663,7 +11663,7 @@ namespace IrrigationAdvisorConsole
             lFromDate = lSowingDate.AddDays(1);
             if (lHarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {

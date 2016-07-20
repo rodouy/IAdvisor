@@ -249,8 +249,8 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             #endregion
 
             #region 4. Add Specie to SpecieList of Region
-            testSpecieMaiz = testRegion.AddSpecie("Maiz", "Corto", testMaizBaseTemperature, testMaizStressTemperature);
-            testSpecieSoja = testRegion.AddSpecie("Soja", "Corto", testSojaBaseTemperature, testSojaStressTemperature);
+            testSpecieMaiz = testRegion.AddSpecie("Maiz", "Maiz", "Corto", testMaizBaseTemperature, testMaizStressTemperature);
+            testSpecieSoja = testRegion.AddSpecie("Soja", "Soja", "Corto", testSojaBaseTemperature, testSojaStressTemperature);
             //testSpecieList = new List<Specie>();
             //testSpecieList.Add(testSpecieMaiz);
             //testSpecieList.Add(testSpecieSoja);
@@ -268,17 +268,16 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             #endregion 
 
             #region 7. Create Crops
-            testCrop_Maiz_Sur = new Crop(0, "Maiz Sur", testRegion.RegionId , testSpecieMaiz.SpecieId, 
+            testCrop_Maiz_Sur = new Crop(0, "Maiz Sur", "Maíz", testRegion.RegionId , testSpecieMaiz.SpecieId, 
                                         testCropCoefficient_Maiz.CropCoefficientId, testCropDensityMaiz,
                                         testMaxEvapotranspirationToIrrigate_Maiz,
                                         testMinEvapotranspirationToIrrigate_Maiz, 0);
-            testCrop_Soja_Sur = new Crop(1, "Soja Sur", testRegion.RegionId, testSpecieSoja.SpecieId,
+            testCrop_Soja_Sur = new Crop(1, "Soja Sur", "Soja", testRegion.RegionId, testSpecieSoja.SpecieId,
                                         testCropCoefficient_Soja.CropCoefficientId, testCropDensitySoja,
                                         testMaxEvapotranspirationToIrrigate_Soja,
                                         testMinEvapotranspirationToIrrigate_Soja, 0);
             #endregion
 
-            
             #region 9.  Create PhenologicalStage List & Add Stage List to Crop
             testPhenologicalStageList_Maiz = InitialTables.CreatePhenologicalStageListForMaiz(testCrop_Maiz_Sur, testSpecieMaiz);
             testPhenologicalStageList_Soja = InitialTables.CreatePhenologicalStageListForSoja(testCrop_Soja_Sur, testSpecieSoja);
@@ -451,19 +450,19 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             Utils.IrrigationUnitType lType = Utils.IrrigationUnitType.Pivot;
             testIrrigationUnit_IrrigationList_Pivot_2 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_2 = new List<Crop>();
-            testIU_Pivot_2 = testIrrigationSystem.AddIrrigationUnit("Pivot 2", lType, testEfficiency_Pivot_2,
+            testIU_Pivot_2 = testIrrigationSystem.AddIrrigationUnit("Pivot 2", "Pivot 2", lType, testEfficiency_Pivot_2,
                                testIrrigationUnit_IrrigationList_Pivot_2, testSurface_Pivot_2,
                                testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity);
             
             testIrrigationUnit_IrrigationList_Pivot_3_4 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_3_4 = new List<Crop>();
-            testIU_Pivot_3_4 = testIrrigationSystem.AddIrrigationUnit("Pivot 3 y 4", lType, testEfficiency_Pivot_3_4,
+            testIU_Pivot_3_4 = testIrrigationSystem.AddIrrigationUnit("Pivot 3 y 4", "Pivot 3 y 4", lType, testEfficiency_Pivot_3_4,
                             testIrrigationUnit_IrrigationList_Pivot_3_4, testSurface_Pivot_3_4,
                             testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity);
             
             testIrrigationUnit_IrrigationList_Pivot_5 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_5 = new List<Crop>();
-            testIU_Pivot_5 = testIrrigationSystem.AddIrrigationUnit("Pivot 5", lType, testEfficiency_Pivot_5,
+            testIU_Pivot_5 = testIrrigationSystem.AddIrrigationUnit("Pivot 5", "Pivot 5", lType, testEfficiency_Pivot_5,
                             testIrrigationUnit_IrrigationList_Pivot_5, testSurface_Pivot_5,
                             testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
@@ -608,11 +607,11 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 lDateTimeToChange = new DateTime(2014, 11, 20);
-                lStageToChange = new Stage(1, "Maiz v4", "4 Hojas");
+                lStageToChange = new Stage(1, "Maiz v4", "v4", "4 Hojas");
                 lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
                 //Second Change
                 //lDateTimeToChange = new DateTime(2014, 11, 20);
-                //lStageToChange = new Stage(1, "Maiz v2", "2 Hojas");
+                //lStageToChange = new Stage(1, "Maiz v2", "v2", "2 Hojas");
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
             }
             
@@ -620,11 +619,11 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 lDateTimeToChange = new DateTime(2014, 12, 25);
-                lStageToChange = new Stage(1, "Soja v4", "4 Hojas");
+                lStageToChange = new Stage(1, "Soja v4", "v4", "4 Hojas");
                 lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
                 //Second Change
                 //lDateTimeToChange = new DateTime(2014, 12, 25);
-                //lStageToChange = new Stage(1, "Soja v4", "4 Hojas");
+                //lStageToChange = new Stage(1, "Soja v4", "v4", "4 Hojas");
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
             }
 
@@ -632,7 +631,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 //lDateTimeToChange = new DateTime(2015, 1, 5);
-                //lStageToChange = new Stage(1, "Maiz v9", "9 Hojas");
+                //lStageToChange = new Stage(1, "Maiz v9","v9", "9 Hojas");
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
                 
             }
@@ -655,7 +654,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
 
             //The start day is one day after sowing because the first day is created when the testCrop is created
             lFromDate = pCropIrrigationWeather.SowingDate.AddDays(1);
-            lToDate = DateTime.Now.AddDays(7);
+            lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
 
             lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
             lCropIrrigationWeather = pCropIrrigationWeather;

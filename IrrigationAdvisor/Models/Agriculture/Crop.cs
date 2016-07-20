@@ -61,6 +61,7 @@ namespace IrrigationAdvisor.Models.Agriculture
 
         public long cropId;
         private String name;
+        private String shortName;
         private long regionId;
         private long specieId;
         private long cropCoefficientId;
@@ -87,6 +88,12 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             get { return name; }
             set { name = value; }
+        }
+
+        public String ShortName
+        {
+            get { return shortName; }
+            set { shortName = value; }
         }
 
         public long RegionId
@@ -178,6 +185,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             this.CropId = 0;
             this.Name = "noName";
+            this.ShortName = "";
             this.RegionId = 0;
             this.SpecieId = 0;
             this.CropCoefficientId = 0;
@@ -194,19 +202,22 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         /// <param name="pCropId"></param>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pRegionId"></param>
         /// <param name="pSpecieId"></param>
         /// <param name="pCropCoefficientId"></param>
         /// <param name="pDensity"></param>
         /// <param name="pMaxEvapotranspirationToIrrigate"></param>
         /// <param name="pMinEvapotranspirationToIrrigate"></param>
-        public Crop(long pCropId, String pName, 
+        /// <param name="pStopIrrigationStageId"></param>
+        public Crop(long pCropId, String pName, String pShortName,
                     long pRegionId, long pSpecieId,long pCropCoefficientId,
-                    double pDensity, double pMaxEvapotranspirationToIrrigate, 
-                    double pMinEvapotranspirationToIrrigate, long pStopIrrigationStageId)
+                    Double pDensity, Double pMaxEvapotranspirationToIrrigate, 
+                    Double pMinEvapotranspirationToIrrigate, long pStopIrrigationStageId)
         {
             this.CropId = pCropId;
             this.Name = pName;
+            this.ShortName = pShortName;
             this.RegionId = pRegionId;
             this.SpecieId = pSpecieId;
             this.CropCoefficientId = pCropCoefficientId;
@@ -223,15 +234,16 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         /// <param name="pCropId"></param>
         /// <param name="pName"></param>
-        /// <param name="pRegion"></param>
-        /// <param name="pSpecieCycle"></param>
-        /// <param name="pCropCoefficient"></param>
-        /// <param name="pStageList"></param>
+        /// <param name="pShortName"></param>
+        /// <param name="pRegionId"></param>
+        /// <param name="pSpecieId"></param>
+        /// <param name="pCropCoefficientId"></param>
         /// <param name="pPhenologicalStageList"></param>
         /// <param name="pDensity"></param>
         /// <param name="pMaxEvapotranspirationToIrrigate"></param>
         /// <param name="pMinEvapotranspirationToIrrigate"></param>
-        public Crop(long pCropId, String pName,
+        /// <param name="pStopIrrigationStageId"></param>
+        public Crop(long pCropId, String pName, String pShortName,
                     long pRegionId, long pSpecieId, long pCropCoefficientId,
                     List<PhenologicalStage> pPhenologicalStageList,
                     double pDensity, double pMaxEvapotranspirationToIrrigate,
@@ -240,6 +252,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             
             this.CropId = pCropId;
             this.Name = pName;
+            this.ShortName = pShortName;
             this.RegionId = pRegionId;
             this.SpecieId = pSpecieId;
             this.CropCoefficientId = pCropCoefficientId;
@@ -361,11 +374,11 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pName"></param>
         /// <param name="pDescription"></param>
         /// <returns></returns>
-        public Stage AddStage(String pName, String pDescription)
+        public Stage AddStage(String pName, String pShortName, String pDescription)
         {
             Stage lReturn = null;
             long lStageId = this.StageList.Count();
-            Stage lStage = new Stage(lStageId, pName, pDescription);
+            Stage lStage = new Stage(lStageId, pName, pShortName, pDescription);
             if (ExistStage(lStage) == null)
             {
                 this.StageList.Add(lStage);
@@ -380,21 +393,23 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pName"></param>
         /// <param name="pDescription"></param>
         /// <returns></returns>
-        public Stage UpdateStage(String pName, String pDescription)
+        public Stage UpdateStage(String pName, String pShortName, String pDescription)
         {
             Stage lReturn = null;
-            Stage lStage = new Stage(0, pName, pDescription);
+            Stage lStage = new Stage(0, pName, pShortName, pDescription);
             PhenologicalStage lPhenologicalStage;
 
             lReturn = ExistStage(lStage);
             if (lReturn != null)
             {
                 lReturn.Name = pName;
+                lReturn.ShortName = pShortName;
                 lReturn.Description = pDescription;
+                
                 lPhenologicalStage = this.FindPhenologicalStage(lStage);
                 if (lPhenologicalStage != null)
                 {
-                    lPhenologicalStage.UpdateStage(pName, pDescription);
+                    lPhenologicalStage.UpdateStage(pName, pShortName, pDescription);
                 }
                 else
                 {
@@ -540,6 +555,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                 if(lStage != null)
                 {
                     lStage.Name = pStage.Name;
+                    lStage.ShortName = pStage.ShortName;
                     lStage.Description = pStage.Description;
                 }
                 else
@@ -547,7 +563,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                     //TODO throw exception "There is a Phenological Stage without Stage in StageList!! Error of data."
                 }
                 lReturn.SpecieId = pSpecie.SpecieId;
-                lReturn.UpdateStage(pStage.Name, pStage.Description);
+                lReturn.UpdateStage(pStage.Name, pStage.ShortName, pStage.Description);
                 lReturn.MinDegree = pMinDegree;
                 lReturn.MaxDegree = pMaxDegree;
                 lReturn.RootDepth = pRootDepth;
@@ -572,13 +588,14 @@ namespace IrrigationAdvisor.Models.Agriculture
                 if (lStage != null)
                 {
                     lStage.Name = pPhenologicalStage.Stage.Name;
+                    lStage.ShortName = pPhenologicalStage.Stage.ShortName;
                     lStage.Description = pPhenologicalStage.Stage.Description;
                 }
                 else
                 {
                     //TODO throw exception "There is a Phenological Stage without Stage in StageList!! Error of data."
                 }
-                lReturn.UpdateStage(pPhenologicalStage.Stage.Name, pPhenologicalStage.Stage.Description);
+                lReturn.UpdateStage(pPhenologicalStage.Stage.Name, pPhenologicalStage.Stage.ShortName, pPhenologicalStage.Stage.Description);
                 lReturn.MinDegree = pPhenologicalStage.MinDegree;
                 lReturn.MaxDegree = pPhenologicalStage.MaxDegree;
                 lReturn.RootDepth = pPhenologicalStage.RootDepth;

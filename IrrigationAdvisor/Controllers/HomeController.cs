@@ -97,12 +97,12 @@ namespace IrrigationAdvisor.Controllers
             List<IrrigationViewModel> lIrrigationViewModelList;
 
             #endregion
+
             try 
 	            {	        
 		
                 ManageSession.SetUserName(pLoginViewModel.UserName);
                 ManageSession.SetUserPassword(pLoginViewModel.Password);
-
 
                 lAuthentication = new Authentication(pLoginViewModel.UserName, pLoginViewModel.Password);
             
@@ -374,7 +374,220 @@ namespace IrrigationAdvisor.Controllers
 
         private readonly List<GridPivotHome> gridIrrigationUnitHomeList = new List<GridPivotHome>();
 
+
         public List<GridPivotHome> GetGridPivotHome()
+        {
+
+            #region Local Variables
+            List<GridPivotHome> lGridIrrigationUnitList = new List<GridPivotHome>();
+            GridPivotHome lGridIrrigationUnit;
+            List<GridPivotDetailHome> lGridIrrigationUnitDetailRow;
+            GridPivotDetailHome lGridIrrigationUnitRow;
+            DateTime lDateOfReference;
+            ErrorViewModel lErrorVM;
+            FarmViewModel lFarmViewModel;
+            User lLoggedUser;
+            List<Farm> lFarmList;
+            Farm lFirstFarm;
+            List<FarmViewModel> lFarmViewModelList;
+            List<Bomb> lBombList;
+            List<IrrigationUnit> lIrrigationUnitList;
+            List<CropIrrigationWeather> lCropIrrigationWeatherList;
+            CropIrrigationWeather lFirstCropIrrigationWeather;
+            List<Rain> lRainList;
+            List<Models.Water.Irrigation> lIrrigationList;
+            List<DailyRecord> lDailyRecordList;
+
+            List<DailyRecordViewModel> lDailyRecordViewModelList;
+            List<RainViewModel> lRainViewModelList;
+            List<IrrigationViewModel> lIrrigationViewModelList;
+
+            #endregion
+
+            #region Configuration Variables
+            UserConfiguration uc;
+            FarmConfiguration fc;
+            BombConfiguration bc;
+            IrrigationUnitConfigurarion iuc;
+            CropIrrigationWeatherConfiguration ciwc;
+            DailyRecordConfiguration drc;
+            RainConfiguration rc;
+            IrrigationConfiguration ic;
+            #endregion
+
+            try
+            {
+                
+                #region Configuration - Instance
+                uc = new UserConfiguration();
+                fc = new FarmConfiguration();
+                bc = new BombConfiguration();
+                iuc = new IrrigationUnitConfigurarion();
+                ciwc = new CropIrrigationWeatherConfiguration();
+                drc = new DailyRecordConfiguration();
+                rc = new RainConfiguration();
+                ic = new IrrigationConfiguration();
+                #endregion
+
+                lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
+
+                //Obtain logged user
+                lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
+
+                //Get list of Farms from User
+                lFarmList = fc.GetFarmListBy(lLoggedUser);
+
+                //Create IrrigationQuantity Units List
+                lIrrigationUnitList = new List<IrrigationUnit>();
+
+                lFirstFarm = lFarmList.FirstOrDefault();
+                lFarmViewModel = new FarmViewModel(lFirstFarm);
+                lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lFirstFarm);
+
+                lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+                lDailyRecordList = new List<DailyRecord>();
+                foreach (var lIrrigationUnit in lIrrigationUnitList)
+                {
+                    lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lDateOfReference);
+                    lDailyRecordList = ciwc.GetDailyRecordListBy(lIrrigationUnit, lDateOfReference);
+
+                    //Demo - First CropIrrigationWeather
+                    lFirstCropIrrigationWeather = lCropIrrigationWeatherList.FirstOrDefault();
+                    lRainList = lFirstCropIrrigationWeather.RainList;
+                    lIrrigationList = lFirstCropIrrigationWeather.IrrigationList;
+                    
+                    //Grid of irrigation data
+                    lGridIrrigationUnitDetailRow = new List<GridPivotDetailHome>();
+
+                    //Day - 2
+                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(-2), lIrrigationList, lRainList, lDailyRecordList);
+                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+
+                    //Day - 1
+                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(-1), lIrrigationList, lRainList, lDailyRecordList);
+                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                    //Day
+                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(0), lIrrigationList, lRainList, lDailyRecordList);
+                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                    //Day + 1
+                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(+1), lIrrigationList, lRainList, lDailyRecordList);
+                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                    
+                    //Day + 2
+                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(+2), lIrrigationList, lRainList, lDailyRecordList);
+                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                    
+                    //Day + 3
+                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(+3), lIrrigationList, lRainList, lDailyRecordList);
+                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                    
+                    //Day + 4
+                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(+4), lIrrigationList, lRainList, lDailyRecordList);
+                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+
+                    //Add all the days for the IrrigationUnit
+                    lGridIrrigationUnit = new GridPivotHome(lFirstCropIrrigationWeather.IrrigationUnit.ShortName, 
+                                                            lFirstCropIrrigationWeather.PhenologicalStage.Stage.ShortName,
+                                                            lFirstCropIrrigationWeather.Crop.ShortName, lGridIrrigationUnitDetailRow);
+
+                    lGridIrrigationUnitList.Add(lGridIrrigationUnit);
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+
+            return lGridIrrigationUnitList;
+
+        }
+
+        /// <summary>
+        /// Add Grid Irrigation Unit with all columns data
+        /// </summary>
+        /// <param name="pDayOfReference"></param>
+        /// <param name="pDayOfData"></param>
+        /// <param name="pIrrigationList"></param>
+        /// <param name="pRainList"></param>
+        /// <param name="pDailyRecordList"></param>
+        /// <returns></returns>
+        private GridPivotDetailHome AddGridIrrigationUnit(DateTime pDayOfReference, DateTime pDayOfData, List<Models.Water.Irrigation> pIrrigationList,
+                                                        List<Rain> pRainList, List<DailyRecord> pDailyRecordList)
+        {
+            GridPivotDetailHome lReturn;
+
+            Double lIrrigationQuantity = 0;
+            Double lRainQuantity = 0;
+            Double lForcastIrrigationQuantity = 0;
+            DateTime lDateOfData = Utils.MIN_DATETIME;
+            bool lIsToday = false;
+            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Green; ;
+
+            Models.Water.Irrigation lIrrigation;
+            Rain lRain;
+            DailyRecord lDailyRecord;
+
+            lDateOfData = pDayOfData;
+
+            //Find Irrigation of the Date of Data
+            lIrrigation = pIrrigationList.Where(ir => ir.Date == lDateOfData).FirstOrDefault();
+            if(lIrrigation != null && lIrrigation.Input > 0)
+            {
+                lIrrigationQuantity = lIrrigation.Input;
+            }
+
+            lIrrigation = pIrrigationList.Where(ir => ir.ExtraDate == lDateOfData).FirstOrDefault();
+            if (lIrrigation != null && lIrrigation.ExtraInput > 0)
+            {
+                lIrrigationQuantity = lIrrigation.ExtraInput;
+            }
+            //Find Rain of the Date of Data
+            lRain = pRainList.Where(r => r.Date == lDateOfData).FirstOrDefault();
+            if (lRain != null && lRain.Input > 0)
+            {
+                lRainQuantity = lRain.Input;
+            }
+
+            //Find Daily Record of the Date of Data
+            lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime == lDateOfData).FirstOrDefault();
+            if(pDayOfData > pDayOfReference)
+            {
+                if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
+                {
+                    lForcastIrrigationQuantity = lDailyRecord.Irrigation.Input;
+                }
+            }
+            
+
+            lIsToday = pDayOfData == pDayOfReference;
+
+            if(lRainQuantity > 0)
+            {
+                lIrrigationStatus = Utils.IrrigationStatus.Cyan;
+            }
+            else if(lIrrigationQuantity > 0)
+            {
+                lIrrigationStatus = Utils.IrrigationStatus.Blue;
+            }
+            else if(lForcastIrrigationQuantity > 0)
+            {
+                lIrrigationStatus = Utils.IrrigationStatus.Red;
+            }
+            else
+            {
+                lIrrigationStatus = Utils.IrrigationStatus.Green;
+            }
+
+            lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
+                                                            lDateOfData, lIsToday, lIrrigationStatus);
+            return lReturn;
+        }
+
+        public List<GridPivotHome> GetGridPivotHomeOld()
         {
             List<GridPivotDetailHome> gridPivotDetailHome2 = new List<GridPivotDetailHome>();
             List<GridPivotDetailHome> gridPivotDetailHome1 = new List<GridPivotDetailHome>();
@@ -517,11 +730,11 @@ namespace IrrigationAdvisor.Controllers
             testIrrigationSystem = IrrigationSystem.Instance;
 
             testIrrigationSystem.IrrigationUnitList = new List<IrrigationUnit>();
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 1", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 2", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 3", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 4", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 5", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
+            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 1", "Pivot 1", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
+            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 2", "Pivot 2", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
+            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 3", "Pivot 3", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
+            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 4", "Pivot 4", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
+            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 5", "Pivot 5", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
 
             IrrigationAdvisorContext var = new IrrigationAdvisorContext();
             //var.Farms.Where(q => q.Name == "Santa Lucia").First().IrrigationUnitViewModelList

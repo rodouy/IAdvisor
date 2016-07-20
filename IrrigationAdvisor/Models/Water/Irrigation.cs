@@ -49,7 +49,14 @@ namespace IrrigationAdvisor.Models.Water
             public Utils.WaterInputType Type
             {
                 get { return type; }
-                set { type = value; }
+                set 
+                { 
+                    if(value == Utils.WaterInputType.Rain)
+                    {
+                        value = Utils.WaterInputType.Irrigation;
+                    }
+                    type = value; 
+                }
             }
 
             #endregion
@@ -72,7 +79,7 @@ namespace IrrigationAdvisor.Models.Water
             /// <param name="pCropIrrigationWeatherId"></param>
             public Irrigation(DateTime pDate, double pInput, long pCropIrrigationWeatherId)
             {
-                this.type = Utils.WaterInputType.Irrigation;
+                this.Type = Utils.WaterInputType.Irrigation;
                 this.Date = pDate;
                 this.Input = pInput;
                 this.CropIrrigationWeatherId = pCropIrrigationWeatherId;

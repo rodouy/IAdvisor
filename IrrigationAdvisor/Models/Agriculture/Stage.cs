@@ -50,10 +50,9 @@ namespace IrrigationAdvisor.Models.Agriculture
         ///     
         /// </summary>
         private long stageId;
-        private string name;
-        private string description;
-
-
+        private String name;
+        private String shortName;
+        private String description;
 
         #endregion
 
@@ -76,6 +75,12 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { name = value; }
         }
 
+        public String ShortName
+        {
+            get { return shortName; }
+            set { shortName = value; }
+        }
+        
         public string Description
         {
             get { return description; }
@@ -93,6 +98,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             this.StageId = 0;
             this.Name = "noname";
+            this.ShortName = "";
             this.Description = "";
 
         }
@@ -100,11 +106,15 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <summary>
         /// Constructor of ClassTemplate with parameters
         /// </summary>
+        /// <param name="pStageId"></param>
         /// <param name="pName"></param>
-        public Stage(long pStageId, String pName, String pDescription)
+        /// <param name="pShortName"></param>
+        /// <param name="pDescription"></param>
+        public Stage(long pStageId, String pName, String pShortName, String pDescription)
         {
             this.StageId = pStageId;
             this.Name = pName;
+            this.ShortName = pShortName;
             this.Description = pDescription;
         }
 

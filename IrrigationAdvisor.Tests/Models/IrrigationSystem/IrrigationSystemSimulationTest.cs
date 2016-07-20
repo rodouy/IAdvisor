@@ -523,8 +523,8 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             #endregion
 
             #region 4. Add Specie (Name, Cycle, BaseTemperature, StressTemperature) to SpecieList of Region
-            testSpecieMaiz = testRegion.AddSpecie("Maiz", "Corto", testMaizBaseTemperature, testMaizStressTemperature);
-            testSpecieSoja = testRegion.AddSpecie("Soja", "Corto", testSojaBaseTemperature, testSojaStressTemperature);
+            testSpecieMaiz = testRegion.AddSpecie("Maiz", "Maiz", "Corto", testMaizBaseTemperature, testMaizStressTemperature);
+            testSpecieSoja = testRegion.AddSpecie("Soja", "Soja", "Corto", testSojaBaseTemperature, testSojaStressTemperature);
             //testSpecieList = new List<Specie>();
             //testSpecieList.Add(testSpecieMaiz);
             //testSpecieList.Add(testSpecieSoja);
@@ -543,11 +543,11 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
 
             
             #region 7. Create Crops (Name, Region, Specie, Density, MaxEvapoTrransToIrrigate, MinEvapoTrransToIrrigate)
-            testCrop_Maiz_Sur = new Crop(0, "Maiz Sur", testRegion.RegionId, testSpecieMaiz.SpecieId, 
+            testCrop_Maiz_Sur = new Crop(0, "Maiz Sur", "Maíz", testRegion.RegionId, testSpecieMaiz.SpecieId, 
                                         testCropCoefficient_Maiz.CropCoefficientId, testCropDensityMaiz,
                                         testMaxEvapotranspirationToIrrigate_Maiz,
                                         testMinEvapotranspirationToIrrigate_Maiz, 0);
-            testCrop_Soja_Sur = new Crop(1, "Soja Sur", testRegion.RegionId, testSpecieSoja.SpecieId,
+            testCrop_Soja_Sur = new Crop(1, "Soja Sur", "Soja", testRegion.RegionId, testSpecieSoja.SpecieId,
                                         testCropCoefficient_Soja.CropCoefficientId, testCropDensitySoja,
                                         testMaxEvapotranspirationToIrrigate_Soja,
                                         testMinEvapotranspirationToIrrigate_Soja, 0);
@@ -939,79 +939,79 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             Utils.IrrigationUnitType lType = Utils.IrrigationUnitType.Pivot;
             testIrrigationUnit_IrrigationList_Pivot_01_Maiz_2007 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_01_Maiz_2007 = new List<Crop>();
-            testIU_Pivot_01_Maiz_2007 = testIrrigationSystem.AddIrrigationUnit("Pivot 01", lType, testEfficiency_Pivot_01,
+            testIU_Pivot_01_Maiz_2007 = testIrrigationSystem.AddIrrigationUnit("Pivot 01", "Pivot 01", lType, testEfficiency_Pivot_01,
                                testIrrigationUnit_IrrigationList_Pivot_01_Maiz_2007, testSurface_Pivot_01,
                                testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
             
             testIrrigationUnit_IrrigationList_Pivot_02_Tammi_2008 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_02_Tammi_2008 = new List<Crop>();
-            testIU_Pivot_02_Tammi_2008 = testIrrigationSystem.AddIrrigationUnit("Pivot 02", lType, testEfficiency_Pivot_02,
+            testIU_Pivot_02_Tammi_2008 = testIrrigationSystem.AddIrrigationUnit("Pivot 02", "Pivot 02", lType, testEfficiency_Pivot_02,
                             testIrrigationUnit_IrrigationList_Pivot_02_Tammi_2008, testSurface_Pivot_02,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
             
             testIrrigationUnit_IrrigationList_Pivot_03_LaPerdiz_2010 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_03_LaPerdiz_2010 = new List<Crop>();
-            testIU_Pivot_03_LaPerdiz2010 = testIrrigationSystem.AddIrrigationUnit("Pivot 03", lType, testEfficiency_Pivot_03,
+            testIU_Pivot_03_LaPerdiz2010 = testIrrigationSystem.AddIrrigationUnit("Pivot 03", "Pivot 03", lType, testEfficiency_Pivot_03,
                             testIrrigationUnit_IrrigationList_Pivot_03_LaPerdiz_2010, testSurface_Pivot_03,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_04_NK900_2010 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_04_NK900_2010 = new List<Crop>();
-            testIU_Pivot_04_NK900_2010 = testIrrigationSystem.AddIrrigationUnit("Pivot 04", lType, testEfficiency_Pivot_04,
+            testIU_Pivot_04_NK900_2010 = testIrrigationSystem.AddIrrigationUnit("Pivot 04", "Pivot 04", lType, testEfficiency_Pivot_04,
                             testIrrigationUnit_IrrigationList_Pivot_04_NK900_2010, testSurface_Pivot_04,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_05_NK900_2012 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_05_NK900_2012 = new List<Crop>();
-            testIU_Pivot_05_NK900_2012 = testIrrigationSystem.AddIrrigationUnit("Pivot 05", lType, testEfficiency_Pivot_05,
+            testIU_Pivot_05_NK900_2012 = testIrrigationSystem.AddIrrigationUnit("Pivot 05", "Pivot 05", lType, testEfficiency_Pivot_05,
                             testIrrigationUnit_IrrigationList_Pivot_05_NK900_2012, testSurface_Pivot_05,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_06_SLP2_2010 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_06_SLP2_2010 = new List<Crop>();
-            testIU_Pivot_06_SLP2_2010 = testIrrigationSystem.AddIrrigationUnit("Pivot 06", lType, testEfficiency_Pivot_06,
+            testIU_Pivot_06_SLP2_2010 = testIrrigationSystem.AddIrrigationUnit("Pivot 06", "Pivot 06", lType, testEfficiency_Pivot_06,
                             testIrrigationUnit_IrrigationList_Pivot_06_SLP2_2010, testSurface_Pivot_06,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_07_SLP2_2012 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_07_SLP2_2012 = new List<Crop>();
-            testIU_Pivot_07_SLP2_2012 = testIrrigationSystem.AddIrrigationUnit("Pivot 07", lType, testEfficiency_Pivot_07,
+            testIU_Pivot_07_SLP2_2012 = testIrrigationSystem.AddIrrigationUnit("Pivot 07", "Pivot 07", lType, testEfficiency_Pivot_07,
                             testIrrigationUnit_IrrigationList_Pivot_07_SLP2_2012, testSurface_Pivot_07,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_08_SLP2_2013 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_08_SLP2_2013 = new List<Crop>();
-            testIU_Pivot_08_SLP2_2013 = testIrrigationSystem.AddIrrigationUnit("Pivot 08", lType, testEfficiency_Pivot_08,
+            testIU_Pivot_08_SLP2_2013 = testIrrigationSystem.AddIrrigationUnit("Pivot 08", "Pivot 08", lType, testEfficiency_Pivot_08,
                             testIrrigationUnit_IrrigationList_Pivot_08_SLP2_2013, testSurface_Pivot_08,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_09_SLP5_2013 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_09_SLP5_2013 = new List<Crop>();
-            testIU_Pivot_09_SLP5_2013 = testIrrigationSystem.AddIrrigationUnit("Pivot 09", lType, testEfficiency_Pivot_09,
+            testIU_Pivot_09_SLP5_2013 = testIrrigationSystem.AddIrrigationUnit("Pivot 09", "Pivot 09", lType, testEfficiency_Pivot_09,
                             testIrrigationUnit_IrrigationList_Pivot_09_SLP5_2013, testSurface_Pivot_09,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_10_SL_Soja_2013 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_10_SL_Soja_2013 = new List<Crop>();
-            testIU_Pivot_10_SL_Soja_2013 = testIrrigationSystem.AddIrrigationUnit("Pivot 10", lType, testEfficiency_Pivot_10,
+            testIU_Pivot_10_SL_Soja_2013 = testIrrigationSystem.AddIrrigationUnit("Pivot 10", "Pivot 10", lType, testEfficiency_Pivot_10,
                             testIrrigationUnit_IrrigationList_Pivot_10_SL_Soja_2013, testSurface_Pivot_10,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_11_LP_Soja_2010 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_11_LP_Soja_2010 = new List<Crop>();
-            testIU_Pivot_11_LP_Soja_2010 = testIrrigationSystem.AddIrrigationUnit("Pivot 11", lType, testEfficiency_Pivot_11,
+            testIU_Pivot_11_LP_Soja_2010 = testIrrigationSystem.AddIrrigationUnit("Pivot 11", "Pivot 11", lType, testEfficiency_Pivot_11,
                             testIrrigationUnit_IrrigationList_Pivot_11_LP_Soja_2010, testSurface_Pivot_11,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_12_LP_Soja_2011 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_12_LP_Soja_2011 = new List<Crop>();
-            testIU_Pivot_12_LP_Soja_2011 = testIrrigationSystem.AddIrrigationUnit("Pivot 12", lType, testEfficiency_Pivot_12,
+            testIU_Pivot_12_LP_Soja_2011 = testIrrigationSystem.AddIrrigationUnit("Pivot 12", "Pivot 12", lType, testEfficiency_Pivot_12,
                             testIrrigationUnit_IrrigationList_Pivot_12_LP_Soja_2011, testSurface_Pivot_12,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
             testIrrigationUnit_IrrigationList_Pivot_13_LP_Soja_2012 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_13_LP_Soja_2012 = new List<Crop>();
-            testIU_Pivot_13_LP_Soja_2012 = testIrrigationSystem.AddIrrigationUnit("Pivot 13", lType, testEfficiency_Pivot_13,
+            testIU_Pivot_13_LP_Soja_2012 = testIrrigationSystem.AddIrrigationUnit("Pivot 13", "Pivot 13", lType, testEfficiency_Pivot_13,
                             testIrrigationUnit_IrrigationList_Pivot_13_LP_Soja_2012, testSurface_Pivot_13,
                             testBomb.BombId, testPositionFarm.PositionId, Utils.PredeterminatedIrrigationQuantity);
 
@@ -1374,11 +1374,11 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 lDateTimeToChange = new DateTime(2014, 11, 20);
-                lStageToChange = new Stage(1, "Maiz v4", "4 Hojas");
+                lStageToChange = new Stage(1, "Maiz v4", "v4", "4 Hojas");
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
                 //Second Change
                 lDateTimeToChange = new DateTime(2014, 11, 20);
-                lStageToChange = new Stage(1, "Maiz v2", "2 Hojas");
+                lStageToChange = new Stage(1, "Maiz v2", "v2", "2 Hojas");
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
             }
             
@@ -1386,11 +1386,11 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 lDateTimeToChange = new DateTime(2014, 12, 25);
-                lStageToChange = new Stage(1, "Soja v4", "4 Hojas");
+                lStageToChange = new Stage(1, "Soja v4", "v4", "4 Hojas");
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
                 //Second Change
                 lDateTimeToChange = new DateTime(2014, 12, 25);
-                lStageToChange = new Stage(1, "Soja v4", "4 Hojas");
+                lStageToChange = new Stage(1, "Soja v4", "v4", "4 Hojas");
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
             }
 
@@ -1398,7 +1398,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 lDateTimeToChange = new DateTime(2015, 1, 5);
-                lStageToChange = new Stage(1, "Maiz v9", "9 Hojas");
+                lStageToChange = new Stage(1, "Maiz v9", "v9", "9 Hojas");
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
                 
             }
@@ -1407,7 +1407,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 lDateTimeToChange = new DateTime(2015, 1, 5);
-                lStageToChange = new Stage(1, "Maiz v9", "9 Hojas");
+                lStageToChange = new Stage(1, "Maiz v9", "v9", "9 Hojas");
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
 
             }
@@ -1432,7 +1432,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             lFromDate = pCropIrrigationWeather.SowingDate.AddDays(1);
             if(pCropIrrigationWeather.HarvestDate > DateTime.Now)
             {
-                lToDate = DateTime.Now.AddDays(7);
+                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
