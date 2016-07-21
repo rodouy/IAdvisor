@@ -71,35 +71,33 @@
                                     <p>  </p>
                                     <form role="form">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Ingrese la lluvia en 'ml'" class="form-control" id="lluvia">
+                                            <input type="number" placeholder="Ingrese la lluvia en 'ml'" class="form-control" id="irrigationMilimeters">
                                             <br />
                                             <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                               
                                                     Seleccionar Fecha
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                    <li><a href="#">Miercoles 04/11</a></li>
-                                                    <li><a href="#">Jueves 05/11</a></li>
-                                                    <li><a href="#">Viernes 06/11</a></li>
-                                                    <li><a href="#">Sabado 07/11</a></li>
-                                                    <li><a href="#">Domingo 08/11</a></li>
-                                                </ul>
+                                                    
+                                                <select id="rainDate">
+                                                    <option value="@(dateValue.ToShortDateString())">@(dateValue.ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-1).ToShortDateString())">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-2).ToShortDateString())">@(dateValue.AddDays(-2).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-3).ToShortDateString())">@(dateValue.AddDays(-3).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-4).ToShortDateString())">@(dateValue.AddDays(-4).ToShortDateString())</option>
+                                                </select>
                                                 <br />
                                             </div>
                                             <br />
                                             <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                    Seleccionar pivot
-                                                    <span class="caret"></span>
-                                                </button>
+                                                 Seleccionar pivot
+                                                <select id="IrrigationUnitIrrigation">
+                                                    <option value="-1">Todos</option>
+                                                    @foreach (var item in Model.IrrigationUnitViewModelList)
+                                                    {
+                                                        <option value="@item.IrrigationUnitId">@item.Name</option>
 
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="font-size:13px !important">
-                                                    <li><a href="#">@Model.IrrigationUnitViewModelList[0].Name</a></li>
-                                                    <li><a href="#">Pivot 2</a></li>
-                                                    <li><a href="#">Pivot 3</a></li>
-                                                    <li><a href="#">Pivot 4</a></li>
-                                                </ul>
+                                                    }
+                                                </select>
+                                                
 
                                                 <br />
                                             </div>
@@ -109,7 +107,7 @@
                                 </div>
                                 <div class="cf footer">
                                     <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-                                    <button type="button" class="btn btn-success">Guardar</button>
+                                    <a  class="btn btn-success" id="SaveIrrigation" href="#">Guardar</a>
                                 </div>
                             </div>
                         </div>
@@ -208,31 +206,28 @@
                                             </div>
                                             <br />
                                             <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                     Seleccione una Fecha
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                    <li><a href="#">Miercoles 04/11</a></li>
-                                                    <li><a href="#">Jueves 05/11</a></li>
-                                                    <li><a href="#">Viernes 06/11</a></li>
-                                                    <li><a href="#">Sabado 07/11</a></li>
-                                                    <li><a href="#">Domingo 08/11</a></li>
-                                                </ul>
+                                                <select id="phenoDate">
+                                                    <option value="@(dateValue.ToShortDateString())">@(dateValue.ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-1).ToShortDateString())">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-2).ToShortDateString())">@(dateValue.AddDays(-2).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-3).ToShortDateString())">@(dateValue.AddDays(-3).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-4).ToShortDateString())">@(dateValue.AddDays(-4).ToShortDateString())</option>
+                                                </select>
                                                 <br />
                                             </div>
                                             <br />
                                             <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                    Seleccionar Unidad de Riego
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                    <li><a href="#">Pivot 1</a></li>
-                                                    <li><a href="#">Pivot 2</a></li>
-                                                    <li><a href="#">Pivot 3</a></li>
-                                                    <li><a href="#">Pivot 4</a></li>
-                                                </ul>
+                                                Seleccionar Unidad de Riego
+                                                <select id="IrrigationUnitPheno">
+                                                    <option value="-1">Todos</option>
+                                                    @foreach (var item in Model.IrrigationUnitViewModelList)
+                                                    {
+                                                        <option value="@item.IrrigationUnitId">@item.Name</option>
+
+                                                    }
+                                                </select>
+
                                                 <br />
                                             </div>
                                         </div>
@@ -240,7 +235,7 @@
                                 </div>
                                 <div class="cf footer">
                                     <p> <a href="#" class="btn  btn-style-2" >Cancelar</a></p>
-                                    <button type="button" class="btn btn-success" >Guardar</button>
+                                    <a type="button" class="btn btn-success"  href="#">Guardar</a>
                                 </div>
                             </div>
                             <div class="overlay"></div>

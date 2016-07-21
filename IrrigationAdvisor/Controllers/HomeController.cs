@@ -268,8 +268,47 @@ namespace IrrigationAdvisor.Controllers
             ManageSession.SetDateOfReference(date.Value);
             LoginViewModel lvm = ManageSession.GetLoginViewModel();
 
-            return RedirectToAction("Home", new { pLoginViewModel = lvm });
+            return RedirectToAction("Home");
         }
+
+        [HttpGet]
+        public ActionResult AddIrrigation(  double pMilimeters,
+                                            int pIrrigationUnitId,
+                                            int pDay,
+                                            int pMonth,
+                                            int pYear)
+        {
+            HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
+
+            DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
+            DateTime? lReferenceDate = ManageSession.GetDateOfReference();
+
+            IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+            CropIrrigationWeatherConfiguration lCropConf = new CropIrrigationWeatherConfiguration();
+
+            CropIrrigationWeather lCropIrrigationWeather = null;
+
+            ManageSession.SetFromDateTime(lDateResult);
+
+            if (pIrrigationUnitId > -1)
+            {
+                lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == pIrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                lContext.SaveChanges();
+            }
+            else
+            {
+                foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
+                {
+                    lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == item.IrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
+                    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                    lContext.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("Home");
+        }
+
 
         [HttpGet]
         public ActionResult AddRain(double pMilimeters, 
