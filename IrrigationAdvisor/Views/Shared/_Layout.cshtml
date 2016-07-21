@@ -71,102 +71,103 @@
     <title>PGW - Water</title>
 </head>
 <body id="page-top">
-    <!-- PG -->
-    <div id="page-wrap">
-        <!-- PRELOADER -->
-        <div id="preloader">
-            <div class="pre-icon">
-                <div class="pre-item pre-item-1"></div>
-                <div class="pre-item pre-item-2"></div>
-                <div class="pre-item pre-item-3"></div>
-                <div class="pre-item pre-item-4"></div>
+    
+        <!-- PG -->
+        <div id="page-wrap">
+            <!-- PRELOADER -->
+            <div id="preloader">
+                <div class="pre-icon">
+                    <div class="pre-item pre-item-1"></div>
+                    <div class="pre-item pre-item-2"></div>
+                    <div class="pre-item pre-item-3"></div>
+                    <div class="pre-item pre-item-4"></div>
+                </div>
             </div>
-        </div>
-        <!-- End Preloader -->
-        <!-- Header -->
-        <header id="header" class="header">
-            <div class="container">
-                <!-- Logo PGW -->
-                <div class="logo"><a href="../"><img src="../images/logo.png" alt=""></a></div>
-
-                <!-- nav -->
-                <nav class="navigation">
-                    <div class="open-menu">
-                        <span class="item item-1"></span>
-                        <span class="item item-2"></span>
-                        <span class="item item-3"></span>
-                    </div>
-                    <!-- Menu -->
-                    <ul class="menu">
-                        @{ Html.RenderAction("GenerateMenu", "Home"); }
-                    </ul>
-                    <!-- End menu -->
-                </nav>
-                <!-- end nav -->
-
-            </div>
-        </header>
-
-        @RenderBody()
-
-
-        <!-- FOOTER -->
-        <footer id="footer" class="footer">
-            <div class="first-footer">
+            <!-- End Preloader -->
+            <!-- Header -->
+            <header id="header" class="header">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="widget txt-footer">
-                                <h3 class="md">PGW Water</h3>
-                                <p>
-                                    PGW Water es la Unidad de Riego de la Compañía PGG Wrightson en Uruguay.
-                                </p>
-                                <a href="contact.html" class="btn btn-contact">Contacto</a>
+                    <!-- Logo PGW -->
+                    <div class="logo"><a href="../"><img src="../images/logo.png" alt=""></a></div>
+
+                    <!-- nav -->
+                    <nav class="navigation">
+                        <div class="open-menu">
+                            <span class="item item-1"></span>
+                            <span class="item item-2"></span>
+                            <span class="item item-3"></span>
+                        </div>
+                        <!-- Menu -->
+                        <ul class="menu">
+                            @{ Html.RenderAction("GenerateMenu", "Home"); }
+                        </ul>
+                        <!-- End menu -->
+                    </nav>
+                    <!-- end nav -->
+
+                </div>
+            </header>
+
+            @RenderBody()
+
+
+            <!-- FOOTER -->
+            <footer id="footer" class="footer">
+                <div class="first-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="widget txt-footer">
+                                    <h3 class="md">PGW Water</h3>
+                                    <p>
+                                        PGW Water es la Unidad de Riego de la Compañía PGG Wrightson en Uruguay.
+                                    </p>
+                                    <a href="contact.html" class="btn btn-contact">Contacto</a>
+
+                                </div>
+                            </div>
+
+                            <!--contact form-->
+                            <div class="container">
+
+                                @{ Html.RenderAction("ContactPartial", "Home"); }
 
                             </div>
                         </div>
-
-                        <!--contact form-->
-                        <div class="container">
-
-                            @{ Html.RenderAction("ContactPartial", "Home"); }
-
-                        </div>
                     </div>
+                    <!--end contact form-->
                 </div>
-                <!--end contact form-->
-            </div>
-            <div class="second-footer">
-                <div class="container">
-                    <div class="contact">
+                <div class="second-footer">
+                    <div class="container">
                         <div class="contact">
-                            Datos de contacto:
+                            <div class="contact">
+                                Datos de contacto:
+                            </div>
+                            <div class="email">
+                                <i class="icon md-email"></i>
+                                <a href="#">consultas@pgwwater.com.uy</a>
+                            </div>
+                            <div class="phone">
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <span>+598 2929 1613</span>
+                            </div>
+                            <div class="address">
+                                <i class="fa fa-map-marker"></i>
+                                <span>Cuareim 1958, Montevideo</span>
+                            </div>
                         </div>
-                        <div class="email">
-                            <i class="icon md-email"></i>
-                            <a href="#">consultas@pgwwater.com.uy</a>
-                        </div>
-                        <div class="phone">
-                            <i class="fa fa-mobile" aria-hidden="true"></i>
-                            <span>+598 2929 1613</span>
-                        </div>
-                        <div class="address">
-                            <i class="fa fa-map-marker"></i>
-                            <span>Cuareim 1958, Montevideo</span>
-                        </div>
+
+
                     </div>
-
-
                 </div>
-            </div>
 
-        </footer>
-        <!-- ENd FOOTER -->
-        <!-- End PG -->
-     </div>
+            </footer>
+            <!-- ENd FOOTER -->
+            <!-- End PG -->
+        </div>
         <!-- Load jQuery -->
 
-
+    
         <script type="text/javascript" src="../js/library/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="../js/library/bootstrap.min.js"></script>
         <script type="text/javascript" src="../js/library/jquery.owl.carousel.js"></script>
