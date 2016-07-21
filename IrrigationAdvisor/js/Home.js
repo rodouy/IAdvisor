@@ -6,7 +6,7 @@
     $('#SaveRain').click(function()
     {
 
-        debugger;
+        
         var rainDate = moment($('#rainDate :selected').val());
         addRain($('#rain').val(),
                         $('#IrrigationUnit :selected').val(),
@@ -32,7 +32,7 @@
         
         var pUrl = './AddRain?pMilimeters=' + pMilimiters +
                 '&pIrrigationUnitId=' + pIrrigationUnitId +
-                '&pDay=' + pDate.date() +
+                '&pDay=' + pDate.day() +
                 '&pMonth=' + (pDate.month() + 1) + 
                 '&pYear=' + pDate.year();
 
@@ -61,7 +61,7 @@
 
         var pUrl = './AddIrrigation?pMilimeters=' + pMilimiters +
                 '&pIrrigationUnitId=' + pIrrigationUnitId +
-                '&pDay=' + pDate.date() +
+                '&pDay=' + pDate.day() +
                 '&pMonth=' + (pDate.month() + 1) +
                 '&pYear=' + pDate.year();
 
