@@ -26,6 +26,7 @@ namespace IrrigationAdvisor.DBContext.Irrigation
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(c => c.Name)
                 .IsRequired();
+
         }
 
 
@@ -39,11 +40,30 @@ namespace IrrigationAdvisor.DBContext.Irrigation
             {
                 lIrrigationUnitId = pIrrigationUnit.IrrigationUnitId;
                 lReturn = db.CropIrrigationWeathers
+                    .Include(ciw => ciw.Crop)
+                    .Include(ciw => ciw.Crop.Region)
+                    .Include(ciw => ciw.Crop.Region.EffectiveRainList)
+                    .Include(ciw => ciw.Crop.Region.TemperatureDataList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.CropCoefficient)
+                    .Include(ciw => ciw.Crop.CropCoefficient.KCList)
+                    .Include(ciw => ciw.Soil)
+                    .Include(ciw => ciw.Soil.HorizonList)
+                    .Include(ciw => ciw.CropInformationByDate)
+                    .Include(ciw => ciw.MainWeatherStation)
+                    .Include(ciw => ciw.MainWeatherStation.WeatherDataList)
+                    .Include(ciw => ciw.AlternativeWeatherStation)
+                    .Include(ciw => ciw.AlternativeWeatherStation.WeatherDataList)
                     .Include(ciw => ciw.RainList)
                     .Include(ciw => ciw.IrrigationList)
-                    .Include(ciw => ciw.Crop)
-                    .Include(ciw => ciw.Soil)
+                    .Include(ciw => ciw.EvapotranspirationCropList)
                     .Include(ciw => ciw.DailyRecordList)
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.MainWeatherData))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.AlternativeWeatherData))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.PhenologicalStage))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Rain))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
                     .Where(ciw => ciw.IrrigationUnitId == lIrrigationUnitId
                         && ciw.SowingDate <= pDateOfReference
                         && ciw.HarvestDate >= pDateOfReference).ToList();
@@ -73,6 +93,21 @@ namespace IrrigationAdvisor.DBContext.Irrigation
             return lReturn;
         }
 
+        /// <summary>
+        /// Get Irrigation Unit by IrrigationUnitId
+        /// </summary>
+        /// <param name="pIrrigationUnitId"></param>
+        /// <returns></returns>
+        public IrrigationUnit GetIrrigationUnitBy(long pIrrigationUnitId)
+        {
+            IrrigationUnit lReturn = null;
+
+            lReturn = db.IrrigationUnits
+                .Include(iu => iu.Bomb)
+                .Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
+
+            return lReturn;
+        }
         /// <summary>
         /// Get Latitude by Position Id
         /// </summary>

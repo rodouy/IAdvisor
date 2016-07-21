@@ -3,8 +3,8 @@
     $('#SaveRain').click(function()
     {
 
-
-        var rainDate = moment($('#rainDate :selected').val(),'dd/mm/yyyy');
+        debugger;
+        var rainDate = moment($('#rainDate :selected').val());
 
         addIrrigation(  $('#rain').val(),
                         $('#IrrigationUnit :selected').val(),
@@ -22,7 +22,7 @@
         var pUrl = './AddRain?pMilimeters=' + pMilimiters +
                 '&pIrrigationUnitId=' + pIrrigationUnitId +
                 '&pDay=' + pDate.date() +
-                '&pMonth=' + pDate.month() +
+                '&pMonth=' + (pDate.month() + 1) +
                 '&pYear=' + pDate.year();
 
         $.ajax({

@@ -23,6 +23,7 @@ using IrrigationAdvisor.DBContext.Management;
 using IrrigationAdvisor.DBContext.Security;
 using IrrigationAdvisor.DBContext.Water;
 using IrrigationAdvisor.DBContext.Weather;
+using System.Data.Entity.Infrastructure;
 
 
 namespace IrrigationAdvisor.DBContext
@@ -36,7 +37,7 @@ namespace IrrigationAdvisor.DBContext
         public IrrigationAdvisorContext()
             :base("name=IrrigationAdvisorContext")
         {
-            
+            this.Database.CommandTimeout = 120;
         }
 
         public IrrigationAdvisorContext(string databaseName)
@@ -84,7 +85,7 @@ namespace IrrigationAdvisor.DBContext
 
         public virtual DbSet<Drip> Drips { get; set; }
 
-        //public virtual DbSet<IrrigationUnit> IrrigationUnits { get; set; }
+        public virtual DbSet<IrrigationUnit> IrrigationUnits { get; set; }
 
         public virtual DbSet<Pivot> Pivots { get; set; }
 

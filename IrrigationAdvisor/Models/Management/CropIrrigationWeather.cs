@@ -2456,8 +2456,14 @@ namespace IrrigationAdvisor.Models.Management
 
             if (pDateTime != null)
             {
-                lWeatherDataMain = this.MainWeatherStation.FindWeatherData(pDateTime);
-                lWeatherDataAlternative = this.AlternativeWeatherStation.FindWeatherData(pDateTime);
+                if(this.MainWeatherStation != null)
+                {
+                    lWeatherDataMain = this.MainWeatherStation.FindWeatherData(pDateTime);
+                }
+                else if (this.AlternativeWeatherStation != null)
+                {
+                    lWeatherDataAlternative = this.AlternativeWeatherStation.FindWeatherData(pDateTime);
+                }
                 if (lWeatherDataMain == null)
                 {
                     if (lWeatherDataAlternative == null)
@@ -2503,12 +2509,15 @@ namespace IrrigationAdvisor.Models.Management
         public Rain AddRainDataToList(DateTime pDate, Double pInput)
         {
             Rain lNewRain = null;
+            long lNewRainId = 0;
             try
             {
                 lNewRain = this.GetRain(pDate);
                 if (lNewRain == null)
                 {
+                    lNewRainId = this.RainList.Count();
                     lNewRain = new Rain();
+                    lNewRain.WaterInputId = lNewRainId;
                     lNewRain.Date = pDate;
                     lNewRain.Input = pInput;
                     lNewRain.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
