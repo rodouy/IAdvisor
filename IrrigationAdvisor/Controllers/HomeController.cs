@@ -101,11 +101,20 @@ namespace IrrigationAdvisor.Controllers
             #endregion
 
             try 
-	            {	        
-		
+	            {
+
+                if(pLoginViewModel != null)
+                {
+                    ManageSession.SetLoginViewModel(pLoginViewModel);
+                }else
+                {
+                    pLoginViewModel = ManageSession.GetLoginViewModel();
+                }
+
                 ManageSession.SetUserName(pLoginViewModel.UserName);
                 ManageSession.SetUserPassword(pLoginViewModel.Password);
 
+                
                 lAuthentication = new Authentication(pLoginViewModel.UserName, pLoginViewModel.Password);
             
                 if(!lAuthentication.IsAuthenticated())
@@ -125,8 +134,17 @@ namespace IrrigationAdvisor.Controllers
                 ic = new IrrigationConfiguration();
                 #endregion
 
-                lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
-                ManageSession.SetDateOfReference(lDateOfReference);
+                if(ManageSession.GetDateOfReference() == null)
+                {
+                    lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
+                    ManageSession.SetDateOfReference(lDateOfReference);
+                }
+                else
+                {
+                    lDateOfReference = ManageSession.GetDateOfReference().Value;
+                }
+                
+                
                 ViewBag.DateOfReference = lDateOfReference;
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
@@ -242,6 +260,16 @@ namespace IrrigationAdvisor.Controllers
             return View("Index", new LoginViewModel());
         }
 
+        [HttpGet]
+        public ActionResult AddDateOfReference()
+        {
+            DateTime? date = ManageSession.GetDateOfReference();
+            date = date.Value.AddDays(1);
+            ManageSession.SetDateOfReference(date.Value);
+            LoginViewModel lvm = ManageSession.GetLoginViewModel();
+
+            return RedirectToAction("Home", new { pLoginViewModel = lvm });
+        }
 
         [HttpGet]
         public ActionResult AddRain(double pMilimeters, 
@@ -263,6 +291,8 @@ namespace IrrigationAdvisor.Controllers
                 CropIrrigationWeatherConfiguration lCropConf = new CropIrrigationWeatherConfiguration();
 
                 CropIrrigationWeather lCropIrrigationWeather = null;
+
+                ManageSession.SetFromDateTime(lDateResult);
 
                 if (pIrrigationUnitId > -1)
                 {
