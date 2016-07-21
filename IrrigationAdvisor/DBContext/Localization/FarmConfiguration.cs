@@ -45,6 +45,7 @@ namespace IrrigationAdvisor.DBContext.Localization
                     .Include(f => f.IrrigationUnitList)
                     .Include(f => f.User)
                     .Include(f => f.WeatherStation)
+                    .Include(f => f.City)
                     .Where(f => f.UserId == pUser.UserId).ToList();
             }
 

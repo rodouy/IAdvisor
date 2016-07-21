@@ -20,10 +20,10 @@ namespace IrrigationAdvisor.Tests.Controllers
             //HomeController controller = new HomeController();
 
             //// Act
-            //ViewResult result = controller.Index(new LoginViewModel()) as ViewResult;
+            //ViewResult lResult = controller.Index(new LoginViewModel()) as ViewResult;
 
             //// Assert
-            //Assert.IsNotNull(result);
+            //Assert.IsNotNull(lResult);
         }
 
         [TestMethod]
