@@ -861,6 +861,46 @@ namespace IrrigationAdvisor.Models.Utilities
             }
             return lReturn;
         }
+        
+        /// <summary>
+        /// Return the min date between two dates
+        /// </summary>
+        /// <param name="pDateOne"></param>
+        /// <param name="pDateTwo"></param>
+        /// <returns></returns>
+        public static DateTime MinDateTimeBetween(DateTime pDateOne, DateTime pDateTwo)
+        {
+            DateTime lReturn = MIN_DATETIME;
+            if(pDateOne.Date < pDateTwo.Date)
+            {
+                lReturn = pDateOne;
+            }
+            else
+            {
+                lReturn = pDateTwo;
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Return the max date between two dates
+        /// </summary>
+        /// <param name="pDateOne"></param>
+        /// <param name="pDateTwo"></param>
+        /// <returns></returns>
+        public static DateTime MaxDateTimeBetween(DateTime pDateOne, DateTime pDateTwo)
+        {
+            DateTime lReturn = MAX_DATETIME;
+            if (pDateOne.Date < pDateTwo.Date)
+            {
+                lReturn = pDateTwo;
+            }
+            else
+            {
+                lReturn = pDateOne;
+            }
+            return lReturn;
+        }
 
         #endregion
 

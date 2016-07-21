@@ -33,6 +33,7 @@ using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.ViewModels.Water;
 using IrrigationAdvisor.ViewModels.Irrigation;
 using System.Globalization;
+using IrrigationAdvisor.Models.Weather;
 
 namespace IrrigationAdvisor.Controllers
 {
@@ -245,7 +246,7 @@ namespace IrrigationAdvisor.Controllers
 
         [HttpGet]
         public ActionResult AddRain(double pMilimeters, 
-                                    int pIrrigationUnitId, 
+                                    long pIrrigationUnitId, 
                                     int pDay, 
                                     int pMonth, 
                                     int pYear)
@@ -257,7 +258,7 @@ namespace IrrigationAdvisor.Controllers
                 HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
                
                 DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
-                DateTime? lReferenceDate = ManageSession.GetDateOfReference();
+                DateTime lReferenceDate = ManageSession.GetDateOfReference();
 
                 IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
                 CropIrrigationWeatherConfiguration lCropConf = new CropIrrigationWeatherConfiguration();
@@ -268,6 +269,7 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == pIrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
                     lCropIrrigationWeather.AddRainDataToList(lDateResult, pMilimeters);
+                    lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate);
                     lContext.SaveChanges();
                 }
                 else
@@ -276,6 +278,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == item.IrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
                         lCropIrrigationWeather.AddRainDataToList(lDateResult, pMilimeters);
+                        lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate);
                         lContext.SaveChanges();
                     }
                 }
@@ -308,12 +311,12 @@ namespace IrrigationAdvisor.Controllers
         [ChildActionOnly]
         public PartialViewResult WeatherPartial()
         {
-            return PartialView("_WeatherPartial", getWeatherHome());
+            return PartialView("_WeatherPartial", GetWeatherHome());
         }
 
         public PartialViewResult WeatherHomePartial()
         {
-            return PartialView("_WeatherHomePartial", getWeatherHome());
+            return PartialView("_WeatherHomePartial", GetWeatherHome());
         }
 
         [ChildActionOnly]
@@ -423,7 +426,10 @@ namespace IrrigationAdvisor.Controllers
 
         private readonly List<GridPivotHome> gridIrrigationUnitHomeList = new List<GridPivotHome>();
 
-
+        /// <summary>
+        /// Return Grid Irrigation Unit for Home
+        /// </summary>
+        /// <returns></returns>
         public List<GridPivotHome> GetGridPivotHome()
         {
 
@@ -438,18 +444,12 @@ namespace IrrigationAdvisor.Controllers
             User lLoggedUser;
             List<Farm> lFarmList;
             Farm lFirstFarm;
-            List<FarmViewModel> lFarmViewModelList;
-            List<Bomb> lBombList;
             List<IrrigationUnit> lIrrigationUnitList;
             List<CropIrrigationWeather> lCropIrrigationWeatherList;
             CropIrrigationWeather lFirstCropIrrigationWeather;
             List<Rain> lRainList;
             List<Models.Water.Irrigation> lIrrigationList;
             List<DailyRecord> lDailyRecordList;
-
-            List<DailyRecordViewModel> lDailyRecordViewModelList;
-            List<RainViewModel> lRainViewModelList;
-            List<IrrigationViewModel> lIrrigationViewModelList;
 
             #endregion
 
@@ -667,11 +667,12 @@ namespace IrrigationAdvisor.Controllers
 
         }
 
-        public List<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.GridWeather> getWeather()
+        public List<ResultUnderGroundToSharp.GridWeather> GetWeather()
         {
 
             List<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.GridWeather> GridWeatherList = new List<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.GridWeather>();
 
+            String city = string.Empty;
             String high = string.Empty;
             String low = string.Empty;
             String weekday = string.Empty;
@@ -695,13 +696,14 @@ namespace IrrigationAdvisor.Controllers
             }
 
             // Json To C#  DeserializeJsno to IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject
-            IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject jsonObj = JsonConvert.DeserializeObject<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject>(json);
+            ResultUnderGroundToSharp.RootObject jsonObj = JsonConvert.DeserializeObject<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject>(json);
 
             // Iterate ForecastDay
             foreach (var item in jsonObj.forecast.simpleforecast.forecastday)
             {
                 if (GridWeatherList.Count <= 2)
                 {
+                    city = item.city;
                     high = item.high.celsius;
                     low = item.low.celsius;
                     month = item.date.month.ToString();
@@ -710,7 +712,7 @@ namespace IrrigationAdvisor.Controllers
                     description = item.conditions;
                     probabilityRain = item.pop.ToString();
                     mmRain = item.qpf_allday.mm.ToString();
-                    GridWeatherList.Add(new IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.GridWeather(high, low, weekday, month, urlImage, description, probabilityRain, mmRain));
+                    GridWeatherList.Add(new ResultUnderGroundToSharp.GridWeather(city, high, low, weekday, month, urlImage, description, probabilityRain, mmRain));
                 }
             }
 
@@ -719,56 +721,124 @@ namespace IrrigationAdvisor.Controllers
             return GridWeatherList;
         }
 
-        public IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject getWeatherHome()
+        public ResultUnderGroundToSharp.RootObject GetWeatherHome()
         {
+            #region Local Variables
+            ResultUnderGroundToSharp.RootObject lReturn = null;
 
-            List<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.GridWeather> GridWeatherList = new List<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.GridWeather>();
+            User lLoggedUser;
+            List<Farm> lFarmList;
+            Farm lFirstFarm;
+            long lPositionId;
+            Double lLatitude;
+            Double lLongitude;
+            String lLinkAPIWUnderground;
+            UserConfiguration uc;
+            FarmConfiguration fc;
+            
+            List<ResultUnderGroundToSharp.GridWeather> lGridWeatherList = new List<ResultUnderGroundToSharp.GridWeather>();
+            
+            String lCity = String.Empty;
+            String lTempHigh = String.Empty;
+            String lTempLow = String.Empty;
+            String lWeekday = String.Empty;
+            String lMonth = String.Empty;
+            String lURLImage = String.Empty;
+            String lDescription = String.Empty;
+            String lProbabilityRain = String.Empty;
+            String lRainMM = String.Empty;
 
-            String high = string.Empty;
-            String low = string.Empty;
-            String weekday = string.Empty;
-            String month = string.Empty;
-            String urlImage = string.Empty;
-            String description = string.Empty;
-            String probabilityRain = string.Empty;
-            String mmRain = string.Empty;
+            HttpWebRequest lHttpWebRequest;
+            string lJson;
+            ResultUnderGroundToSharp.RootObject lJsonObj;
+            string lURL;
+            WebClient lWebClient;
+            string lJSONstring;
+            dynamic lDynamicObj;
 
+            #endregion
 
-            // TODO Replace Url To web Config Diego E.
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://api.wunderground.com/api/ac6d819f785ccfa5/forecast10day/lang:SP/q/-34.8172490,-56.1590040.json");
-            httpWebRequest.Method = WebRequestMethods.Http.Get;
-            httpWebRequest.Accept = "application/json";
-            var response = (HttpWebResponse)httpWebRequest.GetResponse();
+            #region Configuration - Instance
+            uc = new UserConfiguration();
+            fc = new FarmConfiguration();
+            #endregion
 
-            string json = string.Empty;
-            using (var sr = new StreamReader(response.GetResponseStream()))
+            try
             {
-                json = sr.ReadToEnd();
-            }
+                //Obtain logged user
+                lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
 
-            // Json To C#  DeserializeJsno to IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject
-            IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject jsonObj = JsonConvert.DeserializeObject<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject>(json);
-
-            // Iterate ForecastDay
-            foreach (var item in jsonObj.forecast.simpleforecast.forecastday)
-            {
-                if (GridWeatherList.Count <= 2)
+                if(lLoggedUser != null)
                 {
-                    high = item.high.celsius;
-                    low = item.low.celsius;
-                    month = item.date.month.ToString();
-                    weekday = item.date.weekday;
-                    urlImage = "//icons.wxug.com/i/c/v4/" + item.icon + ".svg";
-                    description = item.conditions;
-                    probabilityRain = item.pop.ToString();
-                    mmRain = item.qpf_allday.mm.ToString();
-                    GridWeatherList.Add(new IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.GridWeather(high, low, weekday, month, urlImage, description, probabilityRain, mmRain));
+                    //Get list of Farms from User
+                    lFarmList = fc.GetFarmListBy(lLoggedUser);
+
+                    lFirstFarm = lFarmList.FirstOrDefault();
+                    lPositionId = lFirstFarm.PositionId;
+
+                    lLatitude = fc.GetLatitudeBy(lPositionId);
+                    lLongitude = fc.GetLongitudeBy(lPositionId);
+
                 }
+                else
+                {
+                    lURL = "http://freegeoip.net/json/";
+                    lWebClient = new WebClient();
+                    lJSONstring = lWebClient.DownloadString(lURL);
+
+                    lDynamicObj = JsonConvert.DeserializeObject(lJSONstring);
+
+                    lLatitude = lDynamicObj.latitude;
+                    lLongitude = lDynamicObj.longitude;
+                }
+                //http://api.wunderground.com/api/ac6d819f785ccfa5/forecast10day/lang:SP/q/-34.8172490,-56.1590040.json
+                lLinkAPIWUnderground = "http://api.wunderground.com/api/ac6d819f785ccfa5/forecast10day/lang:SP/q/" + lLatitude + "," + lLongitude + ".json";
+                // TODO Replace Url To web Config Diego E.
+                lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
+                lHttpWebRequest.Method = WebRequestMethods.Http.Get;
+                lHttpWebRequest.Accept = "application/json";
+                var lResponse = (HttpWebResponse)lHttpWebRequest.GetResponse();
+
+                lJson = string.Empty;
+                using (var sr = new StreamReader(lResponse.GetResponseStream()))
+                {
+                    lJson = sr.ReadToEnd();
+                }
+
+                // Json To C#  DeserializeJsno to IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject
+                lJsonObj = JsonConvert.DeserializeObject<ResultUnderGroundToSharp.RootObject>(lJson);
+
+                // Iterate ForecastDay
+                foreach (var item in lJsonObj.forecast.simpleforecast.forecastday)
+                {
+                    if (lGridWeatherList.Count <= 2)
+                    {
+                        lCity = item.city;
+                        lTempHigh = item.high.celsius;
+                        lTempLow = item.low.celsius;
+                        lMonth = item.date.month.ToString();
+                        lWeekday = item.date.weekday;
+                        lURLImage = "//icons.wxug.com/i/c/v4/" + item.icon + ".svg";
+                        lDescription = item.conditions;
+                        lProbabilityRain = item.pop.ToString();
+                        lRainMM = item.qpf_allday.mm.ToString();
+                        lGridWeatherList.Add(new ResultUnderGroundToSharp
+                                                        .GridWeather(lCity, lTempHigh, lTempLow, lWeekday, lMonth,
+                                                        lURLImage, lDescription, lProbabilityRain, lRainMM));
+                    }
+                }
+
+                lJsonObj.forecast.simpleforecast.forecastday = lJsonObj.forecast.simpleforecast.forecastday.Skip(6).ToList(); ;
+                lReturn = lJsonObj;
+
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
             }
 
-            jsonObj.forecast.simpleforecast.forecastday = jsonObj.forecast.simpleforecast.forecastday.Skip(6).ToList(); ;
-
-            return jsonObj;
+            return lReturn;
         }
 
         public PartialViewResult AddIrrigation()

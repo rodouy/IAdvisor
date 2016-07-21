@@ -1762,6 +1762,8 @@ namespace IrrigationAdvisor.Models.Management
 
         #region Public Methods
 
+        #region Calculus Methods
+
         /// <summary>
         /// Set the CalculusMethodForPhenologicalAdjustment
         /// Also instanciate CropInformationByDate if the Method is by Days After Sowing, else go null.
@@ -1842,6 +1844,66 @@ namespace IrrigationAdvisor.Models.Management
                 this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString());
             }
         }
+
+        /// <summary>
+        /// Add Information To IrrigationUnits from some Date 
+        /// </summary>
+        /// <param name="pFromDate"></param>
+        /// <param name="pDateOfReference"></param>
+        public void AddInformationToIrrigationUnits(DateTime pFromDate, DateTime pDateOfReference)
+        {
+            DateTime lToDate = Utils.MAX_DATETIME;
+            DateTime lFromDate = Utils.MIN_DATETIME;
+            Double lCropDays = 0;
+            Double lDiffDays = 0;
+            DateTime lDateOfRecord;
+            String lObservation = String.Empty;
+
+            try
+            {
+                lFromDate = pFromDate.Date;
+                if (lFromDate != null && lFromDate >= this.SowingDate)
+                {
+                    //Start to calculate one day after Sowing or later
+                    lFromDate = Utils.MaxDateTimeBetween(lFromDate, this.SowingDate.AddDays(1));
+                    lCropDays = lFromDate.Subtract(this.SowingDate).TotalDays;
+                    
+                    if (pDateOfReference != null && pDateOfReference <= this.HarvestDate && lFromDate < pDateOfReference)
+                    {
+                        lToDate = Utils.MinDateTimeBetween(pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION),
+                                                            this.HarvestDate);
+                        lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+
+                        for(int i = 0; i < lDiffDays; i++)
+                        {
+                            lObservation = "Día " + (lCropDays + i);
+                            lDateOfRecord = lFromDate.AddDays(i);
+                            this.AddDailyRecordToList(lDateOfRecord, lObservation);
+                            //Adjustment of Phenological Stage
+                            foreach (PhenologicalStageAdjustment item in this.PhenologicalStageAdjustmentList)
+                            {
+                                if (item.DateOfChange.Equals(lDateOfRecord))
+                                {
+                                    AdjustmentPhenology(item.Stage, item.DateOfChange);
+                                    break;
+                                }
+                            }
+                            //Stop when arrives to final Stage
+                            if (this.PhenologicalStage.Stage.StageId == this.Crop.StopIrrigationStageId)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            { 
+                throw ex;
+            }
+        }
+
+        #endregion
 
         #region Evapotranspiration
 
@@ -2314,7 +2376,7 @@ namespace IrrigationAdvisor.Models.Management
         }
 
         /// <summary>
-        /// Add or Update the Irrigation Data.s
+        /// Add or Update the Irrigation Data to List
         /// </summary
         /// <param name="pIrrigationDate"></param>
         /// <param name="pQuantityOfWaterToIrrigateAndTypeOfIrrigation"></param>

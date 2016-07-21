@@ -125,6 +125,7 @@ namespace IrrigationAdvisor.Models.Weather
 
         public class Forecastday2
         {
+            public string city { get; set; }
             public Date date { get; set; }
             public int period { get; set; }
             public High high { get; set; }
@@ -146,7 +147,7 @@ namespace IrrigationAdvisor.Models.Weather
             public int maxhumidity { get; set; }
             public int minhumidity { get; set; }
 
-            public double promedio { get { return (int.Parse(high.celsius) + int.Parse(low.celsius)) / 2; } }
+            public double average { get { return (int.Parse(high.celsius) + int.Parse(low.celsius)) / 2; } }
         }
 
         public class Simpleforecast
@@ -172,10 +173,16 @@ namespace IrrigationAdvisor.Models.Weather
 
         public class GridWeather
         {
+            public String city { get; set; }
+
             public String high { get; set; }
+
             public String low { get; set; }
+
             public String weekday { get; set; }
+
             public String month { get; set; }
+
             public String urlImage { get; set; }
 
             public String Description { get; set; }
@@ -184,8 +191,11 @@ namespace IrrigationAdvisor.Models.Weather
 
             public String MmRain { get; set; }
 
-            public GridWeather(String pHigh, String pLow, String pWeekday, String pMonth, String pUrlImage, String pDescription, String pRobabilityRain, String pMmRain)
+            public GridWeather(String pCity, String pHigh, String pLow, String pWeekday, 
+                            String pMonth, String pUrlImage, String pDescription, 
+                            String pRobabilityRain, String pMmRain)
             {
+                this.city = pCity;
                 this.high = pHigh;
                 this.low = pLow;
                 this.weekday = pWeekday;

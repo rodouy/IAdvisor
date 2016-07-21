@@ -1459,6 +1459,7 @@ namespace IrrigationAdvisorConsole
             Position lPosition = null;
             WeatherStation lWeatherStation = null;
             User lUser = null;
+            City lCity = null;
             
             #region Base
             var lBase = new Farm
@@ -1475,6 +1476,7 @@ namespace IrrigationAdvisorConsole
                 BombList = null,
                 IrrigationUnitList = null,
                 UserId = 0,
+                CityId = 0,
             };
             #endregion
 
@@ -1492,6 +1494,9 @@ namespace IrrigationAdvisorConsole
                     lUser = (from user in context.Users
                              where user.UserName == Utils.NameUserDemo
                              select user).FirstOrDefault();
+                    lCity = (from city in context.Cities
+                             where city.Name == Utils.NameCityMercedes
+                             select city).FirstOrDefault();
                     var lDemo = new Farm
                     {
                         Name = Utils.NameFarmDemo,
@@ -1505,6 +1510,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         UserId = lUser.UserId,
+                        CityId = lCity.CityId,
                     };
                     context.Farms.Add(lDemo);
                     context.SaveChanges();
@@ -1526,6 +1532,9 @@ namespace IrrigationAdvisorConsole
                     lUser = (from user in context.Users
                              where user.Name == "Sebastian"
                              select user).FirstOrDefault();
+                    lCity = (from city in context.Cities
+                             where city.Name == Utils.NameCityMinas
+                             select city).FirstOrDefault();
                     var lSantaLucia = new Farm
                     {
                         Name = Utils.NameFarmSantaLucia,
@@ -1539,6 +1548,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         UserId = lUser.UserId,
+                        CityId = lCity.CityId,
                     };
                     context.Farms.Add(lSantaLucia);
                     context.SaveChanges();
@@ -1560,6 +1570,9 @@ namespace IrrigationAdvisorConsole
                     lUser = (from user in context.Users
                              where user.UserName == Utils.NameUserDelCarmen
                              select user).FirstOrDefault();
+                    lCity = (from city in context.Cities
+                             where city.Name == Utils.NameCityMercedes
+                             select city).FirstOrDefault();
                     var lLaPerdiz = new Farm
                     {
                         Name = Utils.NameFarmLaPerdiz,
@@ -1573,6 +1586,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         UserId = lUser.UserId,
+                        CityId = lCity.CityId,
                     };
                     context.Farms.Add(lLaPerdiz);
                     context.SaveChanges();
@@ -1594,6 +1608,9 @@ namespace IrrigationAdvisorConsole
                     lUser = (from user in context.Users
                              where user.UserName == Utils.NameUserDelLago
                              select user).FirstOrDefault();
+                    lCity = (from city in context.Cities
+                             where city.Name == Utils.NameCityDurazno
+                             select city).FirstOrDefault();
                     var lDelLagoSanPedro = new Farm
                     {
                         Name = Utils.NameFarmDelLagoSanPedro,
@@ -1607,6 +1624,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         UserId = lUser.UserId,
+                        CityId = lCity.CityId,
                     };
                     context.Farms.Add(lDelLagoSanPedro);
                     context.SaveChanges();
@@ -1628,7 +1646,9 @@ namespace IrrigationAdvisorConsole
                     lUser = (from user in context.Users
                              where user.UserName == Utils.NameUserDelLago
                              select user).FirstOrDefault();
-
+                    lCity = (from city in context.Cities
+                             where city.Name == Utils.NameCityDurazno
+                             select city).FirstOrDefault();
                     var lDelLagoElMirador = new Farm
                     {
                         Name = Utils.NameFarmDelLagoElMirador,
@@ -1642,6 +1662,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         UserId = lUser.UserId,
+                        CityId = lCity.CityId,
                     };
                     context.Farms.Add(lDelLagoElMirador);
                     context.SaveChanges();
@@ -1663,7 +1684,9 @@ namespace IrrigationAdvisorConsole
                     lUser = (from user in context.Users
                              where user.UserName == Utils.NameUserLaPalma
                              select user).FirstOrDefault();
-
+                    lCity = (from city in context.Cities
+                             where city.Name == Utils.NameCityYoung
+                             select city).FirstOrDefault();
                     var lLaPalma = new Farm
                     {
                         Name = Utils.NameFarmLaPalma,
@@ -1677,6 +1700,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         UserId = lUser.UserId,
+                        CityId = lCity.CityId,
                     };
                     context.Farms.Add(lLaPalma);
                     context.SaveChanges();

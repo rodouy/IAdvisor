@@ -129,6 +129,13 @@ namespace IrrigationAdvisor.Models.Localization
             this.thePosition = new Pair<Double, Double>(this.latitude, this.longitude);
         }
 
+        /// <summary>
+        /// Constructor with all parameters
+        /// </summary>
+        /// <param name="pPositionId"></param>
+        /// <param name="pName"></param>
+        /// <param name="pLatitude"></param>
+        /// <param name="pLongitude"></param>
         public Position(long pPositionId, String pName, Double pLatitude, Double pLongitude)
         {
             this.PositionId = pPositionId;
@@ -151,7 +158,7 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pOrigin"></param>
         /// <param name="pDestiny"></param>
         /// <returns></returns>
-        public Double getDistanceInKm(Position pOrigin, Position pDestiny)
+        public Double GetDistanceInKm(Position pOrigin, Position pDestiny)
         {
             Double lReturn = 0;
             Double lDistance = 0;
@@ -179,7 +186,7 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pLatitude"></param>
         /// <param name="pLongitude"></param>
         /// <returns></returns>
-        public Position getPositionMoveFromOrigin(Position pOrigin, String pNewName, 
+        public Position GetPositionMoveFromOrigin(Position pOrigin, String pNewName, 
                                                     double pLatitude, double pLongitude)
         {
             Position lPosition = null;
@@ -191,21 +198,40 @@ namespace IrrigationAdvisor.Models.Localization
             return lPosition;
         }
 
-        public double getLatitude(double pLatitude, double pKMWest)
+        /// <summary>
+        /// Get New Latitude by Current Latitude & KM to West
+        /// </summary>
+        /// <param name="pLatitude"></param>
+        /// <param name="pKMWest"></param>
+        /// <returns></returns>
+        public double GetLatitude(double pLatitude, double pKMWest)
         {
             double lLatitude = pLatitude;
 
             return lLatitude;
         }
 
-        public double getLongitude(double pLongitude, double pKMSouth)
+        /// <summary>
+        /// Get New Longitude by Current Longitude & KM to South
+        /// </summary>
+        /// <param name="pLongitude"></param>
+        /// <param name="pKMSouth"></param>
+        /// <returns></returns>
+        public double GetLongitude(double pLongitude, double pKMSouth)
         {
             double lLongitude = pLongitude;
 
             return lLongitude;
         }
 
-        public Position getNewPositionByKM(Position pOrigin, double pKMWest, double pKMSouht)
+        /// <summary>
+        /// Get New Position by Current Position & KM to West & KM to South
+        /// </summary>
+        /// <param name="pOrigin"></param>
+        /// <param name="pKMWest"></param>
+        /// <param name="pKMSouht"></param>
+        /// <returns></returns>
+        public Position GetNewPositionByKM(Position pOrigin, double pKMWest, double pKMSouth)
         {
             Position lPosition = null;
 

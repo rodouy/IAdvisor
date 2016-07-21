@@ -62,12 +62,11 @@ namespace IrrigationAdvisor.Models.Localization
         private long positionId;
         private int has;
         private long weatherStationId;
-        private WeatherStation weatherStation;
         private List<Soil> soilList;
         private List<Bomb> bombList;
         private List<IrrigationUnit> irrigationUnitList;
         private long userId;
-        private User user;
+        private long cityId;
 
         #endregion
 
@@ -157,6 +156,18 @@ namespace IrrigationAdvisor.Models.Localization
             set;
         }
 
+        public long CityId
+        {
+            get { return cityId; }
+            set { cityId = value; }
+        }
+
+        public virtual City City
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region Construction
@@ -177,6 +188,7 @@ namespace IrrigationAdvisor.Models.Localization
             this.BombList = new List<Bomb>();
             this.IrrigationUnitList = new List<IrrigationUnit>();
             this.UserId = 0;
+            this.CityId = 0;
         }
 
         /// <summary>
@@ -184,21 +196,23 @@ namespace IrrigationAdvisor.Models.Localization
         /// </summary>
         /// <param name="pFarmId"></param>
         /// <param name="pName"></param>
+        /// <param name="pCompany"></param>
         /// <param name="pAddress"></param>
         /// <param name="pPhone"></param>
         /// <param name="pPositionId"></param>
         /// <param name="pHas"></param>
-        /// <param name="pWeatherStation"></param>
+        /// <param name="pWeatherStationId"></param>
         /// <param name="pSoilList"></param>
         /// <param name="pBombList"></param>
         /// <param name="pIrrigationUnitList"></param>
         /// <param name="pUserId"></param>
+        /// <param name="pCityId"></param>
         public Farm(long pFarmId, String pName, String pCompany,
                     String pAddress,String pPhone, long pPositionId, 
                     int pHas, long pWeatherStationId,
                     List<Soil> pSoilList, List<Bomb> pBombList,
                     List<IrrigationUnit> pIrrigationUnitList,
-                    long pUserId)
+                    long pUserId, long pCityId)
         {
             this.FarmId = pFarmId;
             this.Name = pName;
@@ -212,6 +226,7 @@ namespace IrrigationAdvisor.Models.Localization
             this.BombList = pBombList;
             this.IrrigationUnitList = pIrrigationUnitList;
             this.UserId = pUserId;
+            this.CityId = pCityId;
         }
 
         #endregion

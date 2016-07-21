@@ -1,4 +1,5 @@
-﻿using IrrigationAdvisor.ViewModels.Home;
+﻿using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.ViewModels.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,37 +10,41 @@ namespace IrrigationAdvisor
     public class ManageSession
     {
 
-        public static string GetUserName()
+        public static String GetUserName()
         {
-            string result = null;
+            String lReturn = null;
 
             if (HttpContext.Current.Session["UserName"] != null)
-                result = (string)HttpContext.Current.Session["UserName"];
+            {
+                lReturn = (String)HttpContext.Current.Session["UserName"];
+            }
 
-            return result;
+            return lReturn;
 
         }
 
-        public static void SetUserName(string userName)
+        public static void SetUserName(String pUserName)
         {
-            HttpContext.Current.Session["UserName"] = userName;
+            HttpContext.Current.Session["UserName"] = pUserName;
         }
 
-        public static string GetUserPassword()
+        public static String GetUserPassword()
         {
 
-            string result = null;
+            String lReturn = null;
 
             if (HttpContext.Current.Session["UserPassword"] != null)
-                result = (string)HttpContext.Current.Session["UserPassword"];
+            {
+                lReturn = (String)HttpContext.Current.Session["UserPassword"];
+            }
 
-            return result;
+            return lReturn;
 
         }
 
-        public static void SetUserPassword(string password)
+        public static void SetUserPassword(String pPassword)
         {
-            HttpContext.Current.Session["UserPassword"] = password;
+            HttpContext.Current.Session["UserPassword"] = pPassword;
         }
 
         public static HomeViewModel GetHomeViewModel()
@@ -47,7 +52,9 @@ namespace IrrigationAdvisor
             HomeViewModel result = null;
 
             if (HttpContext.Current.Session["HomeViewModelModel"] != null)
+            {
                 result = (HomeViewModel)HttpContext.Current.Session["HomeViewModelModel"];
+            }
 
             return result;
         }
@@ -63,14 +70,16 @@ namespace IrrigationAdvisor
         }
 
 
-        public static DateTime? GetDateOfReference()
+        public static DateTime GetDateOfReference()
         {
-            DateTime? result = null;
+            DateTime lResult = Utils.MAX_DATETIME;
 
             if (HttpContext.Current.Session["DateOfReference"] != null)
-                result = (DateTime)HttpContext.Current.Session["DateOfReference"];
+            {
+                lResult = (DateTime)HttpContext.Current.Session["DateOfReference"];
+            }
 
-            return result;
+            return lResult;
         }
 
         public static void CleanSession()
