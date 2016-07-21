@@ -29,10 +29,12 @@
     <div class="ps-scrollbar-x-rail" style="width: 1343px; display: none; left: 0px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 53px; display: none;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div>
 </section>
 
-
+@{ 
+    DateTime dateValue = Convert.ToDateTime(ViewBag.DateOfReference);
+}
 <!-- Grid Pivots -->
-
 <section class="profile">
+    
     <div class="container">
         @{
             if (Model.ErrorViewModel == null)
@@ -42,17 +44,23 @@
             <div class="avatar-acount">
                 <div class="info-acount">
                     <h3 class="fa fa-dashboard fa-2x"> Pivots </h3>
-                    <div class="add-btn-grid-2">
-                        <p>
+                    
+                    <div class="">
+                        
+                        <div style="float:right">
                             <a class="btn go btn-pivots btn-md" href="#modal-lluvia">
                                 <span class="glyphicon glyphicon-plus"></span>Agregar lluvia
                             </a>
-                        </p>
-                        <p>
+                        </div>
+                        <div style="float:right">
                             <a href="#modal" class="btn go btn-pivots btn-md">
                                 <span class="glyphicon glyphicon-plus"></span>Agregar riego
                             </a>
-                        </p>
+                        </div>
+                        <div style="color:black" class="btn-md col-md-5">
+                            <span class="form-control col-md-4">@(dateValue.ToShortDateString())</span>
+                            <a class="btn go btn-pivots btn-md btn-md 5" href="#">+</a>
+                        </div>
                         <!-- modal agregar riego--->
                         <div id="modal">
                             <div class="modal-content">
@@ -125,9 +133,7 @@
                                                     </button>
                                                 *@
                                                 Seleccionar Día
-                                                @{
-                                                    DateTime dateValue = Convert.ToDateTime(ViewBag.DateOfReference);
-                                                }
+                                                
                                                 <select id="rainDate">
                                                     <option value="@(dateValue.ToShortDateString())">@(dateValue.ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(-1).ToShortDateString())">@(dateValue.AddDays(-1).ToShortDateString())</option>
