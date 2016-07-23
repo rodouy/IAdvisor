@@ -78,6 +78,64 @@ namespace IrrigationAdvisor.DBContext.Irrigation
         }
 
         /// <summary>
+        /// Get List of CropIrrigationWeather with all related data
+        /// Include: Crop; MainWeatherStation; RainList; IrrigationList;
+        ///         DailyRecordList;
+        /// </summary>
+        /// <param name="pIrrigationUnit"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherListIncludeCropMainWeatherStationRainListIrrigationListBy(
+                                            IrrigationUnit pIrrigationUnit,
+                                            DateTime pDateOfReference)
+        {
+            List<CropIrrigationWeather> lReturn = null;
+            long lIrrigationUnitId;
+            if (pIrrigationUnit != null)
+            {
+                lIrrigationUnitId = pIrrigationUnit.IrrigationUnitId;
+                lReturn = db.CropIrrigationWeathers
+                    .Include(ciw => ciw.Crop)
+                    .Include(ciw => ciw.MainWeatherStation)
+                    .Include(ciw => ciw.RainList)
+                    .Include(ciw => ciw.IrrigationList)
+                    .Where(ciw => ciw.IrrigationUnitId == lIrrigationUnitId
+                        && ciw.SowingDate <= pDateOfReference
+                        && ciw.HarvestDate >= pDateOfReference).ToList();
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get List of CropIrrigationWeather with all related data
+        /// Include: Crop; RainList; IrrigationList;
+        /// </summary>
+        /// <param name="pIrrigationUnit"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy(
+                                            IrrigationUnit pIrrigationUnit,
+                                            DateTime pDateOfReference)
+        {
+            List<CropIrrigationWeather> lReturn = null;
+            long lIrrigationUnitId;
+            if (pIrrigationUnit != null)
+            {
+                lIrrigationUnitId = pIrrigationUnit.IrrigationUnitId;
+                lReturn = db.CropIrrigationWeathers
+                    .Include(ciw => ciw.Crop)
+                    .Include(ciw => ciw.RainList)
+                    .Include(ciw => ciw.IrrigationList)
+                    .Where(ciw => ciw.IrrigationUnitId == lIrrigationUnitId
+                        && ciw.SowingDate <= pDateOfReference
+                        && ciw.HarvestDate >= pDateOfReference).ToList();
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
         /// Get List of IrrigationUnit by Farm
         /// </summary>
         /// <param name="pFarm"></param>

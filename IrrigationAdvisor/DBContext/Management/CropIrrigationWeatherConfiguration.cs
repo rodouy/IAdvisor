@@ -112,44 +112,11 @@ namespace IrrigationAdvisor.DBContext.Management
         }
 
 
-        /*
-        public List<DailyRecord> GetDailyRecordListBy(CropIrrigationWeather pCropIrrigationWeather,
-                                                      DateOfData pDateOfReference)
-        {
-            List<DailyRecord> lReturn = null;
-            List<DailyRecord> lDailyRecordList;
-            CropIrrigationWeather lCropIrrigationWeather = null;
-
-            if (pCropIrrigationWeather != null && pDateOfReference != null)
-            {
-                lDailyRecordList = db.DailyRecords
-                    .Include(dr => dr.EvapotranspirationCrop)
-                    .Include(dr => dr.CropCoefficient)
-                    .Include(dr => dr.MainWeatherData)
-                    .Include(dr => dr.AlternativeWeatherData)
-
-                    .Where(dr => dr.).ToList();
-                foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
-                {
-                    //TODO: Could be more than one CropIrrigationWeather, when the IrrigationUnit is used for more than one Crop
-                    if ((item.SowingDate >= pDateOfReference)
-                        && (item.HarvestDate <= pDateOfReference))
-                    {
-                        lCropIrrigationWeather = item;
-                        break;
-                    }
-                }
-                lReturn = lCropIrrigationWeather.DailyRecordList.ToList();
-            }
-
-            return lReturn;
-        }
-         * */
-
         /// <summary>
         /// Get a DailyRecord in CropIrrigationWeather list 
         /// Where CropIrrigationWeather is the IrrigationUnit instance
         ///     And DailyRecord Date equals Date of Reference plus DAYS_FOR_PREDICTION
+        /// Include: 
         /// </summary>
         /// <param name="pIrrigationUnit"></param>
         /// <param name="pDateOfReference"></param>
@@ -190,6 +157,68 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
                     .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId).ToList();
+                foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
+                {
+                    DateTime lSowingDate = item.SowingDate;
+                    DateTime lHarvestDate = item.HarvestDate;
+
+                    //TODO: Could be more than one CropIrrigationWeather, when the IrrigationUnit is used for more than one Crop
+                    if ((lSowingDate <= pDateOfReference)
+                        && (lHarvestDate >= pDateOfReference))
+                    {
+                        lCropIrrigationWeather = item;
+                        foreach (var record in lCropIrrigationWeather.DailyRecordList)
+                        {
+                            if (record.DailyRecordDateTime <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
+                            {
+                                lNewDailyRecordList.Add(record);
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                //lReturn = lCropIrrigationWeather.DailyRecordList.ToList();
+                lReturn = lNewDailyRecordList.ToList();
+            }
+
+            return lReturn;
+        }
+
+
+        /// <summary>
+        /// Get a DailyRecord in CropIrrigationWeather list 
+        /// Where CropIrrigationWeather is the IrrigationUnit instance
+        ///     And DailyRecord Date equals Date of Reference plus DAYS_FOR_PREDICTION
+        /// Include: DailyRecordList;
+        /// </summary>
+        /// <param name="pIrrigationUnit"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public List<DailyRecord> GetDailyRecordListIncludeDailyRecordListBy(IrrigationUnit pIrrigationUnit,
+                                                      DateTime pDateOfReference,
+                                                      Crop pCrop)
+        {
+            List<DailyRecord> lReturn = null;
+            List<DailyRecord> lNewDailyRecordList = new List<DailyRecord>();
+            CropIrrigationWeather lCropIrrigationWeather = null;
+            List<CropIrrigationWeather> lCropIrrigationWeaterList = new List<CropIrrigationWeather>();
+
+            if (pIrrigationUnit != null && pDateOfReference != null)
+            {
+                lCropIrrigationWeaterList = db.CropIrrigationWeathers
+                    .Include(ciw => ciw.DailyRecordList)
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.MainWeatherData))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.AlternativeWeatherData))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.PhenologicalStage))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Rain))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
+                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId
+                            && ciw.CropId == pCrop.CropId).ToList();
                 foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
                 {
                     DateTime lSowingDate = item.SowingDate;
