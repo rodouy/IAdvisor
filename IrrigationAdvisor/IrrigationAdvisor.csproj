@@ -401,6 +401,7 @@
     <Content Include="css\md-font.css" />
     <Content Include="css\mdfonts\md-font.svg" />
     <Content Include="css\modal.css" />
+    <Content Include="css\shared.css" />
     <Content Include="css\slippry.css" />
     <Content Include="css\slippry.min.js" />
     <Content Include="css\style-1.css" />

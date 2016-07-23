@@ -7,8 +7,11 @@
 <link rel="stylesheet" type="text/css" href="../css/modal.css">
 <link rel="stylesheet" type="text/css" href="../css/style-1.css">
 <link rel="stylesheet" type="text/css" href="../css/md-font.css">
+<link href="~/css/shared.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/js/Home.js"></script>
 <script src="~/Scripts/moment.js"></script>
+
 
 <!-- Content Bar -->
 
@@ -62,6 +65,7 @@
                             <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference">+</a>
                         </div>
                         <!-- modal agregar riego--->
+
                         <div id="modal">
                             <div class="modal-content">
                                 <div class="header">
@@ -69,9 +73,10 @@
                                 </div>
                                 <div class="copy">
                                     <p>  </p>
-                                    <form role="form">
+                                    <form role="form" id="irrigationForm">
                                         <div class="form-group">
-                                            <input type="number" placeholder="Ingrese la lluvia en 'ml'" class="form-control" id="irrigationMilimeters">
+                                            <input type="number" placeholder="Ingrese el riego en 'mm'" class="form-control" id="irrigationMilimeters" name="irrigationMilimeters" min="1" max="100">
+                                            <span id="irrigationMilimetersError" class="red-color"></span>
                                             <br />
                                             <div class="dropdown">
                                                
@@ -107,7 +112,7 @@
                                 </div>
                                 <div class="cf footer">
                                     <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-                                    <a  class="btn btn-success" id="SaveIrrigation" href="#">Guardar</a>
+                                    <buttom  class="btn btn-success" id="SaveIrrigation">Guardar</buttom>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +127,7 @@
                                     <p>  </p>
                               
                                         <div class="form-group">
-                                            <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain">
+                                            <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain" min="1" max="999">
                                             <br />
                                             <div class="dropdown">
                                                 @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
