@@ -104,7 +104,7 @@ namespace IrrigationAdvisor.Controllers
             try 
 	            {
 
-                if(pLoginViewModel != null)
+                if(!pLoginViewModel.UserName.Equals(string.Empty))
                 {
                     ManageSession.SetLoginViewModel(pLoginViewModel);
                 }else
@@ -135,7 +135,7 @@ namespace IrrigationAdvisor.Controllers
                 ic = new IrrigationConfiguration();
                 #endregion
 
-                if(ManageSession.GetDateOfReference() == null)
+                if(ManageSession.GetDateOfReference() == Utils.MAX_DATETIME)
                 {
                     lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
                     ManageSession.SetDateOfReference(lDateOfReference);
@@ -264,10 +264,10 @@ namespace IrrigationAdvisor.Controllers
         [HttpGet]
         public ActionResult AddDateOfReference()
         {
-            DateTime? date = ManageSession.GetDateOfReference();
-            date = date.Value.AddDays(1);
-            ManageSession.SetDateOfReference(date.Value);
-            LoginViewModel lvm = ManageSession.GetLoginViewModel();
+            DateTime date = ManageSession.GetDateOfReference();
+            date = date.AddDays(1);
+            ManageSession.SetDateOfReference(date);
+            //LoginViewModel lvm = ManageSession.GetLoginViewModel();
 
             return RedirectToAction("Home");
         }
