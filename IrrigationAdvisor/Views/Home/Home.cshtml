@@ -77,12 +77,12 @@
                                                
                                                     Seleccionar Fecha
                                                     
-                                                <select id="rainDate">
-                                                    <option value="@(dateValue.ToShortDateString())">@(dateValue.ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-1).ToShortDateString())">@(dateValue.AddDays(-1).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-2).ToShortDateString())">@(dateValue.AddDays(-2).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-3).ToShortDateString())">@(dateValue.AddDays(-3).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-4).ToShortDateString())">@(dateValue.AddDays(-4).ToShortDateString())</option>
+                                                <select id="irrigationDate">
+                                                    <option value="@(dateValue.Month + "/" + dateValue.Day + "/" + dateValue.Year)">@(dateValue.ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-2).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-3).Month + "/" + dateValue.AddDays(-3).Day + "/" + dateValue.AddDays(-3).Year)">@(dateValue.AddDays(-3).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-4).Month + "/" + dateValue.AddDays(-4).Day + "/" + dateValue.AddDays(-4).Year)">@(dateValue.AddDays(-4).ToShortDateString())</option>
                                                 </select>
                                                 <br />
                                             </div>
@@ -133,11 +133,11 @@
                                                 Seleccionar Día
                                                 
                                                 <select id="rainDate">
-                                                    <option value="@(dateValue.ToShortDateString())">@(dateValue.ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-1).ToShortDateString())">@(dateValue.AddDays(-1).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-2).ToShortDateString())">@(dateValue.AddDays(-2).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-3).ToShortDateString())">@(dateValue.AddDays(-3).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-4).ToShortDateString())">@(dateValue.AddDays(-4).ToShortDateString())</option>
+                                                    <option value="@(dateValue.Month + "/" + dateValue.Day + "/" + dateValue.Year)">@(dateValue.ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-2).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-3).Month + "/" + dateValue.AddDays(-3).Day + "/" + dateValue.AddDays(-3).Year)">@(dateValue.AddDays(-3).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-4).Month + "/" + dateValue.AddDays(-4).Day + "/" + dateValue.AddDays(-4).Year)">@(dateValue.AddDays(-4).ToShortDateString())</option>
                                                 </select>
                                                 
                                                 <br />
@@ -208,11 +208,11 @@
                                             <div class="dropdown">
                                                     Seleccione una Fecha
                                                 <select id="phenoDate">
-                                                    <option value="@(dateValue.ToShortDateString())">@(dateValue.ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-1).ToShortDateString())">@(dateValue.AddDays(-1).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-2).ToShortDateString())">@(dateValue.AddDays(-2).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-3).ToShortDateString())">@(dateValue.AddDays(-3).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-4).ToShortDateString())">@(dateValue.AddDays(-4).ToShortDateString())</option>
+                                                    <option value="@(dateValue.Month + "/" + dateValue.Day + "/" + dateValue.Year)">@(dateValue.ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-2).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-3).Month + "/" + dateValue.AddDays(-3).Day + "/" + dateValue.AddDays(-3).Year)">@(dateValue.AddDays(-3).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(-4).Month + "/" + dateValue.AddDays(-4).Day + "/" + dateValue.AddDays(-4).Year)">@(dateValue.AddDays(-4).ToShortDateString())</option>
                                                 </select>
                                                 <br />
                                             </div>
