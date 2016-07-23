@@ -29,7 +29,12 @@ namespace IrrigationAdvisor.DBContext.Irrigation
 
         }
 
-
+        /// <summary>
+        /// Get List of CropIrrigationWeather with all related data
+        /// </summary>
+        /// <param name="pIrrigationUnit"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
         public List<CropIrrigationWeather> GetCropIrrigationWeatherListBy(
                                             IrrigationUnit pIrrigationUnit,
                                             DateTime pDateOfReference)
@@ -95,6 +100,7 @@ namespace IrrigationAdvisor.DBContext.Irrigation
 
         /// <summary>
         /// Get Irrigation Unit by IrrigationUnitId
+        /// Include: Bomb, IrrigationList
         /// </summary>
         /// <param name="pIrrigationUnitId"></param>
         /// <returns></returns>
@@ -104,6 +110,7 @@ namespace IrrigationAdvisor.DBContext.Irrigation
 
             lReturn = db.IrrigationUnits
                 .Include(iu => iu.Bomb)
+                .Include(iu => iu.IrrigationList)
                 .Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
 
             return lReturn;
