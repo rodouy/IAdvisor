@@ -7,7 +7,7 @@
     {
 
         
-        var rainDate = moment($('#rainDate :selected').val());
+        var rainDate = moment($('#rainDate :selected').val(), 'MM/DD/YYYY');
         addRain($('#rain').val(),
                         $('#IrrigationUnit :selected').val(),
                         rainDate);
@@ -18,8 +18,8 @@
 
     $('#SaveIrrigation').click(function () {
 
-        var irrigationDate = moment($('#irrigationDate :selected').val());
-
+        
+        var irrigationDate = moment($('#irrigationDate :selected').val(), 'MM/DD/YYYY');
         addIrrigation($('#irrigationMilimeters').val(),
                         $('#IrrigationUnitIrrigation :selected').val(),
                         irrigationDate);
@@ -32,7 +32,7 @@
         
         var pUrl = './AddRain?pMilimeters=' + pMilimiters +
                 '&pIrrigationUnitId=' + pIrrigationUnitId +
-                '&pDay=' + pDate.day() +
+                '&pDay=' + pDate.date() +
                 '&pMonth=' + (pDate.month() + 1) + 
                 '&pYear=' + pDate.year();
 
@@ -61,7 +61,7 @@
 
         var pUrl = './AddIrrigation?pMilimeters=' + pMilimiters +
                 '&pIrrigationUnitId=' + pIrrigationUnitId +
-                '&pDay=' + pDate.day() +
+                '&pDay=' + pDate.date() +
                 '&pMonth=' + (pDate.month() + 1) +
                 '&pYear=' + pDate.year();
 
