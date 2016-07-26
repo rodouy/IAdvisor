@@ -144,9 +144,15 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lDateOfReference = ManageSession.GetDateOfReference();
                 }
-                
-                
+
                 ViewBag.DateOfReference = lDateOfReference;
+
+                bool isDebug = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["Debug"]);
+
+                if (ManageSession.GetHomeViewModel() != null && isDebug)
+                    return View((HomeViewModel)ManageSession.GetHomeViewModel());
+                
+                
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
 
@@ -176,6 +182,7 @@ namespace IrrigationAdvisor.Controllers
                 //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
 
+                
                 //Map each farm with FarmViewModel and add to a list
                 foreach (var farm in lFarmList)
                 {
@@ -230,8 +237,11 @@ namespace IrrigationAdvisor.Controllers
                 //Create View Model of Home
                 //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
 
+                
+
                 HVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
 
+                
                 ManageSession.SetHomeViewModel(HVM);
 
                 return View(HVM);

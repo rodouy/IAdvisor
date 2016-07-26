@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="cf footer">
                                     <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-                                    <buttom  class="btn btn-success" id="SaveIrrigation">Guardar</buttom>
+                                    <buttom  class="btn btn-success" id="SaveIrrigation" disabled>Guardar</buttom>
                                 </div>
                             </div>
                         </div>
@@ -128,6 +128,7 @@
                               
                                         <div class="form-group">
                                             <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain" min="1" max="999">
+                                            <span id="rainMilimetersError" class="red-color"></span>
                                             <br />
                                             <div class="dropdown">
                                                 @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -177,7 +178,7 @@
                                     
                                     </p>
                                     
-                                        <a  id="SaveRain" class="btn  btn-style-2" href="#">
+                                        <a  id="SaveRain" class="btn  btn-style-2" href="#" disabled>
                                             Guardar
                                         </a>
                                         
@@ -240,7 +241,7 @@
                                 </div>
                                 <div class="cf footer">
                                     <p> <a href="#" class="btn  btn-style-2" >Cancelar</a></p>
-                                    <a type="button" class="btn btn-success"  href="#">Guardar</a>
+                                    <a type="button" class="btn btn-success"  href="#" disabled>Guardar</a>
                                 </div>
                             </div>
                             <div class="overlay"></div>
