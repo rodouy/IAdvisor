@@ -1,11 +1,4 @@
-﻿$.validator.setDefaults({
-
-    submitHandler: function () {
-        alert("Submitted");
-    }
-
-});
-
+﻿
 
 $(document).ready(function () {
 
@@ -13,10 +6,16 @@ $(document).ready(function () {
     var MILIMETERS_ERROR = 'La cantidad de milimetros tiene que ser mayor a 0 y menor que 100';
     var MANDATORY_MILMETERS = 'Los milimetros son obligatorios';
 
-    $('#rain').keyup(function (event, b) {
+    var saveRainBtn = $('#SaveRain');
+    var saveIrrigationBtn = $('#SaveIrrigation');
+    var irrigationMilimeters = $('#irrigationMilimeters');
+    var rainMilimeters = $('#rain');
 
-        var saveRainBtn = $('#SaveRain');
-        
+    $('#floatingCirclesG').hide();
+    
+
+    rainMilimeters.keyup(function (event, b) {
+
         var currentValue = event.target.value;
 
         if (currentValue)
@@ -27,9 +26,7 @@ $(document).ready(function () {
 
     });
 
-    $('#irrigationMilimeters').keyup(function (event, b) {
-
-        var saveIrrigationBtn = $('#SaveIrrigation');
+    irrigationMilimeters.keyup(function (event, b) {
 
         var currentValue = event.target.value;
 
@@ -41,13 +38,13 @@ $(document).ready(function () {
 
     });
 
-    $('#SaveRain').click(function()
+    saveRainBtn.click(function ()
     {
 
         if ($('#rain').val())
         {
 
-            var milimeters = parseFloat($('#irrigationMilimeters').val());
+            var milimeters = parseFloat(rainMilimeters.val());
 
             var maxValue = parseInt($('#rain').attr('max'));
             var minValue = parseInt($('#rain').attr('min'));
@@ -57,21 +54,22 @@ $(document).ready(function () {
             if (milimeters > minValue && milimeters <= maxValue) {
 
                 var rainDate = moment($('#rainDate :selected').val(), 'MM/DD/YYYY');
-
+                saveRainBtn.attr('disabled', true);
+                rainMilimeters.attr('disabled', true);
                 addRain($('#rain').val(),
                                 $('#IrrigationUnit :selected').val(),
                                 rainDate);
             } else {
 
-                $('#rain').addClass('input-red-border');
+                rainMilimeters.addClass('input-red-border');
                 $('#rainMilimetersError').html(MILIMETERS_ERROR);
             }
 
             
         } else {
 
-            $('#SaveRain').attr('href', '');
-            $('#rainMilimetersError').addClass('input-red-border');
+            saveRainBtn.attr('href', '');
+            rainMilimeters.addClass('input-red-border');
             $('#rainMilimetersError').html(MANDATORY_MILMETERS);
 
         }
@@ -80,32 +78,33 @@ $(document).ready(function () {
 
     });
 
-    $('#SaveIrrigation').click(function () {
+    saveIrrigationBtn.click(function () {
 
         
 
         if ($('#irrigationMilimeters').val())
         {
-            var milimeters = parseFloat($('#irrigationMilimeters').val());
+            var milimeters = parseFloat(irrigationMilimeters.val());
 
-            var maxValue = parseInt($('#irrigationMilimeters').attr('max'));
-            var minValue = parseInt($('#irrigationMilimeters').attr('min'));
+            var maxValue = parseInt(irrigationMilimeters.attr('max'));
+            var minValue = parseInt(irrigationMilimeters.attr('min'));
 
             $('#irrigationMilimetersError').html('');
             if (milimeters > minValue && milimeters <= maxValue)
             {
+
                 var irrigationDate = moment($('#irrigationDate :selected').val(), 'MM/DD/YYYY');
                 $('#irrigationDate').removeClass('.input-red-border');
-                location.href = ".#";
-                addIrrigation($('#irrigationMilimeters').val(),
+                saveIrrigationBtn.attr('disabled', true);
+                irrigationMilimeters.attr('disabled', true);
+                addIrrigation(irrigationMilimeters.val(),
                                 $('#IrrigationUnitIrrigation :selected').val(),
                                 irrigationDate);
 
-                
 
             }else
             {
-                $('#irrigationMilimeters').addClass('input-red-border');
+                irrigationMilimeters.addClass('input-red-border');
                 $('#irrigationMilimetersError').html(MILIMETERS_ERROR);
             }
 
@@ -113,8 +112,8 @@ $(document).ready(function () {
         }
         else
         {
-            $('#SaveIrrigation').attr('href', '');
-            $('#irrigationMilimeters').addClass('input-red-border');
+            //saveIrrigationBtn.attr('href', '');
+            irrigationMilimeters.addClass('input-red-border');
             $('#irrigationMilimetersError').html(MANDATORY_MILMETERS);
         }
 
@@ -132,20 +131,21 @@ $(document).ready(function () {
                 '&pMonth=' + (pDate.month() + 1) + 
                 '&pYear=' + pDate.year();
 
+        $('#floatingCirclesG').show();
         $.ajax({
             type: 'GET',
             url: pUrl,
             success:function()
             {
-
-                location.reload();
+                location.href = "./home";
+                //location.reload();
                 
             },
             error: function(data)
             {
                 
                 console.log("Error on AddRain");
-                $('#myModal').modal('hide');
+                //$('#myModal').modal('hide');
             }
         });
 
@@ -161,12 +161,14 @@ $(document).ready(function () {
                 '&pMonth=' + (pDate.month() + 1) +
                 '&pYear=' + pDate.year();
 
+        $('#floatingCirclesG').show();
         $.ajax({
             type: 'GET',
             url: pUrl,
             success: function () {
 
-                location.reload();
+                location.href = "./home";
+                //location.reload();
 
             },
             error: function (data) {
