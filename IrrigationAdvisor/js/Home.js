@@ -71,12 +71,12 @@ $(document).ready(function () {
 
             var milimeters = parseFloat(rainMilimeters.val());
 
-            var maxValue = parseInt($('#rain').attr('max'));
-            var minValue = parseInt($('#rain').attr('min'));
+            var maxValue = parseInt(rainMilimeters.attr('max'));
+            var minValue = parseInt(rainMilimeters.attr('min'));
 
 
             $('#rainMilimetersError').html('');
-            if (milimeters > minValue && milimeters <= maxValue) {
+            if (milimeters >= minValue && milimeters <= maxValue) {
 
                 var rainDate = moment($('#rainDate :selected').val(), 'MM/DD/YYYY');
                 saveRainBtn.attr('disabled', true);
@@ -116,7 +116,7 @@ $(document).ready(function () {
             var minValue = parseInt(irrigationMilimeters.attr('min'));
 
             $('#irrigationMilimetersError').html('');
-            if (milimeters > minValue && milimeters <= maxValue)
+            if (milimeters >= minValue && milimeters <= maxValue)
             {
 
                 var irrigationDate = moment($('#irrigationDate :selected').val(), 'MM/DD/YYYY');
