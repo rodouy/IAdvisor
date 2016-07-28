@@ -1,5 +1,4 @@
 ﻿
-
 $(document).ready(function () {
 
 
@@ -10,9 +9,29 @@ $(document).ready(function () {
     var saveIrrigationBtn = $('#SaveIrrigation');
     var irrigationMilimeters = $('#irrigationMilimeters');
     var rainMilimeters = $('#rain');
+    var dateOfReferenceBtn = $('#dateOfReferenceBtn');
 
-    $('#floatingCirclesG').hide();
-    
+    $('#loading').modal({
+        keyboard: false,
+        backdrop: 'static'
+    })
+
+   
+
+    var showLoading = function()
+    {
+        $('#loading').modal('show');
+        //$('#floatingCirclesG').show();
+
+    }
+
+    var hideLoading = function()
+    {
+        $('#loading').modal('hide');
+        //$('#floatingCirclesG').hide();
+    }
+
+    hideLoading();
 
     rainMilimeters.keyup(function (event, b) {
 
@@ -38,6 +57,12 @@ $(document).ready(function () {
 
     });
 
+    dateOfReferenceBtn.click(function () {
+
+        showLoading();
+
+    });
+
     saveRainBtn.click(function ()
     {
 
@@ -56,6 +81,7 @@ $(document).ready(function () {
                 var rainDate = moment($('#rainDate :selected').val(), 'MM/DD/YYYY');
                 saveRainBtn.attr('disabled', true);
                 rainMilimeters.attr('disabled', true);
+                showLoading();
                 addRain($('#rain').val(),
                                 $('#IrrigationUnit :selected').val(),
                                 rainDate);
@@ -97,6 +123,7 @@ $(document).ready(function () {
                 $('#irrigationDate').removeClass('.input-red-border');
                 saveIrrigationBtn.attr('disabled', true);
                 irrigationMilimeters.attr('disabled', true);
+                showLoading();
                 addIrrigation(irrigationMilimeters.val(),
                                 $('#IrrigationUnitIrrigation :selected').val(),
                                 irrigationDate);
@@ -161,7 +188,7 @@ $(document).ready(function () {
                 '&pMonth=' + (pDate.month() + 1) +
                 '&pYear=' + pDate.year();
 
-        $('#floatingCirclesG').show();
+        
         $.ajax({
             type: 'GET',
             url: pUrl,

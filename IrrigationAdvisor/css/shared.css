@@ -7,9 +7,7 @@
 }
 
 #floatingCirclesG{
-	position:absolute;
-    top: 40%;
-    left: 45%;
+	position:relative;
 	width:125px;
 	height:125px;
 	margin:auto;
@@ -183,3 +181,7 @@
 		background-color:rgb(255,255,255);
 	}
 }
+
+
+
+

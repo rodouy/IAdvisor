@@ -12,18 +12,25 @@
 <script src="~/js/Home.js"></script>
 <script src="~/Scripts/moment.js"></script>
 
+<div class="modal fade" tabindex="-1" role="dialog" id="loading">
+    <div class="modal-dialog" role="document">
+        
+            <!-- Content Bar -->
+            <div id="floatingCirclesG">
+                <div class="f_circleG" id="frotateG_01"></div>
+                <div class="f_circleG" id="frotateG_02"></div>
+                <div class="f_circleG" id="frotateG_03"></div>
+                <div class="f_circleG" id="frotateG_04"></div>
+                <div class="f_circleG" id="frotateG_05"></div>
+                <div class="f_circleG" id="frotateG_06"></div>
+                <div class="f_circleG" id="frotateG_07"></div>
+                <div class="f_circleG" id="frotateG_08"></div>
+            </div>
+        
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-<!-- Content Bar -->
-<div id="floatingCirclesG">
-    <div class="f_circleG" id="frotateG_01"></div>
-    <div class="f_circleG" id="frotateG_02"></div>
-    <div class="f_circleG" id="frotateG_03"></div>
-    <div class="f_circleG" id="frotateG_04"></div>
-    <div class="f_circleG" id="frotateG_05"></div>
-    <div class="f_circleG" id="frotateG_06"></div>
-    <div class="f_circleG" id="frotateG_07"></div>
-    <div class="f_circleG" id="frotateG_08"></div>
-</div>
+
 
 <section class="content-bar ps-container">
     <div class="container">
@@ -72,7 +79,7 @@
                         </div>
                         <div style="color:black" class="btn-md col-md-5">
                             <span class="form-control col-md-4">@(dateValue.ToShortDateString())</span>
-                            <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference">+</a>
+                            <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn">+</a>
                         </div>
                         <!-- modal agregar riego--->
 
