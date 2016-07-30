@@ -41,6 +41,13 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Ha ocurrido un error al enviar el mensaje</strong>
         </div>
+        <div class="alert alert-warning fade in" id="MissingFieldMessage">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Complete los datos obligatorios</strong>
+        </div>
+        <div class="alert alert-info fade in" id="ProcessFieldMessage">
+            <strong>Procesando ...</strong>
+        </div>
     </div>
 </div>
 
@@ -49,6 +56,8 @@
 
     var messageOk = $('#AlertMessageOk');
     var messageError = $('#AlertMessageError');
+    var missingFieldMessage = $('#MissingFieldMessage');
+    var processFieldMessage = $('#ProcessFieldMessage');
 
     var contactEmail = $("#contact_email");
     var contactMessage = $("#contact_message");
@@ -58,20 +67,45 @@
 
     messageOk.hide();
     messageError.hide();
+    missingFieldMessage.hide();
+    processFieldMessage.hide();
 
     var showMessage = function(message, timeOut)
     {
 
         message.show();
 
-        setTimeout(function () {
-            message.hide();
-        }, timeOut);
+        if (timeOut > 0)
+        {
+
+            setTimeout(function () {
+                message.hide();
+            }, timeOut);
+
+        }
+        
 
     }
 
+
+    var mandatoryFields = function()
+    {
+
+        if(contactEmail.val().trim() != '' && contactMessage.val().trim() != '' && contactName.val().trim() != '')  
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
     btnEmail.click(function (e) {
-        e.preventDefault(); // <------------------ stop default behaviour of button
+
+
+ 
         var element = this;
 
 
@@ -81,42 +115,54 @@
         var contact_message = contactMessage.val()
         var contact_name = contactName.val();
 
-        var subject = 'Contacto desde página';
-        $.ajax({
-            url: '/Home/SendEmails?subject=' + subject + ' de ' + contact_name + '&body=' + contact_message + '\n Email de contacto: ' + contact_email,
-            type: "GET",
-            dataType: "text",
-            traditional: true,
-            contentType: "application/json; charset=utf-8",
-            success: function(data) {
-                    
-                if (data == "Ok")
-                {
-                    showMessage(messageOk, 5000);
 
-                    contactEmail.val('');
-                    contactMessage.val('');
-                    contactName.val('');
-                    btnEmail.attr('disabled', false);
-                }
-                else
-                {
-                    
+
+
+        var subject = 'Contacto desde página';
+
+        if (mandatoryFields())
+        {
+            showMessage(processFieldMessage, 0);
+            $.ajax({
+                url: '/Home/SendEmails?subject=' + subject + ' de ' + contact_name + '&body=' + contact_message + '\n Email de contacto: ' + contact_email,
+                type: "GET",
+                dataType: "text",
+                traditional: true,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    processFieldMessage.hide();
+
+                    if (data == "Ok") {
+                        showMessage(messageOk, 5000);
+                        contactEmail.val('');
+                        contactMessage.val('');
+                        contactName.val('');
+                        btnEmail.attr('disabled', false);
+                    }
+                    else {
+
+                        showMessage(messageError, 5000);
+                        btnEmail.attr('disabled', false);
+                    }
+
+
+                },
+                error: function (data) {
+
                     showMessage(messageError, 5000);
 
                     btnEmail.attr('disabled', false);
+
                 }
-                
-                    
-            },
-            error: function (data) {
+            });
 
-                showMessage(messageError, 5000);
-
-                btnEmail.attr('disabled', false);
-                
-            }
-        });
+        }else
+        {
+            showMessage(missingFieldMessage, 5000);
+            btnEmail.attr('disabled', false);
+        }
+        
     });
 
 </script>
