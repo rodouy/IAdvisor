@@ -262,34 +262,44 @@ namespace IrrigationAdvisor.Controllers
         }
 
 
-        public void SendEmails(string subject, string body)
+        public ActionResult SendEmails(string subject, string body)
         {
-            
-            string smtpAddress = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["smtpAddress"]);
-            int portNumber = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["smtpPort"]);
-            bool enableSSL = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["ssl"]);
-            string emailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]); 
-            string password = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["password"]); 
-            string emailTo = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]);
-
-            
-            using (MailMessage mail = new MailMessage())
+            try
             {
-                mail.From = new MailAddress(emailFrom);
-                mail.To.Add(emailTo);
-                mail.Subject = subject;
-                mail.Body = body;
-                mail.IsBodyHtml = false;
-                // Can set to false, if you are sending pure text.
-                
+                string smtpAddress = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["smtpAddress"]);
+                int portNumber = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["smtpPort"]);
+                bool enableSSL = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["ssl"]);
+                string emailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]);
+                string password = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["password"]);
+                string emailTo = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]);
 
-                using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
+
+                using (MailMessage mail = new MailMessage())
                 {
-                    smtp.Credentials = new NetworkCredential(emailFrom, password);
-                    smtp.EnableSsl = enableSSL;
-                    smtp.Send(mail);
+                    mail.From = new MailAddress(emailFrom);
+                    mail.To.Add(emailTo);
+                    mail.Subject = subject;
+                    mail.Body = body;
+                    mail.IsBodyHtml = false;
+                    // Can set to false, if you are sending pure text.
+
+
+                    using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
+                    {
+                        smtp.Credentials = new NetworkCredential(emailFrom, password);
+                        smtp.EnableSsl = enableSSL;
+                        smtp.Send(mail);
+                    }
                 }
+                
             }
+            catch (Exception ex)
+            {
+                return Content(ex.Message); ;
+            }
+
+
+            return Content("Ok");
         }
 
         public ActionResult LogOut()

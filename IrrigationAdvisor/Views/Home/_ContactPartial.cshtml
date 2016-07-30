@@ -47,30 +47,74 @@
 
 <script>
 
-    $('#AlertMessageOk').hide();
-    $('#AlertMessageError').hide();
+    var messageOk = $('#AlertMessageOk');
+    var messageError = $('#AlertMessageError');
 
-    $('#btnEmail').click(function (e) {
+    var contactEmail = $("#contact_email");
+    var contactMessage = $("#contact_message");
+    var contactName = $("#contact_name");
+
+    var btnEmail = $('#btnEmail');
+
+    messageOk.hide();
+    messageError.hide();
+
+    var showMessage = function(message, timeOut)
+    {
+
+        message.show();
+
+        setTimeout(function () {
+            message.hide();
+        }, timeOut);
+
+    }
+
+    btnEmail.click(function (e) {
         e.preventDefault(); // <------------------ stop default behaviour of button
         var element = this;
 
-        var contact_email = $("#contact_email").val()
-        var contact_message = $("#contact_message").val()
-        var contact_name = $("#contact_name").val();
+
+        btnEmail.attr('disabled', true);
+
+        var contact_email = contactEmail.val()
+        var contact_message = contactMessage.val()
+        var contact_name = contactName.val();
 
         var subject = 'Contacto desde página';
         $.ajax({
             url: '/Home/SendEmails?subject=' + subject + ' de ' + contact_name + '&body=' + contact_message + '\n Email de contacto: ' + contact_email,
             type: "GET",
-            //data: '{"subject":"' + contact_email + ' | ' ,
-            dataType: "json",
+            dataType: "text",
             traditional: true,
             contentType: "application/json; charset=utf-8",
-            success: function() {
-                    alert("Done");
+            success: function(data) {
+                    
+                if (data == "Ok")
+                {
+                    showMessage(messageOk, 5000);
+
+                    contactEmail.val('');
+                    contactMessage.val('');
+                    contactName.val('');
+                    btnEmail.attr('disabled', false);
+                }
+                else
+                {
+                    
+                    showMessage(messageError, 5000);
+
+                    btnEmail.attr('disabled', false);
+                }
+                
+                    
             },
-            error: function () {
-                alert("An error has occured!!!");
+            error: function (data) {
+
+                showMessage(messageError, 5000);
+
+                btnEmail.attr('disabled', false);
+                
             }
         });
     });
