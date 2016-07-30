@@ -21,17 +21,39 @@ $(document).ready(function () {
     var showLoading = function()
     {
         $('#loading').modal('show');
-        //$('#floatingCirclesG').show();
 
     }
 
     var hideLoading = function()
     {
         $('#loading').modal('hide');
-        //$('#floatingCirclesG').hide();
     }
 
     hideLoading();
+
+    rainMilimeters.change(function (event, b) {
+
+        var currentValue = event.target.value;
+
+        if (currentValue)
+            saveRainBtn.attr('disabled', false);
+        else
+            saveRainBtn.attr('disabled', true);
+
+
+    });
+
+    irrigationMilimeters.change(function (event, b) {
+
+        var currentValue = event.target.value;
+
+        if (currentValue)
+            saveIrrigationBtn.attr('disabled', false);
+        else
+            saveIrrigationBtn.attr('disabled', true);
+
+
+    });
 
     rainMilimeters.keyup(function (event, b) {
 
