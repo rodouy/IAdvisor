@@ -42,7 +42,7 @@
 
         var subject = 'Contacto desde página';
         $.ajax({
-            url: '/Home/SendEmails?subject=' + subject + ' de ' + contact_name + '&body=' + contact_message,
+            url: '/Home/SendEmails?subject=' + subject + ' de ' + contact_name + '&body=' + contact_message + '\n Email de contacto: ' + contact_email,
             type: "GET",
             //data: '{"subject":"' + contact_email + ' | ' ,
             dataType: "json",
