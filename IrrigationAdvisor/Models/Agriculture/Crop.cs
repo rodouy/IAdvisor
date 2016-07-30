@@ -374,11 +374,12 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pName"></param>
         /// <param name="pDescription"></param>
         /// <returns></returns>
-        public Stage AddStage(String pName, String pShortName, String pDescription)
+        public Stage AddStage(String pName, String pShortName, String pDescription,
+                                int pOrder)
         {
             Stage lReturn = null;
             long lStageId = this.StageList.Count();
-            Stage lStage = new Stage(lStageId, pName, pShortName, pDescription);
+            Stage lStage = new Stage(lStageId, pName, pShortName, pDescription, pOrder);
             if (ExistStage(lStage) == null)
             {
                 this.StageList.Add(lStage);
@@ -393,10 +394,11 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pName"></param>
         /// <param name="pDescription"></param>
         /// <returns></returns>
-        public Stage UpdateStage(String pName, String pShortName, String pDescription)
+        public Stage UpdateStage(String pName, String pShortName, String pDescription,
+                                int pOrder)
         {
             Stage lReturn = null;
-            Stage lStage = new Stage(0, pName, pShortName, pDescription);
+            Stage lStage = new Stage(0, pName, pShortName, pDescription, pOrder);
             PhenologicalStage lPhenologicalStage;
 
             lReturn = ExistStage(lStage);
@@ -409,7 +411,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                 lPhenologicalStage = this.FindPhenologicalStage(lStage);
                 if (lPhenologicalStage != null)
                 {
-                    lPhenologicalStage.UpdateStage(pName, pShortName, pDescription);
+                    lPhenologicalStage.UpdateStage(pName, pShortName, pDescription, pOrder);
                 }
                 else
                 {
@@ -563,7 +565,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                     //TODO throw exception "There is a Phenological Stage without Stage in StageList!! Error of data."
                 }
                 lReturn.SpecieId = pSpecie.SpecieId;
-                lReturn.UpdateStage(pStage.Name, pStage.ShortName, pStage.Description);
+                lReturn.UpdateStage(pStage.Name, pStage.ShortName, pStage.Description, pStage.Order);
                 lReturn.MinDegree = pMinDegree;
                 lReturn.MaxDegree = pMaxDegree;
                 lReturn.RootDepth = pRootDepth;
@@ -590,12 +592,14 @@ namespace IrrigationAdvisor.Models.Agriculture
                     lStage.Name = pPhenologicalStage.Stage.Name;
                     lStage.ShortName = pPhenologicalStage.Stage.ShortName;
                     lStage.Description = pPhenologicalStage.Stage.Description;
+                    lStage.Order = pPhenologicalStage.Stage.Order;
                 }
                 else
                 {
                     //TODO throw exception "There is a Phenological Stage without Stage in StageList!! Error of data."
                 }
-                lReturn.UpdateStage(pPhenologicalStage.Stage.Name, pPhenologicalStage.Stage.ShortName, pPhenologicalStage.Stage.Description);
+                lReturn.UpdateStage(pPhenologicalStage.Stage.Name, pPhenologicalStage.Stage.ShortName, 
+                                    pPhenologicalStage.Stage.Description, pPhenologicalStage.Stage.Order);
                 lReturn.MinDegree = pPhenologicalStage.MinDegree;
                 lReturn.MaxDegree = pPhenologicalStage.MaxDegree;
                 lReturn.RootDepth = pPhenologicalStage.RootDepth;
