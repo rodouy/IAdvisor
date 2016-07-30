@@ -1,5 +1,6 @@
 ﻿using IrrigationAdvisor.Models.Irrigation;
 using IrrigationAdvisor.Models.Localization;
+using IrrigationAdvisor.Models.Security;
 using IrrigationAdvisor.ViewModels.Irrigation;
 using IrrigationAdvisor.ViewModels.Security;
 using IrrigationAdvisor.ViewModels.Weather;
@@ -44,8 +45,7 @@ namespace IrrigationAdvisor.ViewModels.Localization
 
         public List<IrrigationUnitViewModel> IrrigationUnitViewModelList { get; set; }
 
-        public UserViewModel UserViewModel { get; set; }
-
+        public List<UserViewModel> UserViewModelList { get; set; }
 
         #endregion
 
@@ -64,8 +64,7 @@ namespace IrrigationAdvisor.ViewModels.Localization
 
             this.BombViewModelList = this.GetBombListBy(pFarm.BombList);
             this.IrrigationUnitViewModelList = this.GetIrrigationUnitListBy(pFarm.IrrigationUnitList);
-            this.UserViewModel = new UserViewModel(pFarm.User);
-
+            this.UserViewModelList = this.GetUserListBy(pFarm.UserList);
         }
 
         #endregion
@@ -112,6 +111,27 @@ namespace IrrigationAdvisor.ViewModels.Localization
                 {
                     IrrigationUnitViewModel lIrrigationUnit = new IrrigationUnitViewModel(item);
                     lReturn.Add(lIrrigationUnit);
+                }
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get UserViewModelList list by User list
+        /// </summary>
+        /// <param name="pUserList"></param>
+        /// <returns></returns>
+        public List<UserViewModel> GetUserListBy(List<User> pUserList)
+        {
+            List<UserViewModel> lReturn = new List<UserViewModel>();
+
+            if(pUserList != null && pUserList.Count() > 0)
+            {
+                foreach (User item in pUserList)
+                {
+                    UserViewModel lUser = new UserViewModel(item);
+                    lReturn.Add(lUser);
                 }
             }
 

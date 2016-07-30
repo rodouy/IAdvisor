@@ -171,10 +171,8 @@ namespace IrrigationAdvisor.Controllers
 
                 //Create View Model Farm list
                 lFarmViewModelList = new List<FarmViewModel>();
-
                 //Create Bomb List
                 lBombList = new List<Bomb>();
-
                 //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
 
@@ -391,7 +389,7 @@ namespace IrrigationAdvisor.Controllers
         [ChildActionOnly]
         public PartialViewResult FrontPageHeaderPartial()
         {
-            return PartialView("_FrontPageHeaderPartial", GetGridPivotHome());
+            return PartialView("_FrontPageHeaderPartial", GetGridPivotHomeTitles());
         }
 
         [ChildActionOnly]
@@ -512,6 +510,75 @@ namespace IrrigationAdvisor.Controllers
 
         private readonly List<GridPivotHome> gridIrrigationUnitHomeList = new List<GridPivotHome>();
 
+
+
+        /// <summary>
+        /// Return Grid Irrigation Unit for Home Titles
+        /// </summary>
+        /// <returns></returns>
+        public List<GridPivotHome> GetGridPivotHomeTitles()
+        {
+
+            #region Local Variables
+            List<GridPivotHome> lGridIrrigationUnitList = new List<GridPivotHome>();
+            GridPivotHome lGridIrrigationUnit;
+            List<GridPivotDetailHome> lGridIrrigationUnitDetailRow;
+            GridPivotDetailHome lGridIrrigationUnitRow;
+            DateTime lDateOfReference;
+            ErrorViewModel lErrorVM;
+            User lLoggedUser;
+            List<Farm> lFarmList;
+            
+            #endregion
+
+            #region Configuration Variables
+            UserConfiguration uc;
+            FarmConfiguration fc;
+            #endregion
+
+            try
+            {
+
+                #region Configuration - Instance
+                uc = new UserConfiguration();
+                fc = new FarmConfiguration();
+                #endregion
+
+                lDateOfReference = ManageSession.GetDateOfReference();
+
+                //Obtain logged user
+                lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
+
+                //Get list of Farms from User
+                lFarmList = fc.GetFarmListIncludedIrrigationUnitListCityBy(lLoggedUser);
+
+                //Grid of irrigation data
+                lGridIrrigationUnitDetailRow = new List<GridPivotDetailHome>();
+
+                for (int i = -2; i < 5; i++)
+                {
+                    //Day i
+                    lGridIrrigationUnitRow = AddGridIrrigationUnitDays(lDateOfReference, lDateOfReference.AddDays(i));
+                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                }
+
+                //Add all the days for the IrrigationUnit
+                lGridIrrigationUnit = new GridPivotHome("Nombre", "Fenologia", "Cultivo", lGridIrrigationUnitDetailRow);
+
+                lGridIrrigationUnitList.Add(lGridIrrigationUnit);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            return lGridIrrigationUnitList;
+
+        }
+
+        
         /// <summary>
         /// Return Grid Irrigation Unit for Home
         /// </summary>
@@ -564,7 +631,6 @@ namespace IrrigationAdvisor.Controllers
                 ic = new IrrigationConfiguration();
                 #endregion
 
-                //lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
                 lDateOfReference = ManageSession.GetDateOfReference();
 
                 //Obtain logged user
@@ -595,31 +661,13 @@ namespace IrrigationAdvisor.Controllers
                     //Grid of irrigation data
                     lGridIrrigationUnitDetailRow = new List<GridPivotDetailHome>();
 
-                    //Day - 2
-                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(-2), lIrrigationList, lRainList, lDailyRecordList);
-                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
-
-                    //Day - 1
-                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(-1), lIrrigationList, lRainList, lDailyRecordList);
-                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
-                    //Day
-                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(0), lIrrigationList, lRainList, lDailyRecordList);
-                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
-                    //Day + 1
-                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(+1), lIrrigationList, lRainList, lDailyRecordList);
-                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
-                    
-                    //Day + 2
-                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(+2), lIrrigationList, lRainList, lDailyRecordList);
-                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
-                    
-                    //Day + 3
-                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(+3), lIrrigationList, lRainList, lDailyRecordList);
-                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
-                    
-                    //Day + 4
-                    lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(+4), lIrrigationList, lRainList, lDailyRecordList);
-                    lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                    for (int i = -2; i < 5; i++)
+                    {
+                        //Day i
+                        lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(i), lIrrigationList, lRainList, lDailyRecordList);
+                        lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                        
+                    }
 
                     //Add all the days for the IrrigationUnit
                     lGridIrrigationUnit = new GridPivotHome(lFirstCropIrrigationWeather.IrrigationUnit.ShortName, 
@@ -640,6 +688,37 @@ namespace IrrigationAdvisor.Controllers
 
             return lGridIrrigationUnitList;
 
+        }
+
+
+        /// <summary>
+        /// Add Grid Irrigation Unit only with day
+        /// </summary>
+        /// <param name="pDayOfReference"></param>
+        /// <param name="pDayOfData"></param>
+        /// <param name="pIrrigationList"></param>
+        /// <param name="pRainList"></param>
+        /// <param name="pDailyRecordList"></param>
+        /// <returns></returns>
+        private GridPivotDetailHome AddGridIrrigationUnitDays(DateTime pDayOfReference, DateTime pDayOfData)
+        {
+            GridPivotDetailHome lReturn;
+
+            Double lIrrigationQuantity = 0;
+            Double lRainQuantity = 0;
+            Double lForcastIrrigationQuantity = 0;
+            DateTime lDateOfData = Utils.MIN_DATETIME;
+            bool lIsToday = false;
+            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Green; 
+
+            lDateOfData = pDayOfData;
+            lIsToday = pDayOfData == pDayOfReference;
+
+            lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, 
+                                                lForcastIrrigationQuantity,
+                                                lDateOfData, lIsToday, 
+                                                lIrrigationStatus);
+            return lReturn;
         }
 
         /// <summary>

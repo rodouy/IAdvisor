@@ -44,9 +44,9 @@
             <div class="avatar-acount">
                 <div class="info-acount">
                     <h3 class="fa fa-dashboard fa-2x"> Pivots </h3>
-                    
+
                     <div class="">
-                        
+
                         <div style="float:right">
                             <a class="btn go btn-pivots btn-md" href="#modal-lluvia">
                                 <span class="glyphicon glyphicon-plus"></span>Agregar lluvia
@@ -74,9 +74,9 @@
                                             <input type="number" placeholder="Ingrese la lluvia en 'ml'" class="form-control" id="irrigationMilimeters">
                                             <br />
                                             <div class="dropdown">
-                                               
-                                                    Seleccionar Fecha
-                                                    
+
+                                                Seleccionar Fecha
+
                                                 <select id="irrigationDate">
                                                     <option value="@(dateValue.Month + "/" + dateValue.Day + "/" + dateValue.Year)">@(dateValue.ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
@@ -88,16 +88,16 @@
                                             </div>
                                             <br />
                                             <div class="dropdown">
-                                                 Seleccionar pivot
+                                                Seleccionar pivot
                                                 <select id="IrrigationUnitIrrigation">
                                                     <option value="-1">Todos</option>
                                                     @foreach (var item in Model.IrrigationUnitViewModelList)
                                                     {
-                                                        <option value="@item.IrrigationUnitId">@item.Name</option>
+                                                    <option value="@item.IrrigationUnitId">@item.Name</option>
 
                                                     }
                                                 </select>
-                                                
+
 
                                                 <br />
                                             </div>
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="cf footer">
                                     <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-                                    <a  class="btn btn-success" id="SaveIrrigation" href="#">Guardar</a>
+                                    <a class="btn btn-success" id="SaveIrrigation" href="#">Guardar</a>
                                 </div>
                             </div>
                         </div>
@@ -120,62 +120,60 @@
                                 </div>
                                 <div class="copy">
                                     <p>  </p>
-                              
-                                        <div class="form-group">
-                                            <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain">
-                                            <br />
-                                            <div class="dropdown">
-                                                @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                    Seleccionar Día
-                                                    <span class="caret"></span>
-                                                    </button>
-                                                *@
+
+                                    <div class="form-group">
+                                        <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain">
+                                        <br />
+                                        <div class="dropdown">
+                                            @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                 Seleccionar Día
-                                                
-                                                <select id="rainDate">
-                                                    <option value="@(dateValue.Month + "/" + dateValue.Day + "/" + dateValue.Year)">@(dateValue.ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-2).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-3).Month + "/" + dateValue.AddDays(-3).Day + "/" + dateValue.AddDays(-3).Year)">@(dateValue.AddDays(-3).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-4).Month + "/" + dateValue.AddDays(-4).Day + "/" + dateValue.AddDays(-4).Year)">@(dateValue.AddDays(-4).ToShortDateString())</option>
-                                                </select>
-                                                
-                                                <br />
-                                            </div>
+                                                <span class="caret"></span>
+                                                </button>
+                                            *@
+                                            Seleccionar Día
+
+                                            <select id="rainDate">
+                                                <option value="@(dateValue.Month + "/" + dateValue.Day + "/" + dateValue.Year)">@(dateValue.ToShortDateString())</option>
+                                                <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                <option value="@(dateValue.AddDays(-2).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
+                                                <option value="@(dateValue.AddDays(-3).Month + "/" + dateValue.AddDays(-3).Day + "/" + dateValue.AddDays(-3).Year)">@(dateValue.AddDays(-3).ToShortDateString())</option>
+                                                <option value="@(dateValue.AddDays(-4).Month + "/" + dateValue.AddDays(-4).Day + "/" + dateValue.AddDays(-4).Year)">@(dateValue.AddDays(-4).ToShortDateString())</option>
+                                            </select>
+
                                             <br />
-                                            <div class="dropdown">
-                                                @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        </div>
+                                        <br />
+                                        <div class="dropdown">
+                                            @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                     Seleccionar Unidad de Riego
                                                     <span class="caret"></span>
                                                 </button>*@
-                                                Seleccionar Unidad de Riego
-                                                    <select id="IrrigationUnit">
-                                                        <option value="-1">Todos</option>
-                                                       @foreach (var item in Model.IrrigationUnitViewModelList)
+                                            Seleccionar Unidad de Riego
+                                            <select id="IrrigationUnit">
+                                                <option value="-1">Todos</option>
+                                                @foreach (var item in Model.IrrigationUnitViewModelList)
                                                         {
-                                                            <option value="@item.IrrigationUnitId">@item.Name</option>
+                                                        <option value="@item.IrrigationUnitId">@item.Name</option>
 
                                                         }
-                                                    </select>
-                                                        
-                                                <br />
-                                            </div>
+                                            </select>
 
+                                            <br />
                                         </div>
-                                    
+
+                                    </div>
+
                                 </div>
                                 <div class="cf footer">
-                                    <p> 
+                                    <p>
                                         <a href="#" class="btn  btn-style-2">
-                                        Cancelar
+                                            Cancelar
                                         </a>
-                                    
                                     </p>
-                                    
-                                        <a  id="SaveRain" class="btn  btn-style-2" href="#">
-                                            Guardar
-                                        </a>
-                                        
+                                    <a id="SaveRain" class="btn  btn-style-2" href="#">
+                                        Guardar
+                                    </a>
+
                                 </div>
                             </div>
                             <div class="overlay"></div>
@@ -206,7 +204,7 @@
                                             </div>
                                             <br />
                                             <div class="dropdown">
-                                                    Seleccione una Fecha
+                                                Seleccione una Fecha
                                                 <select id="phenoDate">
                                                     <option value="@(dateValue.Month + "/" + dateValue.Day + "/" + dateValue.Year)">@(dateValue.ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
@@ -223,7 +221,7 @@
                                                     <option value="-1">Todos</option>
                                                     @foreach (var item in Model.IrrigationUnitViewModelList)
                                                     {
-                                                        <option value="@item.IrrigationUnitId">@item.Name</option>
+                                                    <option value="@item.IrrigationUnitId">@item.Name</option>
 
                                                     }
                                                 </select>
@@ -234,8 +232,8 @@
                                     </form>
                                 </div>
                                 <div class="cf footer">
-                                    <p> <a href="#" class="btn  btn-style-2" >Cancelar</a></p>
-                                    <a type="button" class="btn btn-success"  href="#">Guardar</a>
+                                    <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
+                                    <a type="button" class="btn btn-success" href="#">Guardar</a>
                                 </div>
                             </div>
                             <div class="overlay"></div>
@@ -243,11 +241,11 @@
                         <!-- end modal agregar fenologia --->
                         @{ if (Model.IsUserAdministrator)
                             {
-                                <p>
-                                    <a href="#modal-fenologia" class="btn go btn-pivots btn-md">
-                                        <span class="glyphicon glyphicon-plus"></span>Agregar Fenología
-                                    </a>
-                                </p>
+                        <p>
+                            <a href="#modal-fenologia" class="btn go btn-pivots btn-md">
+                                <span class="glyphicon glyphicon-plus"></span>Agregar Fenología
+                            </a>
+                        </p>
                             }
 
                         }
@@ -301,41 +299,58 @@
             </div>
             <!-- end reference-->
         </div>
-
-        <!-- location pivots-->
-        <section class="pivot-ub">
-            <div class="container-images-location">
-                <div class="col-md-4">
-                    <div class="location-pivot">
-                        <h3 class="fa fa-location-arrow fa-2x"> Ubicación </h3>
+        <div class="row">
+            <!-- location pivots-->
+            <section class="pivot-ub">
+                <div class="container-images-location">
+                    <div class="col-md-4">
+                        <div class="location-pivot">
+                            <div style="height:500px;width:400px;max-width:100%;list-style:none; transition: none;overflow:hidden;">
+                                <div id="embed-map-canvas" style="height:100%; width:80%;max-width:80%;">
+                                    <iframe style="height:100%;width:100%;border:0;" frameborder="0"
+                                            src="http://maps.google.com/maps?z=13&t=h&q=loc:-34.240445,+-55.534513&output=embed"></iframe>
+                                </div>
+                                @*<a class="google-code" rel="nofollow" href="https://www.bootstrapskins.com" id="get-map-data"></a>
+                                    <style>
+                                        #embed-map-canvas .map-generator {
+                                            max-width: 100%;
+                                            max-height: 100%;
+                                            background: none;
+                                        }
+                                    </style>*@
+                            </div>
+                        </div>
+                        @*<div class="location-pivot">
+                                <h3 class="fa fa-location-arrow fa-2x"> Ubicación </h3>
+                            </div>
+                            <div class="box-images"></div>*@
                     </div>
-                    <div class="box-images"></div>
                 </div>
-            </div>
-        </section>
-        <!-- end Location pivots-->
-        <!-- weather-->
-        <section class="pivot-ub">
-            <div class="container-images">
-                <div class="col-md-4">
-                    <div class="location-pivot">
-                        <h3 class="fa fa-cloud fa-2x"> Clima </h3>
-                    </div>
-                    <div id="example">
-                        @*@{ Html.RenderAction("WeatherHomePartial", "Home"); }*@
+            </section>
+            <!-- end Location pivots-->
+            <!-- weather-->
+            <section class="pivot-ub">
+                <div class="container-images">
+                    <div class="col-md-4">
+                        <div class="location-pivot">
+                            <h3 class="fa fa-cloud fa-2x"> Clima </h3>
+                        </div>
+                        <div id="example">
+                            @{ Html.RenderAction("WeatherHomePartial", "Home"); }
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- end weather-->
+            </section>
+            <!-- end weather-->
+        </div>
     </div>
-
-             }else
+            }
+            else
             {
                 Html.RenderPartial("~/Views/Errors/_Error.cshtml", Model.ErrorViewModel);
-                
-             }
-        }
+
+            }
+}
       
       
         

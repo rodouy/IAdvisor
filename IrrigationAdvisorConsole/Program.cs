@@ -343,7 +343,7 @@ namespace IrrigationAdvisorConsole
                 Phone = "098 938 269",
                 Address = "1958 Cuareim, Montevideo",
                 Email = "scasanova@pgwwater.com.uy",
-                UserName = "scasanova",
+                UserName = Utils.NameUserSeba,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "SCasanova"),
                 RoleId = 1,
             };
@@ -1460,6 +1460,8 @@ namespace IrrigationAdvisorConsole
             WeatherStation lWeatherStation = null;
             User lUser = null;
             City lCity = null;
+            User lUserAdministrator = null;
+            List<User> lUserList = null;
             
             #region Base
             var lBase = new Farm
@@ -1475,8 +1477,8 @@ namespace IrrigationAdvisorConsole
                 SoilList = null,
                 BombList = null,
                 IrrigationUnitList = null,
-                UserId = 0,
                 CityId = 0,
+                UserList = null,
             };
             #endregion
 
@@ -1491,12 +1493,22 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmDemo
                                  select pos).FirstOrDefault();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserDemo
-                             select user).FirstOrDefault();
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityMercedes
                              select city).FirstOrDefault();
+                    lUserList = new List<User>();
+                    lUser = (from user in context.Users
+                             where user.UserName == Utils.NameUserDemo
+                             select user).FirstOrDefault();
+                    lUserList.Add(lUser);
+                    lUserAdministrator = (from user in context.Users
+                                         where user.UserName == Utils.NameUserAdmin
+                                         select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserSeba
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
                     var lDemo = new Farm
                     {
                         Name = Utils.NameFarmDemo,
@@ -1509,8 +1521,8 @@ namespace IrrigationAdvisorConsole
                         SoilList = null,
                         BombList = null,
                         IrrigationUnitList = null,
-                        UserId = lUser.UserId,
                         CityId = lCity.CityId,
+                        UserList = lUserList,
                     };
                     context.Farms.Add(lDemo);
                     context.SaveChanges();
@@ -1529,12 +1541,22 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmSantaLucia
                                  select pos).FirstOrDefault();
-                    lUser = (from user in context.Users
-                             where user.Name == "Sebastian"
-                             select user).FirstOrDefault();
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityMinas
                              select city).FirstOrDefault();
+                    lUserList = new List<User>();
+                    lUser = (from user in context.Users
+                             where user.Name == "Sebastian"
+                             select user).FirstOrDefault();
+                    lUserList.Add(lUser);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserAdmin
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserSeba
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
                     var lSantaLucia = new Farm
                     {
                         Name = Utils.NameFarmSantaLucia,
@@ -1547,8 +1569,8 @@ namespace IrrigationAdvisorConsole
                         SoilList = null,
                         BombList = null,
                         IrrigationUnitList = null,
-                        UserId = lUser.UserId,
                         CityId = lCity.CityId,
+                        UserList = lUserList,
                     };
                     context.Farms.Add(lSantaLucia);
                     context.SaveChanges();
@@ -1567,12 +1589,22 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmLaPerdiz
                                  select pos).FirstOrDefault();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserDelCarmen
-                             select user).FirstOrDefault();
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityMercedes
                              select city).FirstOrDefault();
+                    lUserList = new List<User>();
+                    lUser = (from user in context.Users
+                             where user.UserName == Utils.NameUserDelCarmen
+                             select user).FirstOrDefault();
+                    lUserList.Add(lUser);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserAdmin
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserSeba
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
                     var lLaPerdiz = new Farm
                     {
                         Name = Utils.NameFarmLaPerdiz,
@@ -1585,8 +1617,8 @@ namespace IrrigationAdvisorConsole
                         SoilList = null,
                         BombList = null,
                         IrrigationUnitList = null,
-                        UserId = lUser.UserId,
                         CityId = lCity.CityId,
+                        UserList = lUserList,
                     };
                     context.Farms.Add(lLaPerdiz);
                     context.SaveChanges();
@@ -1605,12 +1637,22 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmDelLagoSanPedro
                                  select pos).FirstOrDefault();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserDelLago
-                             select user).FirstOrDefault();
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityDurazno
                              select city).FirstOrDefault();
+                    lUserList = new List<User>();
+                    lUser = (from user in context.Users
+                             where user.UserName == Utils.NameUserDelLago
+                             select user).FirstOrDefault();
+                    lUserList.Add(lUser);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserAdmin
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserSeba
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
                     var lDelLagoSanPedro = new Farm
                     {
                         Name = Utils.NameFarmDelLagoSanPedro,
@@ -1623,8 +1665,8 @@ namespace IrrigationAdvisorConsole
                         SoilList = null,
                         BombList = null,
                         IrrigationUnitList = null,
-                        UserId = lUser.UserId,
                         CityId = lCity.CityId,
+                        UserList = lUserList,
                     };
                     context.Farms.Add(lDelLagoSanPedro);
                     context.SaveChanges();
@@ -1643,12 +1685,22 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmDelLagoElMirador
                                  select pos).FirstOrDefault();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserDelLago
-                             select user).FirstOrDefault();
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityDurazno
                              select city).FirstOrDefault();
+                    lUserList = new List<User>();
+                    lUser = (from user in context.Users
+                             where user.UserName == Utils.NameUserDelLago
+                             select user).FirstOrDefault();
+                    lUserList.Add(lUser);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserAdmin
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserSeba
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
                     var lDelLagoElMirador = new Farm
                     {
                         Name = Utils.NameFarmDelLagoElMirador,
@@ -1661,8 +1713,8 @@ namespace IrrigationAdvisorConsole
                         SoilList = null,
                         BombList = null,
                         IrrigationUnitList = null,
-                        UserId = lUser.UserId,
                         CityId = lCity.CityId,
+                        UserList = lUserList,
                     };
                     context.Farms.Add(lDelLagoElMirador);
                     context.SaveChanges();
@@ -1681,12 +1733,22 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmLaPalma
                                  select pos).FirstOrDefault();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserLaPalma
-                             select user).FirstOrDefault();
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityYoung
                              select city).FirstOrDefault();
+                    lUserList = new List<User>();
+                    lUser = (from user in context.Users
+                             where user.UserName == Utils.NameUserLaPalma
+                             select user).FirstOrDefault();
+                    lUserList.Add(lUser);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserAdmin
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
+                    lUserAdministrator = (from user in context.Users
+                                          where user.UserName == Utils.NameUserSeba
+                                          select user).FirstOrDefault();
+                    lUserList.Add(lUserAdministrator);
                     var lLaPalma = new Farm
                     {
                         Name = Utils.NameFarmLaPalma,
@@ -1699,8 +1761,8 @@ namespace IrrigationAdvisorConsole
                         SoilList = null,
                         BombList = null,
                         IrrigationUnitList = null,
-                        UserId = lUser.UserId,
                         CityId = lCity.CityId,
+                        UserList = lUserList,
                     };
                     context.Farms.Add(lLaPalma);
                     context.SaveChanges();

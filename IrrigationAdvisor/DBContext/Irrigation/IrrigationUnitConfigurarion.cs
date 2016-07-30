@@ -137,6 +137,7 @@ namespace IrrigationAdvisor.DBContext.Irrigation
 
         /// <summary>
         /// Get List of IrrigationUnit by Farm
+        /// Include: IrrigationUnitList;
         /// </summary>
         /// <param name="pFarm"></param>
         /// <returns></returns>
@@ -173,6 +174,7 @@ namespace IrrigationAdvisor.DBContext.Irrigation
 
             return lReturn;
         }
+        
         /// <summary>
         /// Get Latitude by Position Id
         /// </summary>

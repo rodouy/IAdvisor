@@ -38,8 +38,8 @@ namespace IrrigationAdvisor.Models.Localization
     ///     - soilList List<Soil>
     ///     - lBombList List<Bomb>
     ///     - weatherStation WeatherStation
-    ///     - referentUser User
     ///     - irrigationUnitList List<IrrigationUnit>
+    ///     - userList List<User>
     /// 
     /// Methods:
     ///     - Farm()      -- constructor
@@ -65,8 +65,8 @@ namespace IrrigationAdvisor.Models.Localization
         private List<Soil> soilList;
         private List<Bomb> bombList;
         private List<IrrigationUnit> irrigationUnitList;
-        private long userId;
         private long cityId;
+        private List<User> userList;
 
         #endregion
 
@@ -144,18 +144,6 @@ namespace IrrigationAdvisor.Models.Localization
             set { irrigationUnitList = value; }
         }
 
-        public long  UserId
-        {
-            get { return userId; }
-            set { userId = value; }
-        }
-
-        public virtual User User
-        {
-            get;
-            set;
-        }
-
         public long CityId
         {
             get { return cityId; }
@@ -166,6 +154,12 @@ namespace IrrigationAdvisor.Models.Localization
         {
             get;
             set;
+        }
+
+        public List<User> UserList
+        {
+            get { return userList; }
+            set { userList = value; }
         }
 
         #endregion
@@ -187,8 +181,8 @@ namespace IrrigationAdvisor.Models.Localization
             this.SoilList = new List<Soil>();
             this.BombList = new List<Bomb>();
             this.IrrigationUnitList = new List<IrrigationUnit>();
-            this.UserId = 0;
             this.CityId = 0;
+            this.UserList = new List<User>();
         }
 
         /// <summary>
@@ -205,14 +199,14 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pSoilList"></param>
         /// <param name="pBombList"></param>
         /// <param name="pIrrigationUnitList"></param>
-        /// <param name="pUserId"></param>
         /// <param name="pCityId"></param>
+        /// <param name="pUserList"></param>
         public Farm(long pFarmId, String pName, String pCompany,
                     String pAddress,String pPhone, long pPositionId, 
                     int pHas, long pWeatherStationId,
                     List<Soil> pSoilList, List<Bomb> pBombList,
-                    List<IrrigationUnit> pIrrigationUnitList,
-                    long pUserId, long pCityId)
+                    List<IrrigationUnit> pIrrigationUnitList, 
+                    long pCityId, List<User> pUserList)
         {
             this.FarmId = pFarmId;
             this.Name = pName;
@@ -225,8 +219,8 @@ namespace IrrigationAdvisor.Models.Localization
             this.SoilList = pSoilList;
             this.BombList = pBombList;
             this.IrrigationUnitList = pIrrigationUnitList;
-            this.UserId = pUserId;
             this.CityId = pCityId;
+            this.UserList = pUserList;
         }
 
         #endregion
@@ -449,6 +443,92 @@ namespace IrrigationAdvisor.Models.Localization
 
         #endregion
 
+        #region User
+
+        /// <summary>
+        /// Return if the User exists in Farm User List,
+        /// else null
+        /// </summary>
+        /// <param name="pUser"></param>
+        /// <returns></returns>
+        public User ExistUser(User pUser)
+        {
+            User lReturn = null;
+            foreach (User item in this.UserList)
+            {
+                if (item.Equals(pUser))
+                {
+                    lReturn = item;
+                    break;
+                }
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Add a User to Farm Administrator List,
+        /// If exists return null
+        /// </summary>
+        /// <param name="pName"></param>
+        /// <param name="pSurname"></param>
+        /// <param name="pPhone"></param>
+        /// <param name="pAddress"></param>
+        /// <param name="pEmail"></param>
+        /// <param name="pRoleId"></param>
+        /// <param name="pUserName"></param>
+        /// <param name="pPassword"></param>
+        /// <returns></returns>
+        public User AddUser(String pName, String pSurname, String pPhone, String pAddress, 
+                            String pEmail, long pRoleId, String pUserName, String pPassword)
+        {
+            User lReturn = null;
+            long lUserId = this.UserList.Count();
+            User lUser = new User(lUserId, pName, pSurname, pPhone, pAddress, 
+                                pEmail, pRoleId, pUserName, pPassword);
+            if (ExistUser(lUser) == null)
+            {
+                this.UserList.Add(lUser);
+                lReturn = lUser;
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Update the User from Farm Administrator List,
+        /// If do not exists return null
+        /// </summary>
+        /// <param name="pName"></param>
+        /// <param name="pSurname"></param>
+        /// <param name="pPhone"></param>
+        /// <param name="pAddress"></param>
+        /// <param name="pEmail"></param>
+        /// <param name="pRoleId"></param>
+        /// <param name="pUserName"></param>
+        /// <param name="pPassword"></param>
+        /// <returns></returns>
+        public User UpdateUser(String pName, String pSurname, String pPhone, String pAddress,
+                            String pEmail, long pRoleId, String pUserName, String pPassword)
+        {
+            User lReturn = null;
+            User lUser = new User(0, pName, pSurname, pPhone, pAddress,
+                                pEmail, pRoleId, pUserName, pPassword);
+            lReturn = ExistUser(lUser);
+            if (lReturn != null)
+            {
+                lReturn.Name = pName;
+                lReturn.Surname = pSurname;
+                lReturn.Phone = pPhone;
+                lReturn.Address = pAddress;
+                lReturn.Email = pEmail;
+                lReturn.RoleId = pRoleId;
+                lReturn.UserName = pUserName;
+                lReturn.Password = pPassword;
+            }
+            return lReturn;
+        }
+
+        #endregion
+
         #endregion
 
         #region Overrides
@@ -467,7 +547,7 @@ namespace IrrigationAdvisor.Models.Localization
             Farm lFarm = obj as Farm;
             return this.Name.Equals(lFarm.Name)
                 && this.PositionId.Equals(lFarm.PositionId)
-                && this.UserId.Equals(lFarm.UserId);
+                && this.WeatherStationId.Equals(lFarm.WeatherStationId);
         }
 
         public override int GetHashCode()
