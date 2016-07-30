@@ -9,6 +9,7 @@ using System.Web;
 using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.Models.Management;
 using IrrigationAdvisor.ViewModels.Water;
+using IrrigationAdvisor.ViewModels.Agriculture;
 
 namespace IrrigationAdvisor.ViewModels.Home
 {
@@ -41,6 +42,8 @@ namespace IrrigationAdvisor.ViewModels.Home
         public List<DailyRecordViewModel> DailyRecordViewModelList { get; set; }
 
         public ErrorViewModel ErrorViewModel { get; set; }
+
+        public List<StageViewModel> StageViewModelList { get; set; }
 
         public bool IsUserAdministrator { get; set; }
         public DateTime DateOfReference { get; set; }
@@ -76,7 +79,8 @@ namespace IrrigationAdvisor.ViewModels.Home
                             CropIrrigationWeather pCropIrrigationWeather,
                             List<DailyRecordViewModel> pDailyRecordList,
                             List<RainViewModel> pRainList,
-                            List<IrrigationViewModel> pIrrigationList)
+                            List<IrrigationViewModel> pIrrigationList,
+                            List<StageViewModel> pStageList)
         {
             FarmViewModelList = pFarmList;
             DateOfReference = pDateOfReference;
@@ -91,7 +95,7 @@ namespace IrrigationAdvisor.ViewModels.Home
             IrrigationViewModelList = pIrrigationList;
 
             DailyRecordViewModelList = pDailyRecordList;
-            
+            StageViewModelList = pStageList;
         }
         #endregion
 

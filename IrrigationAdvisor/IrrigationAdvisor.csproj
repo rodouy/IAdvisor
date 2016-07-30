@@ -337,6 +337,7 @@
     <Compile Include="Templates\ClassTemplate.cs" />
     <Compile Include="Models\Utilities\CryptoUtils.cs" />
     <Compile Include="Models\Utilities\ManageSession.cs" />
+    <Compile Include="ViewModels\Agriculture\StageViewModel.cs" />
     <Compile Include="ViewModels\Errors\ErrorViewModel.cs" />
     <Compile Include="ViewModels\Home\MenuViewModel.cs" />
     <Compile Include="ViewModels\Security\CreateUserViewModel.cs" />

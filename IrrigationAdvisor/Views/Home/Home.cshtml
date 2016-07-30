@@ -160,10 +160,6 @@
                                         </div>
                                         <br />
                                         <div class="dropdown">
-                                            @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                    Seleccionar Unidad de Riego
-                                                    <span class="caret"></span>
-                                                </button>*@
                                             Seleccionar Unidad de Riego
                                             <select id="IrrigationUnit">
                                                 <option value="-1">Todos</option>
@@ -204,28 +200,15 @@
                                 <div class="copy">
                                     <p> </p>
                                     <form role="form">
-                                        <div class="form-group">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                    Seleccionar Fenología
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                    <li><a href="#">V1</a></li>
-                                                    <li><a href="#">V2</a></li>
-                                                    <li><a href="#">V3</a></li>
-                                                    <li><a href="#">V4</a></li>
-                                                </ul>
-                                                <br />
-                                            </div>
-                                            <br />
+                                        <div class="form-group">                                          
                                             <div class="dropdown">
                                                 Seleccione una Fecha
                                                 <select id="phenoDate">
-                                                    <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-2).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-3).Month + "/" + dateValue.AddDays(-3).Day + "/" + dateValue.AddDays(-3).Year)">@(dateValue.AddDays(-3).ToShortDateString())</option>
-                                                    <option value="@(dateValue.AddDays(-4).Month + "/" + dateValue.AddDays(-4).Day + "/" + dateValue.AddDays(-4).Year)">@(dateValue.AddDays(-4).ToShortDateString())</option>
+                                                    @for (int i = -1; i >= -15; i--)
+                                                    {
+                                                        <option value="@(dateValue.AddDays(i).Month + "/" + dateValue.AddDays(i).Day + "/" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToShortDateString())</option>
+                                                    }
+                                                    
                                                 </select>
                                                 <br />
                                             </div>
@@ -233,14 +216,23 @@
                                             <div class="dropdown">
                                                 Seleccionar Unidad de Riego
                                                 <select id="IrrigationUnitPheno">
-                                                    <option value="-1">Todos</option>
                                                     @foreach (var item in Model.IrrigationUnitViewModelList)
                                                     {
-                                                    <option value="@item.IrrigationUnitId">@item.Name</option>
-
+                                                        <option value="@item.IrrigationUnitId">@item.Name</option>
                                                     }
                                                 </select>
 
+                                                <br />
+                                            </div>
+                                            <br/>
+                                            <div class="dropdown">
+                                                Seleccionar Fenología
+                                                <select id="StagePheno">
+                                                    @foreach (var item in Model.StageViewModelList)
+                                                    {
+                                                        <option value="@item.StageId">@item.ShortName</option>
+                                                    }
+                                                </select>
                                                 <br />
                                             </div>
                                         </div>
@@ -264,6 +256,11 @@
                             }
 
                         }
+                        <p>
+                            <a href="#modal-fenologia" class="btn go btn-pivots btn-md">
+                                <span class="glyphicon glyphicon-plus"></span>Agregar Fenología
+                            </a>
+                        </p>
                     </div>
                     <!-- Grid -->
                     <div class="table-asignment">

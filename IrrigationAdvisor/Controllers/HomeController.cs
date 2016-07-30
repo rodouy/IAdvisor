@@ -29,6 +29,8 @@ using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.ViewModels.Water;
 using IrrigationAdvisor.Models.Weather;
 using IrrigationAdvisor.Models.Agriculture;
+using IrrigationAdvisor.DBContext.Agriculture;
+using IrrigationAdvisor.ViewModels.Agriculture;
 
 namespace IrrigationAdvisor.Controllers
 {
@@ -72,6 +74,7 @@ namespace IrrigationAdvisor.Controllers
             DailyRecordConfiguration drc;
             RainConfiguration rc;
             IrrigationConfiguration ic;
+            StageConfiguration st;
             #endregion
 
             #region Local Variables
@@ -94,7 +97,7 @@ namespace IrrigationAdvisor.Controllers
             List<DailyRecordViewModel> lDailyRecordViewModelList;
             List<RainViewModel> lRainViewModelList;
             List<IrrigationViewModel> lIrrigationViewModelList;
-
+            List<StageViewModel> lStageViewModelList;
             #endregion
 
             try 
@@ -129,6 +132,7 @@ namespace IrrigationAdvisor.Controllers
                 drc = new DailyRecordConfiguration();
                 rc = new RainConfiguration();
                 ic = new IrrigationConfiguration();
+                st = new StageConfiguration();
                 #endregion
 
                 if(ManageSession.GetDateOfReference() == Utils.MAX_DATETIME)
@@ -143,10 +147,6 @@ namespace IrrigationAdvisor.Controllers
 
                 ViewBag.DateOfReference = lDateOfReference;
 
-                bool isDebug = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["Debug"]);
-
-                if (ManageSession.GetHomeViewModel() != null && isDebug)
-                    return View((HomeViewModel)ManageSession.GetHomeViewModel());
                 
                 
                 //Obtain logged user
@@ -225,10 +225,29 @@ namespace IrrigationAdvisor.Controllers
                     lDailyRecordViewModelList.Add(new DailyRecordViewModel(daily));
                 }
 
+                lStageViewModelList = new List<StageViewModel>();
+
+                List<Stage> lStageResult = st.GetStageBy(lFirstCropIrrigationWeather.Crop);
+
+                foreach (var stageItem in lStageResult)
+                {
+
+                    StageViewModel stageViewModel = new StageViewModel
+                    {
+                        Description = stageItem.Description,
+                        Name = stageItem.Name,
+                        order = stageItem.Order,
+                        ShortName = stageItem.ShortName,
+                        StageId = stageItem.StageId
+                    };
+
+                    lStageViewModelList.Add(stageViewModel);
+
+                }
                 //Demo - One Pivot
                 HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
                     lFarmViewModel, lFirstCropIrrigationWeather, lDailyRecordViewModelList,
-                    lRainViewModelList, lIrrigationViewModelList);
+                    lRainViewModelList, lIrrigationViewModelList, lStageViewModelList);
                 
                 //Create View Model of Home
                 //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);

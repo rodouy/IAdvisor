@@ -11,6 +11,9 @@ namespace IrrigationAdvisor.DBContext.Agriculture
     public class StageConfiguration:
         EntityTypeConfiguration<Stage>
     {
+
+        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+
         public StageConfiguration()
         {
             ToTable("Stage");
@@ -21,6 +24,25 @@ namespace IrrigationAdvisor.DBContext.Agriculture
             Property(s => s.Name)
                 .IsRequired().HasMaxLength(50);
             
+        }
+
+
+        public List<Stage> GetStageBy(Crop pCrop)
+        {
+
+            List<PhenologicalStage> lPhenologicalStage = db.PhenologicalStages.Where(p => p.SpecieId == pCrop.SpecieId).ToList();
+
+            List<Stage> lResult = null;
+
+            lResult = new List<Stage>();
+
+            foreach (PhenologicalStage phenologicalStageItem in lPhenologicalStage)
+            {
+                lResult.Add(phenologicalStageItem.Stage);
+            }
+
+            return lResult.OrderBy(s => s.Order).ToList();
+
         }
     }
 }
