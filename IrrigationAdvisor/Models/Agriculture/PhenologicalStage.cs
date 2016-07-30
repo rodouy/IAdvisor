@@ -196,7 +196,8 @@ namespace IrrigationAdvisor.Models.Agriculture
             return lRootDepth;
         }
 
-        public Stage UpdateStage(String pName, String pShortName, String pDescripcion)
+        public Stage UpdateStage(String pName, String pShortName, String pDescripcion,
+                                int pOrder)
         {
             Stage lReturn = null;
             if (!String.IsNullOrEmpty(pName) && !String.IsNullOrEmpty(pShortName) && !String.IsNullOrEmpty(pDescripcion))
@@ -204,6 +205,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                 this.Stage.Name = pName;
                 this.Stage.ShortName = pShortName;
                 this.Stage.Description = pDescripcion;
+                this.Stage.Order = pOrder;
                 lReturn = this.Stage;
             }
             return lReturn;

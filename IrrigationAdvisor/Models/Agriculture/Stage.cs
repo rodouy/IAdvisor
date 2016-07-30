@@ -30,6 +30,7 @@ namespace IrrigationAdvisor.Models.Agriculture
     ///     - stageId long
     ///     - name String           PK
     ///     - definition String
+    ///     - order int
     /// 
     /// Methods:
     ///     - Stage()      -- constructor
@@ -47,12 +48,13 @@ namespace IrrigationAdvisor.Models.Agriculture
         ///     - stageId: identifier of state
         ///     - name: the name of the stage
         ///     - description
-        ///     
+        ///     - order
         /// </summary>
         private long stageId;
         private String name;
         private String shortName;
         private String description;
+        private int order;
 
         #endregion
 
@@ -86,7 +88,13 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return description; }
             set { description = value; }
         }
-        
+
+        public int Order
+        {
+            get { return order; }
+            set { order = value; }
+        }
+
         #endregion
 
         #region Construction
@@ -100,7 +108,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.Name = "noname";
             this.ShortName = "";
             this.Description = "";
-
+            this.Order = 0;
         }
 
         /// <summary>
@@ -110,12 +118,15 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pName"></param>
         /// <param name="pShortName"></param>
         /// <param name="pDescription"></param>
-        public Stage(long pStageId, String pName, String pShortName, String pDescription)
+        /// <param name="pOrder"></param>
+        public Stage(long pStageId, String pName, String pShortName, 
+                    String pDescription, int pOrder)
         {
             this.StageId = pStageId;
             this.Name = pName;
             this.ShortName = pShortName;
             this.Description = pDescription;
+            this.Order = pOrder;
         }
 
         #endregion

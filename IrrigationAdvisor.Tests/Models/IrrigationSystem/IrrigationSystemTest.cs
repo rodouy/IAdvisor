@@ -607,11 +607,11 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 lDateTimeToChange = new DateTime(2014, 11, 20);
-                lStageToChange = new Stage(1, "Maiz v4", "v4", "4 Hojas");
+                lStageToChange = new Stage(1, "Maiz v4", "v4", "4 Hojas", 6);
                 lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
                 //Second Change
                 //lDateTimeToChange = new DateTime(2014, 11, 20);
-                //lStageToChange = new Stage(1, "Maiz v2", "v2", "2 Hojas");
+                //lStageToChange = new Stage(1, "Maiz v2", "v2", "2 Hojas", 4);
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
             }
             
@@ -619,7 +619,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 lDateTimeToChange = new DateTime(2014, 12, 25);
-                lStageToChange = new Stage(1, "Soja v4", "v4", "4 Hojas");
+                lStageToChange = new Stage(1, "Soja v4", "v4", "4 Hojas", 6);
                 lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
                 //Second Change
                 //lDateTimeToChange = new DateTime(2014, 12, 25);
@@ -631,7 +631,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             {
                 //First Change
                 //lDateTimeToChange = new DateTime(2015, 1, 5);
-                //lStageToChange = new Stage(1, "Maiz v9","v9", "9 Hojas");
+                //lStageToChange = new Stage(1, "Maiz v9","v9", "9 Hojas", 11);
                 //lPhenologicalStageChange.Add(new Pair<DateTime, Stage>(lDateTimeToChange, lStageToChange));
                 
             }

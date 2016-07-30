@@ -30,25 +30,73 @@ namespace IrrigationAdvisor.DBContext.Localization
 
         /// <summary>
         /// Get List of Farms by User
-        /// Included: BombList; IrrigationUnitList; User; WeatherStation;
+        /// Included: IrrigationUnitList; User; City;
+        /// </summary>
+        /// <param name="pUser"></param>
+        /// <returns></returns>
+        public List<Farm> GetFarmListIncludedIrrigationUnitListCityBy(User pUser)
+        {
+            List<Farm> lReturn = null;
+            List<Farm> lFarmList = null;
+            User lUser = null;
+
+            if (pUser != null)
+            {
+                lFarmList = db.Farms
+                    .Include(f => f.IrrigationUnitList)
+                    .Include(f => f.City)
+                    .Include(f => f.UserList).ToList();
+                foreach (Farm item in lFarmList)
+                {
+                    lUser = item.UserList.Where(u => u.UserId == pUser.UserId).FirstOrDefault();
+                    if(lUser != null)
+                    {
+                        if(lReturn == null)
+                        {
+                            lReturn = new List<Farm>();
+                        }
+                        lReturn.Add(item);
+                    }
+                }
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get List of Farms by User
+        /// Included: BombList; IrrigationUnitList; User; 
+        ///           WeatherStation; City;
         /// </summary>
         /// <param name="pUser"></param>
         /// <returns></returns>
         public List<Farm> GetFarmListBy(User pUser)
         {
             List<Farm> lReturn = null;
+            List<Farm> lFarmList = null;
+            User lUser = null;
             
             if(pUser != null)
             {
-                lReturn = db.Farms
+                lFarmList = db.Farms
                     .Include(f => f.BombList)
                     .Include(f => f.IrrigationUnitList)
-                    .Include(f => f.User)
                     .Include(f => f.WeatherStation)
                     .Include(f => f.City)
-                    .Where(f => f.UserId == pUser.UserId).ToList();
+                    .Include(f => f.UserList).ToList();
+                foreach (Farm item in lFarmList)
+                {
+                    lUser = item.UserList.Where(u => u.UserId == pUser.UserId).FirstOrDefault();
+                    if(lUser != null)
+                    {
+                        if(lReturn == null)
+                        {
+                            lReturn = new List<Farm>();
+                        }
+                        lReturn.Add(item);
+                    }
+                }
             }
-
+            
             return lReturn;
         }
 

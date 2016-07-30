@@ -71,13 +71,13 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
-
         public bool IsToday
         {
             get { return isToday; }
             set { isToday = value; }
         }
-        public IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus IrrigationStatus
+
+        public Utils.IrrigationStatus IrrigationStatus
         {
             get { return irrigationStatus; }
             set { irrigationStatus = value; }
