@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Irrigation
 {
     public class BombsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Bombs
         public ActionResult Index()

@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Water
 {
     public class EffectiveRainsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: EffectiveRains
         public ActionResult Index()

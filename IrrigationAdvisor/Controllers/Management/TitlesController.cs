@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Management
 {
     public class TitlesController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Titles
         public ActionResult Index()

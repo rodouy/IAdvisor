@@ -14,7 +14,7 @@ namespace IrrigationAdvisor.Controllers.Language
 {
     public class LanguagesController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Languages
         public ActionResult Index()

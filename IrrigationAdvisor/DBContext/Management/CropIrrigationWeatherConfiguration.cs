@@ -17,7 +17,7 @@ namespace IrrigationAdvisor.DBContext.Management
         EntityTypeConfiguration<CropIrrigationWeather>
     {
 
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         public CropIrrigationWeatherConfiguration()
         {

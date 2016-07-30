@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Security
 {
     public class MenusController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Menus
         public ActionResult Index()

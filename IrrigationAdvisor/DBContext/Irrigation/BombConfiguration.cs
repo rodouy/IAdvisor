@@ -14,7 +14,7 @@ namespace IrrigationAdvisor.DBContext.Irrigation
         EntityTypeConfiguration<Bomb>
     {
 
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         public BombConfiguration()
         {
