@@ -606,11 +606,11 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Security
         public static String NameUserDemo = "Demo";
         public static String NameUserAdmin = "Admin";
+        public static String NameUserSeba = "scasanova";
         public static String NameUserDelCarmen = "LaPerdiz";
         public static String NameUserSantaLucia = "SantaLucia";
         public static String NameUserDelLago = "DelLago";
         public static String NameUserLaPalma = "LaPalma";
-        
         #endregion
         #region Utilities
         #endregion

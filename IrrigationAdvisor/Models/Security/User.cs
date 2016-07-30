@@ -94,13 +94,13 @@ namespace IrrigationAdvisor.Models.Security
             set { userId = value; }
         }
 
-        public string Name
+        public String Name
         {
             get { return name; }
             set { name = value; }
         }
 
-        public string Surname
+        public String Surname
         {
             get { return surname; }
             set { surname = value; }
@@ -130,7 +130,7 @@ namespace IrrigationAdvisor.Models.Security
             set { roleId = value; }
         }
 
-        public string UserName
+        public String UserName
         {
             get { return userName; }
             set { userName = value; }
@@ -173,7 +173,8 @@ namespace IrrigationAdvisor.Models.Security
         /// <param name="pUserName"></param>
         /// <param name="pPassword"></param>
         public User(long pUserId, String pName, String pSurname, String pPhone,
-                    String pAddress, String pEmail, int pRoleId, String pUserName, String pPassword)
+                    String pAddress, String pEmail, long pRoleId, String pUserName, 
+                    String pPassword)
         {
             this.UserId = pUserId;
             this.Name = pName;

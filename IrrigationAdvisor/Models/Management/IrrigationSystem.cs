@@ -1580,27 +1580,29 @@ namespace IrrigationAdvisor.Models.Management
         /// </summary>
         /// <param name="pName"></param>
         /// <param name="pAddress"></param>
+        /// <param name="pCompany"></param>
         /// <param name="pPhone"></param>
-        /// <param name="pLocation"></param>
+        /// <param name="pPositionId"></param>
         /// <param name="pHas"></param>
+        /// <param name="pWeatherStation"></param>
         /// <param name="pSoilList"></param>
         /// <param name="pBombList"></param>
-        /// <param name="pWeatherStation"></param>
-        /// <param name="pUser"></param>
         /// <param name="pIrrigationUnitList"></param>
+        /// <param name="pCityId"></param>
+        /// <param name="pUserList"></param>
         /// <returns></returns>
         public Farm AddFarm(String pName, String pAddress, String pCompany, 
                         String pPhone, long pPositionId, int pHas, 
                         WeatherStation pWeatherStation, List<Soil> pSoilList,
                         List<Bomb> pBombList, List<IrrigationUnit> pIrrigationUnitList, 
-                        long pUserId, long pCityId)
+                        long pCityId, List<User> pUserList)
         {
             Farm lReturn = null;
             long lFarmId = this.FarmList.Count();
             Farm lFarm = new Farm(lFarmId, pName, pCompany, pAddress, pPhone,
                             pPositionId, pHas, pWeatherStation.WeatherStationId,
                             pSoilList, pBombList, pIrrigationUnitList,
-                            pUserId, pCityId);
+                            pCityId, pUserList);
             if(ExistFarm(lFarm) == null)
             {
                 this.FarmList.Add(lFarm);
@@ -1622,20 +1624,20 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pSoilList"></param>
         /// <param name="pBombList"></param>
         /// <param name="pIrrigationUnitList"></param>
-        /// <param name="pUserId"></param>
         /// <param name="pCityId"></param>
+        /// <param name="pUserList"></param>
         /// <returns></returns>
         public Farm UpdateFarm(String pName, String pCompany, String pAddress, 
                         String pPhone, long pPositionId, int pHas, 
                         WeatherStation pWeatherStation, List<Soil> pSoilList, 
-                        List<Bomb> pBombList, List<IrrigationUnit> pIrrigationUnitList, 
-                        long pUserId, long pCityId)
+                        List<Bomb> pBombList, List<IrrigationUnit> pIrrigationUnitList,
+                        long pCityId, List<User> pUserList)
         {
             Farm lReturn = null;
             Farm lFarm = new Farm(0, pName, pCompany, pAddress, pPhone,
                             pPositionId, pHas, pWeatherStation.WeatherStationId,
                             pSoilList, pBombList, pIrrigationUnitList, 
-                            pUserId, pCityId);
+                            pCityId, pUserList);
             lReturn = ExistFarm(lFarm);
             if(lReturn != null)
             {
@@ -1649,8 +1651,8 @@ namespace IrrigationAdvisor.Models.Management
                 lReturn.SoilList = pSoilList;
                 lReturn.BombList = pBombList;
                 lReturn.IrrigationUnitList = pIrrigationUnitList;
-                lReturn.UserId = pUserId;
                 lReturn.CityId = pCityId;
+                lReturn.UserList = pUserList;
             }
             return lReturn;
         }
