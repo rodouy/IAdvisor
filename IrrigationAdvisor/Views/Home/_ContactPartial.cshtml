@@ -28,9 +28,27 @@
         </div><!--contact-form-wrap-->
     </div>
 </div>
+<div class="row">
+    <div class="col-md-5">
+
+    </div>
+    <div class="col-md-7">
+        <div class="alert alert-success fade in" id="AlertMessageOk">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Mensaje enviado</strong>
+        </div>
+        <div class="alert alert-danger fade in" id="AlertMessageError">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Ha ocurrido un error al enviar el mensaje</strong>
+        </div>
+    </div>
+</div>
 
 
 <script>
+
+    $('#AlertMessageOk').hide();
+    $('#AlertMessageError').hide();
 
     $('#btnEmail').click(function (e) {
         e.preventDefault(); // <------------------ stop default behaviour of button
