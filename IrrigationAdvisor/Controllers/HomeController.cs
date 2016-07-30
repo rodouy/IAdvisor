@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using IrrigationAdvisor.Authorize;
+﻿using IrrigationAdvisor.Authorize;
 using IrrigationAdvisor.DBContext;
 using IrrigationAdvisor.DBContext.Irrigation;
 using IrrigationAdvisor.DBContext.Localization;
@@ -17,22 +16,17 @@ using IrrigationAdvisor.ViewModels.Errors;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using IrrigationAdvisor.DBContext.Management;
 using IrrigationAdvisor.DBContext.Water;
 using IrrigationAdvisor.Models.Water;
 using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.ViewModels.Water;
-using IrrigationAdvisor.ViewModels.Irrigation;
-using System.Globalization;
 using IrrigationAdvisor.Models.Weather;
 
 namespace IrrigationAdvisor.Controllers
@@ -265,6 +259,37 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
+
+        public void SendEmails(string subject, string body)
+        {
+            
+            string smtpAddress = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["smtpAddress"]);
+            int portNumber = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["smtpPort"]);
+            bool enableSSL = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["ssl"]);
+            string emailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]); 
+            string password = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["password"]); 
+            string emailTo = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]);
+
+            
+            using (MailMessage mail = new MailMessage())
+            {
+                mail.From = new MailAddress(emailFrom);
+                mail.To.Add(emailTo);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = false;
+                // Can set to false, if you are sending pure text.
+                
+
+                using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
+                {
+                    smtp.Credentials = new NetworkCredential(emailFrom, password);
+                    smtp.EnableSsl = enableSSL;
+                    smtp.Send(mail);
+                }
+            }
+        }
+
         public ActionResult LogOut()
         {
             ManageSession.CleanSession();
@@ -453,13 +478,7 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("_ContactPartial");
         }
 
-
-        [HttpPost]
-        public void SendEmail()
-        {
-
-        }
-
+        
         public PartialViewResult _Create(string contact_name)
         {
             return PartialView("_ContactPartial");

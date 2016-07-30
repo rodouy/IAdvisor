@@ -22,7 +22,7 @@
             </div><!--end:contact-right-->
             <div class="clear"></div>
             <p class="contact-button clearfix">
-                <input type="submit" id="btnEmail" value="Enviar mensaje">
+                <button id="btnEmail" class="btn btn-success">Enviar mensaje</button>
             </p>
             <div class="clear"></div>
         </div><!--contact-form-wrap-->
@@ -38,21 +38,18 @@
 
         var contact_email = $("#contact_email").val()
         var contact_message = $("#contact_message").val()
-        var contact_name = $("#contact_name").val()
+        var contact_name = $("#contact_name").val();
+
+        var subject = 'Contacto desde página';
         $.ajax({
-            url: "/Home/SaveDetailedInfo",
-            type: "POST",
-            data: '{"mensaje":"' + contact_message + '","nombre":"' + contact_name + '", "email":"' + contact_email + '" }',
+            url: '/Home/SendEmails?subject=' + subject + ' de ' + contact_name + '&body=' + contact_message,
+            type: "GET",
+            //data: '{"subject":"' + contact_email + ' | ' ,
             dataType: "json",
             traditional: true,
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                if (data.status == "Success") {
                     alert("Done");
-                    $(element).closest("form").submit(); //<------------ submit form
-                } else {
-                    alert("Error occurs on the Database level!");
-                }
             },
             error: function () {
                 alert("An error has occured!!!");
