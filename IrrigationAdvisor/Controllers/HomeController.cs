@@ -302,18 +302,21 @@ namespace IrrigationAdvisor.Controllers
 
                 ManageSession.SetFromDateTime(lDateResult);
 
+                int lSaveChanges = 0;
+
                 if (pIrrigationUnitId > -1)
                 {
                     lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
-
+                    
                     foreach (var item in lCropIrrigationWeatherList)
                     {
                         item.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
-                        lContext.SaveChanges();
+                        lSaveChanges = lContext.SaveChanges();
                         item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                        lSaveChanges = lContext.SaveChanges();
                     }
-                    lContext.SaveChanges();
+                    lSaveChanges = lContext.SaveChanges();
                 }
                 else
                 {
@@ -321,14 +324,15 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
                         lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
-
+                        
                         foreach (var lCIW in lCropIrrigationWeatherList)
                         {
                             lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
-                            lContext.SaveChanges();
+                            lSaveChanges = lContext.SaveChanges();
                             lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                            lSaveChanges = lContext.SaveChanges();
                         }
-                        lContext.SaveChanges();
+                        lSaveChanges = lContext.SaveChanges();
                     }
                 }
             }
@@ -377,10 +381,10 @@ namespace IrrigationAdvisor.Controllers
                     foreach (var item in lCropIrrigationWeatherList)
                     {
                         item.AddRainDataToList(lDateResult, pMilimeters);
-                        //lContext.Entry(item).State = EntityState.Modified;
                         lSaveChanges = lContext.SaveChanges();
 
                         item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                        lSaveChanges = lContext.SaveChanges();
                     }
                     lSaveChanges = lContext.SaveChanges();
                 }
@@ -396,6 +400,7 @@ namespace IrrigationAdvisor.Controllers
                             lCIW.AddRainDataToList(lDateResult, pMilimeters);
                             lSaveChanges = lContext.SaveChanges();
                             lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                            lSaveChanges = lContext.SaveChanges();
                         }
                         lSaveChanges = lContext.SaveChanges();
                     }

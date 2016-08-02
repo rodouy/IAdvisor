@@ -1287,7 +1287,7 @@ namespace IrrigationAdvisor.Models.Management
             }
 
             //Set DailyRecord Total Information
-            lReturn.PhenologicalStageId = this.PhenologicalStageId;
+            lReturn.PhenologicalStageId = lNewPhenologicalStage.PhenologicalStageId;
             lReturn.HydricBalance = this.HydricBalance;
 
             lReturn.DaysAfterSowing = this.DaysAfterSowing;
@@ -1331,8 +1331,6 @@ namespace IrrigationAdvisor.Models.Management
             Double lGrowingDegreeDays = 0;
 
             lGrowingDegreeDays = pAverageTemperature - pBaseTemperature;
-            this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
-            this.GrowingDegreeDaysModified += lGrowingDegreeDays;
 
             lReturn = lGrowingDegreeDays;
             return lReturn;
@@ -1649,9 +1647,61 @@ namespace IrrigationAdvisor.Models.Management
 
             this.TotalExtraIrrigation = lDailyRecordBeforeRecordToDelete.TotalExtraIrrigation;
             this.TotalExtraIrrigationInHydricBalance = lDailyRecordBeforeRecordToDelete.TotalExtraIrrigationInHydricBalance;
-
         }
 
+
+        /// <summary>
+        /// Update CropIrrigationWeather Data by Daily Record of one day before Record to Delete
+        /// </summary>
+        /// <param name="pRecordToDelete"></param>
+        private void UpdateCropIrrigationWeatherByOneDayBeforeDailyRecordData(DailyRecord pRecordToDelete,
+                                                                            IrrigationAdvisorContext pIrrigationAdvisorContext)
+        {
+
+            int lDayAfterSowing;
+            DateTime lDateOfDayAfterSowing;
+
+            DailyRecord lDailyRecordBeforeRecordToDelete;
+
+            //We are in the day before Record to Delete
+            lDateOfDayAfterSowing = pRecordToDelete.DailyRecordDateTime.AddDays(-1);
+            lDayAfterSowing = Utils.GetDaysDifference(this.SowingDate, lDateOfDayAfterSowing);
+
+            lDailyRecordBeforeRecordToDelete = this.GetDailyRecordByDate(lDateOfDayAfterSowing);
+
+            this.CropDate = lDateOfDayAfterSowing;
+
+            this.PhenologicalStageId = lDailyRecordBeforeRecordToDelete.PhenologicalStageId;
+            this.HydricBalance = lDailyRecordBeforeRecordToDelete.HydricBalance;
+
+            this.DaysAfterSowing = lDayAfterSowing;
+            this.DaysAfterSowingModified = lDailyRecordBeforeRecordToDelete.DaysAfterSowingModified;
+            this.GrowingDegreeDaysAccumulated = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysAccumulated;
+            this.GrowingDegreeDaysModified = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysModified;
+
+            this.LastWaterInputDate = lDailyRecordBeforeRecordToDelete.LastWaterInputDate;
+            this.LastBigWaterInputDate = lDailyRecordBeforeRecordToDelete.LastBigWaterInputDate;
+            this.LastPartialWaterInputDate = lDailyRecordBeforeRecordToDelete.LastPartialWaterInputDate;
+            this.LastPartialWaterInput = lDailyRecordBeforeRecordToDelete.LastPartialWaterInput;
+            this.SoilHydricVolume = lDailyRecordBeforeRecordToDelete.SoilHydricVolume;
+
+            this.TotalEvapotranspirationCropFromLastWaterInput = lDailyRecordBeforeRecordToDelete.TotalEvapotranspirationCropFromLastWaterInput;
+            this.TotalEvapotranspirationCrop = lDailyRecordBeforeRecordToDelete.TotalEvapotranspirationCrop;
+
+            this.TotalEffectiveRain = lDailyRecordBeforeRecordToDelete.TotalEffectiveRain;
+            this.TotalRealRain = lDailyRecordBeforeRecordToDelete.TotalRealRain;
+
+            this.TotalIrrigation = lDailyRecordBeforeRecordToDelete.TotalIrrigation;
+            this.TotalIrrigationInHydricBalance = lDailyRecordBeforeRecordToDelete.TotalIrrigationInHydricBalance;
+
+            this.TotalExtraIrrigation = lDailyRecordBeforeRecordToDelete.TotalExtraIrrigation;
+            this.TotalExtraIrrigationInHydricBalance = lDailyRecordBeforeRecordToDelete.TotalExtraIrrigationInHydricBalance;
+
+            pIrrigationAdvisorContext.SaveChanges();
+        }
+
+
+        
         /// <summary>
         /// Return the Effective Input Water from the last DaysToLookFor days.
         /// Is the Total input water to consider if ETc has to be inicialized
@@ -2971,12 +3021,27 @@ namespace IrrigationAdvisor.Models.Management
             {
                 lTotalDailyRecords = this.DailyRecordList.Count();
 
-                UpdateCropIrrigationWeatherByOneDayBeforeDailyRecordData(lDailyRecordToDelete);
+                UpdateCropIrrigationWeatherByOneDayBeforeDailyRecordData(lDailyRecordToDelete, pIrrigationAdvisorContext);
                 lState = pIrrigationAdvisorContext.Entry(this).State;
                 pIrrigationAdvisorContext.SaveChanges();
+                foreach (DailyRecord item in this.DailyRecordList)
+                {
+                    if(item.DailyRecordId >= lIndexToRemove)
+                    {
+                        //Delete Database List of DATA
+                        pIrrigationAdvisorContext.DailyRecords.RemoveRange(pIrrigationAdvisorContext.DailyRecords
+                                                .Where(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime &&
+                                                dr.DailyRecordId == item.DailyRecordId));
+                        pIrrigationAdvisorContext.SaveChanges();
+                        pIrrigationAdvisorContext.Irrigations.RemoveRange(pIrrigationAdvisorContext.Irrigations
+                                                .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
+                                                ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId));
+                        pIrrigationAdvisorContext.SaveChanges();
+                        break;
+                    }
+                }
 
                 this.DailyRecordList.RemoveRange(lIndexToRemove, lTotalDailyRecords - lIndexToRemove);
-                pIrrigationAdvisorContext.SaveChanges();
             }
 
             lReturn = lDailyRecordToDelete;
@@ -3174,6 +3239,8 @@ namespace IrrigationAdvisor.Models.Management
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
                         lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lWeatherData.GetAverageTemperature());
+                        this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
+                        this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                     }
                 }
                 else
@@ -3384,6 +3451,8 @@ namespace IrrigationAdvisor.Models.Management
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
                         lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lWeatherData.GetAverageTemperature());
+                        this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
+                        this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                     }
                 }
                 else
@@ -3638,6 +3707,15 @@ namespace IrrigationAdvisor.Models.Management
                 lDaysAfterSowing = this.calculateDaysAfterSowingForOneDay(this.SowingDate, lDailyRecordDateTime);
                 #endregion
 
+                #region 2.2.- Daily Record by Days After Sowing for updating GDD
+                lDailyRecord = this.getDailyRecordByDaysAfterSowingAccumulated(lDaysAfterSowing);
+                if (lDailyRecord != null)
+                {
+                    this.GrowingDegreeDaysAccumulated = lDailyRecord.GrowingDegreeDaysAccumulated;
+                    this.GrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified;
+                }
+                #endregion
+
                 #region 3.- Growing Degree Days
                 //Growing Degree Days is average temperature menous Base Temperature 
                 lBaseTemperature = this.GetBaseTemperature();
@@ -3649,6 +3727,8 @@ namespace IrrigationAdvisor.Models.Management
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
                         lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lWeatherData.GetAverageTemperature());
+                        this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
+                        this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                     }
                 }
                 else
@@ -3850,6 +3930,15 @@ namespace IrrigationAdvisor.Models.Management
                 lDaysAfterSowing = this.calculateDaysAfterSowingForOneDay(this.SowingDate, lDailyRecordDateTime);
                 #endregion
 
+                #region 2.2.- Daily Record by Days After Sowing for updating GDD
+                lDailyRecord = this.getDailyRecordByDaysAfterSowingAccumulated(lDaysAfterSowing);
+                if (lDailyRecord != null)
+                {
+                    this.GrowingDegreeDaysAccumulated = lDailyRecord.GrowingDegreeDaysAccumulated;
+                    this.GrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified;
+                }
+                #endregion
+
                 #region 3.- Growing Degree Days
                 //Growing Degree Days is average temperature menous Base Temperature 
                 lBaseTemperature = this.GetBaseTemperature();
@@ -3861,6 +3950,8 @@ namespace IrrigationAdvisor.Models.Management
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
                         lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lWeatherData.GetAverageTemperature());
+                        this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
+                        this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                     }
                 }
                 else
