@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Security
 {
     public class AccessesController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Accesses
         public ActionResult Index()

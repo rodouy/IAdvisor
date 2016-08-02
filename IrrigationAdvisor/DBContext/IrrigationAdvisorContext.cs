@@ -32,7 +32,17 @@ namespace IrrigationAdvisor.DBContext
     public partial class IrrigationAdvisorContext
         : DbContext
     {
-        
+        private static IrrigationAdvisorContext _instance;
+
+        public static IrrigationAdvisorContext Instance()
+        {
+            if (_instance == null)
+            {
+                _instance = new IrrigationAdvisorContext();
+            }
+
+            return _instance;
+        }
 
         public IrrigationAdvisorContext()
             :base("name=IrrigationAdvisorContext")

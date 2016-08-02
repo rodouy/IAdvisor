@@ -42,13 +42,13 @@
                 @CustomIrrigation(detail.IrrigationQuantity)
 
             }
-            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Red)
+            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Green)
             {
                 @ForecastIrrigation(detail.ForecastIrrigationQuantity)
             }
             else
             {
-                <td> X <div class="ref-default"></div></td>
+                <td>  <div class="ref-default"></div></td>
             }
         }
     </tr>

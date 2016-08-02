@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Localization
 {
     public class RegionsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Regions
         public ActionResult Index()

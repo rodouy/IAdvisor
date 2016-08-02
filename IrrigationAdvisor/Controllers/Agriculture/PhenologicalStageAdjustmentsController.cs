@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Agriculture
 {
     public class PhenologicalStageAdjustmentsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
         
         // GET: PhenologicalStageAdjustments
         public ActionResult Index()

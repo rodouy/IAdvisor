@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Agriculture
 {
     public class CropInformationByDatesController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: CropInformationByDates
         public ActionResult Index()

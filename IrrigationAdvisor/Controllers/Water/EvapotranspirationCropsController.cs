@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Water
 {
     public class EvapotranspirationCropsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: EvapotranspirationCrops
         public ActionResult Index()

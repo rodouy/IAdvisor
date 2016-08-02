@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Agriculture
 {
     public class HorizonsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Horizons
         public ActionResult Index()

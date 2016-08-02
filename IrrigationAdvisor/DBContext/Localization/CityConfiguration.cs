@@ -11,7 +11,7 @@ namespace IrrigationAdvisor.DBContext.Localization
     public class CityConfiguration:
         EntityTypeConfiguration<City>
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         public CityConfiguration()
         {

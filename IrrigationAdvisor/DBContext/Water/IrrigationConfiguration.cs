@@ -12,7 +12,7 @@ namespace IrrigationAdvisor.DBContext.Water
         EntityTypeConfiguration<Models.Water.Irrigation>
     {
 
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         public IrrigationConfiguration()
         {

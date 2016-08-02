@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Security
 {
     public class RolesController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Roles
         public ActionResult Index()

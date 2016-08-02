@@ -12,7 +12,7 @@ namespace IrrigationAdvisor.DBContext.Security
         EntityTypeConfiguration<User>
     {
 
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         private const string ERROR_USER_EXISTS = "User not found";
 

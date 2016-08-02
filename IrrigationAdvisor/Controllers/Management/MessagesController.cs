@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Management
 {
     public class MessagesController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Messages
         public ActionResult Index()
