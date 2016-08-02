@@ -220,7 +220,7 @@
                                                 <select id="IrrigationUnitPheno">
                                                     @foreach (var item in Model.CropIrrigationWeatherViewModelList)
                                                     {
-                                                        <option value="@item.CropIrrigationWeatherId">@item.ToString()</option>
+                                                        <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
                                                     }
                                                 </select>
 

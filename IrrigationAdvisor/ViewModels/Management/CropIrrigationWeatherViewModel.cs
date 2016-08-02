@@ -101,6 +101,7 @@ namespace IrrigationAdvisor.ViewModels.Management
         public CropIrrigationWeatherViewModel(CropIrrigationWeather pCropIrrigationWeather)
         {
             this.CropIrrigationWeatherId = pCropIrrigationWeather.CropIrrigationWeatherId;
+            this.CropIrrigationWeatherName = pCropIrrigationWeather.CropIrrigationWeatherName;
             this.CropId = pCropIrrigationWeather.CropId;
             this.SoilId = pCropIrrigationWeather.SoilId;
             this.IrrigationUnitId = pCropIrrigationWeather.IrrigationUnitId;
