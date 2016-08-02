@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.DBContext.Irrigation
         EntityTypeConfiguration<IrrigationUnit>
     {
 
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         public IrrigationUnitConfigurarion()
         {

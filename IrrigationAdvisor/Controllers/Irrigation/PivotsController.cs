@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Irrigation
 {
     public class PivotsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: Pivots
         public ActionResult Index()

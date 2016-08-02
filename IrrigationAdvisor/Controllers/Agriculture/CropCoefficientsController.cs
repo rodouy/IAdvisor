@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Agriculture
 {
     public class CropCoefficientsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: CropCoefficients
         public ActionResult Index()

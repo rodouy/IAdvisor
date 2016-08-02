@@ -29,6 +29,7 @@ using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.ViewModels.Water;
 using IrrigationAdvisor.Models.Weather;
 using IrrigationAdvisor.Models.Agriculture;
+using System.Data.Entity;
 using IrrigationAdvisor.DBContext.Agriculture;
 using IrrigationAdvisor.ViewModels.Agriculture;
 using IrrigationAdvisor.ViewModels.Irrigation;
@@ -147,8 +148,6 @@ namespace IrrigationAdvisor.Controllers
 
                 ViewBag.DateOfReference = lDateOfReference;
 
-                
-                
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
 
@@ -381,32 +380,60 @@ namespace IrrigationAdvisor.Controllers
                                             int pMonth,
                                             int pYear)
         {
-            HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
-
-            DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
-            DateTime? lReferenceDate = ManageSession.GetDateOfReference();
-
-            IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
-            CropIrrigationWeatherConfiguration lCropConf = new CropIrrigationWeatherConfiguration();
-
-            CropIrrigationWeather lCropIrrigationWeather = null;
-
-            ManageSession.SetFromDateTime(lDateResult);
-
-            if (pIrrigationUnitId > -1)
+            try
             {
-                lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == pIrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
-                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
-                lContext.SaveChanges();
-            }
-            else
-            {
-                foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
+                HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
+
+                DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
+                DateTime lReferenceDate = ManageSession.GetDateOfReference();
+
+                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+                IrrigationUnitConfigurarion iuc = new IrrigationUnitConfigurarion();
+                CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
+
+                IrrigationUnit lIrrigationUnit = null; 
+                List<CropIrrigationWeather> lCropIrrigationWeatherList;
+
+                ManageSession.SetFromDateTime(lDateResult);
+
+                int lSaveChanges = 0;
+
+                if (pIrrigationUnitId > -1)
                 {
-                    lCropIrrigationWeather = lContext.CropIrrigationWeathers.Where(c => c.IrrigationUnitId == item.IrrigationUnitId && c.SowingDate <= lReferenceDate && c.HarvestDate >= lReferenceDate).FirstOrDefault();
-                    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
-                    lContext.SaveChanges();
+                    lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
+                    lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
+                    
+                    foreach (var item in lCropIrrigationWeatherList)
+                    {
+                        item.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                        lSaveChanges = lContext.SaveChanges();
+                        item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                        lSaveChanges = lContext.SaveChanges();
+                    }
+                    lSaveChanges = lContext.SaveChanges();
                 }
+                else
+                {
+                    foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
+                    {
+                        lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
+                        lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
+                        
+                        foreach (var lCIW in lCropIrrigationWeatherList)
+                        {
+                            lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                            lSaveChanges = lContext.SaveChanges();
+                            lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                            lSaveChanges = lContext.SaveChanges();
+                        }
+                        lSaveChanges = lContext.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
             }
 
             return RedirectToAction("Home");
@@ -429,13 +456,14 @@ namespace IrrigationAdvisor.Controllers
                 DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
                 DateTime lReferenceDate = ManageSession.GetDateOfReference();
 
-                IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
                 IrrigationUnitConfigurarion iuc = new IrrigationUnitConfigurarion();
                 CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
 
                 IrrigationUnit lIrrigationUnit = null;
                 List<CropIrrigationWeather> lCropIrrigationWeatherList;
-                //List<DailyRecord> lDailyRecordList;
+
+                int lSaveChanges = 0;
 
                 ManageSession.SetFromDateTime(lDateResult);
 
@@ -443,13 +471,16 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
-                    //lDailyRecordList = ciwc.GetDailyRecordListBy(lIrrigationUnit, lReferenceDate);
+
                     foreach (var item in lCropIrrigationWeatherList)
                     {
                         item.AddRainDataToList(lDateResult, pMilimeters);
-                        item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate);
+                        lSaveChanges = lContext.SaveChanges();
+
+                        item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                        lSaveChanges = lContext.SaveChanges();
                     }
-                    lContext.SaveChanges();
+                    lSaveChanges = lContext.SaveChanges();
                 }
                 else
                 {
@@ -457,18 +488,17 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
                         lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
-                        //lDailyRecordList = ciwc.GetDailyRecordListBy(lIrrigationUnit, lReferenceDate);
+
                         foreach (var lCIW in lCropIrrigationWeatherList)
                         {
                             lCIW.AddRainDataToList(lDateResult, pMilimeters);
-                            lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate);
+                            lSaveChanges = lContext.SaveChanges();
+                            lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                            lSaveChanges = lContext.SaveChanges();
                         }
-                        lContext.SaveChanges();
+                        lSaveChanges = lContext.SaveChanges();
                     }
                 }
-                
-               
-
             }
             catch (Exception ex)
             {
@@ -703,12 +733,8 @@ namespace IrrigationAdvisor.Controllers
             #region Configuration Variables
             UserConfiguration uc;
             FarmConfiguration fc;
-            BombConfiguration bc;
             IrrigationUnitConfigurarion iuc;
             CropIrrigationWeatherConfiguration ciwc;
-            DailyRecordConfiguration drc;
-            RainConfiguration rc;
-            IrrigationConfiguration ic;
             #endregion
 
             try
@@ -717,12 +743,8 @@ namespace IrrigationAdvisor.Controllers
                 #region Configuration - Instance
                 uc = new UserConfiguration();
                 fc = new FarmConfiguration();
-                bc = new BombConfiguration();
                 iuc = new IrrigationUnitConfigurarion();
                 ciwc = new CropIrrigationWeatherConfiguration();
-                drc = new DailyRecordConfiguration();
-                rc = new RainConfiguration();
-                ic = new IrrigationConfiguration();
                 #endregion
 
                 lDateOfReference = ManageSession.GetDateOfReference();
@@ -812,7 +834,7 @@ namespace IrrigationAdvisor.Controllers
             Double lForcastIrrigationQuantity = 0;
             DateTime lDateOfData = Utils.MIN_DATETIME;
             bool lIsToday = false;
-            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Green; 
+            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Gray; 
 
             lDateOfData = pDayOfData;
             lIsToday = pDayOfData == pDayOfReference;
@@ -843,7 +865,7 @@ namespace IrrigationAdvisor.Controllers
             Double lForcastIrrigationQuantity = 0;
             DateTime lDateOfData = Utils.MIN_DATETIME;
             bool lIsToday = false;
-            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Green; ;
+            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Gray;
 
             Models.Water.Irrigation lIrrigation;
             Rain lRain;
@@ -893,11 +915,11 @@ namespace IrrigationAdvisor.Controllers
             }
             else if(lForcastIrrigationQuantity > 0)
             {
-                lIrrigationStatus = Utils.IrrigationStatus.Red;
+                lIrrigationStatus = Utils.IrrigationStatus.Green;
             }
             else
             {
-                lIrrigationStatus = Utils.IrrigationStatus.Green;
+                lIrrigationStatus = Utils.IrrigationStatus.Gray;
             }
 
             lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
@@ -905,36 +927,6 @@ namespace IrrigationAdvisor.Controllers
             return lReturn;
         }
 
-        public List<GridPivotHome> GetGridPivotHomeOld()
-        {
-            List<GridPivotDetailHome> gridPivotDetailHome2 = new List<GridPivotDetailHome>();
-            List<GridPivotDetailHome> gridPivotDetailHome1 = new List<GridPivotDetailHome>();
-
-            gridPivotDetailHome2.Add(new GridPivotDetailHome(0, 10, 0, DateTime.Now.AddDays(-3), false, Models.Utilities.Utils.IrrigationStatus.Cyan));
-            gridPivotDetailHome2.Add(new GridPivotDetailHome(10, 0, 0, DateTime.Now.AddDays(-2), false, Models.Utilities.Utils.IrrigationStatus.Green));
-            gridPivotDetailHome2.Add(new GridPivotDetailHome(0, 0, 0, DateTime.Now.AddDays(-1), false, Models.Utilities.Utils.IrrigationStatus.Blue));
-            gridPivotDetailHome2.Add(new GridPivotDetailHome(0, 0, 10, DateTime.Now, true, Models.Utilities.Utils.IrrigationStatus.Red));
-            gridPivotDetailHome2.Add(new GridPivotDetailHome(0, 0, 0, DateTime.Now.AddDays(+1), false, Models.Utilities.Utils.IrrigationStatus.Green));
-            gridPivotDetailHome2.Add(new GridPivotDetailHome(0, 0, 0, DateTime.Now.AddDays(+2), false, Models.Utilities.Utils.IrrigationStatus.Green));
-            gridPivotDetailHome2.Add(new GridPivotDetailHome(0, 0, 0, DateTime.Now.AddDays(+3), false, Models.Utilities.Utils.IrrigationStatus.Green));
-
-
-            gridPivotDetailHome1.Add(new GridPivotDetailHome(0, 0, 10, DateTime.Now.AddDays(-3), false, Models.Utilities.Utils.IrrigationStatus.Cyan));
-            gridPivotDetailHome1.Add(new GridPivotDetailHome(0, 0, 0, DateTime.Now.AddDays(-2), false, Models.Utilities.Utils.IrrigationStatus.Green));
-            gridPivotDetailHome1.Add(new GridPivotDetailHome(0, 5, 0, DateTime.Now.AddDays(-1), false, Models.Utilities.Utils.IrrigationStatus.Blue));
-            gridPivotDetailHome1.Add(new GridPivotDetailHome(0, 0, 0, DateTime.Now, true, Models.Utilities.Utils.IrrigationStatus.Red));
-            gridPivotDetailHome1.Add(new GridPivotDetailHome(0, 0, 0, DateTime.Now.AddDays(+1), false, Models.Utilities.Utils.IrrigationStatus.Green));
-            gridPivotDetailHome1.Add(new GridPivotDetailHome(10, 0, 0, DateTime.Now.AddDays(+2), false, Models.Utilities.Utils.IrrigationStatus.Green));
-            gridPivotDetailHome1.Add(new GridPivotDetailHome(0, 0, 0, DateTime.Now.AddDays(+3), false, Models.Utilities.Utils.IrrigationStatus.Green));
-
-
-
-            gridIrrigationUnitHomeList.Add(new GridPivotHome("Piv. 1", "v0", "Maiz", gridPivotDetailHome2));
-            gridIrrigationUnitHomeList.Add(new GridPivotHome("Piv. 2", "v2", "Soja", gridPivotDetailHome1));
-
-            return gridIrrigationUnitHomeList;
-
-        }
 
         public List<ResultUnderGroundToSharp.GridWeather> GetWeather()
         {
@@ -1108,27 +1100,6 @@ namespace IrrigationAdvisor.Controllers
             }
 
             return lReturn;
-        }
-
-        public PartialViewResult AddIrrigation()
-        {
-
-            IrrigationSystem testIrrigationSystem;
-            Utils.IrrigationUnitType lType = Utils.IrrigationUnitType.Pivot;
-            testIrrigationSystem = IrrigationSystem.Instance;
-
-            testIrrigationSystem.IrrigationUnitList = new List<IrrigationUnit>();
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 1", "Pivot 1", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 2", "Pivot 2", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 3", "Pivot 3", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 4", "Pivot 4", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
-            testIrrigationSystem.IrrigationUnitList.Add(new IrrigationUnit(1, "Pivot 5", "Pivot 5", lType, 1, null, 1, 0, 0, Utils.PredeterminatedIrrigationQuantity));
-
-            IrrigationAdvisorContext var = new IrrigationAdvisorContext();
-            //var.Farms.Where(q => q.Name == "Santa Lucia").First().IrrigationUnitViewModelList
-            // var x =  var.Stages.Add(new Models.Agriculture.Stage(1,"Prueba", "desc"));
-
-            return PartialView("_AddIrrigation", testIrrigationSystem.IrrigationUnitList);
         }
 
     }

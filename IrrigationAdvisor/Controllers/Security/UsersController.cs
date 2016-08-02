@@ -19,7 +19,7 @@ namespace IrrigationAdvisor.Controllers.Security
 {
     public class UsersController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         private const string USERNAME_EXISTS_ERROR = "El nombre de usuario ya existe";
 

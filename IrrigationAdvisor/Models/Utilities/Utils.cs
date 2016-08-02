@@ -235,13 +235,17 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             Blue,
             /// <summary>
-            ///  Next irrigation
+            ///   Next irrigation
             /// </summary>
-            Red,
+            Green,
             /// <summary>
             ///  Default, no irrigation nor rain
             /// </summary>
-            Green
+            Gray,
+            /// <summary>
+            ///  Error
+            /// </summary>
+            Red,
         }
         
         /// <summary>

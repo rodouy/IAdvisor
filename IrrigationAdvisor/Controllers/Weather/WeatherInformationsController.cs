@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Weather
 {
     public class WeatherInformationsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: WeatherInformations
         public ActionResult Index()

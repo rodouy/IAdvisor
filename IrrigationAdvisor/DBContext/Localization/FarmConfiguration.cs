@@ -13,7 +13,7 @@ namespace IrrigationAdvisor.DBContext.Localization
     public class FarmConfiguration:
         EntityTypeConfiguration<Farm>
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         public FarmConfiguration()
         {

@@ -8673,7 +8673,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (i == 128)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -8683,6 +8683,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -8690,6 +8691,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -8730,6 +8732,7 @@ namespace IrrigationAdvisorConsole
                     item.CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId;
                     item.TitleId = lTitleId;
                     context.Messages.Add(item);
+                    context.SaveChanges();
                     lTitleId += 1;
                     lMessageId += 1;
                 }
@@ -8861,6 +8864,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -8868,6 +8872,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -9032,6 +9037,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -9039,6 +9045,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -9203,6 +9210,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -9210,6 +9218,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -9385,6 +9394,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -9392,6 +9402,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -9555,6 +9566,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -9562,6 +9574,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -9725,6 +9738,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -9732,6 +9746,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -9906,6 +9921,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -9913,6 +9929,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -10083,6 +10100,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -10090,6 +10108,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -10260,6 +10279,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -10267,6 +10287,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -10437,6 +10458,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -10444,6 +10466,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -10619,6 +10642,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -10626,6 +10650,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -10796,6 +10821,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -10803,6 +10829,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -10973,6 +11000,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -10980,6 +11008,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -11150,6 +11179,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -11157,6 +11187,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -11331,6 +11362,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -11338,6 +11370,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -11508,6 +11541,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -11515,6 +11549,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }
@@ -11685,6 +11720,7 @@ namespace IrrigationAdvisorConsole
                 lDateOfRecord = lFromDate.AddDays(i);
 
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
 
                 //Adjustment of Phenological Stage
                 foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
@@ -11692,6 +11728,7 @@ namespace IrrigationAdvisorConsole
                     if (item.DateOfChange.Equals(lDateOfRecord))
                     {
                         lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
                         break;
                     }
                 }

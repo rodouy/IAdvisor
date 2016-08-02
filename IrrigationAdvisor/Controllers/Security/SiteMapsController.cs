@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Controllers.Security
 {
     public class SiteMapsController : Controller
     {
-        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: SiteMaps
         public ActionResult Index()
