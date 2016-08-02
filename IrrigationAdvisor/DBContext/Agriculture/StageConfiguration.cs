@@ -27,18 +27,20 @@ namespace IrrigationAdvisor.DBContext.Agriculture
         }
 
 
-        public List<Stage> GetStageBy(Crop pCrop)
+        public List<Stage> GetStageBy(int pSpecieId, int pStageOrder)
         {
 
-            List<PhenologicalStage> lPhenologicalStage = db.PhenologicalStages.Where(p => p.SpecieId == pCrop.SpecieId).ToList();
+            List<PhenologicalStage> lPhenologicalStage = db.PhenologicalStages.Where(p => p.SpecieId == pSpecieId).ToList();
 
-            List<Stage> lResult = null;
-
-            lResult = new List<Stage>();
+            List<Stage> lResult = new List<Stage>();
 
             foreach (PhenologicalStage phenologicalStageItem in lPhenologicalStage)
             {
-                lResult.Add(phenologicalStageItem.Stage);
+                if(phenologicalStageItem.Stage.Order > pStageOrder)
+                {
+                    lResult.Add(phenologicalStageItem.Stage);
+                }
+                
             }
 
             return lResult.OrderBy(s => s.Order).ToList();

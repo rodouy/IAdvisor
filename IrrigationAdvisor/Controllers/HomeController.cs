@@ -31,6 +31,7 @@ using IrrigationAdvisor.Models.Weather;
 using IrrigationAdvisor.Models.Agriculture;
 using IrrigationAdvisor.DBContext.Agriculture;
 using IrrigationAdvisor.ViewModels.Agriculture;
+using IrrigationAdvisor.ViewModels.Irrigation;
 
 namespace IrrigationAdvisor.Controllers
 {
@@ -74,7 +75,7 @@ namespace IrrigationAdvisor.Controllers
             DailyRecordConfiguration drc;
             RainConfiguration rc;
             IrrigationConfiguration ic;
-            StageConfiguration st;
+ 
             #endregion
 
             #region Local Variables
@@ -97,7 +98,7 @@ namespace IrrigationAdvisor.Controllers
             List<DailyRecordViewModel> lDailyRecordViewModelList;
             List<RainViewModel> lRainViewModelList;
             List<IrrigationViewModel> lIrrigationViewModelList;
-            List<StageViewModel> lStageViewModelList;
+            
             #endregion
 
             try 
@@ -132,7 +133,6 @@ namespace IrrigationAdvisor.Controllers
                 drc = new DailyRecordConfiguration();
                 rc = new RainConfiguration();
                 ic = new IrrigationConfiguration();
-                st = new StageConfiguration();
                 #endregion
 
                 if(ManageSession.GetDateOfReference() == Utils.MAX_DATETIME)
@@ -225,9 +225,57 @@ namespace IrrigationAdvisor.Controllers
                     lDailyRecordViewModelList.Add(new DailyRecordViewModel(daily));
                 }
 
-                lStageViewModelList = new List<StageViewModel>();
+               
+                //Demo - One Pivot
+                HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
+                    lFarmViewModel, lFirstCropIrrigationWeather, lDailyRecordViewModelList,
+                    lRainViewModelList, lIrrigationViewModelList);
 
-                List<Stage> lStageResult = st.GetStageBy(lFirstCropIrrigationWeather.Crop);
+                //Create View Model of Home
+                //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
+
+                #region ViewBags
+
+                //TODO: Change when implement multiple farms
+                ViewBag.SpecieId = lFirstCropIrrigationWeather.Crop.SpecieId;
+
+                #endregion
+
+                HVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
+
+                
+                ManageSession.SetHomeViewModel(HVM);
+
+                return View(HVM);
+
+	        }
+	        catch (Exception ex)
+	        {
+		        throw ex;
+	        }
+
+        }
+
+        public JsonResult GetStagesBy(int pSpecieId, int pIrrigationUnitId)
+        {
+            
+            StageConfiguration st = new StageConfiguration();
+            List<StageViewModel> lStageViewModelList = new List<StageViewModel>();
+            
+
+            IrrigationAdvisorContext context = new IrrigationAdvisorContext();
+
+            Dictionary<long, CropIrrigationWeather> dic = ManageSession.GetCropIrrigationWeather();
+
+            CropIrrigationWeather ciw = dic[pIrrigationUnitId];
+
+            Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.PhenologicalStageId).FirstOrDefault();
+
+            //irrigationUnit
+            try
+            {
+
+                List<Stage> lStageResult = st.GetStageBy(pSpecieId, foundStage.Order);
 
                 foreach (var stageItem in lStageResult)
                 {
@@ -244,29 +292,16 @@ namespace IrrigationAdvisor.Controllers
                     lStageViewModelList.Add(stageViewModel);
 
                 }
-                //Demo - One Pivot
-                HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
-                    lFarmViewModel, lFirstCropIrrigationWeather, lDailyRecordViewModelList,
-                    lRainViewModelList, lIrrigationViewModelList, lStageViewModelList);
-                
-                //Create View Model of Home
-                //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
 
-                
+                return Json(lStageResult, JsonRequestBehavior.AllowGet);
 
-                HVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
+            }
+            catch (Exception ex)
+            {
 
-                
-                ManageSession.SetHomeViewModel(HVM);
-
-                return View(HVM);
-
-	        }
-	        catch (Exception ex)
-	        {
-		        throw ex;
-	        }
-
+                throw;
+            }
+            
         }
 
         [CustomAuthorize]
@@ -706,6 +741,9 @@ namespace IrrigationAdvisor.Controllers
 
                 lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
                 lDailyRecordList = new List<DailyRecord>();
+
+                Dictionary<long, CropIrrigationWeather> dic = new Dictionary<long, CropIrrigationWeather>();
+
                 foreach (var lIrrigationUnit in lIrrigationUnitList)
                 {
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropMainWeatherStationRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
@@ -713,6 +751,7 @@ namespace IrrigationAdvisor.Controllers
 
                     //Demo - First CropIrrigationWeather
                     lFirstCropIrrigationWeather = lCropIrrigationWeatherList.FirstOrDefault();
+                    
                     lRainList = lFirstCropIrrigationWeather.RainList;
                     lIrrigationList = lFirstCropIrrigationWeather.IrrigationList;
                     
@@ -726,7 +765,9 @@ namespace IrrigationAdvisor.Controllers
                         lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
                         
                     }
-
+                    
+                    dic[lIrrigationUnit.IrrigationUnitId] = lFirstCropIrrigationWeather;
+                   
                     //Add all the days for the IrrigationUnit
                     lGridIrrigationUnit = new GridPivotHome(lFirstCropIrrigationWeather.IrrigationUnit.ShortName, 
                                                             lFirstCropIrrigationWeather.PhenologicalStage.Stage.ShortName,
@@ -735,6 +776,7 @@ namespace IrrigationAdvisor.Controllers
                     lGridIrrigationUnitList.Add(lGridIrrigationUnit);
                 }
 
+                ManageSession.SetCropIrrigationWeather(dic);
 
 
             }
@@ -747,6 +789,8 @@ namespace IrrigationAdvisor.Controllers
             return lGridIrrigationUnitList;
 
         }
+
+        
 
 
         /// <summary>

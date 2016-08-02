@@ -7,9 +7,12 @@ $(document).ready(function () {
 
     var saveRainBtn = $('#SaveRain');
     var saveIrrigationBtn = $('#SaveIrrigation');
+    var savePhenoBtn = $('#savePhenoBtn');
     var irrigationMilimeters = $('#irrigationMilimeters');
     var rainMilimeters = $('#rain');
     var dateOfReferenceBtn = $('#dateOfReferenceBtn');
+    var irrigationUnitPheno = $('#IrrigationUnitPheno');
+    var specieIdInput = $('#specieId');
 
     $('#loading').modal({
         keyboard: false,
@@ -79,9 +82,47 @@ $(document).ready(function () {
 
     });
 
+    irrigationUnitPheno.change(function () {
+
+        var selectedIrrigationUnit = irrigationUnitPheno.val();
+        var specieId = specieIdInput.val();
+
+        var comboStages = $('#StagePheno');
+
+        debugger;
+        $.ajax({
+            type: 'GET',
+            url: './GetStagesBy?pSpecieId=' + specieId + '&pIrrigationUnitId=' + selectedIrrigationUnit,
+            success: function (data) {
+               
+                debugger;
+
+                //comboStages.append()
+
+            },
+            error: function (data) {
+
+                console.log("Error on irrigationUnitPheno.change");
+                
+            }
+        });
+
+
+
+
+    });
+
     dateOfReferenceBtn.click(function () {
 
         showLoading();
+
+    });
+
+
+    savePhenoBtn.click(function () {
+
+
+        
 
     });
 

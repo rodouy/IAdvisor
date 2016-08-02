@@ -43,8 +43,6 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         public ErrorViewModel ErrorViewModel { get; set; }
 
-        public List<StageViewModel> StageViewModelList { get; set; }
-
         public bool IsUserAdministrator { get; set; }
         public DateTime DateOfReference { get; set; }
 
@@ -79,8 +77,7 @@ namespace IrrigationAdvisor.ViewModels.Home
                             CropIrrigationWeather pCropIrrigationWeather,
                             List<DailyRecordViewModel> pDailyRecordList,
                             List<RainViewModel> pRainList,
-                            List<IrrigationViewModel> pIrrigationList,
-                            List<StageViewModel> pStageList)
+                            List<IrrigationViewModel> pIrrigationList)
         {
             FarmViewModelList = pFarmList;
             DateOfReference = pDateOfReference;
@@ -95,7 +92,7 @@ namespace IrrigationAdvisor.ViewModels.Home
             IrrigationViewModelList = pIrrigationList;
 
             DailyRecordViewModelList = pDailyRecordList;
-            StageViewModelList = pStageList;
+           
         }
         #endregion
 

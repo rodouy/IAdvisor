@@ -34,6 +34,8 @@
 @{
     DateTime dateValue = Convert.ToDateTime(ViewBag.DateOfReference);
 }
+<!-- TODO: Change when implement multiple farms -->
+<input type="hidden" value="@ViewBag.SpecieId" id="specieId"/>
 <section class="content-bar ps-container">
     <div class="container">
         <ul class="bar-resp" style="width: 713px;">
@@ -228,10 +230,7 @@
                                             <div class="dropdown">
                                                 Seleccionar Fenología
                                                 <select id="StagePheno">
-                                                    @foreach (var item in Model.StageViewModelList)
-                                                    {
-                                                        <option value="@item.StageId">@item.ShortName</option>
-                                                    }
+                                                    
                                                 </select>
                                                 <br />
                                             </div>
@@ -240,7 +239,7 @@
                                 </div>
                                 <div class="cf footer">
                                     <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-                                    <a type="button" class="btn btn-success"  href="#" disabled>Guardar</a>
+                                    <a type="button" class="btn btn-success"  href="#" disabled id="savePhenoBtn">Guardar</a>
                                 </div>
                             </div>
                             <div class="overlay"></div>
