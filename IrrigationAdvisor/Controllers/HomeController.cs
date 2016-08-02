@@ -225,10 +225,11 @@ namespace IrrigationAdvisor.Controllers
                     lDailyRecordViewModelList.Add(new DailyRecordViewModel(daily));
                 }
 
-               
+                List<CropIrrigationWeather> cropIrrigationVM = new List<CropIrrigationWeather>();
+                cropIrrigationVM.Add(lFirstCropIrrigationWeather);
                 //Demo - One Pivot
                 HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
-                    lFarmViewModel, lFirstCropIrrigationWeather, lDailyRecordViewModelList,
+                    lFarmViewModel, cropIrrigationVM, lDailyRecordViewModelList,
                     lRainViewModelList, lIrrigationViewModelList);
 
                 //Create View Model of Home

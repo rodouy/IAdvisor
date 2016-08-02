@@ -216,11 +216,11 @@
                                             </div>
                                             <br />
                                             <div class="dropdown">
-                                                Seleccionar Unidad de Riego
+                                                Contexto de cosecha
                                                 <select id="IrrigationUnitPheno">
-                                                    @foreach (var item in Model.IrrigationUnitViewModelList)
+                                                    @foreach (var item in Model.CropIrrigationWeatherViewModelList)
                                                     {
-                                                        <option value="@item.IrrigationUnitId">@item.Name</option>
+                                                        <option value="@item.CropIrrigationWeatherId">@item.ToString()</option>
                                                     }
                                                 </select>
 

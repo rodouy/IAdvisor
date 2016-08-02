@@ -3437,6 +3437,12 @@ namespace IrrigationAdvisor.Models.Management
             return this.CropId.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            string lResult = null;
+            lResult = cropIrrigationWeatherName;
+            return lResult;
+        }
         #endregion
 
         #region Print

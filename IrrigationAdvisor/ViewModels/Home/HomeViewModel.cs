@@ -37,7 +37,7 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         public IrrigationUnitViewModel TestIrrigationUnitViewModel { get; set; }
 
-        public CropIrrigationWeatherViewModel CropIrrigationWeatherViewModel { get; set; }
+        public List<CropIrrigationWeatherViewModel> CropIrrigationWeatherViewModelList { get; set; }
 
         public List<DailyRecordViewModel> DailyRecordViewModelList { get; set; }
 
@@ -74,7 +74,7 @@ namespace IrrigationAdvisor.ViewModels.Home
         public HomeViewModel(User pUser, List<FarmViewModel> pFarmList,
                             DateTime pDateOfReference,
                             FarmViewModel pFirstFarm,
-                            CropIrrigationWeather pCropIrrigationWeather,
+                            List<CropIrrigationWeather> pCropIrrigationWeatherList,
                             List<DailyRecordViewModel> pDailyRecordList,
                             List<RainViewModel> pRainList,
                             List<IrrigationViewModel> pIrrigationList)
@@ -86,7 +86,9 @@ namespace IrrigationAdvisor.ViewModels.Home
             IrrigationUnitViewModelList = DefaultFarmViewModel.IrrigationUnitViewModelList;
             
             TestIrrigationUnitViewModel = IrrigationUnitViewModelList.FirstOrDefault();
-            CropIrrigationWeatherViewModel = new CropIrrigationWeatherViewModel(pCropIrrigationWeather);
+            List<CropIrrigationWeatherViewModel> lCropIrrigationWeatherViewModel = new List<CropIrrigationWeatherViewModel>();
+            lCropIrrigationWeatherViewModel.Add(new CropIrrigationWeatherViewModel(pCropIrrigationWeatherList.FirstOrDefault()));
+            CropIrrigationWeatherViewModelList = lCropIrrigationWeatherViewModel;
 
             RainViewModelList = pRainList;
             IrrigationViewModelList = pIrrigationList;
