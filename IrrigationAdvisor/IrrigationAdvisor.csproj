@@ -416,8 +416,6 @@
     <Content Include="fonts\metro.ttf" />
     <Content Include="fonts\metro.woff" />
     <Content Include="fonts\selection.json" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="js\Geolocation.js" />
     <Content Include="js\Home.js" />
     <Content Include="packages.config" />
@@ -456,7 +454,6 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="images\homeslider\img-1.jpg" />
     <Content Include="images\homeslider\img-2.jpg" />
