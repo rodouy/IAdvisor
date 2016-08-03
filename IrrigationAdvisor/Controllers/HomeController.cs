@@ -242,8 +242,9 @@ namespace IrrigationAdvisor.Controllers
                 #endregion
 
                 HVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
-
                 
+
+
                 ManageSession.SetHomeViewModel(HVM);
 
                 return View(HVM);
