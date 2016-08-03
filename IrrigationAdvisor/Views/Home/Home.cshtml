@@ -206,7 +206,7 @@
                                             <div class="dropdown">
                                                 Seleccione una Fecha
                                                 <select id="phenoDate">
-                                                    @for (int i = -1; i >= -15; i--)
+                                                    @for (int i = -1; i >= -IrrigationAdvisor.Models.Data.InitialTables.DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE; i--)
                                                     {
                                                         <option value="@(dateValue.AddDays(i).Month + "/" + dateValue.AddDays(i).Day + "/" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToShortDateString())</option>
                                                     }

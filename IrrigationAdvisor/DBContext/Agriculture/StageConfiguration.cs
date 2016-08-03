@@ -36,7 +36,7 @@ namespace IrrigationAdvisor.DBContext.Agriculture
 
             foreach (PhenologicalStage phenologicalStageItem in lPhenologicalStage)
             {
-                if(phenologicalStageItem.Stage.Order > pStageOrder)
+                if(phenologicalStageItem.Stage.Order >= pStageOrder)
                 {
                     lResult.Add(phenologicalStageItem.Stage);
                 }
