@@ -447,6 +447,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         item.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
                         lSaveChanges = lContext.SaveChanges();
+
                         item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
                         lSaveChanges = lContext.SaveChanges();
                     }
@@ -463,6 +464,7 @@ namespace IrrigationAdvisor.Controllers
                         {
                             lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
                             lSaveChanges = lContext.SaveChanges();
+
                             lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
                             lSaveChanges = lContext.SaveChanges();
                         }
@@ -533,6 +535,7 @@ namespace IrrigationAdvisor.Controllers
                         {
                             lCIW.AddRainDataToList(lDateResult, pMilimeters);
                             lSaveChanges = lContext.SaveChanges();
+
                             lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
                             lSaveChanges = lContext.SaveChanges();
                         }
@@ -933,7 +936,11 @@ namespace IrrigationAdvisor.Controllers
             {
                 if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
                 {
-                    lForcastIrrigationQuantity = lDailyRecord.Irrigation.Input;
+                    lForcastIrrigationQuantity += lDailyRecord.Irrigation.Input;
+                }
+                else if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.ExtraInput > 0)
+                {
+                    lForcastIrrigationQuantity += lDailyRecord.Irrigation.ExtraInput;
                 }
             }
             

@@ -1979,6 +1979,7 @@ namespace IrrigationAdvisor.Models.Management
                 this.AddOrUpdateIrrigationDataToList(pDateTime, lNeedForIrrigationPair, lIsExtraIrrigation);
                 pIrrigationAdvisorContext.SaveChanges();
                 this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString(), pIrrigationAdvisorContext);
+                pIrrigationAdvisorContext.SaveChanges();
             }
         }
 
@@ -3029,12 +3030,14 @@ namespace IrrigationAdvisor.Models.Management
                     if(item.DailyRecordId >= lIndexToRemove)
                     {
                         //Delete Database List of DATA
+                        //Delete DailyRecords from database after date of record to delete.
                         pIrrigationAdvisorContext.DailyRecords.RemoveRange(pIrrigationAdvisorContext.DailyRecords
                                                 .Where(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime &&
                                                 dr.DailyRecordId == item.DailyRecordId));
                         pIrrigationAdvisorContext.SaveChanges();
+                        //Delete Irrigations from database after date of record to delete.
                         pIrrigationAdvisorContext.Irrigations.RemoveRange(pIrrigationAdvisorContext.Irrigations
-                                                .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
+                                                .Where(ir => ir.Date > lDailyRecordToDelete.DailyRecordDateTime &&
                                                 ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId));
                         pIrrigationAdvisorContext.SaveChanges();
                         break;
