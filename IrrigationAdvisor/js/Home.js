@@ -11,8 +11,10 @@ $(document).ready(function () {
     var irrigationMilimeters = $('#irrigationMilimeters');
     var rainMilimeters = $('#rain');
     var dateOfReferenceBtn = $('#dateOfReferenceBtn');
-    var irrigationUnitPheno = $('#IrrigationUnitPheno');
+    var cropIrriWeatherPheno = $('#CropIrriWeatherPheno');
     var specieIdInput = $('#specieId');
+    var phenoDate = $('#phenoDate');
+    var stagePheno = $('#StagePheno'); 
 
     $('#loading').modal({
         keyboard: false,
@@ -82,33 +84,40 @@ $(document).ready(function () {
 
     });
 
-    irrigationUnitPheno.change(function () {
+    var loadStageForCropIrrigationWeather = function () {
 
-        var selectedIrrigationUnit = irrigationUnitPheno.val();
+        var selectedCropIrriWeatherPheno = cropIrriWeatherPheno.val();
         var specieId = specieIdInput.val();
 
         var comboStages = $('#StagePheno');
 
-        debugger;
         $.ajax({
             type: 'GET',
-            url: './GetStagesBy?pSpecieId=' + specieId + '&pIrrigationUnitId=' + selectedIrrigationUnit,
+            url: './GetStagesBy?pSpecieId=' + specieId + '&pCropIrrigationWeather=' + selectedCropIrriWeatherPheno,
             success: function (data) {
-               
-                debugger;
 
-                //comboStages.append()
+                var values = JSON.stringify(data);
+
+                comboStages.empty();
+                $.each($.parseJSON(values), function (key, value) {
+                   comboStages.append('<option value="' + value.StageId + '">' + value.ShortName + '</option>');
+                });
 
             },
             error: function (data) {
 
                 console.log("Error on irrigationUnitPheno.change");
-                
+
             }
         });
 
+    };
 
+    loadStageForCropIrrigationWeather();
 
+    cropIrriWeatherPheno.change(function () {
+
+        loadStageForCropIrrigationWeather();
 
     });
 
@@ -121,6 +130,34 @@ $(document).ready(function () {
 
     savePhenoBtn.click(function () {
 
+        var selectedCropIrriWeatherPheno = cropIrriWeatherPheno.val();
+        var specieId = specieIdInput.val();
+        var phenoDateVal = phenoDate.val();
+        var stagePhenoVal = stagePheno.val();
+
+        showLoading();
+
+        $.ajax({
+            type: 'GET',
+            url: './AddPhenology?pDate=' + phenoDateVal + '&pCropIrrigationWeatherId=' + selectedCropIrriWeatherPheno + '&pStageId=' + stagePhenoVal,
+            success: function (data) {
+
+                if(data == "Ok")
+                {
+                    location.href = "./home";
+                }
+                else {
+
+                    console.log("Error on irrigationUnitPheno.change");
+                }
+
+            },
+            error: function (data) {
+
+                console.log("Error on irrigationUnitPheno.change");
+
+            }
+        });
 
         
 

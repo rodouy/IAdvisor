@@ -142,11 +142,13 @@ namespace IrrigationAdvisorConsole
             {
                 Console.WriteLine("DB Update Exception ");
                 Console.WriteLine(ex.Message);
+                Console.ReadLine();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Initialization Failed...");
                 Console.WriteLine(ex.Message);
+                Console.ReadLine();
             }
 
         }

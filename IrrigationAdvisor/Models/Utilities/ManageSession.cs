@@ -115,22 +115,6 @@ namespace IrrigationAdvisor
             return result;
         }
 
-        public static Dictionary<long,CropIrrigationWeather> GetCropIrrigationWeather()
-        {
-            Dictionary<long, CropIrrigationWeather> result = null;
-
-            if (HttpContext.Current.Session["CropIrrigationWeather"] != null)
-                result = (Dictionary<long, CropIrrigationWeather>)HttpContext.Current.Session["CropIrrigationWeather"];
-
-            return result;
-
-        }
-
-        public static void SetCropIrrigationWeather(Dictionary<long, CropIrrigationWeather> pCropIrrigationWeather)
-        {
-            HttpContext.Current.Session["CropIrrigationWeather"] = pCropIrrigationWeather;
-        }
-
         public static void CleanSession()
         {
             HttpContext.Current.Session["UserName"] = null;

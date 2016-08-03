@@ -256,19 +256,16 @@ namespace IrrigationAdvisor.Controllers
 
         }
 
-        public JsonResult GetStagesBy(int pSpecieId, int pIrrigationUnitId)
+        public JsonResult GetStagesBy(int pSpecieId, int pCropIrrigationWeather)
         {
             
             StageConfiguration st = new StageConfiguration();
             List<StageViewModel> lStageViewModelList = new List<StageViewModel>();
-            
 
             IrrigationAdvisorContext context = new IrrigationAdvisorContext();
 
-            Dictionary<long, CropIrrigationWeather> dic = ManageSession.GetCropIrrigationWeather();
-
-            CropIrrigationWeather ciw = dic[pIrrigationUnitId];
-
+            CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeather).FirstOrDefault();
+            
             Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.PhenologicalStageId).FirstOrDefault();
 
             //irrigationUnit
@@ -371,6 +368,49 @@ namespace IrrigationAdvisor.Controllers
             //LoginViewModel lvm = ManageSession.GetLoginViewModel();
 
             return RedirectToAction("Home");
+        }
+
+        public ActionResult AddPhenology( DateTime  pDate,
+                                          int       pCropIrrigationWeatherId,
+                                          int       pStageId)
+        {
+
+            IrrigationAdvisorContext context = new IrrigationAdvisorContext();
+
+            try
+            {
+
+                CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
+                
+                //First Change
+                Stage lStageToChange = (from stage in context.Stages
+                                        where stage.StageId == pStageId
+                                        select stage).FirstOrDefault();
+
+                PhenologicalStage lPhenologicalStage = (from phenologicalstage in context.PhenologicalStages
+                                                        where phenologicalstage.SpecieId.Equals(ciw.Crop.SpecieId)
+                                                        && phenologicalstage.StageId.Equals(lStageToChange.StageId)
+                                                        select phenologicalstage).FirstOrDefault();
+
+               
+                string lObservation = string.Format("Real Stage is {0}, {1}.", lStageToChange.Name, lStageToChange.Description);
+
+                
+                string lName = string.Format("Adjustement {0} {1} ", lStageToChange.Name, pDate.ToString());
+
+                ciw.AddPhenologicalStageAdjustmentToList(lName, ciw.Crop, pDate,
+                                                         lStageToChange, lPhenologicalStage, lObservation);
+
+                context.SaveChanges();
+
+                return Content("Ok");
+
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+
         }
 
         [HttpGet]
@@ -789,8 +829,6 @@ namespace IrrigationAdvisor.Controllers
                         
                     }
                     
-                    dic[lIrrigationUnit.IrrigationUnitId] = lFirstCropIrrigationWeather;
-                   
                     //Add all the days for the IrrigationUnit
                     lGridIrrigationUnit = new GridPivotHome(lFirstCropIrrigationWeather.IrrigationUnit.ShortName, 
                                                             lFirstCropIrrigationWeather.PhenologicalStage.Stage.ShortName,
@@ -798,10 +836,7 @@ namespace IrrigationAdvisor.Controllers
 
                     lGridIrrigationUnitList.Add(lGridIrrigationUnit);
                 }
-
-                ManageSession.SetCropIrrigationWeather(dic);
-
-
+                
             }
             catch (Exception ex)
             {
