@@ -44,7 +44,8 @@ a {
 body {
   line-height: 1.4;
   font-size: 14px;
-  font-family: 'Raleway', sans-serif;
+  /*font-family: 'Raleway', sans-serif;*/
+  font-family: sans-serif;
   color: #000;
 }
 img {
@@ -124,8 +125,6 @@ html .awe-parallax {
   -o-background-size: cover;
   background-size: cover;*/
 }
-
-
 
 
 #example {
@@ -2789,6 +2788,8 @@ margin-top: 10px;
 .mc-item .image-heading img {
   width: 100%;
 }
+
+
  
 }
 @media screen and (max-width: 479px) {
