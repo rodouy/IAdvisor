@@ -36,6 +36,8 @@ $(document).ready(function () {
     dateOfReferenceBtn2.click(function () {
 
 
+        txtDateOfReference.removeClass('input-red-border');
+
         var formattedDateOfReference = moment(txtDateOfReference.val());
         if (formattedDateOfReference.isValid())
         {
@@ -58,8 +60,8 @@ $(document).ready(function () {
 
         }else
         {
-
-            console.log("Error on AddRain");
+            txtDateOfReference.addClass('input-red-border');
+            console.log("Invalid Date of Reference");
 
         }
 
