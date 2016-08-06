@@ -6751,10 +6751,11 @@ namespace IrrigationAdvisorConsole
 
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    DataEntry.AddRainDataDemoPivot1_2015(context);
-                    DataEntry.AddRainDataDemoPivot2_2015(context);
-                    DataEntry.AddRainDataDemoPivot3_2015(context);
-                    DataEntry.AddRainDataDemoPivot5_2015(context);
+                    //TODO: Comment all rains in demo to test version
+                    //DataEntry.AddRainDataDemoPivot1_2015(context);
+                    //DataEntry.AddRainDataDemoPivot2_2015(context);
+                    //DataEntry.AddRainDataDemoPivot3_2015(context);
+                    //DataEntry.AddRainDataDemoPivot5_2015(context);
                     context.SaveChanges();
                 }
 
