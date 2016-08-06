@@ -1020,6 +1020,7 @@ padding-right: 10px;
 .regado h5{
 	font-size:13px;
 	color: #F7F3F3;
+    margin-top: 13px;
 }
 .proximo-riego{
 /*width:15%;*/
@@ -1036,6 +1037,7 @@ padding-right: 10px;
 .proximo-riego h5{
 	font-size:13px;
 	color: #F7F3F3;
+    margin-top: 13px;
 }
 .lluvia-registrada{
 	/*width:15%;*/
@@ -1052,6 +1054,7 @@ padding-right: 10px;
 .lluvia-registrada h5{
 	font-size:13px;
 	color: #F7F3F3;
+    margin-top: 13px;
 }
 
 .por-defecto{
@@ -1068,6 +1071,7 @@ padding-right: 10px;
 .por-defecto h5{
 	font-size:13px;
 	color: #F7F3F3;
+    margin-top: 13px;
 }
 
 .title-reference{

@@ -2485,7 +2485,7 @@ width: -moz-available;
 
 
 .regado{
-	/*width:15%;*/
+	width:117px;
 background: #8849f7 none repeat scroll 0% 0%;
 margin-left: 20px;
 padding: 5px;
@@ -2502,6 +2502,7 @@ padding-right: 10px;
 }
 .proximo-riego{
 /*width:15%;*/
+width:117px;
 background: #4aca83 none repeat scroll 0% 0%;
 margin-left: 20px;
 padding: 5px;
@@ -2518,6 +2519,7 @@ padding-right: 10px;
 }
 .lluvia-registrada{
 	/*width:15%;*/
+    width:117px;
 background: #00a1d3 none repeat scroll 0% 0%;
 margin-left: 20px;
 padding: 5px;
@@ -2535,6 +2537,7 @@ padding-right: 10px;
 
 .por-defecto{
 	/*width:15%;*/
+    width:117px;
 background: #c9d0d4 none repeat scroll 0% 0%;
 margin-left: 20px;
 padding: 5px;
