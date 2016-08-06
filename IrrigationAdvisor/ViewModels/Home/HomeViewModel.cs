@@ -102,10 +102,31 @@ namespace IrrigationAdvisor.ViewModels.Home
             //YYYY-MM-DD
             string lResult = null;
 
+            string lMonth = null;
+            string lDay = null;
+
+            if(DateOfReference.Month < 10)
+            {
+                lMonth = "0" + DateOfReference.Month.ToString();
+            }
+            else
+            {
+                lMonth = DateOfReference.Month.ToString();
+            }
+
+            if(DateOfReference.Day < 10)
+            {
+                lDay = "0" + DateOfReference.Day.ToString();
+            }
+            else
+            {
+                lDay = DateOfReference.Day.ToString();
+            }
+
             lResult = string.Format("{0}-{1}-{2}",
                                     DateOfReference.Year,
-                                    DateOfReference.Month,
-                                    DateOfReference.Day);
+                                    lMonth,
+                                    lDay);
 
             return lResult;
         }
