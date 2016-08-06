@@ -99,10 +99,10 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         public string DateOfRefernceAsLocal()
         {
-            //yyyy-MM-ddThh:mm
+            //YYYY-MM-DD
             string lResult = null;
 
-            lResult = string.Format("{0}-{1}-{2}T00:00",
+            lResult = string.Format("{0}-{1}-{2}",
                                     DateOfReference.Year,
                                     DateOfReference.Month,
                                     DateOfReference.Day);
