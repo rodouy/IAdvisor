@@ -10,6 +10,8 @@ $(document).ready(function () {
     var irrigationMilimeters = $('#irrigationMilimeters');
     var rainMilimeters = $('#rain');
     var dateOfReferenceBtn = $('#dateOfReferenceBtn');
+    var dateOfReferenceBtn2 = $('#dateOfReferenceBtn2');
+    var txtDateOfReference = $('#txtDateOfReference');
 
     $('#loading').modal({
         keyboard: false,
@@ -30,6 +32,44 @@ $(document).ready(function () {
     }
 
     hideLoading();
+
+    dateOfReferenceBtn2.click(function () {
+
+
+        txtDateOfReference.removeClass('input-red-border');
+
+        var formattedDateOfReference = moment(txtDateOfReference.val());
+        if (formattedDateOfReference.isValid())
+        {
+
+            showLoading();
+            $.ajax({
+                type: 'GET',
+                url: './ChangeDateOfReference?pDay=' + formattedDateOfReference.date() + '&pMonth=' + (formattedDateOfReference.month() + 1) + '&pYear=' + formattedDateOfReference.year(),
+                success: function () {
+                    location.href = "./home";
+                   
+
+                },
+                error: function (data) {
+
+                    console.log(data);
+                
+                }
+            });
+
+        }else
+        {
+            txtDateOfReference.addClass('input-red-border');
+            console.log("Invalid Date of Reference");
+
+        }
+
+
+        
+
+
+    });
 
     rainMilimeters.change(function (event, b) {
 

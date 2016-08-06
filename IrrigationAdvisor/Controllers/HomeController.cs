@@ -224,10 +224,10 @@ namespace IrrigationAdvisor.Controllers
                 HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
                     lFarmViewModel, lFirstCropIrrigationWeather, lDailyRecordViewModelList,
                     lRainViewModelList, lIrrigationViewModelList);
-                
+
                 //Create View Model of Home
                 //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
-
+                HVM.DateOfReference = lDateOfReference;
                 
 
                 HVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
@@ -242,6 +242,38 @@ namespace IrrigationAdvisor.Controllers
 	        {
 		        throw ex;
 	        }
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pDay"></param>
+        /// <param name="pMonth"></param>
+        /// <param name="pYear"></param>
+        /// <returns></returns>
+        public ActionResult ChangeDateOfReference(  int pDay,
+                                                    int pMonth,
+                                                    int pYear)
+        {
+
+            DateTime newDateOfReference = new DateTime(pYear,
+                                                        pMonth,
+                                                        pDay);
+
+            try
+            {
+                ManageSession.SetDateOfReference(newDateOfReference);
+
+                return Content("Ok");
+            }
+            catch (Exception ex)
+            {
+
+                return Content(ex.Message);
+            }
+
+            
 
         }
 

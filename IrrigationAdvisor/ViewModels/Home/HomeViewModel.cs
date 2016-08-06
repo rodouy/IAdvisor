@@ -96,6 +96,20 @@ namespace IrrigationAdvisor.ViewModels.Home
         #endregion
 
         #region Private Helpers
+
+        public string DateOfRefernceAsLocal()
+        {
+            //YYYY-MM-DD
+            string lResult = null;
+
+            lResult = string.Format("{0}-{1}-{2}",
+                                    DateOfReference.Year,
+                                    DateOfReference.Month,
+                                    DateOfReference.Day);
+
+            return lResult;
+        }
+
         #endregion
 
         #region Public Methods
