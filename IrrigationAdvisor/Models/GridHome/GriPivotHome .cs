@@ -23,8 +23,9 @@ namespace IrrigationAdvisor.Models.GridHome
         ///
         /// </summary>
         private string irrigationUnitName;
-        private string phenologyName;
         private string cropName;
+        private string sowingDate;
+        private string phenologyName;
         private List<GridPivotDetailHome> listGridPivotDetailHome;
 
         #endregion
@@ -40,21 +41,30 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
-        public string PhenologyName
-        {
-            get { return phenologyName; }
-            set
-            {
-                phenologyName = value;
-            }
-        }
-
         public string CropName
         {
             get { return cropName; }
             set
             {
                 cropName = value;
+            }
+        }
+
+        public string SowingDate
+        {
+            get { return sowingDate; }
+            set
+            {
+                sowingDate = value;
+            }
+        }
+
+        public string PhenologyName
+        {
+            get { return phenologyName; }
+            set
+            {
+                phenologyName = value;
             }
         }
 
@@ -70,12 +80,13 @@ namespace IrrigationAdvisor.Models.GridHome
         #endregion
 
 
-        public GridPivotHome(String pIrrigationUnitName, String pPhenologyName, String pCropName, 
+        public GridPivotHome(String pIrrigationUnitName, String pCropName, String pSowingDate, String pPhenologyName, 
                             List<GridPivotDetailHome> plistGridPivotDetailHome)
         {
             this.IrrigationUnitName = pIrrigationUnitName;
-            this.PhenologyName = pPhenologyName;
             this.CropName = pCropName;
+            this.SowingDate = pSowingDate;
+            this.PhenologyName = pPhenologyName;
             this.ListGridPivotDetailHome = plistGridPivotDetailHome;
         }
 

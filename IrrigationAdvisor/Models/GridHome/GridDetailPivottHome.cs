@@ -34,6 +34,7 @@ namespace IrrigationAdvisor.Models.GridHome
         private DateTime dateOfData;
         private bool isToday;
         private Utils.IrrigationStatus irrigationStatus;
+        private String phenology;
 
         #endregion
 
@@ -83,11 +84,22 @@ namespace IrrigationAdvisor.Models.GridHome
             set { irrigationStatus = value; }
         }
 
+
+        public String Phenology
+        {
+            get
+            {
+                return phenology;
+            }
+            set { phenology = value; }
+        }
+
         #endregion
 
         public GridPivotDetailHome(Double pIrrigationQuantity, Double pRainQuantity,
                                     Double pForecastIrrigationQuantity, DateTime pDateOfData, 
-                                    bool pIsToday, Utils.IrrigationStatus pIrrigationStatus)
+                                    bool pIsToday, Utils.IrrigationStatus pIrrigationStatus,
+                                    String pPhenology)
         {
             this.IrrigationQuantity = pIrrigationQuantity;
             this.RainQuantity = pRainQuantity;
@@ -95,6 +107,7 @@ namespace IrrigationAdvisor.Models.GridHome
             this.DateOfData = pDateOfData;
             this.IsToday = pIsToday;
             this.IrrigationStatus = pIrrigationStatus;
+            this.Phenology = pPhenology;
         }
     }
 }

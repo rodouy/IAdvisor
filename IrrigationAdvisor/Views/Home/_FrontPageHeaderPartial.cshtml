@@ -4,11 +4,26 @@
     ViewBag.Title = "Pivot Irrigation";
 }
 
-<th>Nombre</th>
+@*<th>Nombre</th>
 <th>Cultivo</th>
-<th>Fenología</th>
+<th>Siembra</th>
+<th>Fen.</th>*@
+
+@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.GridHome.GridPivotHome gridPivotItem)
+{
+    <th>@gridPivotItem.IrrigationUnitName</th>
+    <th>@gridPivotItem.CropName</th>
+    <th>@gridPivotItem.SowingDate</th>
+    <th>@gridPivotItem.PhenologyName</th>
+}
 
 
+
+
+@foreach (var item in Model)
+{
+    @CustomRenderingOfColumn(item)
+}
 
 @foreach (var detail in Model.First().ListGridPivotDetailHome)
 {
