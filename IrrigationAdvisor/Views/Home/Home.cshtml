@@ -101,6 +101,9 @@
                                             <div class="dropdown">
                                                 Seleccionar Fecha
                                                 <select id="irrigationDate">
+                                                    <option value="@(dateValue.AddDays(2).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(0).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(-2).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(-3).Month + "/" + dateValue.AddDays(-3).Day + "/" + dateValue.AddDays(-3).Year)">@(dateValue.AddDays(-3).ToShortDateString())</option>

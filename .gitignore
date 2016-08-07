@@ -157,3 +157,5 @@ $RECYCLE.BIN/
 packages/
 .vs/config/applicationhost.config
 *.orig
+IrrigationAdvisor/images/logo - Original.png
+IrrigationAdvisor/images/logo-old.png

@@ -133,6 +133,13 @@ namespace IrrigationAdvisor.Models.Data
 
         #endregion
 
+        #region View
+
+        public const int MIN_DAY_SHOW_IN_GRID_BEFORE_TODAY = 2;
+        public const int MAX_DAY_SHOW_IN_GRID_AFTER_TODAY = 4;
+
+        #endregion
+
         #endregion
 
         #region Private Helpers

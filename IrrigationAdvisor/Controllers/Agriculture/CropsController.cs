@@ -20,7 +20,9 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // GET: Crops
         public ActionResult Index()
         {
-            var crops = db.Crops.Include(c => c.Region).Include(c => c.Specie);
+            var crops = db.Crops
+                .Include(c => c.Region)
+                .Include(c => c.Specie);
             return View(crops.ToList());
         }
 

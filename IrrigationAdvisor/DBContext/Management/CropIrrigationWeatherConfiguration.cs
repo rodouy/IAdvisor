@@ -113,6 +113,105 @@ namespace IrrigationAdvisor.DBContext.Management
 
 
         /// <summary>
+        /// Get a MAX date of reference in CropIrrigationWeather list 
+        /// Where CropIrrigationWeather is the IrrigationUnit instance
+        ///     And DailyRecord Date equals Date of Reference plus DAYS_FOR_PREDICTION
+        /// Include: 
+        /// </summary>
+        /// <param name="pIrrigationUnit"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public DateTime GetMaxDateOfReferenceBy(IrrigationUnit pIrrigationUnit,
+                                                      DateTime pDateOfReference)
+        {
+            DateTime lReturn = Utils.MIN_DATETIME;
+            DateTime lMAXDate = Utils.MIN_DATETIME;
+            List<DailyRecord> lNewDailyRecordList = new List<DailyRecord>();
+            CropIrrigationWeather lCropIrrigationWeather = null;
+            List<CropIrrigationWeather> lCropIrrigationWeaterList = new List<CropIrrigationWeather>();
+            DateTime lSowingDate;
+            DateTime lHarvestDate;
+            DateTime lDateLastDailyRecord;
+
+
+            if (pIrrigationUnit != null && pDateOfReference != null)
+            {
+                lCropIrrigationWeaterList = db.CropIrrigationWeathers
+                    .Include(ciw => ciw.DailyRecordList)
+                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId).ToList();
+                foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
+                {
+                    lSowingDate = item.SowingDate;
+                    lHarvestDate = item.HarvestDate;
+
+                    //TODO: Could be more than one CropIrrigationWeather, when the IrrigationUnit is used for more than one Crop
+                    if ((lSowingDate <= pDateOfReference)
+                        && (lHarvestDate >= pDateOfReference))
+                    {
+                        lCropIrrigationWeather = item;
+                        lDateLastDailyRecord = lCropIrrigationWeather.DailyRecordList.OrderByDescending(dr => dr.DailyRecordDateTime).FirstOrDefault().DailyRecordDateTime;
+                        lMAXDate = Utils.MaxDateTimeBetween(lDateLastDailyRecord, lMAXDate);
+                    }
+                }
+                
+                lReturn = lMAXDate;
+            }
+
+            return lReturn;
+        }
+
+
+        /// <summary>
+        /// Get a MIN date of reference in CropIrrigationWeather list 
+        /// Where CropIrrigationWeather is the IrrigationUnit instance
+        ///     And DailyRecord Date equals Date of Reference plus DAYS_FOR_PREDICTION
+        /// Include: 
+        /// </summary>
+        /// <param name="pIrrigationUnit"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public DateTime GetMinDateOfReferenceBy(IrrigationUnit pIrrigationUnit,
+                                                      DateTime pDateOfReference)
+        {
+            DateTime lReturn = Utils.MAX_DATETIME;
+            DateTime lMINDate = Utils.MAX_DATETIME;
+            List<DailyRecord> lNewDailyRecordList = new List<DailyRecord>();
+            CropIrrigationWeather lCropIrrigationWeather = null;
+            List<CropIrrigationWeather> lCropIrrigationWeaterList = new List<CropIrrigationWeather>();
+            DateTime lSowingDate;
+            DateTime lHarvestDate;
+            DateTime lDateFirstDailyRecord;
+
+
+            if (pIrrigationUnit != null && pDateOfReference != null)
+            {
+                lCropIrrigationWeaterList = db.CropIrrigationWeathers
+                    .Include(ciw => ciw.DailyRecordList)
+                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId).ToList();
+                foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
+                {
+                    lSowingDate = item.SowingDate;
+                    lHarvestDate = item.HarvestDate;
+
+                    //TODO: Could be more than one CropIrrigationWeather, when the IrrigationUnit is used for more than one Crop
+                    if ((lSowingDate <= pDateOfReference)
+                        && (lHarvestDate >= pDateOfReference))
+                    {
+                        lCropIrrigationWeather = item;
+                        lDateFirstDailyRecord = lCropIrrigationWeather.DailyRecordList.OrderBy(dr => dr.DailyRecordDateTime).FirstOrDefault().DailyRecordDateTime;
+                        lMINDate = Utils.MaxDateTimeBetween(lDateFirstDailyRecord, lMINDate);
+                    }
+                }
+
+                lReturn = lMINDate;
+            }
+
+            return lReturn;
+        }
+
+
+
+        /// <summary>
         /// Get a DailyRecord in CropIrrigationWeather list 
         /// Where CropIrrigationWeather is the IrrigationUnit instance
         ///     And DailyRecord Date equals Date of Reference plus DAYS_FOR_PREDICTION

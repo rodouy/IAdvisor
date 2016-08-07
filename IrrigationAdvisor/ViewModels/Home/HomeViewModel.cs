@@ -43,7 +43,12 @@ namespace IrrigationAdvisor.ViewModels.Home
         public ErrorViewModel ErrorViewModel { get; set; }
 
         public bool IsUserAdministrator { get; set; }
+
         public DateTime DateOfReference { get; set; }
+
+        public DateTime MinDateOfReference { get; set; }
+
+        public DateTime MaxDateOfReference { get; set; }
 
         #endregion
 
@@ -76,7 +81,9 @@ namespace IrrigationAdvisor.ViewModels.Home
                             CropIrrigationWeather pCropIrrigationWeather,
                             List<DailyRecordViewModel> pDailyRecordList,
                             List<RainViewModel> pRainList,
-                            List<IrrigationViewModel> pIrrigationList)
+                            List<IrrigationViewModel> pIrrigationList,
+                            DateTime pMinDateOfReference,
+                            DateTime pMaxDateOfReference)
         {
             FarmViewModelList = pFarmList;
             DateOfReference = pDateOfReference;
@@ -91,6 +98,9 @@ namespace IrrigationAdvisor.ViewModels.Home
             IrrigationViewModelList = pIrrigationList;
 
             DailyRecordViewModelList = pDailyRecordList;
+
+            MinDateOfReference = pMinDateOfReference;
+            MaxDateOfReference = pMaxDateOfReference;
             
         }
         #endregion
@@ -109,6 +119,33 @@ namespace IrrigationAdvisor.ViewModels.Home
 
             return lResult;
         }
+
+        public string MinDateOfRefernceAsLocal()
+        {
+            //YYYY-MM-DD
+            string lResult = null;
+
+            lResult = string.Format("{0}-{1}-{2}",
+                                    MinDateOfReference.Year,
+                                    MinDateOfReference.Month,
+                                    MinDateOfReference.Day);
+
+            return lResult;
+        }
+
+        public string MaxDateOfRefernceAsLocal()
+        {
+            //YYYY-MM-DD
+            string lResult = null;
+
+            lResult = string.Format("{0}-{1}-{2}",
+                                    MaxDateOfReference.Year,
+                                    MaxDateOfReference.Month,
+                                    MaxDateOfReference.Day);
+
+            return lResult;
+        }
+
 
         #endregion
 
