@@ -6819,10 +6819,11 @@ namespace IrrigationAdvisorConsole
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    DataEntry.AddIrrigationDataDemoPivot1_2015(context);
-                    DataEntry.AddIrrigationDataDemoPivot2_2015(context);
-                    DataEntry.AddIrrigationDataDemoPivot3_2015(context);
-                    DataEntry.AddIrrigationDataDemoPivot5_2015(context);
+                    //TODO: se quitaron los riegos extras.
+                    //DataEntry.AddIrrigationDataDemoPivot1_2015(context);
+                    //DataEntry.AddIrrigationDataDemoPivot2_2015(context);
+                    //DataEntry.AddIrrigationDataDemoPivot3_2015(context);
+                    //DataEntry.AddIrrigationDataDemoPivot5_2015(context);
                     context.SaveChanges();
 
                 }

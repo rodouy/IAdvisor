@@ -107,6 +107,15 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         #region Private Helpers
 
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Get Date of Reference
+        /// </summary>
+        /// <returns></returns>
         public string DateOfRefernceAsLocal()
         {
             //YYYY-MM-DD
@@ -115,7 +124,7 @@ namespace IrrigationAdvisor.ViewModels.Home
             string lMonth = null;
             string lDay = null;
 
-            if(DateOfReference.Month < 10)
+            if (DateOfReference.Month < 10)
             {
                 lMonth = "0" + DateOfReference.Month.ToString();
             }
@@ -124,7 +133,7 @@ namespace IrrigationAdvisor.ViewModels.Home
                 lMonth = DateOfReference.Month.ToString();
             }
 
-            if(DateOfReference.Day < 10)
+            if (DateOfReference.Day < 10)
             {
                 lDay = "0" + DateOfReference.Day.ToString();
             }
@@ -141,6 +150,10 @@ namespace IrrigationAdvisor.ViewModels.Home
             return lResult;
         }
 
+        /// <summary>
+        /// Get Min valid Date of Reference
+        /// </summary>
+        /// <returns></returns>
         public string MinDateOfRefernceAsLocal()
         {
             //YYYY-MM-DD
@@ -154,6 +167,10 @@ namespace IrrigationAdvisor.ViewModels.Home
             return lResult;
         }
 
+        /// <summary>
+        /// Get Max valid Date of Reference
+        /// </summary>
+        /// <returns></returns>
         public string MaxDateOfRefernceAsLocal()
         {
             //YYYY-MM-DD
@@ -167,10 +184,6 @@ namespace IrrigationAdvisor.ViewModels.Home
             return lResult;
         }
 
-
-        #endregion
-
-        #region Public Methods
         #endregion
 
         #region Overrides

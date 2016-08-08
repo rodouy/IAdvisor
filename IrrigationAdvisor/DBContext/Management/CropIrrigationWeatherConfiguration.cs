@@ -125,7 +125,7 @@ namespace IrrigationAdvisor.DBContext.Management
                                                       DateTime pDateOfReference)
         {
             DateTime lReturn = Utils.MIN_DATETIME;
-            DateTime lMAXDate = Utils.MIN_DATETIME;
+            DateTime lMAXDate = Utils.MAX_DATETIME;
             List<DailyRecord> lNewDailyRecordList = new List<DailyRecord>();
             CropIrrigationWeather lCropIrrigationWeather = null;
             List<CropIrrigationWeather> lCropIrrigationWeaterList = new List<CropIrrigationWeather>();
@@ -150,7 +150,7 @@ namespace IrrigationAdvisor.DBContext.Management
                     {
                         lCropIrrigationWeather = item;
                         lDateLastDailyRecord = lCropIrrigationWeather.DailyRecordList.OrderByDescending(dr => dr.DailyRecordDateTime).FirstOrDefault().DailyRecordDateTime;
-                        lMAXDate = Utils.MaxDateTimeBetween(lDateLastDailyRecord, lMAXDate);
+                        lMAXDate = Utils.MinDateTimeBetween(lDateLastDailyRecord, lMAXDate);
                     }
                 }
                 
@@ -174,7 +174,7 @@ namespace IrrigationAdvisor.DBContext.Management
                                                       DateTime pDateOfReference)
         {
             DateTime lReturn = Utils.MAX_DATETIME;
-            DateTime lMINDate = Utils.MAX_DATETIME;
+            DateTime lMINDate = Utils.MIN_DATETIME;
             List<DailyRecord> lNewDailyRecordList = new List<DailyRecord>();
             CropIrrigationWeather lCropIrrigationWeather = null;
             List<CropIrrigationWeather> lCropIrrigationWeaterList = new List<CropIrrigationWeather>();
