@@ -1,5 +1,5 @@
 ﻿@model IrrigationAdvisor.ViewModels.Home.HomeViewModel
-
+@using IrrigationAdvisor.Models.Utilities
 @{
     ViewBag.Title = "Home Page";
 }
@@ -34,6 +34,10 @@
 @{
     DateTime dateValue = Convert.ToDateTime(ViewBag.DateOfReference);
 }
+
+<input type="hidden" value="@Utils.GetDateTimeForClientScripts(Model.MaxDateOfReference)" id="maxDateOfReference"/>
+<input type="hidden" value="@Utils.GetDateTimeForClientScripts(Model.MinDateOfReference)" id="minDateOfReference" />
+
 <section class="content-bar ps-container">
     <div class="container">
         <ul class="bar-resp" style="width: 713px;">
@@ -70,6 +74,7 @@
                             <div class="col-xs-7">
                                 @*<span class="form-control col-md-4">@(dateValue.ToShortDateString())</span>*@
                                 <input type="date" id="txtDateOfReference" class="form-control col-xs-6 width-37-percent" value="@Model.DateOfRefernceAsLocal()" />
+                                
                                 <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn">+</a>
                                 <button class="btn go btn-pivots " id="dateOfReferenceBtn2">Actualizar</button>
                             </div>

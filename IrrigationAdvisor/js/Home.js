@@ -12,6 +12,9 @@ $(document).ready(function () {
     var dateOfReferenceBtn = $('#dateOfReferenceBtn');
     var dateOfReferenceBtn2 = $('#dateOfReferenceBtn2');
     var txtDateOfReference = $('#txtDateOfReference');
+    var maxDateOfReference = $('#maxDateOfReference');
+    var minDateOfReference = $('#minDateOfReference');
+    
 
     $('#loading').modal({
         keyboard: false,
@@ -35,11 +38,14 @@ $(document).ready(function () {
 
     dateOfReferenceBtn2.click(function () {
 
-
         txtDateOfReference.removeClass('input-red-border');
 
         var formattedDateOfReference = moment(txtDateOfReference.val());
-        if (formattedDateOfReference.isValid())
+
+        var minDate = moment(minDateOfReference.val());
+        var maxDate = moment(maxDateOfReference.val());
+
+        if (formattedDateOfReference.isValid() && formattedDateOfReference >= minDate && formattedDateOfReference <= maxDate)
         {
 
             showLoading();
@@ -58,15 +64,33 @@ $(document).ready(function () {
                 }
             });
 
-        }else
+        }
+        else if (formattedDateOfReference < minDate || formattedDateOfReference > maxDate)
         {
+            
             txtDateOfReference.addClass('input-red-border');
-            console.log("Invalid Date of Reference");
+
+            alert('Fecha de referencia fuera del intervalo');
+
+            /*txtDateOfReference.popover({
+                trigger: 'manual',
+                placement: 'top',
+                content: 'Fecha de referencia fuera del intervalo'
+            });*/
+
+            //txtDateOfReference.popover("show");
 
         }
+        else
+        {
+            txtDateOfReference.addClass('input-red-border');
 
+            alert('Fecha de referencia fuera del intervalo');
 
-        
+            //txtDateOfReference.data('bs.popover').options.content = 'Formato de fecha inválida';
+
+            //txtDateOfReference.popover("show");
+        }
 
 
     });

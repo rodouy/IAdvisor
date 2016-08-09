@@ -9,6 +9,7 @@ using System.Web;
 using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.Models.Management;
 using IrrigationAdvisor.ViewModels.Water;
+using IrrigationAdvisor.Models.Utilities;
 
 namespace IrrigationAdvisor.ViewModels.Home
 {
@@ -118,36 +119,9 @@ namespace IrrigationAdvisor.ViewModels.Home
         /// <returns></returns>
         public string DateOfRefernceAsLocal()
         {
-            //YYYY-MM-DD
-            string lResult = null;
-
-            string lMonth = null;
-            string lDay = null;
-
-            if (DateOfReference.Month < 10)
-            {
-                lMonth = "0" + DateOfReference.Month.ToString();
-            }
-            else
-            {
-                lMonth = DateOfReference.Month.ToString();
-            }
-
-            if (DateOfReference.Day < 10)
-            {
-                lDay = "0" + DateOfReference.Day.ToString();
-            }
-            else
-            {
-                lDay = DateOfReference.Day.ToString();
-            }
-
-            lResult = string.Format("{0}-{1}-{2}",
-                                    DateOfReference.Year,
-                                    lMonth,
-                                    lDay);
-
-            return lResult;
+            
+            return Utils.GetDateTimeForClientScripts(DateOfReference);
+            
         }
 
         /// <summary>
