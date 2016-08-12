@@ -6,6 +6,10 @@
     color:red
 }
 
+width-37-percent{
+    width:37% !important;
+}
+
 #floatingCirclesG{
 	position:relative;
 	width:125px;

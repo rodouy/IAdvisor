@@ -1,5 +1,5 @@
 ﻿@model IrrigationAdvisor.ViewModels.Home.HomeViewModel
-
+@using IrrigationAdvisor.Models.Utilities
 @{
     ViewBag.Title = "Home Page";
 }
@@ -34,8 +34,12 @@
 @{
     DateTime dateValue = Convert.ToDateTime(ViewBag.DateOfReference);
 }
+
+<input type="hidden" value="@Utils.GetDateTimeForClientScripts(Model.MaxDateOfReference)" id="maxDateOfReference"/>
 <!-- TODO: Change when implement multiple farms -->
 <input type="hidden" value="@ViewBag.SpecieId" id="specieId"/>
+<input type="hidden" value="@Utils.GetDateTimeForClientScripts(Model.MinDateOfReference)" id="minDateOfReference" />
+
 <section class="content-bar ps-container">
     <div class="container">
         <ul class="bar-resp" style="width: 713px;">
@@ -67,19 +71,25 @@
 
                     <div class="">
 
-                        <div style="float:right">
-                            <a class="btn go btn-pivots btn-md" href="#modal-lluvia">
-                                <span class="glyphicon glyphicon-plus"></span>Agregar lluvia
-                            </a>
-                        </div>
-                        <div style="float:right">
-                            <a href="#modal" class="btn go btn-pivots btn-md">
-                                <span class="glyphicon glyphicon-plus"></span>Agregar riego
-                            </a>
-                        </div>
-                        <div style="color:black" class="btn-md col-md-5 col-xs-5">
-                            <span class="form-control col-md-4">@(dateValue.ToShortDateString())</span>
-                            <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn">+</a>
+                        
+                        <div style="color:black" class="btn-md">
+                            <div class="col-xs-7">
+                                @*<span class="form-control col-md-4">@(dateValue.ToShortDateString())</span>*@
+                                <input type="date" id="txtDateOfReference" class="form-control col-xs-6 width-37-percent" value="@Model.DateOfRefernceAsLocal()" />
+                                
+                                <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn">+</a>
+                                <button class="btn go btn-pivots " id="dateOfReferenceBtn2">Actualizar</button>
+                            </div>
+                            <div style="float:right">
+                                <a class="btn go btn-pivots btn-md" href="#modal-lluvia">
+                                    <span class="glyphicon glyphicon-plus"></span>Agregar lluvia
+                                </a>
+                            </div>
+                            <div style="float:right">
+                                <a href="#modal" class="btn go btn-pivots btn-md">
+                                    <span class="glyphicon glyphicon-plus"></span>Agregar riego
+                                </a>
+                            </div>
                         </div>
                         <!-- modal agregar riego--->
 
@@ -98,6 +108,9 @@
                                             <div class="dropdown">
                                                 Seleccionar Fecha
                                                 <select id="irrigationDate">
+                                                    <option value="@(dateValue.AddDays(2).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(0).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(-2).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(-3).Month + "/" + dateValue.AddDays(-3).Day + "/" + dateValue.AddDays(-3).Year)">@(dateValue.AddDays(-3).ToShortDateString())</option>
@@ -301,7 +314,7 @@
                                 <h3 class="fa fa-list fa-2x"> Referencias</h3>
                                 <div class="regado"><h5>Campo regado</h5></div>
                                 <div class="proximo-riego"><h5>Próximo riego</h5></div>
-                                <div class="lluvia-registrada"><h5>Lluvia registrada</h5></div>
+                                <div class="lluvia-registrada"><h5>Lluvia</h5></div>
                                 <div class="por-defecto"><h5>Sin Riego</h5></div>
                             </div>
                         </div>
@@ -318,8 +331,8 @@
                         <div class="location-pivot">
                             <div style="height:500px;width:400px;max-width:100%;list-style:none; transition: none;overflow:hidden;">
                                 <div id="embed-map-canvas" style="height:100%; width:80%;max-width:80%;">
-                                    <iframe style="height:100%;width:100%;border:0;" frameborder="0"
-                                            src="http://maps.google.com/maps?z=13&t=h&q=loc:-34.240445,+-55.534513&output=embed"></iframe>
+                                    <iframe style="height:100%;width:100%;border:0;" frameborder="0" 
+                                            src="http://maps.google.com/maps?z=13&t=h&q=loc:-33.023674,+-57.514196&output=embed"></iframe>
                                 </div>
                                 @*<a class="google-code" rel="nofollow" href="https://www.bootstrapskins.com" id="get-map-data"></a>
                                     <style>

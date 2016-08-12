@@ -15,6 +15,11 @@ $(document).ready(function () {
     var specieIdInput = $('#specieId');
     var phenoDate = $('#phenoDate');
     var stagePheno = $('#StagePheno'); 
+    var dateOfReferenceBtn2 = $('#dateOfReferenceBtn2');
+    var txtDateOfReference = $('#txtDateOfReference');
+    var maxDateOfReference = $('#maxDateOfReference');
+    var minDateOfReference = $('#minDateOfReference');
+    
 
     $('#loading').modal({
         keyboard: false,
@@ -35,6 +40,65 @@ $(document).ready(function () {
     }
 
     hideLoading();
+
+    dateOfReferenceBtn2.click(function () {
+
+        txtDateOfReference.removeClass('input-red-border');
+
+        var formattedDateOfReference = moment(txtDateOfReference.val());
+
+        var minDate = moment(minDateOfReference.val());
+        var maxDate = moment(maxDateOfReference.val());
+
+        if (formattedDateOfReference.isValid() && formattedDateOfReference >= minDate && formattedDateOfReference <= maxDate)
+        {
+
+            showLoading();
+            $.ajax({
+                type: 'GET',
+                url: './ChangeDateOfReference?pDay=' + formattedDateOfReference.date() + '&pMonth=' + (formattedDateOfReference.month() + 1) + '&pYear=' + formattedDateOfReference.year(),
+                success: function () {
+                    location.href = "./home";
+                   
+
+                },
+                error: function (data) {
+
+                    console.log(data);
+                
+                }
+            });
+
+        }
+        else if (formattedDateOfReference < minDate || formattedDateOfReference > maxDate)
+        {
+            
+            txtDateOfReference.addClass('input-red-border');
+
+            alert('Fecha de referencia fuera del intervalo');
+
+            /*txtDateOfReference.popover({
+                trigger: 'manual',
+                placement: 'top',
+                content: 'Fecha de referencia fuera del intervalo'
+            });*/
+
+            //txtDateOfReference.popover("show");
+
+        }
+        else
+        {
+            txtDateOfReference.addClass('input-red-border');
+
+            alert('Fecha de referencia fuera del intervalo');
+
+            //txtDateOfReference.data('bs.popover').options.content = 'Formato de fecha inválida';
+
+            //txtDateOfReference.popover("show");
+        }
+
+
+    });
 
     rainMilimeters.change(function (event, b) {
 

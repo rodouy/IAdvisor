@@ -906,6 +906,42 @@ namespace IrrigationAdvisor.Models.Utilities
             return lReturn;
         }
 
+        public static string GetDateTimeForClientScripts(DateTime pDate)
+        {
+
+            //YYYY-MM-DD
+            string lResult = null;
+
+            string lMonth = null;
+            string lDay = null;
+
+            if (pDate.Month < 10)
+            {
+                lMonth = "0" + pDate.Month.ToString();
+            }
+            else
+            {
+                lMonth = pDate.Month.ToString();
+            }
+
+            if (pDate.Day < 10)
+            {
+                lDay = "0" + pDate.Day.ToString();
+            }
+            else
+            {
+                lDay = pDate.Day.ToString();
+            }
+
+            lResult = string.Format("{0}-{1}-{2}",
+                                    pDate.Year,
+                                    lMonth,
+                                    lDay);
+
+            return lResult;
+
+        }
+
         #endregion
 
         #region Location

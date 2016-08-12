@@ -65,6 +65,7 @@ namespace IrrigationAdvisor.ViewModels.Localization
             this.BombViewModelList = this.GetBombListBy(pFarm.BombList);
             this.IrrigationUnitViewModelList = this.GetIrrigationUnitListBy(pFarm.IrrigationUnitList);
             this.UserViewModelList = this.GetUserListBy(pFarm.UserList);
+
         }
 
         #endregion

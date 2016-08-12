@@ -117,8 +117,8 @@ namespace IrrigationAdvisor
 
         public static void CleanSession()
         {
-            HttpContext.Current.Session["UserName"] = null;
-            HttpContext.Current.Session["UserPassword"] = null;
+            HttpContext.Current.Session.Clear();
+            
         }
 
     }

@@ -10,6 +10,7 @@ using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.Models.Management;
 using IrrigationAdvisor.ViewModels.Water;
 using IrrigationAdvisor.ViewModels.Agriculture;
+using IrrigationAdvisor.Models.Utilities;
 
 namespace IrrigationAdvisor.ViewModels.Home
 {
@@ -44,7 +45,12 @@ namespace IrrigationAdvisor.ViewModels.Home
         public ErrorViewModel ErrorViewModel { get; set; }
 
         public bool IsUserAdministrator { get; set; }
+
         public DateTime DateOfReference { get; set; }
+
+        public DateTime MinDateOfReference { get; set; }
+
+        public DateTime MaxDateOfReference { get; set; }
 
         #endregion
 
@@ -77,7 +83,9 @@ namespace IrrigationAdvisor.ViewModels.Home
                             List<CropIrrigationWeather> pCropIrrigationWeatherList,
                             List<DailyRecordViewModel> pDailyRecordList,
                             List<RainViewModel> pRainList,
-                            List<IrrigationViewModel> pIrrigationList)
+                            List<IrrigationViewModel> pIrrigationList,
+                            DateTime pMinDateOfReference,
+                            DateTime pMaxDateOfReference)
         {
             FarmViewModelList = pFarmList;
             DateOfReference = pDateOfReference;
@@ -94,14 +102,65 @@ namespace IrrigationAdvisor.ViewModels.Home
             IrrigationViewModelList = pIrrigationList;
 
             DailyRecordViewModelList = pDailyRecordList;
-           
+            
+            MinDateOfReference = pMinDateOfReference;
+            MaxDateOfReference = pMaxDateOfReference;
+            
         }
         #endregion
 
         #region Private Helpers
+
+
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Get Date of Reference
+        /// </summary>
+        /// <returns></returns>
+        public string DateOfRefernceAsLocal()
+        {
+            
+            return Utils.GetDateTimeForClientScripts(DateOfReference);
+            
+        }
+
+        /// <summary>
+        /// Get Min valid Date of Reference
+        /// </summary>
+        /// <returns></returns>
+        public string MinDateOfRefernceAsLocal()
+        {
+            //YYYY-MM-DD
+            string lResult = null;
+
+            lResult = string.Format("{0}-{1}-{2}",
+                                    MinDateOfReference.Year,
+                                    MinDateOfReference.Month,
+                                    MinDateOfReference.Day);
+
+            return lResult;
+        }
+
+        /// <summary>
+        /// Get Max valid Date of Reference
+        /// </summary>
+        /// <returns></returns>
+        public string MaxDateOfRefernceAsLocal()
+        {
+            //YYYY-MM-DD
+            string lResult = null;
+
+            lResult = string.Format("{0}-{1}-{2}",
+                                    MaxDateOfReference.Year,
+                                    MaxDateOfReference.Month,
+                                    MaxDateOfReference.Day);
+
+            return lResult;
+        }
+
         #endregion
 
         #region Overrides
