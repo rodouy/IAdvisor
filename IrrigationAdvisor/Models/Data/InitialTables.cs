@@ -61,6 +61,8 @@ namespace IrrigationAdvisor.Models.Data
         public const int DAYS_FOR_PREDICTION = 7;
         public const int DAYS_TO_STOP_CROP_GROWS = 145;
         public const int DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE = 7;
+        public const int MAX_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE = 2;
+        public const int MIN_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE = 2;
 
         #endregion
 

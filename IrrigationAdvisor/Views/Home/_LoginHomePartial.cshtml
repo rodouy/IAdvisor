@@ -4,7 +4,55 @@
     ViewBag.Title = "Log in";
 }
 
+<div class="modal fade" tabindex="-1" role="dialog" id="loading">
+    <div class="modal-dialog" role="document">
 
+        <!-- Content Bar -->
+        <div id="floatingCirclesG">
+            <div class="f_circleG" id="frotateG_01"></div>
+            <div class="f_circleG" id="frotateG_02"></div>
+            <div class="f_circleG" id="frotateG_03"></div>
+            <div class="f_circleG" id="frotateG_04"></div>
+            <div class="f_circleG" id="frotateG_05"></div>
+            <div class="f_circleG" id="frotateG_06"></div>
+            <div class="f_circleG" id="frotateG_07"></div>
+            <div class="f_circleG" id="frotateG_08"></div>
+        </div>
+
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+
+    $(document).ready(function () {
+
+        
+        $('#loading').modal({
+            keyboard: false,
+            backdrop: 'static'
+        })
+
+        hideLoading();
+
+        var signInBtn = $('#signInBtn');
+        
+
+        var showLoading = function () {
+            $('#loading').modal('show');
+
+        }
+
+        var hideLoading = function () {
+            $('#loading').modal('hide');
+        }
+
+        signInBtn.click(function(){
+
+            showLoading();
+
+        });
+    });
+
+</script>
 <section id="login-content" class="login-content">
     <div class="awe-parallax bg-login-content"></div>
     <div class="awe-overlay"></div>
@@ -41,7 +89,7 @@
                             <a href="#">Olvidó su contraseña?</a>
                         </div>
                         <div class="form-submit-1">
-                            <input type="submit" value="Sign In" class="mc-btn btn-style-1">  @*@Html.ActionLink("Register as a new user", "Register")*@
+                            <input type="submit" value="Sign In" class="mc-btn btn-style-1" id="signInBtn">  @*@Html.ActionLink("Register as a new user", "Register")*@
                         </div>
                         <div class="link">
                             <a href="register.html">

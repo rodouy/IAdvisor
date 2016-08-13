@@ -157,7 +157,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'GET',
-            url: './GetStagesBy?pSpecieId=' + specieId + '&pCropIrrigationWeather=' + selectedCropIrriWeatherPheno,
+            url: './GetStagesBy?pSpecieId=' + specieId + '&pCropIrrigationWeatherId=' + selectedCropIrriWeatherPheno,
             success: function (data) {
 
                 var values = JSON.stringify(data);

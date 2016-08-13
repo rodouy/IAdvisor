@@ -261,7 +261,7 @@ namespace IrrigationAdvisor.Controllers
 
         }
         
-        public JsonResult GetStagesBy(int pSpecieId, int pCropIrrigationWeather)
+        public JsonResult GetStagesBy(long pSpecieId, long pCropIrrigationWeatherId)
         {
             
             StageConfiguration st = new StageConfiguration();
@@ -269,7 +269,7 @@ namespace IrrigationAdvisor.Controllers
 
             IrrigationAdvisorContext context = new IrrigationAdvisorContext();
 
-            CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeather).FirstOrDefault();
+            CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
             
             Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.PhenologicalStageId).FirstOrDefault();
 
@@ -412,20 +412,22 @@ namespace IrrigationAdvisor.Controllers
                                           int       pStageId)
         {
 
-            IrrigationAdvisorContext context = new IrrigationAdvisorContext();
+            IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+            IrrigationUnitConfigurarion iuc = new IrrigationUnitConfigurarion();
 
             try
             {
+                DateTime lReferenceDate = ManageSession.GetDateOfReference();
 
-                CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
+                CropIrrigationWeather lCiw = iuc.GetCropIrrigationWeatherListBy(pCropIrrigationWeatherId);
                 
                 //First Change
-                Stage lStageToChange = (from stage in context.Stages
+                Stage lStageToChange = (from stage in lContext.Stages
                                         where stage.StageId == pStageId
                                         select stage).FirstOrDefault();
 
-                PhenologicalStage lPhenologicalStage = (from phenologicalstage in context.PhenologicalStages
-                                                        where phenologicalstage.SpecieId.Equals(ciw.Crop.SpecieId)
+                PhenologicalStage lPhenologicalStage = (from phenologicalstage in lContext.PhenologicalStages
+                                                        where phenologicalstage.SpecieId.Equals(lCiw.Crop.SpecieId)
                                                         && phenologicalstage.StageId.Equals(lStageToChange.StageId)
                                                         select phenologicalstage).FirstOrDefault();
 
@@ -435,10 +437,14 @@ namespace IrrigationAdvisor.Controllers
                 
                 string lName = string.Format("Adjustement {0} {1} ", lStageToChange.Name, pDate.ToString());
 
-                ciw.AddPhenologicalStageAdjustmentToList(lName, ciw.Crop, pDate,
+                lCiw.AddPhenologicalStageAdjustmentToList(lName, lCiw.Crop, pDate,
                                                          lStageToChange, lPhenologicalStage, lObservation);
 
-                context.SaveChanges();
+                lContext.SaveChanges();
+
+                lCiw.AddInformationToIrrigationUnits(pDate, lReferenceDate, lContext);
+                lContext.SaveChanges();
+
 
                 return Content("Ok");
 
