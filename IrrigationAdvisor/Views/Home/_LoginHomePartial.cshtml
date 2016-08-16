@@ -29,12 +29,7 @@
         $('#loading').modal({
             keyboard: false,
             backdrop: 'static'
-        })
-
-        hideLoading();
-
-        var signInBtn = $('#signInBtn');
-        
+        });
 
         var showLoading = function () {
             $('#loading').modal('show');
@@ -44,6 +39,13 @@
         var hideLoading = function () {
             $('#loading').modal('hide');
         }
+
+        hideLoading();
+
+        var signInBtn = $('#signInBtn');
+        
+
+        
 
         signInBtn.click(function(){
 
