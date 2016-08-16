@@ -31,6 +31,7 @@ using IrrigationAdvisor.Models.Weather;
 using IrrigationAdvisor.Models.Agriculture;
 using System.Data.Entity;
 using IrrigationAdvisor.Models.Data;
+using IrrigationAdvisor.ViewModels.Weather;
 
 namespace IrrigationAdvisor.Controllers
 {
@@ -135,7 +136,7 @@ namespace IrrigationAdvisor.Controllers
                 ic = new IrrigationConfiguration();
                 #endregion
 
-                if(ManageSession.GetDateOfReference() == Utils.MAX_DATETIME)
+                if(ManageSession.GetDateOfReference() >= Utils.MAX_DATETIME)
                 {
                     lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
                     ManageSession.SetDateOfReference(lDateOfReference);
@@ -243,15 +244,25 @@ namespace IrrigationAdvisor.Controllers
                 return View(lHVM);
 
 	        }
+            catch (NullReferenceException ex)
+            {
+                ManageSession.CleanSession();
+
+                Console.WriteLine(ex.Message, ex);
+                return RedirectToAction("Index");
+            }
 	        catch (Exception ex)
 	        {
+                ManageSession.CleanSession();
+
+                Console.WriteLine(ex.Message, ex);
 		        throw ex;
 	        }
 
         }
 
         /// <summary>
-        /// 
+        /// Change de Date of Reference
         /// </summary>
         /// <param name="pDay"></param>
         /// <param name="pMonth"></param>
@@ -292,7 +303,6 @@ namespace IrrigationAdvisor.Controllers
         {
             return View();
         }
-
 
         public ActionResult SendEmails(string subject, string body)
         {
@@ -506,7 +516,7 @@ namespace IrrigationAdvisor.Controllers
         [ChildActionOnly]
         public PartialViewResult WeatherPartial()
         {
-            return PartialView("_WeatherPartial", GetWeatherHome());
+            return PartialView("_WeatherPartial", GetWeatherDefault());
         }
 
         public PartialViewResult WeatherHomePartial()
@@ -556,7 +566,6 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("_ContactPartial");
         }
 
-        
         public PartialViewResult _Create(string contact_name)
         {
             return PartialView("_ContactPartial");
@@ -564,8 +573,12 @@ namespace IrrigationAdvisor.Controllers
 
         public ActionResult SaveDetailedInfo(string mensaje, string nombre, string email)
         {
+            System.Net.Mail.MailMessage mail;
+            var emailUser = new StringBuilder();;
+            string EmailUserLineFormat;
+            SmtpClient server;
 
-            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+            mail = new System.Net.Mail.MailMessage();
 
             //set the addresses
             mail.From = new MailAddress(email);
@@ -575,12 +588,12 @@ namespace IrrigationAdvisor.Controllers
             mail.Subject = "Valorem - Start a project";
 
             //Generate an email message object to send
-            var emailUser = new StringBuilder();
-            string EmailUserLineFormat = "<p>{0}</p>";
+            emailUser = new StringBuilder();
+            EmailUserLineFormat = "<p>{0}</p>";
 
             emailUser.AppendFormat(EmailUserLineFormat, mensaje);
 
-            SmtpClient server = new SmtpClient();
+            server = new SmtpClient();
             server.EnableSsl = true;
             server.Host = "smtp.live.com";
             server.Port = 587;
@@ -614,8 +627,6 @@ namespace IrrigationAdvisor.Controllers
 
 
         private readonly List<GridPivotHome> gridIrrigationUnitHomeList = new List<GridPivotHome>();
-
-
 
         /// <summary>
         /// Return Grid Irrigation Unit for Home Titles
@@ -922,64 +933,13 @@ namespace IrrigationAdvisor.Controllers
         }
 
 
-        public List<ResultUnderGroundToSharp.GridWeather> GetWeather()
-        {
 
-            List<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.GridWeather> GridWeatherList = new List<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.GridWeather>();
+        #region Weather
 
-            String city = string.Empty;
-            String high = string.Empty;
-            String low = string.Empty;
-            String weekday = string.Empty;
-            String month = string.Empty;
-            String urlImage = string.Empty;
-            String description = string.Empty;
-            String probabilityRain = string.Empty;
-            String mmRain = string.Empty;
-
-
-            // TODO Replace Url To web Config Diego E.
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://api.wunderground.com/api/ac6d819f785ccfa5/forecast10day/lang:SP/q/-34.8172490,-56.1590040.json");
-            httpWebRequest.Method = WebRequestMethods.Http.Get;
-            httpWebRequest.Accept = "application/json";
-            var response = (HttpWebResponse)httpWebRequest.GetResponse();
-
-            string json = string.Empty;
-            using (var sr = new StreamReader(response.GetResponseStream()))
-            {
-                json = sr.ReadToEnd();
-            }
-
-            // Json To C#  DeserializeJsno to IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject
-            ResultUnderGroundToSharp.RootObject jsonObj = JsonConvert.DeserializeObject<IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject>(json);
-
-            // Iterate ForecastDay
-            foreach (var item in jsonObj.forecast.simpleforecast.forecastday)
-            {
-                if (GridWeatherList.Count <= 2)
-                {
-                    city = item.city;
-                    high = item.high.celsius;
-                    low = item.low.celsius;
-                    month = item.date.month.ToString();
-                    weekday = item.date.weekday;
-                    urlImage = "//icons.wxug.com/i/c/v4/" + item.icon + ".svg";
-                    description = item.conditions;
-                    probabilityRain = item.pop.ToString();
-                    mmRain = item.qpf_allday.mm.ToString();
-                    GridWeatherList.Add(new ResultUnderGroundToSharp.GridWeather(city, high, low, weekday, month, urlImage, description, probabilityRain, mmRain));
-                }
-            }
-
-
-
-            return GridWeatherList;
-        }
-
-        public ResultUnderGroundToSharp.RootObject GetWeatherHome()
+        public WeatherDataToShow GetWeatherDefault()
         {
             #region Local Variables
-            ResultUnderGroundToSharp.RootObject lReturn = null;
+            WeatherDataToShow lReturn = null;
 
             User lLoggedUser;
             List<Farm> lFarmList;
@@ -990,27 +950,52 @@ namespace IrrigationAdvisor.Controllers
             String lLinkAPIWUnderground;
             UserConfiguration uc;
             FarmConfiguration fc;
+
+            WeatherDataToShow lWeatherDataToShow;
+            List<WeatherDataItem> lWeatherDataItemList;
             
-            List<ResultUnderGroundToSharp.GridWeather> lGridWeatherList = new List<ResultUnderGroundToSharp.GridWeather>();
-            
+
             String lCity = String.Empty;
+            String lURLImage = String.Empty;
+            String lConditions = String.Empty;
+            String lAverageTemperature = String.Empty;
+            String lDay = String.Empty;
+            String lSunriseTime = String.Empty;
+            String lSunsetTime = String.Empty;
             String lTempHigh = String.Empty;
             String lTempLow = String.Empty;
-            String lWeekday = String.Empty;
-            String lMonth = String.Empty;
-            String lURLImage = String.Empty;
-            String lDescription = String.Empty;
-            String lProbabilityRain = String.Empty;
-            String lRainMM = String.Empty;
+            String lRelativeHumidity = String.Empty;
+            String lAverageWind = String.Empty;
+            String lPressure = String.Empty;
+            String lVisibility = String.Empty;
+            String lDewPoint = String.Empty;
 
+            String lItemTempHigh = String.Empty;
+            String lItemTempLow = String.Empty;
+            String lItemMonth = String.Empty;
+            String lItemWeekday = String.Empty;
+            String lItemURLImage = String.Empty;
+            String lItemDescription = String.Empty;
+            String lItemProbabilityRain = String.Empty;
+            String lItemRainMM = String.Empty;
+
+            String lAPIWUndergroundBase;
+            String lAPIWUndergroundKey;
+            String lAPIWUndergroundForcast10Days;
+            String lAPIWUndergroundConditions;
+            String lAPIWUndergroundAstronomy;
+            String lAPIWUnderground;
             HttpWebRequest lHttpWebRequest;
             string lJson;
-            ResultUnderGroundToSharp.RootObject lJsonObj;
+            WUndergroundForecast10daysResultToCSharp.RootObject lJsonObjForcast10Days;
+            WUndergroundConditionsResultToCSharp.RootObject lJsonObjConditions;
+            WUndergroundAstronomyResultToCSharp.RootObject lJsonObjAstronomy;
             string lURL;
-            WebClient lWebClient;
-            string lJSONstring;
-            dynamic lDynamicObj;
 
+            Uri lMyUri;
+            string lStrLatitude;
+            string lStrLongitude;
+            
             #endregion
 
             #region Configuration - Instance
@@ -1020,6 +1005,7 @@ namespace IrrigationAdvisor.Controllers
 
             try
             {
+                
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
 
@@ -1037,14 +1023,266 @@ namespace IrrigationAdvisor.Controllers
                 }
                 else
                 {
-                    lURL = "http://freegeoip.net/json/";
-                    lWebClient = new WebClient();
-                    lJSONstring = lWebClient.DownloadString(lURL);
+                    lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+                    lMyUri = new Uri(lURL);
+                    lStrLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude");
+                    if(lStrLatitude != null)
+                    {
+                        lLatitude = Convert.ToDouble(lStrLatitude);
+                    }
+                    else
+                    {
+                        lLatitude = -34.8172490;
+                    }
+                    lStrLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude");
+                    if(lStrLongitude != null)
+                    {
+                        lLongitude = Convert.ToDouble(lStrLongitude);
+                    }
+                    else
+                    {
+                        lLongitude = -56.1590040;
+                    }
 
-                    lDynamicObj = JsonConvert.DeserializeObject(lJSONstring);
+                }
+                
+                //http://api.wunderground.com/api/ac6d819f785ccfa5/forecast10day/lang:SP/q/-34.8172490,-56.1590040.json
 
-                    lLatitude = lDynamicObj.latitude;
-                    lLongitude = lDynamicObj.longitude;
+                lAPIWUndergroundBase = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIbase"]);
+                lAPIWUndergroundKey = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIkeyIndex"]);
+                lAPIWUndergroundForcast10Days = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIforcast10days"]);
+                lAPIWUndergroundConditions = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIconditions"]);
+                lAPIWUndergroundAstronomy = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIastronomy"]);
+
+                lWeatherDataItemList = new List<WeatherDataItem>();
+                    
+                #region Request Forcast 10 days
+                try
+                {
+                    lAPIWUnderground = lAPIWUndergroundBase + lAPIWUndergroundKey + lAPIWUndergroundForcast10Days;
+                    lLinkAPIWUnderground = lAPIWUnderground + lLatitude + "," + lLongitude + ".json";
+                    lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
+                    lHttpWebRequest.Method = WebRequestMethods.Http.Get;
+                    lHttpWebRequest.Accept = "application/json";
+                    var lResponseForcast10Days = (HttpWebResponse)lHttpWebRequest.GetResponse();
+
+                    lJson = string.Empty;
+                    using (var sr = new StreamReader(lResponseForcast10Days.GetResponseStream()))
+                    {
+                        lJson = sr.ReadToEnd();
+                    }
+
+                    // Json To C#  DeserializeJsno to IrrigationAdvisor.ViewModels.Weather.WUndergroundForecast10daysResultToCSharp.RootObject
+                    lJsonObjForcast10Days = JsonConvert.DeserializeObject<WUndergroundForecast10daysResultToCSharp.RootObject>(lJson);
+
+                    //Data of Forcast 10 days
+                    // Iterate ForecastDay
+                    int lday = 0;
+                    foreach (var item in lJsonObjForcast10Days.forecast.simpleforecast.forecastday)
+                    {
+                        lday++;
+                        if (lday > 2 && lWeatherDataItemList.Count <= 2)
+                        {
+                            lItemTempHigh = item.high.celsius;
+                            lItemTempLow = item.low.celsius;
+                            lItemMonth = item.date.month.ToString();
+                            lItemWeekday = item.date.weekday;
+                            lItemURLImage = "//icons.wxug.com/i/c/v4/" + item.icon + ".svg";
+                            lItemDescription = item.conditions;
+                            lItemProbabilityRain = item.pop.ToString();
+                            lItemRainMM = item.qpf_allday.mm.ToString();
+                            lWeatherDataItemList.Add(new WeatherDataItem(lItemTempHigh, lItemTempLow, 
+                                                                        lItemMonth, lItemWeekday,
+                                                                        lItemURLImage, lItemDescription, 
+                                                                        lItemProbabilityRain, lItemRainMM));
+                        }
+                        else if (lday > 2)
+                        {
+                            break;
+                        }
+                    }
+                    lURLImage = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[1].icon_url;
+                    lConditions = lJsonObjForcast10Days.forecast.txt_forecast.forecastday[1].fcttext_metric;
+                    lDay = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[1].date.weekday;
+                    lTempHigh = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[1].high.celsius.ToString();
+                    lTempLow = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[1].low.celsius.ToString();
+                    lAverageWind = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[1].avewind.kph.ToString();
+                    lRelativeHumidity = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[1].avehumidity.ToString();
+                }
+                catch (Exception ex)
+                {
+                    //Do nothing
+                    Console.WriteLine(ex.Message, ex);
+                }
+                #endregion
+
+                #region Conditions
+                try
+                {
+                    lAPIWUnderground = lAPIWUndergroundBase + lAPIWUndergroundKey + lAPIWUndergroundConditions;
+                    lLinkAPIWUnderground = lAPIWUnderground + lLatitude + "," + lLongitude + ".json";
+                    lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
+                    lHttpWebRequest.Method = WebRequestMethods.Http.Get;
+                    lHttpWebRequest.Accept = "application/json";
+                    var lResponseConditions = (HttpWebResponse)lHttpWebRequest.GetResponse();
+
+                    lJson = string.Empty;
+                    using (var sr = new StreamReader(lResponseConditions.GetResponseStream()))
+                    {
+                        lJson = sr.ReadToEnd();
+                    }
+
+                    lJsonObjConditions = JsonConvert.DeserializeObject<WUndergroundConditionsResultToCSharp.RootObject>(lJson);
+                    
+                    //Data of Conditions
+                    lCity = lJsonObjConditions.current_observation.display_location.full;
+                    lRelativeHumidity = lJsonObjConditions.current_observation.relative_humidity;
+                    lPressure = lJsonObjConditions.current_observation.pressure_mb;
+                    lVisibility = lJsonObjConditions.current_observation.visibility_km;
+                    lDewPoint = lJsonObjConditions.current_observation.dewpoint_c.ToString();
+                }
+                catch (Exception ex)
+                {
+                    //Do nothing
+                    Console.WriteLine(ex.Message, ex);
+                }
+                #endregion
+
+                #region Astronomy
+                try
+                {
+                    lAPIWUnderground = lAPIWUndergroundBase + lAPIWUndergroundKey + lAPIWUndergroundAstronomy;
+                    lLinkAPIWUnderground = lAPIWUnderground + lLatitude + "," + lLongitude + ".json";
+                    lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
+                    lHttpWebRequest.Method = WebRequestMethods.Http.Get;
+                    lHttpWebRequest.Accept = "application/json";
+                    var lResponseAstronomy = (HttpWebResponse)lHttpWebRequest.GetResponse();
+
+                    lJson = string.Empty;
+                    using (var sr = new StreamReader(lResponseAstronomy.GetResponseStream()))
+                    {
+                        lJson = sr.ReadToEnd();
+                    }
+
+                    // Json To C#  DeserializeJsno to IrrigationAdvisor.ViewModels.Weather.WUndergroundAstronomyResultToCSharp.RootObject
+                    lJsonObjAstronomy = JsonConvert.DeserializeObject<WUndergroundAstronomyResultToCSharp.RootObject>(lJson);
+
+                    lSunriseTime = lJsonObjAstronomy.moon_phase.sunrise.hour.ToString() + ":" + lJsonObjAstronomy.moon_phase.sunrise.minute.ToString();
+                    lSunsetTime = lJsonObjAstronomy.moon_phase.sunset.hour.ToString() + ":" + lJsonObjAstronomy.moon_phase.sunset.minute.ToString();
+                    
+                }
+                catch (Exception ex)
+                {
+                    //Do nothing
+                    Console.WriteLine(ex.Message, ex);
+                }
+                #endregion
+
+
+
+                lWeatherDataToShow = new WeatherDataToShow(lCity, lURLImage, lConditions, lAverageTemperature,
+                                                    lDay, lSunriseTime, lSunsetTime, lTempHigh, lTempLow, lRelativeHumidity,
+                                                    lAverageWind, lPressure, lVisibility, lDewPoint, lWeatherDataItemList);
+                
+                lReturn = lWeatherDataToShow;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message, ex);
+                throw ex;
+            }
+
+            return lReturn;
+        }
+
+
+
+        public WUndergroundForecast10daysResultToCSharp.RootObject GetWeatherHome()
+        {
+            #region Local Variables
+            WUndergroundForecast10daysResultToCSharp.RootObject lReturn = null;
+
+            User lLoggedUser;
+            List<Farm> lFarmList;
+            Farm lFirstFarm;
+            long lPositionId;
+            Double lLatitude;
+            Double lLongitude;
+            String lLinkAPIWUnderground;
+            UserConfiguration uc;
+            FarmConfiguration fc;
+
+            List<GridWeather> lGridWeatherList = new List<GridWeather>();
+
+            String lCity = String.Empty;
+            String lTempHigh = String.Empty;
+            String lTempLow = String.Empty;
+            String lWeekday = String.Empty;
+            String lMonth = String.Empty;
+            String lURLImage = String.Empty;
+            String lDescription = String.Empty;
+            String lProbabilityRain = String.Empty;
+            String lRainMM = String.Empty;
+
+            HttpWebRequest lHttpWebRequest;
+            string lJson;
+            WUndergroundForecast10daysResultToCSharp.RootObject lJsonObj;
+            string lURL;
+
+
+            Uri lMyUri;
+            string lStrLatitude;
+            string lStrLongitude;
+
+            #endregion
+
+            #region Configuration - Instance
+            uc = new UserConfiguration();
+            fc = new FarmConfiguration();
+            #endregion
+
+            try
+            {
+
+                //Obtain logged user
+                lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
+
+                if (lLoggedUser != null)
+                {
+                    //Get list of Farms from User
+                    lFarmList = fc.GetFarmListBy(lLoggedUser);
+
+                    lFirstFarm = lFarmList.FirstOrDefault();
+                    lPositionId = lFirstFarm.PositionId;
+
+                    lLatitude = fc.GetLatitudeBy(lPositionId);
+                    lLongitude = fc.GetLongitudeBy(lPositionId);
+
+                }
+                else
+                {
+                    lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+                    lMyUri = new Uri(lURL);
+                    lStrLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude");
+                    if (lStrLatitude != null)
+                    {
+                        lLatitude = Convert.ToDouble(lStrLatitude);
+                    }
+                    else
+                    {
+                        lLatitude = -34.8172490;
+                    }
+                    lStrLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude");
+                    if (lStrLongitude != null)
+                    {
+                        lLongitude = Convert.ToDouble(lStrLongitude);
+                    }
+                    else
+                    {
+                        lLongitude = -56.1590040;
+                    }
+
                 }
                 //http://api.wunderground.com/api/ac6d819f785ccfa5/forecast10day/lang:SP/q/-34.8172490,-56.1590040.json
                 lLinkAPIWUnderground = "http://api.wunderground.com/api/ac6d819f785ccfa5/forecast10day/lang:SP/q/" + lLatitude + "," + lLongitude + ".json";
@@ -1060,15 +1298,14 @@ namespace IrrigationAdvisor.Controllers
                     lJson = sr.ReadToEnd();
                 }
 
-                // Json To C#  DeserializeJsno to IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject
-                lJsonObj = JsonConvert.DeserializeObject<ResultUnderGroundToSharp.RootObject>(lJson);
+                // Json To C#  DeserializeJsno to IrrigationAdvisor.Models.Weather.WUndergroundForecast10daysResultToCSharp.RootObject
+                lJsonObj = JsonConvert.DeserializeObject<WUndergroundForecast10daysResultToCSharp.RootObject>(lJson);
 
                 // Iterate ForecastDay
                 foreach (var item in lJsonObj.forecast.simpleforecast.forecastday)
                 {
                     if (lGridWeatherList.Count <= 2)
                     {
-                        lCity = item.city;
                         lTempHigh = item.high.celsius;
                         lTempLow = item.low.celsius;
                         lMonth = item.date.month.ToString();
@@ -1077,8 +1314,7 @@ namespace IrrigationAdvisor.Controllers
                         lDescription = item.conditions;
                         lProbabilityRain = item.pop.ToString();
                         lRainMM = item.qpf_allday.mm.ToString();
-                        lGridWeatherList.Add(new ResultUnderGroundToSharp
-                                                        .GridWeather(lCity, lTempHigh, lTempLow, lWeekday, lMonth,
+                        lGridWeatherList.Add(new GridWeather(lTempHigh, lTempLow, lWeekday, lMonth,
                                                         lURLImage, lDescription, lProbabilityRain, lRainMM));
                     }
                 }
@@ -1089,12 +1325,67 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
 
             return lReturn;
         }
 
+
+        //public List<GridWeather> GetWeather()
+        //{
+
+        //    List<IrrigationAdvisor.Models.Weather.GridWeather> GridWeatherList = new List<IrrigationAdvisor.Models.Weather.GridWeather>();
+
+        //    String city = string.Empty;
+        //    String high = string.Empty;
+        //    String low = string.Empty;
+        //    String weekday = string.Empty;
+        //    String month = string.Empty;
+        //    String urlImage = string.Empty;
+        //    String description = string.Empty;
+        //    String probabilityRain = string.Empty;
+        //    String mmRain = string.Empty;
+
+
+        //    // TODO Replace Url To web Config Diego E.
+        //    HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://api.wunderground.com/api/ac6d819f785ccfa5/forecast10day/lang:SP/q/-34.8172490,-56.1590040.json");
+        //    httpWebRequest.Method = WebRequestMethods.Http.Get;
+        //    httpWebRequest.Accept = "application/json";
+        //    var response = (HttpWebResponse)httpWebRequest.GetResponse();
+
+        //    string json = string.Empty;
+        //    using (var sr = new StreamReader(response.GetResponseStream()))
+        //    {
+        //        json = sr.ReadToEnd();
+        //    }
+
+        //    // Json To C#  DeserializeJsno to IrrigationAdvisor.Models.Weather.ResultUnderGroundToSharp.RootObject
+        //    WUndergroundForecast10daysResultToCSharp.RootObject jsonObj = JsonConvert.DeserializeObject<IrrigationAdvisor.Models.Weather.WUndergroundForecast10daysResultToCSharp.RootObject>(json);
+
+        //    // Iterate ForecastDay
+        //    foreach (var item in jsonObj.forecast.simpleforecast.forecastday)
+        //    {
+        //        if (GridWeatherList.Count <= 2)
+        //        {
+        //            high = item.high.celsius;
+        //            low = item.low.celsius;
+        //            month = item.date.month.ToString();
+        //            weekday = item.date.weekday;
+        //            urlImage = "//icons.wxug.com/i/c/v4/" + item.icon + ".svg";
+        //            description = item.conditions;
+        //            probabilityRain = item.pop.ToString();
+        //            mmRain = item.qpf_allday.mm.ToString();
+        //            GridWeatherList.Add(new GridWeather(high, low, weekday, month, urlImage, description, probabilityRain, mmRain));
+        //        }
+        //    }
+
+
+
+        //    return GridWeatherList;
+        //}
+
+        #endregion
     }
 }
