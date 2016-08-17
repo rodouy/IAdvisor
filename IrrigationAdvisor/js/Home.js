@@ -1,7 +1,6 @@
 ﻿
 $(document).ready(function () {
 
-
     var MILIMETERS_ERROR = 'La cantidad de milimetros tiene que ser mayor a 0 y menor que 100';
     var MANDATORY_MILMETERS = 'Los milimetros son obligatorios';
 
@@ -19,15 +18,38 @@ $(document).ready(function () {
     var txtDateOfReference = $('#txtDateOfReference');
     var maxDateOfReference = $('#maxDateOfReference');
     var minDateOfReference = $('#minDateOfReference');
-    
+    var addIrrigationModal = $('#addIrrigationModal');
+    var addPhenoModal = $('#addPhenoModal');
+    var addRainModal = $('#addRainModal');
+    var modalIrrigation = $('#modal');
+    var modalRain = $('#modal-lluvia');
+    var modalPheno = $('#modal-fenologia');
+    var cancelIrrigation = $('#CancelIrrigation');
+
+    addIrrigationModal.hide();
+    addRainModal.hide();
+    addPhenoModal.hide();
+
+    $.getScript("https://code.jquery.com/ui/1.12.0/jquery-ui.js", function () {
+        var addIrrigationModal = $('#addIrrigationModal');
+        var addRainModal = $('#addRainModal');
+        var addPhenoModal = $('#addPhenoModal');
+        addIrrigationModal.show();
+        addRainModal.show();
+        addPhenoModal.show();
+    });
 
     $('#loading').modal({
         keyboard: false,
         backdrop: 'static'
     })
 
-   
+    var initModal = { backdrop: false, show: false };
 
+    modalIrrigation.modal(initModal);
+    modalRain.modal(initModal);
+    modalPheno.modal(initModal);
+    
     var showLoading = function()
     {
         $('#loading').modal('show');
@@ -38,6 +60,26 @@ $(document).ready(function () {
     {
         $('#loading').modal('hide');
     }
+
+    
+    addIrrigationModal.click(function () {
+        modalIrrigation.modal('show');
+        $('.modal-content').draggable();
+    });
+
+    addRainModal.click(function () {
+        modalRain.modal('show');
+        $('.modal-content').draggable();
+    });
+
+    modalPheno.click(function () {
+        modalPheno.modal('show');
+        $('.modal-content').draggable();
+    });
+
+    cancelIrrigation.click(function () {
+        modalIrrigation.modal('hide');
+    });
 
     hideLoading();
 
