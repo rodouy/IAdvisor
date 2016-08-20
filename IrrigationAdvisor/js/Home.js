@@ -26,6 +26,7 @@ $(document).ready(function () {
     var modalPheno = $('#modal-fenologia');
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
+    var cancelPheno = $('#CancelPheno');
 
     addIrrigationModal.hide();
     addRainModal.hide();
@@ -73,7 +74,7 @@ $(document).ready(function () {
         $('.modal-content').draggable();
     });
 
-    modalPheno.click(function () {
+    addPhenoModal.click(function () {
         modalPheno.modal('show');
         $('.modal-content').draggable();
     });
@@ -84,6 +85,10 @@ $(document).ready(function () {
 
     cancelRain.click(function () {
         modalRain.modal('hide');
+    });
+
+    cancelPheno.click(function () {
+        modalPheno.modal('hide');
     });
 
     hideLoading();

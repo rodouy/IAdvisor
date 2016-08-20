@@ -107,7 +107,7 @@
                             }
 
                         }
-                       
+
                     </div>
                     <!-- Grid -->
                     <div class="table-asignment">
@@ -336,52 +336,53 @@
                     <!-- end modal agregar lluvia --->
                     <!-- modal agregar fenologia--->
                     <div id="modal-fenologia" class="modal fade" role="dialog">
-                        <div class="modal-content">
-                            <div class="header">
-                                <h2>Agregar Fenología</h2>
-                            </div>
-                            <div class="copy">
-                                <p> </p>
-                                <form role="form">
-                                    <div class="form-group">
-                                        <div class="dropdown">
-                                            Seleccione una Fecha
-                                            <select id="phenoDate">
-                                                @for (int i = -1; i >= -IrrigationAdvisor.Models.Data.InitialTables.DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE; i--)
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="header">
+                                    <h2>Agregar Fenología</h2>
+                                </div>
+                                <div class="copy">
+                                    <p> </p>
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <div class="dropdown">
+                                                Seleccione una Fecha
+                                                <select id="phenoDate">
+                                                    @for (int i = -1; i >= -IrrigationAdvisor.Models.Data.InitialTables.DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE; i--)
                                                 {
-                                                    <option value="@(dateValue.AddDays(i).Month + "/" + dateValue.AddDays(i).Day + "/" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToShortDateString())</option>
+                                                        <option value="@(dateValue.AddDays(i).Month + "/" + dateValue.AddDays(i).Day + "/" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToShortDateString())</option>
                                                 }
 
-                                            </select>
+                                                </select>
+                                                <br />
+                                            </div>
                                             <br />
-                                        </div>
-                                        <br />
-                                        <div class="dropdown">
-                                            Contexto de cosecha
-                                            <select id="CropIrriWeatherPheno">
-                                                @foreach (var item in Model.CropIrrigationWeatherViewModelList)
+                                            <div class="dropdown">
+                                                Contexto de cosecha
+                                                <select id="CropIrriWeatherPheno">
+                                                    @foreach (var item in Model.CropIrrigationWeatherViewModelList)
                                                 {
-                                                    <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
+                                                        <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
                                                 }
-                                            </select>
+                                                </select>
 
+                                                <br />
+                                            </div>
                                             <br />
+                                            <div class="dropdown">
+                                                Seleccionar Fenología
+                                                <select id="StagePheno"></select>
+                                                <br />
+                                            </div>
                                         </div>
-                                        <br />
-                                        <div class="dropdown">
-                                            Seleccionar Fenología
-                                            <select id="StagePheno"></select>
-                                            <br />
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="cf footer">
-                                <p> <a href="#" class="btn  btn-style-2">Cancelar</a></p>
-                                <a type="button" class="btn btn-success" href="#" id="savePhenoBtn">Guardar</a>
+                                    </form>
+                                </div>
+                                <div class="cf footer">
+                                    <p> <button class="btn  btn-style-2" id="CancelPheno">Cancelar</button></p>
+                                    <button class="btn btn-success" id="savePhenoBtn">Guardar</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="overlay"></div>
                     </div>
                     <!-- end modal agregar fenologia --->
                 
