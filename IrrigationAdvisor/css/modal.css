@@ -1,7 +1,7 @@
 
 #modal {
 	margin:0;
-	width:80%;
+	/*width:80%;*/
 	box-sizing:border-box;
 	transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
@@ -10,7 +10,7 @@
 }
 #modal-lluvia {
 	margin:0;
-	width:80%;
+	/*width:80%;*/
 	box-sizing:border-box;
 	transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
@@ -19,7 +19,7 @@
 }
 #modal-fenologia {
 	margin:0;
-	width:80%;
+	/*width:80%;*/
 	box-sizing:border-box;
 	transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
