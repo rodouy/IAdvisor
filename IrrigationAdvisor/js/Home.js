@@ -25,6 +25,7 @@ $(document).ready(function () {
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
     var cancelIrrigation = $('#CancelIrrigation');
+    var cancelRain = $('#CancelRain');
 
     addIrrigationModal.hide();
     addRainModal.hide();
@@ -79,6 +80,10 @@ $(document).ready(function () {
 
     cancelIrrigation.click(function () {
         modalIrrigation.modal('hide');
+    });
+
+    cancelRain.click(function () {
+        modalRain.modal('hide');
     });
 
     hideLoading();
@@ -283,7 +288,7 @@ $(document).ready(function () {
 
             $('#rainMilimetersError').html('');
             if (milimeters >= minValue && milimeters <= maxValue) {
-
+                modalRain.modal('hide');
                 var rainDate = moment($('#rainDate :selected').val(), 'MM/DD/YYYY');
                 saveRainBtn.attr('disabled', true);
                 rainMilimeters.attr('disabled', true);
@@ -330,6 +335,7 @@ $(document).ready(function () {
                 saveIrrigationBtn.attr('disabled', true);
                 irrigationMilimeters.attr('disabled', true);
                 showLoading();
+                modalIrrigation.modal('hide');
                 addIrrigation(irrigationMilimeters.val(),
                                 $('#IrrigationUnitIrrigation :selected').val(),
                                 irrigationDate);
