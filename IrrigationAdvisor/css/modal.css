@@ -1,3 +1,9 @@
+#txtDateOfReference
+{
+    position:relative;  
+    bottom:8px;
+    font-weight: bold;
+}
 
 #modal {
 	margin:0;
@@ -148,9 +154,10 @@
 
 .form-control {
     display: block;
-    width: 50%;
+    /*width: 21%;*/
+        width: 40%;
     height: 34px;
-    padding: 6px 12px;
+    /*padding: 6px 12px;*/
     font-size: 13px;
     line-height: 1.42857;
     color: #555;
@@ -211,7 +218,10 @@
 }
 
 @media screen and (max-width: 767px) {
-	
+
+    .form-control {
+        width:50%;
+    }
 	#modal-fenologia:target {
     opacity: 1;
     top: 20%;

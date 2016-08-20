@@ -197,7 +197,7 @@ padding:10px;
 .container-images{
 	
 	background-color: #FFF;
-float: left;
+/*float: left;*/
 /*padding: 15px;*/
 margin-top: 10px;
 padding-bottom: 10px;
@@ -994,7 +994,8 @@ footer#footer.footer-style-2 {
 .mod-reference{
 	background-color: #FFF;
 margin-top: 10px;
-padding: 40px;
+padding-top:40px;
+padding-bottom:40px;
 position: relative;
 padding-left:0px;
 display: -moz-inline-box;
@@ -1012,7 +1013,7 @@ margin-left: 20px;
 padding: 5px;
 text-align: center;
 margin-top: 30px;
-float:left;
+/*float:left;*/
 padding-left: 10px;
 padding-right: 10px;
 }
@@ -1029,7 +1030,7 @@ margin-left: 20px;
 padding: 5px;
 text-align: center;
 margin-top: 30px;
-float:left;
+/*float:left;*/
 padding-left: 10px;
 padding-right: 10px;
 }
@@ -1046,7 +1047,7 @@ margin-left: 20px;
 padding: 5px;
 text-align: center;
 margin-top: 30px;
-float:left;
+/*float:left;*/
 padding-left: 10px;
 padding-right: 10px;
 }
@@ -1064,7 +1065,7 @@ margin-left: 20px;
 padding: 5px;
 text-align: center;
 margin-top: 30px;
-float:left;
+/*float:left;*/
 padding-right: 10px;
 }
 
@@ -1542,7 +1543,7 @@ ding-bottom: 60%;
   .container-images {
   /*  width: 100%;*/
     background-color: #FFF;
-    float: left;
+    /*float: left;*/
   /*  padding: 15px;*/
     margin-top: 10px;
 }

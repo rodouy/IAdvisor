@@ -186,6 +186,13 @@ width-37-percent{
 	}
 }
 
+.main-table-advisor th
+{
+    text-align:center !important;
+}
 
 
-
+#addIrrigationModal
+{
+    margin-right:6px;
+}

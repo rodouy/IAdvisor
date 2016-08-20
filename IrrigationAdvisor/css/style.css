@@ -132,7 +132,7 @@ color:#fff;
 background: #38B6E0 none repeat scroll 0% 0%;
 padding: 10px;
 margin: 5px auto;
-width: 340px;
+/*width: 340px;*/
 border-radius: 1px;
 			}
 #example-home {
@@ -475,7 +475,7 @@ padding:10px;
 .container-images{
 	/*width:30%;*/
 	background-color: #FFF;
-float: left;
+/*float: left;*/
 /*padding: 15px;*/
 margin-top: 10px;
 padding-bottom: 10px;
@@ -1553,9 +1553,6 @@ padding: 20px 0px 40px;
 margin-top: 10px;
 width: 100%;
 }
-.col-md-8{
-	padding-left:0px;
-}
 
 .regado{
 	/*width:15%;*/
@@ -1628,6 +1625,7 @@ padding-right: 10px;
     /* float: left; */
     /* padding: 0; */
     display: inline-flex;
+    width:100%;
 }
 
 
@@ -2665,7 +2663,7 @@ padding-right:0px;
   .container-images {
   margin-left: 5px;
     background-color: #FFF;
-    float: left;
+    /*float: left;*/
   /*  padding: 15px;*/
     margin-top: 10px;
 }

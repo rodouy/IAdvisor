@@ -67,7 +67,7 @@
 
                 </div>
                 @:<div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="avatar-acount">
                 <div class="info-acount">
                     <h3 class="fa fa-dashboard fa-2x"> Pivots </h3>
@@ -76,12 +76,12 @@
 
                         
                         <div style="color:black" class="btn-md">
-                            <div class="col-xs-7">
+                            <div class="col-xs-8 col-md-5 col-lg-5">
                                 @*<span class="form-control col-md-4">@(dateValue.ToShortDateString())</span>*@
-                                <input type="date" id="txtDateOfReference" class="form-control col-xs-6 width-37-percent" value="@Model.DateOfRefernceAsLocal()" />
+                                <input type="date" id="txtDateOfReference" class="form-control" value="@Model.DateOfRefernceAsLocal()" style="display:inline-block" />
                                 
-                                <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn">+</a>
-                                <button class="btn go btn-pivots " id="dateOfReferenceBtn2">Actualizar</button>
+                                <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn" style="display:inline-block">+</a>
+                                <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
                             </div>
                             <div style="float:right">
                                 <button class="btn go btn-pivots btn-md" id="addRainModal">
@@ -121,7 +121,7 @@
                                     <!-- Table -->
                                     <div class="table-body">
                                         <!--table-->
-                                        <table cellspacing="10">
+                                        <table cellspacing="10" class="main-table-advisor">
                                             <thead>
                                                 <tr>
                                                     @{ Html.RenderAction("FrontPageHeaderPartial", "Home"); }
@@ -143,16 +143,41 @@
             <!--reference-->
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12" style="padding-left: 0">
                         <div class="mod-reference">
                             <div class="title-reference">
                                 <h3 class="fa fa-list fa-2x"> Referencias</h3>
-                                <div class="regado"><h5>Campo regado</h5></div>
-                                <div class="proximo-riego"><h5>Próximo riego</h5></div>
-                                <div class="lluvia-registrada"><h5>Lluvia</h5></div>
-                                <div class="por-defecto"><h5>Sin Riego</h5></div>
+                                <div class="regado col-md-3"><h5>Campo regado</h5></div>
+                                <div class="proximo-riego col-md-3"><h5>Próximo riego</h5></div>
+                                <div class="lluvia-registrada col-md-3"><h5>Lluvia</h5></div>
+                                <div class="por-defecto col-md-3"><h5>Sin Riego</h5></div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                        <div class="col-md-6">
+                            <div id="embed-map-canvas">
+                                <iframe  frameborder="0" style="width: 100%; height: 288px; margin-top: 10px"
+                                        src="http://maps.google.com/maps?z=13&t=h&q=loc:-33.023674,+-57.514196&output=embed"></iframe>
+                            </div>
+                            
+                        </div>
+                    <div class="col-md-6">
+                        <section class="pivot-ub">
+                            <div class="container-images">
+                                <div>
+                                    <div class="location-pivot">
+                                        <h3 class="fa fa-cloud fa-2x"> Clima </h3>
+                                    </div>
+                                    <div id="example">
+                                        @{ Html.RenderAction("WeatherHomePartial", "Home"); }
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -163,22 +188,7 @@
             <section class="pivot-ub">
                 <div class="container-images-location">
                     <div class="col-md-4">
-                        <div class="location-pivot">
-                            <div style="height:500px;width:400px;max-width:100%;list-style:none; transition: none;overflow:hidden;">
-                                <div id="embed-map-canvas" style="height:100%; width:80%;max-width:80%;">
-                                    <iframe style="height:100%;width:100%;border:0;" frameborder="0" 
-                                            src="http://maps.google.com/maps?z=13&t=h&q=loc:-33.023674,+-57.514196&output=embed"></iframe>
-                                </div>
-                                @*<a class="google-code" rel="nofollow" href="https://www.bootstrapskins.com" id="get-map-data"></a>
-                                    <style>
-                                        #embed-map-canvas .map-generator {
-                                            max-width: 100%;
-                                            max-height: 100%;
-                                            background: none;
-                                        }
-                                    </style>*@
-                            </div>
-                        </div>
+                        
                         @*<div class="location-pivot">
                                 <h3 class="fa fa-location-arrow fa-2x"> Ubicación </h3>
                             </div>
@@ -188,18 +198,7 @@
             </section>
             <!-- end Location pivots-->
             <!-- weather-->
-            <section class="pivot-ub">
-                <div class="container-images">
-                    <div class="col-md-4">
-                        <div class="location-pivot">
-                            <h3 class="fa fa-cloud fa-2x"> Clima </h3>
-                        </div>
-                        <div id="example">
-                            @{ Html.RenderAction("WeatherHomePartial", "Home"); }
-                        </div>
-                    </div>
-                </div>
-            </section>
+            
             <!-- end weather-->
         </div>
     
