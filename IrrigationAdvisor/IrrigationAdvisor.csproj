@@ -326,11 +326,15 @@
     <Compile Include="Models\Utilities\Utils.cs" />
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
-    <Compile Include="Models\Weather\ResultUnderGroundToSharp.cs" />
+    <Compile Include="ViewModels\Weather\GridWeather.cs" />
     <Compile Include="Models\Weather\TemperatureData.cs" />
     <Compile Include="Models\Weather\WeatherData.cs" />
     <Compile Include="Models\Weather\WeatherInformation.cs" />
     <Compile Include="Models\Weather\WeatherStation.cs" />
+    <Compile Include="ViewModels\Weather\WeatherDataToShow.cs" />
+    <Compile Include="ViewModels\Weather\WUndergroundAstronomyResultToCSharp.cs" />
+    <Compile Include="ViewModels\Weather\WUndergroundConditionsResultToCSharp.cs" />
+    <Compile Include="ViewModels\Weather\WUndergroundForecast10daysResultToCSharp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs" />
     <Compile Include="Startup.cs" />
@@ -369,6 +373,7 @@
     <Compile Include="ViewModels\Water\WaterInputViewModel.cs" />
     <Compile Include="ViewModels\Water\WaterOutputViewModel.cs" />
     <Compile Include="ViewModels\Weather\WeatherStationViewModel.cs" />
+    <Compile Include="ViewModels\Weather\WUndergroundGeolookupResultToCSharp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -417,7 +422,7 @@
     <Content Include="fonts\metro.ttf" />
     <Content Include="fonts\metro.woff" />
     <Content Include="fonts\selection.json" />
-    <Content Include="js\Geolocation.js" />
+    <Content Include="js\geolocation.js" />
     <Content Include="js\Home.js" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
