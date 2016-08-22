@@ -90,6 +90,8 @@ namespace IrrigationAdvisor.Controllers
             User lLoggedUser;
             List<Farm> lFarmList;
             Farm lFirstFarm;
+            Double lFirstFarmLatitude;
+            Double lFirstFarmLongitude;
             List<FarmViewModel> lFarmViewModelList;
             List<Bomb> lBombList;
             List<IrrigationUnit> lIrrigationUnitList;
@@ -103,7 +105,8 @@ namespace IrrigationAdvisor.Controllers
             List<DailyRecordViewModel> lDailyRecordViewModelList;
             List<RainViewModel> lRainViewModelList;
             List<IrrigationViewModel> lIrrigationViewModelList;
-            
+
+            List<CropIrrigationWeather> lCropIrrigationWeatherVM;
             #endregion
 
             try 
@@ -157,7 +160,7 @@ namespace IrrigationAdvisor.Controllers
 
                 //Get list of Farms from User
                 lFarmList = fc.GetFarmListBy(lLoggedUser);
-
+                
                 lErrorVM = new ErrorViewModel();
 
                 // If the user doesnt have farms
@@ -190,6 +193,8 @@ namespace IrrigationAdvisor.Controllers
                 }
 
                 lFirstFarm = lFarmList.FirstOrDefault();
+                lFirstFarmLatitude = fc.GetLatitudeBy(lFirstFarm.PositionId);
+                lFirstFarmLongitude = fc.GetLongitudeBy(lFirstFarm.PositionId);
                 lFarmViewModel = new FarmViewModel(lFirstFarm);
                 lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lFirstFarm);
 
@@ -229,12 +234,12 @@ namespace IrrigationAdvisor.Controllers
                     lDailyRecordViewModelList.Add(new DailyRecordViewModel(daily));
                 }
 
-                List<CropIrrigationWeather> cropIrrigationVM = new List<CropIrrigationWeather>();
-                cropIrrigationVM.Add(lFirstCropIrrigationWeather);
+                lCropIrrigationWeatherVM = new List<CropIrrigationWeather>();
+                lCropIrrigationWeatherVM.Add(lFirstCropIrrigationWeather);
                 //Demo - One Pivot
                 lHVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
-                    lFarmViewModel, cropIrrigationVM, lDailyRecordViewModelList,
-                    lRainViewModelList, lIrrigationViewModelList, 
+                    lFarmViewModel, lFirstFarmLatitude, lFirstFarmLongitude, lCropIrrigationWeatherVM, 
+                    lDailyRecordViewModelList, lRainViewModelList, lIrrigationViewModelList, 
                     lMinDateOfReference, lMaxDateOfReference);
 
                 //Create View Model of Home
@@ -312,7 +317,7 @@ namespace IrrigationAdvisor.Controllers
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
             
         }
@@ -676,60 +681,7 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("_ContactPartial");
         }
 
-        public ActionResult SaveDetailedInfo(string mensaje, string nombre, string email)
-        {
-            System.Net.Mail.MailMessage mail;
-            var emailUser = new StringBuilder();;
-            string EmailUserLineFormat;
-            SmtpClient server;
-
-            mail = new System.Net.Mail.MailMessage();
-
-            //set the addresses
-            mail.From = new MailAddress(email);
-            mail.To.Add(email);
-
-            //set the content
-            mail.Subject = "Valorem - Start a project";
-
-            //Generate an email message object to send
-            emailUser = new StringBuilder();
-            EmailUserLineFormat = "<p>{0}</p>";
-
-            emailUser.AppendFormat(EmailUserLineFormat, mensaje);
-
-            server = new SmtpClient();
-            server.EnableSsl = true;
-            server.Host = "smtp.live.com";
-            server.Port = 587;
-            server.UseDefaultCredentials = false;
-
-            server.EnableSsl = true;
-            server.Credentials = new System.Net.NetworkCredential("despinosa@overactiveinc.com", "Diego4749");
-            server.Timeout = 5000;
-
-            //send the message
-
-            server.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-            server.Send(mail);
-
-            //Send the email to User
-            //library.SendMail(username, model.EmailFrom, "Valorem - Start a project", emailUser.ToString(), true);
-
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception caught in CreateTestMessage2(): {0}",
-                            ex.ToString());
-            }
-
-            return Json(new { status = "Success", message = "Success" });
-        }
-
+        #region Grid Pivot Home
 
         private readonly List<GridPivotHome> gridIrrigationUnitHomeList = new List<GridPivotHome>();
 
@@ -799,7 +751,6 @@ namespace IrrigationAdvisor.Controllers
 
         }
 
-        
         /// <summary>
         /// Return Grid Irrigation Unit for Home
         /// </summary>
@@ -889,7 +840,6 @@ namespace IrrigationAdvisor.Controllers
                         lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
                         if(i == 0) //TODAY
                         {
-
                             lPhenologicalStageToday = lGridIrrigationUnitRow.Phenology;
                         }
                     }
@@ -915,9 +865,6 @@ namespace IrrigationAdvisor.Controllers
 
         }
 
-        
-
-
         /// <summary>
         /// Add Grid Irrigation Unit only with day
         /// </summary>
@@ -936,7 +883,7 @@ namespace IrrigationAdvisor.Controllers
             Double lForcastIrrigationQuantity = 0;
             DateTime lDateOfData = Utils.MIN_DATETIME;
             bool lIsToday = false;
-            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Gray;
+            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Default;
             String lPhenology = "";
 
             lDateOfData = pDayOfData;
@@ -967,81 +914,106 @@ namespace IrrigationAdvisor.Controllers
             Double lIrrigationQuantity = 0;
             Double lRainQuantity = 0;
             Double lForcastIrrigationQuantity = 0;
+            Double lWaterQuantity = 0;
             DateTime lDateOfData = Utils.MIN_DATETIME;
             bool lIsToday = false;
-            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Gray;
+            Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Default;
             String lPhenology = "";
 
             Models.Water.Irrigation lIrrigation;
             Rain lRain;
             DailyRecord lDailyRecord;
-
-            lDateOfData = pDayOfData;
-
-            //Find Irrigation of the Date of Data
-            lIrrigation = pIrrigationList.Where(ir => ir.Date == lDateOfData).FirstOrDefault();
-            if (lIrrigation != null && lIrrigation.Input > 0 && pDayOfData < pDayOfReference)
+            try
             {
-                lIrrigationQuantity = lIrrigation.Input;
-            }
 
-            lIrrigation = pIrrigationList.Where(ir => ir.ExtraDate == lDateOfData).FirstOrDefault();
-            if (lIrrigation != null && lIrrigation.ExtraInput > 0 && pDayOfData < pDayOfReference)
-            {
-                lIrrigationQuantity += lIrrigation.ExtraInput;
-            }
-            //Find Rain of the Date of Data
-            lRain = pRainList.Where(r => r.Date == lDateOfData).FirstOrDefault();
-            if (lRain != null && lRain.Input > 0)
-            {
-                lRainQuantity = lRain.Input;
-            }
+                lDateOfData = pDayOfData;
 
-            //Find Daily Record of the Date of Data
-            lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime == lDateOfData).FirstOrDefault();
-            if (lDailyRecord != null && pDayOfData >= pDayOfReference)
-            {
-                if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
+                #region Irrigation in the past
+                //Find Irrigation of the Date of Data
+                lIrrigation = pIrrigationList.Where(ir => ir.Date == lDateOfData).FirstOrDefault();
+                if (lIrrigation != null && lIrrigation.Input > 0 && lDateOfData < pDayOfReference)
                 {
-                    lForcastIrrigationQuantity += lDailyRecord.Irrigation.Input;
+                    lIrrigationQuantity = lIrrigation.Input;
                 }
-                else if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.ExtraInput > 0)
+
+                lIrrigation = pIrrigationList.Where(ir => ir.ExtraDate == lDateOfData).FirstOrDefault();
+                if (lIrrigation != null && lIrrigation.ExtraInput > 0 && lDateOfData < pDayOfReference)
                 {
-                    lForcastIrrigationQuantity += lDailyRecord.Irrigation.ExtraInput;
+                    lIrrigationQuantity += lIrrigation.ExtraInput;
                 }
-            }
+                #endregion
 
-            lIsToday = pDayOfData == pDayOfReference;
+                lWaterQuantity = lIrrigationQuantity;
 
-            if(lIsToday)
-            {
-                lPhenology = lDailyRecord.PhenologicalStage.Stage.ShortName;
-            }
+                #region Rain
+                //Find Rain of the Date of Data
+                lRain = pRainList.Where(r => r.Date == lDateOfData).FirstOrDefault();
+                if (lRain != null && lRain.Input > 0)
+                {
+                    lRainQuantity = lRain.Input;
+                }
+                #endregion
 
-            if(lRainQuantity > 0)
-            {
-                lIrrigationStatus = Utils.IrrigationStatus.Cyan;
-            }
-            else if(lIrrigationQuantity > 0)
-            {
-                lIrrigationStatus = Utils.IrrigationStatus.Blue;
-            }
-            else if(lForcastIrrigationQuantity > 0)
-            {
-                lIrrigationStatus = Utils.IrrigationStatus.Green;
-            }
-            else
-            {
-                lIrrigationStatus = Utils.IrrigationStatus.Gray;
-            }
+                lWaterQuantity += lRainQuantity;
 
-            lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
-                                                            lDateOfData, lIsToday, lIrrigationStatus,
-                                                            lPhenology);
+                #region Irrigation for today or in the future
+                //Find Daily Record of the Date of Data
+                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime == lDateOfData).FirstOrDefault();
+                if (lDailyRecord != null && lDateOfData >= pDayOfReference)
+                {
+                    if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
+                    {
+                        lForcastIrrigationQuantity += lDailyRecord.Irrigation.Input;
+                    }
+                    else if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.ExtraInput > 0)
+                    {
+                        lForcastIrrigationQuantity += lDailyRecord.Irrigation.ExtraInput;
+                    }
+                }
+                #endregion
+
+                lWaterQuantity += lForcastIrrigationQuantity;
+
+                lIsToday = lDateOfData == pDayOfReference;
+
+                if (lIsToday)
+                {
+                    lPhenology = lDailyRecord.PhenologicalStage.Stage.ShortName;
+                }
+
+                if (lRainQuantity > 0 && lRainQuantity >= (lWaterQuantity - lRainQuantity))
+                {
+                    lIrrigationStatus = Utils.IrrigationStatus.Rain;
+                }
+                else if (lIrrigationQuantity > 0 && lIrrigationQuantity > lRainQuantity)
+                {
+                    lIrrigationStatus = Utils.IrrigationStatus.Irrigated;
+                }
+                else if (lForcastIrrigationQuantity > 0 && lForcastIrrigationQuantity > lRainQuantity)
+                {
+                    lIrrigationStatus = Utils.IrrigationStatus.NextIrrigation;
+                }
+                else
+                {
+                    lIrrigationStatus = Utils.IrrigationStatus.Default;
+                }
+
+                lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
+                                                                lDateOfData, lIsToday, lIrrigationStatus,
+                                                                lPhenology);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message, ex);
+                
+                throw ex;
+            } 
+            
             return lReturn;
         }
 
-
+        #endregion
 
         #region Weather
 
@@ -1058,8 +1030,8 @@ namespace IrrigationAdvisor.Controllers
             List<Farm> lFarmList;
             Farm lFirstFarm;
             long lPositionId;
-            Double lLatitude;
-            Double lLongitude;
+            String lLatitude;
+            String lLongitude;
             String lLinkAPIWUnderground;
             UserConfiguration uc;
             FarmConfiguration fc;
@@ -1105,8 +1077,6 @@ namespace IrrigationAdvisor.Controllers
             string lURL;
 
             Uri lMyUri;
-            string lStrLatitude;
-            string lStrLongitude;
             int lToday = 0;
 
             bool lCantGetWeatherData = false;
@@ -1131,32 +1101,24 @@ namespace IrrigationAdvisor.Controllers
                     lFirstFarm = lFarmList.FirstOrDefault();
                     lPositionId = lFirstFarm.PositionId;
 
-                    lLatitude = fc.GetLatitudeBy(lPositionId);
-                    lLongitude = fc.GetLongitudeBy(lPositionId);
+                    lLatitude = fc.GetLatitudeBy(lPositionId).ToString();
+                    lLongitude = fc.GetLongitudeBy(lPositionId).ToString();
                 }
                 else
                 {
                     lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
                     lMyUri = new Uri(lURL);
-                    lStrLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude");
-                    if(lStrLatitude != null)
-                    {
-                        lLatitude = Convert.ToDouble(lStrLatitude);
-                    }
-                    else
+                    lLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude");
+                    if(String.IsNullOrEmpty(lLatitude))
                     {
                         lCantGetWeatherData = true;
-                        lLatitude = -34.8172490;
+                        lLatitude = "-34.8172490";
                     }
-                    lStrLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude");
-                    if(lStrLongitude != null)
-                    {
-                        lLongitude = Convert.ToDouble(lStrLongitude);
-                    }
-                    else
+                    lLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude");
+                    if(String.IsNullOrEmpty(lLongitude))
                     {
                         lCantGetWeatherData = true;
-                        lLongitude = -56.1590040;
+                        lLongitude = "-56.1590040";
                     }
                 }
                 
@@ -1301,9 +1263,16 @@ namespace IrrigationAdvisor.Controllers
                     }
                     #endregion
 
-                    lWeatherDataToShow = new WeatherDataToShow(lCity, lURLImage, lConditions, lAverageTemperature,
-                                                    lDay, lSunriseTime, lSunsetTime, lTempHigh, lTempLow, lRelativeHumidity,
-                                                    lAverageWind, lPressure, lVisibility, lDewPoint, lWeatherDataItemList);
+                    if (lCantGetWeatherData)
+                    {
+                        lWeatherDataToShow = null;
+                    }
+                    else
+                    {
+                        lWeatherDataToShow = new WeatherDataToShow(lCity, lURLImage, lConditions, lAverageTemperature,
+                                                        lDay, lSunriseTime, lSunsetTime, lTempHigh, lTempLow, lRelativeHumidity,
+                                                        lAverageWind, lPressure, lVisibility, lDewPoint, lWeatherDataItemList);
+                    }
                 }
                 
                 lReturn = lWeatherDataToShow;
@@ -1331,8 +1300,8 @@ namespace IrrigationAdvisor.Controllers
             List<Farm> lFarmList;
             Farm lFirstFarm;
             long lPositionId;
-            Double lLatitude;
-            Double lLongitude;
+            String lLatitude;
+            String lLongitude;
             String lLinkAPIWUnderground;
             UserConfiguration uc;
             FarmConfiguration fc;
@@ -1378,8 +1347,6 @@ namespace IrrigationAdvisor.Controllers
             string lURL;
 
             Uri lMyUri;
-            string lStrLatitude;
-            string lStrLongitude;
             int lToday = 0;
 
             bool lCantGetWeatherData = false;
@@ -1404,32 +1371,24 @@ namespace IrrigationAdvisor.Controllers
                     lFirstFarm = lFarmList.FirstOrDefault();
                     lPositionId = lFirstFarm.PositionId;
 
-                    lLatitude = fc.GetLatitudeBy(lPositionId);
-                    lLongitude = fc.GetLongitudeBy(lPositionId);
+                    lLatitude = fc.GetLatitudeBy(lPositionId).ToString();
+                    lLongitude = fc.GetLongitudeBy(lPositionId).ToString();
                 }
                 else
                 {
                     lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
                     lMyUri = new Uri(lURL);
-                    lStrLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude");
-                    if (lStrLatitude != null)
-                    {
-                        lLatitude = Convert.ToDouble(lStrLatitude);
-                    }
-                    else
+                    lLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude");
+                    if (String.IsNullOrEmpty(lLatitude))
                     {
                         lCantGetWeatherData = true;
-                        lLatitude = -34.8172490;
+                        lLatitude = "-34.8172490";
                     }
-                    lStrLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude");
-                    if (lStrLongitude != null)
-                    {
-                        lLongitude = Convert.ToDouble(lStrLongitude);
-                    }
-                    else
+                    lLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude");
+                    if (String.IsNullOrEmpty(lLongitude))
                     {
                         lCantGetWeatherData = true;
-                        lLongitude = -56.1590040;
+                        lLongitude = "-56.1590040";
                     }
 
                 }
@@ -1575,9 +1534,16 @@ namespace IrrigationAdvisor.Controllers
                     }
                     #endregion
 
-                    lWeatherDataToShow = new WeatherDataToShow(lCity, lURLImage, lConditions, lAverageTemperature,
-                                                    lDay, lSunriseTime, lSunsetTime, lTempHigh, lTempLow, lRelativeHumidity,
-                                                    lAverageWind, lPressure, lVisibility, lDewPoint, lWeatherDataItemList);
+                    if (lCantGetWeatherData)
+                    {
+                        lWeatherDataToShow = null;
+                    }
+                    else 
+                    {
+                        lWeatherDataToShow = new WeatherDataToShow(lCity, lURLImage, lConditions, lAverageTemperature,
+                                                        lDay, lSunriseTime, lSunsetTime, lTempHigh, lTempLow, lRelativeHumidity,
+                                                        lAverageWind, lPressure, lVisibility, lDewPoint, lWeatherDataItemList);
+                    }
                 }
 
                 lReturn = lWeatherDataToShow;

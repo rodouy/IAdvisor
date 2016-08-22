@@ -34,18 +34,18 @@
 
         @foreach (var detail in Model.First().ListGridPivotDetailHome)
         {
-            if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Cyan)
+            if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Rain)
             {
                 @CustomRain(detail.IrrigationQuantity + detail.RainQuantity)
             }
-            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Blue)
+            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Irrigated)
             {
-                @CustomIrrigation(detail.IrrigationQuantity)
+                @CustomIrrigation(detail.IrrigationQuantity + detail.RainQuantity)
 
             }
-            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Green)
+            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NextIrrigation)
             {
-                @ForecastIrrigation(detail.ForecastIrrigationQuantity)
+                @ForecastIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity)
             }
             else
             {

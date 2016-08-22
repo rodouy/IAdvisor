@@ -30,6 +30,10 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         public FarmViewModel DefaultFarmViewModel { get; set; }
 
+        public Double DefaultFarmLatitude { get; set; }
+
+        public Double DefaultFarmLongitude { get; set; }
+
         public List<IrrigationUnitViewModel> IrrigationUnitViewModelList {get; set; }
 
         public List<RainViewModel> RainViewModelList { get; set; }
@@ -79,7 +83,8 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         public HomeViewModel(User pUser, List<FarmViewModel> pFarmList,
                             DateTime pDateOfReference,
-                            FarmViewModel pFirstFarm,
+                            FarmViewModel pFirstFarm, 
+                            Double pDefaultFarmLatitude, Double pDefaultFarmLongitude,
                             List<CropIrrigationWeather> pCropIrrigationWeatherList,
                             List<DailyRecordViewModel> pDailyRecordList,
                             List<RainViewModel> pRainList,
@@ -90,7 +95,9 @@ namespace IrrigationAdvisor.ViewModels.Home
             FarmViewModelList = pFarmList;
             DateOfReference = pDateOfReference;
             DefaultFarmViewModel = pFirstFarm;
-            
+            DefaultFarmLatitude = pDefaultFarmLatitude;
+            DefaultFarmLongitude = pDefaultFarmLongitude;
+
             IrrigationUnitViewModelList = DefaultFarmViewModel.IrrigationUnitViewModelList;
             
             TestIrrigationUnitViewModel = IrrigationUnitViewModelList.FirstOrDefault();
@@ -111,7 +118,6 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         #region Private Helpers
 
-
         #endregion
 
         #region Public Methods
@@ -120,23 +126,21 @@ namespace IrrigationAdvisor.ViewModels.Home
         /// Get Date of Reference
         /// </summary>
         /// <returns></returns>
-        public string DateOfRefernceAsLocal()
+        public String DateOfRefernceAsLocal()
         {
-            
             return Utils.GetDateTimeForClientScripts(DateOfReference);
-            
         }
 
         /// <summary>
         /// Get Min valid Date of Reference
         /// </summary>
         /// <returns></returns>
-        public string MinDateOfRefernceAsLocal()
+        public String MinDateOfRefernceAsLocal()
         {
             //YYYY-MM-DD
-            string lResult = null;
+            String lResult = null;
 
-            lResult = string.Format("{0}-{1}-{2}",
+            lResult = String.Format("{0}-{1}-{2}",
                                     MinDateOfReference.Year,
                                     MinDateOfReference.Month,
                                     MinDateOfReference.Day);
@@ -148,17 +152,43 @@ namespace IrrigationAdvisor.ViewModels.Home
         /// Get Max valid Date of Reference
         /// </summary>
         /// <returns></returns>
-        public string MaxDateOfRefernceAsLocal()
+        public String MaxDateOfRefernceAsLocal()
         {
             //YYYY-MM-DD
-            string lResult = null;
+            String lResult = null;
 
-            lResult = string.Format("{0}-{1}-{2}",
+            lResult = String.Format("{0}-{1}-{2}",
                                     MaxDateOfReference.Year,
                                     MaxDateOfReference.Month,
                                     MaxDateOfReference.Day);
 
             return lResult;
+        }
+
+        /// <summary>
+        /// Get String of DefaultFarmLatitude
+        /// </summary>
+        /// <returns></returns>
+        public String GetDefaultFarmLatitude()
+        {
+            String lReturn = null;
+
+            lReturn = DefaultFarmLatitude.ToString();
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get String of DefaultFarmLongitude
+        /// </summary>
+        /// <returns></returns>
+        public String GetDefaultFarmLongitude()
+        {
+            String lReturn = null;
+
+            lReturn = DefaultFarmLongitude.ToString();
+
+            return lReturn;
         }
 
         #endregion

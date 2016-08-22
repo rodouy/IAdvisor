@@ -78,6 +78,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
 
         #region Enums
+
         /// <summary>
         /// Roles Types.
         /// </summary>
@@ -98,7 +99,6 @@ namespace IrrigationAdvisor.Models.Utilities
             Standard = 3
 
         }
-
 
         /// <summary>
         /// Notification Types
@@ -229,23 +229,23 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// Rain data
             /// </summary>
-            Cyan, 
+            Rain, 
             /// <summary>
             ///  Irrigation data, not rain
             /// </summary>
-            Blue,
+            Irrigated,
             /// <summary>
             ///   Next irrigation
             /// </summary>
-            Green,
+            NextIrrigation,
             /// <summary>
             ///  Default, no irrigation nor rain
             /// </summary>
-            Gray,
+            Default,
             /// <summary>
             ///  Error
             /// </summary>
-            Red,
+            Error,
         }
         
         /// <summary>
@@ -391,7 +391,6 @@ namespace IrrigationAdvisor.Models.Utilities
             NONE,
         }
 
-        
 
         #endregion
 
@@ -906,14 +905,18 @@ namespace IrrigationAdvisor.Models.Utilities
             return lReturn;
         }
 
-        public static string GetDateTimeForClientScripts(DateTime pDate)
+        /// <summary>
+        /// Return DateTime for Client Scripts in format YYYY-MM-DD
+        /// </summary>
+        /// <param name="pDate"></param>
+        /// <returns></returns>
+        public static String GetDateTimeForClientScripts(DateTime pDate)
         {
-
             //YYYY-MM-DD
-            string lResult = null;
+            String lResult = null;
 
-            string lMonth = null;
-            string lDay = null;
+            String lMonth = null;
+            String lDay = null;
 
             if (pDate.Month < 10)
             {
@@ -933,7 +936,7 @@ namespace IrrigationAdvisor.Models.Utilities
                 lDay = pDate.Day.ToString();
             }
 
-            lResult = string.Format("{0}-{1}-{2}",
+            lResult = String.Format("{0}-{1}-{2}",
                                     pDate.Year,
                                     lMonth,
                                     lDay);
