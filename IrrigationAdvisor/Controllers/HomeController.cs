@@ -459,7 +459,7 @@ namespace IrrigationAdvisor.Controllers
                 lContext.SaveChanges();
 
 
-                return Content("Ok");
+               
 
             }
             catch (Exception ex)
@@ -467,6 +467,7 @@ namespace IrrigationAdvisor.Controllers
                 return Content(ex.Message);
             }
 
+            return Content("Ok");
         }
 
         [HttpGet]
@@ -527,14 +528,18 @@ namespace IrrigationAdvisor.Controllers
                         lSaveChanges = lContext.SaveChanges();
                     }
                 }
+
+                
             }
             catch (Exception ex)
             {
-                
-                throw ex;
+
+                return Content(ex.Message);
+
             }
 
-            return RedirectToAction("Home");
+            return Content("Ok");
+
         }
 
 
@@ -548,7 +553,6 @@ namespace IrrigationAdvisor.Controllers
 
             try
             {
-                
                 HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
                
                 DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
@@ -602,11 +606,12 @@ namespace IrrigationAdvisor.Controllers
             catch (Exception ex)
             {
 
-                throw ex;
+                return Content(ex.Message);
+                
             }
-            
 
-            return RedirectToAction("Home");
+
+            return Content("Ok");
         }
 
         [ChildActionOnly]

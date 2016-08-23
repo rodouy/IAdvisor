@@ -263,15 +263,14 @@ $(document).ready(function () {
                     location.href = "./home";
                 }
                 else {
-
-                    console.log("Error on irrigationUnitPheno.change");
+                    hideLoading();
+                    console.log(data);
                 }
 
             },
             error: function (data) {
-
-                console.log("Error on irrigationUnitPheno.change");
-
+                hideLoading();
+                console.log(data);
             }
         });
 
@@ -379,16 +378,24 @@ $(document).ready(function () {
         $.ajax({
             type: 'GET',
             url: pUrl,
-            success:function()
+            success:function(data)
             {
-                location.href = "./home";
-                //location.reload();
+                if (data == "Ok") {
+
+                    location.href = "./home";
+                }
+                else
+                {
+                    console.log(data);
+                    hideLoading();
+                }
+                
                 
             },
             error: function(data)
             {
-                
-                console.log("Error on AddRain");
+                hideLoading();
+                console.log(data);
                 //$('#myModal').modal('hide');
             }
         });
@@ -409,16 +416,23 @@ $(document).ready(function () {
         $.ajax({
             type: 'GET',
             url: pUrl,
-            success: function () {
+            success: function (data) {
+                if (data == "Ok") {
 
-                location.href = "./home";
-                //location.reload();
+                    location.href = "./home";
+                }
+                else
+                {
+                    console.log(data);
+                    hideLoading();
+                }
+                
 
             },
             error: function (data) {
-
-                console.log("Error on AddIrrigation");
-                $('#myModal').modal('hide');
+                hideLoading();
+                console.log(data);
+                //$('#myModal').modal('hide');
             }
         });
 
