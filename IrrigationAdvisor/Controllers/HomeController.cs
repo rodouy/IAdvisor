@@ -88,8 +88,8 @@ namespace IrrigationAdvisor.Controllers
             User lLoggedUser;
             List<Farm> lFarmList;
             Farm lFirstFarm;
-            Double lFirstFarmLatitude;
-            Double lFirstFarmLongitude;
+            String lFirstFarmLatitude;
+            String lFirstFarmLongitude;
             List<FarmViewModel> lFarmViewModelList;
             List<Bomb> lBombList;
             List<IrrigationUnit> lIrrigationUnitList;
@@ -113,7 +113,8 @@ namespace IrrigationAdvisor.Controllers
                 if(!pLoginViewModel.UserName.Equals(string.Empty))
                 {
                     ManageSession.SetLoginViewModel(pLoginViewModel);
-                }else
+                }
+                else
                 {
                     pLoginViewModel = ManageSession.GetLoginViewModel();
                 }
@@ -191,8 +192,8 @@ namespace IrrigationAdvisor.Controllers
                 }
 
                 lFirstFarm = lFarmList.FirstOrDefault();
-                lFirstFarmLatitude = fc.GetLatitudeBy(lFirstFarm.PositionId);
-                lFirstFarmLongitude = fc.GetLongitudeBy(lFirstFarm.PositionId);
+                lFirstFarmLatitude = fc.GetLatitudeBy(lFirstFarm.PositionId).ToString().Replace(",",".");
+                lFirstFarmLongitude = fc.GetLongitudeBy(lFirstFarm.PositionId).ToString().Replace(",", ".");
                 lFarmViewModel = new FarmViewModel(lFirstFarm);
                 lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lFirstFarm);
 

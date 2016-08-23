@@ -30,9 +30,9 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         public FarmViewModel DefaultFarmViewModel { get; set; }
 
-        public Double DefaultFarmLatitude { get; set; }
+        public String DefaultFarmLatitude { get; set; }
 
-        public Double DefaultFarmLongitude { get; set; }
+        public String DefaultFarmLongitude { get; set; }
 
         public List<IrrigationUnitViewModel> IrrigationUnitViewModelList {get; set; }
 
@@ -84,7 +84,7 @@ namespace IrrigationAdvisor.ViewModels.Home
         public HomeViewModel(User pUser, List<FarmViewModel> pFarmList,
                             DateTime pDateOfReference,
                             FarmViewModel pFirstFarm, 
-                            Double pDefaultFarmLatitude, Double pDefaultFarmLongitude,
+                            String pDefaultFarmLatitude, String pDefaultFarmLongitude,
                             List<CropIrrigationWeather> pCropIrrigationWeatherList,
                             List<DailyRecordViewModel> pDailyRecordList,
                             List<RainViewModel> pRainList,
@@ -173,7 +173,7 @@ namespace IrrigationAdvisor.ViewModels.Home
         {
             String lReturn = null;
 
-            lReturn = DefaultFarmLatitude.ToString();
+            lReturn = DefaultFarmLatitude.ToString().Replace(",",".");
 
             return lReturn;
         }
@@ -186,7 +186,7 @@ namespace IrrigationAdvisor.ViewModels.Home
         {
             String lReturn = null;
 
-            lReturn = DefaultFarmLongitude.ToString();
+            lReturn = DefaultFarmLongitude.ToString().Replace(",", ".");
 
             return lReturn;
         }

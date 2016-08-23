@@ -422,7 +422,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCity = "";
         #endregion
         #region Farms
-        public static String NameFarmDemo = "La Perdiz (Demo)";
+        public static String NameFarmDemo = "Perdiz (Demo)";
         public static String NameFarmSantaLucia = "Santa Lucia";
         public static String NameFarmLaPerdiz = "La Perdiz";
         public static String NameFarmDelLagoSanPedro = "Estancias Del Lago - San Pedro";
