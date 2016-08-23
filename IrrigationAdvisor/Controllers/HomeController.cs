@@ -29,12 +29,10 @@ using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.ViewModels.Water;
 using IrrigationAdvisor.Models.Weather;
 using IrrigationAdvisor.Models.Agriculture;
-using System.Data.Entity;
 using IrrigationAdvisor.DBContext.Agriculture;
 using IrrigationAdvisor.Models.Data;
 using IrrigationAdvisor.ViewModels.Agriculture;
 using IrrigationAdvisor.ViewModels.Weather;
-using IrrigationAdvisor.ViewModels.Irrigation;
 
 namespace IrrigationAdvisor.Controllers
 {

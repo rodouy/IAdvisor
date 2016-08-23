@@ -42,17 +42,22 @@
 
 <section class="content-bar ps-container">
     <div class="container">
-        <ul class="bar-resp" style="width: 713px;">
-            @{ if (Model.ErrorViewModel == null)
-                {
-                    <li> <a> <em class="icon md-flag"></em> Establecimiento: "@Model.DefaultFarmViewModel.Name" </a> </li>
-                    <li> <a> <em class="icon md-crop"></em> Área bajo riego: @Model.DefaultFarmViewModel.Has há </a> </li>
-                    <li> <a> <em class="icon md-time"></em> Última actualización: @(dateValue.ToShortDateString()) </a> </li>
-                }
+        <div class="col-md-11">
+            <div class="col-md-11">
+                <ul class="bar-resp">
+                    @{ if (Model.ErrorViewModel == null)
+                        {
+                            <li> <a> <em class="icon md-flag"></em> Establecimiento: "@Model.DefaultFarmViewModel.Name" </a> </li>
+                            <li> <a> <em class="icon md-crop"></em> Área bajo riego: @Model.DefaultFarmViewModel.Has há </a> </li>
+                            <li> <a> <em class="icon md-time"></em> Última actualización: @(dateValue.ToShortDateString()) </a> </li>
+                        }
 
-            }
-            
-        </ul>
+                    }
+                </ul>
+            </div>
+        </div>
+        
+        
     </div>
     <div class="ps-scrollbar-x-rail" style="width: 1343px; display: none; left: 0px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 53px; display: none;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div>
 </section>
@@ -67,7 +72,7 @@
 
                 </div>
                 @:<div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="padding-left:0">
             <div class="avatar-acount">
                 <div class="info-acount">
                     <h3 class="fa fa-dashboard fa-2x"> Pivots </h3>

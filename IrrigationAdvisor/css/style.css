@@ -1567,7 +1567,7 @@ padding-right: 10px;
 }
 
 .regado h5{
-	font-size:13px;
+	font-size:17px;
 	color: #F7F3F3;
 }
 .proximo-riego{
@@ -1582,8 +1582,11 @@ padding-left: 10px;
 padding-right: 10px;
 }
 
+.main-table-advisor tr:hover{
+    background-color:rgb(224,255,255);
+}
 .proximo-riego h5{
-	font-size:13px;
+	font-size:17px;
 	color: #F7F3F3;
 }
 .lluvia-registrada{
@@ -1599,7 +1602,7 @@ padding-right: 10px;
 }
 
 .lluvia-registrada h5{
-	font-size:13px;
+	font-size:17px;
 	color: #F7F3F3;
 }
 
@@ -1612,20 +1615,21 @@ text-align: center;
 margin-top: 30px;
 float:left;
 padding-right: 10px;
+margin-right:9px;
 }
 
 .por-defecto h5{
-	font-size:13px;
+	font-size:17px;
 	color: #F7F3F3;
 }
 
 .title-reference{
 	
     padding-left: 25px;
-    /* float: left; */
-    /* padding: 0; */
     display: inline-flex;
     width:100%;
+    position: relative;
+    bottom: 12px;
 }
 
 
@@ -1840,7 +1844,7 @@ display:-webkit-grid;
  
 }
 .bar-resp{
-		width:100% !important;
+		/*width:100% !important;*/
 	}
 
 		
@@ -1939,6 +1943,7 @@ padding-right: 10px;
 .title-reference {
     padding-left: 25px;
 	display:block;
+    
 }
 .por-defecto {
     width: 100%;
@@ -2381,9 +2386,10 @@ width: -moz-available;
 	background-color: #FFF;
     display: inline-block;
     position: relative;
-    padding: 0px 20px 20px 0px;
+    padding-right:9px;
+    /*padding: 0px 20px 20px 0px;*/
     margin-top: 10px;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .col-md-8{
@@ -2494,7 +2500,7 @@ padding-right: 10px;
 }
 
 .regado h5{
-	font-size:13px;
+	font-size:17px;
 	color: #F7F3F3;
 }
 .proximo-riego{
@@ -2511,7 +2517,7 @@ padding-right: 10px;
 }
 
 .proximo-riego h5{
-	font-size:13px;
+	font-size:17px;
 	color: #F7F3F3;
 }
 .lluvia-registrada{
@@ -2528,7 +2534,7 @@ padding-right: 10px;
 }
 
 .lluvia-registrada h5{
-	font-size:13px;
+	font-size:17px;
 	color: #F7F3F3;
 }
 
@@ -2541,11 +2547,11 @@ padding: 5px;
 text-align: center;
 margin-top: 30px;
 float:left;
-padding-right: 10px;
+margin-right:10px;
 }
 
 .por-defecto h5{
-	font-size:13px;
+	font-size:17px;
 	color: #F7F3F3;
 }
 

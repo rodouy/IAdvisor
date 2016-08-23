@@ -30,11 +30,11 @@
 
     if (detail.IsToday)
     {
-        <th>@detail.Day</th>
+        <th title='@detail.DateOfData.Date'>@detail.Day</th>
     }
     else
     {
-        <th class="color-day">@detail.Day</th>
+        <th class="color-day" title='@detail.DateOfData.Date'>@detail.Day</th>
     }
 
 }
