@@ -1112,17 +1112,25 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
                     lMyUri = new Uri(lURL);
-                    lLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude").Replace(",", ".");
+                    lLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude");
                     if(String.IsNullOrEmpty(lLatitude))
                     {
                         lCantGetWeatherData = true;
                         lLatitude = "-34.8172490";
                     }
-                    lLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude").Replace(",", ".");
+                    else
+                    {
+                        lLatitude.Replace(",", ".");
+                    }
+                    lLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude");
                     if(String.IsNullOrEmpty(lLongitude))
                     {
                         lCantGetWeatherData = true;
                         lLongitude = "-56.1590040";
+                    }
+                    else
+                    {
+                        lLongitude.Replace(",", ".");
                     }
                 }
                 
