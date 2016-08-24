@@ -1383,8 +1383,8 @@ namespace IrrigationAdvisor.Controllers
                     lFirstFarm = lFarmList.FirstOrDefault();
                     lPositionId = lFirstFarm.PositionId;
 
-                    lLatitude = fc.GetLatitudeBy(lPositionId).ToString();
-                    lLongitude = fc.GetLongitudeBy(lPositionId).ToString();
+                    lLatitude = fc.GetLatitudeBy(lPositionId).ToString().Replace(",", ".");
+                    lLongitude = fc.GetLongitudeBy(lPositionId).ToString().Replace(",", ".");
                 }
                 else
                 {
@@ -1396,13 +1396,20 @@ namespace IrrigationAdvisor.Controllers
                         lCantGetWeatherData = true;
                         lLatitude = "-34.8172490";
                     }
+                    else
+                    {
+                        lLatitude.Replace(",", ".");
+                    } 
                     lLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude");
                     if (String.IsNullOrEmpty(lLongitude))
                     {
                         lCantGetWeatherData = true;
                         lLongitude = "-56.1590040";
                     }
-
+                    else
+                    {
+                        lLongitude.Replace(",", ".");
+                    }
                 }
 
                 lAPIWUndergroundBase = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIbase"]);
