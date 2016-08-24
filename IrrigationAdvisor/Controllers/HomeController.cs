@@ -421,6 +421,7 @@ namespace IrrigationAdvisor.Controllers
             return RedirectToAction("Home");
         }
 
+        [HttpGet]
         public ActionResult AddPhenology( DateTime  pDate,
                                           int       pCropIrrigationWeatherId,
                                           int       pStageId)
@@ -542,7 +543,6 @@ namespace IrrigationAdvisor.Controllers
             return Content("Ok");
 
         }
-
 
         [HttpGet]
         public ActionResult AddRain(double pMilimeters, 
@@ -1105,20 +1105,20 @@ namespace IrrigationAdvisor.Controllers
                     lFirstFarm = lFarmList.FirstOrDefault();
                     lPositionId = lFirstFarm.PositionId;
 
-                    lLatitude = fc.GetLatitudeBy(lPositionId).ToString();
-                    lLongitude = fc.GetLongitudeBy(lPositionId).ToString();
+                    lLatitude = fc.GetLatitudeBy(lPositionId).ToString().Replace(",",".");
+                    lLongitude = fc.GetLongitudeBy(lPositionId).ToString().Replace(",", ".");
                 }
                 else
                 {
                     lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
                     lMyUri = new Uri(lURL);
-                    lLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude");
+                    lLatitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("latitude").Replace(",", ".");
                     if(String.IsNullOrEmpty(lLatitude))
                     {
                         lCantGetWeatherData = true;
                         lLatitude = "-34.8172490";
                     }
-                    lLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude");
+                    lLongitude = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("longitude").Replace(",", ".");
                     if(String.IsNullOrEmpty(lLongitude))
                     {
                         lCantGetWeatherData = true;
