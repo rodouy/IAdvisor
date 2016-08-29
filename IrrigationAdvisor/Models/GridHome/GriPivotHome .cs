@@ -22,17 +22,17 @@ namespace IrrigationAdvisor.Models.GridHome
         ///      
         ///
         /// </summary>
-        private string irrigationUnitName;
-        private string cropName;
-        private string sowingDate;
-        private string phenologyName;
+        private String irrigationUnitName;
+        private String cropName;
+        private String sowingDate;
+        private String phenologyName;
         private List<GridPivotDetailHome> listGridPivotDetailHome;
 
         #endregion
 
         #region Properties
 
-        public virtual string IrrigationUnitName
+        public String IrrigationUnitName
         {
             get { return irrigationUnitName; }
             set
@@ -41,7 +41,7 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
-        public string CropName
+        public String CropName
         {
             get { return cropName; }
             set
@@ -50,7 +50,7 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
-        public string SowingDate
+        public String SowingDate
         {
             get { return sowingDate; }
             set
@@ -59,7 +59,7 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
-        public string PhenologyName
+        public String PhenologyName
         {
             get { return phenologyName; }
             set
@@ -68,7 +68,7 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
-        public virtual List<GridPivotDetailHome> ListGridPivotDetailHome
+        public List<GridPivotDetailHome> ListGridPivotDetailHome
         {
             get { return listGridPivotDetailHome; }
             set

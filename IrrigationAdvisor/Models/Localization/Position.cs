@@ -81,7 +81,7 @@ namespace IrrigationAdvisor.Models.Localization
             set { positionId = value; }
         }
 
-        public virtual double Latitude
+        public Double Latitude
         {
             get { return latitude; }
             set 
@@ -95,7 +95,7 @@ namespace IrrigationAdvisor.Models.Localization
             }
         }
 
-        public virtual double Longitude
+        public Double Longitude
         {
             get { return longitude; }
             set 
@@ -187,12 +187,12 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pLongitude"></param>
         /// <returns></returns>
         public Position GetPositionMoveFromOrigin(Position pOrigin, String pNewName, 
-                                                    double pLatitude, double pLongitude)
+                                                    Double pLatitude, Double pLongitude)
         {
             Position lPosition = null;
             String lNewName = pNewName;
-            double lNewLatitude = pOrigin.Latitude + pLatitude;
-            double lNewLongitude = pOrigin.Longitude + pLongitude;
+            Double lNewLatitude = pOrigin.Latitude + pLatitude;
+            Double lNewLongitude = pOrigin.Longitude + pLongitude;
             
             lPosition = new Position(0, lNewName, lNewLatitude, lNewLongitude);
             return lPosition;
@@ -204,9 +204,9 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pLatitude"></param>
         /// <param name="pKMWest"></param>
         /// <returns></returns>
-        public double GetLatitude(double pLatitude, double pKMWest)
+        public Double GetLatitude(Double pLatitude, Double pKMWest)
         {
-            double lLatitude = pLatitude;
+            Double lLatitude = pLatitude;
 
             return lLatitude;
         }
@@ -217,9 +217,9 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pLongitude"></param>
         /// <param name="pKMSouth"></param>
         /// <returns></returns>
-        public double GetLongitude(double pLongitude, double pKMSouth)
+        public Double GetLongitude(Double pLongitude, Double pKMSouth)
         {
-            double lLongitude = pLongitude;
+            Double lLongitude = pLongitude;
 
             return lLongitude;
         }
@@ -231,7 +231,7 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pKMWest"></param>
         /// <param name="pKMSouht"></param>
         /// <returns></returns>
-        public Position GetNewPositionByKM(Position pOrigin, double pKMWest, double pKMSouth)
+        public Position GetNewPositionByKM(Position pOrigin, Double pKMWest, Double pKMSouth)
         {
             Position lPosition = null;
 

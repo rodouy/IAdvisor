@@ -271,7 +271,7 @@ namespace IrrigationAdvisor.Controllers
                 ManageSession.CleanSession();
 
                 Console.WriteLine(ex.Message, ex);
-		        throw ex;
+		        throw ;
 	        }
 
         }
@@ -315,8 +315,9 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Console.WriteLine(ex.Message, ex);
+                
+                throw ;
             }
             
         }
@@ -747,8 +748,9 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Console.WriteLine(ex.Message, ex);
+                
+                throw ;
             }
 
             return lGridIrrigationUnitList;
@@ -861,8 +863,9 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message, ex);
                 
-                throw ex;
+                throw ;
             }
 
             return lGridIrrigationUnitList;
@@ -1011,7 +1014,7 @@ namespace IrrigationAdvisor.Controllers
             {
                 Console.WriteLine(ex.Message, ex);
                 
-                throw ex;
+                throw ;
             } 
             
             return lReturn;
@@ -1293,7 +1296,7 @@ namespace IrrigationAdvisor.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message, ex);
-                throw ex;
+                throw ;
             }
 
             return lReturn;
@@ -1571,7 +1574,7 @@ namespace IrrigationAdvisor.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message, ex);
-                throw ex;
+                throw ;
             }
 
             return lReturn;
