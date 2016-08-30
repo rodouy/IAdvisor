@@ -821,15 +821,15 @@ namespace IrrigationAdvisor.Controllers
                 lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
                 lDailyRecordList = new List<DailyRecord>();
 
-                Dictionary<long, CropIrrigationWeather> dic = new Dictionary<long, CropIrrigationWeather>();
-
                 foreach (var lIrrigationUnit in lIrrigationUnitList)
                 {
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropMainWeatherStationRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
-                    lDailyRecordList = ciwc.GetDailyRecordListBy(lIrrigationUnit, lDateOfReference);
+                    //lDailyRecordList = ciwc.GetDailyRecordListBy(lIrrigationUnit, lDateOfReference);
 
                     //Demo - First CropIrrigationWeather
                     lFirstCropIrrigationWeather = lCropIrrigationWeatherList.FirstOrDefault();
+
+                    lDailyRecordList = ciwc.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lFirstCropIrrigationWeather.Crop);
                     
                     lRainList = lFirstCropIrrigationWeather.RainList;
                     lIrrigationList = lFirstCropIrrigationWeather.IrrigationList;

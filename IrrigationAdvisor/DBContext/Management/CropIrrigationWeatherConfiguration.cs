@@ -308,7 +308,7 @@ namespace IrrigationAdvisor.DBContext.Management
 
             if (pIrrigationUnit != null && pDateOfReference != null)
             {
-                lCropIrrigationWeaterList = db.CropIrrigationWeathers
+                lCropIrrigationWeather = db.CropIrrigationWeathers
                     .Include(ciw => ciw.DailyRecordList)
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.MainWeatherData))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.AlternativeWeatherData))
@@ -317,32 +317,21 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
                     .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId
-                            && ciw.CropId == pCrop.CropId).ToList();
-                foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
+                            && ciw.CropId == pCrop.CropId
+                            && ciw.SowingDate <= pDateOfReference
+                            && ciw.HarvestDate >= pDateOfReference).FirstOrDefault();
+                foreach (var record in lCropIrrigationWeather.DailyRecordList)
                 {
-                    DateTime lSowingDate = item.SowingDate;
-                    DateTime lHarvestDate = item.HarvestDate;
-
-                    //TODO: Could be more than one CropIrrigationWeather, when the IrrigationUnit is used for more than one Crop
-                    if ((lSowingDate <= pDateOfReference)
-                        && (lHarvestDate >= pDateOfReference))
+                    if (record.DailyRecordDateTime <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
                     {
-                        lCropIrrigationWeather = item;
-                        foreach (var record in lCropIrrigationWeather.DailyRecordList)
-                        {
-                            if (record.DailyRecordDateTime <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
-                            {
-                                lNewDailyRecordList.Add(record);
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
+                        lNewDailyRecordList.Add(record);
+                    }
+                    else
+                    {
                         break;
                     }
                 }
-                //lReturn = lCropIrrigationWeather.DailyRecordList.ToList();
+                
                 lReturn = lNewDailyRecordList.ToList();
             }
 
