@@ -310,6 +310,13 @@ namespace IrrigationAdvisor.Models.Utilities
 
             /// <summary>
             /// Del Lago - San Pedro Farm
+            /// Del Lago - El Mirador Farm
+            /// Estancias del Lago S.R.L.
+            /// </summary>
+            DelLago,
+
+            /// <summary>
+            /// Del Lago - San Pedro Farm
             /// Estancias del Lago S.R.L.
             /// </summary>
             DelLagoSanPedro,

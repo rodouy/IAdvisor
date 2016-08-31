@@ -101,7 +101,7 @@ namespace IrrigationAdvisorConsole
 
                 InsertBombs();
                 InsertIrrigationUnits();
-                UpdateSoilsBombsIrrigationUnitsByFarm();
+                UpdateSoilsBombsIrrigationUnitsUsersByFarm();
                 InsertCrops();
                 InsertCropsInformationByDate();
 
@@ -1460,10 +1460,7 @@ namespace IrrigationAdvisorConsole
         {
             Position lPosition = null;
             WeatherStation lWeatherStation = null;
-            User lUser = null;
             City lCity = null;
-            User lUserAdministrator = null;
-            List<User> lUserList = null;
             
             #region Base
             var lBase = new Farm
@@ -1498,19 +1495,7 @@ namespace IrrigationAdvisorConsole
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityMercedes
                              select city).FirstOrDefault();
-                    lUserList = new List<User>();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserDemo
-                             select user).FirstOrDefault();
-                    lUserList.Add(lUser);
-                    lUserAdministrator = (from user in context.Users
-                                         where user.UserName == Utils.NameUserAdmin
-                                         select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserSeba
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
+                    
                     var lDemo = new Farm
                     {
                         Name = Utils.NameFarmDemo,
@@ -1524,7 +1509,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
-                        UserList = lUserList,
+                        UserList = null,
                     };
                     context.Farms.Add(lDemo);
                     context.SaveChanges();
@@ -1546,19 +1531,7 @@ namespace IrrigationAdvisorConsole
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityMinas
                              select city).FirstOrDefault();
-                    lUserList = new List<User>();
-                    lUser = (from user in context.Users
-                             where user.Name == "Sebastian"
-                             select user).FirstOrDefault();
-                    lUserList.Add(lUser);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserAdmin
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserSeba
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
+
                     var lSantaLucia = new Farm
                     {
                         Name = Utils.NameFarmSantaLucia,
@@ -1572,7 +1545,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
-                        UserList = lUserList,
+                        UserList = null,
                     };
                     context.Farms.Add(lSantaLucia);
                     context.SaveChanges();
@@ -1594,19 +1567,7 @@ namespace IrrigationAdvisorConsole
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityMercedes
                              select city).FirstOrDefault();
-                    lUserList = new List<User>();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserDelCarmen
-                             select user).FirstOrDefault();
-                    lUserList.Add(lUser);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserAdmin
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserSeba
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
+
                     var lLaPerdiz = new Farm
                     {
                         Name = Utils.NameFarmLaPerdiz,
@@ -1620,7 +1581,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
-                        UserList = lUserList,
+                        UserList = null,
                     };
                     context.Farms.Add(lLaPerdiz);
                     context.SaveChanges();
@@ -1642,19 +1603,7 @@ namespace IrrigationAdvisorConsole
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityDurazno
                              select city).FirstOrDefault();
-                    lUserList = new List<User>();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserDelLago
-                             select user).FirstOrDefault();
-                    lUserList.Add(lUser);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserAdmin
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserSeba
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
+
                     var lDelLagoSanPedro = new Farm
                     {
                         Name = Utils.NameFarmDelLagoSanPedro,
@@ -1668,7 +1617,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
-                        UserList = lUserList,
+                        UserList = null,
                     };
                     context.Farms.Add(lDelLagoSanPedro);
                     context.SaveChanges();
@@ -1690,19 +1639,7 @@ namespace IrrigationAdvisorConsole
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityDurazno
                              select city).FirstOrDefault();
-                    lUserList = new List<User>();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserDelLago
-                             select user).FirstOrDefault();
-                    lUserList.Add(lUser);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserAdmin
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserSeba
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
+
                     var lDelLagoElMirador = new Farm
                     {
                         Name = Utils.NameFarmDelLagoElMirador,
@@ -1716,7 +1653,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
-                        UserList = lUserList,
+                        UserList = null,
                     };
                     context.Farms.Add(lDelLagoElMirador);
                     context.SaveChanges();
@@ -1738,19 +1675,7 @@ namespace IrrigationAdvisorConsole
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityYoung
                              select city).FirstOrDefault();
-                    lUserList = new List<User>();
-                    lUser = (from user in context.Users
-                             where user.UserName == Utils.NameUserLaPalma
-                             select user).FirstOrDefault();
-                    lUserList.Add(lUser);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserAdmin
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
-                    lUserAdministrator = (from user in context.Users
-                                          where user.UserName == Utils.NameUserSeba
-                                          select user).FirstOrDefault();
-                    lUserList.Add(lUserAdministrator);
+
                     var lLaPalma = new Farm
                     {
                         Name = Utils.NameFarmLaPalma,
@@ -1764,7 +1689,7 @@ namespace IrrigationAdvisorConsole
                         BombList = null,
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
-                        UserList = lUserList,
+                        UserList = null,
                     };
                     context.Farms.Add(lLaPalma);
                     context.SaveChanges();
@@ -1779,7 +1704,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        private static void UpdateSoilsBombsIrrigationUnitsFarmDemo()
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmDemo()
         {
             Farm lFarm = null;
             List<Bomb> lBombList = new List<Bomb>();
@@ -1788,6 +1713,9 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
+            String[] lUserNames = {Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin};
+            List<User> lUserList = new List<User>();
+            IQueryable<User> lIQUsers = null;
 
             Bomb lBomb = null;
             Soil lSoil = null;
@@ -1808,9 +1736,13 @@ namespace IrrigationAdvisorConsole
                 lPivot = (from pivot in context.Pivots
                           where pivot.Name.Contains(Utils.NameFarmDemo)
                           select pivot).FirstOrDefault();
+                lUserList = (from user in context.Users
+                         select user).ToList();
+                
                 lIQBombs = context.Bombs;
                 lIQSoils = context.Soils;
                 lIQPivots = context.Pivots;
+                lIQUsers = context.Users;
 
                 lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmDemo));
                 foreach (Bomb item in lIQBombs) lBombList.Add(item);
@@ -1820,19 +1752,22 @@ namespace IrrigationAdvisorConsole
 
                 lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmDemo));
                 foreach (Pivot item in lIQPivots) lPivotList.Add(item);
+                lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
+                lUserList = new List<User>();
+                foreach (User item in lIQUsers) lUserList.Add(item);
 
-
-                // Update list of Bombs, Soils, and Irrigation Units
+                // Update list of Bombs, Soils, Irrigation Units, and Users
                 lFarm.BombList = lBombList;
                 lFarm.SoilList = lSoilList;
                 lFarm.IrrigationUnitList = lPivotList;
+                lFarm.UserList = lUserList;
 
                 context.SaveChanges();
             }
 
         }
 
-        private static void UpdateSoilsBombsIrrigationUnitsFarmSantaLucia()
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmSantaLucia()
         {
             Farm lFarm = null;
             List<Bomb> lBombList = new List<Bomb>();
@@ -1841,6 +1776,9 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
+            String[] lUserNames = { Utils.NameUserSantaLucia, Utils.NameUserSeba, Utils.NameUserAdmin };
+            List<User> lUserList = new List<User>();
+            IQueryable<User> lIQUsers = null;
 
             Bomb lBomb = null;
             Soil lSoil = null;
@@ -1861,9 +1799,13 @@ namespace IrrigationAdvisorConsole
                 lPivot = (from pivot in context.Pivots
                           where pivot.Name.Contains(Utils.NameFarmSantaLucia)
                           select pivot).FirstOrDefault();
+                lUserList = (from user in context.Users
+                         select user).ToList();
+
                 lIQBombs = context.Bombs;
                 lIQSoils = context.Soils;
                 lIQPivots = context.Pivots;
+                lIQUsers = context.Users;
 
                 lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmSantaLucia));
                 foreach (Bomb item in lIQBombs) lBombList.Add(item);
@@ -1874,18 +1816,23 @@ namespace IrrigationAdvisorConsole
                 lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmSantaLucia));
                 foreach (Pivot item in lIQPivots) lPivotList.Add(item);
 
+                lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
+                lUserList = new List<User>();
+                foreach (User item in lIQUsers) lUserList.Add(item);
+
 
                 // Update list of Bombs, Soils, and Irrigation Units
                 lFarm.BombList = lBombList;
                 lFarm.SoilList = lSoilList;
                 lFarm.IrrigationUnitList = lPivotList;
+                lFarm.UserList = lUserList;
 
                 context.SaveChanges();
             }
 
         }
 
-        private static void UpdateSoilsBombsIrrigationUnitsFarmLaPerdiz()
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmLaPerdiz()
         {
             Farm lFarm = null;
             List<Bomb> lBombList = new List<Bomb>();
@@ -1894,6 +1841,9 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
+            String[] lUserNames = { Utils.NameUserDelCarmen, Utils.NameUserSeba, Utils.NameUserAdmin };
+            List<User> lUserList = new List<User>();
+            IQueryable<User> lIQUsers = null;
 
             Bomb lBomb = null;
             Soil lSoil = null;
@@ -1913,10 +1863,14 @@ namespace IrrigationAdvisorConsole
                          select soil).FirstOrDefault();
                 lPivot = (from pivot in context.Pivots
                           where pivot.Name.Contains(Utils.NameFarmLaPerdiz)
-                         select pivot).FirstOrDefault();
+                          select pivot).FirstOrDefault();
+                lUserList = (from user in context.Users
+                             select user).ToList();
+
                 lIQBombs = context.Bombs;
                 lIQSoils = context.Soils;
                 lIQPivots = context.Pivots;
+                lIQUsers = context.Users;
 
                 lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmLaPerdiz));
                 foreach (Bomb item in lIQBombs) lBombList.Add(item);
@@ -1927,18 +1881,23 @@ namespace IrrigationAdvisorConsole
                 lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmLaPerdiz));
                 foreach (Pivot item in lIQPivots) lPivotList.Add(item);
 
+                lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
+                lUserList = new List<User>();
+                foreach (User item in lIQUsers) lUserList.Add(item);
 
-                // Update list of Bombs, Soils, and Irrigation Units
+
+                // Update list of Bombs, Soils, Irrigation Units and Users
                 lFarm.BombList = lBombList;
                 lFarm.SoilList = lSoilList;
                 lFarm.IrrigationUnitList = lPivotList;
+                lFarm.UserList = lUserList;
 
                 context.SaveChanges();
             }
 
         }
 
-        private static void UpdateSoilsBombsIrrigationUnitsFarmDelLagoSanPedro()
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmDelLagoSanPedro()
         {
             Farm lFarm = null;
             List<Bomb> lBombList = new List<Bomb>();
@@ -1947,6 +1906,9 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
+            String[] lUserNames = { Utils.NameUserDelLago, Utils.NameUserSeba, Utils.NameUserAdmin };
+            List<User> lUserList = new List<User>();
+            IQueryable<User> lIQUsers = null;
 
             Bomb lBomb = null;
             Soil lSoil = null;
@@ -1967,9 +1929,13 @@ namespace IrrigationAdvisorConsole
                 lPivot = (from pivot in context.Pivots
                           where pivot.Name.Contains(Utils.NameFarmDelLagoSanPedro)
                           select pivot).FirstOrDefault();
+                lUserList = (from user in context.Users
+                             select user).ToList();
+
                 lIQBombs = context.Bombs;
                 lIQSoils = context.Soils;
                 lIQPivots = context.Pivots;
+                lIQUsers = context.Users;
 
                 lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmDelLagoSanPedro));
                 foreach (Bomb item in lIQBombs) lBombList.Add(item);
@@ -1980,18 +1946,23 @@ namespace IrrigationAdvisorConsole
                 lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmDelLagoSanPedro));
                 foreach (Pivot item in lIQPivots) lPivotList.Add(item);
 
+                lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
+                lUserList = new List<User>();
+                foreach (User item in lIQUsers) lUserList.Add(item);
 
-                // Update list of Bombs, Soils, and Irrigation Units
+
+                // Update list of Bombs, Soils, Irrigation Units, and Users
                 lFarm.BombList = lBombList;
                 lFarm.SoilList = lSoilList;
                 lFarm.IrrigationUnitList = lPivotList;
+                lFarm.UserList = lUserList;
 
                 context.SaveChanges();
             }
 
         }
 
-        private static void UpdateSoilsBombsIrrigationUnitsFarmDelLagoElMirador()
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmDelLagoElMirador()
         {
             Farm lFarm = null;
             List<Bomb> lBombList = new List<Bomb>();
@@ -2000,6 +1971,9 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
+            String[] lUserNames = { Utils.NameUserDelLago, Utils.NameUserSeba, Utils.NameUserAdmin };
+            List<User> lUserList = new List<User>();
+            IQueryable<User> lIQUsers = null;
 
             Bomb lBomb = null;
             Soil lSoil = null;
@@ -2020,9 +1994,13 @@ namespace IrrigationAdvisorConsole
                 lPivot = (from pivot in context.Pivots
                           where pivot.Name.Contains(Utils.NameFarmDelLagoElMirador)
                           select pivot).FirstOrDefault();
+                lUserList = (from user in context.Users
+                             select user).ToList();
+
                 lIQBombs = context.Bombs;
                 lIQSoils = context.Soils;
                 lIQPivots = context.Pivots;
+                lIQUsers = context.Users;
                 
                 lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmDelLagoElMirador));
                 foreach (Bomb item in lIQBombs) lBombList.Add(item);
@@ -2033,18 +2011,22 @@ namespace IrrigationAdvisorConsole
                 lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmDelLagoElMirador));
                 foreach (Pivot item in lIQPivots) lPivotList.Add(item);
 
+                lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
+                lUserList = new List<User>();
+                foreach (User item in lIQUsers) lUserList.Add(item);
 
-                // Update list of Bombs, Soils, and Irrigation Units
+                // Update list of Bombs, Soils, Irrigation Units, and Users
                 lFarm.BombList = lBombList;
                 lFarm.SoilList = lSoilList;
                 lFarm.IrrigationUnitList = lPivotList;
+                lFarm.UserList = lUserList;
 
                 context.SaveChanges();
             }
 
         }
 
-        private static void UpdateSoilsBombsIrrigationUnitsFarmLaPalma()
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmLaPalma()
         {
             Farm lFarm = null;
             List<Bomb> lBombList = new List<Bomb>();
@@ -2053,6 +2035,9 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
+            String[] lUserNames = { Utils.NameUserLaPalma, Utils.NameUserSeba, Utils.NameUserAdmin };
+            List<User> lUserList = new List<User>();
+            IQueryable<User> lIQUsers = null;
 
             Bomb lBomb = null;
             Soil lSoil = null;
@@ -2073,9 +2058,13 @@ namespace IrrigationAdvisorConsole
                 lPivot = (from pivot in context.Pivots
                           where pivot.Name.Contains(Utils.NameFarmLaPalma)
                           select pivot).FirstOrDefault();
+                lUserList = (from user in context.Users
+                             select user).ToList();
+
                 lIQBombs = context.Bombs;
                 lIQSoils = context.Soils;
                 lIQPivots = context.Pivots;
+                lIQUsers = context.Users;
 
                 lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmLaPalma));
                 foreach (Bomb item in lIQBombs) lBombList.Add(item);
@@ -2086,11 +2075,15 @@ namespace IrrigationAdvisorConsole
                 lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmLaPalma));
                 foreach (Pivot item in lIQPivots) lPivotList.Add(item);
 
+                lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
+                lUserList = new List<User>();
+                foreach (User item in lIQUsers) lUserList.Add(item);
 
-                // Update list of Bombs, Soils, and Irrigation Units
+                // Update list of Bombs, Soils, Irrigation Units, and Users
                 lFarm.BombList = lBombList;
                 lFarm.SoilList = lSoilList;
                 lFarm.IrrigationUnitList = lPivotList;
+                lFarm.UserList = lUserList;
 
                 context.SaveChanges();
             }
@@ -5940,31 +5933,31 @@ namespace IrrigationAdvisorConsole
 
         }
 
-        private static void UpdateSoilsBombsIrrigationUnitsByFarm()
+        private static void UpdateSoilsBombsIrrigationUnitsUsersByFarm()
         {
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
             {
-                UpdateSoilsBombsIrrigationUnitsFarmDemo();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmDemo();
             }
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
             {
-                UpdateSoilsBombsIrrigationUnitsFarmSantaLucia();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmSantaLucia();
             }
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
             {
-                UpdateSoilsBombsIrrigationUnitsFarmLaPerdiz();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmLaPerdiz();
             }
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
-                UpdateSoilsBombsIrrigationUnitsFarmDelLagoSanPedro();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmDelLagoSanPedro();
             }
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
-                UpdateSoilsBombsIrrigationUnitsFarmDelLagoElMirador();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmDelLagoElMirador();
             }
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
             {
-                UpdateSoilsBombsIrrigationUnitsFarmLaPalma();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmLaPalma();
             }
 
         }
@@ -6915,6 +6908,8 @@ namespace IrrigationAdvisorConsole
             #region Local Variables
             Farm lFarm = null;
             Crop lCrop = null;
+            Specie lSpecie = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             IrrigationUnit lIrrigationUnit = null;
             WeatherStation lWeatherStationMain = null;
             List<WeatherData> lMainWeatherDataList = null;
@@ -7008,12 +7003,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList).FirstOrDefault();
@@ -7156,12 +7157,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -7302,12 +7309,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -7448,12 +7461,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -7600,12 +7619,18 @@ namespace IrrigationAdvisorConsole
                                             select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList).FirstOrDefault();
@@ -7768,12 +7793,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -7914,12 +7945,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -8060,12 +8097,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -8210,12 +8253,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -8355,12 +8404,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -8500,12 +8555,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -8645,12 +8706,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -8795,12 +8862,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -8940,12 +9013,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -9085,12 +9164,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -9230,12 +9315,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -9380,12 +9471,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort   //TODO: Verify Specie of La Palma
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -9526,12 +9623,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort   //TODO: Verify Specie of La Palma
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
@@ -9672,12 +9775,18 @@ namespace IrrigationAdvisorConsole
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
                              where crop.Name == Utils.NameSpecieCornSouthShort   //TODO: Verify Specie of La Palma, region north
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
                                         where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
                                where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)

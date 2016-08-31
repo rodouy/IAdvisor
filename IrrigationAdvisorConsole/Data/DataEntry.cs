@@ -8567,6 +8567,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDemoPivot1_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -8593,6 +8596,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDemo
                      select farm).FirstOrDefault();
@@ -8748,6 +8760,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDemoPivot2_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -8774,6 +8789,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDemo
                      select farm).FirstOrDefault();
@@ -8928,6 +8952,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDemoPivot3_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -8954,6 +8981,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDemo
                      select farm).FirstOrDefault();
@@ -9100,6 +9136,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDemoPivot5_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -9126,6 +9165,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDemo
                      select farm).FirstOrDefault();
@@ -9278,6 +9326,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaPerdizPivot2_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -9304,6 +9355,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                         where farm.Name == Utils.NameFarmLaPerdiz
                         select farm).FirstOrDefault();
@@ -9457,6 +9517,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaPerdizPivot3_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -9483,6 +9546,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmLaPerdiz
                      select farm).FirstOrDefault();
@@ -9628,6 +9700,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaPerdizPivot5_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -9654,6 +9729,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmLaPerdiz
                      select farm).FirstOrDefault();
@@ -9805,6 +9889,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDelLagoSanPedroPivot5_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -9831,6 +9918,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDelLagoSanPedro
                      select farm).FirstOrDefault();
@@ -9984,6 +10080,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDelLagoSanPedroPivot6_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -10010,6 +10109,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDelLagoSanPedro
                      select farm).FirstOrDefault();
@@ -10163,6 +10271,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDelLagoSanPedroPivot7_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -10189,6 +10300,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDelLagoSanPedro
                      select farm).FirstOrDefault();
@@ -10342,6 +10462,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDelLagoSanPedroPivot8_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -10368,6 +10491,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDelLagoSanPedro
                      select farm).FirstOrDefault();
@@ -10526,6 +10658,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot6_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -10552,6 +10687,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDelLagoElMirador
                      select farm).FirstOrDefault();
@@ -10705,6 +10849,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -10731,6 +10878,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDelLagoElMirador
                      select farm).FirstOrDefault();
@@ -10884,6 +11040,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -10910,6 +11069,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDelLagoElMirador
                      select farm).FirstOrDefault();
@@ -11063,6 +11231,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -11089,6 +11260,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDelLagoElMirador
                      select farm).FirstOrDefault();
@@ -11246,6 +11426,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaPalmaPivot2A_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -11272,6 +11455,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmLaPalma
                      select farm).FirstOrDefault();
@@ -11425,6 +11617,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaPalmaPivot3_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -11451,6 +11646,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmLaPalma
                      select farm).FirstOrDefault();
@@ -11604,6 +11808,9 @@ namespace IrrigationAdvisorConsole
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaPalmaPivot4_2015(IrrigationAdvisorContext context)
         {
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
             Farm lFarm = null;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit = null;
@@ -11630,6 +11837,15 @@ namespace IrrigationAdvisorConsole
             DateTime lDateOfRecord;
             String lObservation;
 
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmLaPalma
                      select farm).FirstOrDefault();
