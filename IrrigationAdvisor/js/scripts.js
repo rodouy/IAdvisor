@@ -173,13 +173,13 @@ function Learning() {
         scrollbar();
         $(window).on('load', function() {
             if ($('.content-bar').length > 0) {
-                var  currentPosition =$('.content-bar').find('.current').position().left;
-                var  prevCurrentWidth =$('.content-bar').find('.current').prev().width();
-                setTimeout(function() {
-                    $('.content-bar').animate({
-                        scrollLeft: currentPosition - prevCurrentWidth
-                    }, 400);
-                }, 100);
+                //var  currentPosition =$('.content-bar').find('.current').position().left;
+                //var  prevCurrentWidth =$('.content-bar').find('.current').prev().width();
+                //setTimeout(function() {
+                //    $('.content-bar').animate({
+                //        scrollLeft: currentPosition - prevCurrentWidth
+                //    }, 400);
+                //}, 100);
             }
         });
     }
