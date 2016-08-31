@@ -20,7 +20,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
 using System.Web.Mvc;
 using IrrigationAdvisor.DBContext.Management;
 using IrrigationAdvisor.DBContext.Water;

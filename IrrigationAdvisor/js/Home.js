@@ -27,10 +27,64 @@ $(document).ready(function () {
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
     var cancelPheno = $('#CancelPheno');
+    var lstFarms = $('#lstFarms');
 
-    addIrrigationModal.hide();
-    addRainModal.hide();
-    addPhenoModal.hide();
+    
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+    $('#loading').modal({
+        keyboard: false,
+        backdrop: 'static'
+    })
+
+
+
+    var showLoading = function () {
+        $('#loading').modal('show');
+
+    }
+
+    var hideLoading = function () {
+        $('#loading').modal('hide');
+    }
+
+    var init = function () {
+
+        var farmParam = getUrlParameter('farm');
+
+        if (farmParam) {
+            lstFarms.val(farmParam);
+        }
+
+        addIrrigationModal.hide();
+        addRainModal.hide();
+        addPhenoModal.hide();
+
+        var initModal = { backdrop: false, show: false };
+
+        modalIrrigation.modal(initModal);
+        modalRain.modal(initModal);
+        modalPheno.modal(initModal);
+
+        hideLoading();
+    };
+
+    init();
+
 
     $.getScript("https://code.jquery.com/ui/1.12.0/jquery-ui.js", function () {
         var addIrrigationModal = $('#addIrrigationModal');
@@ -40,28 +94,6 @@ $(document).ready(function () {
         addRainModal.show();
         addPhenoModal.show();
     });
-
-    $('#loading').modal({
-        keyboard: false,
-        backdrop: 'static'
-    })
-
-    var initModal = { backdrop: false, show: false };
-
-    modalIrrigation.modal(initModal);
-    modalRain.modal(initModal);
-    modalPheno.modal(initModal);
-    
-    var showLoading = function()
-    {
-        $('#loading').modal('show');
-
-    }
-
-    var hideLoading = function()
-    {
-        $('#loading').modal('hide');
-    }
 
     
     addIrrigationModal.click(function () {
@@ -91,7 +123,7 @@ $(document).ready(function () {
         modalPheno.modal('hide');
     });
 
-    hideLoading();
+    
 
     dateOfReferenceBtn2.click(function () {
 
@@ -438,7 +470,11 @@ $(document).ready(function () {
 
     }
 
-    
+    lstFarms.change(function () {
+        showLoading();
+        location.href = './home?farm=' + lstFarms.val();
+
+    });
 
 
 });

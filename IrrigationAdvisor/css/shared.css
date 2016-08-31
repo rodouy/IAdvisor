@@ -10,6 +10,9 @@ width-37-percent{
     width:37% !important;
 }
 
+.margin-bottom-10{
+    margin-bottom:10px;
+}
 #floatingCirclesG{
 	position:relative;
 	width:125px;

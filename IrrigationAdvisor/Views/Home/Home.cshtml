@@ -87,6 +87,10 @@
                                 
                                 <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn" style="display:inline-block">+</a>
                                 <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
+                                <select class="form-control margin-bottom-10" id="lstFarms">
+                                    <option value="1">Farm 1</option>
+                                    <option value="2">Farm 2</option>
+                                </select>
                             </div>
                             <div style="float:right">
                                 <button class="btn go btn-pivots btn-md" id="addRainModal">
@@ -238,7 +242,7 @@
                                             <br />
                                             <div class="dropdown">
                                                 Seleccionar Fecha
-                                                <select id="irrigationDate">
+                                                <select id="irrigationDate" class="form-control">
                                                     <option value="@(dateValue.AddDays(2).Month + "/" + dateValue.AddDays(2).Day + "/" + dateValue.AddDays(2).Year)">@(dateValue.AddDays(2).ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(1).Month + "/" + dateValue.AddDays(1).Day + "/" + dateValue.AddDays(1).Year)">@(dateValue.AddDays(1).ToShortDateString())</option>
                                                     <option value="@(dateValue.AddDays(0).Month + "/" + dateValue.AddDays(0).Day + "/" + dateValue.AddDays(0).Year)">@(dateValue.AddDays(0).ToShortDateString())</option>
@@ -252,7 +256,7 @@
                                             <br />
                                             <div class="dropdown">
                                                 Seleccionar pivot
-                                                <select id="IrrigationUnitIrrigation">
+                                                <select id="IrrigationUnitIrrigation" class="form-control">
                                                     <option value="-1">Todos</option>
                                                     @foreach (var item in Model.IrrigationUnitViewModelList)
                                                     {
@@ -297,7 +301,7 @@
                         </button>
                                             *@
                                             Seleccionar Día
-                                            <select id="rainDate">
+                                            <select id="rainDate" class="form-control">
                                                 <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
                                                 <option value="@(dateValue.AddDays(-2).Month + "/" + dateValue.AddDays(-2).Day + "/" + dateValue.AddDays(-2).Year)">@(dateValue.AddDays(-2).ToShortDateString())</option>
                                                 <option value="@(dateValue.AddDays(-3).Month + "/" + dateValue.AddDays(-3).Day + "/" + dateValue.AddDays(-3).Year)">@(dateValue.AddDays(-3).ToShortDateString())</option>
@@ -309,7 +313,7 @@
                                         <br />
                                         <div class="dropdown">
                                             Seleccionar Unidad de Riego
-                                            <select id="IrrigationUnit">
+                                            <select id="IrrigationUnit" class="form-control">
                                                 <option value="-1">Todos</option>
                                                 @foreach (var item in Model.IrrigationUnitViewModelList)
                                                 {
@@ -354,7 +358,7 @@
                                         <div class="form-group">
                                             <div class="dropdown">
                                                 Seleccione una Fecha
-                                                <select id="phenoDate">
+                                                <select id="phenoDate" class="form-control">
                                                     @for (int i = -1; i >= -IrrigationAdvisor.Models.Data.InitialTables.DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE; i--)
                                                 {
                                                         <option value="@(dateValue.AddDays(i).Month + "/" + dateValue.AddDays(i).Day + "/" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToShortDateString())</option>
@@ -366,7 +370,7 @@
                                             <br />
                                             <div class="dropdown">
                                                 Contexto de cosecha
-                                                <select id="CropIrriWeatherPheno">
+                                                <select id="CropIrriWeatherPheno" class="form-control">
                                                     @foreach (var item in Model.CropIrrigationWeatherViewModelList)
                                                 {
                                                         <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
@@ -378,7 +382,7 @@
                                             <br />
                                             <div class="dropdown">
                                                 Seleccionar Fenología
-                                                <select id="StagePheno"></select>
+                                                <select id="StagePheno" class="form-control"></select>
                                                 <br />
                                             </div>
                                         </div>
