@@ -211,7 +211,7 @@ namespace IrrigationAdvisor.Models.Utilities
                 {
                     Console.WriteLine("Exception in TextFileLogger.ReadLogFile " + ex.Message);
                     //TODO manage and log the exception WriteFileTest
-                    throw;
+                    throw ;
                 }
             }
             return lReadLog;              

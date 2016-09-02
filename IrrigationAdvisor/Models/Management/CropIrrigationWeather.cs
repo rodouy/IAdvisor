@@ -1950,8 +1950,9 @@ namespace IrrigationAdvisor.Models.Management
                 }
             }
             catch (Exception ex)
-            { 
-                throw ex;
+            {
+                Console.WriteLine(ex.Message, ex);
+                throw;
             }
         }
 
@@ -2044,7 +2045,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                throw ex;
+                Console.WriteLine(ex.Message, ex);
+                throw;
             }
         }
 
@@ -2578,7 +2580,7 @@ namespace IrrigationAdvisor.Models.Management
             {
                 Console.WriteLine("Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + e.Message);
                 //TODO manage and log the exception  CropIrrigationWeather.AddOrUpdateIrrigationDataToList
-                throw e;
+                throw ;
             }
 
         }

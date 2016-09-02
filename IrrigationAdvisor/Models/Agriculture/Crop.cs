@@ -68,9 +68,9 @@ namespace IrrigationAdvisor.Models.Agriculture
         private List<Stage> stageList;
         private List<PhenologicalStage> phenologicalStageList;
 
-        private double density;
-        private double maxEvapotranspirationToIrrigate;
-        private double minEvapotranspirationToIrrigate;
+        private Double density;
+        private Double maxEvapotranspirationToIrrigate;
+        private Double minEvapotranspirationToIrrigate;
 
         private long stopIrrigationStageId;
 
@@ -132,31 +132,31 @@ namespace IrrigationAdvisor.Models.Agriculture
             set;
         }
 
-        public virtual List<Stage> StageList
+        public List<Stage> StageList
         {
             get { return stageList; }
             set { stageList = value; }
         }
 
-        public virtual List<PhenologicalStage> PhenologicalStageList
+        public List<PhenologicalStage> PhenologicalStageList
         {
             get { return phenologicalStageList; }
             set { phenologicalStageList = value; }
         }
 
-        public double Density
+        public Double Density
         {
             get { return density; }
             set { density = value; }
         }
 
-        public double MaxEvapotranspirationToIrrigate
+        public Double MaxEvapotranspirationToIrrigate
         {
             get { return maxEvapotranspirationToIrrigate; }
             set { maxEvapotranspirationToIrrigate = value; }
         }
 
-        public double MinEvapotranspirationToIrrigate
+        public Double MinEvapotranspirationToIrrigate
         {
             get { return minEvapotranspirationToIrrigate; }
             set { minEvapotranspirationToIrrigate = value; }
