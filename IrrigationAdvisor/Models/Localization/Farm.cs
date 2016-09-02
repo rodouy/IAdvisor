@@ -66,7 +66,7 @@ namespace IrrigationAdvisor.Models.Localization
         private List<Bomb> bombList;
         private List<IrrigationUnit> irrigationUnitList;
         private long cityId;
-        private List<User> userList;
+        private List<UserFarm> userFarmList;
 
         #endregion
 
@@ -156,10 +156,10 @@ namespace IrrigationAdvisor.Models.Localization
             set;
         }
 
-        public List<User> UserList
+        public List<UserFarm> UserFarmList
         {
-            get { return userList; }
-            set { userList = value; }
+            get { return userFarmList; }
+            set { userFarmList = value; }
         }
 
         #endregion
@@ -182,7 +182,7 @@ namespace IrrigationAdvisor.Models.Localization
             this.BombList = new List<Bomb>();
             this.IrrigationUnitList = new List<IrrigationUnit>();
             this.CityId = 0;
-            this.UserList = new List<User>();
+            this.UserFarmList = new List<UserFarm>();
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace IrrigationAdvisor.Models.Localization
                     int pHas, long pWeatherStationId,
                     List<Soil> pSoilList, List<Bomb> pBombList,
                     List<IrrigationUnit> pIrrigationUnitList, 
-                    long pCityId, List<User> pUserList)
+                    long pCityId, List<UserFarm> pUserFarmList)
         {
             this.FarmId = pFarmId;
             this.Name = pName;
@@ -220,7 +220,7 @@ namespace IrrigationAdvisor.Models.Localization
             this.BombList = pBombList;
             this.IrrigationUnitList = pIrrigationUnitList;
             this.CityId = pCityId;
-            this.UserList = pUserList;
+            this.UserFarmList = pUserFarmList;
         }
 
         #endregion
@@ -446,7 +446,7 @@ namespace IrrigationAdvisor.Models.Localization
         #region User
 
         /// <summary>
-        /// Return if the User exists in Farm User List,
+        /// Return if the User exists in UserFarm List,
         /// else null
         /// </summary>
         /// <param name="pUser"></param>
@@ -454,11 +454,11 @@ namespace IrrigationAdvisor.Models.Localization
         public User ExistUser(User pUser)
         {
             User lReturn = null;
-            foreach (User item in this.UserList)
+            foreach (UserFarm item in this.UserFarmList)
             {
-                if (item.Equals(pUser))
+                if (item.User.Equals(pUser))
                 {
-                    lReturn = item;
+                    lReturn = item.User;
                     break;
                 }
             }
@@ -466,7 +466,27 @@ namespace IrrigationAdvisor.Models.Localization
         }
 
         /// <summary>
-        /// Add a User to Farm Administrator List,
+        /// Return if the UserId exists in UserFarm List,
+        /// else null
+        /// </summary>
+        /// <param name="pUser"></param>
+        /// <returns></returns>
+        public long ExistUser(long pUserId)
+        {
+            long lReturn = 0;
+            foreach (UserFarm item in this.UserFarmList)
+            {
+                if (item.UserId.Equals(pUserId))
+                {
+                    lReturn = item.UserId;
+                    break;
+                }
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Add a UserFarm to User Farm List creating new User,
         /// If exists return null
         /// </summary>
         /// <param name="pName"></param>
@@ -478,51 +498,91 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pUserName"></param>
         /// <param name="pPassword"></param>
         /// <returns></returns>
-        public User AddUser(String pName, String pSurname, String pPhone, String pAddress, 
+        public UserFarm AddUser(long pUserId, String pName, String pSurname, String pPhone, String pAddress,
                             String pEmail, long pRoleId, String pUserName, String pPassword)
         {
-            User lReturn = null;
-            long lUserId = this.UserList.Count();
-            User lUser = new User(lUserId, pName, pSurname, pPhone, pAddress, 
-                                pEmail, pRoleId, pUserName, pPassword);
-            if (ExistUser(lUser) == null)
+            UserFarm lReturn = null;
+            long lUserFarmId = this.UserFarmList.Count();
+            User lUser = new User(pUserId, pName, pSurname, pPhone, 
+                                    pAddress, pEmail, pRoleId, 
+                                    pUserName, pPassword);
+            String lUserFarmName = lUser.Name + this.Name;
+            UserFarm lUserFarm = new UserFarm(lUserFarmId, lUser, this,
+                                lUserFarmName, DateTime.Now);
+            if (ExistUserFarm(lUserFarm) == null)
             {
-                this.UserList.Add(lUser);
-                lReturn = lUser;
+                this.UserFarmList.Add(lUserFarm);
+                lReturn = lUserFarm;
             }
             return lReturn;
         }
 
         /// <summary>
-        /// Update the User from Farm Administrator List,
+        /// Return if the UserId exists in UserFarm List,
+        /// else null
+        /// </summary>
+        /// <param name="pUser"></param>
+        /// <returns></returns>
+        public UserFarm ExistUserFarm(UserFarm pUserFarm)
+        {
+            UserFarm lReturn = null;
+            foreach (UserFarm item in this.UserFarmList)
+            {
+                if (item.Equals(pUserFarm))
+                {
+                    lReturn = item;
+                    break;
+                }
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Add a UserFarm to User Farm List,
+        /// If exists return null
+        /// </summary>
+        /// <param name="pUser"></param>
+        /// <param name="pFarm"></param>
+        /// <param name="pName"></param>
+        /// <param name="pStartDate"></param>
+        /// <returns></returns>
+        public UserFarm AddUserFarm(User pUser, Farm pFarm,
+                        String pName, DateTime pStartDate)
+        {
+            UserFarm lReturn = null;
+            long lUserFarmId = this.UserFarmList.Count();
+            String lUserFarmName = pUser.Name + pFarm.Name;
+            UserFarm lUserFarm = new UserFarm(lUserFarmId, pUser, pFarm,
+                                lUserFarmName, DateTime.Now);
+            if (ExistUserFarm(lUserFarm) == null)
+            {
+                this.UserFarmList.Add(lUserFarm);
+                lReturn = lUserFarm;
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Update the UserFarm from User Farm List,
         /// If do not exists return null
         /// </summary>
+        /// <param name="pUser"></param>
+        /// <param name="pFarm"></param>
         /// <param name="pName"></param>
-        /// <param name="pSurname"></param>
-        /// <param name="pPhone"></param>
-        /// <param name="pAddress"></param>
-        /// <param name="pEmail"></param>
-        /// <param name="pRoleId"></param>
-        /// <param name="pUserName"></param>
-        /// <param name="pPassword"></param>
+        /// <param name="pStartDate"></param>
         /// <returns></returns>
-        public User UpdateUser(String pName, String pSurname, String pPhone, String pAddress,
-                            String pEmail, long pRoleId, String pUserName, String pPassword)
+        public UserFarm UpdateUserFarm(User pUser, Farm pFarm,
+                        String pName, DateTime pStartDate)
         {
-            User lReturn = null;
-            User lUser = new User(0, pName, pSurname, pPhone, pAddress,
-                                pEmail, pRoleId, pUserName, pPassword);
-            lReturn = ExistUser(lUser);
+            UserFarm lReturn = null;
+            UserFarm lUserFarm = new UserFarm(0, pUser, pFarm, pName, pStartDate);
+            lReturn = ExistUserFarm(lUserFarm);
             if (lReturn != null)
             {
+                lReturn.UserId = pUser.UserId;
+                lReturn.FarmId = pFarm.FarmId;
                 lReturn.Name = pName;
-                lReturn.Surname = pSurname;
-                lReturn.Phone = pPhone;
-                lReturn.Address = pAddress;
-                lReturn.Email = pEmail;
-                lReturn.RoleId = pRoleId;
-                lReturn.UserName = pUserName;
-                lReturn.Password = pPassword;
+                lReturn.StartDate = pStartDate;
             }
             return lReturn;
         }

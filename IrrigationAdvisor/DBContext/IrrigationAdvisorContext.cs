@@ -159,6 +159,8 @@ namespace IrrigationAdvisor.DBContext
 
         public virtual DbSet<Models.Security.SiteMap> SiteMaps { get; set; }
 
+        public virtual DbSet<UserFarm> UserFarms { get; set; }
+
         #endif
         #endregion
 
@@ -286,7 +288,7 @@ namespace IrrigationAdvisor.DBContext
             //modelBuilder.Configurations.Add(new SiteItemConfiguration());
             //modelBuilder.Configurations.Add(new SiteMapConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
-
+            modelBuilder.Configurations.Add(new UserFarmConfiguration());
             #endif
             #endregion
 

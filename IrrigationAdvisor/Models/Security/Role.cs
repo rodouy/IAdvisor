@@ -45,7 +45,6 @@ namespace IrrigationAdvisor.Models.Security
         #region Consts
         #endregion
 
-
         #region Fields
         /// <summary>
         /// The fields are:
@@ -60,7 +59,6 @@ namespace IrrigationAdvisor.Models.Security
         private long menuId;
 
         #endregion
-
 
         #region Properties
         /// <summary>
@@ -133,7 +131,6 @@ namespace IrrigationAdvisor.Models.Security
 
         #endregion
 
-
         #region Private Helpers
         // private methods used only to support external API Methods
         /// <summary>
@@ -162,7 +159,6 @@ namespace IrrigationAdvisor.Models.Security
         }
 
         #endregion
-
 
         #region Public Methods
         /// <summary>
@@ -208,7 +204,6 @@ namespace IrrigationAdvisor.Models.Security
         
         #endregion
 
-
         #region Overrides
         // Different region for each class override
 
@@ -233,7 +228,6 @@ namespace IrrigationAdvisor.Models.Security
         }
 
         #endregion
-
 
     }
 }

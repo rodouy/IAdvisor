@@ -255,32 +255,25 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Rain))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
-                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId).ToList();
+                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId
+                            && ciw.SowingDate <= pDateOfReference
+                            && ciw.HarvestDate >= pDateOfReference).ToList();
                 foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
                 {
-                    DateTime lSowingDate = item.SowingDate;
-                    DateTime lHarvestDate = item.HarvestDate;
-
-                    //TODO: Could be more than one CropIrrigationWeather, when the IrrigationUnit is used for more than one Crop
-                    if ((lSowingDate <= pDateOfReference)
-                        && (lHarvestDate >= pDateOfReference))
+                    lCropIrrigationWeather = item;
+                    foreach (var record in lCropIrrigationWeather.DailyRecordList)
                     {
-                        lCropIrrigationWeather = item;
-                        foreach (var record in lCropIrrigationWeather.DailyRecordList)
+                        if (record.DailyRecordDateTime <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
                         {
-                            if (record.DailyRecordDateTime <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
-                            {
-                                lNewDailyRecordList.Add(record);
-                            }
-                            else
-                            {
-                                break;
-                            }
+                            lNewDailyRecordList.Add(record);
                         }
-                        break;
+                        else
+                        {
+                            break;
+                        }
                     }
                 }
-                //lReturn = lCropIrrigationWeather.DailyRecordList.ToList();
+                
                 lReturn = lNewDailyRecordList.ToList();
             }
 
@@ -298,8 +291,7 @@ namespace IrrigationAdvisor.DBContext.Management
         /// <param name="pDateOfReference"></param>
         /// <returns></returns>
         public List<DailyRecord> GetDailyRecordListIncludeDailyRecordListBy(IrrigationUnit pIrrigationUnit,
-                                                      DateTime pDateOfReference,
-                                                      Crop pCrop)
+                                                      DateTime pDateOfReference, Crop pCrop)
         {
             List<DailyRecord> lReturn = null;
             List<DailyRecord> lNewDailyRecordList = new List<DailyRecord>();
@@ -308,7 +300,7 @@ namespace IrrigationAdvisor.DBContext.Management
 
             if (pIrrigationUnit != null && pDateOfReference != null)
             {
-                lCropIrrigationWeaterList = db.CropIrrigationWeathers
+                lCropIrrigationWeather = db.CropIrrigationWeathers
                     .Include(ciw => ciw.DailyRecordList)
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.MainWeatherData))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.AlternativeWeatherData))
@@ -317,32 +309,21 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
                     .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId
-                            && ciw.CropId == pCrop.CropId).ToList();
-                foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
+                            && ciw.CropId == pCrop.CropId
+                            && ciw.SowingDate <= pDateOfReference
+                            && ciw.HarvestDate >= pDateOfReference).FirstOrDefault();
+                foreach (var record in lCropIrrigationWeather.DailyRecordList)
                 {
-                    DateTime lSowingDate = item.SowingDate;
-                    DateTime lHarvestDate = item.HarvestDate;
-
-                    //TODO: Could be more than one CropIrrigationWeather, when the IrrigationUnit is used for more than one Crop
-                    if ((lSowingDate <= pDateOfReference)
-                        && (lHarvestDate >= pDateOfReference))
+                    if (record.DailyRecordDateTime <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
                     {
-                        lCropIrrigationWeather = item;
-                        foreach (var record in lCropIrrigationWeather.DailyRecordList)
-                        {
-                            if (record.DailyRecordDateTime <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
-                            {
-                                lNewDailyRecordList.Add(record);
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
+                        lNewDailyRecordList.Add(record);
+                    }
+                    else
+                    {
                         break;
                     }
                 }
-                //lReturn = lCropIrrigationWeather.DailyRecordList.ToList();
+                
                 lReturn = lNewDailyRecordList.ToList();
             }
 
@@ -358,7 +339,7 @@ namespace IrrigationAdvisor.DBContext.Management
         /// <param name="pDateOfReference"></param>
         /// <returns></returns>
         public DailyRecord GetDailyRecordBy(IrrigationUnit pIrrigationUnit,
-                                                      DateTime pDateOfReference)
+                                            DateTime pDateOfReference, Crop pCrop)
         {
             DailyRecord lReturn = null;
             CropIrrigationWeather lCropIrrigationWeather = null;
@@ -366,23 +347,18 @@ namespace IrrigationAdvisor.DBContext.Management
 
             if (pIrrigationUnit != null && pDateOfReference != null)
             {
-                lCropIrrigationWeaterList = db.CropIrrigationWeathers
+                lCropIrrigationWeather = db.CropIrrigationWeathers
+                    .Include(ciw => ciw.Crop)
                     .Include(ciw => ciw.IrrigationList)
                     .Include(ciw => ciw.MainWeatherStation)
                     .Include(ciw => ciw.PhenologicalStageAdjustmentList)
                     .Include(ciw => ciw.Soil)
                     .Include(ciw => ciw.DailyRecordList)
-                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId).ToList();
-                foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
-                {
-                    //TODO: Could be more than one CropIrrigationWeather, when the IrrigationUnit is used for more than one Crop
-                    if ((item.SowingDate >= pDateOfReference) 
-                        && (item.HarvestDate <= pDateOfReference))
-                    {
-                        lCropIrrigationWeather = item;
-                        break;
-                    }
-                }
+                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId
+                            && ciw.CropId == pCrop.CropId
+                            && ciw.SowingDate <= pDateOfReference
+                            && ciw.HarvestDate >= pDateOfReference).FirstOrDefault();
+                
                 lReturn = lCropIrrigationWeather.DailyRecordList
                     .Where(ciw => ciw.DailyRecordDateTime == pDateOfReference).FirstOrDefault();
             }

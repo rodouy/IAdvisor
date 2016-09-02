@@ -45,10 +45,10 @@ namespace IrrigationAdvisor.DBContext.Localization
                 lFarmList = db.Farms
                     .Include(f => f.IrrigationUnitList)
                     .Include(f => f.City)
-                    .Include(f => f.UserList).ToList();
+                    .Include(f => f.UserFarmList).ToList();
                 foreach (Farm item in lFarmList)
                 {
-                    lUser = item.UserList.Where(u => u.UserId == pUser.UserId).FirstOrDefault();
+                    lUser = item.UserFarmList.Where(uf => uf.UserId == pUser.UserId).FirstOrDefault().User;
                     if(lUser != null)
                     {
                         if(lReturn == null)
@@ -82,10 +82,10 @@ namespace IrrigationAdvisor.DBContext.Localization
                     .Include(f => f.IrrigationUnitList)
                     .Include(f => f.WeatherStation)
                     .Include(f => f.City)
-                    .Include(f => f.UserList).ToList();
+                    .Include(f => f.UserFarmList).ToList();
                 foreach (Farm item in lFarmList)
                 {
-                    lUser = item.UserList.Where(u => u.UserId == pUser.UserId).FirstOrDefault();
+                    lUser = item.UserFarmList.Where(uf => uf.UserId == pUser.UserId).FirstOrDefault().User;
                     if(lUser != null)
                     {
                         if(lReturn == null)

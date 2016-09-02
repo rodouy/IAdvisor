@@ -209,6 +209,7 @@
     <Compile Include="Controllers\Security\RolesController.cs" />
     <Compile Include="Controllers\Security\SiteItemsController.cs" />
     <Compile Include="Controllers\Security\SiteMapsController.cs" />
+    <Compile Include="Controllers\Security\UserFarmsController.cs" />
     <Compile Include="Controllers\Security\UsersController.cs" />
     <Compile Include="Controllers\Water\EffectiveRainsController.cs" />
     <Compile Include="Controllers\Water\EvapotranspirationCropsController.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="DBContext\Security\SiteItemConfiguration.cs" />
     <Compile Include="DBContext\Security\SiteMapConfiguration.cs" />
     <Compile Include="DBContext\Security\UserConfiguration.cs" />
+    <Compile Include="DBContext\Security\UserFarmConfiguration.cs" />
     <Compile Include="DBContext\Water\EffectiveRainConfiguration.cs" />
     <Compile Include="DBContext\Water\EvapotranspirationCropConfiguration.cs" />
     <Compile Include="DBContext\Water\IrrigationConfiguration.cs" />
@@ -308,6 +310,7 @@
     <Compile Include="Models\Management\IrrigationCalculus.cs" />
     <Compile Include="Models\Management\Message.cs" />
     <Compile Include="Models\Management\Title.cs" />
+    <Compile Include="Models\Security\UserFarm.cs" />
     <Compile Include="Models\Utilities\OutputFileCSV.cs" />
     <Compile Include="Models\Water\EffectiveRain.cs" />
     <Compile Include="Models\Water\EvapotranspirationCrop.cs" />
@@ -771,6 +774,11 @@
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Home\_GenerateMenu.cshtml" />
     <Content Include="Views\Errors\_Error.cshtml" />
+    <Content Include="Views\Security\UserFarms\Create.cshtml" />
+    <Content Include="Views\Security\UserFarms\Delete.cshtml" />
+    <Content Include="Views\Security\UserFarms\Details.cshtml" />
+    <Content Include="Views\Security\UserFarms\Edit.cshtml" />
+    <Content Include="Views\Security\UserFarms\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
