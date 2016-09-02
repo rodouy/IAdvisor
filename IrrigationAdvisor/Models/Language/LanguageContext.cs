@@ -93,6 +93,8 @@ namespace IrrigationAdvisor.Models
 
         public System.Data.Entity.DbSet<IrrigationAdvisor.Models.Management.Message> Messages { get; set; }
 
+        public System.Data.Entity.DbSet<IrrigationAdvisor.Models.Security.UserFarm> UserFarms { get; set; }
+
 
     }
 }

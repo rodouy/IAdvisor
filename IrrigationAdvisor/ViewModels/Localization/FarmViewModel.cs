@@ -64,7 +64,7 @@ namespace IrrigationAdvisor.ViewModels.Localization
 
             this.BombViewModelList = this.GetBombListBy(pFarm.BombList);
             this.IrrigationUnitViewModelList = this.GetIrrigationUnitListBy(pFarm.IrrigationUnitList);
-            this.UserViewModelList = this.GetUserListBy(pFarm.UserList);
+            this.UserViewModelList = this.GetUserListBy(pFarm.UserFarmList);
 
         }
 
@@ -123,15 +123,15 @@ namespace IrrigationAdvisor.ViewModels.Localization
         /// </summary>
         /// <param name="pUserList"></param>
         /// <returns></returns>
-        public List<UserViewModel> GetUserListBy(List<User> pUserList)
+        public List<UserViewModel> GetUserListBy(List<UserFarm> pUserFarmList)
         {
             List<UserViewModel> lReturn = new List<UserViewModel>();
 
-            if(pUserList != null && pUserList.Count() > 0)
+            if(pUserFarmList != null && pUserFarmList.Count() > 0)
             {
-                foreach (User item in pUserList)
+                foreach (UserFarm item in pUserFarmList)
                 {
-                    UserViewModel lUser = new UserViewModel(item);
+                    UserViewModel lUser = new UserViewModel(item.User);
                     lReturn.Add(lUser);
                 }
             }

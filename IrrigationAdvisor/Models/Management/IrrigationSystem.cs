@@ -1595,14 +1595,14 @@ namespace IrrigationAdvisor.Models.Management
                         String pPhone, long pPositionId, int pHas, 
                         WeatherStation pWeatherStation, List<Soil> pSoilList,
                         List<Bomb> pBombList, List<IrrigationUnit> pIrrigationUnitList, 
-                        long pCityId, List<User> pUserList)
+                        long pCityId, List<UserFarm> pUserFarmList)
         {
             Farm lReturn = null;
             long lFarmId = this.FarmList.Count();
             Farm lFarm = new Farm(lFarmId, pName, pCompany, pAddress, pPhone,
                             pPositionId, pHas, pWeatherStation.WeatherStationId,
                             pSoilList, pBombList, pIrrigationUnitList,
-                            pCityId, pUserList);
+                            pCityId, pUserFarmList);
             if(ExistFarm(lFarm) == null)
             {
                 this.FarmList.Add(lFarm);
@@ -1625,19 +1625,19 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pBombList"></param>
         /// <param name="pIrrigationUnitList"></param>
         /// <param name="pCityId"></param>
-        /// <param name="pUserList"></param>
+        /// <param name="pUserFarmList"></param>
         /// <returns></returns>
         public Farm UpdateFarm(String pName, String pCompany, String pAddress, 
                         String pPhone, long pPositionId, int pHas, 
                         WeatherStation pWeatherStation, List<Soil> pSoilList, 
                         List<Bomb> pBombList, List<IrrigationUnit> pIrrigationUnitList,
-                        long pCityId, List<User> pUserList)
+                        long pCityId, List<UserFarm> pUserFarmList)
         {
             Farm lReturn = null;
             Farm lFarm = new Farm(0, pName, pCompany, pAddress, pPhone,
                             pPositionId, pHas, pWeatherStation.WeatherStationId,
                             pSoilList, pBombList, pIrrigationUnitList, 
-                            pCityId, pUserList);
+                            pCityId, pUserFarmList);
             lReturn = ExistFarm(lFarm);
             if(lReturn != null)
             {
@@ -1652,7 +1652,7 @@ namespace IrrigationAdvisor.Models.Management
                 lReturn.BombList = pBombList;
                 lReturn.IrrigationUnitList = pIrrigationUnitList;
                 lReturn.CityId = pCityId;
-                lReturn.UserList = pUserList;
+                lReturn.UserFarmList = pUserFarmList;
             }
             return lReturn;
         }

@@ -32,7 +32,6 @@ namespace IrrigationAdvisor.Models.Security
     ///     - userName String
     ///     - password String
     ///     - language Language
-    ///     - roles List<Role>
     /// 
     /// Methods:
     ///     - User()
