@@ -2010,7 +2010,11 @@ namespace IrrigationAdvisor.Models.Management
                     lFromDate = Utils.MaxDateTimeBetween(lFromDate, this.SowingDate.AddDays(1));
                     lCropDays = lFromDate.Subtract(this.SowingDate).TotalDays;
 
-                    if (pDateOfReference != null && pDateOfReference <= this.HarvestDate && lFromDate <= pDateOfReference)
+                    /* We limit to enter the new future daily record with the next condition 
+                    lFromDate <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION)
+                    */
+                    if (pDateOfReference != null && pDateOfReference <= this.HarvestDate 
+                        && lFromDate <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
                     {
                         lToDate = Utils.MinDateTimeBetween(pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION),
                                                             this.HarvestDate);
