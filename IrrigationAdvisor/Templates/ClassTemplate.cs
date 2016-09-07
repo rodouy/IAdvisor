@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using NLog;
 
 namespace IrrigationAdvisor.Templates
 {
@@ -34,6 +35,7 @@ namespace IrrigationAdvisor.Templates
     {
 
         #region Consts
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Fields

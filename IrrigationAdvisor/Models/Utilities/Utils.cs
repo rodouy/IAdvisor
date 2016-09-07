@@ -630,6 +630,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherDemo3Pivot32A = NamePivotDemo32A + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDemo3Pivot33 = NamePivotDemo33 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDemo3Pivot34 = NamePivotDemo34 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDemo3Pivot342 = NamePivotDemo34 + " " + NameSpecieSoyaSouthShort;
         public static String NameCropIrrigationWeatherDemo3Pivot35 = NamePivotDemo35 + " " + NameSpecieCornSouthShort;
         #endregion
         public static String NameCropIrrigationWeatherSantaLuciaPivot1 = NamePivotSantaLucia1 + " " + NameSpecieCornSouthShort;
