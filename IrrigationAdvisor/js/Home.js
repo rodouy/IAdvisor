@@ -69,7 +69,7 @@ $(document).ready(function () {
             type: 'GET',
             url: './GetFarmsByUser',
             success: function (data) {
-                debugger;
+                
                 if (jQuery.type(data) == "array" && data.length > 0)
                 {
                     var values = JSON.stringify(data);
