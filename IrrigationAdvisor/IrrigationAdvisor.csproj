@@ -192,6 +192,7 @@
     <Compile Include="Controllers\Agriculture\SpecieCyclesController.cs" />
     <Compile Include="Controllers\Agriculture\SpeciesController.cs" />
     <Compile Include="Controllers\Agriculture\StagesController.cs" />
+    <Compile Include="Controllers\Helpers\FarmShortView.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Irrigation\BombsController.cs" />
     <Compile Include="Controllers\Irrigation\DripsController.cs" />

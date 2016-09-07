@@ -32,6 +32,7 @@ using IrrigationAdvisor.DBContext.Agriculture;
 using IrrigationAdvisor.Models.Data;
 using IrrigationAdvisor.ViewModels.Agriculture;
 using IrrigationAdvisor.ViewModels.Weather;
+using IrrigationAdvisor.Controllers.Helpers;
 
 namespace IrrigationAdvisor.Controllers
 {
@@ -61,6 +62,25 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
+        private Farm GetCurrenFarm(List<Farm> pFarmList)
+        {
+            string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+            Uri lMyUri = new Uri(lURL);
+            string lcurrentFarmViaUrl = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("farm");
+            Farm lCurrentFarm;
+
+            if (String.IsNullOrEmpty(lcurrentFarmViaUrl))
+            {
+                lCurrentFarm = pFarmList.FirstOrDefault();
+            }
+            else
+            {
+                int farmId = Convert.ToInt32(lcurrentFarmViaUrl);
+                lCurrentFarm = pFarmList.Single(f => f.FarmId == farmId);
+            }
+
+            return lCurrentFarm;
+        }
         public ActionResult Home(LoginViewModel pLoginViewModel)
         {
             Authentication lAuthentication;
@@ -86,9 +106,9 @@ namespace IrrigationAdvisor.Controllers
             FarmViewModel lFarmViewModel;
             User lLoggedUser;
             List<Farm> lFarmList;
-            Farm lFirstFarm;
-            String lFirstFarmLatitude;
-            String lFirstFarmLongitude;
+            Farm lCurrentFarm;
+            String lCurrentFarmLatitude;
+            String lCurrentFarmLongitude;
             List<FarmViewModel> lFarmViewModelList;
             List<Bomb> lBombList;
             List<IrrigationUnit> lIrrigationUnitList;
@@ -189,12 +209,13 @@ namespace IrrigationAdvisor.Controllers
                     lFarmViewModel = new FarmViewModel(farm);
                     lFarmViewModelList.Add(lFarmViewModel);
                 }
-
-                lFirstFarm = lFarmList.FirstOrDefault();
-                lFirstFarmLatitude = fc.GetLatitudeBy(lFirstFarm.PositionId).ToString().Replace(",",".");
-                lFirstFarmLongitude = fc.GetLongitudeBy(lFirstFarm.PositionId).ToString().Replace(",", ".");
-                lFarmViewModel = new FarmViewModel(lFirstFarm);
-                lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lFirstFarm);
+                
+                lCurrentFarm = GetCurrenFarm(lFarmList);
+                
+                lCurrentFarmLatitude = fc.GetLatitudeBy(lCurrentFarm.PositionId).ToString().Replace(",",".");
+                lCurrentFarmLongitude = fc.GetLongitudeBy(lCurrentFarm.PositionId).ToString().Replace(",", ".");
+                lFarmViewModel = new FarmViewModel(lCurrentFarm);
+                lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lCurrentFarm);
 
                 lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
                 lDailyRecordList = new List<DailyRecord>();
@@ -236,7 +257,7 @@ namespace IrrigationAdvisor.Controllers
                 lCropIrrigationWeatherVM.Add(lFirstCropIrrigationWeather);
                 //Demo - One Pivot
                 lHVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
-                    lFarmViewModel, lFirstFarmLatitude, lFirstFarmLongitude, lCropIrrigationWeatherVM, 
+                    lFarmViewModel, lCurrentFarmLatitude, lCurrentFarmLongitude, lCropIrrigationWeatherVM, 
                     lDailyRecordViewModelList, lRainViewModelList, lIrrigationViewModelList, 
                     lMinDateOfReference, lMaxDateOfReference);
 
@@ -274,17 +295,71 @@ namespace IrrigationAdvisor.Controllers
 	        }
 
         }
-        
+
+        /// <summary>
+        /// Get Farms for the current user
+        /// </summary>
+        /// <returns>Json with the Farms</returns>
+        public JsonResult GetFarmsByUser()
+        {
+            FarmConfiguration lFc = new FarmConfiguration();
+            UserConfiguration lUc = new UserConfiguration();
+            List<FarmShortView> lFarmShortViews = new List<FarmShortView>();
+
+            try
+            {
+                LoginViewModel lLoginViewModel = ManageSession.GetLoginViewModel();
+
+                if (lLoginViewModel != null)
+                {
+                    string lUserName = lLoginViewModel.UserName;
+
+                    User lUser = lUc.GetUserByName(lUserName);
+                    
+                    if (lUser != null)
+                    {
+                        List<Farm> lFarmList = lFc.GetFarmListBy(lUser);
+
+                        foreach (var item in lFarmList)
+                        {
+                            FarmShortView lFarmShortView = new FarmShortView()
+                            {
+                                FarmId = item.FarmId,
+                                FarmDescription = item.Name
+                            };
+
+                            lFarmShortViews.Add(lFarmShortView);
+                        }
+
+                        return Json(lFarmShortViews, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        // Que pasa cuando no encuentro en User ?
+                        return Json("The user not exists", JsonRequestBehavior.AllowGet);
+                    }
+                }
+                else
+                {
+                    return Json("The loginViewModel is null", JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         public JsonResult GetStagesBy(long pSpecieId, long pCropIrrigationWeatherId)
         {
-            
+
             StageConfiguration st = new StageConfiguration();
             List<StageViewModel> lStageViewModelList = new List<StageViewModel>();
 
             IrrigationAdvisorContext context = new IrrigationAdvisorContext();
 
             CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
-            
+
             Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.PhenologicalStageId).FirstOrDefault();
 
             //irrigationUnit
@@ -306,20 +381,19 @@ namespace IrrigationAdvisor.Controllers
                     };
 
                     lStageViewModelList.Add(stageViewModel);
-
                 }
-
                 return Json(lStageResult, JsonRequestBehavior.AllowGet);
-
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message, ex);
-                
-                throw ;
+
+                throw;
             }
-            
+          
         }
+         
         
         /// <summary>
         /// Change the Date of Reference
@@ -769,11 +843,10 @@ namespace IrrigationAdvisor.Controllers
             List<GridPivotDetailHome> lGridIrrigationUnitDetailRow;
             GridPivotDetailHome lGridIrrigationUnitRow;
             DateTime lDateOfReference;
-            ErrorViewModel lErrorVM;
             FarmViewModel lFarmViewModel;
             User lLoggedUser;
             List<Farm> lFarmList;
-            Farm lFirstFarm;
+            Farm lCurrentFarm;
             List<IrrigationUnit> lIrrigationUnitList;
             List<CropIrrigationWeather> lCropIrrigationWeatherList;
             CropIrrigationWeather lFirstCropIrrigationWeather;
@@ -813,9 +886,9 @@ namespace IrrigationAdvisor.Controllers
                 //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
 
-                lFirstFarm = lFarmList.FirstOrDefault();
-                lFarmViewModel = new FarmViewModel(lFirstFarm);
-                lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lFirstFarm);
+                lCurrentFarm = GetCurrenFarm(lFarmList);
+                lFarmViewModel = new FarmViewModel(lCurrentFarm);
+                lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lCurrentFarm);
 
                 lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
                 lDailyRecordList = new List<DailyRecord>();
@@ -1034,7 +1107,7 @@ namespace IrrigationAdvisor.Controllers
 
             User lLoggedUser;
             List<Farm> lFarmList;
-            Farm lFirstFarm;
+            Farm lCurrentFarm;
             long lPositionId;
             String lLatitude;
             String lLongitude;
@@ -1104,8 +1177,8 @@ namespace IrrigationAdvisor.Controllers
                     //Get list of Farms from User
                     lFarmList = fc.GetFarmListBy(lLoggedUser);
 
-                    lFirstFarm = lFarmList.FirstOrDefault();
-                    lPositionId = lFirstFarm.PositionId;
+                    lCurrentFarm = GetCurrenFarm(lFarmList);
+                    lPositionId = lCurrentFarm.PositionId;
 
                     lLatitude = fc.GetLatitudeBy(lPositionId).ToString().Replace(",",".");
                     lLongitude = fc.GetLongitudeBy(lPositionId).ToString().Replace(",", ".");
@@ -1312,7 +1385,7 @@ namespace IrrigationAdvisor.Controllers
 
             User lLoggedUser;
             List<Farm> lFarmList;
-            Farm lFirstFarm;
+            Farm lCurrentFarm;
             long lPositionId;
             String lLatitude;
             String lLongitude;
@@ -1382,8 +1455,8 @@ namespace IrrigationAdvisor.Controllers
                     //Get list of Farms from User
                     lFarmList = fc.GetFarmListBy(lLoggedUser);
 
-                    lFirstFarm = lFarmList.FirstOrDefault();
-                    lPositionId = lFirstFarm.PositionId;
+                    lCurrentFarm = GetCurrenFarm(lFarmList);
+                    lPositionId = lCurrentFarm.PositionId;
 
                     lLatitude = fc.GetLatitudeBy(lPositionId).ToString().Replace(",", ".");
                     lLongitude = fc.GetLongitudeBy(lPositionId).ToString().Replace(",", ".");

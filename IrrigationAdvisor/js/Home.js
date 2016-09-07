@@ -28,6 +28,7 @@ $(document).ready(function () {
     var cancelRain = $('#CancelRain');
     var cancelPheno = $('#CancelPheno');
     var lstFarms = $('#lstFarms');
+   
 
     
 
@@ -62,24 +63,55 @@ $(document).ready(function () {
         $('#loading').modal('hide');
     }
 
+    var loadUserFarms = function () {
+
+        $.ajax({
+            type: 'GET',
+            url: './GetFarmsByUser',
+            success: function (data) {
+                
+                if (jQuery.type(data) == "array" && data.length > 0)
+                {
+                    var values = JSON.stringify(data);
+
+                    lstFarms.empty();
+                    $.each($.parseJSON(values), function (key, value) {
+                        lstFarms.append('<option value="' + value.FarmId + '">' + value.FarmDescription + '</option>');
+                    });
+
+                    var farmParam = getUrlParameter('farm');
+                    if (lstFarms.children().length > 0 && farmParam) {
+                        lstFarms.val(farmParam);
+                    }
+
+                    lstFarms.show();
+                }
+                else
+                {
+                    console.log("Error on loadUserFarms. - " + data);
+                }
+                
+            },
+            error: function (data) {
+
+                console.log("Error on loadUserFarms");
+
+            }
+        });
+    };
+
     var init = function () {
-
-        var farmParam = getUrlParameter('farm');
-
-        if (farmParam) {
-            lstFarms.val(farmParam);
-        }
 
         addIrrigationModal.hide();
         addRainModal.hide();
         addPhenoModal.hide();
-
+        lstFarms.hide();
         var initModal = { backdrop: false, show: false };
 
         modalIrrigation.modal(initModal);
         modalRain.modal(initModal);
         modalPheno.modal(initModal);
-
+        loadUserFarms();
         hideLoading();
     };
 
@@ -260,6 +292,7 @@ $(document).ready(function () {
         });
 
     };
+
 
     loadStageForCropIrrigationWeather();
 
