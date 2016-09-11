@@ -350,6 +350,12 @@ namespace IrrigationAdvisor.Controllers
             }
         }
 
+        /// <summary>
+        /// TODO: Description of GetStagesBy
+        /// </summary>
+        /// <param name="pSpecieId"></param>
+        /// <param name="pCropIrrigationWeatherId"></param>
+        /// <returns></returns>
         public JsonResult GetStagesBy(long pSpecieId, long pCropIrrigationWeatherId)
         {
 
@@ -438,6 +444,12 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
+        /// <summary>
+        /// TODO: Description of SendEmails
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public ActionResult SendEmails(string subject, string body)
         {
             try
@@ -484,6 +496,10 @@ namespace IrrigationAdvisor.Controllers
             return View("Index", new LoginViewModel());
         }
 
+        /// <summary>
+        /// Add a day to the Date of Reference
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult AddDateOfReference()
         {
@@ -495,6 +511,13 @@ namespace IrrigationAdvisor.Controllers
             return RedirectToAction("Home");
         }
 
+        /// <summary>
+        /// Update Phenology of a CropIrrigationWeather by Date and Stage
+        /// </summary>
+        /// <param name="pDate"></param>
+        /// <param name="pCropIrrigationWeatherId"></param>
+        /// <param name="pStageId"></param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult AddPhenology( DateTime  pDate,
                                           int       pCropIrrigationWeatherId,
@@ -534,9 +557,6 @@ namespace IrrigationAdvisor.Controllers
                 lCiw.AddInformationToIrrigationUnits(pDate, lReferenceDate, lContext);
                 lContext.SaveChanges();
 
-
-               
-
             }
             catch (Exception ex)
             {
@@ -546,12 +566,18 @@ namespace IrrigationAdvisor.Controllers
             return Content("Ok");
         }
 
+        /// <summary>
+        /// Add Irrigation to Irrigatoin Unit by Date and Milimiters of water
+        /// </summary>
+        /// <param name="pMilimeters"></param>
+        /// <param name="pIrrigationUnitId"></param>
+        /// <param name="pDay"></param>
+        /// <param name="pMonth"></param>
+        /// <param name="pYear"></param>
+        /// <returns></returns>
         [HttpGet]
-        public ActionResult AddIrrigation(  double pMilimeters,
-                                            int pIrrigationUnitId,
-                                            int pDay,
-                                            int pMonth,
-                                            int pYear)
+        public ActionResult AddIrrigation(double pMilimeters, int pIrrigationUnitId,
+                                            int pDay, int pMonth, int pYear)
         {
             try
             {
@@ -618,12 +644,18 @@ namespace IrrigationAdvisor.Controllers
 
         }
 
+        /// <summary>
+        /// Add Rain to Irrigatoin Unit by Date and Milimiters of water
+        /// </summary>
+        /// <param name="pMilimeters"></param>
+        /// <param name="pIrrigationUnitId"></param>
+        /// <param name="pDay"></param>
+        /// <param name="pMonth"></param>
+        /// <param name="pYear"></param>
+        /// <returns></returns>
         [HttpGet]
-        public ActionResult AddRain(double pMilimeters, 
-                                    long pIrrigationUnitId, 
-                                    int pDay, 
-                                    int pMonth, 
-                                    int pYear)
+        public ActionResult AddRain(double pMilimeters, long pIrrigationUnitId, 
+                                    int pDay, int pMonth, int pYear)
         {
 
             try
@@ -731,6 +763,10 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("_LoginHomePartial", login);
         }
 
+        /// <summary>
+        /// Generate Menu
+        /// </summary>
+        /// <returns></returns>
         public PartialViewResult GenerateMenu()
         {
 
@@ -955,7 +991,7 @@ namespace IrrigationAdvisor.Controllers
         /// <returns></returns>
         private GridPivotDetailHome AddGridIrrigationUnitDays(DateTime pDayOfReference, DateTime pDayOfData)
         {
-            GridPivotDetailHome lReturn;
+            GridPivotDetailHome lReturn = null;
 
             Double lIrrigationQuantity = 0;
             Double lRainQuantity = 0;
@@ -988,7 +1024,7 @@ namespace IrrigationAdvisor.Controllers
         private GridPivotDetailHome AddGridIrrigationUnit(DateTime pDayOfReference, DateTime pDayOfData, List<Models.Water.Irrigation> pIrrigationList,
                                                         List<Rain> pRainList, List<DailyRecord> pDailyRecordList)
         {
-            GridPivotDetailHome lReturn;
+            GridPivotDetailHome lReturn = null;
 
             Double lIrrigationQuantity = 0;
             Double lRainQuantity = 0;
@@ -999,9 +1035,9 @@ namespace IrrigationAdvisor.Controllers
             Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Default;
             String lPhenology = "";
 
-            Models.Water.Irrigation lIrrigation;
-            Rain lRain;
-            DailyRecord lDailyRecord;
+            Models.Water.Irrigation lIrrigation = null;
+            Rain lRain = null;
+            DailyRecord lDailyRecord = null;
             try
             {
 

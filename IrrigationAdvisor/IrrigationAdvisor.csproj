@@ -192,6 +192,7 @@
     <Compile Include="Controllers\Agriculture\SpecieCyclesController.cs" />
     <Compile Include="Controllers\Agriculture\SpeciesController.cs" />
     <Compile Include="Controllers\Agriculture\StagesController.cs" />
+    <Compile Include="Controllers\Data\StatusController.cs" />
     <Compile Include="Controllers\Helpers\FarmShortView.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Irrigation\BombsController.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="DBContext\Agriculture\SpecieConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\SpecieCycleConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\StageConfiguration.cs" />
+    <Compile Include="DBContext\Data\StatusConfiguration.cs" />
     <Compile Include="DBContext\IrrigationAdvisorContext.cs" />
     <Compile Include="DBContext\Irrigation\BombConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\DripConfiguration.cs" />
@@ -290,6 +292,7 @@
     <Compile Include="Models\Agriculture\CropCoefficientTable.cs" />
     <Compile Include="Models\Data\ExternalData.cs" />
     <Compile Include="Models\Data\InitialTables.cs" />
+    <Compile Include="Models\Data\Status.cs" />
     <Compile Include="Models\GridHome\GridDetailPivottHome.cs" />
     <Compile Include="Models\GridHome\GriPivotHome .cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -796,18 +799,20 @@
     <Content Include="Views\Security\UserFarms\Details.cshtml" />
     <Content Include="Views\Security\UserFarms\Edit.cshtml" />
     <Content Include="Views\Security\UserFarms\Index.cshtml" />
+    <Content Include="Views\Data\Status\Create.cshtml" />
+    <Content Include="Views\Data\Status\Delete.cshtml" />
+    <Content Include="Views\Data\Status\Details.cshtml" />
+    <Content Include="Views\Data\Status\Edit.cshtml" />
+    <Content Include="Views\Data\Status\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
     <Folder Include="App_Data\Scripts\Tables\" />
-    <Folder Include="Controllers\Data\" />
     <Folder Include="Controllers\Utilities\" />
-    <Folder Include="DBContext\Data\" />
     <Folder Include="DBContext\Utilities\" />
     <Folder Include="ViewModels\Data\" />
     <Folder Include="Views\Authenticate\" />
     <Folder Include="Views\Company\" />
-    <Folder Include="Views\Data\" />
     <Folder Include="Views\TemperatureDatas\" />
     <Folder Include="Views\Utilities\" />
   </ItemGroup>

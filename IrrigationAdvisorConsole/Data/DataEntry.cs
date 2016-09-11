@@ -37,30 +37,40 @@ namespace IrrigationAdvisorConsole
         public static double BaseTemperature_SoyaNorth_2015 = 8;
         public static double StressTemperature_SoyaNorth_2015 = 40;
 
-        public static double BaseTemperature_ForageSorghumSouth_2015 = 8;
-        public static double StressTemperature_ForageSorghumSouth_2015 = 35;
-        public static double BaseTemperature_ForageSorghumNorth_2015 = 8;
-        public static double StressTemperature_ForageSorghumNorth_2015 = 35;
+        public static double BaseTemperature_SorghumForageSouth_2015 = 8;
+        public static double StressTemperature_SorghumForageSouth_2015 = 35;
+        public static double BaseTemperature_SorghumForageNorth_2015 = 8;
+        public static double StressTemperature_SorghumForageNorth_2015 = 35;
 
-        public static double BaseTemperature_GrainSorghumSouth_2015 = 8;
-        public static double StressTemperature_GrainSorghumSouth_2015 = 35;
-        public static double BaseTemperature_GrainSorghumNorth_2015 = 8;
-        public static double StressTemperature_GrainSorghumNorth_2015 = 35;
+        public static double BaseTemperature_SorghumGrainSouth_2015 = 8;
+        public static double StressTemperature_SorghumGrainSouth_2015 = 35;
+        public static double BaseTemperature_SorghumGrainNorth_2015 = 8;
+        public static double StressTemperature_SorghumGrainNorth_2015 = 35;
 
         public static double BaseTemperature_AlfalfaSouth_2015 = 8;
         public static double StressTemperature_AlfalfaSouth_2015 = 35;
         public static double BaseTemperature_AlfalfaNorth_2015 = 8;
         public static double StressTemperature_AlfalfaNorth_2015 = 35;
 
-        public static double BaseTemperature_RedCloverSouth_2015 = 8;
-        public static double StressTemperature_RedCloverSouth_2015 = 35;
-        public static double BaseTemperature_RedCloverNorth_2015 = 8;
-        public static double StressTemperature_RedCloverNorth_2015 = 35;
+        public static double BaseTemperature_RedCloverForageSouth_2015 = 8;
+        public static double StressTemperature_RedCloverForageSouth_2015 = 35;
+        public static double BaseTemperature_RedCloverForageNorth_2015 = 8;
+        public static double StressTemperature_RedCloverForageNorth_2015 = 35;
 
-        public static double BaseTemperature_FescueSouth_2015 = 8;
-        public static double StressTemperature_FescueSouth_2015 = 35;
-        public static double BaseTemperature_FescueNorth_2015 = 8;
-        public static double StressTemperature_FescueNorth_2015 = 35;
+        public static double BaseTemperature_RedCloverSeedSouth_2015 = 8;
+        public static double StressTemperature_RedCloverSeedSouth_2015 = 35;
+        public static double BaseTemperature_RedCloverSeedNorth_2015 = 8;
+        public static double StressTemperature_RedCloverSeedNorth_2015 = 35;
+
+        public static double BaseTemperature_FescueForageSouth_2015 = 8;
+        public static double StressTemperature_FescueForageSouth_2015 = 35;
+        public static double BaseTemperature_FescueForageNorth_2015 = 8;
+        public static double StressTemperature_FescueForageNorth_2015 = 35;
+
+        public static double BaseTemperature_FescueSeedSouth_2015 = 8;
+        public static double StressTemperature_FescueSeedSouth_2015 = 35;
+        public static double BaseTemperature_FescueSeedNorth_2015 = 8;
+        public static double StressTemperature_FescueSeedNorth_2015 = 35;
 
         #endregion
 

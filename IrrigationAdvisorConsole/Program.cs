@@ -69,6 +69,10 @@ namespace IrrigationAdvisorConsole
                 }
                 #endif
 
+                #region Data
+                InsertStatus();
+                #endregion
+
                 #region Lenguage
                 InsertLanguages();
                 #endregion
@@ -86,7 +90,8 @@ namespace IrrigationAdvisorConsole
                 InsertCapitals();
                 InsertCountry();
                 InsertCities();
-                InsertWeatherStations();
+                InsertWeatherStationsINIA();
+                InsertWeatherStationsWeatherLink();
                 InsertFarms();
                 InsertUserFarms();
                 #endif
@@ -99,6 +104,13 @@ namespace IrrigationAdvisorConsole
                 UpdateCountryRegionWithSpeciesSpeciesCycles();
                 InsertStagesCorn();
                 InsertStagesSoya();
+                InsertStagesSorghumForage();
+                InsertStagesSorghumGrain();
+                InsertStagesAlfalfa();
+                InsertStagesRedCloverForage();
+                InsertStagesRedCloverSeed();
+                InsertStagesFescueForage();
+                InsertStagesFescueSeed();
                 InsertEffectiveRainsSouth();
                 InsertEffectiveRainsNorth();
                 UpdateRegionSetEffectiveRainList();
@@ -249,7 +261,49 @@ namespace IrrigationAdvisorConsole
         #endregion
         /////////////////////////////////******************************/////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////
-       
+
+        #region Data
+
+        private static void InsertStatus()
+        {
+
+            var lDefaultStatus = new Status()
+            {
+                StatusId = 0,
+                Name = "Default",
+                DateOfReference = Utils.MIN_DATETIME,
+                WebStatus = Utils.IrrigationAdvisorWebStatus.WithNoData,
+                Description = "Default Web Status",
+            };
+
+            var lProductionStatus = new Status()
+            {
+                StatusId = 1,
+                Name = "Production",
+                DateOfReference = new DateTime(2016, 9, 1),
+                WebStatus = Utils.IrrigationAdvisorWebStatus.Online,
+                Description = "Web Status of Production",
+            };
+
+            var lDemoStatus = new Status()
+            {
+                StatusId = 2,
+                Name = "Demo",
+                DateOfReference = new DateTime(2016, 9, 1),
+                WebStatus = Utils.IrrigationAdvisorWebStatus.Online,
+                Description = "Web Status of Demo",
+            };
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                context.Status.Add(lDefaultStatus);
+                context.Status.Add(lProductionStatus);
+                context.Status.Add(lDemoStatus);
+                context.SaveChanges();
+            }
+        }
+
+        #endregion
 
         #region Language
 
@@ -350,6 +404,17 @@ namespace IrrigationAdvisorConsole
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "lluvia"),
                 RoleId = 3,
             };
+            var lDemoAdmin = new User()
+            {
+                Name = Utils.NameUserTestAdm,
+                Surname = "PGW Water Admin",
+                Phone = "098 938 269",
+                Address = "1958 Cuareim, Montevideo",
+                Email = "riegopgw@googlegroups.com",
+                UserName = Utils.NameUserTestAdm,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "riego"),
+                RoleId = 1,
+            };
             #endregion
 
             #region Admin Users
@@ -424,6 +489,7 @@ namespace IrrigationAdvisorConsole
             {
                 //context.Users.Add(lBase);
                 context.Users.Add(lDemo);
+                context.Users.Add(lDemoAdmin);
                 context.Users.Add(lSCasanova);
                 context.Users.Add(lAdmin);
                 context.Users.Add(lLaPerdiz);
@@ -457,7 +523,7 @@ namespace IrrigationAdvisorConsole
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin };
+                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDemo1
@@ -485,7 +551,7 @@ namespace IrrigationAdvisorConsole
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin };
+                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDemo2
@@ -513,7 +579,7 @@ namespace IrrigationAdvisorConsole
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin };
+                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDemo3
@@ -869,6 +935,48 @@ namespace IrrigationAdvisorConsole
                 Longitude = -57.6920361,
             };
 
+            var lLaTribuWS = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationLaTribu,
+                Latitude = -33.385254,
+                Longitude = -55.454741,
+            };
+
+            var lElCureWS = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationElCure,
+                Latitude = -34.3,
+                Longitude = -54.2,
+            };
+
+            var lJCServiciosWS = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationJCServicios,
+                Latitude = -33.6,
+                Longitude = -57.6,
+            };
+
+            var lMariaElenaWS = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationMariaElena,
+                Latitude = -33.201149,
+                Longitude = -57.658801,
+            };
+
+            var lElRetiroWS = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationElRetiro,
+                Latitude = -32.141931,
+                Longitude = -57.859174,
+            };
+
+            var lZanjaHondaWS = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationZanjaHonda,
+                Latitude = -31.091836,
+                Longitude = -57.74471,
+            };
+
             #endregion
 
             #region Pivots Demo1 - La Perdiz
@@ -1143,6 +1251,12 @@ namespace IrrigationAdvisorConsole
                 context.Positions.Add(lLaEstanzuelaWS);
                 context.Positions.Add(lSaltoGrandeWS);
                 context.Positions.Add(lTacuaremboWS);
+                context.Positions.Add(lLaTribuWS);
+                context.Positions.Add(lElCureWS);
+                context.Positions.Add(lJCServiciosWS);
+                context.Positions.Add(lMariaElenaWS);
+                context.Positions.Add(lElRetiroWS);
+                context.Positions.Add(lZanjaHondaWS);
                 //Pivots
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1433,11 +1547,11 @@ namespace IrrigationAdvisorConsole
 
         #endif
         #endregion
-
+        
         #region Weather.WeatherStation
         #if true
 
-        private static void InsertWeatherStations()
+        private static void InsertWeatherStationsINIA()
         {
             Position lPosition = null;
             using (var context = new IrrigationAdvisorContext())
@@ -1447,6 +1561,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Name = Utils.NameBase,
                     Model = "",
+                    StationType = Utils.WeatherStationType.NOWebInformation,
                     DateOfInstallation = Utils.MIN_DATETIME,
                     DateOfService =Utils.MAX_DATETIME,
                     UpdateTime = Utils.MAX_DATETIME,
@@ -1455,6 +1570,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = false,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.NoData,
+                    WebAddress = "",
                 };
                 #endregion
 
@@ -1474,6 +1590,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Name = Utils.NameWeatherStationLasBrujas,
                     Model = "Estación Experimental Wilson Ferreira Aldunate",
+                    StationType = Utils.WeatherStationType.INIA,
                     DateOfInstallation = Utils.MIN_DATETIME,
                     DateOfService = Utils.MAX_DATETIME,
                     UpdateTime = DateTime.Now,
@@ -1482,6 +1599,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "",
                 };
 
                 #endregion
@@ -1505,6 +1623,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Name = Utils.NameWeatherStationLaEstanzuela,
                     Model = "INIA La Estanzuela",
+                    StationType = Utils.WeatherStationType.INIA,
                     DateOfInstallation = Utils.MIN_DATETIME,
                     DateOfService = Utils.MAX_DATETIME,
                     UpdateTime = DateTime.Now,
@@ -1513,6 +1632,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "",
                 };
                 #endregion
 
@@ -1535,6 +1655,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Name = Utils.NameWeatherStationSaltoGrande,
                     Model = "INIA Salto Grande",
+                    StationType = Utils.WeatherStationType.INIA,
                     DateOfInstallation = new DateTime(2015, 10, 01),
                     DateOfService = new DateTime(2015, 10, 01).AddMonths(6),
                     UpdateTime = DateTime.Now,
@@ -1543,6 +1664,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "",
                 };
                 #endregion
 
@@ -1564,6 +1686,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Name = Utils.NameWeatherStationTacuarembo,
                     Model = "INIA Tacuarembó",
+                    StationType = Utils.WeatherStationType.INIA,
                     DateOfInstallation = new DateTime(2015, 10, 01),
                     DateOfService = new DateTime(2015, 10, 01).AddMonths(6),
                     UpdateTime = DateTime.Now,
@@ -1572,6 +1695,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "",
                 };
                 #endregion
 
@@ -1583,6 +1707,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Name = Utils.NameWeatherStationSantaLucia,
                     Model = "",
+                    StationType = Utils.WeatherStationType.INIA,
                     DateOfInstallation = new DateTime(2015, 10, 01),
                     DateOfService = new DateTime(2015, 10, 01).AddMonths(6),
                     UpdateTime = DateTime.Now,
@@ -1591,6 +1716,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "",
                 };
                 #endregion
 
@@ -1600,6 +1726,186 @@ namespace IrrigationAdvisorConsole
                 context.WeatherStations.Add(lLaEstanzuelaWS);
                 context.WeatherStations.Add(lSaltoGrandeWS);
                 context.WeatherStations.Add(lTacuaremboWS);
+                context.SaveChanges();
+            };
+        }
+
+        private static void InsertWeatherStationsWeatherLink()
+        {
+            Position lPosition = null;
+            using (var context = new IrrigationAdvisorContext())
+            {
+                #region Base
+                var lBase = new WeatherStation
+                {
+                    Name = Utils.NameBase,
+                    Model = "",
+                    StationType = Utils.WeatherStationType.NOWebInformation,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = Utils.MAX_DATETIME,
+                    WirelessTransmission = 0,
+                    PositionId = 0,
+                    GiveET = false,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.NoData,
+                    WebAddress = "",
+                };
+                #endregion
+
+                /*
+                    La Tribu - florida
+                    El Cure – rocha
+                    JCS Servicios - ruta 2 Soriano
+                    Maria Elena - Young
+                    El Retiro - Paysandu
+                    Zanja Honda - Salto
+                "http://www.weatherlink.com/user/latribu/index.php?view=summary&headers=1&type=1",
+                "http://www.weatherlink.com/user/lagunaderocha2/index.php?view=summary&headers=1",
+                "http://www.weatherlink.com/user/jcservicios/index.php?view=summary&headers=1",
+                "http://www.weatherlink.com/user/mariaelena/index.php?view=summary&headers=1",
+                "http://www.weatherlink.com/user/elretiro/index.php?view=summary&headers=1",
+                "http://www.weatherlink.com/user/noridelzh/index.php?view=summary&headers=1"
+                 */
+
+                #region La Tribu - Florida
+
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationLaTribu
+                             select pos).FirstOrDefault();
+                var lLaTribuWS = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationLaTribu,
+                    Model = "Estación La Tribu",
+                    StationType = Utils.WeatherStationType.WeatherLink,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/latribu/index.php?view=summary&headers=1&type=1",
+                };
+
+                #endregion
+
+                #region El Cure – Rocha
+
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationElCure
+                             select pos).FirstOrDefault();
+                var lElCureWS = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationElCure,
+                    Model = "La Riviera, CURE, UdeLaR. Rocha",
+                    StationType = Utils.WeatherStationType.WeatherLink,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/lagunaderocha2/index.php?view=summary&headers=1",
+                };
+                #endregion
+
+                #region JC Servicios - ruta 2 Soriano
+
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationJCServicios
+                             select pos).FirstOrDefault();
+                var lJCServiciosWS = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationJCServicios,
+                    Model = "JCServicios",
+                    StationType = Utils.WeatherStationType.WeatherLink,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/jcservicios/index.php?view=summary&headers=1",
+                };
+                #endregion
+
+                #region Maria Elena - Young
+
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationMariaElena
+                             select pos).FirstOrDefault();
+                var lMariaElenaWS = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationMariaElena,
+                    Model = "Maria Elena",
+                    StationType = Utils.WeatherStationType.WeatherLink,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/mariaelena/index.php?view=summary&headers=1",
+                };
+                #endregion
+
+                #region El Retiro - Paysandu
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationElRetiro
+                             select pos).FirstOrDefault();
+                var lElRetiroWS = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationElRetiro,
+                    Model = "El Retiro",
+                    StationType = Utils.WeatherStationType.WeatherLink,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/elretiro/index.php?view=summary&headers=1",
+                };
+                #endregion
+
+                #region Zanja Honda - Salto
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationZanjaHonda
+                             select pos).FirstOrDefault();
+                var lZanjaHondaWS = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationZanjaHonda,
+                    Model = "Noridel S.A. Zanja Honda",
+                    StationType = Utils.WeatherStationType.INIA,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/noridelzh/index.php?view=summary&headers=1",
+                };
+                #endregion
+
+                //context.WeatherStations.Add(lBase);
+                context.WeatherStations.Add(lLaTribuWS);
+                context.WeatherStations.Add(lElCureWS);
+                context.WeatherStations.Add(lJCServiciosWS);
+                context.WeatherStations.Add(lMariaElenaWS);
+                context.WeatherStations.Add(lElRetiroWS);
+                context.WeatherStations.Add(lZanjaHondaWS);
                 context.SaveChanges();
             };
         }
@@ -2152,7 +2458,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = {Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin};
+            String[] lUserNames = {Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm};
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -2232,7 +2538,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin };
+            String[] lUserNames = { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -2312,7 +2618,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin };
+            String[] lUserNames = { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -2861,13 +3167,17 @@ namespace IrrigationAdvisorConsole
             var lBase = new Specie
             {
                 Name = Utils.NameBase,
+                ShortName = "NoName",
                 SpecieCycleId = 0,
                 BaseTemperature = 0,
-                StressTemperature = 0
+                StressTemperature = 0,
+                SpecieType = Utils.SpecieType.Default,
+
             };
             #endregion
             
             #region South
+
             #region CornSouthShort
             using (var context = new IrrigationAdvisorContext())
             {
@@ -2881,6 +3191,7 @@ namespace IrrigationAdvisorConsole
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_CornSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_CornSouth_2015,
+                    SpecieType = Utils.SpecieType.Grains,
                 };
 
                 context.Species.Add(lCornSouthShort);
@@ -2901,6 +3212,7 @@ namespace IrrigationAdvisorConsole
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_SoyaSouth_2015,
+                    SpecieType = Utils.SpecieType.Grains,
                 };
 
                 context.Species.Add(lSoyaSouthShort);
@@ -2921,6 +3233,7 @@ namespace IrrigationAdvisorConsole
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_SoyaSouth_2015,
+                    SpecieType = Utils.SpecieType.Grains,
                 };
 
                 context.Species.Add(lSoyaSouthMedium);
@@ -2928,42 +3241,44 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region ForageSorghumSouthShort
+            #region SorghumForageSouthShort
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         region => region.Name == Utils.NameSpecieCycleSouthShort);
 
-                var lForageSorghumSouthShort = new Specie
+                var lSorghumForageSouthShort = new Specie
                 {
-                    Name = Utils.NameSpecieForageSorghumSouthShort,
+                    Name = Utils.NameSpecieSorghumForageSouthShort,
                     ShortName = "Sorgo Forrajero",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_ForageSorghumSouth_2015,
-                    StressTemperature = DataEntry.StressTemperature_ForageSorghumSouth_2015,
+                    BaseTemperature = DataEntry.BaseTemperature_SorghumForageSouth_2015,
+                    StressTemperature = DataEntry.StressTemperature_SorghumForageSouth_2015,
+                    SpecieType = Utils.SpecieType.Pastures,
                 };
 
-                context.Species.Add(lForageSorghumSouthShort);
+                context.Species.Add(lSorghumForageSouthShort);
                 context.SaveChanges();
             }
             #endregion
 
-            #region GrainSorghumSouthShort
+            #region SorghumGrainSouthShort
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         region => region.Name == Utils.NameSpecieCycleSouthShort);
 
-                var lGrainSorghumSouthShort = new Specie
+                var lSorghumGrainSouthShort = new Specie
                 {
-                    Name = Utils.NameSpecieGrainSorghumSouthShort,
+                    Name = Utils.NameSpecieSorghumGrainSouthShort,
                     ShortName = "Sorgo Granifero",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_GrainSorghumSouth_2015,
-                    StressTemperature = DataEntry.StressTemperature_GrainSorghumSouth_2015,
+                    BaseTemperature = DataEntry.BaseTemperature_SorghumGrainSouth_2015,
+                    StressTemperature = DataEntry.StressTemperature_SorghumGrainSouth_2015,
+                    SpecieType = Utils.SpecieType.Pastures,
                 };
 
-                context.Species.Add(lGrainSorghumSouthShort);
+                context.Species.Add(lSorghumGrainSouthShort);
                 context.SaveChanges();
             }
             #endregion
@@ -2981,6 +3296,7 @@ namespace IrrigationAdvisorConsole
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
                     BaseTemperature = DataEntry.BaseTemperature_AlfalfaSouth_2015,
                     StressTemperature = DataEntry.StressTemperature_AlfalfaSouth_2015,
+                    SpecieType = Utils.SpecieType.Pastures,
                 };
 
                 context.Species.Add(lAlfalfaSouthShort);
@@ -2988,42 +3304,86 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region RedCloverSouthShort
+            #region RedCloverForageSouthShort
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         region => region.Name == Utils.NameSpecieCycleSouthShort);
 
-                var lRedCloverSouthShort = new Specie
+                var lRedCloverForageSouthShort = new Specie
                 {
-                    Name = Utils.NameSpecieRedCloverSouthShort,
-                    ShortName = "Trebol Rojo",
+                    Name = Utils.NameSpecieRedCloverForageSouthShort,
+                    ShortName = "Trebol Rojo Forraje",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_RedCloverSouth_2015,
-                    StressTemperature = DataEntry.StressTemperature_RedCloverSouth_2015,
+                    BaseTemperature = DataEntry.BaseTemperature_RedCloverForageSouth_2015,
+                    StressTemperature = DataEntry.StressTemperature_RedCloverForageSouth_2015,
+                    SpecieType = Utils.SpecieType.Pastures,
                 };
 
-                context.Species.Add(lRedCloverSouthShort);
+                context.Species.Add(lRedCloverForageSouthShort);
                 context.SaveChanges();
             }
             #endregion
 
-            #region FescueSouthShort
+            #region RedCloverSeedSouthShort
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         region => region.Name == Utils.NameSpecieCycleSouthShort);
 
-                var lFescueSouthShort = new Specie
+                var lRedCloverSeedSouthShort = new Specie
                 {
-                    Name = Utils.NameSpecieFescueSouthShort,
-                    ShortName = "Festuca",
+                    Name = Utils.NameSpecieRedCloverSeedSouthShort,
+                    ShortName = "Trebol Rojo Semilla",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_FescueSouth_2015,
-                    StressTemperature = DataEntry.StressTemperature_FescueSouth_2015,
+                    BaseTemperature = DataEntry.BaseTemperature_RedCloverSeedSouth_2015,
+                    StressTemperature = DataEntry.StressTemperature_RedCloverSeedSouth_2015,
+                    SpecieType = Utils.SpecieType.Pastures,
                 };
 
-                context.Species.Add(lFescueSouthShort);
+                context.Species.Add(lRedCloverSeedSouthShort);
+                context.SaveChanges();
+            }
+            #endregion
+
+            #region FescueForageSouthShort
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lFescueForageSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageSouthShort,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_FescueForageSouth_2015,
+                    StressTemperature = DataEntry.StressTemperature_FescueForageSouth_2015,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lFescueForageSouthShort);
+                context.SaveChanges();
+            }
+            #endregion
+
+            #region FescueSeedSouthShort
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lFescueSeedSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedSouthShort,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_FescueSeedSouth_2015,
+                    StressTemperature = DataEntry.StressTemperature_FescueSeedSouth_2015,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lFescueSeedSouthShort);
                 context.SaveChanges();
             }
             #endregion
@@ -3043,7 +3403,8 @@ namespace IrrigationAdvisorConsole
                 ShortName = "Maíz",
                 SpecieCycleId = lSpecieCycle.SpecieCycleId,
                 BaseTemperature = 10,
-                StressTemperature = 40
+                StressTemperature = 40,
+                SpecieType = Utils.SpecieType.Grains,
             };
 
             using (var context = new IrrigationAdvisorContext())
@@ -3058,7 +3419,8 @@ namespace IrrigationAdvisorConsole
                 ShortName = "Soja",
                 SpecieCycleId = lSpecieCycle.SpecieCycleId,
                 BaseTemperature = 8,
-                StressTemperature = 40
+                StressTemperature = 40,
+                SpecieType = Utils.SpecieType.Grains,
             };
             #endregion
 
@@ -3243,18 +3605,18 @@ namespace IrrigationAdvisorConsole
             };
         }
 
-        private static void InsertStagesForageSorghum()
+        private static void InsertStagesSorghumForage()
         {
-            var lStageV0 = new Stage { Name = Utils.NameStagesForageSorghum + " V0", ShortName = "V0", Description = "Emergencia ", Order = 1, };
-            var lStageV3 = new Stage { Name = Utils.NameStagesForageSorghum + " V3", ShortName = "V3", Description = "3 hojas ", Order = 2, };
-            var lStageV5 = new Stage { Name = Utils.NameStagesForageSorghum + " V5", ShortName = "V5", Description = "5 hojas ", Order = 3, };
-            var lStageV8 = new Stage { Name = Utils.NameStagesForageSorghum + " V8", ShortName = "V8", Description = "8 hojas ", Order = 4, };
-            var lStageHF = new Stage { Name = Utils.NameStagesForageSorghum + " HF", ShortName = "HF", Description = "Hoja Final ", Order = 5, };
-            var lStageEM = new Stage { Name = Utils.NameStagesForageSorghum + " EM", ShortName = "EM", Description = "Embuche ", Order = 6, };
-            var lStageFF = new Stage { Name = Utils.NameStagesForageSorghum + " FF", ShortName = "FF", Description = "Floracion ", Order = 7, };
-            var lStageGL = new Stage { Name = Utils.NameStagesForageSorghum + " GL", ShortName = "GL", Description = "Grano Lechoso ", Order = 8, };
-            var lStageGP = new Stage { Name = Utils.NameStagesForageSorghum + " GP", ShortName = "GP", Description = "Grano pastoso ", Order = 9, };
-            var lStageMF = new Stage { Name = Utils.NameStagesForageSorghum + " MF", ShortName = "MF", Description = "Madurez Fisiologica ", Order = 10, };
+            var lStageV0 = new Stage { Name = Utils.NameStagesSorghumForage + " V0", ShortName = "V0", Description = "Emergencia ", Order = 1, };
+            var lStageV3 = new Stage { Name = Utils.NameStagesSorghumForage + " V3", ShortName = "V3", Description = "3 hojas ", Order = 2, };
+            var lStageV5 = new Stage { Name = Utils.NameStagesSorghumForage + " V5", ShortName = "V5", Description = "5 hojas ", Order = 3, };
+            var lStageV8 = new Stage { Name = Utils.NameStagesSorghumForage + " V8", ShortName = "V8", Description = "8 hojas ", Order = 4, };
+            var lStageHF = new Stage { Name = Utils.NameStagesSorghumForage + " HF", ShortName = "HF", Description = "Hoja Final ", Order = 5, };
+            var lStageEM = new Stage { Name = Utils.NameStagesSorghumForage + " EM", ShortName = "EM", Description = "Embuche ", Order = 6, };
+            var lStageFF = new Stage { Name = Utils.NameStagesSorghumForage + " FF", ShortName = "FF", Description = "Floracion ", Order = 7, };
+            var lStageGL = new Stage { Name = Utils.NameStagesSorghumForage + " GL", ShortName = "GL", Description = "Grano Lechoso ", Order = 8, };
+            var lStageGP = new Stage { Name = Utils.NameStagesSorghumForage + " GP", ShortName = "GP", Description = "Grano pastoso ", Order = 9, };
+            var lStageMF = new Stage { Name = Utils.NameStagesSorghumForage + " MF", ShortName = "MF", Description = "Madurez Fisiologica ", Order = 10, };
     
             using (var context = new IrrigationAdvisorContext())
             {
@@ -3272,18 +3634,18 @@ namespace IrrigationAdvisorConsole
             };
         }
 
-        private static void InsertStagesGrainSorghum()
+        private static void InsertStagesSorghumGrain()
         {
-            var lStageV0 = new Stage { Name = Utils.NameStagesForageSorghum + " V0", ShortName = "V0", Description = "Emergencia ", Order = 1, };
-            var lStageV3 = new Stage { Name = Utils.NameStagesForageSorghum + " V3", ShortName = "V3", Description = "3 hojas ", Order = 2, };
-            var lStageV5 = new Stage { Name = Utils.NameStagesForageSorghum + " V5", ShortName = "V5", Description = "5 hojas ", Order = 3, };
-            var lStageV8 = new Stage { Name = Utils.NameStagesForageSorghum + " V8", ShortName = "V8", Description = "8 hojas ", Order = 4, };
-            var lStageHF = new Stage { Name = Utils.NameStagesForageSorghum + " HF", ShortName = "HF", Description = "Hoja Final ", Order = 5, };
-            var lStageEM = new Stage { Name = Utils.NameStagesForageSorghum + " EM", ShortName = "EM", Description = "Embuche ", Order = 6, };
-            var lStageFF = new Stage { Name = Utils.NameStagesForageSorghum + " FF", ShortName = "FF", Description = "Floracion ", Order = 7, };
-            var lStageGL = new Stage { Name = Utils.NameStagesForageSorghum + " GL", ShortName = "GL", Description = "Grano Lechoso ", Order = 8, };
-            var lStageGP = new Stage { Name = Utils.NameStagesForageSorghum + " GP", ShortName = "GP", Description = "Grano pastoso ", Order = 9, };
-            var lStageMF = new Stage { Name = Utils.NameStagesForageSorghum + " MF", ShortName = "MF", Description = "Madurez Fisiologica ", Order = 10, };
+            var lStageV0 = new Stage { Name = Utils.NameStagesSorghumForage + " V0", ShortName = "V0", Description = "Emergencia ", Order = 1, };
+            var lStageV3 = new Stage { Name = Utils.NameStagesSorghumForage + " V3", ShortName = "V3", Description = "3 hojas ", Order = 2, };
+            var lStageV5 = new Stage { Name = Utils.NameStagesSorghumForage + " V5", ShortName = "V5", Description = "5 hojas ", Order = 3, };
+            var lStageV8 = new Stage { Name = Utils.NameStagesSorghumForage + " V8", ShortName = "V8", Description = "8 hojas ", Order = 4, };
+            var lStageHF = new Stage { Name = Utils.NameStagesSorghumForage + " HF", ShortName = "HF", Description = "Hoja Final ", Order = 5, };
+            var lStageEM = new Stage { Name = Utils.NameStagesSorghumForage + " EM", ShortName = "EM", Description = "Embuche ", Order = 6, };
+            var lStageFF = new Stage { Name = Utils.NameStagesSorghumForage + " FF", ShortName = "FF", Description = "Floracion ", Order = 7, };
+            var lStageGL = new Stage { Name = Utils.NameStagesSorghumForage + " GL", ShortName = "GL", Description = "Grano Lechoso ", Order = 8, };
+            var lStageGP = new Stage { Name = Utils.NameStagesSorghumForage + " GP", ShortName = "GP", Description = "Grano pastoso ", Order = 9, };
+            var lStageMF = new Stage { Name = Utils.NameStagesSorghumForage + " MF", ShortName = "MF", Description = "Madurez Fisiologica ", Order = 10, };
 
             using (var context = new IrrigationAdvisorContext())
             {
@@ -3360,7 +3722,7 @@ namespace IrrigationAdvisorConsole
             };
         }
 
-        private static void InsertStagesRedClover()
+        private static void InsertStagesRedCloverForage()
         {
             var lBase = new Stage
             {
@@ -3368,27 +3730,27 @@ namespace IrrigationAdvisorConsole
                 Description = "",
             };
 
-            var lStageSv0 = new Stage { Name = Utils.NameStagesRedClover + " V0", Description = "Siembra", Order = 1, };
-            var lStageSve = new Stage { Name = Utils.NameStagesRedClover + " VE", Description = "Emergencia", Order = 2, };
-            var lStageSv1 = new Stage { Name = Utils.NameStagesRedClover + " V1", Description = "1 nudo", Order = 3, };
-            var lStageSv2 = new Stage { Name = Utils.NameStagesRedClover + " V2", Description = "2 nudos", Order = 4, };
-            var lStageSv3 = new Stage { Name = Utils.NameStagesRedClover + " V3", Description = "3 nudos", Order = 5, };
-            var lStageSv4 = new Stage { Name = Utils.NameStagesRedClover + " V4", Description = "4 nudos", Order = 6, };
-            var lStageSv5 = new Stage { Name = Utils.NameStagesRedClover + " V5", Description = "5 nudos", Order = 7, };
-            var lStageSv6 = new Stage { Name = Utils.NameStagesRedClover + " V6", Description = "6 nudos", Order = 8, };
-            var lStageSv7 = new Stage { Name = Utils.NameStagesRedClover + " V7", Description = "7 nudos", Order = 9, };
-            var lStageSv8 = new Stage { Name = Utils.NameStagesRedClover + " V8", Description = "8 nudos", Order = 10, };
-            var lStageSv9 = new Stage { Name = Utils.NameStagesRedClover + " V9", Description = "9 nudos", Order = 11, };
-            var lStageSv10 = new Stage { Name = Utils.NameStagesRedClover + " V10", Description = "10 nudos", Order = 12, };
-            var lStageSv11 = new Stage { Name = Utils.NameStagesRedClover + " V11", Description = "11 nudo", Order = 13, };
-            var lStageSr1 = new Stage { Name = Utils.NameStagesRedClover + " R1", ShortName = "R1", Description = "Inicio Floracion", Order = 14, };
-            var lStageSr2 = new Stage { Name = Utils.NameStagesRedClover + " R2", ShortName = "R2", Description = "Floracion Completa", Order = 15, };
-            var lStageSr3 = new Stage { Name = Utils.NameStagesRedClover + " R3", ShortName = "R3", Description = "Inicio Vainas", Order = 16, };
-            var lStageSr4 = new Stage { Name = Utils.NameStagesRedClover + " R4", ShortName = "R4", Description = "Vainas Completas", Order = 17, };
-            var lStageSr5 = new Stage { Name = Utils.NameStagesRedClover + " R5", ShortName = "R5", Description = "Formacion de semillas", Order = 18, };
-            var lStageSr6 = new Stage { Name = Utils.NameStagesRedClover + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 19, };
-            var lStageSr7 = new Stage { Name = Utils.NameStagesRedClover + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 20, };
-            var lStageSr8 = new Stage { Name = Utils.NameStagesRedClover + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 21, };
+            var lStageSv0 = new Stage { Name = Utils.NameStagesRedCloverForage + " V0", Description = "Siembra", Order = 1, };
+            var lStageSve = new Stage { Name = Utils.NameStagesRedCloverForage + " VE", Description = "Emergencia", Order = 2, };
+            var lStageSv1 = new Stage { Name = Utils.NameStagesRedCloverForage + " V1", Description = "1 nudo", Order = 3, };
+            var lStageSv2 = new Stage { Name = Utils.NameStagesRedCloverForage + " V2", Description = "2 nudos", Order = 4, };
+            var lStageSv3 = new Stage { Name = Utils.NameStagesRedCloverForage + " V3", Description = "3 nudos", Order = 5, };
+            var lStageSv4 = new Stage { Name = Utils.NameStagesRedCloverForage + " V4", Description = "4 nudos", Order = 6, };
+            var lStageSv5 = new Stage { Name = Utils.NameStagesRedCloverForage + " V5", Description = "5 nudos", Order = 7, };
+            var lStageSv6 = new Stage { Name = Utils.NameStagesRedCloverForage + " V6", Description = "6 nudos", Order = 8, };
+            var lStageSv7 = new Stage { Name = Utils.NameStagesRedCloverForage + " V7", Description = "7 nudos", Order = 9, };
+            var lStageSv8 = new Stage { Name = Utils.NameStagesRedCloverForage + " V8", Description = "8 nudos", Order = 10, };
+            var lStageSv9 = new Stage { Name = Utils.NameStagesRedCloverForage + " V9", Description = "9 nudos", Order = 11, };
+            var lStageSv10 = new Stage { Name = Utils.NameStagesRedCloverForage + " V10", Description = "10 nudos", Order = 12, };
+            var lStageSv11 = new Stage { Name = Utils.NameStagesRedCloverForage + " V11", Description = "11 nudo", Order = 13, };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesRedCloverForage + " R1", ShortName = "R1", Description = "Inicio Floracion", Order = 14, };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesRedCloverForage + " R2", ShortName = "R2", Description = "Floracion Completa", Order = 15, };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesRedCloverForage + " R3", ShortName = "R3", Description = "Inicio Vainas", Order = 16, };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesRedCloverForage + " R4", ShortName = "R4", Description = "Vainas Completas", Order = 17, };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesRedCloverForage + " R5", ShortName = "R5", Description = "Formacion de semillas", Order = 18, };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesRedCloverForage + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 19, };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesRedCloverForage + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 20, };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesRedCloverForage + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 21, };
 
 
             using (var context = new IrrigationAdvisorContext())
@@ -3419,7 +3781,7 @@ namespace IrrigationAdvisorConsole
             };
         }
 
-        private static void InsertStagesFescue()
+        private static void InsertStagesRedCloverSeed()
         {
             var lBase = new Stage
             {
@@ -3427,27 +3789,145 @@ namespace IrrigationAdvisorConsole
                 Description = "",
             };
 
-            var lStageSv0 = new Stage { Name = Utils.NameStagesFescue + " V0", ShortName = "V0", Description = "Siembra", Order = 1, };
-            var lStageSve = new Stage { Name = Utils.NameStagesFescue + " VE", ShortName = "VE", Description = "Emergencia", Order = 2, };
-            var lStageSv1 = new Stage { Name = Utils.NameStagesFescue + " V1", ShortName = "V1", Description = "1 nudo", Order = 3, };
-            var lStageSv2 = new Stage { Name = Utils.NameStagesFescue + " V2", ShortName = "V2", Description = "2 nudos", Order = 4, };
-            var lStageSv3 = new Stage { Name = Utils.NameStagesFescue + " V3", ShortName = "V3", Description = "3 nudos", Order = 5, };
-            var lStageSv4 = new Stage { Name = Utils.NameStagesFescue + " V4", ShortName = "V4", Description = "4 nudos", Order = 6, };
-            var lStageSv5 = new Stage { Name = Utils.NameStagesFescue + " V5", ShortName = "V5", Description = "5 nudos", Order = 7, };
-            var lStageSv6 = new Stage { Name = Utils.NameStagesFescue + " V6", ShortName = "V6", Description = "6 nudos", Order = 8, };
-            var lStageSv7 = new Stage { Name = Utils.NameStagesFescue + " V7", ShortName = "V7", Description = "7 nudos", Order = 9, };
-            var lStageSv8 = new Stage { Name = Utils.NameStagesFescue + " V8", ShortName = "V8", Description = "8 nudos", Order = 10, };
-            var lStageSv9 = new Stage { Name = Utils.NameStagesFescue + " V9", ShortName = "V9", Description = "9 nudos", Order = 11, };
-            var lStageSv10 = new Stage { Name = Utils.NameStagesFescue + " V10", ShortName = "V10", Description = "10 nudos", Order = 12, };
-            var lStageSv11 = new Stage { Name = Utils.NameStagesFescue + " V11", ShortName = "V11", Description = "11 nudo", Order = 13, };
-            var lStageSr1 = new Stage { Name = Utils.NameStagesFescue + " R1", ShortName = "R1", Description = "Inicio Floracion", Order = 14, };
-            var lStageSr2 = new Stage { Name = Utils.NameStagesFescue + " R2", ShortName = "R2", Description = "Floracion Completa", Order = 15, };
-            var lStageSr3 = new Stage { Name = Utils.NameStagesFescue + " R3", ShortName = "R3", Description = "Inicio Vainas", Order = 16, };
-            var lStageSr4 = new Stage { Name = Utils.NameStagesFescue + " R4", ShortName = "R4", Description = "Vainas Completas", Order = 17, };
-            var lStageSr5 = new Stage { Name = Utils.NameStagesFescue + " R5", ShortName = "R5", Description = "Formacion de semillas", Order = 18, };
-            var lStageSr6 = new Stage { Name = Utils.NameStagesFescue + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 19, };
-            var lStageSr7 = new Stage { Name = Utils.NameStagesFescue + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 20, };
-            var lStageSr8 = new Stage { Name = Utils.NameStagesFescue + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 21, };
+            var lStageSv0 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V0", Description = "Siembra", Order = 1, };
+            var lStageSve = new Stage { Name = Utils.NameStagesRedCloverSeed + " VE", Description = "Emergencia", Order = 2, };
+            var lStageSv1 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V1", Description = "1 nudo", Order = 3, };
+            var lStageSv2 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V2", Description = "2 nudos", Order = 4, };
+            var lStageSv3 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V3", Description = "3 nudos", Order = 5, };
+            var lStageSv4 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V4", Description = "4 nudos", Order = 6, };
+            var lStageSv5 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V5", Description = "5 nudos", Order = 7, };
+            var lStageSv6 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V6", Description = "6 nudos", Order = 8, };
+            var lStageSv7 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V7", Description = "7 nudos", Order = 9, };
+            var lStageSv8 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V8", Description = "8 nudos", Order = 10, };
+            var lStageSv9 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V9", Description = "9 nudos", Order = 11, };
+            var lStageSv10 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V10", Description = "10 nudos", Order = 12, };
+            var lStageSv11 = new Stage { Name = Utils.NameStagesRedCloverSeed + " V11", Description = "11 nudo", Order = 13, };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesRedCloverSeed + " R1", ShortName = "R1", Description = "Inicio Floracion", Order = 14, };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesRedCloverSeed + " R2", ShortName = "R2", Description = "Floracion Completa", Order = 15, };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesRedCloverSeed + " R3", ShortName = "R3", Description = "Inicio Vainas", Order = 16, };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesRedCloverSeed + " R4", ShortName = "R4", Description = "Vainas Completas", Order = 17, };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesRedCloverSeed + " R5", ShortName = "R5", Description = "Formacion de semillas", Order = 18, };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesRedCloverSeed + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 19, };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesRedCloverSeed + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 20, };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesRedCloverSeed + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 21, };
+
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                //context.Stages.Add(lBase);
+                context.Stages.Add(lStageSv0);
+                context.Stages.Add(lStageSve);
+                context.Stages.Add(lStageSv1);
+                context.Stages.Add(lStageSv2);
+                context.Stages.Add(lStageSv3);
+                context.Stages.Add(lStageSv4);
+                context.Stages.Add(lStageSv5);
+                context.Stages.Add(lStageSv6);
+                context.Stages.Add(lStageSv7);
+                context.Stages.Add(lStageSv8);
+                context.Stages.Add(lStageSv9);
+                context.Stages.Add(lStageSv10);
+                context.Stages.Add(lStageSv11);
+                context.Stages.Add(lStageSr1);
+                context.Stages.Add(lStageSr2);
+                context.Stages.Add(lStageSr3);
+                context.Stages.Add(lStageSr4);
+                context.Stages.Add(lStageSr5);
+                context.Stages.Add(lStageSr6);
+                context.Stages.Add(lStageSr7);
+                context.Stages.Add(lStageSr8);
+                context.SaveChanges();
+            };
+        }
+
+        private static void InsertStagesFescueForage()
+        {
+            var lBase = new Stage
+            {
+                Name = Utils.NameBase,
+                Description = "",
+            };
+
+            var lStageSv0 = new Stage { Name = Utils.NameStagesFescueForage + " V0", ShortName = "V0", Description = "Siembra", Order = 1, };
+            var lStageSve = new Stage { Name = Utils.NameStagesFescueForage + " VE", ShortName = "VE", Description = "Emergencia", Order = 2, };
+            var lStageSv1 = new Stage { Name = Utils.NameStagesFescueForage + " V1", ShortName = "V1", Description = "1 nudo", Order = 3, };
+            var lStageSv2 = new Stage { Name = Utils.NameStagesFescueForage + " V2", ShortName = "V2", Description = "2 nudos", Order = 4, };
+            var lStageSv3 = new Stage { Name = Utils.NameStagesFescueForage + " V3", ShortName = "V3", Description = "3 nudos", Order = 5, };
+            var lStageSv4 = new Stage { Name = Utils.NameStagesFescueForage + " V4", ShortName = "V4", Description = "4 nudos", Order = 6, };
+            var lStageSv5 = new Stage { Name = Utils.NameStagesFescueForage + " V5", ShortName = "V5", Description = "5 nudos", Order = 7, };
+            var lStageSv6 = new Stage { Name = Utils.NameStagesFescueForage + " V6", ShortName = "V6", Description = "6 nudos", Order = 8, };
+            var lStageSv7 = new Stage { Name = Utils.NameStagesFescueForage + " V7", ShortName = "V7", Description = "7 nudos", Order = 9, };
+            var lStageSv8 = new Stage { Name = Utils.NameStagesFescueForage + " V8", ShortName = "V8", Description = "8 nudos", Order = 10, };
+            var lStageSv9 = new Stage { Name = Utils.NameStagesFescueForage + " V9", ShortName = "V9", Description = "9 nudos", Order = 11, };
+            var lStageSv10 = new Stage { Name = Utils.NameStagesFescueForage + " V10", ShortName = "V10", Description = "10 nudos", Order = 12, };
+            var lStageSv11 = new Stage { Name = Utils.NameStagesFescueForage + " V11", ShortName = "V11", Description = "11 nudo", Order = 13, };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesFescueForage + " R1", ShortName = "R1", Description = "Inicio Floracion", Order = 14, };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesFescueForage + " R2", ShortName = "R2", Description = "Floracion Completa", Order = 15, };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesFescueForage + " R3", ShortName = "R3", Description = "Inicio Vainas", Order = 16, };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesFescueForage + " R4", ShortName = "R4", Description = "Vainas Completas", Order = 17, };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesFescueForage + " R5", ShortName = "R5", Description = "Formacion de semillas", Order = 18, };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesFescueForage + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 19, };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesFescueForage + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 20, };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesFescueForage + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 21, };
+
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                //context.Stages.Add(lBase);
+                context.Stages.Add(lStageSv0);
+                context.Stages.Add(lStageSve);
+                context.Stages.Add(lStageSv1);
+                context.Stages.Add(lStageSv2);
+                context.Stages.Add(lStageSv3);
+                context.Stages.Add(lStageSv4);
+                context.Stages.Add(lStageSv5);
+                context.Stages.Add(lStageSv6);
+                context.Stages.Add(lStageSv7);
+                context.Stages.Add(lStageSv8);
+                context.Stages.Add(lStageSv9);
+                context.Stages.Add(lStageSv10);
+                context.Stages.Add(lStageSv11);
+                context.Stages.Add(lStageSr1);
+                context.Stages.Add(lStageSr2);
+                context.Stages.Add(lStageSr3);
+                context.Stages.Add(lStageSr4);
+                context.Stages.Add(lStageSr5);
+                context.Stages.Add(lStageSr6);
+                context.Stages.Add(lStageSr7);
+                context.Stages.Add(lStageSr8);
+                context.SaveChanges();
+            };
+        }
+
+        private static void InsertStagesFescueSeed()
+        {
+            var lBase = new Stage
+            {
+                Name = Utils.NameBase,
+                Description = "",
+            };
+
+            var lStageSv0 = new Stage { Name = Utils.NameStagesFescueSeed + " V0", ShortName = "V0", Description = "Siembra", Order = 1, };
+            var lStageSve = new Stage { Name = Utils.NameStagesFescueSeed + " VE", ShortName = "VE", Description = "Emergencia", Order = 2, };
+            var lStageSv1 = new Stage { Name = Utils.NameStagesFescueSeed + " V1", ShortName = "V1", Description = "1 nudo", Order = 3, };
+            var lStageSv2 = new Stage { Name = Utils.NameStagesFescueSeed + " V2", ShortName = "V2", Description = "2 nudos", Order = 4, };
+            var lStageSv3 = new Stage { Name = Utils.NameStagesFescueSeed + " V3", ShortName = "V3", Description = "3 nudos", Order = 5, };
+            var lStageSv4 = new Stage { Name = Utils.NameStagesFescueSeed + " V4", ShortName = "V4", Description = "4 nudos", Order = 6, };
+            var lStageSv5 = new Stage { Name = Utils.NameStagesFescueSeed + " V5", ShortName = "V5", Description = "5 nudos", Order = 7, };
+            var lStageSv6 = new Stage { Name = Utils.NameStagesFescueSeed + " V6", ShortName = "V6", Description = "6 nudos", Order = 8, };
+            var lStageSv7 = new Stage { Name = Utils.NameStagesFescueSeed + " V7", ShortName = "V7", Description = "7 nudos", Order = 9, };
+            var lStageSv8 = new Stage { Name = Utils.NameStagesFescueSeed + " V8", ShortName = "V8", Description = "8 nudos", Order = 10, };
+            var lStageSv9 = new Stage { Name = Utils.NameStagesFescueSeed + " V9", ShortName = "V9", Description = "9 nudos", Order = 11, };
+            var lStageSv10 = new Stage { Name = Utils.NameStagesFescueSeed + " V10", ShortName = "V10", Description = "10 nudos", Order = 12, };
+            var lStageSv11 = new Stage { Name = Utils.NameStagesFescueSeed + " V11", ShortName = "V11", Description = "11 nudo", Order = 13, };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesFescueSeed + " R1", ShortName = "R1", Description = "Inicio Floracion", Order = 14, };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesFescueSeed + " R2", ShortName = "R2", Description = "Floracion Completa", Order = 15, };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesFescueSeed + " R3", ShortName = "R3", Description = "Inicio Vainas", Order = 16, };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesFescueSeed + " R4", ShortName = "R4", Description = "Vainas Completas", Order = 17, };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesFescueSeed + " R5", ShortName = "R5", Description = "Formacion de semillas", Order = 18, };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesFescueSeed + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 19, };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesFescueSeed + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 20, };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesFescueSeed + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 21, };
 
 
             using (var context = new IrrigationAdvisorContext())

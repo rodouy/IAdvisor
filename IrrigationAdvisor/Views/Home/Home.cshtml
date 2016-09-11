@@ -104,15 +104,14 @@
                         </div>
                         
                         
-                        
                         @{ if (Model.IsUserAdministrator)
-                            {
+                           {
                         <p>
                             <button class="btn go btn-pivots btn-md" style="float:right" id="addPhenoModal">
                                 <span class="glyphicon glyphicon-plus"></span>Agregar Fenología
                             </button>
                         </p>
-                            }
+                           }
 
                         }
 
@@ -164,15 +163,18 @@
                     </div>
                 </div>
             </div>
+            <!--  Weather & Map container -->
             <div class="container">
-                <div class="row">
+               @{if (Model.IsUserAdministrator)
+                 {
+                   <div class="row">
                     <!-- map-->
                     <div class="col-md-6">
                         <div id="embed-map-canvas">
                             <iframe  frameborder="0" style="width: 100%; height: 472px; margin-top: 10px"
                                     src="http://maps.google.com/maps?z=13&t=h&q=loc:@Model.GetDefaultFarmLatitude(),+@Model.GetDefaultFarmLongitude()&output=embed"></iframe>
                         </div>
-                            
+
                     </div>
                     <!-- end map-->
 
@@ -193,7 +195,10 @@
                     </div>
                     <!-- end weather-->
                 </div>
+                 }
+                }
             </div>
+            <!-- end Weather & Map container -->
             <!-- end reference-->
         </div>
         <div class="row">

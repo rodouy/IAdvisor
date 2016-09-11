@@ -124,6 +124,29 @@ namespace IrrigationAdvisor.Models.Utilities
         }
 
         /// <summary>
+        /// Specie Types
+        /// Default, Pastures
+        /// </summary>
+        public enum SpecieType
+        {
+            /// <summary>
+            /// Default Specie Type
+            /// </summary>
+            Default,
+
+            /// <summary>
+            /// Grains Specie Type
+            /// </summary>
+            Grains,
+
+            /// <summary>
+            /// Pastures Specie Type
+            /// </summary>
+            Pastures,
+
+        }
+
+        /// <summary>
         /// Types of Irrigation Units
         /// Pivot, Sprinkler, Drip
         /// </summary>
@@ -198,8 +221,29 @@ namespace IrrigationAdvisor.Models.Utilities
         }
 
         /// <summary>
+        /// Type of Weather Station
+        /// NOWebInformation, INIA, WeatherLink
+        /// </summary>
+        public enum WeatherStationType
+        {
+            /// <summary>
+            /// Stations 
+            /// </summary>
+            NOWebInformation,
+            /// <summary>
+            /// Stations of INIA
+            /// </summary>
+            INIA,
+            /// <summary>
+            /// Stations using WeatherLink
+            /// </summary>
+            WeatherLink,
+            
+        }
+
+        /// <summary>
         /// Type of information of the Weather Data
-        /// All Data, Temperature, Evapotranspiration, NoData
+        /// All Data, NoData, Evapotranspiration, Temperature, Rain
         /// </summary>
         public enum WeatherDataType
         {
@@ -208,17 +252,21 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             AllData,
             /// <summary>
-            /// Only Temperature data
+            /// Invalid Data
             /// </summary>
-            Temperature,
+            NoData,
             /// <summary>
             /// Only Evapotranspiration data
             /// </summary>
             Evapotranspiraton,
             /// <summary>
-            /// Invalid Data
+            /// Only Temperature data
             /// </summary>
-            NoData,
+            Temperature,
+            /// <summary>
+            /// Only Rain Data
+            /// </summary>
+            Rain,
         }
 
         /// <summary>
@@ -283,6 +331,32 @@ namespace IrrigationAdvisor.Models.Utilities
             Sábado
         }
 
+        /// <summary>
+        /// Irrigation Advisor Web Status
+        /// </summary>
+        public enum IrrigationAdvisorWebStatus
+        {
+            /// <summary>
+            /// With no data About Web Status
+            /// </summary>
+            WithNoData,
+
+            /// <summary>
+            /// Web is Online
+            /// </summary>
+            Online,
+
+            /// <summary>
+            /// Web is Offline, 
+            /// Example: when calculation is in process
+            /// </summary>
+            Offline,
+
+            /// <summary>
+            /// Web is in maintenance
+            /// </summary>
+            Maintenance,
+        }
 
         //For Processing
         /// <summary>
@@ -445,6 +519,14 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameWeatherStationLaEstanzuela = "La Estanzuela";
         public static String NameWeatherStationSaltoGrande = "Salto Grande";
         public static String NameWeatherStationTacuarembo = "Tacuarembo";
+        
+        public static String NameWeatherStationLaTribu = "La Tribu";
+        public static String NameWeatherStationElCure = "El Cure";
+        public static String NameWeatherStationJCServicios = "JC Servicios";
+        public static String NameWeatherStationMariaElena = "Maria Elena";
+        public static String NameWeatherStationElRetiro = "El Retiro";
+        public static String NameWeatherStationZanjaHonda = "Zanja Honda";
+        
         public static String NameWeatherStation = "";
         #endregion
         #region Agriculture
@@ -474,17 +556,17 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSpecieSoyaNorthMedium = "Soja " + NameSpecieCycleNorthMedium;
         public static String NameSpecieSoyaNorthLong = "Soja " + NameSpecieCycleNorthLong;
         #endregion
-        #region ForageSorghum
-        public static String NameSpecieForageSorghumSouthShort = "Sorgo Forrajero " + NameSpecieCycleSouthShort;
-        public static String NameSpecieForageSorghumSouthMedium = "Sorgo Forrajero " + NameSpecieCycleSouthMedium;
-        public static String NameSpecieForageSorghumNorthShort = "Sorgo Forrajero " + NameSpecieCycleNorthShort;
-        public static String NameSpecieForageSorghumNorthMedium = "Sorgo Forrajero " + NameSpecieCycleNorthMedium;
+        #region Sorghum Forage
+        public static String NameSpecieSorghumForageSouthShort = "Sorgo Forraje " + NameSpecieCycleSouthShort;
+        public static String NameSpecieSorghumForageSouthMedium = "Sorgo Forraje " + NameSpecieCycleSouthMedium;
+        public static String NameSpecieSorghumForageNorthShort = "Sorgo Forraje " + NameSpecieCycleNorthShort;
+        public static String NameSpecieSorghumForageNorthMedium = "Sorgo Forraje " + NameSpecieCycleNorthMedium;
         #endregion
-        #region GrainSorghum
-        public static String NameSpecieGrainSorghumSouthShort = "Sorgo Granifero" + NameSpecieCycleSouthShort;
-        public static String NameSpecieGrainSorghumSouthMedium = "Sorgo Granifero" + NameSpecieCycleSouthMedium;
-        public static String NameSpecieGrainSorghumNorthShort = "Sorgo Granifero" + NameSpecieCycleNorthShort;
-        public static String NameSpecieGrainSorghumNorthMedium = "Sorgo Granifero" + NameSpecieCycleNorthMedium;
+        #region Sorghum Grain
+        public static String NameSpecieSorghumGrainSouthShort = "Sorgo Granifero" + NameSpecieCycleSouthShort;
+        public static String NameSpecieSorghumGrainSouthMedium = "Sorgo Granifero" + NameSpecieCycleSouthMedium;
+        public static String NameSpecieSorghumGrainNorthShort = "Sorgo Granifero" + NameSpecieCycleNorthShort;
+        public static String NameSpecieSorghumGrainNorthMedium = "Sorgo Granifero" + NameSpecieCycleNorthMedium;
         #endregion
         #region Alfalfa
         public static String NameSpecieAlfalfaSouthShort = "Alfalfa " + NameSpecieCycleSouthShort;
@@ -492,17 +574,29 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSpecieAlfalfaNorthShort = "Alfalfa " + NameSpecieCycleNorthShort;
         public static String NameSpecieAlfalfaNorthMedium = "Alfalfa " + NameSpecieCycleNorthShort;
         #endregion
-        #region RedClover
-        public static String NameSpecieRedCloverSouthShort = "Trebol Rojo " + NameSpecieCycleSouthShort;
-        public static String NameSpecieRedCloverSouthMedium = "Trebol Rojo " + NameSpecieCycleSouthMedium;
-        public static String NameSpecieRedCloverNorthShort = "Trebol Rojo " + NameSpecieCycleNorthShort;
-        public static String NameSpecieRedCloverNorthMedium = "Trebol Rojo " + NameSpecieCycleNorthMedium;
+        #region RedClover Forage
+        public static String NameSpecieRedCloverForageSouthShort = "Trebol Rojo Forraje " + NameSpecieCycleSouthShort;
+        public static String NameSpecieRedCloverForageSouthMedium = "Trebol Rojo Forraje " + NameSpecieCycleSouthMedium;
+        public static String NameSpecieRedCloverForageNorthShort = "Trebol Rojo Forraje " + NameSpecieCycleNorthShort;
+        public static String NameSpecieRedCloverForageNorthMedium = "Trebol Rojo Forraje " + NameSpecieCycleNorthMedium;
         #endregion
-        #region Fescue
-        public static String NameSpecieFescueSouthShort = "Festuca " + NameSpecieCycleSouthShort;
-        public static String NameSpecieFescueSouthMedium = "Festuca " + NameSpecieCycleSouthMedium;
-        public static String NameSpecieFescueNorthShort = "Festuca " + NameSpecieCycleNorthShort;
-        public static String NameSpecieFescueNorthMedium = "Festuca " + NameSpecieCycleNorthMedium;
+        #region RedClover Seed
+        public static String NameSpecieRedCloverSeedSouthShort = "Trebol Rojo Semilla " + NameSpecieCycleSouthShort;
+        public static String NameSpecieRedCloverSeedSouthMedium = "Trebol Rojo Semilla " + NameSpecieCycleSouthMedium;
+        public static String NameSpecieRedCloverSeedNorthShort = "Trebol Rojo Semilla " + NameSpecieCycleNorthShort;
+        public static String NameSpecieRedCloverSeedNorthMedium = "Trebol Rojo Semilla " + NameSpecieCycleNorthMedium;
+        #endregion
+        #region Fescue Forage
+        public static String NameSpecieFescueForageSouthShort = "Festuca Forraje" + NameSpecieCycleSouthShort;
+        public static String NameSpecieFescueForageSouthMedium = "Festuca Forraje" + NameSpecieCycleSouthMedium;
+        public static String NameSpecieFescueForageNorthShort = "Festuca Forraje" + NameSpecieCycleNorthShort;
+        public static String NameSpecieFescueForageNorthMedium = "Festuca Forraje" + NameSpecieCycleNorthMedium;
+        #endregion
+        #region Fescue Seed
+        public static String NameSpecieFescueSeedSouthShort = "Festuca Semilla" + NameSpecieCycleSouthShort;
+        public static String NameSpecieFescueSeedSouthMedium = "Festuca Semilla" + NameSpecieCycleSouthMedium;
+        public static String NameSpecieFescueSeedNorthShort = "Festuca Semilla" + NameSpecieCycleNorthShort;
+        public static String NameSpecieFescueSeedNorthMedium = "Festuca Semilla" + NameSpecieCycleNorthMedium;
         #endregion
 
         public static String NameSpecie = "";
@@ -510,11 +604,13 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Stages
         public static String NameStagesCorn = "Maiz";
         public static String NameStagesSoya = "Soja";
-        public static String NameStagesForageSorghum = "Sorgo Forrajero";
-        public static String NameStagesGrainSorghum = "Sorgo Granifero";
+        public static String NameStagesSorghumForage = "Sorgo Forrajero";
+        public static String NameStagesSorghumGrain = "Sorgo Granifero";
         public static String NameStagesAlfalfa = "Alfalfa";
-        public static String NameStagesRedClover = "Trebol Rojo";
-        public static String NameStagesFescue = "Festuca";
+        public static String NameStagesRedCloverForage = "Trebol Rojo Forraje";
+        public static String NameStagesRedCloverSeed = "Trebol Rojo Semilla";
+        public static String NameStagesFescueForage = "Festuca Forraje";
+        public static String NameStagesFescueSeed = "Festuca Semilla";
         #endregion
         #region Soils
         #region Demo
@@ -657,6 +753,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region Security
         public static String NameUserDemo = "Demo";
+        public static String NameUserTestAdm = "TestAdm";
         public static String NameUserAdmin = "Admin";
         public static String NameUserSeba = "scasanova";
         public static String NameUserDelCarmen = "LaPerdiz";
@@ -699,6 +796,14 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionWeatherStationLaEstanzuela = NameWeatherStationLaEstanzuela;
         public static String NamePositionWeatherStationSaltoGrande = NameWeatherStationSaltoGrande;
         public static String NamePositionWeatherStationTacuarembo = NameWeatherStationTacuarembo;
+
+        public static String NamePositionWeatherStationLaTribu = NameWeatherStationLaTribu;
+        public static String NamePositionWeatherStationElCure = NameWeatherStationElCure;
+        public static String NamePositionWeatherStationJCServicios = NameWeatherStationJCServicios;
+        public static String NamePositionWeatherStationMariaElena = NameWeatherStationMariaElena;
+        public static String NamePositionWeatherStationElRetiro = NameWeatherStationElRetiro;
+        public static String NamePositionWeatherStationZanjaHonda = NameWeatherStationZanjaHonda;
+        
         public static String NamePositionWeatherStation = NameWeatherStation;
         #endregion
         #region PositionsPivots
@@ -1316,6 +1421,7 @@ namespace IrrigationAdvisor.Models.Utilities
                 loggers[i].LogError(error.ToString());
             }
         }
+
     }
 
 }

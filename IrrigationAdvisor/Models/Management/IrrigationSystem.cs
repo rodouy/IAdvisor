@@ -2282,16 +2282,20 @@ namespace IrrigationAdvisor.Models.Management
         /// </summary>
         /// <param name="pName"></param>
         /// <param name="pModel"></param>
+        /// <param name="pStationType"></param>
         /// <param name="pDateOfInstallation"></param>
         /// <param name="pDateOfService"></param>
         /// <param name="pUpdateTime"></param>
         /// <param name="pWirelessTransmission"></param>
-        /// <param name="pLocation"></param>
+        /// <param name="pPositionId"></param>
         /// <param name="pGiveET"></param>
+        /// <param name="pWeatherDataType"></param>
+        /// <param name="pWebAddress"></param>
         /// <returns></returns>
-        public WeatherStation AddWeatherStation (String pName, String pModel, DateTime pDateOfInstallation,
-                                DateTime pDateOfService, DateTime pUpdateTime, int pWirelessTransmission,
-                                long pPositionId, bool pGiveET, Utils.WeatherDataType pWeatherDataType)
+        public WeatherStation AddWeatherStation (String pName, String pModel, Utils.WeatherStationType pStationType,
+                                DateTime pDateOfInstallation, DateTime pDateOfService, DateTime pUpdateTime, 
+                                int pWirelessTransmission, long pPositionId, bool pGiveET, 
+                                Utils.WeatherDataType pWeatherDataType, String pWebAddress)
         {
             WeatherStation lReturn = null;
             WeatherStation lWeatherStation = null;
@@ -2300,10 +2304,10 @@ namespace IrrigationAdvisor.Models.Management
 
             lWeatherStationId = this.WeatherStationList.Count();
             lWeatherDataList = new List<WeatherData>();
-            lWeatherStation = new WeatherStation(lWeatherStationId,
-                                pName, pModel, pDateOfInstallation, pDateOfService,
+            lWeatherStation = new WeatherStation(lWeatherStationId, pName, pModel, 
+                                pStationType, pDateOfInstallation, pDateOfService,
                                 pUpdateTime, pWirelessTransmission, pPositionId, pGiveET,
-                                lWeatherDataList, pWeatherDataType);
+                                lWeatherDataList, pWeatherDataType, pWebAddress);
 
             if(ExistWeatherStation(lWeatherStation) == null)
             {
@@ -2320,31 +2324,33 @@ namespace IrrigationAdvisor.Models.Management
         /// </summary>
         /// <param name="pName"></param>
         /// <param name="pModel"></param>
+        /// <param name="pStationType"></param>
         /// <param name="pDateOfInstallation"></param>
         /// <param name="pDateOfService"></param>
         /// <param name="pUpdateTime"></param>
         /// <param name="pWirelessTransmission"></param>
-        /// <param name="pLocation"></param>
+        /// <param name="pPositionId"></param>
         /// <param name="pGiveET"></param>
         /// <param name="pWeatherDataList"></param>
         /// <param name="pWeatherDataType"></param>
+        /// <param name="pWebAddress"></param>
         /// <returns></returns>
-        public WeatherStation UpdateWeatherStation(String pName, String pModel, DateTime pDateOfInstallation,
-                                DateTime pDateOfService, DateTime pUpdateTime, int pWirelessTransmission,
-                                long pPositionId, bool pGiveET, List<WeatherData> pWeatherDataList,
-                                Utils.WeatherDataType pWeatherDataType)
+        public WeatherStation UpdateWeatherStation(String pName, String pModel, Utils.WeatherStationType pStationType,
+                                DateTime pDateOfInstallation, DateTime pDateOfService, DateTime pUpdateTime, 
+                                int pWirelessTransmission, long pPositionId, bool pGiveET, 
+                                List<WeatherData> pWeatherDataList, Utils.WeatherDataType pWeatherDataType, String pWebAddress)
         {
             WeatherStation lReturn = null;
 
-            WeatherStation lWeatherStation = new WeatherStation(0, pName, pModel,
-                                pDateOfInstallation, pDateOfService, pUpdateTime,
-                                pWirelessTransmission, pPositionId, pGiveET,
-                                pWeatherDataList, pWeatherDataType);
+            WeatherStation lWeatherStation = new WeatherStation(0, pName, pModel, pStationType, 
+                                pDateOfInstallation, pDateOfService, pUpdateTime, pWirelessTransmission, 
+                                pPositionId, pGiveET, pWeatherDataList, pWeatherDataType, pWebAddress);
             lReturn = ExistWeatherStation(lWeatherStation);
             if(lReturn != null)
             {
                 lReturn.Name = pName;
                 lReturn.Model = pModel;
+                lReturn.StationType = pStationType;
                 lReturn.DateOfInstallation = pDateOfInstallation;
                 lReturn.DateOfService = pDateOfService;
                 lReturn.UpdateTime = pUpdateTime;
@@ -2353,6 +2359,7 @@ namespace IrrigationAdvisor.Models.Management
                 lReturn.GiveET = pGiveET;
                 lReturn.WeatherDataList = pWeatherDataList;
                 lReturn.WeatherDataType = pWeatherDataType;
+                lReturn.WebAddress = pWebAddress;
             }
 
             return lReturn;
@@ -2361,7 +2368,8 @@ namespace IrrigationAdvisor.Models.Management
         #endregion
 
         /// <summary>
-        /// TODO explain method
+        /// Add Irrigation Data. If there is a record of Irrigation, 
+        /// it is updated adding the new rain as ExtraInput
         /// </summary>
         /// <param name="pCropIrrigationWeather"></param>
         /// <param name="pIrrigationDate"></param>
@@ -2379,7 +2387,7 @@ namespace IrrigationAdvisor.Models.Management
             {
                 lNewIrrigation = pCropIrrigationWeather.GetIrrigation(pIrrigationDate);
                 //If there is not a registry then it is created 
-                //If there is an Irrigation Registry it is actualized 
+                //If there is an Irrigation Registry it is updated 
                 if (lNewIrrigation == null)
                 {
                     lNewIrrigation = new Water.Irrigation();

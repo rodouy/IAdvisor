@@ -32,7 +32,7 @@
         <td>@gridPivotItem.SowingDate</td>
         <td>@gridPivotItem.PhenologyName</td>
 
-        @foreach (var detail in Model.First().ListGridPivotDetailHome)
+        @foreach (var detail in @gridPivotItem.ListGridPivotDetailHome)
         {
             if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Rain)
             {

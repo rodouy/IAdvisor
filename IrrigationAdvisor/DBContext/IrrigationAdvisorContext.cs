@@ -16,6 +16,7 @@ using IrrigationAdvisor.Models.Water;
 using IrrigationAdvisor.Models.Weather;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using IrrigationAdvisor.DBContext.Agriculture;
+using IrrigationAdvisor.DBContext.Data;
 using IrrigationAdvisor.DBContext.Irrigation;
 using IrrigationAdvisor.DBContext.Language;
 using IrrigationAdvisor.DBContext.Localization;
@@ -83,7 +84,9 @@ namespace IrrigationAdvisor.DBContext
         #endregion
 
         #region Data
-        #if false
+        #if true
+
+        public virtual DbSet<Status> Status { get; set; }
 
         #endif
         #endregion
@@ -230,7 +233,9 @@ namespace IrrigationAdvisor.DBContext
             #endregion
 
             #region Data
-            #if false
+            #if true
+
+            modelBuilder.Configurations.Add(new StatusConfiguration());
 
             #endif
             #endregion

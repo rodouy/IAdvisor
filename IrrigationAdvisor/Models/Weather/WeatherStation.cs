@@ -64,6 +64,7 @@ namespace IrrigationAdvisor.Models.Weather
         private long weatherStationId;
         private String name;
         private String model;
+        private Utils.WeatherStationType stationType;
         private DateTime dateOfInstallation;
         private DateTime dateOfService;
         private DateTime updateTime;
@@ -72,6 +73,7 @@ namespace IrrigationAdvisor.Models.Weather
         private bool giveET;
         private List<WeatherData> weatherDataList;
         private Utils.WeatherDataType weatherDataType;
+        private String webAddress;
 
         #endregion
 
@@ -108,6 +110,12 @@ namespace IrrigationAdvisor.Models.Weather
             set { model = value; }
         }
 
+        public Utils.WeatherStationType StationType
+        {
+            get { return stationType; }
+            set { stationType = value; }
+        }
+        
         public DateTime DateOfInstallation
         {
             get { return dateOfInstallation; }
@@ -156,9 +164,12 @@ namespace IrrigationAdvisor.Models.Weather
             set { weatherDataType = value; }
         }
 
-        //[field: NonSerialized()]
-        //public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+        public String WebAddress
+        {
+            get { return webAddress; }
+            set { webAddress = value; }
+        }
+
         #endregion
 
         #region Construction
@@ -171,6 +182,7 @@ namespace IrrigationAdvisor.Models.Weather
             this.WeatherStationId = 0;
             this.Name = "";
             this.Model = "";
+            this.StationType = Utils.WeatherStationType.NOWebInformation;
             this.DateOfInstallation = DateTime.Now;
             this.DateOfService = DateTime.Now;
             this.UpdateTime = Utils.MIN_DATETIME;
@@ -179,6 +191,7 @@ namespace IrrigationAdvisor.Models.Weather
             this.GiveET = false;
             this.WeatherDataList = new List<WeatherData>();
             this.WeatherDataType = Utils.WeatherDataType.AllData;
+            this.WebAddress = "";
         }
 
         /// <summary>
@@ -187,21 +200,21 @@ namespace IrrigationAdvisor.Models.Weather
         /// <param name="pWeatherStationId"></param>
         /// <param name="pName"></param>
         /// <param name="pModel"></param>
+        /// <param name="pStationType"></param>
         /// <param name="pDateOfInstallation"></param>
         /// <param name="pDateOfService"></param>
         /// <param name="pUpdateTime"></param>
         /// <param name="pWirelessTransmission"></param>
-        /// <param name="pLocation"></param>
+        /// <param name="pPositionId"></param>
         /// <param name="pGiveET"></param>
         /// <param name="pWeatherDataList"></param>
         /// <param name="pWeatherDataType"></param>
-        public WeatherStation(
-            long pWeatherStationId, String pName, String pModel,
-            DateTime pDateOfInstallation, DateTime pDateOfService,
-            DateTime pUpdateTime, int pWirelessTransmission,
-            long pPositionId, bool pGiveET,
-            List<WeatherData> pWeatherDataList,
-            Utils.WeatherDataType pWeatherDataType)
+        /// <param name="pWebAddress"></param>
+        public WeatherStation(long pWeatherStationId, String pName, String pModel,
+            Utils.WeatherStationType pStationType, DateTime pDateOfInstallation, 
+            DateTime pDateOfService, DateTime pUpdateTime, int pWirelessTransmission, 
+            long pPositionId, bool pGiveET, List<WeatherData> pWeatherDataList,
+            Utils.WeatherDataType pWeatherDataType, String pWebAddress)
         {
             this.WeatherStationId = pWeatherStationId;
             this.Name = pName;
@@ -214,6 +227,7 @@ namespace IrrigationAdvisor.Models.Weather
             this.GiveET = pGiveET;
             this.WeatherDataList = pWeatherDataList;
             this.WeatherDataType = pWeatherDataType;
+            this.WebAddress = pWebAddress;
         }
 
         #endregion

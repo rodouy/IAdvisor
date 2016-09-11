@@ -249,8 +249,8 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             #endregion
 
             #region 4. Add Specie to SpecieList of Region
-            testSpecieMaiz = testRegion.AddSpecie("Maiz", "Maiz", "Corto", testMaizBaseTemperature, testMaizStressTemperature);
-            testSpecieSoja = testRegion.AddSpecie("Soja", "Soja", "Corto", testSojaBaseTemperature, testSojaStressTemperature);
+            testSpecieMaiz = testRegion.AddSpecie("Maiz", "Maiz", "Corto", testMaizBaseTemperature, testMaizStressTemperature, Utils.SpecieType.Grains);
+            testSpecieSoja = testRegion.AddSpecie("Soja", "Soja", "Corto", testSojaBaseTemperature, testSojaStressTemperature, Utils.SpecieType.Grains);
             //testSpecieList = new List<Specie>();
             //testSpecieList.Add(testSpecieMaiz);
             //testSpecieList.Add(testSpecieSoja);
@@ -335,14 +335,16 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
 
             #region 20.  Create Weather Station
             testWeatherStation = testIrrigationSystem.AddWeatherStation("WeatherStation Santa Lucia", "Model 1234", 
+                                                                    Utils.WeatherStationType.INIA,
                                                                     DateTime.Now, DateTime.Now, DateTime.Now, 1, 
                                                                     testPositionWSSantaLucia.PositionId, true, 
-                                                                    Utils.WeatherDataType.AllData);
+                                                                    Utils.WeatherDataType.AllData, "");
             
             testWeatherStationAlternative = testIrrigationSystem.AddWeatherStation("WeatherStation Minas", "Model 2342",
+                                                                    Utils.WeatherStationType.INIA,
                                                                     DateTime.Now, DateTime.Now, DateTime.Now, 1,
                                                                     testPositionWSSantaLucia.PositionId, true, 
-                                                                    Utils.WeatherDataType.AllData);
+                                                                    Utils.WeatherDataType.AllData, "");
             #endregion
 
             #region 21.  Create Irrigation Units

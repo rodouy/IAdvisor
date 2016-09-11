@@ -1,7 +1,7 @@
 ﻿using IrrigationAdvisor.Models.Localization;
+using IrrigationAdvisor.Models.Utilities;
 using System;
 using System.Collections.Generic;
-
 using System.Linq;
 using System.Web;
 
@@ -62,7 +62,8 @@ namespace IrrigationAdvisor.Models.Agriculture
         private long specieCycleId;
         private Double baseTemperature;
         private Double stressTemperature;
-                
+        private Utils.SpecieType specieType;
+       
         #endregion
 
         #region Properties
@@ -110,6 +111,12 @@ namespace IrrigationAdvisor.Models.Agriculture
             set;
         }
 
+        public Utils.SpecieType SpecieType
+        {
+            get { return specieType; }
+            set { specieType = value; }
+        }
+        
         #endregion
        
         #region Construction
@@ -125,6 +132,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.SpecieCycleId = 0;
             this.BaseTemperature = 0;
             this.StressTemperature = 0;
+            this.SpecieType = Utils.SpecieType.Default;
         }
 
         /// <summary>
@@ -138,7 +146,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pStressTemperature"></param>
         public Specie(long pSpecieId, String pName, String pShortName,
                     long pSpecieCycleId, Double pBaseTemperature,
-                    Double pStressTemperature)
+                    Double pStressTemperature, Utils.SpecieType pSpecieType)
         {
             this.specieId = pSpecieId;
             this.Name = pName;
@@ -146,6 +154,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.SpecieCycleId = pSpecieCycleId;
             this.BaseTemperature = pBaseTemperature;
             this.StressTemperature = pStressTemperature;
+            this.SpecieType = pSpecieType;
         }
 
         

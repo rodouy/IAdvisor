@@ -38,7 +38,7 @@ namespace IrrigationAdvisor.DBContext.Localization
         {
             List<Farm> lReturn = null;
             List<Farm> lFarmList = null;
-            User lUser = null;
+            UserFarm lUserFarm = null;
 
             if (pUser != null)
             {
@@ -48,8 +48,8 @@ namespace IrrigationAdvisor.DBContext.Localization
                     .Include(f => f.UserFarmList).ToList();
                 foreach (Farm item in lFarmList)
                 {
-                    lUser = item.UserFarmList.Where(uf => uf.UserId == pUser.UserId).FirstOrDefault().User;
-                    if(lUser != null)
+                    lUserFarm = item.UserFarmList.Where(uf => uf.UserId == pUser.UserId).FirstOrDefault();
+                    if (lUserFarm != null)
                     {
                         if(lReturn == null)
                         {
@@ -73,7 +73,7 @@ namespace IrrigationAdvisor.DBContext.Localization
         {
             List<Farm> lReturn = null;
             List<Farm> lFarmList = null;
-            User lUser = null;
+            UserFarm lUserFarm = null;
             
             if(pUser != null)
             {
@@ -85,8 +85,8 @@ namespace IrrigationAdvisor.DBContext.Localization
                     .Include(f => f.UserFarmList).ToList();
                 foreach (Farm item in lFarmList)
                 {
-                    lUser = item.UserFarmList.Where(uf => uf.UserId == pUser.UserId).FirstOrDefault().User;
-                    if(lUser != null)
+                    lUserFarm = item.UserFarmList.Where(uf => uf.UserId == pUser.UserId).FirstOrDefault();
+                    if (lUserFarm != null)
                     {
                         if(lReturn == null)
                         {

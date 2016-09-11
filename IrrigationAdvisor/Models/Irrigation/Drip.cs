@@ -35,6 +35,9 @@ namespace IrrigationAdvisor.Models.Irrigation
     /// </summary>
     public class Drip : IrrigationUnit
     {
+        #region Consts
+        #endregion
+
         #region Fields
 
         private double width;
@@ -57,7 +60,7 @@ namespace IrrigationAdvisor.Models.Irrigation
 
         #endregion
 
-                #region Construction
+        #region Construction
 
         public Drip()
         {
@@ -71,5 +74,15 @@ namespace IrrigationAdvisor.Models.Irrigation
             this.Length = pLength;
         }
         #endregion
+
+        #region Helpers
+        #endregion
+
+        #region Public Methods
+        #endregion
+
+        #region Overrides
+        #endregion
+
     }
 }

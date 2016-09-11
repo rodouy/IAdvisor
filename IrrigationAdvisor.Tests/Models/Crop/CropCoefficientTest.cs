@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using IrrigationAdvisor.Models.Agriculture;
+using IrrigationAdvisor.Models.Utilities;
 
 namespace IrrigationAdvisor.Tests.Models.Agriculture
 {
@@ -23,7 +24,7 @@ namespace IrrigationAdvisor.Tests.Models.Agriculture
             double lKC3 = 4;
 
             CropCoefficient lCropCoefficient = new CropCoefficient();
-            Specie lSpecie = new Specie(0, "Maiz", "Maiz", 1, 30, 40);
+            Specie lSpecie = new Specie(0, "Maiz", "Maiz", 1, 30, 40, Utils.SpecieType.Grains);
             lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecie.SpecieId, lDay1, lKC1);
             lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecie.SpecieId, lDay2, lKC2);
             lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecie.SpecieId, lDay3, lKC3);

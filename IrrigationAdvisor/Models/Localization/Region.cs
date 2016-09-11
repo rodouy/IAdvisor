@@ -644,11 +644,15 @@ namespace IrrigationAdvisor.Models.Localization
         /// If already exists, it return the one of the list.
         /// </summary>
         /// <param name="pName"></param>
-        /// <param name="pSpecieCycle"></param>
+        /// <param name="pShortName"></param>
+        /// <param name="pSpecieCycleName"></param>
         /// <param name="pBaseTemperature"></param>
+        /// <param name="pStressTemperarute"></param>
+        /// <param name="pSpecieType"></param>
         /// <returns></returns>
         public Specie AddSpecie(String pName, String pShortName, String pSpecieCycleName, 
-                                Double pBaseTemperature, Double pStressTemperarute)
+                                Double pBaseTemperature, Double pStressTemperarute,
+                                Utils.SpecieType pSpecieType)
         {
             Specie lReturn = null;
             long lSpecieId = this.SpecieList.Count();
@@ -661,7 +665,7 @@ namespace IrrigationAdvisor.Models.Localization
                 lSpecieCycle = this.AddSpecieCycle(pSpecieCycleName);
             }
             lSpecie = new Specie(lSpecieId, pName, pShortName, lSpecieCycle.SpecieCycleId, 
-                                        pBaseTemperature, pStressTemperarute);
+                                        pBaseTemperature, pStressTemperarute, pSpecieType);
             lSpecie.SpecieCycle = lSpecieCycle;
             lReturn = this.ExistSpecie(lSpecie);
             if(lReturn == null)
@@ -712,7 +716,8 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pBaseTemperature"></param>
         /// <returns></returns>
         public Specie UpdateSpecie(String pName, String pShortName, String pSpecieCycleName,
-                                    Double pBaseTemperature, Double pStressTemperature)
+                                    Double pBaseTemperature, Double pStressTemperature,
+                                    Utils.SpecieType pSpecieType)
         {
             Specie lReturn = null;
             SpecieCycle lSpecieCycle = null;
@@ -729,7 +734,7 @@ namespace IrrigationAdvisor.Models.Localization
             //In both cases, lSpecieCycle isnt null
             lSpecieCycleId = lSpecieCycle.SpecieCycleId;
             lSpecie = new Specie(lSpecieId, pName, pShortName, lSpecieCycleId,
-                                 pBaseTemperature, pStressTemperature);
+                                 pBaseTemperature, pStressTemperature, pSpecieType);
             lReturn = ExistSpecie(lSpecie);
             if (lReturn != null)
             {
@@ -738,6 +743,7 @@ namespace IrrigationAdvisor.Models.Localization
                 lReturn.SpecieCycleId = lSpecieCycleId;
                 lReturn.BaseTemperature = pBaseTemperature;
                 lReturn.StressTemperature = pStressTemperature;
+                lReturn.SpecieType = pSpecieType;
             }
             return lReturn;
         }
