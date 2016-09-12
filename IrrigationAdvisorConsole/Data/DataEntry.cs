@@ -2509,6 +2509,7 @@ namespace IrrigationAdvisorConsole
 
         #region Las Brujas
 
+        #region 2007-2014
         public static void WeatherDataLasBrujas_2007(IrrigationAdvisorContext context)
         {
             WeatherStation lWeatherStation = null;
@@ -5565,7 +5566,9 @@ namespace IrrigationAdvisorConsole
             #endregion
                             
         }
+        #endregion
 
+        #region 20015-2016
         public static void WeatherDataLasBrujas_2015(IrrigationAdvisorContext context)
         {
             WeatherStation lWeatherStation = null;
@@ -5959,55 +5962,274 @@ namespace IrrigationAdvisorConsole
             
 
             #region WeatherData 2016
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 25.8, 686.1, 30.5, 21.1, 6.2);  // Month - 2016-1-1
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 24.9, 483.8, 30.2, 19.5, 5.3);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 25.4, 580.7, 29.6, 21.2, 6.1);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 27.6, 721.8, 33.7, 21.5, 6.5);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 26.4, 415.1, 31.0, 21.7, 5.2);  // Month - 2016-1-5
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 20.4, 648.6, 24.9, 15.8, 5.5);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(006), 19.2, 736.9, 25.2, 13.2, 5.7);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(007), 21.8, 523.3, 29.1, 14.4, 4.5);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(008), 21.4, 696.7, 26.9, 15.8, 5.7);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(009), 23.4, 446.5, 29.6, 17.2, 4.2);  // Month - 2016-1-10
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(010), 23.7, 741.1, 30.4, 17.1, 6.3);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(011), 25.8, 478.5, 32.8, 18.8, 5.3);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(012), 23.0, 748.9, 28.5, 17.5, 7.2);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(013), 23.8, 755.2, 32.7, 14.8, 6.9);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(014), 23.1, 757.5, 30.5, 15.6, 6.7);  // Month - 2016-1-15
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(015), 22.1, 644.0, 32.1, 12.2, 5.8);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(016), 27.5, 595.1, 35.3, 19.7, 6.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(017), 22.6, 742.7, 27.5, 17.6, 6.3);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(018), 22.1, 725.3, 30.2, 14.0, 6.4);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(019), 20.8, 219.6, 24.0, 17.6, 2.6);  // Month - 2016-1-20
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(020), 24.9, 706.9, 31.3, 18.5, 6.8);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(021), 27.6, 677.6, 35.0, 20.1, 7.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(022), 22.9, 708.2, 27.0, 18.8, 6.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(023), 27.2, 699.2, 38.0, 16.4, 8.0);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(024), 25.2, 674.0, 29.9, 20.4, 6.8);  // Month - 2016-1-25
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(025), 20.4, 661.1, 25.8, 15.0, 5.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(026), 19.0, 707.4, 27.4, 10.5, 5.8);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(027), 22.8, 623.1, 31.0, 14.5, 5.9);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(028), 25.2, 376.5, 30.1, 20.2, 3.9);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(029), 23.7, 609.3, 28.2, 19.2, 5.2);  // Month - 2016-1-30
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(030), 20.2, 640.3, 25.9, 14.5, 5.0);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(031), 19.0, 695.0, 25.6, 12.3, 5.4);  // Month - 2016-2-1
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(032), 21.8, 698.0, 29.0, 14.5, 6.1);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(033), 24.4, 436.1, 30.7, 18.1, 5.0);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(034), 25.0, 664.0, 31.0, 18.9, 6.1);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(035), 26.1, 681.4, 33.3, 18.8, 6.7);  // Month - 2016-2-5
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(036), 26.6, 526.1, 33.1, 20.0, 6.2);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(037), 26.3, 477.3, 33.2, 19.3, 5.8);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(038), 26.2, 210.1, 30.1, 22.2, 3.3);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(039), 25.8, 660.6, 31.6, 19.9, 6.0);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(040), 24.6, 685.4, 30.3, 18.9, 6.4);  // Month - 2016-2-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 25.8, 635.8, 30.5, 21.1, 6.4);  // Month - 2016-1-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 24.9, 461.7, 30.2, 19.5, 5.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 25.4, 544.8, 29.6, 21.2, 6.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 27.6, 666.1, 33.7, 21.5, 6.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 26.4, 401.7, 31.0, 21.7, 5.3);  // Month - 2016-1-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 20.4, 602.7, 24.9, 15.8, 5.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(006), 19.2, 678.5, 25.2, 13.2, 5.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(007), 21.8, 494.3, 29.1, 14.4, 4.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(008), 21.4, 642.9, 26.9, 15.8, 5.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(009), 23.4, 427.5, 29.6, 17.2, 4.3);  // Month - 2016-1-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(010), 23.7, 679.9, 30.4, 17.1, 6.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(011), 25.8, 454.2, 32.8, 18.8, 5.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(012), 23.0, 685.7, 28.5, 17.5, 7.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(013), 23.8, 692.0, 32.7, 14.8, 7.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(014), 23.1, 694.5, 30.5, 15.6, 6.9);  // Month - 2016-1-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(015), 22.1, 597.0, 32.1, 12.2, 6.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(016), 27.5, 554.8, 35.3, 19.7, 6.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(017), 22.6, 681.7, 27.5, 17.6, 6.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(018), 22.1, 667.0, 30.2, 14.0, 6.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(019), 20.8, 232.2, 24.0, 17.6, 2.7);  // Month - 2016-1-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(020), 24.9, 651.6, 31.3, 18.5, 7.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(021), 27.6, 626.5, 35.0, 20.1, 7.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(022), 22.9, 652.9, 27.0, 18.8, 6.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(023), 27.2, 645.1, 38.0, 16.4, 8.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(024), 25.2, 623.4, 29.9, 20.4, 7.1);  // Month - 2016-1-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(025), 20.4, 612.2, 25.8, 15.0, 5.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(026), 19.0, 651.9, 27.4, 10.5, 6.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(027), 22.8, 579.1, 31.0, 14.5, 6.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(028), 25.2, 366.4, 30.1, 20.2, 4.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(029), 23.7, 566.5, 28.2, 19.2, 5.4);  // Month - 2016-1-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(030), 20.2, 592.5, 25.9, 14.5, 5.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(031), 19.0, 638.9, 25.6, 12.3, 5.5);  // Month - 2016-2-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(032), 21.8, 641.0, 29.0, 14.5, 6.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(033), 24.4, 415.7, 30.7, 18.1, 5.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(034), 25.0, 610.7, 31.0, 18.9, 6.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(035), 26.1, 626.2, 33.3, 18.8, 6.9);  // Month - 2016-2-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(036), 26.6, 493.2, 33.1, 20.0, 6.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(037), 26.3, 451.5, 33.2, 19.3, 6.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(038), 26.2, 221.8, 30.1, 22.2, 3.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(039), 25.8, 609.6, 31.6, 19.9, 6.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(040), 24.6, 631.3, 30.3, 18.9, 6.7);  // Month - 2016-2-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(041), 24.6, 606.4, 35.2, 13.9, 6.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(042), 30.0, 604.6, 38.0, 21.9, 7.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(043), 25.5, 336.8, 29.7, 21.2, 3.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(044), 25.6, 600.8, 30.5, 20.6, 5.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(045), 26.7, 589.2, 34.8, 18.6, 6.5);  // Month - 2016-2-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(046), 27.1, 607.0, 34.8, 19.4, 7.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(047), 24.8, 404.0, 28.5, 21.1, 4.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(048), 25.8, 566.9, 31.8, 19.7, 5.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(049), 21.9, 243.7, 24.4, 19.3, 3.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(050), 20.7, 595.3, 26.5, 14.9, 5.5);  // Month - 2016-2-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(051), 24.8, 580.3, 32.1, 17.5, 6.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(052), 26.0, 571.5, 32.0, 19.9, 5.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(053), 25.6, 566.2, 31.2, 20.1, 5.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(054), 24.9, 538.0, 31.7, 18.1, 5.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(055), 22.6, 536.0, 26.9, 18.3, 5.6);  // Month - 2016-2-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(056), 20.3, 209.4, 24.0, 16.6, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(057), 19.9, 560.3, 24.9, 14.9, 6.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(058), 20.3, 560.9, 28.2, 12.4, 5.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(059), 21.7, 536.4, 28.7, 14.7, 5.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(060), 17.9, 191.9, 20.7, 15.0, 2.5);  // Month - 2016-3-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(061), 18.6, 383.2, 23.7, 13.5, 3.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(062), 21.3, 526.0, 26.2, 16.3, 4.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(063), 20.5, 473.3, 28.2, 12.8, 4.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(064), 20.0, 371.1, 22.5, 17.4, 3.5);  // Month - 2016-3-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(065), 17.9, 471.6, 21.4, 14.4, 4.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(066), 18.4, 460.0, 23.7, 13.1, 3.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(067), 19.5, 488.6, 27.0, 12.0, 3.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(068), 21.3, 200.3, 25.1, 17.4, 3.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(069), 17.6, 177.5, 18.6, 16.5, 1.8);  // Month - 2016-3-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(070), 17.3, 264.6, 21.3, 13.2, 2.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(071), 16.2, 484.4, 21.1, 11.3, 3.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(072), 17.2, 481.5, 25.9, 08.5, 3.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(073), 21.2, 487.9, 28.0, 14.4, 4.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(074), 24.3, 407.4, 30.5, 18.0, 4.3);  // Month - 2016-3-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(075), 25.7, 467.4, 32.4, 19.0, 5.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(076), 26.3, 464.7, 33.4, 19.1, 5.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(077), 20.6, 167.1, 23.7, 17.5, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(078), 17.0, 274.3, 20.0, 14.0, 3.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(079), 15.8, 190.7, 20.8, 10.7, 2.6);  // Month - 2016-3-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(080), 19.0, 247.3, 22.5, 15.5, 2.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(081), 18.3, 453.7, 24.2, 12.4, 3.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(082), 19.4, 456.4, 26.8, 11.9, 3.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(083), 20.4, 436.4, 26.7, 14.1, 3.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(084), 18.5, 183.3, 21.1, 15.9, 3.0);  // Month - 2016-3-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(085), 18.5, 156.3, 19.8, 17.2, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(086), 19.7, 163.4, 21.0, 18.4, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(087), 19.0, 162.0, 20.8, 17.2, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(088), 19.5, 427.8, 24.0, 15.0, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(089), 19.7, 347.2, 26.2, 13.1, 2.5);  // Month - 2016-3-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(090), 21.4, 391.6, 28.0, 14.7, 3.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(091), 19.7, 151.0, 24.3, 15.1, 1.9);  // Month - 2016-4-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(092), 18.2, 353.4, 21.1, 15.3, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(093), 20.3, 188.8, 23.9, 16.7, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(094), 19.1, 168.4, 21.6, 16.6, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(095), 19.7, 142.9, 21.3, 18.0, 1.4);  // Month - 2016-4-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(096), 18.2, 141.5, 19.4, 16.9, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(097), 17.8, 377.5, 22.7, 12.9, 2.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(098), 19.1, 159.8, 21.6, 16.5, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(099), 19.3, 218.3, 22.2, 16.3, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(100), 18.5, 167.3, 20.6, 16.3, 2.0);  // Month - 2016-4-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(101), 19.1, 307.2, 22.0, 16.1, 2.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(102), 19.2, 299.7, 22.8, 15.6, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(103), 19.6, 203.4, 23.2, 16.1, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(104), 20.4, 300.0, 25.2, 15.5, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(105), 21.3, 129.9, 22.7, 19.8, 1.5);  // Month - 2016-4-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(106), 20.2, 143.5, 22.4, 18.0, 1.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(107), 16.7, 127.3, 19.4, 14.0, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(108), 17.2, 126.1, 18.4, 15.9, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(109), 17.4, 127.3, 20.0, 14.9, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(110), 15.7, 278.6, 20.6, 10.8, 1.4);  // Month - 2016-4-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(111), 16.9, 322.2, 20.7, 13.0, 1.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(112), 15.3, 357.8, 20.6, 09.9, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(113), 17.0, 139.1, 22.0, 11.9, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(114), 17.4, 189.7, 21.4, 13.4, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(115), 14.5, 117.7, 16.7, 12.2, 2.1);  // Month - 2016-4-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(116), 11.8, 270.1, 13.8, 09.7, 3.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(117), 10.0, 305.1, 12.2, 07.8, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(118), 08.8, 252.1, 12.3, 05.3, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(119), 10.2, 268.3, 13.8, 06.5, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(120), 09.7, 116.7, 12.6, 06.7, 1.4);  // Month - 2016-4-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(121), 10.3, 315.9, 16.9, 03.7, 1.1);  // Month - 2016-5-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(122), 12.5, 181.6, 17.6, 07.3, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(123), 09.2, 164.5, 14.3, 04.1, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(124), 09.4, 304.3, 16.0, 02.7, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(125), 11.7, 107.0, 15.9, 07.5, 1.0);  // Month - 2016-5-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(126), 11.0, 136.5, 13.7, 08.3, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(127), 11.3, 234.9, 16.0, 06.6, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(128), 15.3, 192.3, 19.9, 10.7, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(129), 16.7, 248.5, 21.6, 11.7, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(130), 13.5, 108.6, 16.5, 10.5, 1.2);  // Month - 2016-5-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(131), 12.6, 246.9, 15.3, 09.9, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(132), 11.0, 100.5, 12.8, 09.1, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(133), 09.9, 157.9, 13.0, 06.9, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(134), 09.9, 98.8, 14.5, 05.3, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(135), 12.5, 97.9, 14.3, 10.7, 1.2);  // Month - 2016-5-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(136), 11.4, 207.8, 12.8, 09.9, 2.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(137), 10.0, 277.6, 12.6, 07.4, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(138), 08.3, 261.7, 13.0, 03.5, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(139), 07.5, 169.4, 13.8, 01.2, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(140), 09.3, 108.2, 13.7, 04.8, 0.8);  // Month - 2016-5-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(141), 10.6, 147.3, 15.3, 05.8, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(142), 10.3, 229.6, 13.9, 06.6, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(143), 09.2, 252.0, 14.6, 03.7, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(144), 09.5, 242.7, 16.4, 02.6, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(145), 11.6, 133.9, 16.1, 07.1, 0.8);  // Month - 2016-5-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(146), 10.4, 138.9, 14.3, 06.4, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(147), 12.8, 136.1, 16.5, 09.1, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(148), 13.4, 89.1, 15.1, 11.6, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(149), 16.0, 88.6, 17.5, 14.4, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(150), 14.0, 88.1, 15.7, 12.2, 1.1);  // Month - 2016-5-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(151), 12.3, 160.0, 14.7, 09.8, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(152), 10.2, 191.6, 12.6, 07.8, 1.1);  // Month - 2016-6-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(153), 08.0, 113.2, 10.7, 05.2, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(154), 09.8, 235.1, 12.9, 06.7, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(155), 08.2, 85.9, 10.1, 06.2, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(156), 08.8, 212.9, 12.4, 05.2, 0.6);  // Month - 2016-6-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(157), 07.8, 242.3, 13.2, 02.3, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(158), 09.4, 215.7, 12.2, 06.6, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(159), 07.9, 244.7, 10.4, 05.4, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(160), 06.1, 157.4, 11.7, 00.4, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(161), 07.6, 215.9, 09.6, 05.6, 1.1);  // Month - 2016-6-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(162), 07.4, 241.0, 12.2, 02.5, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(163), 08.6, 231.2, 14.5, 02.6, 0.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(164), 08.0, 203.2, 14.9, 01.1, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(165), 10.1, 118.7, 13.4, 06.7, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(166), 09.0, 205.6, 15.4, 02.6, 0.3);  // Month - 2016-6-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(167), 08.4, 188.7, 13.3, 03.4, 0.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(168), 08.6, 213.4, 15.8, 01.4, 0.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(169), 09.9, 200.0, 17.4, 02.3, 0.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(170), 07.2, 197.6, 12.9, 01.5, 0.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(171), 06.8, 230.9, 11.4, 02.1, 0.2);  // Month - 2016-6-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(172), 06.9, 216.4, 15.1, -01.4, 0.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(173), 10.4, 230.9, 17.2, 03.5, 0.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(174), 08.4, 82.9, 11.6, 05.1, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(175), 10.6, 148.9, 16.4, 04.8, 0.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(176), 10.2, 83.1, 12.2, 08.2, 0.8);  // Month - 2016-6-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(177), 10.2, 83.2, 12.1, 08.3, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(178), 14.0, 83.3, 16.3, 11.6, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(179), 12.6, 169.9, 15.4, 09.8, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(180), 12.8, 216.2, 17.6, 08.0, 0.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(181), 17.6, 102.4, 20.9, 14.3, 0.7);  // Month - 2016-6-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(182), 17.1, 108.2, 21.6, 12.5, 0.7);  // Month - 2016-7-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(183), 13.2, 84.4, 14.6, 11.8, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(184), 16.9, 94.0, 19.1, 14.7, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(185), 12.4, 85.0, 13.8, 10.9, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(186), 10.2, 85.3, 11.3, 09.0, 0.7);  // Month - 2016-7-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(187), 10.2, 181.2, 13.0, 07.4, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(188), 10.7, 247.5, 15.4, 06.0, 0.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(189), 12.0, 180.6, 17.7, 06.2, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(190), 11.3, 98.2, 15.8, 06.8, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(191), 11.9, 237.1, 17.2, 06.5, 0.2);  // Month - 2016-7-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(192), 10.3, 87.7, 14.8, 05.7, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(193), 10.3, 204.8, 14.0, 06.5, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(194), 08.5, 142.4, 13.8, 03.1, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(195), 11.2, 172.1, 14.5, 07.9, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(196), 10.6, 146.0, 14.3, 06.9, 0.7);  // Month - 2016-7-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(197), 07.6, 185.7, 10.0, 05.2, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(198), 08.1, 145.7, 11.3, 04.8, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(199), 07.0, 254.5, 11.4, 02.6, 0.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(200), 07.2, 222.4, 11.3, 03.1, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(201), 06.2, 203.9, 12.0, 00.4, 0.4);  // Month - 2016-7-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(202), 06.9, 254.8, 14.2, -00.5, 0.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(203), 08.8, 254.4, 14.5, 03.0, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(204), 08.9, 149.3, 14.7, 03.0, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(205), 08.7, 168.5, 11.4, 06.0, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(206), 06.2, 96.5, 12.3, 00.0, 1.9);  // Month - 2016-7-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(207), 10.7, 97.2, 12.1, 09.2, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(208), 06.7, 153.6, 09.8, 03.6, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(209), 07.6, 280.9, 12.1, 03.1, 0.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(210), 09.4, 280.8, 15.5, 03.3, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(211), 13.5, 234.6, 18.5, 08.4, 0.9);  // Month - 2016-7-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(212), 15.3, 152.0, 20.1, 10.5, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(213), 09.8, 104.4, 11.2, 08.3, 0.9);  // Month - 2016-8-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(214), 08.1, 212.0, 11.7, 04.5, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(215), 07.0, 185.7, 11.2, 02.8, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(216), 12.7, 105.1, 16.2, 09.2, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(217), 14.0, 156.0, 17.9, 10.0, 0.8);  // Month - 2016-8-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(218), 12.3, 214.2, 17.2, 07.3, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(219), 10.7, 308.3, 16.0, 05.3, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(220), 12.7, 226.5, 18.9, 06.4, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(221), 07.6, 250.6, 12.7, 02.4, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(222), 09.0, 261.5, 16.0, 01.9, 0.7);  // Month - 2016-8-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(223), 11.2, 279.4, 17.6, 04.7, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(224), 13.5, 329.4, 20.6, 06.4, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(225), 15.3, 187.6, 21.9, 08.7, 1.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(226), 13.9, 235.3, 20.3, 07.6, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(227), 14.7, 297.5, 20.3, 09.0, 1.5);  // Month - 2016-8-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(228), 11.6, 157.4, 17.4, 05.8, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(229), 12.2, 363.2, 15.3, 09.0, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(230), 11.3, 356.6, 18.9, 03.6, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(231), 12.8, 209.3, 19.7, 05.8, 1.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(232), 08.5, 184.7, 11.1, 05.9, 1.5);  // Month - 2016-8-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(233), 07.3, 364.9, 12.2, 02.4, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(234), 11.8, 367.8, 19.2, 04.3, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(235), 13.9, 372.9, 22.2, 05.6, 1.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(236), 14.1, 373.4, 22.5, 05.7, 1.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(237), 17.3, 378.6, 25.6, 08.9, 1.7);  // Month - 2016-8-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(238), 19.5, 376.6, 27.3, 11.6, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(239), 13.3, 130.9, 18.8, 07.8, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(240), 10.8, 160.0, 12.8, 08.7, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(241), 12.6, 232.6, 16.2, 09.0, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(242), 13.8, 180.8, 17.0, 10.5, 1.8);  // Month - 2016-8-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(243), 12.5, 262.2, 17.9, 07.0, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(244), 08.2, 137.3, 11.2, 05.2, 1.3);  // Month - 2016-9-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(245), 08.6, 321.1, 11.9, 05.2, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(246), 07.4, 402.1, 12.5, 02.3, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(247), 08.7, 143.9, 13.5, 03.8, 1.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(248), 11.0, 142.5, 13.6, 08.4, 1.6);  // Month - 2016-9-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(249), 10.8, 143.9, 12.5, 09.0, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(250), 12.0, 155.9, 12.9, 11.1, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(251), 14.0, 362.7, 17.8, 10.1, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(252), 15.8, 419.6, 23.8, 07.8, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(253), 17.6, 417.0, 25.8, 09.4, 2.2);  // Month - 2016-9-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(254), 18.4, 422.8, 24.6, 12.1, 2.7); 
+
+
+
             
             #endregion
             
         }
-        
+        #endregion
+
         #endregion
 
         #region La Estanzuela
+
 
         public static void WeatherDataLaEstanzuela_2015(IrrigationAdvisorContext context)
         {
@@ -6402,32 +6624,258 @@ namespace IrrigationAdvisorConsole
 
 
             #region WeatherData 2016
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 24.5, 528.7, 28.4, 20.6, 4.9);  // Month - 2016-1-1
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 27.2, 722.5, 34.6, 19.8, 7.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 24.4, 382.8, 28.8, 20.0, 4.3);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 23.2, 299.0, 28.3, 18.0, 2.9);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 24.6, 665.1, 27.4, 21.8, 6.2);  // Month - 2016-1-5
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 21.6, 748.8, 24.6, 18.6, 6.4);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(006), 19.4, 705.5, 25.0, 13.8, 5.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(007), 22.6, 515.7, 28.8, 16.4, 4.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(008), 20.7, 717.7, 24.6, 16.8, 5.8);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(009), 22.3, 446.8, 27.2, 17.4, 3.8);  // Month - 2016-1-10
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(010), 22.9, 713.4, 29.5, 16.2, 5.8);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(011), 25.4, 280.8, 31.0, 19.8, 4.0);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(012), 23.5, 672.7, 28.4, 18.6, 6.4);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(013), 24.9, 751.8, 32.4, 17.4, 7.5);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(014), 27.9, 685.7, 38.5, 17.2, 7.1);  // Month - 2016-1-15
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(015), 23.6, 677.0, 33.5, 13.6, 6.2);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(016), 27.8, 499.1, 34.4, 21.2, 6.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(017), 23.1, 727.4, 27.2, 19.0, 6.5);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(018), 23.1, 701.9, 31.0, 15.2, 6.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(019), 24.7, 372.0, 30.4, 19.0, 4.5);  // Month - 2016-1-20
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(020), 23.9, 431.3, 28.9, 18.8, 4.9);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(021), 28.6, 714.3, 35.4, 21.8, 8.0);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(022), 22.6, 689.0, 26.6, 18.5, 6.1);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(023), 28.0, 672.1, 37.6, 18.4, 8.1);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(024), 24.9, 583.1, 29.2, 20.6, 6.3);  // Month - 2016-1-25
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(025), 21.0, 697.4, 26.2, 15.8, 5.9);  
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 24.5, 523.1, 28.4, 20.6, 4.9);  // Month - 2016-1-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 27.2, 714.1, 34.6, 19.8, 7.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 24.4, 379.8, 28.8, 20.0, 4.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 23.2, 296.2, 28.3, 18.0, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 24.6, 656.8, 27.4, 21.8, 6.2);  // Month - 2016-1-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 21.6, 740.4, 24.6, 18.6, 6.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(006), 19.4, 697.4, 25.0, 13.8, 5.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(007), 22.6, 511.1, 28.8, 16.4, 4.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(008), 20.7, 709.4, 24.6, 16.8, 5.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(009), 22.3, 441.9, 27.2, 17.4, 3.9);  // Month - 2016-1-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(010), 22.9, 704.6, 29.5, 16.2, 5.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(011), 25.4, 279.4, 31.0, 19.8, 4.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(012), 23.5, 664.0, 28.4, 18.6, 6.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(013), 24.9, 742.8, 32.4, 17.4, 7.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(014), 27.9, 678.3, 38.5, 17.2, 7.3);  // Month - 2016-1-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(015), 23.6, 668.8, 33.5, 13.6, 6.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(016), 27.8, 494.4, 34.4, 21.2, 6.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(017), 23.1, 718.9, 27.2, 19.0, 6.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(018), 23.1, 692.7, 31.0, 15.2, 6.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(019), 24.7, 370.2, 30.4, 19.0, 4.7);  // Month - 2016-1-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(020), 23.9, 427.5, 28.9, 18.8, 5.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(021), 28.6, 704.6, 35.4, 21.8, 8.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(022), 22.6, 680.7, 26.6, 18.5, 6.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(023), 28.0, 664.0, 37.6, 18.4, 8.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(024), 24.9, 575.6, 29.2, 20.6, 6.6);  // Month - 2016-1-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(025), 21.0, 687.9, 26.2, 15.8, 6.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(026), 19.1, 695.0, 25.8, 12.4, 6.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(027), 24.0, 499.2, 30.3, 17.7, 5.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(028), 24.6, 265.1, 29.6, 19.6, 3.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(029), 22.8, 432.3, 26.4, 19.2, 4.0);  // Month - 2016-1-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(030), 20.1, 489.6, 24.8, 15.3, 4.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(031), 17.7, 683.1, 23.2, 12.2, 5.5);  // Month - 2016-2-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(032), 21.9, 673.5, 28.4, 15.4, 6.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(033), 24.7, 339.2, 30.2, 19.2, 4.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(034), 24.6, 661.6, 30.6, 18.6, 6.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(035), 26.9, 604.3, 33.6, 20.2, 6.7);  // Month - 2016-2-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(036), 27.3, 628.2, 33.1, 21.4, 8.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(037), 28.3, 439.5, 34.2, 22.4, 6.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(038), 23.8, 205.4, 26.4, 21.2, 2.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(039), 26.2, 661.6, 32.4, 19.9, 7.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(040), 25.9, 647.3, 31.2, 20.5, 7.4);  // Month - 2016-2-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(041), 26.7, 599.5, 35.6, 17.8, 7.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(042), 30.2, 628.2, 37.2, 23.2, 9.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(043), 25.2, 291.4, 28.6, 21.8, 3.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(044), 26.9, 578.0, 31.8, 22.0, 6.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(045), 27.0, 640.1, 33.6, 20.4, 7.2);  // Month - 2016-2-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(046), 27.4, 661.6, 34.0, 20.8, 8.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(047), 24.3, 444.3, 28.4, 20.2, 4.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(048), 27.2, 604.3, 33.9, 20.4, 6.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(049), 21.9, 255.6, 24.4, 19.4, 3.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(050), 21.5, 637.7, 26.2, 16.8, 6.2);  // Month - 2016-2-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(051), 24.9, 642.5, 31.4, 18.4, 7.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(052), 25.7, 640.1, 30.8, 20.5, 6.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(053), 26.6, 621.0, 31.2, 22.0, 6.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(054), 25.7, 573.2, 31.8, 19.6, 6.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(055), 22.0, 561.3, 26.0, 17.9, 5.9);  // Month - 2016-2-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(056), 20.2, 210.2, 23.4, 17.0, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(057), 19.9, 621.0, 25.0, 14.8, 6.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(058), 21.3, 616.2, 27.5, 15.0, 6.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(059), 22.5, 597.1, 29.2, 15.8, 6.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(060), 18.8, 191.1, 20.2, 17.4, 2.9);  // Month - 2016-3-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(061), 19.3, 343.9, 23.0, 15.6, 4.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(062), 20.8, 470.5, 26.2, 15.4, 5.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(063), 21.1, 441.9, 27.4, 14.8, 4.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(064), 18.9, 489.6, 22.6, 15.1, 4.9);  // Month - 2016-3-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(065), 16.1, 575.6, 21.2, 11.0, 5.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(066), 17.9, 551.7, 23.2, 12.6, 5.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(067), 19.2, 549.3, 26.4, 12.0, 5.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(068), 21.6, 265.1, 25.2, 18.0, 3.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(069), 16.4, 167.2, 17.6, 15.2, 2.2);  // Month - 2016-3-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(070), 19.0, 513.5, 23.0, 15.0, 4.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(071), 16.5, 525.5, 21.0, 12.0, 4.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(072), 18.3, 535.0, 25.4, 11.2, 4.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(073), 20.6, 547.0, 27.6, 13.5, 5.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(074), 23.8, 480.1, 30.2, 17.4, 5.7);  // Month - 2016-3-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(075), 26.1, 501.6, 31.8, 20.4, 6.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(076), 26.5, 506.4, 32.6, 20.4, 7.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(077), 21.9, 157.6, 25.3, 18.4, 2.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(078), 16.3, 293.8, 20.2, 12.3, 4.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(079), 14.9, 169.6, 18.2, 11.6, 2.9);  // Month - 2016-3-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(080), 18.3, 212.6, 21.2, 15.4, 2.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(081), 18.1, 451.4, 23.4, 12.8, 4.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(082), 20.0, 506.4, 26.2, 13.8, 5.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(083), 20.3, 468.1, 25.7, 14.8, 5.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(084), 18.6, 224.5, 20.8, 16.4, 3.6);  // Month - 2016-3-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(085), 19.4, 148.1, 20.6, 18.2, 2.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(086), 20.2, 229.3, 22.8, 17.6, 3.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(087), 21.2, 348.7, 24.4, 18.0, 4.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(088), 20.9, 482.5, 27.0, 14.8, 5.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(089), 22.4, 487.2, 28.6, 16.2, 6.1);  // Month - 2016-3-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(090), 22.2, 480.1, 29.6, 14.8, 6.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(091), 19.9, 148.1, 23.4, 16.4, 2.8);  // Month - 2016-4-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(092), 20.4, 162.4, 22.9, 17.9, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(093), 19.7, 379.8, 22.6, 16.7, 4.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(094), 17.2, 138.5, 18.6, 15.8, 2.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(095), 19.3, 136.1, 20.4, 18.2, 2.0);  // Month - 2016-4-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(096), 19.2, 224.5, 20.9, 17.4, 2.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(097), 19.6, 408.4, 23.8, 15.4, 4.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(098), 20.1, 238.8, 22.8, 17.4, 3.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(099), 17.3, 131.4, 19.5, 15.0, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(100), 17.2, 179.1, 19.2, 15.2, 3.4);  // Month - 2016-4-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(101), 19.5, 246.0, 21.6, 17.3, 3.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(102), 19.4, 212.6, 22.4, 16.4, 3.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(103), 18.5, 150.5, 22.2, 14.8, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(104), 20.2, 312.9, 26.2, 14.2, 4.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(105), 21.5, 126.6, 23.2, 19.8, 2.1);  // Month - 2016-4-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(106), 20.1, 157.6, 21.8, 18.4, 2.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(107), 17.1, 121.8, 18.8, 15.3, 2.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(108), 16.2, 121.8, 16.8, 15.5, 2.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(109), 15.9, 119.4, 19.4, 12.3, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(110), 15.7, 258.0, 20.4, 11.0, 3.3);  // Month - 2016-4-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(111), 17.5, 379.8, 21.8, 13.2, 5.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(112), 16.1, 396.5, 21.4, 10.8, 5.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(113), 17.7, 124.2, 21.8, 13.6, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(114), 17.1, 148.1, 20.2, 14.0, 2.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(115), 13.0, 114.6, 16.0, 10.0, 2.7);  // Month - 2016-4-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(116), 13.2, 286.6, 17.6, 08.8, 4.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(117), 11.3, 298.6, 16.8, 05.8, 4.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(118), 10.2, 193.5, 13.2, 07.1, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(119), 09.6, 217.3, 12.9, 06.2, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(120), 09.2, 179.1, 12.8, 05.6, 2.6);  // Month - 2016-4-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(121), 11.0, 315.3, 17.4, 04.6, 3.5);  // Month - 2016-5-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(122), 13.1, 172.0, 17.8, 08.4, 2.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(123), 10.2, 343.9, 14.4, 05.9, 4.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(124), 11.8, 341.5, 18.8, 04.8, 4.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(125), 13.5, 109.9, 17.8, 09.2, 2.2);  // Month - 2016-5-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(126), 11.6, 117.0, 14.2, 09.0, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(127), 11.0, 332.0, 15.6, 06.4, 3.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(128), 14.8, 188.7, 20.6, 09.0, 2.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(129), 14.7, 222.1, 18.0, 11.4, 3.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(130), 10.6, 102.7, 15.4, 05.7, 1.9);  // Month - 2016-5-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(131), 12.2, 234.1, 14.2, 10.2, 3.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(132), 11.0, 212.6, 13.2, 08.8, 3.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(133), 10.6, 320.1, 14.4, 06.8, 4.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(134), 10.1, 95.5, 14.8, 05.4, 1.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(135), 12.2, 95.5, 13.4, 11.0, 1.6);  // Month - 2016-5-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(136), 10.1, 269.9, 12.8, 07.4, 4.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(137), 08.2, 303.3, 11.8, 04.6, 3.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(138), 09.3, 317.7, 13.4, 05.2, 3.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(139), 09.7, 231.7, 14.6, 04.8, 3.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(140), 10.0, 102.7, 13.4, 06.6, 1.8);  // Month - 2016-5-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(141), 10.2, 107.5, 12.8, 07.5, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(142), 10.1, 234.1, 13.4, 06.8, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(143), 09.8, 277.1, 15.4, 04.1, 3.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(144), 10.8, 260.3, 17.2, 04.4, 4.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(145), 13.7, 181.5, 18.2, 09.2, 3.1);  // Month - 2016-5-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(146), 12.3, 93.1, 15.2, 09.3, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(147), 11.9, 203.0, 14.5, 09.2, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(148), 13.2, 105.1, 15.2, 11.2, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(149), 14.7, 86.0, 16.6, 12.8, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(150), 12.3, 86.0, 13.4, 11.2, 2.1);  // Month - 2016-5-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(151), 12.0, 109.9, 13.4, 10.6, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(152), 10.9, 259.1, 13.4, 08.3, 1.5);  // Month - 2016-6-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(153), 08.0, 90.8, 10.4, 05.5, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(154), 09.5, 240.5, 14.0, 05.0, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(155), 08.5, 83.7, 09.9, 07.0, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(156), 07.7, 226.1, 10.6, 04.8, 0.5);  // Month - 2016-6-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(157), 08.6, 238.7, 13.0, 04.2, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(158), 09.9, 286.2, 13.4, 06.4, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(159), 07.8, 285.5, 10.6, 05.0, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(160), 08.0, 143.3, 13.6, 02.4, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(161), 06.1, 260.2, 09.0, 03.2, 0.7);  // Month - 2016-6-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(162), 07.3, 283.3, 12.4, 02.1, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(163), 08.9, 278.3, 14.4, 03.4, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(164), 09.4, 219.2, 15.8, 03.0, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(165), 11.3, 175.6, 17.4, 05.2, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(166), 09.3, 247.2, 15.4, 03.2, 0.5);  // Month - 2016-6-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(167), 06.7, 233.9, 11.6, 01.8, 0.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(168), 10.5, 248.8, 16.8, 04.2, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(169), 10.6, 235.6, 17.4, 03.8, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(170), 06.2, 129.8, 10.2, 02.1, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(171), 07.5, 252.9, 11.6, 03.4, 0.3);  // Month - 2016-6-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(172), 07.8, 270.2, 15.4, 00.2, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(173), 11.2, 270.1, 17.2, 05.1, 0.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(174), 12.0, 237.8, 17.8, 06.2, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(175), 11.9, 184.0, 16.0, 07.8, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(176), 09.6, 80.3, 10.6, 08.6, 0.6);  // Month - 2016-6-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(177), 09.9, 80.4, 11.0, 08.8, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(178), 13.0, 80.5, 16.2, 09.8, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(179), 09.5, 184.9, 12.4, 06.6, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(180), 11.4, 270.0, 18.2, 04.6, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(181), 16.3, 83.2, 19.4, 13.1, 0.6);  // Month - 2016-6-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(182), 15.4, 90.0, 18.6, 12.2, 0.6);  // Month - 2016-7-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(183), 13.0, 81.5, 14.1, 11.8, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(184), 13.6, 81.8, 15.8, 11.4, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(185), 10.8, 82.1, 11.6, 10.0, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(186), 09.1, 82.4, 10.4, 07.8, 0.5);  // Month - 2016-7-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(187), 10.6, 244.1, 13.8, 07.4, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(188), 11.3, 286.9, 16.8, 05.7, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(189), 09.1, 174.6, 16.6, 01.5, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(190), 12.4, 139.6, 16.6, 08.2, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(191), 11.9, 138.0, 14.6, 09.2, 0.8);  // Month - 2016-7-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(192), 10.9, 84.7, 13.6, 08.2, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(193), 11.4, 283.7, 14.2, 08.6, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(194), 08.4, 144.5, 13.2, 03.6, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(195), 10.3, 170.3, 13.4, 07.2, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(196), 13.2, 152.9, 16.8, 09.6, 1.0);  // Month - 2016-7-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(197), 10.0, 197.3, 14.2, 05.8, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(198), 06.6, 186.9, 08.5, 04.6, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(199), 07.6, 197.2, 11.6, 03.6, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(200), 07.5, 275.0, 10.2, 04.8, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(201), 07.8, 262.6, 11.8, 03.8, 0.7);  // Month - 2016-7-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(202), 09.6, 280.6, 14.8, 04.3, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(203), 10.4, 291.7, 15.4, 05.3, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(204), 11.4, 226.9, 17.2, 05.6, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(205), 08.5, 156.7, 10.4, 06.5, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(206), 09.3, 93.0, 11.8, 06.8, 0.8);  // Month - 2016-7-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(207), 10.4, 93.8, 11.6, 09.2, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(208), 08.1, 313.0, 10.2, 06.0, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(209), 08.5, 95.3, 12.2, 04.8, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(210), 07.7, 334.3, 11.6, 03.8, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(211), 13.5, 213.0, 17.8, 09.2, 1.0);  // Month - 2016-7-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(212), 13.2, 122.6, 14.2, 12.2, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(213), 11.3, 98.6, 13.8, 08.8, 0.8);  // Month - 2016-8-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(214), 08.1, 305.7, 11.8, 04.4, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(215), 09.5, 307.8, 14.8, 04.2, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(216), 11.6, 236.1, 16.0, 07.2, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(217), 12.6, 135.5, 15.5, 09.6, 0.7);  // Month - 2016-8-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(218), 13.4, 335.0, 17.8, 09.0, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(219), 12.5, 345.2, 18.2, 06.8, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(220), 13.0, 232.9, 18.1, 07.8, 2.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(221), 11.6, 316.1, 15.8, 07.4, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(222), 11.5, 381.9, 18.0, 05.0, 1.5);  // Month - 2016-8-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(223), 11.9, 302.2, 18.4, 05.4, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(224), 14.9, 342.0, 20.6, 09.2, 1.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(225), 14.5, 217.9, 19.1, 09.8, 1.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(226), 16.3, 290.3, 21.6, 11.0, 1.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(227), 15.1, 347.2, 18.9, 11.3, 2.4);  // Month - 2016-8-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(228), 14.4, 168.2, 18.6, 10.2, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(229), 14.3, 402.1, 18.8, 09.8, 3.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(230), 13.3, 405.2, 19.4, 07.2, 2.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(231), 11.5, 122.1, 15.2, 07.8, 2.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(232), 09.4, 160.0, 11.4, 07.4, 1.9);  // Month - 2016-8-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(233), 09.6, 394.4, 13.6, 05.5, 2.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(234), 13.1, 422.9, 19.8, 06.4, 3.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(235), 15.3, 426.2, 21.4, 09.2, 2.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(236), 16.5, 414.7, 22.4, 10.6, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(237), 18.1, 432.4, 25.4, 10.8, 2.5);  // Month - 2016-8-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(238), 17.6, 409.3, 22.5, 12.6, 2.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(239), 13.6, 125.8, 18.4, 08.7, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(240), 10.2, 287.5, 11.5, 08.8, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(241), 13.1, 194.0, 14.6, 11.5, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(242), 12.2, 138.4, 14.0, 10.4, 1.0);  // Month - 2016-8-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(243), 12.5, 312.3, 18.4, 06.6, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(244), 08.7, 131.9, 11.4, 05.9, 1.5);  // Month - 2016-9-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(245), 07.4, 412.1, 11.6, 03.2, 1.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(246), 07.2, 362.5, 11.2, 03.2, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(247), 09.4, 144.9, 11.4, 07.3, 2.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(248), 09.3, 136.8, 10.4, 08.2, 1.6);  // Month - 2016-9-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(249), 09.1, 138.1, 10.3, 07.8, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(250), 10.8, 139.3, 12.8, 08.8, 1.1);  
+  
 
             #endregion
 
@@ -6830,32 +7278,262 @@ namespace IrrigationAdvisorConsole
 
 
             #region WeatherData 2016
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 24.5, 528.7, 28.4, 20.6, 4.9);  // Month - 2016-1-1
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 27.2, 722.5, 34.6, 19.8, 7.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 24.4, 382.8, 28.8, 20.0, 4.3);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 23.2, 299.0, 28.3, 18.0, 2.9);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 24.6, 665.1, 27.4, 21.8, 6.2);  // Month - 2016-1-5
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 21.6, 748.8, 24.6, 18.6, 6.4);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(006), 19.4, 705.5, 25.0, 13.8, 5.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(007), 22.6, 515.7, 28.8, 16.4, 4.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(008), 20.7, 717.7, 24.6, 16.8, 5.8);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(009), 22.3, 446.8, 27.2, 17.4, 3.8);  // Month - 2016-1-10
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(010), 22.9, 713.4, 29.5, 16.2, 5.8);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(011), 25.4, 280.8, 31.0, 19.8, 4.0);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(012), 23.5, 672.7, 28.4, 18.6, 6.4);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(013), 24.9, 751.8, 32.4, 17.4, 7.5);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(014), 27.9, 685.7, 38.5, 17.2, 7.1);  // Month - 2016-1-15
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(015), 23.6, 677.0, 33.5, 13.6, 6.2);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(016), 27.8, 499.1, 34.4, 21.2, 6.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(017), 23.1, 727.4, 27.2, 19.0, 6.5);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(018), 23.1, 701.9, 31.0, 15.2, 6.6);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(019), 24.7, 372.0, 30.4, 19.0, 4.5);  // Month - 2016-1-20
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(020), 23.9, 431.3, 28.9, 18.8, 4.9);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(021), 28.6, 714.3, 35.4, 21.8, 8.0);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(022), 22.6, 689.0, 26.6, 18.5, 6.1);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(023), 28.0, 672.1, 37.6, 18.4, 8.1);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(024), 24.9, 583.1, 29.2, 20.6, 6.3);  // Month - 2016-1-25
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(025), 21.0, 697.4, 26.2, 15.8, 5.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 26.0, 501.6, 30.8, 21.2, 5.4);  // Month - 2016-1-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 26.3, 666.4, 31.9, 20.7, 6.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 27.7, 582.8, 33.8, 21.6, 6.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 25.7, 236.5, 29.2, 22.1, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 26.1, 434.7, 30.8, 21.3, 4.7);  // Month - 2016-1-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 24.7, 332.0, 27.2, 22.2, 3.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(006), 23.0, 580.4, 28.7, 17.3, 5.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(007), 23.9, 489.6, 30.4, 17.4, 4.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(008), 25.5, 675.9, 32.0, 18.9, 7.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(009), 26.6, 386.9, 32.2, 21.0, 4.2);  // Month - 2016-1-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(010), 27.4, 566.1, 32.7, 22.1, 5.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(011), 27.6, 554.1, 34.9, 20.2, 5.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(012), 25.0, 477.7, 31.2, 18.7, 5.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(013), 24.9, 685.5, 32.1, 17.6, 6.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(014), 25.6, 675.9, 34.0, 17.2, 6.5);  // Month - 2016-1-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(015), 27.6, 687.9, 34.6, 20.5, 6.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(016), 29.3, 630.6, 36.1, 22.4, 6.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(017), 28.5, 673.5, 36.8, 20.2, 7.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(018), 29.0, 666.4, 35.8, 22.1, 7.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(019), 29.6, 601.9, 35.9, 23.2, 6.8);  // Month - 2016-1-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(020), 28.7, 656.8, 35.5, 21.8, 7.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(021), 29.6, 664.0, 35.8, 23.3, 7.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(022), 31.2, 656.8, 38.2, 24.1, 7.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(023), 31.1, 635.3, 37.2, 24.9, 8.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(024), 24.8, 453.8, 29.7, 19.8, 4.9);  // Month - 2016-1-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(025), 25.6, 561.3, 31.2, 19.9, 5.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(026), 23.8, 668.8, 30.5, 17.1, 6.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(027), 26.7, 654.4, 33.6, 19.7, 7.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(028), 26.9, 243.6, 31.2, 22.5, 3.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(029), 28.3, 377.4, 33.0, 23.6, 5.0);  // Month - 2016-1-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(030), 27.2, 640.1, 33.3, 21.0, 7.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(031), 24.5, 611.4, 30.7, 18.3, 6.2);  // Month - 2016-2-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(032), 23.0, 592.3, 31.8, 14.1, 5.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(033), 25.0, 458.6, 31.9, 18.1, 5.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(034), 27.2, 644.9, 34.4, 20.0, 6.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(035), 27.9, 623.4, 36.4, 19.4, 6.7);  // Month - 2016-2-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(036), 30.7, 544.6, 37.1, 24.2, 7.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(037), 28.4, 649.7, 35.5, 21.2, 7.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(038), 26.6, 219.7, 29.7, 23.5, 2.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(039), 27.7, 367.8, 32.4, 23.0, 3.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(040), 29.6, 654.4, 36.2, 22.9, 7.0);  // Month - 2016-2-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(041), 29.1, 642.5, 35.9, 22.3, 6.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(042), 29.1, 632.9, 35.8, 22.3, 6.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(043), 25.8, 231.7, 29.5, 22.1, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(044), 27.3, 597.1, 33.2, 21.4, 5.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(045), 27.9, 475.3, 33.0, 22.7, 4.8);  // Month - 2016-2-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(046), 27.0, 580.4, 32.5, 21.4, 6.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(047), 24.3, 210.2, 27.8, 20.7, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(048), 26.3, 530.2, 33.1, 19.4, 5.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(049), 21.7, 327.2, 25.4, 17.9, 3.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(050), 25.3, 613.8, 30.9, 19.6, 5.7);  // Month - 2016-2-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(051), 27.4, 587.6, 32.6, 22.1, 5.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(052), 27.5, 597.1, 32.9, 22.1, 5.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(053), 27.0, 606.7, 33.8, 20.2, 5.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(054), 28.5, 597.1, 33.9, 23.0, 5.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(055), 27.8, 446.6, 32.6, 22.9, 4.5);  // Month - 2016-2-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(056), 23.3, 203.0, 26.2, 20.4, 1.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(057), 21.9, 499.2, 26.6, 17.2, 4.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(058), 22.0, 592.3, 29.3, 14.6, 4.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(059), 25.2, 575.6, 32.2, 18.1, 5.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(060), 24.2, 212.6, 28.2, 20.2, 3.8);  // Month - 2016-3-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(061), 22.4, 375.0, 26.1, 18.7, 3.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(062), 22.9, 544.6, 28.5, 17.3, 4.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(063), 23.5, 511.1, 29.2, 17.7, 4.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(064), 23.2, 444.3, 27.5, 18.8, 3.7);  // Month - 2016-3-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(065), 20.6, 551.7, 25.8, 15.3, 4.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(066), 18.8, 389.3, 24.6, 12.9, 3.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(067), 20.9, 504.0, 28.7, 13.1, 4.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(068), 24.1, 300.9, 27.9, 20.3, 3.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(069), 20.1, 453.8, 24.0, 16.2, 4.1);  // Month - 2016-3-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(070), 19.2, 379.8, 24.2, 14.2, 3.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(071), 19.9, 530.2, 25.6, 14.1, 4.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(072), 20.4, 511.1, 26.9, 13.9, 4.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(073), 22.5, 532.6, 29.9, 15.0, 4.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(074), 25.6, 515.9, 32.9, 18.3, 4.6);  // Month - 2016-3-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(075), 27.1, 513.5, 33.7, 20.4, 5.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(076), 27.7, 499.2, 33.9, 21.5, 5.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(077), 24.2, 181.5, 27.2, 21.2, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(078), 19.7, 191.1, 22.1, 17.3, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(079), 16.4, 176.7, 18.9, 13.9, 1.6);  // Month - 2016-3-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(080), 21.0, 355.9, 25.5, 16.4, 2.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(081), 20.2, 441.9, 25.9, 14.4, 3.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(082), 20.5, 496.8, 27.0, 13.9, 3.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(083), 21.5, 284.2, 27.5, 15.4, 3.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(084), 21.0, 219.7, 23.5, 18.4, 3.2);  // Month - 2016-3-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(085), 20.5, 236.5, 23.3, 17.6, 2.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(086), 22.7, 367.8, 26.9, 18.4, 3.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(087), 22.5, 475.3, 27.7, 17.3, 3.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(088), 20.9, 475.3, 28.1, 13.7, 3.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(089), 22.3, 470.5, 29.1, 15.5, 3.7);  // Month - 2016-3-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(090), 23.0, 458.6, 30.6, 15.4, 3.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(091), 25.9, 346.3, 32.5, 19.2, 4.0);  // Month - 2016-4-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(092), 22.8, 169.6, 25.9, 19.6, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(093), 20.7, 174.4, 23.9, 17.5, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(094), 21.4, 157.6, 23.4, 19.4, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(095), 21.6, 157.6, 22.4, 20.8, 1.1);  // Month - 2016-4-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(096), 23.5, 179.1, 25.9, 21.1, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(097), 20.8, 160.0, 24.1, 17.5, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(098), 23.3, 286.6, 26.4, 20.1, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(099), 25.0, 324.8, 29.0, 20.9, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(100), 18.9, 150.5, 19.7, 18.1, 1.4);  // Month - 2016-4-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(101), 19.0, 150.5, 20.0, 18.0, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(102), 21.3, 148.1, 23.6, 18.9, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(103), 21.1, 148.1, 23.6, 18.6, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(104), 23.2, 176.7, 25.9, 20.4, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(105), 27.7, 372.6, 32.5, 22.9, 3.9);  // Month - 2016-4-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(106), 29.4, 360.7, 32.6, 26.2, 3.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(107), 26.9, 191.1, 30.5, 23.3, 2.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(108), 20.3, 140.9, 22.4, 18.1, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(109), 20.3, 140.9, 22.9, 17.6, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(110), 17.3, 181.5, 20.1, 14.5, 1.2);  // Month - 2016-4-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(111), 20.5, 360.7, 23.9, 17.0, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(112), 19.0, 382.2, 23.0, 14.9, 2.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(113), 23.4, 136.1, 26.0, 20.7, 1.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(114), 20.3, 133.8, 21.5, 19.0, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(115), 15.8, 133.8, 19.2, 12.3, 1.2);  // Month - 2016-4-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(116), 11.3, 310.5, 14.4, 08.1, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(117), 10.7, 312.9, 14.0, 07.3, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(118), 10.2, 224.5, 14.2, 06.2, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(119), 10.8, 346.3, 17.0, 04.6, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(120), 11.3, 363.0, 16.5, 06.0, 1.4);  // Month - 2016-4-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(121), 12.2, 360.7, 18.3, 06.0, 1.5);  // Month - 2016-5-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(122), 12.6, 193.5, 18.7, 06.5, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(123), 15.1, 238.8, 19.3, 10.8, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(124), 13.5, 322.4, 19.9, 07.0, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(125), 15.0, 167.2, 21.0, 08.9, 1.5);  // Month - 2016-5-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(126), 14.4, 291.4, 19.4, 09.4, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(127), 15.0, 238.8, 21.0, 09.0, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(128), 17.3, 121.8, 19.6, 15.0, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(129), 16.5, 119.4, 19.7, 13.3, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(130), 18.8, 131.4, 21.3, 16.3, 1.3);  // Month - 2016-5-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(131), 14.2, 117.0, 17.9, 10.4, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(132), 11.9, 329.6, 17.1, 06.7, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(133), 12.2, 322.4, 19.0, 05.3, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(134), 14.7, 224.5, 20.6, 08.8, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(135), 15.7, 162.4, 19.1, 12.3, 1.2);  // Month - 2016-5-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(136), 10.8, 143.3, 14.2, 07.3, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(137), 09.0, 248.4, 14.4, 03.5, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(138), 11.9, 231.7, 15.8, 08.0, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(139), 12.2, 231.7, 17.9, 06.4, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(140), 12.7, 207.8, 18.0, 07.3, 1.4);  // Month - 2016-5-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(141), 12.0, 293.8, 18.0, 06.0, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(142), 11.4, 188.7, 14.7, 08.0, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(143), 09.6, 267.5, 16.3, 02.9, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(144), 11.5, 205.4, 18.0, 05.0, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(145), 15.4, 238.8, 21.4, 09.4, 1.1);  // Month - 2016-5-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(146), 14.1, 143.3, 19.7, 08.4, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(147), 12.1, 105.1, 14.7, 09.5, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(148), 15.5, 114.6, 18.3, 12.6, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(149), 16.9, 102.7, 18.3, 15.4, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(150), 14.9, 102.7, 16.0, 13.8, 0.8);  // Month - 2016-5-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(151), 13.5, 269.9, 17.3, 09.6, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(152), 12.6, 119.4, 16.2, 09.0, 0.9);  // Month - 2016-6-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(153), 13.2, 148.1, 18.1, 08.3, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(154), 11.0, 183.9, 15.9, 06.0, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(155), 09.5, 100.3, 11.7, 07.3, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(156), 09.9, 193.5, 13.3, 06.4, 0.7);  // Month - 2016-6-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(157), 09.8, 164.8, 13.4, 06.1, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(158), 13.3, 291.1, 18.3, 08.3, 1.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(159), 09.8, 286.2, 16.0, 03.5, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(160), 09.9, 283.4, 17.5, 02.3, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(161), 08.8, 280.7, 13.3, 04.3, 1.0);  // Month - 2016-6-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(162), 08.9, 273.7, 14.4, 03.3, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(163), 08.6, 271.0, 16.9, 00.3, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(164), 09.2, 204.5, 16.0, 02.3, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(165), 12.3, 130.0, 18.8, 05.7, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(166), 14.1, 213.9, 20.3, 07.9, 0.9);  // Month - 2016-6-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(167), 11.9, 272.1, 17.8, 05.9, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(168), 10.4, 248.4, 18.0, 02.8, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(169), 11.0, 243.5, 18.0, 03.9, 0.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(170), 11.4, 265.9, 18.7, 04.1, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(171), 09.1, 107.8, 14.6, 03.5, 0.9);  // Month - 2016-6-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(172), 10.0, 269.1, 15.9, 04.1, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(173), 10.2, 262.8, 18.3, 02.1, 0.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(174), 13.0, 267.1, 20.1, 05.9, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(175), 13.3, 97.4, 18.6, 07.9, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(176), 12.1, 97.5, 13.7, 10.4, 0.8);  // Month - 2016-6-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(177), 14.9, 97.6, 17.2, 12.5, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(178), 11.6, 97.7, 13.7, 09.4, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(179), 11.2, 100.0, 13.1, 09.3, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(180), 15.1, 181.3, 20.1, 10.1, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(181), 19.4, 160.3, 23.5, 15.2, 1.2);  // Month - 2016-6-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(182), 18.6, 98.5, 21.3, 15.9, 1.1);  // Month - 2016-7-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(183), 20.3, 199.6, 25.3, 15.2, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(184), 21.2, 178.6, 25.2, 17.2, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(185), 16.3, 99.4, 19.3, 13.2, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(186), 11.7, 99.7, 13.3, 10.1, 0.6);  // Month - 2016-7-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(187), 12.6, 206.2, 16.2, 08.9, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(188), 14.2, 289.3, 19.1, 09.2, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(189), 12.4, 122.6, 17.7, 07.1, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(190), 13.6, 103.5, 15.8, 11.4, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(191), 12.9, 101.7, 13.8, 12.0, 1.1);  // Month - 2016-7-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(192), 12.8, 102.2, 13.8, 11.7, 0.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(193), 12.4, 261.6, 17.1, 07.7, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(194), 10.7, 145.3, 16.1, 05.2, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(195), 13.1, 103.8, 15.1, 11.0, 0.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(196), 11.6, 140.0, 14.6, 08.6, 0.9);  // Month - 2016-7-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(197), 08.3, 149.7, 10.7, 05.9, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(198), 06.7, 262.9, 12.0, 01.4, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(199), 08.1, 162.6, 13.5, 02.6, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(200), 08.1, 304.0, 13.9, 02.2, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(201), 08.0, 285.0, 14.4, 01.6, 0.9);  // Month - 2016-7-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(202), 07.3, 254.5, 13.9, 00.7, 0.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(203), 09.9, 311.0, 17.1, 02.7, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(204), 12.9, 248.0, 21.2, 04.6, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(205), 13.9, 298.2, 21.1, 06.7, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(206), 14.5, 120.4, 16.5, 12.5, 1.1);  // Month - 2016-7-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(207), 10.8, 116.6, 12.0, 09.5, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(208), 09.0, 230.5, 13.6, 04.3, 0.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(209), 08.4, 328.8, 15.3, 01.5, 1.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(210), 09.9, 280.9, 17.1, 02.6, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(211), 17.7, 227.7, 24.0, 11.3, 1.7);  // Month - 2016-7-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(212), 18.7, 116.1, 21.3, 16.0, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(213), 14.0, 337.0, 17.6, 10.3, 1.8);  // Month - 2016-8-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(214), 12.0, 266.3, 17.0, 06.9, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(215), 11.2, 219.1, 17.8, 04.6, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(216), 16.2, 269.8, 23.2, 09.2, 1.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(217), 18.6, 160.3, 23.7, 13.5, 1.5);  // Month - 2016-8-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(218), 12.8, 141.7, 17.0, 08.6, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(219), 13.4, 320.4, 21.1, 05.6, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(220), 14.2, 297.3, 21.4, 07.0, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(221), 13.7, 360.2, 20.4, 07.0, 1.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(222), 11.9, 372.8, 19.9, 03.9, 1.5);  // Month - 2016-8-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(223), 13.1, 367.5, 20.9, 05.3, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(224), 14.2, 372.5, 22.0, 06.3, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(225), 18.5, 328.4, 26.0, 11.0, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(226), 18.1, 263.1, 26.0, 10.1, 1.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(227), 17.1, 267.6, 23.8, 10.3, 2.2);  // Month - 2016-8-15
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(228), 17.8, 364.5, 27.2, 08.4, 2.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(229), 13.8, 398.8, 20.1, 07.4, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(230), 14.0, 393.5, 21.9, 06.1, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(231), 15.5, 353.2, 23.9, 07.1, 3.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(232), 13.8, 285.5, 19.4, 08.2, 3.2);  // Month - 2016-8-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(233), 09.1, 401.6, 15.0, 03.1, 1.6);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(234), 14.1, 412.6, 20.6, 07.6, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(235), 13.6, 415.4, 21.4, 05.8, 2.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(236), 15.1, 401.6, 24.4, 05.8, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(237), 18.4, 410.0, 25.0, 11.7, 2.4);  // Month - 2016-8-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(238), 22.2, 365.2, 30.6, 13.8, 3.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(239), 20.2, 145.6, 27.5, 12.8, 2.4);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(240), 12.0, 146.8, 13.7, 10.2, 1.5);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(241), 12.7, 148.1, 14.1, 11.2, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(242), 15.2, 152.2, 17.9, 12.5, 1.2);  // Month - 2016-8-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(243), 15.8, 386.5, 22.8, 08.7, 1.8);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(244), 13.9, 163.4, 17.9, 09.9, 1.7);  // Month - 2016-9-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(245), 07.8, 153.1, 09.9, 05.7, 1.3);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(246), 09.7, 154.4, 11.6, 07.7, 2.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(247), 09.0, 155.7, 10.9, 07.0, 1.2);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(248), 10.9, 157.0, 11.7, 10.1, 1.2);  // Month - 2016-9-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(249), 10.0, 170.1, 12.2, 07.8, 2.0);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(250), 11.9, 437.6, 16.6, 07.2, 2.1);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(251), 12.5, 380.3, 20.0, 04.9, 1.9);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(252), 16.0, 482.3, 23.4, 08.6, 2.7);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(253), 19.0, 479.2, 27.0, 11.0, 2.9);  // Month - 2016-9-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(254), 21.4, 476.1, 28.9, 13.8, 3.7);  
+
 
             #endregion
 
