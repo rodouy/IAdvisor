@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IrrigationAdvisorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="WeatherData">
+          <Key>
+            <PropertyRef Name="WeatherDataId" />
+          </Key>
+          <Property Name="WeatherDataId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeatherStationId" Type="bigint" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Temperature" Type="float" Nullable="false" />
+          <Property Name="TemperatureMax" Type="float" Nullable="false" />
+          <Property Name="TemperatureMin" Type="float" Nullable="false" />
+          <Property Name="TemperatureDewPoint" Type="float" Nullable="false" />
+          <Property Name="Humidity" Type="float" Nullable="false" />
+          <Property Name="HumidityMax" Type="float" Nullable="false" />
+          <Property Name="HumidityMin" Type="float" Nullable="false" />
+          <Property Name="Barometer" Type="float" Nullable="false" />
+          <Property Name="BarometerMax" Type="float" Nullable="false" />
+          <Property Name="BarometerMin" Type="float" Nullable="false" />
+          <Property Name="SolarRadiation" Type="float" Nullable="false" />
+          <Property Name="UVRadiation" Type="float" Nullable="false" />
+          <Property Name="RainDay" Type="float" Nullable="false" />
+          <Property Name="RainStorm" Type="float" Nullable="false" />
+          <Property Name="RainMonth" Type="float" Nullable="false" />
+          <Property Name="RainYear" Type="float" Nullable="false" />
+          <Property Name="Evapotranspiration" Type="float" Nullable="false" />
+          <Property Name="EvapotranspirationMonth" Type="float" Nullable="false" />
+          <Property Name="EvapotranspirationYear" Type="float" Nullable="false" />
+          <Property Name="WeatherDataType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeatherStation">
+          <Key>
+            <PropertyRef Name="WeatherStationId" />
+          </Key>
+          <Property Name="WeatherStationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Model" Type="nvarchar(max)" />
+          <Property Name="StationType" Type="int" Nullable="false" />
+          <Property Name="DateOfInstallation" Type="datetime" Nullable="false" />
+          <Property Name="DateOfService" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="WirelessTransmission" Type="int" Nullable="false" />
+          <Property Name="PositionId" Type="bigint" Nullable="false" />
+          <Property Name="GiveET" Type="bit" Nullable="false" />
+          <Property Name="WeatherDataType" Type="int" Nullable="false" />
+          <Property Name="WebAddress" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId">
+          <End Role="WeatherStation" Type="Self.WeatherStation" Multiplicity="1" />
+          <End Role="WeatherData" Type="Self.WeatherData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeatherStation">
+              <PropertyRef Name="WeatherStationId" />
+            </Principal>
+            <Dependent Role="WeatherData">
+              <PropertyRef Name="WeatherStationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IrrigationAdvisorModelStoreContainer">
+          <EntitySet Name="WeatherData" EntityType="Self.WeatherData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeatherStation" EntityType="Self.WeatherStation" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" Association="Self.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId">
+            <End Role="WeatherStation" EntitySet="WeatherStation" />
+            <End Role="WeatherData" EntitySet="WeatherData" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IrrigationAdvisorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="WeatherData">
+          <Key>
+            <PropertyRef Name="WeatherDataId" />
+          </Key>
+          <Property Name="WeatherDataId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeatherStationId" Type="Int64" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Temperature" Type="Double" Nullable="false" />
+          <Property Name="TemperatureMax" Type="Double" Nullable="false" />
+          <Property Name="TemperatureMin" Type="Double" Nullable="false" />
+          <Property Name="TemperatureDewPoint" Type="Double" Nullable="false" />
+          <Property Name="Humidity" Type="Double" Nullable="false" />
+          <Property Name="HumidityMax" Type="Double" Nullable="false" />
+          <Property Name="HumidityMin" Type="Double" Nullable="false" />
+          <Property Name="Barometer" Type="Double" Nullable="false" />
+          <Property Name="BarometerMax" Type="Double" Nullable="false" />
+          <Property Name="BarometerMin" Type="Double" Nullable="false" />
+          <Property Name="SolarRadiation" Type="Double" Nullable="false" />
+          <Property Name="UVRadiation" Type="Double" Nullable="false" />
+          <Property Name="RainDay" Type="Double" Nullable="false" />
+          <Property Name="RainStorm" Type="Double" Nullable="false" />
+          <Property Name="RainMonth" Type="Double" Nullable="false" />
+          <Property Name="RainYear" Type="Double" Nullable="false" />
+          <Property Name="Evapotranspiration" Type="Double" Nullable="false" />
+          <Property Name="EvapotranspirationMonth" Type="Double" Nullable="false" />
+          <Property Name="EvapotranspirationYear" Type="Double" Nullable="false" />
+          <Property Name="WeatherDataType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WeatherStation" Relationship="Self.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" FromRole="WeatherData" ToRole="WeatherStation" />
+        </EntityType>
+        <EntityType Name="WeatherStation">
+          <Key>
+            <PropertyRef Name="WeatherStationId" />
+          </Key>
+          <Property Name="WeatherStationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StationType" Type="Int32" Nullable="false" />
+          <Property Name="DateOfInstallation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateOfService" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WirelessTransmission" Type="Int32" Nullable="false" />
+          <Property Name="PositionId" Type="Int64" Nullable="false" />
+          <Property Name="GiveET" Type="Boolean" Nullable="false" />
+          <Property Name="WeatherDataType" Type="Int32" Nullable="false" />
+          <Property Name="WebAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="WeatherDatas" Relationship="Self.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" FromRole="WeatherStation" ToRole="WeatherData" />
+        </EntityType>
+        <Association Name="FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId">
+          <End Role="WeatherStation" Type="Self.WeatherStation" Multiplicity="1" />
+          <End Role="WeatherData" Type="Self.WeatherData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeatherStation">
+              <PropertyRef Name="WeatherStationId" />
+            </Principal>
+            <Dependent Role="WeatherData">
+              <PropertyRef Name="WeatherStationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IrrigationAdvisorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="WeatherDatas" EntityType="Self.WeatherData" />
+          <EntitySet Name="WeatherStations" EntityType="Self.WeatherStation" />
+          <AssociationSet Name="FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" Association="Self.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId">
+            <End Role="WeatherStation" EntitySet="WeatherStations" />
+            <End Role="WeatherData" EntitySet="WeatherDatas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IrrigationAdvisorModelStoreContainer" CdmEntityContainer="IrrigationAdvisorEntities">
+          <EntitySetMapping Name="WeatherDatas">
+            <EntityTypeMapping TypeName="IrrigationAdvisorModel.WeatherData">
+              <MappingFragment StoreEntitySet="WeatherData">
+                <ScalarProperty Name="WeatherDataId" ColumnName="WeatherDataId" />
+                <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="TemperatureMax" ColumnName="TemperatureMax" />
+                <ScalarProperty Name="TemperatureMin" ColumnName="TemperatureMin" />
+                <ScalarProperty Name="TemperatureDewPoint" ColumnName="TemperatureDewPoint" />
+                <ScalarProperty Name="Humidity" ColumnName="Humidity" />
+                <ScalarProperty Name="HumidityMax" ColumnName="HumidityMax" />
+                <ScalarProperty Name="HumidityMin" ColumnName="HumidityMin" />
+                <ScalarProperty Name="Barometer" ColumnName="Barometer" />
+                <ScalarProperty Name="BarometerMax" ColumnName="BarometerMax" />
+                <ScalarProperty Name="BarometerMin" ColumnName="BarometerMin" />
+                <ScalarProperty Name="SolarRadiation" ColumnName="SolarRadiation" />
+                <ScalarProperty Name="UVRadiation" ColumnName="UVRadiation" />
+                <ScalarProperty Name="RainDay" ColumnName="RainDay" />
+                <ScalarProperty Name="RainStorm" ColumnName="RainStorm" />
+                <ScalarProperty Name="RainMonth" ColumnName="RainMonth" />
+                <ScalarProperty Name="RainYear" ColumnName="RainYear" />
+                <ScalarProperty Name="Evapotranspiration" ColumnName="Evapotranspiration" />
+                <ScalarProperty Name="EvapotranspirationMonth" ColumnName="EvapotranspirationMonth" />
+                <ScalarProperty Name="EvapotranspirationYear" ColumnName="EvapotranspirationYear" />
+                <ScalarProperty Name="WeatherDataType" ColumnName="WeatherDataType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeatherStations">
+            <EntityTypeMapping TypeName="IrrigationAdvisorModel.WeatherStation">
+              <MappingFragment StoreEntitySet="WeatherStation">
+                <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="StationType" ColumnName="StationType" />
+                <ScalarProperty Name="DateOfInstallation" ColumnName="DateOfInstallation" />
+                <ScalarProperty Name="DateOfService" ColumnName="DateOfService" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="WirelessTransmission" ColumnName="WirelessTransmission" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="GiveET" ColumnName="GiveET" />
+                <ScalarProperty Name="WeatherDataType" ColumnName="WeatherDataType" />
+                <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
