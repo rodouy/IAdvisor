@@ -2233,12 +2233,12 @@ namespace IrrigationAdvisor.Models.Management
             {
                 WeatherData lWeatherData;
                 
-                lWeatherData = pWeatherStation.AddWeatherData(pDateTime, pTemperature, pSolarRadiation, pTemMax, pTemMin, pEvapotranspiration);
+                lWeatherData = pWeatherStation.AddWeatherData(pDateTime, pTemperature, pSolarRadiation, pTemMax, pTemMin, pEvapotranspiration, "");
 
                 if(lWeatherData == null)
                 {
                     pWeatherStation.UpdateWeatherData(pDateTime, pTemperature, pSolarRadiation,
-                                                        pTemMax, pTemMin, pEvapotranspiration);
+                                                        pTemMax, pTemMin, pEvapotranspiration, "");
                 }
             }
             catch (Exception ex)
