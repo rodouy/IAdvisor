@@ -11,6 +11,7 @@ using IrrigationAdvisor.Models.Management;
 using IrrigationAdvisor.ViewModels.Water;
 using IrrigationAdvisor.ViewModels.Agriculture;
 using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.Models.Irrigation;
 
 namespace IrrigationAdvisor.ViewModels.Home
 {
@@ -81,39 +82,40 @@ namespace IrrigationAdvisor.ViewModels.Home
         }
 
 
-        public HomeViewModel(User pUser, List<FarmViewModel> pFarmList,
+        public HomeViewModel(User pUser, List<FarmViewModel> pFarmViewModelList,
                             DateTime pDateOfReference,
-                            FarmViewModel pFirstFarm, 
+                            FarmViewModel pDefaultFarmViewModel, 
                             String pDefaultFarmLatitude, String pDefaultFarmLongitude,
-                            List<CropIrrigationWeather> pCropIrrigationWeatherList,
-                            List<DailyRecordViewModel> pDailyRecordList,
-                            List<RainViewModel> pRainList,
-                            List<IrrigationViewModel> pIrrigationList,
+                            List<CropIrrigationWeather> pCropIrrigationWeatherViewModelList,
+                            List<DailyRecordViewModel> pDailyRecordViewModelList,
+                            List<RainViewModel> pRainViewModelList,
+                            List<IrrigationViewModel> pIrrigationViewModelList,
                             DateTime pMinDateOfReference,
                             DateTime pMaxDateOfReference)
         {
-            FarmViewModelList = pFarmList;
+            FarmViewModelList = pFarmViewModelList;
             DateOfReference = pDateOfReference;
-            DefaultFarmViewModel = pFirstFarm;
+            DefaultFarmViewModel = pDefaultFarmViewModel;
             DefaultFarmLatitude = pDefaultFarmLatitude;
             DefaultFarmLongitude = pDefaultFarmLongitude;
 
             IrrigationUnitViewModelList = DefaultFarmViewModel.IrrigationUnitViewModelList;
             
             TestIrrigationUnitViewModel = IrrigationUnitViewModelList.FirstOrDefault();
-            List<CropIrrigationWeatherViewModel> lCropIrrigationWeatherViewModel = new List<CropIrrigationWeatherViewModel>();
-            lCropIrrigationWeatherViewModel.Add(new CropIrrigationWeatherViewModel(pCropIrrigationWeatherList.FirstOrDefault()));
-            CropIrrigationWeatherViewModelList = lCropIrrigationWeatherViewModel;
+            CropIrrigationWeatherViewModelList = GetCropIrrigationWeatherViewModelListBy(pCropIrrigationWeatherViewModelList);
 
-            RainViewModelList = pRainList;
-            IrrigationViewModelList = pIrrigationList;
+            RainViewModelList = pRainViewModelList;
+            IrrigationViewModelList = pIrrigationViewModelList;
 
-            DailyRecordViewModelList = pDailyRecordList;
+            DailyRecordViewModelList = pDailyRecordViewModelList;
             
             MinDateOfReference = pMinDateOfReference;
             MaxDateOfReference = pMaxDateOfReference;
             
         }
+
+
+
         #endregion
 
         #region Private Helpers
@@ -122,11 +124,13 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         #region Public Methods
 
+
+        #region Date of Reference
         /// <summary>
         /// Get Date of Reference
         /// </summary>
         /// <returns></returns>
-        public String DateOfRefernceAsLocal()
+        public String DateOfReferenceAsLocal()
         {
             return Utils.GetDateTimeForClientScripts(DateOfReference);
         }
@@ -135,7 +139,7 @@ namespace IrrigationAdvisor.ViewModels.Home
         /// Get Min valid Date of Reference
         /// </summary>
         /// <returns></returns>
-        public String MinDateOfRefernceAsLocal()
+        public String MinDateOfReferenceAsLocal()
         {
             //YYYY-MM-DD
             String lResult = null;
@@ -152,7 +156,7 @@ namespace IrrigationAdvisor.ViewModels.Home
         /// Get Max valid Date of Reference
         /// </summary>
         /// <returns></returns>
-        public String MaxDateOfRefernceAsLocal()
+        public String MaxDateOfReferenceAsLocal()
         {
             //YYYY-MM-DD
             String lResult = null;
@@ -190,6 +194,53 @@ namespace IrrigationAdvisor.ViewModels.Home
 
             return lReturn;
         }
+
+        #endregion
+
+
+        /// <summary>
+        /// Get CropIrrigationWeatherViewModel list by CropIrrigationWeather list
+        /// </summary>
+        /// <param name="pCropIrrigationWeatherList"></param>
+        /// <returns></returns>
+        public List<CropIrrigationWeatherViewModel> GetCropIrrigationWeatherViewModelListBy(List<CropIrrigationWeather> pCropIrrigationWeatherList)
+        {
+            List<CropIrrigationWeatherViewModel> lReturn = new List<CropIrrigationWeatherViewModel>();
+
+            if (pCropIrrigationWeatherList != null && pCropIrrigationWeatherList.Count() > 0)
+            {
+                foreach (CropIrrigationWeather item in pCropIrrigationWeatherList)
+                {
+                    CropIrrigationWeatherViewModel lBomb = new CropIrrigationWeatherViewModel(item);
+                    lReturn.Add(lBomb);
+                }
+            }
+
+            return lReturn;
+        }
+
+
+        /// <summary>
+        /// Get IrrigationUnitViewModel list by IrrigationUnit list
+        /// </summary>
+        /// <param name="pIrrigationUnitList"></param>
+        /// <returns></returns>
+        public List<IrrigationUnitViewModel> GetIrrigationUnitViewModelListBy(List<IrrigationUnit> pIrrigationUnitList)
+        {
+            List<IrrigationUnitViewModel> lReturn = new List<IrrigationUnitViewModel>();
+
+            if (pIrrigationUnitList != null && pIrrigationUnitList.Count() > 0)
+            {
+                foreach (IrrigationUnit item in pIrrigationUnitList)
+                {
+                    IrrigationUnitViewModel lIrrigationUnit = new IrrigationUnitViewModel(item);
+                    lReturn.Add(lIrrigationUnit);
+                }
+            }
+
+            return lReturn;
+        }
+
 
         #endregion
 

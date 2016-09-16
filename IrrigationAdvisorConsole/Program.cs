@@ -117,6 +117,7 @@ namespace IrrigationAdvisorConsole
 
                 InsertPhenologicalStagesCornSouthShort();
                 InsertPhenologicalStagesSoyaSouthShort();
+
                 InsertHorizons();
                 InsertSoils();
                 InsertCropCoefficients();
@@ -1761,11 +1762,11 @@ namespace IrrigationAdvisorConsole
                     El Retiro - Paysandu
                     Zanja Honda - Salto
                 "http://www.weatherlink.com/user/latribu/index.php?view=summary&headers=1&type=1",
-                "http://www.weatherlink.com/user/lagunaderocha2/index.php?view=summary&headers=1",
-                "http://www.weatherlink.com/user/jcservicios/index.php?view=summary&headers=1",
-                "http://www.weatherlink.com/user/mariaelena/index.php?view=summary&headers=1",
-                "http://www.weatherlink.com/user/elretiro/index.php?view=summary&headers=1",
-                "http://www.weatherlink.com/user/noridelzh/index.php?view=summary&headers=1"
+                "http://www.weatherlink.com/user/lagunaderocha/index.php?view=summary&headers=1&type=1",
+                "http://www.weatherlink.com/user/jcservicios/index.php?view=summary&headers=1&type=1",
+                "http://www.weatherlink.com/user/mariaelena/index.php?view=summary&headers=1&type=1",
+                "http://www.weatherlink.com/user/elretiro/index.php?view=summary&headers=1&type=1",
+                "http://www.weatherlink.com/user/noridelzh/index.php?view=summary&headers=1&type=1"
                  */
 
                 #region La Tribu - Florida
@@ -1799,7 +1800,7 @@ namespace IrrigationAdvisorConsole
                 var lElCureWS = new WeatherStation
                 {
                     Name = Utils.NameWeatherStationElCure,
-                    Model = "La Riviera, CURE, UdeLaR. Rocha",
+                    Model = "Estacion Las Garzas CURE-UdelaR",
                     StationType = Utils.WeatherStationType.WeatherLink,
                     DateOfInstallation = Utils.MIN_DATETIME,
                     DateOfService = Utils.MAX_DATETIME,
@@ -1809,7 +1810,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
-                    WebAddress = "http://www.weatherlink.com/user/lagunaderocha2/index.php?view=summary&headers=1",
+                    WebAddress = "http://www.weatherlink.com/user/lagunaderocha/index.php?view=summary&headers=1&type=1",
                 };
                 #endregion
 
@@ -1831,7 +1832,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
-                    WebAddress = "http://www.weatherlink.com/user/jcservicios/index.php?view=summary&headers=1",
+                    WebAddress = "http://www.weatherlink.com/user/jcservicios/index.php?view=summary&headers=1&type=1",
                 };
                 #endregion
 
@@ -1853,7 +1854,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
-                    WebAddress = "http://www.weatherlink.com/user/mariaelena/index.php?view=summary&headers=1",
+                    WebAddress = "http://www.weatherlink.com/user/mariaelena/index.php?view=summary&headers=1&type=1",
                 };
                 #endregion
 
@@ -1874,7 +1875,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
-                    WebAddress = "http://www.weatherlink.com/user/elretiro/index.php?view=summary&headers=1",
+                    WebAddress = "http://www.weatherlink.com/user/elretiro/index.php?view=summary&headers=1&type=1",
                 };
                 #endregion
 
@@ -1886,7 +1887,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Name = Utils.NameWeatherStationZanjaHonda,
                     Model = "Noridel S.A. Zanja Honda",
-                    StationType = Utils.WeatherStationType.INIA,
+                    StationType = Utils.WeatherStationType.WeatherLink,
                     DateOfInstallation = Utils.MIN_DATETIME,
                     DateOfService = Utils.MAX_DATETIME,
                     UpdateTime = DateTime.Now,
@@ -1895,7 +1896,7 @@ namespace IrrigationAdvisorConsole
                     GiveET = true,
                     WeatherDataList = null,
                     WeatherDataType = Utils.WeatherDataType.AllData,
-                    WebAddress = "http://www.weatherlink.com/user/noridelzh/index.php?view=summary&headers=1",
+                    WebAddress = "http://www.weatherlink.com/user/noridelzh/index.php?view=summary&headers=1&type=1",
                 };
                 #endregion
 

@@ -366,7 +366,7 @@ namespace IrrigationAdvisor.Controllers
 
             CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
 
-            Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.PhenologicalStageId).FirstOrDefault();
+            Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.StageId).FirstOrDefault();
 
             //irrigationUnit
             try
@@ -512,6 +512,41 @@ namespace IrrigationAdvisor.Controllers
         }
 
         /// <summary>
+        /// Calculate All CropIrrigationWeather from Date Of Reference to Now (System Date)
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult CalculateAllActiveCropIrrigationWeather()
+        {
+            try
+            {
+                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+
+                List<CropIrrigationWeather> lCIWs = new List<CropIrrigationWeather>();
+
+                DateTime lDateOfReference = ManageSession.GetDateOfReference();
+                DateTime lToday = System.DateTime.Now;
+                
+                lCIWs = lContext.CropIrrigationWeathers
+                                .Where(ciw => ciw.SowingDate <= lDateOfReference
+                                    && ciw.HarvestDate >= lDateOfReference).ToList();
+
+                foreach (CropIrrigationWeather lCIW in lCIWs)
+                {
+                    lCIW.AddInformationToIrrigationUnits(lDateOfReference, lToday, lContext);
+                    lContext.SaveChanges();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+
+            return Content("Ok");
+        }
+
+        /// <summary>
         /// Update Phenology of a CropIrrigationWeather by Date and Stage
         /// </summary>
         /// <param name="pDate"></param>
@@ -524,14 +559,14 @@ namespace IrrigationAdvisor.Controllers
                                           int       pStageId)
         {
 
-            IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
             IrrigationUnitConfigurarion iuc = new IrrigationUnitConfigurarion();
 
             try
             {
                 DateTime lReferenceDate = ManageSession.GetDateOfReference();
 
-                CropIrrigationWeather lCiw = iuc.GetCropIrrigationWeatherListBy(pCropIrrigationWeatherId);
+                CropIrrigationWeather lCIW = iuc.GetCropIrrigationWeatherListBy(pCropIrrigationWeatherId);
                 
                 //First Change
                 Stage lStageToChange = (from stage in lContext.Stages
@@ -539,7 +574,7 @@ namespace IrrigationAdvisor.Controllers
                                         select stage).FirstOrDefault();
 
                 PhenologicalStage lPhenologicalStage = (from phenologicalstage in lContext.PhenologicalStages
-                                                        where phenologicalstage.SpecieId.Equals(lCiw.Crop.SpecieId)
+                                                        where phenologicalstage.SpecieId.Equals(lCIW.Crop.SpecieId)
                                                         && phenologicalstage.StageId.Equals(lStageToChange.StageId)
                                                         select phenologicalstage).FirstOrDefault();
 
@@ -549,12 +584,12 @@ namespace IrrigationAdvisor.Controllers
                 
                 string lName = string.Format("Adjustement {0} {1} ", lStageToChange.Name, pDate.ToString());
 
-                lCiw.AddPhenologicalStageAdjustmentToList(lName, lCiw.Crop, pDate,
+                lCIW.AddPhenologicalStageAdjustmentToList(lName, lCIW.Crop, pDate,
                                                          lStageToChange, lPhenologicalStage, lObservation);
 
                 lContext.SaveChanges();
 
-                lCiw.AddInformationToIrrigationUnits(pDate, lReferenceDate, lContext);
+                lCIW.AddInformationToIrrigationUnits(pDate, lReferenceDate, lContext);
                 lContext.SaveChanges();
 
             }
@@ -885,7 +920,7 @@ namespace IrrigationAdvisor.Controllers
             Farm lCurrentFarm;
             List<IrrigationUnit> lIrrigationUnitList;
             List<CropIrrigationWeather> lCropIrrigationWeatherList;
-            CropIrrigationWeather lFirstCropIrrigationWeather;
+            String lFirstPivotName = "";
             List<Rain> lRainList;
             List<Models.Water.Irrigation> lIrrigationList;
             List<DailyRecord> lDailyRecordList;
@@ -933,39 +968,47 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropMainWeatherStationRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
                     //lDailyRecordList = ciwc.GetDailyRecordListBy(lIrrigationUnit, lDateOfReference);
-
-                    //Demo - First CropIrrigationWeather
-                    lFirstCropIrrigationWeather = lCropIrrigationWeatherList.FirstOrDefault();
-
-                    lDailyRecordList = ciwc.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lFirstCropIrrigationWeather.Crop);
-                    
-                    lRainList = lFirstCropIrrigationWeather.RainList;
-                    lIrrigationList = lFirstCropIrrigationWeather.IrrigationList;
-                    lPhenologicalStageToday = lFirstCropIrrigationWeather.PhenologicalStage.Stage.ShortName;
-                    lSowingDate = lFirstCropIrrigationWeather.SowingDate.Day.ToString() 
-                            + "/" + lFirstCropIrrigationWeather.SowingDate.Month.ToString();
-                    //Grid of irrigation data
-                    lGridIrrigationUnitDetailRow = new List<GridPivotDetailHome>();
-
-                    for (int i = -InitialTables.MIN_DAY_SHOW_IN_GRID_BEFORE_TODAY; i <= InitialTables.MAX_DAY_SHOW_IN_GRID_AFTER_TODAY; i++)
+                    lFirstPivotName = "";
+                    foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
-                        //Day i
-                        lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(i), lIrrigationList, lRainList, lDailyRecordList);
-                        lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
-                        if(i == 0) //TODAY
-                        {
-                            lPhenologicalStageToday = lGridIrrigationUnitRow.Phenology;
-                        }
-                    }
+                        lDailyRecordList = ciwc.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lCropIrrigationWeather.Crop);
                     
-                    //Add all the days for the IrrigationUnit
-                    lGridIrrigationUnit = new GridPivotHome(lFirstCropIrrigationWeather.IrrigationUnit.ShortName,
-                                                            lFirstCropIrrigationWeather.Crop.ShortName,
-                                                            lSowingDate,
-                                                            lPhenologicalStageToday,
-                                                            lGridIrrigationUnitDetailRow);
+                        lRainList = lCropIrrigationWeather.RainList;
+                        lIrrigationList = lCropIrrigationWeather.IrrigationList;
+                        lPhenologicalStageToday = lCropIrrigationWeather.PhenologicalStage.Stage.ShortName;
+                        lSowingDate = lCropIrrigationWeather.SowingDate.Day.ToString() 
+                                + "/" + lCropIrrigationWeather.SowingDate.Month.ToString();
+                        //Grid of irrigation data
+                        lGridIrrigationUnitDetailRow = new List<GridPivotDetailHome>();
 
-                    lGridIrrigationUnitList.Add(lGridIrrigationUnit);
+                        for (int i = -InitialTables.MIN_DAY_SHOW_IN_GRID_BEFORE_TODAY; i <= InitialTables.MAX_DAY_SHOW_IN_GRID_AFTER_TODAY; i++)
+                        {
+                            //Day i
+                            lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(i), lIrrigationList, lRainList, lDailyRecordList);
+                            lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                            if(i == 0) //TODAY
+                            {
+                                lPhenologicalStageToday = lGridIrrigationUnitRow.Phenology;
+                            }
+                        }
+                        if (String.IsNullOrEmpty(lFirstPivotName))
+                        {
+                            lFirstPivotName = lCropIrrigationWeather.IrrigationUnit.ShortName;
+                        }
+                        else if (lFirstPivotName == lCropIrrigationWeather.IrrigationUnit.ShortName)
+                        {
+                            lFirstPivotName = "";
+                        }
+                        
+                        //Add all the days for the IrrigationUnit
+                        lGridIrrigationUnit = new GridPivotHome(lFirstPivotName,
+                                                                lCropIrrigationWeather.Crop.ShortName,
+                                                                lSowingDate,
+                                                                lPhenologicalStageToday,
+                                                                lGridIrrigationUnitDetailRow);
+
+                        lGridIrrigationUnitList.Add(lGridIrrigationUnit);
+                    }
                 }
                 
             }

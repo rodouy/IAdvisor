@@ -104,14 +104,44 @@ namespace IrrigationAdvisor.ViewModels.Management
             this.CropIrrigationWeatherName = pCropIrrigationWeather.CropIrrigationWeatherName;
             this.CropId = pCropIrrigationWeather.CropId;
             this.SoilId = pCropIrrigationWeather.SoilId;
+            this.PhenologicalStageId = pCropIrrigationWeather.PhenologicalStageId;
             this.IrrigationUnitId = pCropIrrigationWeather.IrrigationUnitId;
-
+            #region Weather
+            this.MainWeatherStationId = pCropIrrigationWeather.MainWeatherStationId;
+            this.AlternativeWeatherStationId = pCropIrrigationWeather.AlternativeWeatherStationId;
+            #endregion
+            this.PositionId = pCropIrrigationWeather.PositionId;
+            #region Dates of Crop
             this.SowingDate = pCropIrrigationWeather.SowingDate;
             this.HarvestDate = pCropIrrigationWeather.HarvestDate;
             this.CropDate = pCropIrrigationWeather.CropDate;
-            
-
+            this.StartAdvisorDate = pCropIrrigationWeather.StartAdvisorDate;
+            #endregion
+            #region Crop State
+            this.HydricBalance = pCropIrrigationWeather.HydricBalance;
+            this.SoilHydricVolume = pCropIrrigationWeather.SoilHydricVolume;
+            this.PhenologicalStageAdjustmentList = pCropIrrigationWeather.PhenologicalStageAdjustmentList;
+            this.DayAfterSowing = pCropIrrigationWeather.DaysAfterSowing;
+            this.DayAfterSowingModified = pCropIrrigationWeather.DaysAfterSowingModified;
+            this.GrowingDegreeDaysAccumulated = pCropIrrigationWeather.GrowingDegreeDaysAccumulated;
+            this.GrowingDegreeDaysModified = pCropIrrigationWeather.GrowingDegreeDaysModified;
+            this.PredeterminatedIrrigationQuantity = pCropIrrigationWeather.PredeterminatedIrrigationQuantity;
+            #endregion
+            #region Water
+            this.RainList = pCropIrrigationWeather.RainList;
+            this.IrrigationList = pCropIrrigationWeather.IrrigationList;
+            this.EvapotranspirationCropList = pCropIrrigationWeather.EvapotranspirationCropList;
+            #endregion
             this.DailyRecordList = pCropIrrigationWeather.DailyRecordList;
+            #region Totals
+            this.TotalEvapotranspirationCrop = pCropIrrigationWeather.TotalEvapotranspirationCrop;
+            this.TotalEffectiveRain = pCropIrrigationWeather.TotalEffectiveRain;
+            this.TotalRealRain = pCropIrrigationWeather.TotalRealRain;
+            this.TotalIrrigation = pCropIrrigationWeather.TotalIrrigation;
+            this.TotalIrrigationInHydricBalance = pCropIrrigationWeather.TotalIrrigationInHydricBalance;
+            this.TotalExtraIrrigation = pCropIrrigationWeather.TotalExtraIrrigation;
+            this.TotalExtraIrrigationInHydricBalance = pCropIrrigationWeather.TotalExtraIrrigationInHydricBalance;
+            #endregion
         }
 
         #endregion
@@ -120,6 +150,7 @@ namespace IrrigationAdvisor.ViewModels.Management
         #endregion
 
         #region Public Methods
+
         #endregion
 
         #region Overrides

@@ -1901,8 +1901,8 @@ namespace IrrigationAdvisor.Models.Management
         /// Add Information To IrrigationUnits from some Date 
         /// </summary>
         /// <param name="pFromDate"></param>
-        /// <param name="pDateOfReference"></param>
-        public void AddInformationToIrrigationUnits(DateTime pFromDate, DateTime pDateOfReference)
+        /// <param name="pToDate"></param>
+        public void AddInformationToIrrigationUnits(DateTime pFromDate, DateTime pToDate)
         {
             DateTime lToDate = Utils.MAX_DATETIME;
             DateTime lFromDate = Utils.MIN_DATETIME;
@@ -1920,9 +1920,9 @@ namespace IrrigationAdvisor.Models.Management
                     lFromDate = Utils.MaxDateTimeBetween(lFromDate, this.SowingDate.AddDays(1));
                     lCropDays = lFromDate.Subtract(this.SowingDate).TotalDays;
                     
-                    if (pDateOfReference != null && pDateOfReference <= this.HarvestDate && lFromDate <= pDateOfReference)
+                    if (pToDate != null && pToDate <= this.HarvestDate && lFromDate <= pToDate)
                     {
-                        lToDate = Utils.MinDateTimeBetween(pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION),
+                        lToDate = Utils.MinDateTimeBetween(pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION),
                                                             this.HarvestDate);
                         lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
 
@@ -1989,9 +1989,9 @@ namespace IrrigationAdvisor.Models.Management
         /// Add Information To IrrigationUnits from some Date with Context
         /// </summary>
         /// <param name="pFromDate"></param>
-        /// <param name="pDateOfReference"></param>
+        /// <param name="pToDate"></param>
         /// <param name="pIrrigationAdvisorContext"></param>
-        public void AddInformationToIrrigationUnits(DateTime pFromDate, DateTime pDateOfReference,
+        public void AddInformationToIrrigationUnits(DateTime pFromDate, DateTime pToDate,
                                                     IrrigationAdvisorContext pIrrigationAdvisorContext)
         {
             DateTime lToDate = Utils.MAX_DATETIME;
@@ -2013,10 +2013,10 @@ namespace IrrigationAdvisor.Models.Management
                     /* We limit to enter the new future daily record with the next condition 
                     lFromDate <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION)
                     */
-                    if (pDateOfReference != null && pDateOfReference <= this.HarvestDate 
-                        && lFromDate <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION))
+                    if (pToDate != null && pToDate <= this.HarvestDate 
+                        && lFromDate <= pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION))
                     {
-                        lToDate = Utils.MinDateTimeBetween(pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION),
+                        lToDate = Utils.MinDateTimeBetween(pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION),
                                                             this.HarvestDate);
                         lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
 
