@@ -165,7 +165,7 @@ namespace GetWeatherInfoService
                         }
 
                         // Search if the station exists
-                        WeatherData existingWeatherData = context.WeatherDatas.Where(w => w.WeatherStationId == weatherStation.WeatherStationId).FirstOrDefault();
+                        WeatherData existingWeatherData = context.WeatherDatas.Where(w => w.WeatherStationId == weatherStation.WeatherStationId && w.Date.Date == DateTime.Now.Date).FirstOrDefault();
 
                         if (existingWeatherData == null)
                         {
