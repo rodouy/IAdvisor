@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceProcess;
 
 namespace GetWeatherInfoService
 {
@@ -14,6 +9,7 @@ namespace GetWeatherInfoService
         /// </summary>
         static void Main()
         {
+
             //ServiceBase[] ServicesToRun;
             //ServicesToRun = new ServiceBase[]
             //{
@@ -23,6 +19,7 @@ namespace GetWeatherInfoService
 
             GetWeatherInfoService www = new GetWeatherInfoService();
             www.ProcessWeathers();
+
         }
     }
 }
