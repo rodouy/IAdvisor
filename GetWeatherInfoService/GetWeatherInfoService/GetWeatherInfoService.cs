@@ -12,6 +12,7 @@ using HtmlAgilityPack;
 using System.Globalization;
 using System.Net.Mail;
 using System.Net;
+using System.Data.Entity;
 
 namespace GetWeatherInfoService
 {
@@ -164,8 +165,12 @@ namespace GetWeatherInfoService
                             uvRadiation = GetDoubleValue(uvRadiationValues.ElementAt(2), INDEX);
                         }
 
+               
                         // Search if the station exists
-                        WeatherData existingWeatherData = context.WeatherDatas.Where(w => w.WeatherStationId == weatherStation.WeatherStationId && w.Date.Date == DateTime.Now.Date).FirstOrDefault();
+                        WeatherData existingWeatherData = context.WeatherDatas.Where(w => w.WeatherStationId == weatherStation.WeatherStationId && 
+                                                                                     w.Date.Year == DateTime.Now.Year 
+                                                                                     && w.Date.Month == DateTime.Now.Month
+                                                                                     && w.Date.Day == DateTime.Now.Day).FirstOrDefault();
 
                         if (existingWeatherData == null)
                         {
@@ -326,13 +331,15 @@ namespace GetWeatherInfoService
 
                  SendEmails("Carga correcta de Weather Data",
                                  endMessage);
+                Stop();
             }
             catch (Exception ex)
             {
                 //NLog
                  SendEmails("Error en el carga de Weather Data",
                             ex.Message + " | " + ex.StackTrace);
-                
+                Stop();
+
             }
         }
 
