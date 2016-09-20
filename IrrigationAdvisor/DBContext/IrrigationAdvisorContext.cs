@@ -49,6 +49,9 @@ namespace IrrigationAdvisor.DBContext
             :base("name=IrrigationAdvisorContext")
         {
             this.Database.CommandTimeout = 120;
+            this.Configuration.LazyLoadingEnabled = true;
+            this.Configuration.ProxyCreationEnabled = true;
+
         }
 
         public IrrigationAdvisorContext(string databaseName)

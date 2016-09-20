@@ -511,12 +511,12 @@ namespace IrrigationAdvisor.Models.Management
             get { return usingMainWeatherStation; }
             set { usingMainWeatherStation = value; }
         }
-        
+
         #endregion
 
         #region Daily Data
 
-        public List<DailyRecord> DailyRecordList
+        public virtual List<DailyRecord> DailyRecordList
         {
             get { return dailyRecordList; }
             set { dailyRecordList = value; }
