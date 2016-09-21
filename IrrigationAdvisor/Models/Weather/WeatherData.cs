@@ -102,7 +102,7 @@ namespace IrrigationAdvisor.Models.Weather
         private Double barometer;
         private Double barometerMax;
         private Double barometerMin;
-        private Double observations;
+        //private Double observations;
         private Double solarRadiation;
         private Double uvRadiation;
         private Double rainDay;
@@ -288,18 +288,18 @@ namespace IrrigationAdvisor.Models.Weather
             set { weatherDataType = value; }
         }
 
-        public double Observations
-        {
-            get
-            {
-                return observations;
-            }
+        //public double Observations
+        //{
+        //    get
+        //    {
+        //        return observations;
+        //    }
 
-            set
-            {
-                observations = value;
-            }
-        }
+        //    set
+        //    {
+        //        observations = value;
+        //    }
+        //}
 
         //[field: NonSerialized()]
         //public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

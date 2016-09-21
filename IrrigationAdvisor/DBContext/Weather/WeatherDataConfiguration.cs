@@ -31,7 +31,6 @@ namespace IrrigationAdvisor.DBContext.Weather
                 .IsRequired();
             Property(w => w.TemperatureMin)
                 .IsRequired();
-            Property(w => w.Observations);
 
         }
     }
