@@ -37,6 +37,7 @@ namespace GetWeatherInfoService
         public double EvapotranspirationMonth { get; set; }
         public double EvapotranspirationYear { get; set; }
         public int WeatherDataType { get; set; }
+        public string Observations { get; set; }
     
         public virtual WeatherStation WeatherStation { get; set; }
     }

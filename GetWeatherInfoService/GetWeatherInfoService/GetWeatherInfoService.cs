@@ -71,7 +71,7 @@ namespace GetWeatherInfoService
                         emailLog.Add(LogFormat("WeatherStation:", weatherStationDescription));
 
                         List<string> temperatureValues = GetWeatherLinkValues(weatherStation.WebAddress, OUTSIDE_TEMP);
-
+                        
                         double maxTemperature = GetDoubleValue(temperatureValues.ElementAt(2), CELSIUS);
                         double minTemperature = GetDoubleValue(temperatureValues.ElementAt(4), CELSIUS);
 
@@ -172,6 +172,8 @@ namespace GetWeatherInfoService
                                                                                      && w.Date.Month == DateTime.Now.Month
                                                                                      && w.Date.Day == DateTime.Now.Day).FirstOrDefault();
 
+                        string observations = GetCurrentCoditions(weatherStation.WebAddress);
+
                         if (existingWeatherData == null)
                         {
                             WeatherData newWeatherData = new WeatherData()
@@ -197,7 +199,8 @@ namespace GetWeatherInfoService
                                 TemperatureMin = minTemperature,
                                 UVRadiation = uvRadiation,
                                 WeatherDataType = 0,
-                                WeatherStationId = weatherStation.WeatherStationId
+                                WeatherStationId = weatherStation.WeatherStationId,
+                                Observations = observations
                             };
 
                             context.WeatherDatas.Add(newWeatherData);
@@ -217,6 +220,7 @@ namespace GetWeatherInfoService
                             emailLog.Add(LogFormat("RainYear", rainYear));
                             emailLog.Add(LogFormat("SolarRadiation", solarRadiation));
                             emailLog.Add(LogFormat("UvRadiation", uvRadiation));
+                            emailLog.Add(LogFormat("Last-Update:", observations));
                             emailLog.Add("════════════Fin═══════════════\n\n");
                         }
                         else
@@ -305,6 +309,8 @@ namespace GetWeatherInfoService
                                 emailLog.Add(LogFormat("RainYear", existingWeatherData.RainYear));
                             }
 
+                            existingWeatherData.Observations = observations;
+                            emailLog.Add(LogFormat("Last-Update:", observations));
                             emailLog.Add("════════════Fin═══════════════\n\n");
 
                         }
@@ -433,7 +439,57 @@ namespace GetWeatherInfoService
                                   EventLogEntryType.Error);
             }
         }
- 
+
+        private static HtmlNodeCollection GetHtmlNodes(string url, string htmlTag, string className)
+        {
+            WebClient wc = new WebClient();
+            byte[] raw = wc.DownloadData(url);
+
+            //Get the html text from the web.
+            string webData = Encoding.UTF8.GetString(raw);
+            // Search an specific value from the html file
+            HtmlDocument html = new HtmlDocument();
+            html.LoadHtml(webData);
+            HtmlNodeCollection htmlNodes = html.DocumentNode.SelectNodes(string.Format("//{0}[@class='{1}']",
+                                                                                        htmlTag,
+                                                                                        className));
+
+            return htmlNodes;
+        }
+
+        private static string GetHtmlCode(string url)
+        {
+            WebClient wc = new WebClient();
+            byte[] raw = wc.DownloadData(url);
+
+            //Get the html text from the web.
+            string webData = Encoding.UTF8.GetString(raw);
+
+            return webData;
+
+        }
+
+        private static string GetCurrentCoditions(string url)
+        {
+            string className = "summary_timestamp";
+            string htmlTag = "td";
+            //Get the html text from the web.
+            string webData = GetHtmlCode(url);
+            // Search an specific value from the html file
+            HtmlDocument html = new HtmlDocument();
+            html.LoadHtml(webData);
+            HtmlNodeCollection htmlNodes = GetHtmlNodes(url, htmlTag, className);
+
+            if (htmlNodes.Count == 1)
+            {
+                var item = htmlNodes.First();
+
+                return item.InnerHtml;
+            }
+
+            return string.Empty;
+        }
+
         /// <summary>
         /// Get value from the Weather link table
         /// </summary>
@@ -448,18 +504,13 @@ namespace GetWeatherInfoService
             string className = "summary_data")
         {
             List<string> result = new List<string>();
-
-            WebClient wc = new WebClient();
-            byte[] raw = wc.DownloadData(url);
-
+            
             //Get the html text from the web.
-            string webData = Encoding.UTF8.GetString(raw);
+            string webData = GetHtmlCode(url);
             // Search an specific value from the html file
             HtmlDocument html = new HtmlDocument();
             html.LoadHtml(webData);
-            HtmlNodeCollection htmlNodes = html.DocumentNode.SelectNodes(string.Format("//{0}[@class='{1}']",
-                                                                                        htmlTag,
-                                                                                        className));
+            HtmlNodeCollection htmlNodes = GetHtmlNodes(url, htmlTag, className);
             bool weFound = false;
             short count = 0;
             foreach (var item in htmlNodes)
