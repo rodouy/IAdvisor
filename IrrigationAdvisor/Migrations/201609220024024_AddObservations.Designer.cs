@@ -7,18 +7,18 @@ namespace IrrigationAdvisor.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CristianMigrations : IMigrationMetadata
+    public sealed partial class AddObservations : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CristianMigrations));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddObservations));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609210054265_CristianMigrations"; }
+            get { return "201609220024024_AddObservations"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return null; }
+            get { return Resources.GetString("Source"); }
         }
         
         string IMigrationMetadata.Target

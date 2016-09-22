@@ -275,7 +275,7 @@ $(document).ready(function () {
             success: function (data) {
 
                 if (data == "Ok") {
-                   
+                    
                 }
                 else {
 
@@ -474,10 +474,15 @@ $(document).ready(function () {
             success:function(data)
             {
                 if (data == "Ok") {
+                    
+                    if (pIrrigationUnitId == "-1") {
+                        pIrrigationUnitId = "Todos";
+                    }
 
-                    $.when(sendMail("Se ha agregado Lluvia", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).then(function () {
+                    $.when(sendMail("Se ha agregado Lluvia", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
                         location.href = "./home";
                     });
+                   
                 }
                 else
                 {
@@ -516,7 +521,12 @@ $(document).ready(function () {
             success: function (data) {
                 if (data == "Ok") {
 
-                    $.when(sendMail("Se ha agregado Riego", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).then(function () {
+                    if (pIrrigationUnitId == "-1")
+                    {
+                        pIrrigationUnitId = "Todos";
+                    }
+
+                    $.when(sendMail("Se ha agregado Riego", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
                         location.href = "./home";
                     });
                     
