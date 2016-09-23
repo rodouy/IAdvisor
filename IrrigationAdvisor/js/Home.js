@@ -353,7 +353,9 @@ $(document).ready(function () {
 
                 if(data == "Ok")
                 {
-                    location.href = "./home";
+                    $.when(sendMail("Se ha modificado Fenología", "CropIrrigationWeatherId: " + selectedCropIrriWeatherPheno + ", StageId: " + stagePhenoVal + ", Fecha: " + phenoDateVal)).done(function () {
+                        location.href = "./home";
+                    });
                 }
                 else {
                     hideLoading();
