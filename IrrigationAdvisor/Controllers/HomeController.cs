@@ -34,6 +34,7 @@ using IrrigationAdvisor.ViewModels.Agriculture;
 using IrrigationAdvisor.ViewModels.Weather;
 using IrrigationAdvisor.Controllers.Helpers;
 using System.Threading.Tasks;
+using NLog;
 
 namespace IrrigationAdvisor.Controllers
 {
@@ -45,6 +46,8 @@ namespace IrrigationAdvisor.Controllers
         private const string AUTHENTICATION_ERROR = "Credenciales inválidas";
         private const int NO_FARMS_FOR_USER_NR = 10002;
         private const string NO_FARMS_FOR_USER = "El usuario no tiene granjas asignadas";
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public ActionResult Index()
         {
@@ -282,6 +285,7 @@ namespace IrrigationAdvisor.Controllers
 	        }
             catch (NullReferenceException ex)
             {
+                logger.Error(ex, ex.Message);
                 ManageSession.CleanSession();
 
                 Console.WriteLine(ex.Message, ex);
@@ -289,11 +293,10 @@ namespace IrrigationAdvisor.Controllers
             }
 	        catch (Exception ex)
 	        {
+                logger.Error(ex, ex.Message);
                 ManageSession.CleanSession();
-
-                Console.WriteLine(ex.Message, ex);
-		        throw ;
-	        }
+                return RedirectToAction("Index");
+            }
 
         }
 
@@ -347,6 +350,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 return Json(ex.Message, JsonRequestBehavior.AllowGet);
             }
         }
@@ -368,12 +372,13 @@ namespace IrrigationAdvisor.Controllers
             CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
 
             Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.StageId).FirstOrDefault();
+            List<Stage> lStageResult = null;
 
             //irrigationUnit
             try
             {
 
-                List<Stage> lStageResult = st.GetStageBy(pSpecieId, foundStage.Order);
+                lStageResult = st.GetStageBy(pSpecieId, foundStage.Order);
 
                 foreach (var stageItem in lStageResult)
                 {
@@ -389,16 +394,15 @@ namespace IrrigationAdvisor.Controllers
 
                     lStageViewModelList.Add(stageViewModel);
                 }
-                return Json(lStageResult, JsonRequestBehavior.AllowGet);
+                
             }
-
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message, ex);
-
-                throw;
+                logger.Error(ex, ex.Message);
             }
-          
+
+            return Json(lStageResult, JsonRequestBehavior.AllowGet);
+
         }
          
         
@@ -426,7 +430,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-
+                logger.Error(ex, ex.Message);
                 return Content(ex.Message);
             }
 
@@ -496,6 +500,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 return Content(ex.Message);
             }
 
@@ -553,6 +558,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 return Content(ex.Message);
             }
 
@@ -608,6 +614,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 return Content(ex.Message);
             }
 
@@ -683,7 +690,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-
+                logger.Error(ex, ex.Message);
                 return Content(ex.Message);
 
             }
@@ -760,7 +767,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-
+                logger.Error(ex, ex.Message);
                 return Content(ex.Message);
                 
             }
@@ -905,9 +912,9 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message, ex);
-                
-                throw ;
+                logger.Error(ex, ex.Message);
+
+                throw ex;
             }
 
             return lGridIrrigationUnitList;
@@ -1027,9 +1034,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message, ex);
-                
-                throw ;
+                logger.Error(ex, ex.Message);
+                throw;
             }
 
             return lGridIrrigationUnitList;
@@ -1176,8 +1182,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message, ex);
-                
+                logger.Error(ex, ex.Message);
                 throw ;
             } 
             
@@ -1459,7 +1464,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message, ex);
+                logger.Error(ex, ex.Message);
                 throw ;
             }
 
@@ -1737,7 +1742,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message, ex);
+                logger.Error(ex, ex.Message);
                 throw ;
             }
 

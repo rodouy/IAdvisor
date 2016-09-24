@@ -5,7 +5,7 @@ using System.Web;
 using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Agriculture;
 using IrrigationAdvisor.Models.Localization;
-
+using NLog;
 
 namespace IrrigationAdvisor.Models.Irrigation
 {
@@ -52,11 +52,13 @@ namespace IrrigationAdvisor.Models.Irrigation
         private long positionId;
         private Double predeterminatedIrrigationQuantity;
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         #endregion
 
         #region Properties
 
-        
+
         public long IrrigationUnitId
         {
             get { return irrigationUnitId; }
@@ -198,13 +200,14 @@ namespace IrrigationAdvisor.Models.Irrigation
             }
             catch(Exception e)
             {
-                lReturn=false;
+                logger.Error(e, e.Message);
+                lReturn = false;
                 Console.WriteLine("Error in IrrigationUnit.addIrrigation " + e.Message);
             }
             return lReturn;
         }
 
-        #if false
+#if false
         #region Crop
 
         /// <summary>
@@ -272,6 +275,7 @@ namespace IrrigationAdvisor.Models.Irrigation
             }
             catch(Exception e)
             {
+                logger.Error(e, e.Message);
                 Console.WriteLine("Error in IrrigationUnit.addCrop " + e.Message);
             }
             return lReturn;
@@ -323,7 +327,7 @@ namespace IrrigationAdvisor.Models.Irrigation
 
 
         #endregion
-        #endif
+#endif
 
         /// <summary>
         /// Get Total Irrigation in List

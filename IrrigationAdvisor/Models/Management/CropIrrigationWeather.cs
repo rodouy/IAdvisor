@@ -11,6 +11,7 @@ using IrrigationAdvisor.Models.Weather;
 using IrrigationAdvisor.Models.Irrigation;
 using IrrigationAdvisor.DBContext;
 using System.Data.Entity;
+using NLog;
 
 namespace IrrigationAdvisor.Models.Management
 {
@@ -103,6 +104,8 @@ namespace IrrigationAdvisor.Models.Management
 
         private long cropIrrigationWeatherId;
         private String cropIrrigationWeatherName;
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         #region Agriculture
 
@@ -1527,6 +1530,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in IrrigationSystem.addCropIrrigWeatherToList " + ex.Message);
                 throw ;
                 //TODO manage and log the exception
@@ -1591,6 +1595,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in CropIrrigationWeather.CalculateDegreeStageDifference " + ex.Message);
                 throw ;
                 //TODO manage and log the exception
@@ -1951,6 +1956,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine(ex.Message, ex);
                 throw;
             }
@@ -2049,6 +2055,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine(ex.Message, ex);
                 throw;
             }
@@ -2582,6 +2589,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception e)
             {
+                logger.Error(e, e.Message);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + e.Message);
                 //TODO manage and log the exception  CropIrrigationWeather.AddOrUpdateIrrigationDataToList
                 throw ;
@@ -2685,6 +2693,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception e)
             {
+                logger.Error(e, e.Message);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddRainDataToList " + e.Message);
                 //TODO manage and log the exception CropIrrigationWeather.AddRainDataToList
                 throw ;
@@ -3175,6 +3184,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception e)
             {
+                logger.Error(e, e.Message);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + e.Message);
                 //TODO manage and log the exception
                 throw ;
@@ -3387,6 +3397,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + ex.Message);
                 throw ;
                 //TODO manage and log the exception
@@ -3595,7 +3606,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + ex.Message);
                 throw ;
                 //TODO manage and log the exception
@@ -3653,6 +3664,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception e)
             {
+                logger.Error(e, e.Message);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + e.Message);
                 //TODO manage and log the exception
                 throw;
@@ -3876,6 +3888,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + ex.Message);
                 throw;
                 //TODO manage and log the exception
@@ -4095,7 +4108,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + ex.Message);
                 throw;
                 //TODO manage and log the exception

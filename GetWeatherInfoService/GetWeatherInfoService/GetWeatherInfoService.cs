@@ -13,6 +13,7 @@ using System.Globalization;
 using System.Net.Mail;
 using System.Net;
 using System.Data.Entity;
+using NLog;
 
 namespace GetWeatherInfoService
 {
@@ -34,6 +35,8 @@ namespace GetWeatherInfoService
         private const string MB = "mb";
         private const string WM2 = "W/m2";
         private const string INDEX = "Index";
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         private static List<string> errorUrls = new List<string>();
 
@@ -317,6 +320,7 @@ namespace GetWeatherInfoService
                     }
                     catch (Exception ex)
                     {
+                        logger.Error(ex, ex.Message);
                         emailLog.Add("\n");
                         errorUrls.Add(weatherStation.WebAddress);
                         emailLog.Add("Error en la carga \n");
@@ -341,8 +345,9 @@ namespace GetWeatherInfoService
             }
             catch (Exception ex)
             {
-                //NLog
-                 SendEmails("Error en el carga de Weather Data",
+                logger.Error(ex, ex.Message);
+                
+                SendEmails("Error en el carga de Weather Data",
                             ex.Message + " | " + ex.StackTrace);
                 Stop();
 
@@ -398,8 +403,9 @@ namespace GetWeatherInfoService
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 //NLog
             }
 
@@ -434,9 +440,7 @@ namespace GetWeatherInfoService
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry(this.GetType().ToString(),
-                                  ex.Message,
-                                  EventLogEntryType.Error);
+                
             }
         }
 

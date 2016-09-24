@@ -125,6 +125,12 @@
     <None Include="IrrigationAdvisorModel.edmx.diagram">
       <DependentUpon>IrrigationAdvisorModel.edmx</DependentUpon>
     </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

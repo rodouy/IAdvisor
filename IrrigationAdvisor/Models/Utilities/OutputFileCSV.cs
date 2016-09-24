@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using IrrigationAdvisor.Models.Management;
+using NLog;
 
 namespace IrrigationAdvisor.Models.Utilities
 {
@@ -66,7 +67,9 @@ namespace IrrigationAdvisor.Models.Utilities
         private List<Management.Message> fileMessages;
         private long totalLines;
         private String dataSplit;
-        
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         #endregion
 
         #region Properties
@@ -580,6 +583,7 @@ namespace IrrigationAdvisor.Models.Utilities
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in OutputFileCSV.WriteFile " + ex.Message);
                 //TODO manage and log the exception WriteFileTest
                 throw ;
@@ -606,8 +610,9 @@ namespace IrrigationAdvisor.Models.Utilities
                         lStreamReader.Close();
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    logger.Error(ex, ex.Message);
                     throw;
                 }
             }

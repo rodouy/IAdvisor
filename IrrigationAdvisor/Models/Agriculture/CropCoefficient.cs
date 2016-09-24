@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using IrrigationAdvisor.Models.Localization;
-
+using NLog;
 
 namespace IrrigationAdvisor.Models.Agriculture
 {
@@ -58,12 +58,14 @@ namespace IrrigationAdvisor.Models.Agriculture
         private long specieId;
         private List<KC> kcList;
 
-        
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+
         #endregion
 
         #region Properties
-                
-        
+
+
         public long CropCoefficientId
         {
             get { return cropCoefficientId; }
@@ -174,9 +176,10 @@ namespace IrrigationAdvisor.Models.Agriculture
                 }
                 lReturn = lKC.Coefficient;
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                Console.WriteLine("Exception in CropCoefficient.getKCFromList" + e.Message);
+                logger.Error(ex, ex.Message);
+                Console.WriteLine("Exception in CropCoefficient.getKCFromList" + ex.Message);
                 lReturn = -1;
             }
             return lReturn;
@@ -206,9 +209,10 @@ namespace IrrigationAdvisor.Models.Agriculture
                 }
                 lReturn = lKC.Coefficient;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("Exception in CropCoefficient.getKCFromList" + e.Message);
+                logger.Error(ex, ex.Message);
+                Console.WriteLine("Exception in CropCoefficient.getKCFromList" + ex.Message);
                 lReturn = -1;
             }
             return lReturn;
@@ -250,9 +254,10 @@ namespace IrrigationAdvisor.Models.Agriculture
                     lReturn = true;
                 }
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                Console.WriteLine("Exception in CropCoefficient.addDayToList" + e.Message);
+                logger.Error(ex, ex.Message);
+                Console.WriteLine("Exception in CropCoefficient.addDayToList" + ex.Message);
             }
             return lReturn;
         }

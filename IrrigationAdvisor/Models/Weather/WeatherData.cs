@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 using IrrigationAdvisor.Models.Utilities;
-
+using NLog;
 
 namespace IrrigationAdvisor.Models.Weather
 {
@@ -114,11 +114,13 @@ namespace IrrigationAdvisor.Models.Weather
         private Double evapotranspirationYear;
         private Utils.WeatherDataType weatherDataType;
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         #endregion
 
         #region Properties
 
-        
+
         public long WeatherDataId
         {
             get { return weatherDataId; }
@@ -486,6 +488,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.getAverage " + ex.Message);
                 //TODO manage and log the exception getAverage
                 throw;
@@ -511,6 +514,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageTemperature " + ex.Message);
                 //TODO manage and log the exception GetAverageTemperature
                 throw;
@@ -532,6 +536,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageHumidity " + ex.Message);
                 //TODO manage and log the exception GetAverageHumidity
                 throw;
@@ -553,6 +558,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageBarometer " + ex.Message);
                 //TODO manage and log the exception GetAverageBarometer
                 throw;
@@ -577,6 +583,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetEvapotranspiration " + ex.Message);
                 //TODO manage and log the exception GetEvapotranspiration
                 throw;
