@@ -433,9 +433,12 @@ namespace IrrigationAdvisor.Controllers
                 logger.Error(ex, ex.Message);
                 return Content(ex.Message);
             }
-
             
+        }
 
+        public ActionResult ReturnText()
+        {
+            return Content("Ok");
         }
         
         [CustomAuthorize]
