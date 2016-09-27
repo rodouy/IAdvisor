@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 
 using System.Linq;
@@ -50,7 +51,9 @@ namespace IrrigationAdvisor.Models.Security
         private long accessId;
 
         private string name;
-        
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         #endregion
 
         #region Properties
@@ -59,7 +62,7 @@ namespace IrrigationAdvisor.Models.Security
         ///     - Name: the name of the instance
         /// </summary>
 
-        
+
         public long AccessId
         {
             get { return accessId; }
@@ -117,8 +120,9 @@ namespace IrrigationAdvisor.Models.Security
                 lUpperFirstLetter = 
                     System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(pPhrase);
             }
-            catch (Exception)
-            {                
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
                 throw;
             }
             return lUpperFirstLetter;

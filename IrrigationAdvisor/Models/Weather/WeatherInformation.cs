@@ -7,7 +7,7 @@ using System.Net;
 using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
-
+using NLog;
 
 namespace IrrigationAdvisor.Models.Weather
 {
@@ -53,11 +53,12 @@ namespace IrrigationAdvisor.Models.Weather
         private long weatherDataId;
         private WeatherData weatherData;
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Properties
 
-        
+
         public long WeatherInformationId
         {
             get { return weatherInformationId; }
@@ -174,6 +175,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherInformation.ExtractInformationFromData " + ex.Message);
                 //TODO manage and log the exception ExtractInformationFromData
                 

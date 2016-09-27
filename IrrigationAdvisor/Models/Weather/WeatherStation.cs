@@ -6,6 +6,7 @@ using System.Web;
 
 using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Data;
+using NLog;
 
 namespace IrrigationAdvisor.Models.Weather
 {
@@ -75,6 +76,8 @@ namespace IrrigationAdvisor.Models.Weather
         private Utils.WeatherDataType weatherDataType;
         private String webAddress;
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         #endregion
 
         #region Properties
@@ -90,7 +93,7 @@ namespace IrrigationAdvisor.Models.Weather
         ///     - location Location
         ///     - giveET bool
         /// </summary>
-         
+
 
         public long WeatherStationId
         {
@@ -390,6 +393,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in WeatherStation.AddWeatherData " + ex.Message);
                 //TODO manage and log the exception
                 throw ;
@@ -442,6 +446,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in WeatherStation.UpdateWeatherData " + ex.Message);
                 //TODO manage and log the exception
                 throw ;
@@ -479,6 +484,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in WeatherStation.AddWeatherDataToList " + ex.Message);
                 //TODO manage and log the exception
                 throw ;

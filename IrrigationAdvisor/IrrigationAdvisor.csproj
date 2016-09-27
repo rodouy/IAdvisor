@@ -275,6 +275,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Migrations\201609220024024_AddObservations.cs" />
+    <Compile Include="Migrations\201609220024024_AddObservations.Designer.cs">
+      <DependentUpon>201609220024024_AddObservations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -448,6 +452,7 @@
     <Content Include="fonts\selection.json" />
     <Content Include="js\geolocation.js" />
     <Content Include="js\Home.js" />
+    <Content Include="Migrations.txt" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\bootstrap-theme.css.map" />
@@ -810,6 +815,7 @@
     <Folder Include="App_Data\Scripts\Tables\" />
     <Folder Include="Controllers\Utilities\" />
     <Folder Include="DBContext\Utilities\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="ViewModels\Data\" />
     <Folder Include="Views\Authenticate\" />
     <Folder Include="Views\Company\" />
@@ -819,7 +825,11 @@
   <ItemGroup>
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609220024024_AddObservations.resx">
+      <DependentUpon>201609220024024_AddObservations.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

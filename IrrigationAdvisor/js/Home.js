@@ -264,6 +264,34 @@ $(document).ready(function () {
 
     });
 
+    var sendMail = function(subject, body)
+    {
+        $.ajax({
+            url: '/Home/SendEmails?subject=' + subject + '&body=' + body,
+            type: "GET",
+            dataType: "text",
+            traditional: true,
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+
+                if (data == "Ok") {
+                    
+                }
+                else {
+
+                    console.log(data);
+                }
+
+
+            },
+            error: function (data) {
+
+                console.log(data);
+
+            }
+        });
+    }
+
     var loadStageForCropIrrigationWeather = function () {
 
         var selectedCropIrriWeatherPheno = cropIrriWeatherPheno.val();
@@ -325,7 +353,9 @@ $(document).ready(function () {
 
                 if(data == "Ok")
                 {
-                    location.href = "./home";
+                    $.when(sendMail("Se ha modificado Fenología", "CropIrrigationWeatherId: " + selectedCropIrriWeatherPheno + ", StageId: " + stagePhenoVal + ", Fecha: " + phenoDateVal)).done(function () {
+                        location.href = "./home";
+                    });
                 }
                 else {
                     hideLoading();
@@ -446,11 +476,19 @@ $(document).ready(function () {
             success:function(data)
             {
                 if (data == "Ok") {
+                    
+                    if (pIrrigationUnitId == "-1") {
+                        pIrrigationUnitId = "Todos";
+                    }
 
-                    location.href = "./home";
+                    $.when(sendMail("Se ha agregado Lluvia", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
+                        location.href = "./home";
+                    });
+                   
                 }
                 else
                 {
+                    sendMail("Error al cargar Lluvia", data);
                     console.log(data);
                     hideLoading();
                 }
@@ -460,6 +498,7 @@ $(document).ready(function () {
             error: function(data)
             {
                 hideLoading();
+                sendMail("Error al cargar Lluvia", data);
                 console.log(data);
                 //$('#myModal').modal('hide');
             }
@@ -484,10 +523,19 @@ $(document).ready(function () {
             success: function (data) {
                 if (data == "Ok") {
 
-                    location.href = "./home";
+                    if (pIrrigationUnitId == "-1")
+                    {
+                        pIrrigationUnitId = "Todos";
+                    }
+
+                    $.when(sendMail("Se ha agregado Riego", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
+                        location.href = "./home";
+                    });
+                    
                 }
                 else
                 {
+                    sendMail("Error al cargar Riego", data);
                     console.log(data);
                     hideLoading();
                 }
@@ -496,6 +544,7 @@ $(document).ready(function () {
             },
             error: function (data) {
                 hideLoading();
+                sendMail("Error al cargar Riego", data);
                 console.log(data);
                 //$('#myModal').modal('hide');
             }

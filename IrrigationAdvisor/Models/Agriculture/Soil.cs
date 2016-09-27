@@ -1,4 +1,5 @@
 ﻿using IrrigationAdvisor.Models.Localization;
+using NLog;
 using System;
 using System.Collections.Generic;
 
@@ -69,12 +70,13 @@ namespace IrrigationAdvisor.Models.Agriculture
         private DateTime testDate;
         private double depthLimit;
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         #endregion
 
         #region Properties
 
-        
+
         public long SoilId
         {
             get { return soilId; }
@@ -214,8 +216,8 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             catch (Exception ex)
             {
-                //TODO log exception ReturnLayerWaterSum
-                throw ex;
+                logger.Error(ex, ex.Message);
+                
             }
             return lReturnLayerWaterSum;
         }

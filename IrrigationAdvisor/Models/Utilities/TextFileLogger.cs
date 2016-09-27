@@ -6,6 +6,7 @@ using System.Web;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using NLog;
 
 namespace IrrigationAdvisor.Models.Utilities
 {
@@ -51,7 +52,9 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Fields
         private String fileName;
         private String filePath;
-                
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         #endregion
 
         #region Properties
@@ -176,8 +179,9 @@ namespace IrrigationAdvisor.Models.Utilities
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 throw;
             }
         }
@@ -209,6 +213,7 @@ namespace IrrigationAdvisor.Models.Utilities
                 }
                 catch (Exception ex)
                 {
+                    logger.Error(ex, ex.Message);
                     Console.WriteLine("Exception in TextFileLogger.ReadLogFile " + ex.Message);
                     //TODO manage and log the exception WriteFileTest
                     throw ;

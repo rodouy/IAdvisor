@@ -8,8 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using IrrigationAdvisor.Models.Utilities;
-
-
+using NLog;
 
 namespace IrrigationAdvisor.Models.Data
 {
@@ -56,6 +55,7 @@ namespace IrrigationAdvisor.Models.Data
         #region Constants
 
         #region IrrigationCalculous
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public const double PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE = 60;
         public const int DAYS_FOR_PREDICTION = 7;
@@ -2121,8 +2121,8 @@ namespace IrrigationAdvisor.Models.Data
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in IrrigationSystem.InitialTables.CreatePhenologicalStageListForMaiz " + ex.Message);
-                //TODO manage and log the exception
                 throw ;
             }
             return lReturn;
@@ -2256,8 +2256,8 @@ namespace IrrigationAdvisor.Models.Data
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message);
                 Console.WriteLine("Exception in InitialTables.CreatePhenologicalStageListForSoja " + ex.Message);
-                
                 //TODO manage and log the exception
                 throw ;
             }
