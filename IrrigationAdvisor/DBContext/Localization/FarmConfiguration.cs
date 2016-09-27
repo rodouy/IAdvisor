@@ -72,29 +72,17 @@ namespace IrrigationAdvisor.DBContext.Localization
         public List<Farm> GetFarmListBy(User pUser)
         {
             List<Farm> lReturn = null;
-            List<Farm> lFarmList = null;
-            UserFarm lUserFarm = null;
             
             if(pUser != null)
             {
-                lFarmList = db.Farms
-                    .Include(f => f.BombList)
-                    .Include(f => f.IrrigationUnitList)
-                    .Include(f => f.WeatherStation)
-                    .Include(f => f.City)
-                    .Include(f => f.UserFarmList).ToList();
-                foreach (Farm item in lFarmList)
-                {
-                    lUserFarm = item.UserFarmList.Where(uf => uf.UserId == pUser.UserId).FirstOrDefault();
-                    if (lUserFarm != null)
-                    {
-                        if(lReturn == null)
-                        {
-                            lReturn = new List<Farm>();
-                        }
-                        lReturn.Add(item);
-                    }
-                }
+                lReturn = (from ul in db.UserFarms
+                           join f in db.Farms
+                           on ul.FarmId equals f.FarmId
+                           where ul.UserId == pUser.UserId
+                           select f).Include(f => f.BombList)
+                                        .Include(f => f.IrrigationUnitList)
+                                        .Include(f => f.WeatherStation)
+                                        .Include(f => f.City).ToList();
             }
             
             return lReturn;

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using IrrigationAdvisor.Models.Irrigation;
 using IrrigationAdvisor.Models.Management;
+using IrrigationAdvisor.Models.Data;
+using IrrigationAdvisor.DBContext.Data;
 
 namespace IrrigationAdvisor
 {
@@ -80,6 +82,26 @@ namespace IrrigationAdvisor
             if (HttpContext.Current.Session["DateOfReference"] != null)
             {
                 lResult = (DateTime)HttpContext.Current.Session["DateOfReference"];
+            }
+
+            return lResult;
+        }
+        
+        public static Status GetCurrentStatus()
+        {
+            Status lResult = null;
+            string lStatusName = System.Configuration.ConfigurationManager.AppSettings["Status"].ToString();
+
+            if (HttpContext.Current.Session["DateOfReferenceDB"] != null)
+            {
+                lResult = (Status)HttpContext.Current.Session["DateOfReferenceDB"];
+            }
+            else
+            {
+                StatusConfiguration sc = new StatusConfiguration();
+                lResult = sc.GetStatus(lStatusName);
+                HttpContext.Current.Session["DateOfReferenceDB"] = lResult;
+
             }
 
             return lResult;

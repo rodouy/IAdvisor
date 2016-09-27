@@ -61,10 +61,11 @@ namespace IrrigationAdvisor.DBContext.Security
         public User GetUserByName(String pName)
         {
             User lReturn;
+            bool exists = db.Users.Where(u => u.UserName == pName).Any();
 
-            if(pName != null && db.Users.Where(u => u.UserName == pName).Count() > 0)
+            if (pName != null && exists)
             {
-                lReturn = db.Users.Where(u => u.UserName == pName).FirstOrDefault();
+                lReturn = db.Users.Where(u => u.UserName == pName).Single();
             }
             else
             {
