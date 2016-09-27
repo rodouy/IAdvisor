@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AutoBrowse
 {
-    class Program
+    class AutoBrowseProgram
     {
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -22,8 +22,8 @@ namespace AutoBrowse
                 byte[] raw = wc.DownloadData(url);
                 //Get the html text from the web.
                 string webData = Encoding.UTF8.GetString(raw);
-                
-                Console.WriteLine(webData);
+
+                logger.Info("Se ha ejecutado correctamente AutoBrowse");
                 
             }
             catch (Exception ex)
