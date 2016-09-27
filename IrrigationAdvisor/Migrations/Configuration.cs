@@ -43,7 +43,7 @@ namespace IrrigationAdvisor.Migrations
             //
 
             #region 1.-Create Languages
-            #if true
+            #if false
 
             var Languages = new List<Language>
             {
@@ -58,7 +58,7 @@ namespace IrrigationAdvisor.Migrations
             #endregion
 
             #region 2.-Create Positions
-            #if true
+            #if false
 
             var Positions = new List<Position>
             {
@@ -84,7 +84,7 @@ namespace IrrigationAdvisor.Migrations
             #endregion
 
             #region 3.-Create Region
-            #if true
+            #if false
 
             var Regions = new List<Region>
             {
@@ -101,7 +101,7 @@ namespace IrrigationAdvisor.Migrations
             #endregion
 
             #region 4.-Effective Rain List, Initial Tables
-            #if true
+            #if false
 
             Regions[1].EffectiveRainList = InitialTables.CreateEffectiveRainListToSystem();
             context.Regions.AddOrUpdate(Regions[1]);
@@ -111,7 +111,7 @@ namespace IrrigationAdvisor.Migrations
             #endregion
 
             #region 5.-Create Cities
-            #if true
+            #if false
 
             var Cities = new List<City>
             {
@@ -126,7 +126,7 @@ namespace IrrigationAdvisor.Migrations
             #endregion
 
             #region 6.-Create Country
-            #if true
+            #if false
 
             var Countries = new List<Country>
             {
