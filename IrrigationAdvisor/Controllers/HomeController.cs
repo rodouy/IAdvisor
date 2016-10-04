@@ -80,12 +80,17 @@ namespace IrrigationAdvisor.Controllers
             }
             else
             {
-                int farmId = Convert.ToInt32(lcurrentFarmViaUrl);
-                lCurrentFarm = pFarmList.Single(f => f.FarmId == farmId);
+                int lFarmId = Convert.ToInt32(lcurrentFarmViaUrl);
+                lCurrentFarm = pFarmList.Single(f => f.FarmId == lFarmId);
+                if(lCurrentFarm == null)
+                {
+                    lCurrentFarm = pFarmList.FirstOrDefault();
+                }
             }
 
             return lCurrentFarm;
         }
+
         public ActionResult Home(LoginViewModel pLoginViewModel)
         {
             Authentication lAuthentication;
@@ -94,12 +99,12 @@ namespace IrrigationAdvisor.Controllers
             #region Configuration Variables
             UserConfiguration uc;
             FarmConfiguration fc;
-            BombConfiguration bc;
+            //BombConfiguration bc;
             IrrigationUnitConfigurarion iuc;
             CropIrrigationWeatherConfiguration ciwc;
-            DailyRecordConfiguration drc;
-            RainConfiguration rc;
-            IrrigationConfiguration ic;
+            //DailyRecordConfiguration drc;
+            //RainConfiguration rc;
+            //IrrigationConfiguration ic;
 
             #endregion
 
@@ -134,6 +139,7 @@ namespace IrrigationAdvisor.Controllers
             try
             {
 
+                #region Manage Session, Get Login from Session
                 if (!pLoginViewModel.UserName.Equals(string.Empty))
                 {
                     ManageSession.SetLoginViewModel(pLoginViewModel);
@@ -154,18 +160,29 @@ namespace IrrigationAdvisor.Controllers
                     pLoginViewModel.InvalidPasswordMessage = AUTHENTICATION_ERROR;
                     return View("Index", pLoginViewModel);
                 }
-
-                #region Configuration - Instance
-                uc = new UserConfiguration();
-                fc = new FarmConfiguration();
-                bc = new BombConfiguration();
-                iuc = new IrrigationUnitConfigurarion();
-                ciwc = new CropIrrigationWeatherConfiguration();
-                drc = new DailyRecordConfiguration();
-                rc = new RainConfiguration();
-                ic = new IrrigationConfiguration();
                 #endregion
 
+                #region new Instances - Configurations/ErrorVM 
+                //uc - GetUserByName
+                uc = new UserConfiguration();
+                //fc - GetFarmListBy - GetLatitudeBy - GetLongitudeBy
+                fc = new FarmConfiguration();
+                //bc - NOT USED
+                //bc = new BombConfiguration();
+                //iuc - GetIrrigationUnitListBy - GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy
+                iuc = new IrrigationUnitConfigurarion();
+                //ciwc - GetDailyRecordListIncludeDailyRecordListBy - GetMinDateOfReferenceBy - GetMaxDateOfReferenceBy
+                ciwc = new CropIrrigationWeatherConfiguration();
+                //drc - NOT USED
+                //drc = new DailyRecordConfiguration();
+                //rc - NOT USED
+                //rc = new RainConfiguration();
+                //ic - NOT USED
+                //ic = new IrrigationConfiguration();
+                lErrorVM = new ErrorViewModel();
+                #endregion
+
+                #region Get date of reference
                 if (ManageSession.GetDateOfReference() >= Utils.MAX_DATETIME)
                 {
                     lDateOfReference = Convert.ToDateTime(System.Configuration.ConfigurationManager.AppSettings["DemoDateOfReference"]);
@@ -177,14 +194,13 @@ namespace IrrigationAdvisor.Controllers
                 }
 
                 ViewBag.DateOfReference = lDateOfReference;
+                #endregion
 
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
 
-                //Get list of Farms from User
+                #region Get list of Farms from User
                 lFarmList = fc.GetFarmListBy(lLoggedUser);
-
-                lErrorVM = new ErrorViewModel();
 
                 // If the user doesnt have farms
                 if (lFarmList.Count == 0)
@@ -193,11 +209,12 @@ namespace IrrigationAdvisor.Controllers
                     lErrorVM.Description = NO_FARMS_FOR_USER;
 
                     HomeViewModel HVMError = new HomeViewModel(lErrorVM);
-
+                    logger.Debug(NO_FARMS_FOR_USER);
                     return View(HVMError);
                 }
+                #endregion
 
-
+                #region ViewModel - Farm List, Bomb List, IrrigationUnit List
                 //Create View Model Farm list
                 lFarmViewModelList = new List<FarmViewModel>();
                 //Create Bomb List
@@ -207,34 +224,37 @@ namespace IrrigationAdvisor.Controllers
 
 
                 //Map each farm with FarmViewModel and add to a list
-                foreach (var farm in lFarmList)
+                foreach (var lFarm in lFarmList)
                 {
-                    lBombList = farm.BombList;
-                    lIrrigationUnitList = farm.IrrigationUnitList;
-                    lFarmViewModel = new FarmViewModel(farm);
+                    lBombList = lFarm.BombList;
+                    lIrrigationUnitList = lFarm.IrrigationUnitList;
+                    lFarmViewModel = new FarmViewModel(lFarm);
                     lFarmViewModelList.Add(lFarmViewModel);
                 }
+                #endregion
 
+                #region Current Farm
                 lCurrentFarm = GetCurrenFarm(lFarmList);
 
                 lCurrentFarmLatitude = fc.GetLatitudeBy(lCurrentFarm.PositionId).ToString().Replace(",", ".");
                 lCurrentFarmLongitude = fc.GetLongitudeBy(lCurrentFarm.PositionId).ToString().Replace(",", ".");
                 lFarmViewModel = new FarmViewModel(lCurrentFarm);
                 lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lCurrentFarm);
+                #endregion
 
                 lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
                 lDailyRecordList = new List<DailyRecord>();
                 foreach (var lIrrigationUnit in lIrrigationUnitList)
                 {
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
-                    //TODO Demo - First CropIrrigationWeather
+                    //TODO Demo - First CropIrrigationWeather 
                     lCrop = lCropIrrigationWeatherList.FirstOrDefault().Crop;
                     lDailyRecordList = ciwc.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lCrop);
                     lMinDateOfReference = ciwc.GetMinDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
                     lMaxDateOfReference = ciwc.GetMaxDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
                 }
 
-                //Demo - First CropIrrigationWeather
+                //TODO Change First CropIrrigationWeather
                 lFirstCropIrrigationWeather = lCropIrrigationWeatherList.FirstOrDefault();
                 //lDailyRecordList = lFirstCropIrrigationWeather.DailyRecordList;
 
@@ -286,7 +306,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (NullReferenceException ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 ManageSession.CleanSession();
 
                 Console.WriteLine(ex.Message, ex);
@@ -294,7 +314,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 ManageSession.CleanSession();
                 return RedirectToAction("Index");
             }
@@ -351,7 +371,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 return Json(ex.Message, JsonRequestBehavior.AllowGet);
             }
         }
@@ -399,7 +419,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
             }
 
             return Json(lStageResult, JsonRequestBehavior.AllowGet);
@@ -431,7 +451,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 return Content(ex.Message);
             }
 
@@ -504,7 +524,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 return Content(ex.Message);
             }
 
@@ -544,34 +564,50 @@ namespace IrrigationAdvisor.Controllers
             {
                 
                 IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
-
-                List<CropIrrigationWeather> lCIWs = new List<CropIrrigationWeather>();
+                CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
+                List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
 
                 Status lStatus = ManageSession.GetCurrentStatus();
                 DateTime lDateOfReference = lStatus.DateOfReference;
-                DateTime lToday = lDateOfReference.AddDays(5); // = System.DateTime.Now;
-                // TODO: Includes
-                lCIWs = lContext.CropIrrigationWeathers
-                                .Where(ciw => ciw.SowingDate <= lDateOfReference
-                                    && ciw.HarvestDate >= lDateOfReference).ToList();
+                DateTime lToday = lDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION); // = System.DateTime.Now;
+                
+                lCropIrrigationWeatherList = ciwc.GetActiveCropIrrigationWeatherListBy(lDateOfReference);
 
-                foreach (CropIrrigationWeather lCIW in lCIWs)
+                foreach (CropIrrigationWeather lCIW in lCropIrrigationWeatherList)
                 {
-                    lCIW.AddInformationToIrrigationUnits(lDateOfReference, lToday, lContext);
-                    lContext.SaveChanges();
+                    //If Error, continue with others CIWs
+                    try
+                    {
+                        logger.Info("CalculateAllActiveCropIrrigationWeather: CIWid=" + lCIW.CropIrrigationWeatherId +
+                                    " - DateOfReference=" + lDateOfReference +
+                                    " - Today=" + lToday + "");
+                        lCIW.AddInformationToIrrigationUnits(lDateOfReference, lToday, lContext);
+                        lContext.SaveChanges();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                        continue;
+                    }
                 }
 
                 StatusConfiguration sc = new StatusConfiguration();
                 lResult = sc.SetStatus(lToday, lStatus.Name);
-
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 lResult = false;
             }
 
             return lResult;
+        }
+
+
+        public void test()
+        {
+            CalculateAllActiveCropIrrigationWeather("Demo","lluvia");
         }
 
         [HttpPost]
@@ -589,7 +625,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
             }
 
             return Content("Error al calcular los Cultivos activos");
@@ -644,7 +680,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 return Content(ex.Message);
             }
 
@@ -692,8 +728,11 @@ namespace IrrigationAdvisor.Controllers
                         item.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
                         lSaveChanges = lContext.SaveChanges();
 
-                        item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
-                        lSaveChanges = lContext.SaveChanges();
+                        if(pMilimeters > 0)
+                        {
+                            item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                            lSaveChanges = lContext.SaveChanges();
+                        }
                     }
                     lSaveChanges = lContext.SaveChanges();
                 }
@@ -709,8 +748,11 @@ namespace IrrigationAdvisor.Controllers
                             lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
                             lSaveChanges = lContext.SaveChanges();
 
-                            lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
-                            lSaveChanges = lContext.SaveChanges();
+                            if (pMilimeters > 0)
+                            {
+                                lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                                lSaveChanges = lContext.SaveChanges();
+                            }
                         }
                         lSaveChanges = lContext.SaveChanges();
                     }
@@ -720,7 +762,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 return Content(ex.Message);
 
             }
@@ -797,7 +839,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 return Content(ex.Message);
 
             }
@@ -880,6 +922,12 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("_ContactPartial");
         }
 
+        /// <summary>
+        /// Login User Name & Password
+        /// </summary>
+        /// <param name="pUserName"></param>
+        /// <param name="pPassWord"></param>
+        /// <returns></returns>
         private bool Login(string pUserName, string pPassWord)
         {
             bool lResult = false;
@@ -895,7 +943,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);   
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);   
             }
 
             return lResult;
@@ -919,7 +967,7 @@ namespace IrrigationAdvisor.Controllers
             List<GridPivotDetailHome> lGridIrrigationUnitDetailRow;
             GridPivotDetailHome lGridIrrigationUnitRow;
             DateTime lDateOfReference;
-            ErrorViewModel lErrorVM;
+            //ErrorViewModel lErrorVM;
             User lLoggedUser;
             List<Farm> lFarmList;
             
@@ -964,8 +1012,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
-
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 throw ex;
             }
 
@@ -1086,7 +1133,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 throw;
             }
 
@@ -1177,9 +1224,9 @@ namespace IrrigationAdvisor.Controllers
                 #region Rain
                 //Find Rain of the Date of Data
                 lRain = pRainList.Where(r => r.Date == lDateOfData).FirstOrDefault();
-                if (lRain != null && lRain.Input > 0)
+                if (lRain != null && lRain.GetTotalInput() > 0)
                 {
-                    lRainQuantity = lRain.Input;
+                    lRainQuantity = lRain.GetTotalInput();
                 }
                 #endregion
 
@@ -1234,7 +1281,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 throw ;
             } 
             
@@ -1430,6 +1477,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCantGetWeatherData = true;
                         //Do nothing
+                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
                         Console.WriteLine(ex.Message, ex);
                     }
                     #endregion
@@ -1464,6 +1512,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCantGetWeatherData = true;
                         //Do nothing
+                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
                         Console.WriteLine(ex.Message, ex);
                     }
                     #endregion
@@ -1495,6 +1544,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCantGetWeatherData = true;
                         //Do nothing
+                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
                         Console.WriteLine(ex.Message, ex);
                     }
                     #endregion
@@ -1516,7 +1566,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 throw ;
             }
 
@@ -1708,6 +1758,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCantGetWeatherData = true;
                         //Do nothing
+                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
                         Console.WriteLine(ex.Message, ex);
                     }
                     #endregion
@@ -1742,6 +1793,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCantGetWeatherData = true;
                         //Do nothing
+                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
                         Console.WriteLine(ex.Message, ex);
                     }
                     #endregion
@@ -1773,6 +1825,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCantGetWeatherData = true;
                         //Do nothing
+                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
                         Console.WriteLine(ex.Message, ex);
                     }
                     #endregion
@@ -1794,7 +1847,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 throw ;
             }
 

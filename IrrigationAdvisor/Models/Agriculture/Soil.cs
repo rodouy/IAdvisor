@@ -216,7 +216,8 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                throw;
                 
             }
             return lReturnLayerWaterSum;

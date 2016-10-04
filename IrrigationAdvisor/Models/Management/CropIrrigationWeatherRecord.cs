@@ -115,6 +115,7 @@ namespace IrrigationAdvisor.Models.Management
         private List<List<String>> messagesDaily;
 
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Properties
@@ -965,11 +966,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.addCropIrrigWeatherToList " + ex.Message);
                 throw ex;
-                //TODO manage and log the exception
-
             }
         }
 

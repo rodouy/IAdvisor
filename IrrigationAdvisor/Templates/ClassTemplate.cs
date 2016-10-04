@@ -35,7 +35,6 @@ namespace IrrigationAdvisor.Templates
     {
 
         #region Consts
-        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Fields
@@ -47,7 +46,8 @@ namespace IrrigationAdvisor.Templates
 
         private long id;
         private string name;
-        
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Properties
@@ -112,9 +112,10 @@ namespace IrrigationAdvisor.Templates
                 lUpperFirstLetter = 
                     System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(pPhrase);
             }
-            catch (Exception)
-            {                
-                throw;
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lUpperFirstLetter;
         }

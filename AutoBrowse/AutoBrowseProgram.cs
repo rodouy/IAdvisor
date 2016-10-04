@@ -28,7 +28,7 @@ namespace AutoBrowse
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
             }
             
         }

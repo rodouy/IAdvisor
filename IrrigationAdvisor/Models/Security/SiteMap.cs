@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -59,6 +60,7 @@ namespace IrrigationAdvisor.Models.Security
         private SiteItem cameFrom;
         private List<SiteItem> goTo;
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Properties
@@ -136,11 +138,12 @@ namespace IrrigationAdvisor.Models.Security
                     siteItem.Access = access;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                //TODO: SiteMap allAccesss exception management 
+                
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.Write("SiteMap allAccesss exception");
-                throw e;
+                throw ex;
             }
             lAvailableWaterCapacitbleWaterCapacity = true;
             return lAvailableWaterCapacitbleWaterCapacity;
@@ -161,21 +164,21 @@ namespace IrrigationAdvisor.Models.Security
 
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                //TODO: SiteMap allAccesss exception management 
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace); 
                 Console.Write("SiteMap allAccesss exception");
-                throw e;
+                throw ex;
             }
 
             return ret;
         }*/
-        
+
         #endregion
 
         #region Overrides
         #endregion
 
-        
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -58,6 +59,7 @@ namespace IrrigationAdvisor.Models.Security
         private long siteId;
         private long menuId;
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Properties
@@ -151,8 +153,9 @@ namespace IrrigationAdvisor.Models.Security
                 lUpperFirstLetter =
                     System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(pPhrase);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 throw;
             }
             return lUpperFirstLetter;

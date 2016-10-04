@@ -241,7 +241,7 @@
                                     <p>  </p>
                                     <form role="form" id="irrigationForm">
                                         <div class="form-group">
-                                            <input type="number" placeholder="Ingrese el riego en 'mm'" class="form-control" id="irrigationMilimeters" name="irrigationMilimeters" min="1" max="100">
+                                            <input type="number" placeholder="Ingrese el riego en 'mm'" class="form-control" id="irrigationMilimeters" name="irrigationMilimeters" min="0" max="100">
                                             <span id="irrigationMilimetersError" class="red-color"></span>
                                             <br />
                                             <div class="dropdown">
@@ -277,8 +277,8 @@
                                     </form>
                                 </div>
                                 <div class="cf footer">
-                                    <p> <buttom class="btn btn-style-2" id="CancelIrrigation">Cancelar</buttom></p>
-                                    <buttom class="btn btn-success" id="SaveIrrigation" disabled>Guardar</buttom>
+                                    <p> <button class="btn btn-style-2" id="CancelIrrigation">Cancelar</button></p>
+                                    <button class="btn btn-success" id="SaveIrrigation" disabled>Guardar</button>
                                 </div>
                             </div>
                         </div>
@@ -295,14 +295,14 @@
                                     <p>  </p>
 
                                     <div class="form-group">
-                                        <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain" min="1" max="999">
+                                        <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain" min="0" max="999">
                                         <span id="rainMilimetersError" class="red-color"></span>
                                         <br />
                                         <div class="dropdown">
                                             @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Seleccionar Día
-                        <span class="caret"></span>
-                        </button>
+                                                Seleccionar Día
+                                                <span class="caret"></span>
+                                                </button>
                                             *@
                                             Seleccionar Día
                                             <select id="rainDate" class="form-control">
@@ -364,10 +364,9 @@
                                                 Seleccione una Fecha
                                                 <select id="phenoDate" class="form-control">
                                                     @for (int i = -1; i >= -IrrigationAdvisor.Models.Data.InitialTables.DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE; i--)
-                                                {
+                                                    {
                                                         <option value="@(dateValue.AddDays(i).Month + "/" + dateValue.AddDays(i).Day + "/" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToShortDateString())</option>
-                                                }
-
+                                                    }
                                                 </select>
                                                 <br />
                                             </div>
@@ -376,9 +375,9 @@
                                                 Contexto de cosecha
                                                 <select id="CropIrriWeatherPheno" class="form-control">
                                                     @foreach (var item in Model.CropIrrigationWeatherViewModelList)
-                                                {
+                                                    {
                                                         <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
-                                                }
+                                                    }
                                                 </select>
 
                                                 <br />
@@ -386,7 +385,9 @@
                                             <br />
                                             <div class="dropdown">
                                                 Seleccionar Fenología
-                                                <select id="StagePheno" class="form-control"></select>
+                                                <select id="StagePheno" class="form-control">
+
+                                                </select>
                                                 <br />
                                             </div>
                                         </div>

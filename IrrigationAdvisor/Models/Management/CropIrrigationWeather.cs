@@ -1530,10 +1530,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.addCropIrrigWeatherToList " + ex.Message);
                 throw ;
-                //TODO manage and log the exception
             }
             
         }
@@ -1595,10 +1594,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.CalculateDegreeStageDifference " + ex.Message);
                 throw ;
-                //TODO manage and log the exception
             }
             return lReturn;
         }
@@ -1956,7 +1954,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine(ex.Message, ex);
                 throw;
             }
@@ -2055,7 +2053,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine(ex.Message, ex);
                 throw;
             }
@@ -2546,13 +2544,14 @@ namespace IrrigationAdvisor.Models.Management
                                                     bool pIsExtraIrrigation)
         {
             Water.Irrigation lNewIrrigation = null;
-
+            DailyRecord lDailyRecordIrrigationDate = null;
+            DailyRecord lDailyRecordIrrigationNextDate = null;
             try
             {
                 lNewIrrigation = this.GetIrrigation(pIrrigationDate);
                 //If there is not a registry then it is created 
-                //If there is an Irrigation Registry it is actualized 
-                if (lNewIrrigation == null)
+                
+                if (lNewIrrigation == null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First > 0)
                 {
                     lNewIrrigation = new Water.Irrigation();
                     lNewIrrigation.WaterInputId = this.IrrigationList.Count();
@@ -2571,10 +2570,25 @@ namespace IrrigationAdvisor.Models.Management
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                     this.IrrigationList.Add(lNewIrrigation);
                 }
+                //If there is an Irrigation Registry and new Irrigation Input is 0, Input goes for tomorrow
+                else if(pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First == 0)
+                {
+                    lNewIrrigation.Date = lNewIrrigation.Date.AddDays(1);
+                    lDailyRecordIrrigationDate = this.DailyRecordList.Find(dr => dr.DailyRecordDateTime == lNewIrrigation.Date);
+                    lDailyRecordIrrigationNextDate = this.DailyRecordList.Find(dr => dr.DailyRecordDateTime == lNewIrrigation.Date.AddDays(1));
+                    lDailyRecordIrrigationNextDate.IrrigationId = lDailyRecordIrrigationDate.IrrigationId;
+                    lDailyRecordIrrigationDate.IrrigationId = 0;
+
+                }
+                //If there is an Irrigation Registry it is actualized 
                 else
                 {
                     if (pIsExtraIrrigation)
                     {
+                        //If there was an Advisor of irrigation, it will be updated to 0.
+                        lNewIrrigation.Input = 0;
+                        lNewIrrigation.Date = pIrrigationDate;
+
                         lNewIrrigation.ExtraInput += pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
                         lNewIrrigation.ExtraDate = pIrrigationDate;
                     }
@@ -2587,11 +2601,10 @@ namespace IrrigationAdvisor.Models.Management
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                logger.Error(e, e.Message);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + e.Message);
-                //TODO manage and log the exception  CropIrrigationWeather.AddOrUpdateIrrigationDataToList
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + ex.Message);
                 throw ;
             }
 
@@ -2691,11 +2704,10 @@ namespace IrrigationAdvisor.Models.Management
                     lNewRain.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                logger.Error(e, e.Message);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddRainDataToList " + e.Message);
-                //TODO manage and log the exception CropIrrigationWeather.AddRainDataToList
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Exception in CropIrrigationWeather.AddRainDataToList " + ex.Message);
                 throw ;
             }
 
@@ -3182,11 +3194,10 @@ namespace IrrigationAdvisor.Models.Management
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                logger.Error(e, e.Message);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + e.Message);
-                //TODO manage and log the exception
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + ex.Message);
                 throw ;
             }
             return lReturn;
@@ -3397,11 +3408,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + ex.Message);
                 throw ;
-                //TODO manage and log the exception
-
             }
         }
 
@@ -3606,11 +3615,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + ex.Message);
                 throw ;
-                //TODO manage and log the exception
-
             }
         }
 
@@ -3662,11 +3669,10 @@ namespace IrrigationAdvisor.Models.Management
                     pIrrigationAdvisorContext.SaveChanges();
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                logger.Error(e, e.Message);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + e.Message);
-                //TODO manage and log the exception
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + ex.Message);
                 throw;
             }
             return lReturn;
@@ -3888,11 +3894,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + ex.Message);
                 throw;
-                //TODO manage and log the exception
-
             }
         }
 
@@ -4108,11 +4112,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + ex.Message);
                 throw;
-                //TODO manage and log the exception
-
             }
         }
 

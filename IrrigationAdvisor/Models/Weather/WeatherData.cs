@@ -488,9 +488,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.getAverage " + ex.Message);
-                //TODO manage and log the exception getAverage
                 throw;
             }
             return lAverage;
@@ -514,9 +513,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageTemperature " + ex.Message);
-                //TODO manage and log the exception GetAverageTemperature
                 throw;
             }
             return lAverageTemperature;
@@ -536,9 +534,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageHumidity " + ex.Message);
-                //TODO manage and log the exception GetAverageHumidity
                 throw;
             }
             return lAverageHumidity;
@@ -558,9 +555,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageBarometer " + ex.Message);
-                //TODO manage and log the exception GetAverageBarometer
                 throw;
             }
             return lAverageBarometer;
@@ -583,9 +579,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetEvapotranspiration " + ex.Message);
-                //TODO manage and log the exception GetEvapotranspiration
                 throw;
             }
             return lEvapotranspiration;

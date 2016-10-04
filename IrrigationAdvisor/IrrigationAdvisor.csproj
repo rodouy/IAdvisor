@@ -815,7 +815,6 @@
     <Folder Include="App_Data\Scripts\Tables\" />
     <Folder Include="Controllers\Utilities\" />
     <Folder Include="DBContext\Utilities\" />
-    <Folder Include="NewFolder1\" />
     <Folder Include="ViewModels\Data\" />
     <Folder Include="Views\Authenticate\" />
     <Folder Include="Views\Company\" />

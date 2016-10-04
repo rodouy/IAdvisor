@@ -2121,7 +2121,7 @@ namespace IrrigationAdvisor.Models.Data
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.InitialTables.CreatePhenologicalStageListForMaiz " + ex.Message);
                 throw ;
             }
@@ -2256,9 +2256,8 @@ namespace IrrigationAdvisor.Models.Data
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in InitialTables.CreatePhenologicalStageListForSoja " + ex.Message);
-                //TODO manage and log the exception
                 throw ;
             }
             return lReturn;
