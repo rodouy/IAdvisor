@@ -319,11 +319,11 @@ namespace GetWeatherInfoService
 
                             existingWeatherData.Observations = observations;
                             emailLog.Add(LogFormat("Last-Update:", observations));
-                            emailLog.Add("════════════Fin═══════════════\n\n");
-                            
+                            emailLog.Add("════════════Fin═══════════════\n\n");                            
                         }
 
                         CheckAndUpdateUpdateTimeFromWeatherStations(weatherStation, observations);
+
                     }
                     catch (Exception ex)
                     {
