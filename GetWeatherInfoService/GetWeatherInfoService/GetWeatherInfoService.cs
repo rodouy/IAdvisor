@@ -20,6 +20,7 @@ namespace GetWeatherInfoService
     public partial class GetWeatherInfoService : ServiceBase
     {
         IrrigationAdvisorEntities context = new IrrigationAdvisorEntities();
+       
 
         private const string CELSIUS = "C";
         private const string OUTSIDE_TEMP = "Outside Temp";
@@ -176,7 +177,10 @@ namespace GetWeatherInfoService
                                                                                      && w.Date.Day == DateTime.Now.Day).FirstOrDefault();
 
                         string observations = GetCurrentCoditions(weatherStation.WebAddress);
-
+                        
+                        DateTime currentConditionsAsDate = ConvertCurrentConditionsToDateTime(observations);
+                       
+                        // If there is not a record for the day . It create a new record.
                         if (existingWeatherData == null)
                         {
                             WeatherData newWeatherData = new WeatherData()
@@ -225,8 +229,9 @@ namespace GetWeatherInfoService
                             emailLog.Add(LogFormat("UvRadiation", uvRadiation));
                             emailLog.Add(LogFormat("Last-Update:", observations));
                             emailLog.Add("════════════Fin═══════════════\n\n");
+                            
                         }
-                        else
+                        else if(existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate)
                         {
                             existingWeatherData.Date = DateTime.Now;
 
@@ -315,8 +320,10 @@ namespace GetWeatherInfoService
                             existingWeatherData.Observations = observations;
                             emailLog.Add(LogFormat("Last-Update:", observations));
                             emailLog.Add("════════════Fin═══════════════\n\n");
-
+                            
                         }
+
+                        CheckAndUpdateUpdateTimeFromWeatherStations(weatherStation, observations);
                     }
                     catch (Exception ex)
                     {
@@ -354,6 +361,20 @@ namespace GetWeatherInfoService
             }
         }
 
+        private void CheckAndUpdateUpdateTimeFromWeatherStations(WeatherStation weatherStation, string currentStatus)
+        {
+            IrrigationAdvisorEntities internalContext = new IrrigationAdvisorEntities();
+
+            WeatherStation currentWeatherStation = internalContext.WeatherStations.Where(w => w.WeatherStationId == weatherStation.WeatherStationId).Single();
+
+            DateTime actualCurrentCondition = ConvertCurrentConditionsToDateTime(currentStatus);
+            if (currentWeatherStation.UpdateTime < actualCurrentCondition)
+            {
+                currentWeatherStation.UpdateTime = actualCurrentCondition;
+                internalContext.SaveChanges();
+            }
+        }
+
         public void SendEmails(string subject, string body)
         {
             try
@@ -364,12 +385,17 @@ namespace GetWeatherInfoService
                 string emailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]);
                 string password = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["password"]);
                 string emailTo = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]);
-
+                string copyTo = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["copyTo"]);
 
                 using (MailMessage mail = new MailMessage())
                 {
                     mail.From = new MailAddress(emailFrom);
                     mail.To.Add(emailTo);
+
+                    if(!string.IsNullOrEmpty(copyTo))
+                    {
+                        mail.CC.Add(copyTo);
+                    }
                     mail.Subject = subject;
                     mail.Body = body;
                     mail.IsBodyHtml = false;
@@ -528,6 +554,31 @@ namespace GetWeatherInfoService
             }
 
             return result;
+        }
+
+        private DateTime ConvertCurrentConditionsToDateTime(string pCurrentConditions)
+        {
+            string[] lSplit = pCurrentConditions.Split(' ');
+
+            int date = Convert.ToInt32(lSplit[7].Replace(',', '\0'));
+            string stringMonth = lSplit[6];
+            int year = Convert.ToInt32(lSplit[8]);
+            string hour = lSplit[4];
+
+            return ParseWeatherLinkCurrentConditionsText(date, stringMonth, year, hour);
+        }
+
+        private DateTime ParseWeatherLinkCurrentConditionsText(int date, string pStringMonth, int year, string hour)
+        {
+
+            int month = DateTime.ParseExact(pStringMonth, "MMMM", new CultureInfo("en-US")).Month;
+
+            string[] lHourMinutes = hour.Split(':');
+            int lHour = Convert.ToInt32(lHourMinutes[0]);
+            int lMinute = Convert.ToInt32(lHourMinutes[1]);
+
+            DateTime lResult = new DateTime(year, month, date, lHour, lMinute, 0);
+            return lResult;
         }
     }
 }
