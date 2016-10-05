@@ -9,17 +9,19 @@ namespace GetWeatherInfoService
         /// </summary>
         static void Main()
         {
-
-            //ServiceBase[] ServicesToRun;
-            //ServicesToRun = new ServiceBase[]
-            //{
-            //    new GetWeatherInfoService()
-            //};
-            //ServiceBase.Run(ServicesToRun);
-
+            //In prod change true by false
+#if true
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[]
+            {
+                new GetWeatherInfoService()
+            };
+            ServiceBase.Run(ServicesToRun);
+#endif
+#if false
             GetWeatherInfoService www = new GetWeatherInfoService();
             www.ProcessWeathers();
-
+#endif
         }
     }
 }
