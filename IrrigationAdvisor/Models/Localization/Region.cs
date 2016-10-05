@@ -199,7 +199,7 @@ namespace IrrigationAdvisor.Models.Localization
         public long GetNewTemperatureDataListId()
         {
             long lReturn = 1;
-            if (this.TemperatureDataList != null)
+            if (this.TemperatureDataList != null && this.TemperatureDataList.Count > 0)
             {
                 lReturn += this.TemperatureDataList.Max(td => td.TemperatureDataId);
             }
@@ -384,7 +384,7 @@ namespace IrrigationAdvisor.Models.Localization
         public long GetNewEffectiveRainListId()
         {
             long lReturn = 1;
-            if (this.EffectiveRainList != null)
+            if (this.EffectiveRainList != null && this.EffectiveRainList.Count > 0)
             {
                 lReturn += this.EffectiveRainList.Max(er => er.EffectiveRainId);
             }
@@ -473,7 +473,7 @@ namespace IrrigationAdvisor.Models.Localization
         public long GetNewSpecieCycleListId()
         {
             long lReturn = 1;
-            if (this.SpecieCycleList != null)
+            if (this.SpecieCycleList != null && this.SpecieCycleList.Count > 0)
             {
                 lReturn += this.SpecieCycleList.Max(sc => sc.SpecieCycleId);
             }
@@ -590,7 +590,7 @@ namespace IrrigationAdvisor.Models.Localization
         public long GetNewSpecieListId()
         {
             long lReturn = 1;
-            if (this.SpecieList != null)
+            if (this.SpecieList != null && this.SpecieCycleList.Count > 0)
             {
                 lReturn += this.SpecieList.Max(sp => sp.SpecieId);
             }

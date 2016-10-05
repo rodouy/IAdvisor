@@ -1826,7 +1826,7 @@ namespace IrrigationAdvisor.Models.Management
         public long GetNewEvapotranspirationCropListId()
         {
             long lReturn = 1;
-            if (this.EvapotranspirationCropList != null)
+            if (this.EvapotranspirationCropList != null && this.EvapotranspirationCropList.Count > 0)
             {
                 lReturn += this.EvapotranspirationCropList.Max(ec => ec.WaterOutputId);
             }
@@ -1840,7 +1840,7 @@ namespace IrrigationAdvisor.Models.Management
         public long GetNewIrrigationListId()
         {
             long lReturn = 1;
-            if(this.IrrigationList != null)
+            if (this.IrrigationList != null && this.IrrigationList.Count > 0)
             {
                 lReturn += this.IrrigationList.Max(ir => ir.WaterInputId);
             }
@@ -1854,7 +1854,7 @@ namespace IrrigationAdvisor.Models.Management
         public long GetNewRainListId()
         {
             long lReturn = 1;
-            if (this.RainList != null)
+            if (this.RainList != null && this.RainList.Count > 0)
             {
                 lReturn += this.RainList.Max(ir => ir.WaterInputId);
             }
@@ -1868,7 +1868,7 @@ namespace IrrigationAdvisor.Models.Management
         public long GetNewPhenologicalStageAdjustmentListId()
         {
             long lReturn = 1;
-            if (this.PhenologicalStageAdjustmentList != null)
+            if (this.PhenologicalStageAdjustmentList != null && this.PhenologicalStageAdjustmentList.Count > 0)
             {
                 lReturn += this.PhenologicalStageAdjustmentList.Max(psa => psa.PhenologicalStageAdjustmentId);
             }
@@ -1882,7 +1882,7 @@ namespace IrrigationAdvisor.Models.Management
         public long GetNewDailyRecordListId()
         {
             long lReturn = 1;
-            if (this.DailyRecordList != null)
+            if (this.DailyRecordList != null && this.DailyRecordList.Count > 0)
             {
                 lReturn += this.DailyRecordList.Max(dr => dr.DailyRecordId);
             }

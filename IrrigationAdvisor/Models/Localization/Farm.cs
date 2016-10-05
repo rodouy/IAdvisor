@@ -239,7 +239,7 @@ namespace IrrigationAdvisor.Models.Localization
         public long GetNewBombListId()
         {
             long lReturn = 1;
-            if (this.BombList != null)
+            if (this.BombList != null && this.BombList.Count > 0)
             {
                 lReturn += this.BombList.Max(bo => bo.BombId);
             }
@@ -296,7 +296,7 @@ namespace IrrigationAdvisor.Models.Localization
         public long GetNewSoilListId()
         {
             long lReturn = 1;
-            if (this.SoilList != null)
+            if (this.SoilList != null && this.SoilList.Count > 0)
             {
                 lReturn += this.SoilList.Max(so => so.SoilId);
             }
@@ -385,7 +385,7 @@ namespace IrrigationAdvisor.Models.Localization
         public long GetNewIrrigationUnitListId()
         {
             long lReturn = 1;
-            if (this.IrrigationUnitList != null)
+            if (this.IrrigationUnitList != null && this.IrrigationUnitList.Count > 0)
             {
                 lReturn += this.IrrigationUnitList.Max(iu => iu.IrrigationUnitId);
             }
@@ -494,7 +494,7 @@ namespace IrrigationAdvisor.Models.Localization
         public long GetNewUserFarmListId()
         {
             long lReturn = 1;
-            if (this.UserFarmList != null)
+            if (this.UserFarmList != null && this.UserFarmList.Count > 0)
             {
                 lReturn += this.UserFarmList.Max(uf => uf.UserFarmId);
             }

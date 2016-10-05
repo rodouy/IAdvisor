@@ -304,7 +304,7 @@ namespace IrrigationAdvisor.Models.Weather
         public long GetNewWeatherDataListId()
         {
             long lReturn = 1;
-            if (this.WeatherDataList != null)
+            if (this.WeatherDataList != null && this.WeatherDataList.Count > 0)
             {
                 lReturn += this.WeatherDataList.Max(wd => wd.WeatherDataId);
             }

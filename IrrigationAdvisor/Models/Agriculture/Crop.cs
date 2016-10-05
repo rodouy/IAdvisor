@@ -316,7 +316,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         public long GetNewStageListId()
         {
             long lReturn = 1;
-            if (this.StageList != null)
+            if (this.StageList != null && this.StageList.Count > 0)
             {
                 lReturn += this.StageList.Max(st => st.StageId);
             }
@@ -463,7 +463,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         public long GetNewPhenologicalStageListId()
         {
             long lReturn = 1;
-            if (this.PhenologicalStageList != null)
+            if (this.PhenologicalStageList != null && this.PhenologicalStageList.Count > 0)
             {
                 lReturn += this.PhenologicalStageList.Max(ps => ps.PhenologicalStageId);
             }
