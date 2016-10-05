@@ -298,6 +298,20 @@ namespace IrrigationAdvisor.Models.Weather
         #region Public Methods
 
         /// <summary>
+        /// New ID for WeatherDataList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewWeatherDataListId()
+        {
+            long lReturn = 1;
+            if (this.WeatherDataList != null)
+            {
+                lReturn += this.WeatherDataList.Max(wd => wd.WeatherDataId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
         /// Find a WeatherData with the same Year, Month, Day and Hour as Parameter
         /// </summary>
         /// <param name="pDate"></param>
@@ -371,7 +385,7 @@ namespace IrrigationAdvisor.Models.Weather
 
             try
             {
-                lWeatherDataId = this.WeatherDataList.Count();
+                lWeatherDataId = this.GetNewWeatherDataListId();
                 lWeatherDataType = this.WeatherDataType;
                 
                 lWeatherData = new WeatherData(lWeatherDataId, this.WeatherStationId, pDateTime, 
@@ -426,7 +440,8 @@ namespace IrrigationAdvisor.Models.Weather
             try
             {
                 lWeatherDataType = this.WeatherDataType;
-                lWeatherData = new WeatherData(0, this.WeatherStationId, pDateTime, pTemperature,
+                lWeatherData = new WeatherData(this.GetNewWeatherDataListId(), this.WeatherStationId, 
+                                                pDateTime, pTemperature,
                                                 pTemperatureMax, pTemperatureMin, pSolarRadiation,
                                                 pEvapotranspiration, lWeatherDataType);
 

@@ -426,6 +426,20 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Public Methods
 
         /// <summary>
+        /// New ID for FileTitles, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewFileTitlesId()
+        {
+            long lReturn = 1;
+            if (this.FileTitles != null)
+            {
+                lReturn += this.FileTitles.Max(ft => ft.TitleId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
         /// Add all Title
         /// 
         /// PreCondition 
@@ -444,7 +458,7 @@ namespace IrrigationAdvisor.Models.Utilities
                     this.FileTitles = new List<Title>();
                     foreach (var item in pData)
                     {
-                        this.FileTitles.Add(new Title(this.FileTitles.Count, 
+                        this.FileTitles.Add(new Title(this.GetNewFileTitlesId(), 
                             pCropIrrigationWeatherId, pDaily, item));
                     }
                     this.TotalTitles = this.FileTitles.Count();
@@ -459,7 +473,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public void AddTitle(String pData, long pCropIrrigationWeatherId,
                                 bool pDaily)
         {
-            long lTitleId = this.FileTitles.Count();
+            long lTitleId = this.GetNewFileTitlesId();
             if (!String.IsNullOrEmpty(pData))
             {
                 this.FileTitles.Add(new Title(lTitleId, 
