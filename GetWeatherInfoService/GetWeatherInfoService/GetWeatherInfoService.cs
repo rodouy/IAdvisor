@@ -70,12 +70,12 @@ namespace GetWeatherInfoService
                     emailLog.Add("\n");
                     try
                     {
-                        
+
                         string weatherStationDescription = string.Format(" {0} {1} \n", weatherStation.Name, weatherStation.WebAddress);
                         emailLog.Add(LogFormat("WeatherStation:", weatherStationDescription));
 
                         List<string> temperatureValues = GetWeatherLinkValues(weatherStation.WebAddress, OUTSIDE_TEMP);
-                        
+
                         double maxTemperature = GetDoubleValue(temperatureValues.ElementAt(2), CELSIUS);
                         double minTemperature = GetDoubleValue(temperatureValues.ElementAt(4), CELSIUS);
 
@@ -169,17 +169,17 @@ namespace GetWeatherInfoService
                             uvRadiation = GetDoubleValue(uvRadiationValues.ElementAt(2), INDEX);
                         }
 
-               
+
                         // Search if the station exists
-                        WeatherData existingWeatherData = context.WeatherDatas.Where(w => w.WeatherStationId == weatherStation.WeatherStationId && 
-                                                                                     w.Date.Year == DateTime.Now.Year 
+                        WeatherData existingWeatherData = context.WeatherDatas.Where(w => w.WeatherStationId == weatherStation.WeatherStationId &&
+                                                                                     w.Date.Year == DateTime.Now.Year
                                                                                      && w.Date.Month == DateTime.Now.Month
                                                                                      && w.Date.Day == DateTime.Now.Day).FirstOrDefault();
 
                         string observations = GetCurrentCoditions(weatherStation.WebAddress);
-                        
+
                         DateTime currentConditionsAsDate = ConvertCurrentConditionsToDateTime(observations);
-                       
+
                         // If there is not a record for the day . It create a new record.
                         if (existingWeatherData == null)
                         {
@@ -229,9 +229,9 @@ namespace GetWeatherInfoService
                             emailLog.Add(LogFormat("UvRadiation", uvRadiation));
                             emailLog.Add(LogFormat("Last-Update:", observations));
                             emailLog.Add("════════════Fin═══════════════\n\n");
-                            
+
                         }
-                        else if(existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate)
+                        else if (existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate)
                         {
                             existingWeatherData.Date = DateTime.Now;
 
@@ -319,11 +319,20 @@ namespace GetWeatherInfoService
 
                             existingWeatherData.Observations = observations;
                             emailLog.Add(LogFormat("Last-Update:", observations));
-                            emailLog.Add("════════════Fin═══════════════\n\n");                            
+                            emailLog.Add("════════════Fin═══════════════\n\n");
                         }
 
                         CheckAndUpdateUpdateTimeFromWeatherStations(weatherStation, observations);
 
+                    }
+                    catch (FormatException ex)
+                    {
+                        logger.Warn(ex, ex.Message);
+                        emailLog.Add("\n");
+                        errorUrls.Add(weatherStation.WebAddress);
+                        emailLog.Add("Error en la carga \n");
+                        emailLog.Add(ex.Message + "\n");
+                        continue;
                     }
                     catch (Exception ex)
                     {
