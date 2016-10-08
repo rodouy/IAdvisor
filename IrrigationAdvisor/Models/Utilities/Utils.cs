@@ -526,7 +526,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameWeatherStationMariaElena = "Maria Elena";
         public static String NameWeatherStationElRetiro = "El Retiro";
         public static String NameWeatherStationZanjaHonda = "Zanja Honda";
-        
+        public static String NameWeatherStationEstacionVieja = "Estación Vieja";
+        public static String NameWeatherStationSanFernando = "San Fernando";
+        public static String NameWeatherStationLosOlivos = "Los Olivos";
+        public static String NameWeatherStationViveroSanFrancisco = "Vivero San Francisco";
         public static String NameWeatherStation = "";
         #endregion
         #region Agriculture
@@ -803,7 +806,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionWeatherStationMariaElena = NameWeatherStationMariaElena;
         public static String NamePositionWeatherStationElRetiro = NameWeatherStationElRetiro;
         public static String NamePositionWeatherStationZanjaHonda = NameWeatherStationZanjaHonda;
-        
+        public static String NamePositionWeatherStationEstacionVieja = NameWeatherStationEstacionVieja;
+        public static String NamePositionWeatherStationSanFernando = NameWeatherStationSanFernando;
+        public static String NamePositionWeatherStationLosOlivos = NameWeatherStationLosOlivos;
+        public static String NamePositionWeatherStationViveroSanFrancisco = NameWeatherStationViveroSanFrancisco;
         public static String NamePositionWeatherStation = NameWeatherStation;
         #endregion
         #region PositionsPivots

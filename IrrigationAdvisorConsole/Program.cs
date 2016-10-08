@@ -978,6 +978,34 @@ namespace IrrigationAdvisorConsole
                 Longitude = -57.74471,
             };
 
+            var lEstacionVieja = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationEstacionVieja,
+                Latitude = -33.59095,
+                Longitude = -58.291256
+            };
+
+            var lSanFernando = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationSanFernando,
+                 Latitude = -33.436107,
+                 Longitude = -58.235706
+            };
+
+            var lLosOlivos = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationLosOlivos,
+                Latitude = -33.77432,
+                Longitude = -57.074937
+            };
+
+            var lViveroSanFrancisco = new Position()
+            {
+                Name = Utils.NamePositionWeatherStationViveroSanFrancisco,
+                Latitude = -32.248916,
+                Longitude = -58.087099
+            };
+
             #endregion
 
             #region Pivots Demo1 - La Perdiz
@@ -1258,6 +1286,10 @@ namespace IrrigationAdvisorConsole
                 context.Positions.Add(lMariaElenaWS);
                 context.Positions.Add(lElRetiroWS);
                 context.Positions.Add(lZanjaHondaWS);
+                context.Positions.Add(lEstacionVieja);
+                context.Positions.Add(lSanFernando);
+                context.Positions.Add(lLosOlivos);
+                context.Positions.Add(lViveroSanFrancisco);
                 //Pivots
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1900,6 +1932,95 @@ namespace IrrigationAdvisorConsole
                 };
                 #endregion
 
+                #region Estacion vieja
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationEstacionVieja
+                             select pos).FirstOrDefault();
+
+                var lEstacionVieja = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationEstacionVieja,
+                    Model = "Estación vieja",
+                    StationType = Utils.WeatherStationType.WeatherLink,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/eavieja/index.php?view=summary&headers=1&type=1",
+                };
+                #endregion
+
+                #region San Fernando
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationSanFernando
+                             select pos).FirstOrDefault();
+
+                var lSanFernando = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationSanFernando,
+                    Model = "San Fernando",
+                    StationType = Utils.WeatherStationType.WeatherLink,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/sanfernando/index.php?view=summary&headers=1&type=1",
+                };
+
+                #endregion
+
+                #region Los Olivos
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationLosOlivos
+                             select pos).FirstOrDefault();
+
+                var lLosOlivos = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationLosOlivos,
+                    Model = "Los Olivos",
+                    StationType = Utils.WeatherStationType.WeatherLink,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/losolivos/index.php?view=summary&headers=1&type=1",
+                };
+                #endregion
+
+                #region Vivero San Francisco
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionWeatherStationViveroSanFrancisco
+                             select pos).FirstOrDefault();
+
+                var lSanFrancisco = new WeatherStation
+                {
+                    Name = Utils.NameWeatherStationViveroSanFrancisco,
+                    Model = "Vivero San Francisco",
+                    StationType = Utils.WeatherStationType.WeatherLink,
+                    DateOfInstallation = Utils.MIN_DATETIME,
+                    DateOfService = Utils.MAX_DATETIME,
+                    UpdateTime = DateTime.Now,
+                    WirelessTransmission = 0,
+                    PositionId = lPosition.PositionId,
+                    GiveET = true,
+                    WeatherDataList = null,
+                    WeatherDataType = Utils.WeatherDataType.AllData,
+                    WebAddress = "http://www.weatherlink.com/user/sanfrancisco/index.php?view=summary&headers=1&type=1",
+                };
+                #endregion
+
                 //context.WeatherStations.Add(lBase);
                 context.WeatherStations.Add(lLaTribuWS);
                 context.WeatherStations.Add(lElCureWS);
@@ -1907,6 +2028,10 @@ namespace IrrigationAdvisorConsole
                 context.WeatherStations.Add(lMariaElenaWS);
                 context.WeatherStations.Add(lElRetiroWS);
                 context.WeatherStations.Add(lZanjaHondaWS);
+                context.WeatherStations.Add(lEstacionVieja);
+                context.WeatherStations.Add(lSanFernando);
+                context.WeatherStations.Add(lLosOlivos);
+                context.WeatherStations.Add(lSanFrancisco);
                 context.SaveChanges();
             };
         }
