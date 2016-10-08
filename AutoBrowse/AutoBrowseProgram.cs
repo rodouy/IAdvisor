@@ -1,6 +1,7 @@
 ﻿using NLog;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -19,7 +20,14 @@ namespace AutoBrowse
             {
                 string url = args[0];
                 WebClient wc = new WebClient();
-                byte[] raw = wc.DownloadData(url);
+
+                NameValueCollection values = new NameValueCollection()
+                {
+                    { "pUserName" , "Admin"},
+                    { "pPassword" , "Irrigation4dvis0r" }
+                };
+
+                byte[] raw = wc.UploadValues(url, values);
                 //Get the html text from the web.
                 string webData = Encoding.UTF8.GetString(raw);
 
