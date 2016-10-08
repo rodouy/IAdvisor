@@ -181,7 +181,7 @@ namespace IrrigationAdvisor.Models.Utilities
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 throw;
             }
         }
@@ -213,9 +213,8 @@ namespace IrrigationAdvisor.Models.Utilities
                 }
                 catch (Exception ex)
                 {
-                    logger.Error(ex, ex.Message);
+                    logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                     Console.WriteLine("Exception in TextFileLogger.ReadLogFile " + ex.Message);
-                    //TODO manage and log the exception WriteFileTest
                     throw ;
                 }
             }

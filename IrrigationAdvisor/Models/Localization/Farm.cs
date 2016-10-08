@@ -233,6 +233,20 @@ namespace IrrigationAdvisor.Models.Localization
         #region Bomb
 
         /// <summary>
+        /// New ID for BombList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewBombListId()
+        {
+            long lReturn = 1;
+            if (this.BombList != null && this.BombList.Count > 0)
+            {
+                lReturn += this.BombList.Max(bo => bo.BombId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
         /// Return if the Bomb exists in Farm Bomb List,
         /// else null
         /// </summary>
@@ -276,6 +290,20 @@ namespace IrrigationAdvisor.Models.Localization
         #region Soil
 
         /// <summary>
+        /// New ID for SoilList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewSoilListId()
+        {
+            long lReturn = 1;
+            if (this.SoilList != null && this.SoilList.Count > 0)
+            {
+                lReturn += this.SoilList.Max(so => so.SoilId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
         /// Return if the Soil exists in Farm Soil List,
         /// else null
         /// </summary>
@@ -309,7 +337,7 @@ namespace IrrigationAdvisor.Models.Localization
                             DateTime pTestDate, double pDepthLimit)
         {
             Soil lReturn = null;
-            long lIdSoil = this.SoilList.Count();
+            long lIdSoil = this.GetNewSoilListId();
             Soil lSoil = new Soil(lIdSoil, pName, pDescription, pPositionId, pTestDate, pDepthLimit);
             if(ExistSoil(lSoil) == null)
             {
@@ -333,7 +361,7 @@ namespace IrrigationAdvisor.Models.Localization
                             DateTime pTestDate, double pDepthLimit)
         {
             Soil lReturn = null;
-            Soil lSoil = new Soil(0, pName, pDescription, pPositionId, pTestDate, pDepthLimit);
+            Soil lSoil = new Soil(this.GetNewSoilListId(), pName, pDescription, pPositionId, pTestDate, pDepthLimit);
             lReturn = ExistSoil(lSoil);
             if(lReturn != null)
             {
@@ -349,6 +377,20 @@ namespace IrrigationAdvisor.Models.Localization
         #endregion
 
         #region IrrigationUnit
+
+        /// <summary>
+        /// New ID for IrrigationUnitList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewIrrigationUnitListId()
+        {
+            long lReturn = 1;
+            if (this.IrrigationUnitList != null && this.IrrigationUnitList.Count > 0)
+            {
+                lReturn += this.IrrigationUnitList.Max(iu => iu.IrrigationUnitId);
+            }
+            return lReturn;
+        }
 
         /// <summary>
         /// Return if the IrrigationUnit exists in Farm IrrigationUnit List,
@@ -389,7 +431,7 @@ namespace IrrigationAdvisor.Models.Localization
                                     double pSurface, long pBombId, long pPositionId, Double pPredeterminatedIrrigationQuantity)
         {
             IrrigationUnit lReturn = null;
-            long lIdIrrigationUnit = this.IrrigationUnitList.Count();
+            long lIdIrrigationUnit = this.GetNewIrrigationUnitListId();
             IrrigationUnit lIrrigationUnit = new IrrigationUnit(lIdIrrigationUnit, pName,
                                             pShortName, pIrrigationType, pIrrigationEfficiency,
                                             pIrrigationList, pSurface, pBombId, pPositionId,
@@ -421,7 +463,7 @@ namespace IrrigationAdvisor.Models.Localization
                                     double pSurface, long pBombId, long pPositionId, Double pPredeterminatedIrrigationQuantity)
         {
             IrrigationUnit lReturn = null;
-            IrrigationUnit lIrrigationUnit = new IrrigationUnit(0, pName, pShortName,
+            IrrigationUnit lIrrigationUnit = new IrrigationUnit(this.GetNewIrrigationUnitListId(), pName, pShortName,
                                             pIrrigationType, pIrrigationEfficiency,
                                             pIrrigationList, pSurface, pBombId, pPositionId, 
                                             pPredeterminatedIrrigationQuantity);
@@ -444,6 +486,20 @@ namespace IrrigationAdvisor.Models.Localization
         #endregion
 
         #region User
+
+        /// <summary>
+        /// New ID for UserFarmList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewUserFarmListId()
+        {
+            long lReturn = 1;
+            if (this.UserFarmList != null && this.UserFarmList.Count > 0)
+            {
+                lReturn += this.UserFarmList.Max(uf => uf.UserFarmId);
+            }
+            return lReturn;
+        }
 
         /// <summary>
         /// Return if the User exists in UserFarm List,
@@ -502,7 +558,7 @@ namespace IrrigationAdvisor.Models.Localization
                             String pEmail, long pRoleId, String pUserName, String pPassword)
         {
             UserFarm lReturn = null;
-            long lUserFarmId = this.UserFarmList.Count();
+            long lUserFarmId = this.GetNewUserFarmListId();
             User lUser = new User(pUserId, pName, pSurname, pPhone, 
                                     pAddress, pEmail, pRoleId, 
                                     pUserName, pPassword);
@@ -550,7 +606,7 @@ namespace IrrigationAdvisor.Models.Localization
                         String pName, DateTime pStartDate)
         {
             UserFarm lReturn = null;
-            long lUserFarmId = this.UserFarmList.Count();
+            long lUserFarmId = this.GetNewUserFarmListId();
             String lUserFarmName = pUser.Name + pFarm.Name;
             UserFarm lUserFarm = new UserFarm(lUserFarmId, pUser, pFarm,
                                 lUserFarmName, DateTime.Now);
@@ -575,7 +631,7 @@ namespace IrrigationAdvisor.Models.Localization
                         String pName, DateTime pStartDate)
         {
             UserFarm lReturn = null;
-            UserFarm lUserFarm = new UserFarm(0, pUser, pFarm, pName, pStartDate);
+            UserFarm lUserFarm = new UserFarm(this.GetNewUserFarmListId(), pUser, pFarm, pName, pStartDate);
             lReturn = ExistUserFarm(lUserFarm);
             if (lReturn != null)
             {

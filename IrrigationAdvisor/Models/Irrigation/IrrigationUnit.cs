@@ -198,11 +198,11 @@ namespace IrrigationAdvisor.Models.Irrigation
                 this.IrrigationList.Add(lPair);
                 lReturn = true;
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                logger.Error(e, e.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 lReturn = false;
-                Console.WriteLine("Error in IrrigationUnit.addIrrigation " + e.Message);
+                Console.WriteLine("Error in IrrigationUnit.addIrrigation " + ex.Message);
             }
             return lReturn;
         }
@@ -273,10 +273,10 @@ namespace IrrigationAdvisor.Models.Irrigation
                     lReturn = pCrop;
                 }
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                logger.Error(e, e.Message);
-                Console.WriteLine("Error in IrrigationUnit.addCrop " + e.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Error in IrrigationUnit.addCrop " + ex.Message);
             }
             return lReturn;
         }

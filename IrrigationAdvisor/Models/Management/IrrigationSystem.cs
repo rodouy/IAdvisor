@@ -480,7 +480,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 throw;
             }
             return lReturn;
@@ -2060,9 +2060,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.InicializeCropIrrigationWeather " + ex.Message);
-                //TODO manage and log the exception
                 throw ;
             }
             return lReturn;
@@ -2120,9 +2119,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.addDailyRecordToList " + ex.Message);
-                //TODO manage and log the exception
                 throw ;
             }
             return lReturn;
@@ -2248,9 +2246,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.AddWeatherDataToList " + ex.Message);
-                //TODO manage and log the exception
                 throw ;
             }
             
@@ -2431,9 +2428,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.AddOrUpdateIrrigationDataToList " + ex.Message);
-                //TODO manage and log the exception
                 throw ;
             }
 
@@ -2472,9 +2468,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.AddRainDataToList " + ex.Message);
-                //TODO manage and log the exception AddRainDataToList
                 throw ;
             }
 

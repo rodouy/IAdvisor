@@ -1369,29 +1369,35 @@ namespace IrrigationAdvisor.Models.Management
         /// Use both ways to calculate: by available water and by acumulated evapotranspirationCrop
         /// </summary>
         /// <returns></returns>
-        private Pair<Double, Utils.WaterInputType> HowMuchToIrrigate()
+        private Pair<Double, Utils.WaterInputType> HowMuchToIrrigate(DateTime pDateTime)
         {
             Pair<Double, Utils.WaterInputType> lReturn;
             bool lIrrigationByEvapotranspiration;
             bool lIrrigationByHydricBalance;
             Double lPercentageAvailableWater;
+            Water.Irrigation lHaveIrrigation = null;
 
             lReturn = new Pair<Double, Utils.WaterInputType>();
             lIrrigationByEvapotranspiration = this.IrrigateByEvapotranspiration();
             lIrrigationByHydricBalance = this.IrrigateByHydricBalance();
             lPercentageAvailableWater = this.GetPercentageOfAvailableWaterTakingIntoAccointPermanentWiltingPoint();
 
-            //If we need to irrigate by Evapotranspiraton, then Available water has to be lower than 60% 
-            if (lIrrigationByEvapotranspiration 
-                && lPercentageAvailableWater < InitialTables.PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE)
+            //Get the irrigation for the day
+            lHaveIrrigation = this.GetIrrigation(pDateTime);
+            if (lHaveIrrigation == null || lHaveIrrigation.ExtraInput == 0)
             {
-                lReturn.First = this.PredeterminatedIrrigationQuantity;
-                lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
-            }
-            else if (lIrrigationByHydricBalance)
-            {
-                lReturn.First = this.PredeterminatedIrrigationQuantity;
-                lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
+                //If we need to irrigate by Evapotranspiraton, then Available water has to be lower than 60% 
+                if (lIrrigationByEvapotranspiration
+                    && lPercentageAvailableWater < InitialTables.PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE)
+                {
+                    lReturn.First = this.PredeterminatedIrrigationQuantity;
+                    lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
+                }
+                else if (lIrrigationByHydricBalance)
+                {
+                    lReturn.First = this.PredeterminatedIrrigationQuantity;
+                    lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
+                }
             }
 
             return lReturn;
@@ -1530,10 +1536,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.addCropIrrigWeatherToList " + ex.Message);
                 throw ;
-                //TODO manage and log the exception
             }
             
         }
@@ -1595,10 +1600,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.CalculateDegreeStageDifference " + ex.Message);
                 throw ;
-                //TODO manage and log the exception
             }
             return lReturn;
         }
@@ -1819,6 +1823,137 @@ namespace IrrigationAdvisor.Models.Management
 
         #region Public Methods
 
+        #region Lists MaxIds
+
+        /// <summary>
+        /// New ID for EvapotranspirationCropList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewEvapotranspirationCropListId()
+        {
+            long lReturn = 1;
+            if (this.EvapotranspirationCropList != null && this.EvapotranspirationCropList.Count > 0)
+            {
+                lReturn += this.EvapotranspirationCropList.Max(ec => ec.WaterOutputId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// New ID for IrrigationList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewIrrigationListId()
+        {
+            long lReturn = 1;
+            if (this.IrrigationList != null && this.IrrigationList.Count > 0)
+            {
+                lReturn += this.IrrigationList.Max(ir => ir.WaterInputId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// New ID for RainList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewRainListId()
+        {
+            long lReturn = 1;
+            if (this.RainList != null && this.RainList.Count > 0)
+            {
+                lReturn += this.RainList.Max(ir => ir.WaterInputId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// New ID for PhenologicalStageAdjustmentList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewPhenologicalStageAdjustmentListId()
+        {
+            long lReturn = 1;
+            if (this.PhenologicalStageAdjustmentList != null && this.PhenologicalStageAdjustmentList.Count > 0)
+            {
+                lReturn += this.PhenologicalStageAdjustmentList.Max(psa => psa.PhenologicalStageAdjustmentId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// New ID for DailyRecordList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewDailyRecordListId()
+        {
+            long lReturn = 1;
+            if (this.DailyRecordList != null && this.DailyRecordList.Count > 0)
+            {
+                lReturn += this.DailyRecordList.Max(dr => dr.DailyRecordId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// New ID for Titles, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewTitlesId()
+        {
+            long lReturn = 1;
+            if (this.Titles != null)
+            {
+                lReturn += this.Titles.Max(ti => ti.TitleId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// New ID for Messages, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewMessagesId()
+        {
+            long lReturn = 1;
+            if (this.Messages != null)
+            {
+                lReturn += this.Messages.Max(me => me.MessageId);
+            }
+            return lReturn;
+        }
+
+
+        /// <summary>
+        /// New ID for TitlesDaily, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewTitlesDailyId()
+        {
+            long lReturn = 1;
+            if (this.TitlesDaily != null)
+            {
+                lReturn += this.TitlesDaily.Max(td => td.TitleId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// New ID for MessagesDaily, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewMessagesDailyId()
+        {
+            long lReturn = 1;
+            if (this.MessagesDaily != null)
+            {
+                lReturn += this.MessagesDaily.Max(md => md.MessageId);
+            }
+            return lReturn;
+        }
+
+        #endregion
+
         #region Calculus Methods
 
         /// <summary>
@@ -1890,7 +2025,7 @@ namespace IrrigationAdvisor.Models.Management
             Utils.WaterInputType lTypeOfIrrigation;
             bool lIsExtraIrrigation;
 
-            lNeedForIrrigationPair = this.HowMuchToIrrigate();
+            lNeedForIrrigationPair = this.HowMuchToIrrigate(pDateTime);
             lQuantityOfWaterToIrrigate = lNeedForIrrigationPair.First;
             lTypeOfIrrigation = lNeedForIrrigationPair.Second;
             lIsExtraIrrigation = false;
@@ -1956,7 +2091,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine(ex.Message, ex);
                 throw;
             }
@@ -1976,7 +2111,7 @@ namespace IrrigationAdvisor.Models.Management
             Utils.WaterInputType lTypeOfIrrigation;
             bool lIsExtraIrrigation;
 
-            lNeedForIrrigationPair = this.HowMuchToIrrigate();
+            lNeedForIrrigationPair = this.HowMuchToIrrigate(pDateTime);
             lQuantityOfWaterToIrrigate = lNeedForIrrigationPair.First;
             lTypeOfIrrigation = lNeedForIrrigationPair.Second;
             lIsExtraIrrigation = false;
@@ -2055,9 +2190,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine(ex.Message, ex);
-                throw;
+                throw ex;
             }
         }
 
@@ -2535,6 +2670,10 @@ namespace IrrigationAdvisor.Models.Management
             return lReturn;
         }
 
+        #endregion
+
+        #region Weather
+
         /// <summary>
         /// Add or Update the Irrigation Data to List
         /// </summary
@@ -2546,16 +2685,19 @@ namespace IrrigationAdvisor.Models.Management
                                                     bool pIsExtraIrrigation)
         {
             Water.Irrigation lNewIrrigation = null;
+            Water.Irrigation lNewIrrigationNextDate = null;
+            DailyRecord lDailyRecordIrrigationNextDate = null;
 
             try
             {
                 lNewIrrigation = this.GetIrrigation(pIrrigationDate);
+                lNewIrrigationNextDate = this.GetIrrigation(pIrrigationDate.AddDays(1));
                 //If there is not a registry then it is created 
-                //If there is an Irrigation Registry it is actualized 
-                if (lNewIrrigation == null)
+
+                if (lNewIrrigation == null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First > 0)
                 {
                     lNewIrrigation = new Water.Irrigation();
-                    lNewIrrigation.WaterInputId = this.IrrigationList.Count();
+                    lNewIrrigation.WaterInputId = this.GetNewIrrigationListId();
                     lNewIrrigation.Date = pIrrigationDate;
                     if (pIsExtraIrrigation)
                     {
@@ -2571,36 +2713,74 @@ namespace IrrigationAdvisor.Models.Management
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                     this.IrrigationList.Add(lNewIrrigation);
                 }
-                else
+                //If there is an Irrigation Registry and new Irrigation Input is 0, Input goes for tomorrow
+                else if (lNewIrrigation != null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First == 0)
                 {
-                    if (pIsExtraIrrigation)
+                    //If quentity of water is 0, the user want to move the irrigation on day
+                    if (lNewIrrigationNextDate != null)
                     {
-                        lNewIrrigation.ExtraInput += pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
-                        lNewIrrigation.ExtraDate = pIrrigationDate;
+                        lNewIrrigationNextDate.ExtraInput += lNewIrrigation.Input;
+                        lNewIrrigationNextDate.ExtraDate = pIrrigationDate.AddDays(1);
+                        lNewIrrigationNextDate.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                     }
                     else
                     {
+                        //insert the new irrigation in extra irrigation, not to delete the irrigation in the add daily record method.
+                        lNewIrrigationNextDate = new Water.Irrigation();
+                        lNewIrrigationNextDate.WaterInputId = this.GetNewIrrigationListId();
+                        lNewIrrigationNextDate.ExtraDate = pIrrigationDate.AddDays(1);
+                        lNewIrrigationNextDate.ExtraInput = lNewIrrigation.Input;
+                        lNewIrrigationNextDate.Type = lNewIrrigation.Type;
+                        lNewIrrigationNextDate.CropIrrigationWeatherId = this.cropIrrigationWeatherId;
+                        this.IrrigationList.Add(lNewIrrigationNextDate);
+                    }
+                    //the irrigation update to 0 for today
+                    lNewIrrigation.Input = 0;
+                    lDailyRecordIrrigationNextDate = this.DailyRecordList.Find(dr => dr.DailyRecordDateTime == lNewIrrigation.Date.AddDays(1));
+                    lDailyRecordIrrigationNextDate.IrrigationId = lNewIrrigationNextDate.WaterInputId;
+                    lDailyRecordIrrigationNextDate.Irrigation = lNewIrrigationNextDate;
+
+                }
+                //If there is an Irrigation Registry it is actualized 
+                else if (lNewIrrigation != null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First > 0)
+                {
+                    if (pIsExtraIrrigation)
+                    {
+                        //If there was an Advisor of irrigation, it will be updated to 0.
+                        lNewIrrigation.Input = 0;
+                        lNewIrrigation.Date = pIrrigationDate;
+                        lNewIrrigation.ExtraInput += pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
+                        lNewIrrigation.ExtraDate = pIrrigationDate;
+                        lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
+                    }
+                    else
+                    {
+                        //It was an Advise of Irrigation, but we are adding an Extra Irrigation,
+                        //So the irrigation to stay is the extra irrigation.
                         lNewIrrigation.Input += pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
+                        lNewIrrigation.Date = pIrrigationDate;
+                        lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                     }
                     // Override the type of lIrrigationItem. 
-                    lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                 }
+                else
+                {
+                    //Do nothing. Because there was no Irrigation and the new Irrigation is 0 
+                    //              or the quantity of water is negative.
+                    logger.Info("CropIrrigationWeather.AddOrUpdateIrrigationDataToList", "Do Nothig. \n" +
+                        "Because there was no Irrigation and the new Irrigation is 0 or the quantity of water is negative.");
+                }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                logger.Error(e, e.Message);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + e.Message);
-                //TODO manage and log the exception  CropIrrigationWeather.AddOrUpdateIrrigationDataToList
-                throw ;
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + ex.Message);
+                throw ex;
             }
 
         }
 
-
-        #endregion
-
-        #region Weather
 
         /// <summary>
         /// Return the WeatherData from the available weather station.
@@ -2676,7 +2856,7 @@ namespace IrrigationAdvisor.Models.Management
                 lNewRain = this.GetRain(pDate);
                 if (lNewRain == null)
                 {
-                    lNewRainId = this.RainList.Count();
+                    lNewRainId = this.GetNewRainListId();
                     lNewRain = new Rain();
                     lNewRain.WaterInputId = lNewRainId;
                     lNewRain.Date = pDate;
@@ -2684,18 +2864,18 @@ namespace IrrigationAdvisor.Models.Management
                     lNewRain.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                     this.RainList.Add(lNewRain);
                 }
-                else //If there is a record of Rain, it is updated adding the new rain as ExtraInput
+                else 
+                    //If there is a record of Rain, it is updated adding the new rain as ExtraInput
                 {
                     lNewRain.ExtraInput += pInput;
                     lNewRain.ExtraDate = pDate;
                     lNewRain.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                logger.Error(e, e.Message);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddRainDataToList " + e.Message);
-                //TODO manage and log the exception CropIrrigationWeather.AddRainDataToList
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Exception in CropIrrigationWeather.AddRainDataToList " + ex.Message);
                 throw ;
             }
 
@@ -2766,7 +2946,7 @@ namespace IrrigationAdvisor.Models.Management
                                                                 String pObservation)
         {
             PhenologicalStageAdjustment lReturn = null;
-            long lPhenologicalStageAdjustmentId = this.PhenologicalStageAdjustmentList.Count();
+            long lPhenologicalStageAdjustmentId = this.GetNewPhenologicalStageAdjustmentListId();
             PhenologicalStageAdjustment lPhenologicalStageAdjustment = new PhenologicalStageAdjustment(pName, pCrop.CropId,
                                                                             pDateOfChange, pStage.StageId, pPhenologicalStage.PhenologicalStageId,
                                                                             pObservation);
@@ -3011,55 +3191,45 @@ namespace IrrigationAdvisor.Models.Management
         {
             DailyRecord lReturn = null;
             DailyRecord lDailyRecordToDelete = null;
-            IEnumerable<DailyRecord> lDailyRecordOrderByDate = null;
-            int i = 0;
-            int lIndexToRemove = -1;
-            int lTotalDailyRecords = 0;
             EntityState lState;
 
             if (pDailyRecordDateTime != null)
             {
-                lDailyRecordOrderByDate = this.DailyRecordList.OrderBy(lDailyRecord => lDailyRecord.DailyRecordDateTime);
-
-                foreach (DailyRecord lDailyRecordItem in lDailyRecordOrderByDate)
-                {
-                    if (Utils.IsTheSameDay(lDailyRecordItem.DailyRecordDateTime, pDailyRecordDateTime))
-                    {
-                        lDailyRecordToDelete = lDailyRecordItem;
-                        lIndexToRemove = i;
-                        break;
-                    }
-                    i++;
-                }
+                lDailyRecordToDelete = pIrrigationAdvisorContext.DailyRecords
+                                        .Where(dr => dr.DailyRecordDateTime >= pDailyRecordDateTime &&
+                                        dr.CropIrrgationWeatherId == this.CropIrrigationWeatherId).FirstOrDefault();
             }
             //We have a unique record by day
-            if (lIndexToRemove != -1)
+            if (lDailyRecordToDelete != null)
             {
-                lTotalDailyRecords = this.DailyRecordList.Count();
-
+                
                 UpdateCropIrrigationWeatherByOneDayBeforeDailyRecordData(lDailyRecordToDelete, pIrrigationAdvisorContext);
                 lState = pIrrigationAdvisorContext.Entry(this).State;
-                pIrrigationAdvisorContext.SaveChanges();
-                foreach (DailyRecord item in this.DailyRecordList)
+
+                //Delete Database List of DATA
+                //Delete DailyRecords from database after date of record to delete.
+                pIrrigationAdvisorContext.DailyRecords.RemoveRange(pIrrigationAdvisorContext.DailyRecords
+                                        .Where(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime &&
+                                        dr.CropIrrgationWeatherId == this.CropIrrigationWeatherId));
+
+                //Delete Irrigations input from database after date of record to delete. 
+                //Extra input will not be deleted
+                foreach (Water.Irrigation lIrrigation in pIrrigationAdvisorContext.Irrigations
+                                        .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
+                                        ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId))
                 {
-                    if(item.DailyRecordId >= lIndexToRemove)
+                    if(lIrrigation.ExtraInput > 0)
                     {
-                        //Delete Database List of DATA
-                        //Delete DailyRecords from database after date of record to delete.
-                        pIrrigationAdvisorContext.DailyRecords.RemoveRange(pIrrigationAdvisorContext.DailyRecords
-                                                .Where(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime &&
-                                                dr.DailyRecordId == item.DailyRecordId));
-                        pIrrigationAdvisorContext.SaveChanges();
-                        //Delete Irrigations from database after date of record to delete.
-                        pIrrigationAdvisorContext.Irrigations.RemoveRange(pIrrigationAdvisorContext.Irrigations
-                                                .Where(ir => ir.Date > lDailyRecordToDelete.DailyRecordDateTime &&
-                                                ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId));
-                        pIrrigationAdvisorContext.SaveChanges();
-                        break;
+                        lIrrigation.Input = 0;
+                        lIrrigation.Date = lIrrigation.ExtraDate;
+                    }
+                    else
+                    {
+                        pIrrigationAdvisorContext.Irrigations.Remove(lIrrigation);
                     }
                 }
+                pIrrigationAdvisorContext.SaveChanges();
 
-                this.DailyRecordList.RemoveRange(lIndexToRemove, lTotalDailyRecords - lIndexToRemove);
             }
 
             lReturn = lDailyRecordToDelete;
@@ -3182,11 +3352,10 @@ namespace IrrigationAdvisor.Models.Management
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                logger.Error(e, e.Message);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + e.Message);
-                //TODO manage and log the exception
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + ex.Message);
                 throw ;
             }
             return lReturn;
@@ -3357,7 +3526,8 @@ namespace IrrigationAdvisor.Models.Management
                 //  this.HydricBalance, this.SoilHydricVolume,
                 //  this.TotalEvapotranspirationCropFromLastWaterInput
                 
-                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
+                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, this.CropIrrigationWeatherId,
+                                                lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
                                                 this.DaysAfterSowing, this.DaysAfterSowingModified,
                                                 lGrowingDegreeDays, this.GrowingDegreeDaysAccumulated, this.GrowingDegreeDaysModified,
                                                 lRainWaterInputId, lIrrigationWaterInputId, this.LastWaterInputDate, this.LastBigWaterInputDate,
@@ -3397,11 +3567,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + ex.Message);
                 throw ;
-                //TODO manage and log the exception
-
             }
         }
 
@@ -3566,7 +3734,8 @@ namespace IrrigationAdvisor.Models.Management
                 //  pLastPartialWaterInputDate, pLastPartialWaterInput, 
                 //  this.HydricBalance, this.SoilHydricVolume,
                 //  this.TotalEvapotranspirationCropFromLastWaterInput
-                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
+                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, this.CropIrrigationWeatherId,
+                                                lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
                                                 this.DaysAfterSowing, this.DaysAfterSowingModified,
                                                 lGrowingDegreeDays, this.GrowingDegreeDaysAccumulated, this.GrowingDegreeDaysModified,
                                                 lRainWaterInputId, lIrrigationWaterInputId, this.LastWaterInputDate, this.LastBigWaterInputDate,
@@ -3606,11 +3775,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + ex.Message);
                 throw ;
-                //TODO manage and log the exception
-
             }
         }
 
@@ -3662,11 +3829,10 @@ namespace IrrigationAdvisor.Models.Management
                     pIrrigationAdvisorContext.SaveChanges();
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                logger.Error(e, e.Message);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + e.Message);
-                //TODO manage and log the exception
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + ex.Message);
                 throw;
             }
             return lReturn;
@@ -3847,7 +4013,8 @@ namespace IrrigationAdvisor.Models.Management
                 //  this.HydricBalance, this.SoilHydricVolume,
                 //  this.TotalEvapotranspirationCropFromLastWaterInput
 
-                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
+                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, this.CropIrrigationWeatherId,
+                                                lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
                                                 this.DaysAfterSowing, this.DaysAfterSowingModified,
                                                 lGrowingDegreeDays, this.GrowingDegreeDaysAccumulated, this.GrowingDegreeDaysModified,
                                                 lRainWaterInputId, lIrrigationWaterInputId, this.LastWaterInputDate, this.LastBigWaterInputDate,
@@ -3888,11 +4055,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + ex.Message);
                 throw;
-                //TODO manage and log the exception
-
             }
         }
 
@@ -4067,7 +4232,8 @@ namespace IrrigationAdvisor.Models.Management
                 //  pLastPartialWaterInputDate, pLastPartialWaterInput, 
                 //  this.HydricBalance, this.SoilHydricVolume,
                 //  this.TotalEvapotranspirationCropFromLastWaterInput
-                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
+                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, this.CropIrrigationWeatherId,
+                                                lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
                                                 this.DaysAfterSowing, this.DaysAfterSowingModified,
                                                 lGrowingDegreeDays, this.GrowingDegreeDaysAccumulated, this.GrowingDegreeDaysModified,
                                                 lRainWaterInputId, lIrrigationWaterInputId, this.LastWaterInputDate, this.LastBigWaterInputDate,
@@ -4108,11 +4274,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + ex.Message);
                 throw;
-                //TODO manage and log the exception
-
             }
         }
 

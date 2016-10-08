@@ -62,9 +62,9 @@ namespace IrrigationAdvisorConsole
                 }
                 catch (Exception ex)
                 {
+                    logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                     logger.Log(LogLevel.Error, "Error in Program: DropCreateDatabaseAlways"
                                                 + " Message " + ex.ToString());
-                    
                     throw;
                 }
                 #endif
@@ -164,16 +164,21 @@ namespace IrrigationAdvisorConsole
                 CalculateIrrigation();
 
                 #endif
+                Console.WriteLine("Ended with successful!! Great job :)");
+                
+                Console.ReadLine();
             }
                 
             catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
             {
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("DB Update Exception ");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Initialization Failed...");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();

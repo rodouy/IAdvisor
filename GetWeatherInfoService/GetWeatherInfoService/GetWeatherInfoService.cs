@@ -336,7 +336,7 @@ namespace GetWeatherInfoService
                     }
                     catch (Exception ex)
                     {
-                        logger.Error(ex, ex.Message);
+                        logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                         emailLog.Add("\n");
                         errorUrls.Add(weatherStation.WebAddress);
                         emailLog.Add("Error en la carga \n");
@@ -361,12 +361,10 @@ namespace GetWeatherInfoService
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
-                
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 SendEmails("Error en el carga de Weather Data",
                             ex.Message + " | " + ex.StackTrace);
                 Stop();
-
             }
         }
 
@@ -440,8 +438,7 @@ namespace GetWeatherInfoService
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
-                //NLog
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
             }
 
         }

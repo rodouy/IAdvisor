@@ -5,12 +5,16 @@ using IrrigationAdvisor.Models.Management;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
+using NLog;
 
 namespace IrrigationAdvisor.Tests.Models.Utilities
 {
     [TestClass]
     public class OutputFileCSVTest
     {
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         [TestMethod]
         public void WriteFileTest()
         {
@@ -112,8 +116,8 @@ namespace IrrigationAdvisor.Tests.Models.Utilities
             }
             catch (Exception ex)
             {
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in OutputFileCSVTest.WriteFileTest " + ex.Message);
-                //TODO manage and log the exception WriteFileTest
                 throw ;
             }
             

@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using IrrigationAdvisor.DBContext.Data;
+using System.Linq.Expressions;
+using System.Collections;
 
 namespace IrrigationAdvisor.Models.Utilities
 {
@@ -1118,6 +1120,11 @@ namespace IrrigationAdvisor.Models.Utilities
             return lResult;
 
         }
+
+        #endregion
+
+        #region Lists
+
 
         /// <summary>
         /// Get Date of reference

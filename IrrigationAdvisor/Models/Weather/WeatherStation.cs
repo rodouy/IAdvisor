@@ -298,6 +298,20 @@ namespace IrrigationAdvisor.Models.Weather
         #region Public Methods
 
         /// <summary>
+        /// New ID for WeatherDataList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewWeatherDataListId()
+        {
+            long lReturn = 1;
+            if (this.WeatherDataList != null && this.WeatherDataList.Count > 0)
+            {
+                lReturn += this.WeatherDataList.Max(wd => wd.WeatherDataId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
         /// Find a WeatherData with the same Year, Month, Day and Hour as Parameter
         /// </summary>
         /// <param name="pDate"></param>
@@ -371,7 +385,7 @@ namespace IrrigationAdvisor.Models.Weather
 
             try
             {
-                lWeatherDataId = this.WeatherDataList.Count();
+                lWeatherDataId = this.GetNewWeatherDataListId();
                 lWeatherDataType = this.WeatherDataType;
                 
                 lWeatherData = new WeatherData(lWeatherDataId, this.WeatherStationId, pDateTime, 
@@ -393,9 +407,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in WeatherStation.AddWeatherData " + ex.Message);
-                //TODO manage and log the exception
                 throw ;
             }
 
@@ -427,7 +440,8 @@ namespace IrrigationAdvisor.Models.Weather
             try
             {
                 lWeatherDataType = this.WeatherDataType;
-                lWeatherData = new WeatherData(0, this.WeatherStationId, pDateTime, pTemperature,
+                lWeatherData = new WeatherData(this.GetNewWeatherDataListId(), this.WeatherStationId, 
+                                                pDateTime, pTemperature,
                                                 pTemperatureMax, pTemperatureMin, pSolarRadiation,
                                                 pEvapotranspiration, lWeatherDataType);
 
@@ -446,9 +460,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in WeatherStation.UpdateWeatherData " + ex.Message);
-                //TODO manage and log the exception
                 throw ;
             }
             return lReturn;
@@ -484,9 +497,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in WeatherStation.AddWeatherDataToList " + ex.Message);
-                //TODO manage and log the exception
                 throw ;
             }
 

@@ -310,6 +310,20 @@ namespace IrrigationAdvisor.Models.Agriculture
         #region Stage
 
         /// <summary>
+        /// New ID for StageList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewStageListId()
+        {
+            long lReturn = 1;
+            if (this.StageList != null && this.StageList.Count > 0)
+            {
+                lReturn += this.StageList.Max(st => st.StageId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
         /// Get the initial Stage for the Crop
         /// </summary>
         /// <returns></returns>
@@ -378,7 +392,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                                 int pOrder)
         {
             Stage lReturn = null;
-            long lStageId = this.StageList.Count();
+            long lStageId = this.GetNewStageListId();
             Stage lStage = new Stage(lStageId, pName, pShortName, pDescription, pOrder);
             if (ExistStage(lStage) == null)
             {
@@ -442,6 +456,19 @@ namespace IrrigationAdvisor.Models.Agriculture
         #endregion
 
         #region PhenologicalStage
+        /// <summary>
+        /// New ID for PhenologicalStageList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewPhenologicalStageListId()
+        {
+            long lReturn = 1;
+            if (this.PhenologicalStageList != null && this.PhenologicalStageList.Count > 0)
+            {
+                lReturn += this.PhenologicalStageList.Max(ps => ps.PhenologicalStageId);
+            }
+            return lReturn;
+        }
 
         /// <summary>
         /// Get the initial Phenological Stage
@@ -517,7 +544,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                                         double pRootDepth, double pHydricBalanceDepth)
         {
             PhenologicalStage lReturn = null;
-            long lPhenologicalStageId = this.PhenologicalStageList.Count();
+            long lPhenologicalStageId = this.GetNewPhenologicalStageListId();
             PhenologicalStage lPhenologicalStage = new PhenologicalStage(lPhenologicalStageId,
                                                     pSpecie, pStage, pMinDegree, pMaxDegree,
                                                     pRootDepth, pHydricBalanceDepth);

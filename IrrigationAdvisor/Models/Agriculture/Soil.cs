@@ -216,7 +216,8 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                throw;
                 
             }
             return lReturnLayerWaterSum;
@@ -289,6 +290,20 @@ namespace IrrigationAdvisor.Models.Agriculture
         #region Horizon
 
         /// <summary>
+        /// New ID for HorizonList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewHorizonListId()
+        {
+            long lReturn = 1;
+            if (this.HorizonList != null)
+            {
+                lReturn += this.HorizonList.Max(ho => ho.HorizonId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
         /// TODO add description
         /// </summary>
         /// <param name="pHorizon"></param>
@@ -327,7 +342,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                         double pNitrogenAnalysis, double pBulkDensitySoil)
         {
             Horizon lReturn = null;
-            long lIdHorizon = this.HorizonList.Count();
+            long lIdHorizon = this.GetNewHorizonListId();
             Horizon lHorizon = new Horizon(lIdHorizon, pName, pOrder,
                 pHorizonLayer, pHorizonLayerDepth, pSand, pLimo,
                 pClay, pOrganicMatter, pNitrogenAnalysis, pBulkDensitySoil);
@@ -359,7 +374,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                         double pNitrogenAnalysis, double pBulkDensitySoil)
         {
             Horizon lReturn = null;
-            long lIdHorizon = this.HorizonList.Count();
+            long lIdHorizon = this.GetNewHorizonListId();
             Horizon lHorizon = new Horizon(lIdHorizon, pName, pOrder,
                 pHorizonLayer, pHorizonLayerDepth, pSand, pLimo,
                 pClay, pOrganicMatter, pNitrogenAnalysis, pBulkDensitySoil);

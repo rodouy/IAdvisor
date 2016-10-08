@@ -1,4 +1,5 @@
 ﻿using IrrigationAdvisor.Models.Localization;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,6 +71,7 @@ namespace IrrigationAdvisor.Models.Security
         private String userName;
         private String password;
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Properties
@@ -208,8 +210,9 @@ namespace IrrigationAdvisor.Models.Security
                 lUpperFirstLetter = 
                     System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(pPhrase);
             }
-            catch (Exception)
-            {                
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 throw;
             }
             return lUpperFirstLetter;
