@@ -193,6 +193,20 @@ namespace IrrigationAdvisor.Models.Localization
         #region TemperatureDataList
 
         /// <summary>
+        /// New ID for TemperatureDataList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewTemperatureDataListId()
+        {
+            long lReturn = 1;
+            if (this.TemperatureDataList != null && this.TemperatureDataList.Count > 0)
+            {
+                lReturn += this.TemperatureDataList.Max(td => td.TemperatureDataId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
         /// If TemperatureData exists in List, return the Temperature Data, 
         /// else return null
         /// </summary>
@@ -364,6 +378,20 @@ namespace IrrigationAdvisor.Models.Localization
         #region EffectiveRainList
 
         /// <summary>
+        /// New ID for EffectiveRainList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewEffectiveRainListId()
+        {
+            long lReturn = 1;
+            if (this.EffectiveRainList != null && this.EffectiveRainList.Count > 0)
+            {
+                lReturn += this.EffectiveRainList.Max(er => er.EffectiveRainId);
+            }
+            return lReturn;
+        }
+
+        /// <summary>
         /// If EffectiveRain exists in List, return the Effective Rain, 
         /// else return null
         /// </summary>
@@ -438,7 +466,19 @@ namespace IrrigationAdvisor.Models.Localization
         #endregion
 
         #region SpecieCycleList
-
+        /// <summary>
+        /// New ID for SpecieCycleList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewSpecieCycleListId()
+        {
+            long lReturn = 1;
+            if (this.SpecieCycleList != null && this.SpecieCycleList.Count > 0)
+            {
+                lReturn += this.SpecieCycleList.Max(sc => sc.SpecieCycleId);
+            }
+            return lReturn;
+        }
         /// <summary>
         /// Return the SpecieCycle that has the same parameters, else return null.
         /// </summary>
@@ -510,7 +550,7 @@ namespace IrrigationAdvisor.Models.Localization
         public SpecieCycle AddSpecieCycle(String pName)
         {
             SpecieCycle lReturn = null;
-            long lSpecieCycleId = this.SpecieCycleList.Count;
+            long lSpecieCycleId = this.GetNewSpecieCycleListId();
             SpecieCycle lSpecieCycle = new SpecieCycle(lSpecieCycleId, pName);
             if (ExistSpecieCycle(lSpecieCycle) == null)
             {
@@ -542,6 +582,20 @@ namespace IrrigationAdvisor.Models.Localization
         #endregion
 
         #region Specie
+
+        /// <summary>
+        /// New ID for SpecieList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewSpecieListId()
+        {
+            long lReturn = 1;
+            if (this.SpecieList != null && this.SpecieCycleList.Count > 0)
+            {
+                lReturn += this.SpecieList.Max(sp => sp.SpecieId);
+            }
+            return lReturn;
+        }
 
         /// <summary>
         /// Return list of Species that contains the parameter in his name, else return null.
@@ -655,7 +709,7 @@ namespace IrrigationAdvisor.Models.Localization
                                 Utils.SpecieType pSpecieType)
         {
             Specie lReturn = null;
-            long lSpecieId = this.SpecieList.Count();
+            long lSpecieId = this.GetNewSpecieListId();
             SpecieCycle lSpecieCycle = null;
             Specie lSpecie = null;
 

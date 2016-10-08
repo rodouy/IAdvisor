@@ -1084,7 +1084,7 @@ namespace IrrigationAdvisor.Controllers
                 foreach (var lIrrigationUnit in lIrrigationUnitList)
                 {
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropMainWeatherStationRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
-                    //lDailyRecordList = ciwc.GetDailyRecordListBy(lIrrigationUnit, lDateOfReference);
+                    
                     lFirstPivotName = "";
                     foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
@@ -1221,7 +1221,7 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Rain
                 //Find Rain of the Date of Data
-                lRain = pRainList.Where(r => r.Date == lDateOfData).FirstOrDefault();
+                lRain = pRainList.Where(r => r.Date == lDateOfData || r.ExtraDate == lDateOfData).FirstOrDefault();
                 if (lRain != null && lRain.GetTotalInput() > 0)
                 {
                     lRainQuantity = lRain.GetTotalInput();

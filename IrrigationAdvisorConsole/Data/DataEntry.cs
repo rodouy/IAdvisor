@@ -8762,11 +8762,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -8955,11 +8951,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -9140,11 +9132,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -9325,11 +9313,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId);
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -9522,11 +9506,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -9716,11 +9696,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -9902,11 +9878,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -10087,11 +10059,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -10273,11 +10241,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId);
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -10470,11 +10434,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -10664,11 +10624,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -10850,11 +10806,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -11035,11 +10987,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -11220,11 +11168,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -11406,11 +11350,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId);
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -11601,11 +11541,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -11785,11 +11721,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -11969,11 +11901,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId);
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -12164,11 +12092,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -12355,11 +12279,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -12546,11 +12466,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -12737,11 +12653,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -12933,11 +12845,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -13124,11 +13032,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -13315,11 +13219,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -13506,11 +13406,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -13701,11 +13597,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -13892,11 +13784,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
@@ -14083,11 +13971,7 @@ namespace IrrigationAdvisorConsole
                                       select title.TitleId).FirstOrDefault();
                 long lTotalTitles = lCropIrrigationWeather.Titles.Count();
                 long lTitleId = lFirstTitleId;
-                long lMessageId = 0;
-                if (context.Messages.Count() > 0)
-                {
-                    lMessageId = context.Messages.Max(m => m.MessageId) + 1;
-                }
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
                 long lLineId = 0;
                 foreach (var item in lCropIrrigationWeather.Messages)
                 {
