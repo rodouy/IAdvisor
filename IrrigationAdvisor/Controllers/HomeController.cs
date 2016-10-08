@@ -22,7 +22,6 @@ using System.Net;
 using System.Net.Mail;
 using System.Web.Mvc;
 using IrrigationAdvisor.DBContext.Management;
-using IrrigationAdvisor.DBContext.Water;
 using IrrigationAdvisor.Models.Water;
 using IrrigationAdvisor.ViewModels.Management;
 using IrrigationAdvisor.ViewModels.Water;
@@ -33,7 +32,6 @@ using IrrigationAdvisor.Models.Data;
 using IrrigationAdvisor.ViewModels.Agriculture;
 using IrrigationAdvisor.ViewModels.Weather;
 using IrrigationAdvisor.Controllers.Helpers;
-using System.Threading.Tasks;
 using NLog;
 using IrrigationAdvisor.DBContext.Data;
 
