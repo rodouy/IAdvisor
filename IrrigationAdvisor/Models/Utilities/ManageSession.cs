@@ -69,13 +69,13 @@ namespace IrrigationAdvisor
             HttpContext.Current.Session["HomeViewModelModel"] = pHomeViewModel;
         }
 
-        public static void SetDateOfReference(DateTime pDateOfReference)
+        public static void SetNavigationDate(DateTime pDateOfReference)
         {
             HttpContext.Current.Session["DateOfReference"] = pDateOfReference;
         }
 
 
-        public static DateTime GetDateOfReference()
+        public static DateTime GetNavigationDate()
         {
             DateTime lResult = Utils.MAX_DATETIME;
 

@@ -165,15 +165,15 @@ namespace IrrigationAdvisor.Controllers
                 ic = new IrrigationConfiguration();
                 #endregion
 
-                if (ManageSession.GetDateOfReference() >= Utils.MAX_DATETIME)
+                if (ManageSession.GetNavigationDate() >= Utils.MAX_DATETIME)
                 {
                     //Get date of reference from the database
                     lDateOfReference = Utils.GetDateOfReference().Value;
-                    ManageSession.SetDateOfReference(lDateOfReference);
+                    ManageSession.SetNavigationDate(lDateOfReference);
                 }
                 else
                 {
-                    lDateOfReference = ManageSession.GetDateOfReference();
+                    lDateOfReference = ManageSession.GetNavigationDate();
                 }
 
                 ViewBag.DateOfReference = lDateOfReference;
@@ -425,7 +425,7 @@ namespace IrrigationAdvisor.Controllers
 
             try
             {
-                ManageSession.SetDateOfReference(newDateOfReference);
+                ManageSession.SetNavigationDate(newDateOfReference);
 
                 return Content("Ok");
             }
@@ -525,9 +525,9 @@ namespace IrrigationAdvisor.Controllers
         [HttpGet]
         public ActionResult AddDateOfReference()
         {
-            DateTime date = ManageSession.GetDateOfReference();
+            DateTime date = ManageSession.GetNavigationDate();
             date = date.AddDays(1);
-            ManageSession.SetDateOfReference(date);
+            ManageSession.SetNavigationDate(date);
             LoginViewModel lvm = ManageSession.GetLoginViewModel();
 
             return RedirectToAction("Home");
@@ -643,7 +643,7 @@ namespace IrrigationAdvisor.Controllers
 
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
-                ManageSession.SetDateOfReference(lReferenceDate);
+                ManageSession.SetNavigationDate(lReferenceDate);
             }
             catch (Exception ex)
             {
@@ -721,7 +721,7 @@ namespace IrrigationAdvisor.Controllers
 
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
-                ManageSession.SetDateOfReference(lReferenceDate);
+                ManageSession.SetNavigationDate(lReferenceDate);
             }
             catch (Exception ex)
             {
@@ -803,7 +803,7 @@ namespace IrrigationAdvisor.Controllers
 
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
-                ManageSession.SetDateOfReference(lReferenceDate);
+                ManageSession.SetNavigationDate(lReferenceDate);
             }
             catch (Exception ex)
             {
@@ -947,7 +947,7 @@ namespace IrrigationAdvisor.Controllers
                 fc = new FarmConfiguration();
                 #endregion
 
-                lDateOfReference = ManageSession.GetDateOfReference();
+                lDateOfReference = ManageSession.GetNavigationDate();
 
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
@@ -1027,7 +1027,7 @@ namespace IrrigationAdvisor.Controllers
                 ciwc = new CropIrrigationWeatherConfiguration();
                 #endregion
 
-                lDateOfReference = ManageSession.GetDateOfReference();
+                lDateOfReference = ManageSession.GetNavigationDate();
 
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
