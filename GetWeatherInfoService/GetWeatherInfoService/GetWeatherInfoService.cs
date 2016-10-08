@@ -469,14 +469,7 @@ namespace GetWeatherInfoService
 
         protected override void OnStop()
         {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                
-            }
+           
         }
 
         private static HtmlNodeCollection GetHtmlNodes(string url, string htmlTag, string className)

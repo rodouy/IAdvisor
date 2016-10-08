@@ -35,7 +35,7 @@ namespace IrrigationAdvisor.DBContext.Data
         {
             return (from s in db.Status
                     where s.Name.Equals(pName)
-                    select s).Single();
+                    select s).FirstOrDefault();
         }
 
         public bool SetStatus(DateTime pDateOfReference, string pName)
@@ -52,6 +52,27 @@ namespace IrrigationAdvisor.DBContext.Data
             {
                 logger.Error(ex, ex.Message);
                 lResult = false;
+            }
+
+            return lResult;
+        }
+
+        public DateTime? GetDateOfReference(string pStatusName)
+        {
+            DateTime? lResult = null;
+
+            try
+            {
+                Status status = GetStatus(pStatusName);
+
+                if(status != null)
+                {
+                    lResult = status.DateOfReference;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
             }
 
             return lResult;

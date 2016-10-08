@@ -11,7 +11,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-
+using IrrigationAdvisor.DBContext.Data;
 
 namespace IrrigationAdvisor.Models.Utilities
 {
@@ -1113,6 +1113,19 @@ namespace IrrigationAdvisor.Models.Utilities
 
         }
 
+        /// <summary>
+        /// Get Date of reference
+        /// </summary>
+        /// <returns></returns>
+        public static DateTime? GetDateOfReference()
+        {
+            StatusConfiguration sc = new StatusConfiguration();
+            string lStatusName = System.Configuration.ConfigurationManager.AppSettings["Status"];
+            DateTime? lDateOfReference = sc.GetDateOfReference(lStatusName);
+
+            return lDateOfReference;
+        }
+
         #endregion
 
         #region Location
@@ -1368,7 +1381,7 @@ namespace IrrigationAdvisor.Models.Utilities
                 this.dwLength = (uint)Marshal.SizeOf(typeof(MEMORYSTATUSEX));
             }
         }
-
+        
         [return: MarshalAs(UnmanagedType.Bool)]
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         static extern bool GlobalMemoryStatusEx([In, Out] MEMORYSTATUSEX lpBuffer);

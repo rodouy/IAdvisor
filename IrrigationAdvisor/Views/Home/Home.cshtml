@@ -32,7 +32,7 @@
 
 
 @{
-    DateTime dateValue = Convert.ToDateTime(ViewBag.DateOfReference);
+    DateTime dateValue = Utils.GetDateOfReference().Value;
 }
 
 <input type="hidden" value="@Utils.GetDateTimeForClientScripts(Model.MaxDateOfReference)" id="maxDateOfReference"/>
@@ -85,7 +85,7 @@
                                 @*<span class="form-control col-md-4">@(dateValue.ToShortDateString())</span>*@
                                 <input type="date" id="txtDateOfReference" class="form-control" value="@Model.DateOfReferenceAsLocal()" style="display:inline-block" />
                                 
-                                <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn" style="display:inline-block">+</a>
+                                @*<a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn" style="display:inline-block">+</a>*@
                                 <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
                                 <select class="form-control margin-bottom-10" id="lstFarms">
                                    
