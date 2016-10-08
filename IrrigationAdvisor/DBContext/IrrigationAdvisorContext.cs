@@ -48,7 +48,7 @@ namespace IrrigationAdvisor.DBContext
         public IrrigationAdvisorContext()
             :base("name=IrrigationAdvisorContext")
         {
-            this.Database.CommandTimeout = 120;
+            this.Database.CommandTimeout = 200;
         }
 
         public IrrigationAdvisorContext(string databaseName)
@@ -287,11 +287,11 @@ namespace IrrigationAdvisor.DBContext
             #region Security
             #if true
 
-            //modelBuilder.Configurations.Add(new AccessConfiguration());
-            //modelBuilder.Configurations.Add(new MenuConfiguration());
+            modelBuilder.Configurations.Add(new AccessConfiguration());
+            modelBuilder.Configurations.Add(new MenuConfiguration());
             modelBuilder.Configurations.Add(new RoleConfiguration());
-            //modelBuilder.Configurations.Add(new SiteItemConfiguration());
-            //modelBuilder.Configurations.Add(new SiteMapConfiguration());
+            modelBuilder.Configurations.Add(new SiteItemConfiguration());
+            modelBuilder.Configurations.Add(new SiteMapConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new UserFarmConfiguration());
             #endif

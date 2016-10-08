@@ -569,7 +569,12 @@ namespace IrrigationAdvisor.Controllers
 
                 Status lStatus = ManageSession.GetCurrentStatus();
                 DateTime lDateOfReference = lStatus.DateOfReference;
-                DateTime lToday = lDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION); // = System.DateTime.Now;
+                DateTime lToday = lDateOfReference;
+
+                if(lStatus.Name == "Production")
+                {
+                    lToday = System.DateTime.Now;
+                }
                 
                 lCropIrrigationWeatherList = ciwc.GetActiveCropIrrigationWeatherListBy(lDateOfReference);
 
@@ -605,9 +610,9 @@ namespace IrrigationAdvisor.Controllers
         }
 
 
-        public void test()
+        public void testCalculate()
         {
-            CalculateAllActiveCropIrrigationWeather("Demo","lluvia");
+            CalculateAllActiveCropIrrigationWeather("Demo", "lluvia");
         }
 
         [HttpPost]
@@ -1134,7 +1139,8 @@ namespace IrrigationAdvisor.Controllers
             catch (Exception ex)
             {
                 logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                throw;
+                Console.WriteLine(ex.Message, ex);
+                throw ex;
             }
 
             return lGridIrrigationUnitList;

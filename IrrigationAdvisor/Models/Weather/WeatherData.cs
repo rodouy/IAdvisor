@@ -292,15 +292,8 @@ namespace IrrigationAdvisor.Models.Weather
 
         public string Observations
         {
-            get
-            {
-                return observations;
-            }
-
-            set
-            {
-                observations = value;
-            }
+            get { return observations; }
+            set { observations = value; }
         }
 
         //[field: NonSerialized()]
@@ -337,6 +330,7 @@ namespace IrrigationAdvisor.Models.Weather
             this.EvapotranspirationMonth = 0;
             this.EvapotranspirationYear = 0;
             this.WeatherDataType = Utils.WeatherDataType.AllData;
+            this.Observations = "";
         }
 
         /// <summary>
@@ -387,6 +381,7 @@ namespace IrrigationAdvisor.Models.Weather
             this.EvapotranspirationMonth = 0;
             this.EvapotranspirationYear = 0;
             this.WeatherDataType = pWeatherDataType;
+            this.Observations = "";
         }
 
         /// <summary>
@@ -415,6 +410,7 @@ namespace IrrigationAdvisor.Models.Weather
         /// <param name="pEvapotranspirationMonth"></param>
         /// <param name="pEvapotranspirationYear"></param>
         /// <param name="pWeatherDataType"></param>
+        /// <param name="pObservations"></param>
         public WeatherData
             (
             long pWeatherDataId,
@@ -439,7 +435,8 @@ namespace IrrigationAdvisor.Models.Weather
             Double pEvapotranspiration,
             Double pEvapotranspirationMonth,
             Double pEvapotranspirationYear,
-            Utils.WeatherDataType pWeatherDataType
+            Utils.WeatherDataType pWeatherDataType,
+            String pObservations
             )
         {
             this.WeatherDataId = pWeatherDataId;
@@ -465,6 +462,7 @@ namespace IrrigationAdvisor.Models.Weather
             this.EvapotranspirationMonth = pEvapotranspirationMonth;
             this.EvapotranspirationYear = pEvapotranspirationYear;
             this.WeatherDataType = pWeatherDataType;
+            this.Observations = pObservations;
         }
 
         #endregion

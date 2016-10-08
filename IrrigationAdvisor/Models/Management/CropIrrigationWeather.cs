@@ -1369,29 +1369,35 @@ namespace IrrigationAdvisor.Models.Management
         /// Use both ways to calculate: by available water and by acumulated evapotranspirationCrop
         /// </summary>
         /// <returns></returns>
-        private Pair<Double, Utils.WaterInputType> HowMuchToIrrigate()
+        private Pair<Double, Utils.WaterInputType> HowMuchToIrrigate(DateTime pDateTime)
         {
             Pair<Double, Utils.WaterInputType> lReturn;
             bool lIrrigationByEvapotranspiration;
             bool lIrrigationByHydricBalance;
             Double lPercentageAvailableWater;
+            Water.Irrigation lHaveIrrigation = null;
 
             lReturn = new Pair<Double, Utils.WaterInputType>();
             lIrrigationByEvapotranspiration = this.IrrigateByEvapotranspiration();
             lIrrigationByHydricBalance = this.IrrigateByHydricBalance();
             lPercentageAvailableWater = this.GetPercentageOfAvailableWaterTakingIntoAccointPermanentWiltingPoint();
 
-            //If we need to irrigate by Evapotranspiraton, then Available water has to be lower than 60% 
-            if (lIrrigationByEvapotranspiration 
-                && lPercentageAvailableWater < InitialTables.PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE)
+            //Get the irrigation for the day
+            lHaveIrrigation = this.GetIrrigation(pDateTime);
+            if (lHaveIrrigation == null || lHaveIrrigation.ExtraInput == 0)
             {
-                lReturn.First = this.PredeterminatedIrrigationQuantity;
-                lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
-            }
-            else if (lIrrigationByHydricBalance)
-            {
-                lReturn.First = this.PredeterminatedIrrigationQuantity;
-                lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
+                //If we need to irrigate by Evapotranspiraton, then Available water has to be lower than 60% 
+                if (lIrrigationByEvapotranspiration
+                    && lPercentageAvailableWater < InitialTables.PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE)
+                {
+                    lReturn.First = this.PredeterminatedIrrigationQuantity;
+                    lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
+                }
+                else if (lIrrigationByHydricBalance)
+                {
+                    lReturn.First = this.PredeterminatedIrrigationQuantity;
+                    lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
+                }
             }
 
             return lReturn;
@@ -2019,7 +2025,7 @@ namespace IrrigationAdvisor.Models.Management
             Utils.WaterInputType lTypeOfIrrigation;
             bool lIsExtraIrrigation;
 
-            lNeedForIrrigationPair = this.HowMuchToIrrigate();
+            lNeedForIrrigationPair = this.HowMuchToIrrigate(pDateTime);
             lQuantityOfWaterToIrrigate = lNeedForIrrigationPair.First;
             lTypeOfIrrigation = lNeedForIrrigationPair.Second;
             lIsExtraIrrigation = false;
@@ -2105,7 +2111,7 @@ namespace IrrigationAdvisor.Models.Management
             Utils.WaterInputType lTypeOfIrrigation;
             bool lIsExtraIrrigation;
 
-            lNeedForIrrigationPair = this.HowMuchToIrrigate();
+            lNeedForIrrigationPair = this.HowMuchToIrrigate(pDateTime);
             lQuantityOfWaterToIrrigate = lNeedForIrrigationPair.First;
             lTypeOfIrrigation = lNeedForIrrigationPair.Second;
             lIsExtraIrrigation = false;
@@ -2186,7 +2192,7 @@ namespace IrrigationAdvisor.Models.Management
             {
                 logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine(ex.Message, ex);
-                throw;
+                throw ex;
             }
         }
 
@@ -2745,13 +2751,17 @@ namespace IrrigationAdvisor.Models.Management
                         lNewIrrigation.Date = pIrrigationDate;
                         lNewIrrigation.ExtraInput += pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
                         lNewIrrigation.ExtraDate = pIrrigationDate;
+                        lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                     }
                     else
                     {
+                        //It was an Advise of Irrigation, but we are adding an Extra Irrigation,
+                        //So the irrigation to stay is the extra irrigation.
                         lNewIrrigation.Input += pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
+                        lNewIrrigation.Date = pIrrigationDate;
+                        lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                     }
                     // Override the type of lIrrigationItem. 
-                    lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                 }
                 else
@@ -3181,42 +3191,26 @@ namespace IrrigationAdvisor.Models.Management
         {
             DailyRecord lReturn = null;
             DailyRecord lDailyRecordToDelete = null;
-            IEnumerable<DailyRecord> lDailyRecordOrderByDate = null;
-            int i = 0;
-            int lIndexToRemove = -1;
-            int lTotalDailyRecords = 0;
             EntityState lState;
 
             if (pDailyRecordDateTime != null)
             {
-                lDailyRecordOrderByDate = this.DailyRecordList.OrderBy(lDailyRecord => lDailyRecord.DailyRecordDateTime);
-
-                foreach (DailyRecord lDailyRecordItem in lDailyRecordOrderByDate)
-                {
-                    if (Utils.IsTheSameDay(lDailyRecordItem.DailyRecordDateTime, pDailyRecordDateTime))
-                    {
-                        lDailyRecordToDelete = lDailyRecordItem;
-                        lIndexToRemove = i;
-                        break;
-                    }
-                    i++;
-                }
+                lDailyRecordToDelete = pIrrigationAdvisorContext.DailyRecords
+                                        .Where(dr => dr.DailyRecordDateTime >= pDailyRecordDateTime &&
+                                        dr.CropIrrgationWeatherId == this.CropIrrigationWeatherId).FirstOrDefault();
             }
             //We have a unique record by day
-            if (lIndexToRemove != -1)
+            if (lDailyRecordToDelete != null)
             {
-                lTotalDailyRecords = this.DailyRecordList.Count();
-
+                
                 UpdateCropIrrigationWeatherByOneDayBeforeDailyRecordData(lDailyRecordToDelete, pIrrigationAdvisorContext);
                 lState = pIrrigationAdvisorContext.Entry(this).State;
-                pIrrigationAdvisorContext.SaveChanges();
 
                 //Delete Database List of DATA
                 //Delete DailyRecords from database after date of record to delete.
                 pIrrigationAdvisorContext.DailyRecords.RemoveRange(pIrrigationAdvisorContext.DailyRecords
                                         .Where(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime &&
-                                        dr.DailyRecordId >= lIndexToRemove));
-                pIrrigationAdvisorContext.SaveChanges();
+                                        dr.CropIrrgationWeatherId == this.CropIrrigationWeatherId));
 
                 //Delete Irrigations input from database after date of record to delete. 
                 //Extra input will not be deleted
@@ -3236,15 +3230,6 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 pIrrigationAdvisorContext.SaveChanges();
 
-                foreach (DailyRecord item in this.DailyRecordList)
-                {
-                    if(item.DailyRecordId >= lIndexToRemove)
-                    {
-                        break;
-                    }
-                }
-
-                this.DailyRecordList.RemoveRange(lIndexToRemove, lTotalDailyRecords - lIndexToRemove);
             }
 
             lReturn = lDailyRecordToDelete;
@@ -3541,7 +3526,8 @@ namespace IrrigationAdvisor.Models.Management
                 //  this.HydricBalance, this.SoilHydricVolume,
                 //  this.TotalEvapotranspirationCropFromLastWaterInput
                 
-                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
+                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, this.CropIrrigationWeatherId,
+                                                lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
                                                 this.DaysAfterSowing, this.DaysAfterSowingModified,
                                                 lGrowingDegreeDays, this.GrowingDegreeDaysAccumulated, this.GrowingDegreeDaysModified,
                                                 lRainWaterInputId, lIrrigationWaterInputId, this.LastWaterInputDate, this.LastBigWaterInputDate,
@@ -3748,7 +3734,8 @@ namespace IrrigationAdvisor.Models.Management
                 //  pLastPartialWaterInputDate, pLastPartialWaterInput, 
                 //  this.HydricBalance, this.SoilHydricVolume,
                 //  this.TotalEvapotranspirationCropFromLastWaterInput
-                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
+                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, this.CropIrrigationWeatherId,
+                                                lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
                                                 this.DaysAfterSowing, this.DaysAfterSowingModified,
                                                 lGrowingDegreeDays, this.GrowingDegreeDaysAccumulated, this.GrowingDegreeDaysModified,
                                                 lRainWaterInputId, lIrrigationWaterInputId, this.LastWaterInputDate, this.LastBigWaterInputDate,
@@ -4026,7 +4013,8 @@ namespace IrrigationAdvisor.Models.Management
                 //  this.HydricBalance, this.SoilHydricVolume,
                 //  this.TotalEvapotranspirationCropFromLastWaterInput
 
-                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
+                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, this.CropIrrigationWeatherId,
+                                                lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
                                                 this.DaysAfterSowing, this.DaysAfterSowingModified,
                                                 lGrowingDegreeDays, this.GrowingDegreeDaysAccumulated, this.GrowingDegreeDaysModified,
                                                 lRainWaterInputId, lIrrigationWaterInputId, this.LastWaterInputDate, this.LastBigWaterInputDate,
@@ -4244,7 +4232,8 @@ namespace IrrigationAdvisor.Models.Management
                 //  pLastPartialWaterInputDate, pLastPartialWaterInput, 
                 //  this.HydricBalance, this.SoilHydricVolume,
                 //  this.TotalEvapotranspirationCropFromLastWaterInput
-                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
+                lNewDailyRecord = new DailyRecord(lDailyRecordDateTime, this.CropIrrigationWeatherId,
+                                                lMainWeatherDataWeatherDataId, lAlternativeWeatherDataWeatherDataId,
                                                 this.DaysAfterSowing, this.DaysAfterSowingModified,
                                                 lGrowingDegreeDays, this.GrowingDegreeDaysAccumulated, this.GrowingDegreeDaysModified,
                                                 lRainWaterInputId, lIrrigationWaterInputId, this.LastWaterInputDate, this.LastBigWaterInputDate,

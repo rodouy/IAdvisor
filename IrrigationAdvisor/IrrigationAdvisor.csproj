@@ -279,6 +279,10 @@
     <Compile Include="Migrations\201609220024024_AddObservations.Designer.cs">
       <DependentUpon>201609220024024_AddObservations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610081631455_PendingModelChanges20161008.cs" />
+    <Compile Include="Migrations\201610081631455_PendingModelChanges20161008.Designer.cs">
+      <DependentUpon>201610081631455_PendingModelChanges20161008.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -393,16 +397,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataQueries\All Bombs - Query.sql" />
+    <Content Include="DataQueries\All CropCoefficients - Query.sql" />
+    <Content Include="DataQueries\All CropInformationByDates - Query.sql" />
     <Content Include="DataQueries\All CropIrrigationWeathers - Query.sql" />
+    <Content Include="DataQueries\All Crops - Query.sql" />
     <Content Include="DataQueries\All Farms - Query.sql" />
     <Content Include="DataQueries\All Horizons - Query.sql" />
     <Content Include="DataQueries\All IrrigationUnits - Query.sql" />
+    <Content Include="DataQueries\All KC - Query.sql" />
     <Content Include="DataQueries\All PhenologicalStages - Query.sql" />
     <Content Include="DataQueries\All Regions - Query.sql" />
     <Content Include="DataQueries\All Soils - Query.sql" />
     <Content Include="DataQueries\All Specie - Query.sql" />
     <Content Include="DataQueries\All SpecieCycle - Query.sql" />
+    <Content Include="DataQueries\All Stages- Query.sql" />
     <Content Include="DataQueries\All Users - Query.sql" />
+    <Content Include="DataQueries\All WeatherData - Query.sql" />
+    <Content Include="DataQueries\All WeatherStations - Query.sql" />
+    <Content Include="DataQueries\CIW-DR Queries Test.sql" />
     <Content Include="DataQueries\CIW-DR Queries.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -827,6 +839,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609220024024_AddObservations.resx">
       <DependentUpon>201609220024024_AddObservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610081631455_PendingModelChanges20161008.resx">
+      <DependentUpon>201610081631455_PendingModelChanges20161008.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

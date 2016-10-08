@@ -164,6 +164,9 @@ namespace IrrigationAdvisorConsole
                 CalculateIrrigation();
 
                 #endif
+                Console.WriteLine("Ended with successful!! Great job :)");
+                
+                Console.ReadLine();
             }
                 
             catch (System.Data.Entity.Infrastructure.DbUpdateException ex)

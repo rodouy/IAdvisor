@@ -64,7 +64,9 @@ namespace IrrigationAdvisor.Models.Management
 
         private long dailyRecordId;
         private DateTime dailyRecordDateTime;
-        
+
+        private long cropIrrgationWeatherId;
+
         #region Weather Data
 
         private long mainWeatherDataId;
@@ -139,6 +141,18 @@ namespace IrrigationAdvisor.Models.Management
         {
             get { return dailyRecordDateTime; }
             set { dailyRecordDateTime = value; }
+        }
+
+        public long CropIrrgationWeatherId
+        {
+            get { return cropIrrgationWeatherId; }
+            set { cropIrrgationWeatherId = value; }
+        }
+
+        public virtual CropIrrigationWeather CropIrrigationWeather
+        {        
+            get;
+            set;
         }
 
         #region WeatherData
@@ -416,6 +430,8 @@ namespace IrrigationAdvisor.Models.Management
             this.DailyRecordId = 0;
             this.DailyRecordDateTime = Utils.MIN_DATETIME;
 
+            this.CropIrrgationWeatherId = 0;
+
             this.MainWeatherDataId = 0;
             this.AlternativeWeatherDataId = 0;
 
@@ -458,6 +474,7 @@ namespace IrrigationAdvisor.Models.Management
         /// Constructor with parameters
         /// </summary>
         /// <param name="pDailyRecordDateTime"></param>
+        /// <param name="pCropIrrigationWeatherId"></param>
         /// <param name="pMainWeatherDataId"></param>
         /// <param name="pAlternativeWeatherDataId"></param>
         /// <param name="pDaysAfterSowing"></param>
@@ -479,7 +496,8 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pTotalEvapotranspirationFromLastWaterInput"></param>
         /// <param name="pCropCoefficient"></param>
         /// <param name="pObservations"></param>
-        public DailyRecord(DateTime pDailyRecordDateTime, long pMainWeatherDataId, long pAlternativeWeatherDataId,
+        public DailyRecord(DateTime pDailyRecordDateTime, long pCropIrrigationWeatherId,
+                            long pMainWeatherDataId, long pAlternativeWeatherDataId,
                             int pDaysAfterSowing, int pDaysAfterSowingModified,
                             Double pGrowingDegreeDays, Double pGrowingDegreeDaysAccumulated, Double pGrowingDegreeDaysModified, 
                             long pRainId, long pIrrigationId,
@@ -491,6 +509,8 @@ namespace IrrigationAdvisor.Models.Management
                             Double pCropCoefficient, String pObservations) 
         {
             this.DailyRecordDateTime = pDailyRecordDateTime;
+
+            this.CropIrrgationWeatherId = pCropIrrigationWeatherId;
 
             this.MainWeatherDataId = pMainWeatherDataId;
             this.AlternativeWeatherDataId = pAlternativeWeatherDataId;
