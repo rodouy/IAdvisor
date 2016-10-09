@@ -644,14 +644,29 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilLaPerdiz3 = NameFarmLaPerdiz + " Pivot 3";
         public static String NameSoilLaPerdiz5 = NameFarmLaPerdiz + " Pivot 5";
         public static String NameSoilLaPerdiz14 = NameFarmLaPerdiz + " Pivot 14";
+        #region Del Lago
         public static String NameSoilDelLagoSanPedro5 = NameFarmDelLagoSanPedro + " Pivot 5";
         public static String NameSoilDelLagoSanPedro6 = NameFarmDelLagoSanPedro + " Pivot 6";
         public static String NameSoilDelLagoSanPedro7 = NameFarmDelLagoSanPedro + " Pivot 7";
         public static String NameSoilDelLagoSanPedro8 = NameFarmDelLagoSanPedro + " Pivot 8";
+        public static String NameSoilDelLagoElMirador1 = NameFarmDelLagoElMirador + " Pivot 1";
+        public static String NameSoilDelLagoElMirador2 = NameFarmDelLagoElMirador + " Pivot 2";
+        public static String NameSoilDelLagoElMirador3 = NameFarmDelLagoElMirador + " Pivot 3";
+        public static String NameSoilDelLagoElMirador4 = NameFarmDelLagoElMirador + " Pivot 4";
+        public static String NameSoilDelLagoElMirador5 = NameFarmDelLagoElMirador + " Pivot 5";
         public static String NameSoilDelLagoElMirador6 = NameFarmDelLagoElMirador + " Pivot 6";
         public static String NameSoilDelLagoElMirador7 = NameFarmDelLagoElMirador + " Pivot 7";
         public static String NameSoilDelLagoElMirador8 = NameFarmDelLagoElMirador + " Pivot 8";
         public static String NameSoilDelLagoElMirador9 = NameFarmDelLagoElMirador + " Pivot 9";
+        public static String NameSoilDelLagoElMirador10 = NameFarmDelLagoElMirador + " Pivot 10";
+        public static String NameSoilDelLagoElMirador11 = NameFarmDelLagoElMirador + " Pivot 11";
+        public static String NameSoilDelLagoElMirador12 = NameFarmDelLagoElMirador + " Pivot 12";
+        public static String NameSoilDelLagoElMirador13 = NameFarmDelLagoElMirador + " Pivot 13";
+        public static String NameSoilDelLagoElMirador14 = NameFarmDelLagoElMirador + " Pivot 14";
+        public static String NameSoilDelLagoElMirador15 = NameFarmDelLagoElMirador + " Pivot 15";
+        public static String NameSoilDelLagoElMiradorChaja1 = NameFarmDelLagoElMirador + " Pivot Chaja 1";
+        public static String NameSoilDelLagoElMiradorChaja2 = NameFarmDelLagoElMirador + " Pivot Chaja 2";
+        #endregion
         public static String NameSoilLaPalma1 = NameFarmLaPalma + " Pivot 1";
         public static String NameSoilLaPalma2A = NameFarmLaPalma + " Pivot 2A";
         public static String NameSoilLaPalma3 = NameFarmLaPalma + " Pivot 3";
@@ -704,10 +719,25 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotDelLagoSanPedro6 = NameFarmDelLagoSanPedro + " Pivot 6";
         public static String NamePivotDelLagoSanPedro7 = NameFarmDelLagoSanPedro + " Pivot 7";
         public static String NamePivotDelLagoSanPedro8 = NameFarmDelLagoSanPedro + " Pivot 8";
+        #region El Mirador - Pivots
+        public static String NamePivotDelLagoElMirador1 = NameFarmDelLagoElMirador + " Pivot 1";
+        public static String NamePivotDelLagoElMirador2 = NameFarmDelLagoElMirador + " Pivot 2";
+        public static String NamePivotDelLagoElMirador3 = NameFarmDelLagoElMirador + " Pivot 3";
+        public static String NamePivotDelLagoElMirador4 = NameFarmDelLagoElMirador + " Pivot 4";
+        public static String NamePivotDelLagoElMirador5 = NameFarmDelLagoElMirador + " Pivot 5";
         public static String NamePivotDelLagoElMirador6 = NameFarmDelLagoElMirador + " Pivot 6";
         public static String NamePivotDelLagoElMirador7 = NameFarmDelLagoElMirador + " Pivot 7";
         public static String NamePivotDelLagoElMirador8 = NameFarmDelLagoElMirador + " Pivot 8";
         public static String NamePivotDelLagoElMirador9 = NameFarmDelLagoElMirador + " Pivot 9";
+        public static String NamePivotDelLagoElMirador10 = NameFarmDelLagoElMirador + " Pivot 10";
+        public static String NamePivotDelLagoElMirador11 = NameFarmDelLagoElMirador + " Pivot 11";
+        public static String NamePivotDelLagoElMirador12 = NameFarmDelLagoElMirador + " Pivot 12";
+        public static String NamePivotDelLagoElMirador13 = NameFarmDelLagoElMirador + " Pivot 13";
+        public static String NamePivotDelLagoElMirador14 = NameFarmDelLagoElMirador + " Pivot 14";
+        public static String NamePivotDelLagoElMirador15 = NameFarmDelLagoElMirador + " Pivot 15";
+        public static String NamePivotDelLagoElMiradorChaja1 = NameFarmDelLagoElMirador + " Pivot Chaja 1";
+        public static String NamePivotDelLagoElMiradorChaja2 = NameFarmDelLagoElMirador + " Pivot Chaja 2";
+        #endregion
         public static String NamePivotLaPalma1 = NameFarmLaPalma + " Pivot 1";
         public static String NamePivotLaPalma2A = NameFarmLaPalma + " Pivot 2A";
         public static String NamePivotLaPalma3 = NameFarmLaPalma + " Pivot 3";
@@ -744,14 +774,29 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherLaPerdizPivot3 = NamePivotLaPerdiz3 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherLaPerdizPivot5 = NamePivotLaPerdiz5 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherLaPerdizPivot14 = NamePivotLaPerdiz14 + " " + NameSpecieCornSouthShort;
+        #region Del Lago
         public static String NameCropIrrigationWeatherDelLagoSanPedroPivot5 = NamePivotDelLagoSanPedro5 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDelLagoSanPedroPivot6 = NamePivotDelLagoSanPedro6 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDelLagoSanPedroPivot7 = NamePivotDelLagoSanPedro7 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDelLagoSanPedroPivot8 = NamePivotDelLagoSanPedro8 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot1 = NamePivotDelLagoElMirador1 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot2 = NamePivotDelLagoElMirador2 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot3 = NamePivotDelLagoElMirador3 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot4 = NamePivotDelLagoElMirador4 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot5 = NamePivotDelLagoElMirador5 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivot6 = NamePivotDelLagoElMirador6 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivot7 = NamePivotDelLagoElMirador7 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivot8 = NamePivotDelLagoElMirador8 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivot9 = NamePivotDelLagoElMirador9 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot10 = NamePivotDelLagoElMirador10 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot11 = NamePivotDelLagoElMirador11 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot12 = NamePivotDelLagoElMirador12 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot13 = NamePivotDelLagoElMirador13 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot14 = NamePivotDelLagoElMirador14 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot15 = NamePivotDelLagoElMirador15 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivotChaja1 = NamePivotDelLagoElMiradorChaja1 + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivotChaja2 = NamePivotDelLagoElMiradorChaja2 + " " + NameSpecieCornSouthShort;
+        #endregion
         public static String NameCropIrrigationWeatherLaPalmaPivot2A = NamePivotLaPalma2A + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherLaPalmaPivot3 = NamePivotLaPalma3 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherLaPalmaPivot4 = NamePivotLaPalma4 + " " + NameSpecieCornSouthShort;
@@ -845,10 +890,25 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotDelLagoSanPedro6 = NamePivotDelLagoSanPedro6;
         public static String NamePositionPivotDelLagoSanPedro7 = NamePivotDelLagoSanPedro7;
         public static String NamePositionPivotDelLagoSanPedro8 = NamePivotDelLagoSanPedro8;
+        #region El Mirador - Pivots
+        public static String NamePositionPivotDelLagoElMirador1 = NamePivotDelLagoElMirador1;
+        public static String NamePositionPivotDelLagoElMirador2 = NamePivotDelLagoElMirador2;
+        public static String NamePositionPivotDelLagoElMirador3 = NamePivotDelLagoElMirador3;
+        public static String NamePositionPivotDelLagoElMirador4 = NamePivotDelLagoElMirador4;
+        public static String NamePositionPivotDelLagoElMirador5 = NamePivotDelLagoElMirador5;
         public static String NamePositionPivotDelLagoElMirador6 = NamePivotDelLagoElMirador6;
         public static String NamePositionPivotDelLagoElMirador7 = NamePivotDelLagoElMirador7;
         public static String NamePositionPivotDelLagoElMirador8 = NamePivotDelLagoElMirador8;
         public static String NamePositionPivotDelLagoElMirador9 = NamePivotDelLagoElMirador9;
+        public static String NamePositionPivotDelLagoElMirador10 = NamePivotDelLagoElMirador10;
+        public static String NamePositionPivotDelLagoElMirador11 = NamePivotDelLagoElMirador11;
+        public static String NamePositionPivotDelLagoElMirador12 = NamePivotDelLagoElMirador12;
+        public static String NamePositionPivotDelLagoElMirador13 = NamePivotDelLagoElMirador13;
+        public static String NamePositionPivotDelLagoElMirador14 = NamePivotDelLagoElMirador14;
+        public static String NamePositionPivotDelLagoElMirador15 = NamePivotDelLagoElMirador15;
+        public static String NamePositionPivotDelLagoElMiradorChaja1 = NamePivotDelLagoElMiradorChaja1;
+        public static String NamePositionPivotDelLagoElMiradorChaja2 = NamePivotDelLagoElMiradorChaja2;
+        #endregion
         public static String NamePositionPivotLaPalma1 = NamePivotLaPalma1;
         public static String NamePositionPivotLaPalma2A = NamePivotLaPalma2A;
         public static String NamePositionPivotLaPalma3 = NamePivotLaPalma3;
@@ -868,7 +928,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static int MaxEvapotranspirationToIrrigate_Soya = 30;
         public static int MinEvapotranspirationToIrrigate_Soya = 25;
 
-        public static int CropDensity_Corn = 80000;
+        public static int CropDensity_Corn = 81000;
         public static int CropDensity_Soya = 350000;
         #endregion
 
