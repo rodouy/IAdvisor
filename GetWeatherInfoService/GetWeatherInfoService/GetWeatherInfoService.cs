@@ -64,7 +64,7 @@ namespace GetWeatherInfoService
                 emailLog.Clear();
                 emailLog.Add(LogFormat("Comienzo: ", DateTime.Now));
 
-                var weatherStations = context.WeatherStations.Where(w => w.WebAddress.Length > 0).ToList();
+                var weatherStations = context.WeatherStations.Where(w => w.WebAddress.Length > 0 && w.StationType == (int)Enums.StationType.WeatherLink).ToList();
                 foreach (var weatherStation in weatherStations)
                 {
                     emailLog.Add("\n");
