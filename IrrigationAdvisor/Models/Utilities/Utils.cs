@@ -379,10 +379,30 @@ namespace IrrigationAdvisor.Models.Utilities
             SantaLucia,
 
             /// <summary>
-            /// La Perdiz Farm
+            /// DCA - El Paraiso Farm
+            /// DCA - San Jose Farm
+            /// DCA - La Perdiz Farm
             /// Del Carmen ACISA SA
             /// </summary>
-            LaPerdiz,
+            DCA,
+
+            /// <summary>
+            /// DCA - El Paraiso Farm
+            /// Del Carmen ACISA SA
+            /// </summary>
+            DCAElParaiso,
+
+            /// <summary>
+            /// DCA - San Jose Farm
+            /// Del Carmen ACISA SA
+            /// </summary>
+            DCASanJose,
+
+            /// <summary>
+            /// DCA - La Perdiz Farm
+            /// Del Carmen ACISA SA
+            /// </summary>
+            DCALaPerdiz,
 
             /// <summary>
             /// Del Lago - San Pedro Farm
@@ -458,10 +478,30 @@ namespace IrrigationAdvisor.Models.Utilities
             SantaLucia,
 
             /// <summary>
-            /// La Perdiz Farm
+            /// DCA - El Paraiso Farm
+            /// DCA - San Jose Farm
+            /// DCA - La Perdiz Farm
             /// Del Carmen ACISA SA
             /// </summary>
-            LaPerdiz,
+            DCA,
+
+            /// <summary>
+            /// DCA - El Paraiso Farm
+            /// Del Carmen ACISA SA
+            /// </summary>
+            DCAElParaiso,
+
+            /// <summary>
+            /// DCA - San Jose Farm
+            /// Del Carmen ACISA SA
+            /// </summary>
+            DCASanJose,
+
+            /// <summary>
+            /// DCA - La Perdiz Farm
+            /// Del Carmen ACISA SA
+            /// </summary>
+            DCALaPerdiz,
 
             /// <summary>
             /// Del Lago - San Pedro Farm
@@ -911,6 +951,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionCityPalmar = NameCityPalmar;
         public static String NamePositionCityDurazno = NameCityDurazno;
         public static String NamePositionCityYoung = NameCityYoung;
+        public static String NamePositionCitySalto = NameCitySalto;
+        public static String NamePositionCityTacuarembo = NameCityTacuarembo;
         public static String NamePositionCity = NameCity;
         #endregion
         #region PositionsFarms
@@ -966,11 +1008,13 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotSantaLucia3 = NamePivotSantaLucia3;
         public static String NamePositionPivotSantaLucia4 = NamePivotSantaLucia4;
         public static String NamePositionPivotSantaLucia5 = NamePivotSantaLucia5;
+        #region DCA
         public static String NamePositionPivotLaPerdiz1 = NamePivotLaPerdiz1;
         public static String NamePositionPivotLaPerdiz2 = NamePivotLaPerdiz2;
         public static String NamePositionPivotLaPerdiz3 = NamePivotLaPerdiz3;
         public static String NamePositionPivotLaPerdiz5 = NamePivotLaPerdiz5;
         public static String NamePositionPivotLaPerdiz14 = NamePivotLaPerdiz14;
+        #endregion
         #region Del Lago - Pivots
         public static String NamePositionPivotDelLagoSanPedro5 = NamePivotDelLagoSanPedro5;
         public static String NamePositionPivotDelLagoSanPedro6 = NamePivotDelLagoSanPedro6;
