@@ -28,7 +28,7 @@ namespace IrrigationAdvisorConsole
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador;
+        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Production;
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
         
@@ -297,7 +297,7 @@ namespace IrrigationAdvisorConsole
             {
                 StatusId = 1,
                 Name = "Production",
-                DateOfReference = new DateTime(2016, 9, 1),
+                DateOfReference = new DateTime(2016, 10, 05),
                 WebStatus = Utils.IrrigationAdvisorWebStatus.Online,
                 Description = "Web Status of Production",
             };
@@ -306,7 +306,7 @@ namespace IrrigationAdvisorConsole
             {
                 StatusId = 2,
                 Name = "Demo",
-                DateOfReference = new DateTime(2016, 9, 1),
+                DateOfReference = new DateTime(2015, 12, 10),
                 WebStatus = Utils.IrrigationAdvisorWebStatus.Online,
                 Description = "Web Status of Demo",
             };
@@ -482,7 +482,7 @@ namespace IrrigationAdvisorConsole
                 Phone = "+598 91 359 000",
                 Address = "Miguel Cabrera Km 5, Durazno, Uruguay CP 97.000",
                 Email = "guzman.irazabal@estanciasdellago.com ",
-                UserName = Utils.NameUserDelLago,
+                UserName = Utils.NameUserDelLago1,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "EDL2017"),
                 RoleId = 3,
             };
@@ -493,22 +493,44 @@ namespace IrrigationAdvisorConsole
                 Phone = "+598 92 124 119",
                 Address = "Ruta 4 Km 20, Durazno, Uruguay CP 97.000",
                 Email = "jose.hemala@estanciasdellago.com ",
-                UserName = Utils.NameUserDelLago,
+                UserName = Utils.NameUserDelLago2,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "EDL2017"),
                 RoleId = 3,
             };
             #endregion
 
-            #region Estancia Menafra - LaPalma - GMO
-            var lLaPalma = new User()
+            #region Estancia Menafra - LaPalma ElTacuru - GMO
+            var lGMOPablo = new User()
             {
                 Name = "Pablo",
                 Surname = "Tarigo",
                 Phone = "+598 9",
                 Address = "",
                 Email = "pablo.tarigo@LaPalma.com.uy",
-                UserName = Utils.NameUserLaPalma,
+                UserName = Utils.NameUserGMO1,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "gmo"),
+                RoleId = 3,
+            };
+            var lGMODiego = new User()
+            {
+                Name = "Diego",
+                Surname = "Anselmi",
+                Phone = "+598 94 688 833",
+                Address = "Batlle 596, Trinidad",
+                Email = "danselmi@tropagrande.com",
+                UserName = Utils.NameUserGMO2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GMO2017"),
+                RoleId = 3,
+            };
+            var lGMOMauricio = new User()
+            {
+                Name = "Mauricio",
+                Surname = "Rios",
+                Phone = "+598 94 688 849",
+                Address = "Batlle 596, Trinidad",
+                Email = "mrios@tropagrande.com",
+                UserName = Utils.NameUserGMO3,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GMO2017"),
                 RoleId = 3,
             };
             #endregion
@@ -523,7 +545,9 @@ namespace IrrigationAdvisorConsole
                 context.Users.Add(lLaPerdiz);
                 context.Users.Add(lDelLagoGuzman);
                 context.Users.Add(lDelLagoJose);
-                context.Users.Add(lLaPalma);
+                context.Users.Add(lGMOPablo);
+                context.Users.Add(lGMODiego);
+                context.Users.Add(lGMOMauricio);
                 context.SaveChanges();
             }
  
@@ -552,7 +576,8 @@ namespace IrrigationAdvisorConsole
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
+                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba,  Utils.NameUserGonza,
+                                                Utils.NameUserAdmin, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDemo1
@@ -580,7 +605,8 @@ namespace IrrigationAdvisorConsole
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
+                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserGonza, 
+                                                Utils.NameUserAdmin, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDemo2
@@ -608,7 +634,8 @@ namespace IrrigationAdvisorConsole
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
+                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserGonza, 
+                                                Utils.NameUserAdmin, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDemo3
@@ -636,7 +663,8 @@ namespace IrrigationAdvisorConsole
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
                 {
-                    lUserNames = new String[] { Utils.NameUserSantaLucia, Utils.NameUserSeba, Utils.NameUserAdmin };
+                    lUserNames = new String[] { Utils.NameUserSantaLucia, Utils.NameUserSeba, Utils.NameUserGonza, 
+                                                Utils.NameUserAdmin };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmSantaLucia
@@ -664,7 +692,8 @@ namespace IrrigationAdvisorConsole
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
                 {
-                    lUserNames = new String[] { Utils.NameUserDelCarmen, Utils.NameUserSeba, Utils.NameUserAdmin };
+                    lUserNames = new String[] { Utils.NameUserDelCarmen, Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmLaPerdiz
@@ -693,7 +722,9 @@ namespace IrrigationAdvisorConsole
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
                 {
-                    lUserNames = new String[] { Utils.NameUserDelLago, Utils.NameUserSeba, Utils.NameUserAdmin };
+                    lUserNames = new String[] { Utils.NameUserDelLago1, Utils.NameUserDelLago2, 
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoSanPedro
@@ -719,10 +750,13 @@ namespace IrrigationAdvisorConsole
 
                 #region DelLago - El Mirador - Estancias del Lago S.R.L.
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
-                    lUserNames = new String[] { Utils.NameUserDelLago, Utils.NameUserSeba, Utils.NameUserAdmin };
+                    lUserNames = new String[] { Utils.NameUserDelLago1, Utils.NameUserDelLago2,
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -746,14 +780,50 @@ namespace IrrigationAdvisorConsole
                 }
                 #endregion
 
-                #region Estancia Menafra - LaPalma - GMO
+                #region Estancia Menafra - GMO - LaPalma
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
-                    lUserNames = new String[] { Utils.NameUserLaPalma, Utils.NameUserSeba, Utils.NameUserAdmin };
+                    lUserNames = new String[] { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3,
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin };
 
                     lFarm = (from farm in context.Farms
-                             where farm.Name == Utils.NameFarmLaPalma
+                             where farm.Name == Utils.NameFarmGMOLaPalma
+                             select farm).FirstOrDefault();
+                    lUserList = (from user in context.Users
+                                 where lUserNames.Contains(user.UserName)
+                                 select user).ToList();
+                    foreach (User item in lUserList)
+                    {
+                        var lUserFarm = new UserFarm()
+                        {
+                            UserId = item.UserId,
+                            FarmId = lFarm.FarmId,
+                            Name = item.Name + lFarm.Name,
+                            StartDate = DateTime.Now,
+                        };
+
+                        context.UserFarms.Add(lUserFarm);
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
+
+                #region Estancia Menafra - GMO - ElTacuru
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+                {
+                    lUserNames = new String[] { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3,
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin };
+
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lUserList = (from user in context.Users
                                  where lUserNames.Contains(user.UserName)
@@ -919,9 +989,16 @@ namespace IrrigationAdvisorConsole
                 Longitude = -56.652764,
             };
 
-            var lLaPalma = new Position()
+            var lGMOLaPalma = new Position()
             {
-                Name = Utils.NamePositionFarmLaPalma,
+                Name = Utils.NamePositionFarmGMOLaPalma,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+
+            var lGMOElTacuru = new Position()
+            {
+                Name = Utils.NamePositionFarmGMOElTacuru,
                 Latitude = -32.630481,
                 Longitude = -57.443751,
             };
@@ -1329,34 +1406,94 @@ namespace IrrigationAdvisorConsole
             #endregion
             #endregion
 
-            #region Pivots LaPalma
-            var lLaPalmaPivot1 = new Position()
+            #region Pivots GMO
+            var lGMOLaPalmaPivot1 = new Position()
             {
-                Name = Utils.NamePositionPivotLaPalma1,
+                Name = Utils.NamePositionPivotGMOLaPalma1,
                 Latitude = -32.630481,
                 Longitude = -57.443751,
             };
-            var lLaPalmaPivot2A = new Position()
+            var lGMOLaPalmaPivot2 = new Position()
             {
-                Name = Utils.NamePositionPivotLaPalma2A,
+                Name = Utils.NamePositionPivotGMOLaPalma2,
                 Latitude = -32.630481,
                 Longitude = -57.443751,
             };
-            var lLaPalmaPivot3 = new Position()
+            var lGMOLaPalmaPivot3 = new Position()
             {
-                Name = Utils.NamePositionPivotLaPalma3,
+                Name = Utils.NamePositionPivotGMOLaPalma3,
                 Latitude = -32.630481,
                 Longitude = -57.443751,
             };
-            var lLaPalmaPivot4 = new Position()
+            var lGMOLaPalmaPivot4 = new Position()
             {
-                Name = Utils.NamePositionPivotLaPalma4,
+                Name = Utils.NamePositionPivotGMOLaPalma4,
                 Latitude = -32.630481,
                 Longitude = -57.443751,
             };
-            var lLaPalmaPivot5 = new Position()
+            var lGMOLaPalmaPivot5 = new Position()
             {
-                Name = Utils.NamePositionPivotLaPalma5,
+                Name = Utils.NamePositionPivotGMOLaPalma5,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+            var lGMOElTacuruPivot1 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru1,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+            var lGMOElTacuruPivot2 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru2,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+            var lGMOElTacuruPivot3 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru3,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+            var lGMOElTacuruPivot4 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru4,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+            var lGMOElTacuruPivot5 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru5,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            }; 
+            var lGMOElTacuruPivot6 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru6,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+            var lGMOElTacuruPivot7 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru7,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+            var lGMOElTacuruPivot8 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru8,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+            var lGMOElTacuruPivot9 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru9,
+                Latitude = -32.630481,
+                Longitude = -57.443751,
+            };
+            var lGMOElTacuruPivot10 = new Position()
+            {
+                Name = Utils.NamePositionPivotGMOElTacuru10,
                 Latitude = -32.630481,
                 Longitude = -57.443751,
             };
@@ -1384,7 +1521,8 @@ namespace IrrigationAdvisorConsole
                 context.Positions.Add(lLaPerdiz);
                 context.Positions.Add(lDelLagoSanPedro);
                 context.Positions.Add(lDelLagoElMirador);
-                context.Positions.Add(lLaPalma);
+                context.Positions.Add(lGMOLaPalma);
+                context.Positions.Add(lGMOElTacuru);
                 #endregion
                 #region Weather Stations
                 context.Positions.Add(lLasBrujasWS); 
@@ -1457,12 +1595,22 @@ namespace IrrigationAdvisorConsole
                 context.Positions.Add(lDelLagoElMiradorPivotChaja1);
                 context.Positions.Add(lDelLagoElMiradorPivotChaja2);
                 #endregion
-                #region Pivots - La Palma
-                context.Positions.Add(lLaPalmaPivot1);
-                context.Positions.Add(lLaPalmaPivot2A);
-                context.Positions.Add(lLaPalmaPivot3);
-                context.Positions.Add(lLaPalmaPivot4);
-                context.Positions.Add(lLaPalmaPivot5);
+                #region Pivots - GMO
+                context.Positions.Add(lGMOLaPalmaPivot1);
+                context.Positions.Add(lGMOLaPalmaPivot2);
+                context.Positions.Add(lGMOLaPalmaPivot3);
+                context.Positions.Add(lGMOLaPalmaPivot4);
+                context.Positions.Add(lGMOLaPalmaPivot5);
+                context.Positions.Add(lGMOElTacuruPivot1);
+                context.Positions.Add(lGMOElTacuruPivot2);
+                context.Positions.Add(lGMOElTacuruPivot3);
+                context.Positions.Add(lGMOElTacuruPivot4);
+                context.Positions.Add(lGMOElTacuruPivot5);
+                context.Positions.Add(lGMOElTacuruPivot6);
+                context.Positions.Add(lGMOElTacuruPivot7);
+                context.Positions.Add(lGMOElTacuruPivot8);
+                context.Positions.Add(lGMOElTacuruPivot9);
+                context.Positions.Add(lGMOElTacuruPivot10);
                 #endregion
                 #endregion
                 context.SaveChanges();
@@ -2374,6 +2522,21 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
+            #region LaTribu 2016/09-10
+            using (var context = new IrrigationAdvisorContext())
+            {
+                DataEntry.WeatherDataLaTribu_2016(context);
+                context.SaveChanges();
+            }
+            #endregion
+
+            #region SanFernando 2016/09-10
+            using (var context = new IrrigationAdvisorContext())
+            {
+                DataEntry.WeatherDataSanFernando_2016(context);
+                context.SaveChanges();
+            }
+            #endregion
         }
 
         #endif
@@ -2632,6 +2795,7 @@ namespace IrrigationAdvisorConsole
 
             #region DelLago - El Mirador - Estancias del Lago S.R.L.
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -2668,9 +2832,11 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region LaPalma - GMO - Menafra
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
-                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region Menafra - GMO - LaPalma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -2678,20 +2844,20 @@ namespace IrrigationAdvisorConsole
                                        where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionFarmLaPalma
+                                 where pos.Name == Utils.NamePositionFarmGMOLaPalma
                                  select pos).FirstOrDefault();
                     lCity = (from city in context.Cities
                              where city.Name == Utils.NameCityYoung
                              select city).FirstOrDefault();
 
-                    var lLaPalma = new Farm
+                    var lGMOLaPalma = new Farm
                     {
-                        Name = Utils.NameFarmLaPalma,
+                        Name = Utils.NameFarmGMOLaPalma,
                         Company = "GMO",
                         Address = "Menafra",
-                        Phone = "094 688 833",
+                        Phone = "099 830 058",
                         PositionId = lPosition.PositionId,
-                        Has = 140,
+                        Has = 186,
                         WeatherStationId = lWeatherStation.WeatherStationId,
                         SoilList = null,
                         BombList = null,
@@ -2699,7 +2865,46 @@ namespace IrrigationAdvisorConsole
                         CityId = lCity.CityId,
                         UserFarmList = null,
                     };
-                    context.Farms.Add(lLaPalma);
+                    context.Farms.Add(lGMOLaPalma);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Menafra - GMO - ElTacuru
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lWeatherStation = (from ws in context.WeatherStations
+                                       where ws.Name == Utils.NameWeatherStationZanjaHonda
+                                       select ws).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionFarmGMOElTacuru
+                                 select pos).FirstOrDefault();
+                    lCity = (from city in context.Cities
+                             where city.Name == Utils.NameCityYoung
+                             select city).FirstOrDefault();
+
+                    var lGMOElTacuru = new Farm
+                    {
+                        Name = Utils.NameFarmGMOElTacuru,
+                        Company = "GMO",
+                        Address = "Menafra",
+                        Phone = "099 830 058",
+                        PositionId = lPosition.PositionId,
+                        Has = 721,
+                        WeatherStationId = lWeatherStation.WeatherStationId,
+                        SoilList = null,
+                        BombList = null,
+                        IrrigationUnitList = null,
+                        CityId = lCity.CityId,
+                        UserFarmList = null,
+                    };
+                    context.Farms.Add(lGMOElTacuru);
                     context.SaveChanges();
                 }
             }
@@ -2721,7 +2926,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = {Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm};
+            String[] lUserNames = {Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin, Utils.NameUserTestAdm};
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -2801,7 +3006,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
+            String[] lUserNames = { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -2881,7 +3086,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserAdmin, Utils.NameUserTestAdm };
+            String[] lUserNames = { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -2961,7 +3166,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserSantaLucia, Utils.NameUserSeba, Utils.NameUserAdmin };
+            String[] lUserNames = { Utils.NameUserSantaLucia, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -3041,7 +3246,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserDelCarmen, Utils.NameUserSeba, Utils.NameUserAdmin };
+            String[] lUserNames = { Utils.NameUserDelCarmen, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -3121,7 +3326,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserDelLago, Utils.NameUserSeba, Utils.NameUserAdmin };
+            String[] lUserNames = { Utils.NameUserDelLago1, Utils.NameUserDelLago2, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -3201,7 +3406,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserDelLago, Utils.NameUserSeba, Utils.NameUserAdmin };
+            String[] lUserNames = { Utils.NameUserDelLago1, Utils.NameUserDelLago2, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -3272,7 +3477,7 @@ namespace IrrigationAdvisorConsole
 
         }
 
-        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmLaPalma()
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmGMOLaPalma()
         {
             Farm lFarm = null;
             List<Bomb> lBombList = new List<Bomb>();
@@ -3281,7 +3486,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserLaPalma, Utils.NameUserSeba, Utils.NameUserAdmin };
+            String[] lUserNames = { Utils.NameUserGMO1, Utils.NameUserGMO3, Utils.NameUserGMO3, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -3295,16 +3500,16 @@ namespace IrrigationAdvisorConsole
             {
                 //Set context information
                 lFarm = (from farm in context.Farms
-                         where farm.Name == Utils.NameFarmLaPalma
+                         where farm.Name == Utils.NameFarmGMOLaPalma
                          select farm).FirstOrDefault();
                 lBomb = (from bomb in context.Bombs
-                         where bomb.Name.Contains(Utils.NameFarmLaPalma)
+                         where bomb.Name.Contains(Utils.NameFarmGMOLaPalma)
                          select bomb).FirstOrDefault();
                 lSoil = (from soil in context.Soils
-                         where soil.Name.Contains(Utils.NameFarmLaPalma)
+                         where soil.Name.Contains(Utils.NameFarmGMOLaPalma)
                          select soil).FirstOrDefault();
                 lPivot = (from pivot in context.Pivots
-                          where pivot.Name.Contains(Utils.NameFarmLaPalma)
+                          where pivot.Name.Contains(Utils.NameFarmGMOLaPalma)
                           select pivot).FirstOrDefault();
                 lUserList = (from user in context.Users
                              select user).ToList();
@@ -3318,13 +3523,93 @@ namespace IrrigationAdvisorConsole
                 lIQUsers = context.Users;
                 lIQUserFarms = context.UserFarms;
 
-                lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmLaPalma));
+                lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmGMOLaPalma));
                 foreach (Bomb item in lIQBombs) lBombList.Add(item);
 
-                lIQSoils = lIQSoils.Where(b => b.Name.Contains(Utils.NameFarmLaPalma));
+                lIQSoils = lIQSoils.Where(b => b.Name.Contains(Utils.NameFarmGMOLaPalma));
                 foreach (Soil item in lIQSoils) lSoilList.Add(item);
 
-                lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmLaPalma));
+                lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmGMOLaPalma));
+                foreach (Pivot item in lIQPivots) lPivotList.Add(item);
+
+                lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
+                lIQUserFarms = lIQUserFarms.Where(uf => uf.FarmId == lFarm.FarmId);
+                lUserFarmList = new List<UserFarm>();
+                foreach (User lUser in lIQUsers)
+                {
+                    foreach (UserFarm lUserFarm in lIQUserFarms)
+                    {
+                        if (lUserFarm.UserId == lUser.UserId)
+                        {
+                            lUserFarmList.Add(lUserFarm);
+                        }
+                    }
+                }
+
+                // Update list of Bombs, Soils, Irrigation Units, and Users
+                lFarm.BombList = lBombList;
+                lFarm.SoilList = lSoilList;
+                lFarm.IrrigationUnitList = lPivotList;
+                lFarm.UserFarmList = lUserFarmList;
+
+                context.SaveChanges();
+            }
+
+        }
+
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmGMOElTacuru()
+        {
+            Farm lFarm = null;
+            List<Bomb> lBombList = new List<Bomb>();
+            IQueryable<Bomb> lIQBombs = null;
+            List<Soil> lSoilList = new List<Soil>();
+            IQueryable<Soil> lIQSoils = null;
+            List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
+            IQueryable<IrrigationUnit> lIQPivots = null;
+            String[] lUserNames = { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
+            List<User> lUserList = new List<User>();
+            IQueryable<User> lIQUsers = null;
+            List<UserFarm> lUserFarmList = new List<UserFarm>();
+            IQueryable<UserFarm> lIQUserFarms = null;
+
+            Bomb lBomb = null;
+            Soil lSoil = null;
+            Pivot lPivot = null;
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                //Set context information
+                lFarm = (from farm in context.Farms
+                         where farm.Name == Utils.NameFarmGMOElTacuru
+                         select farm).FirstOrDefault();
+                lBomb = (from bomb in context.Bombs
+                         where bomb.Name.Contains(Utils.NameFarmGMOElTacuru)
+                         select bomb).FirstOrDefault();
+                lSoil = (from soil in context.Soils
+                         where soil.Name.Contains(Utils.NameFarmGMOElTacuru)
+                         select soil).FirstOrDefault();
+                lPivot = (from pivot in context.Pivots
+                          where pivot.Name.Contains(Utils.NameFarmGMOElTacuru)
+                          select pivot).FirstOrDefault();
+                lUserList = (from user in context.Users
+                             select user).ToList();
+                lUserFarmList = (from userFarm in context.UserFarms
+                                 where userFarm.FarmId == lFarm.FarmId
+                                 select userFarm).ToList();
+
+                lIQBombs = context.Bombs;
+                lIQSoils = context.Soils;
+                lIQPivots = context.Pivots;
+                lIQUsers = context.Users;
+                lIQUserFarms = context.UserFarms;
+
+                lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmGMOElTacuru));
+                foreach (Bomb item in lIQBombs) lBombList.Add(item);
+
+                lIQSoils = lIQSoils.Where(b => b.Name.Contains(Utils.NameFarmGMOElTacuru));
+                foreach (Soil item in lIQSoils) lSoilList.Add(item);
+
+                lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmGMOElTacuru));
                 foreach (Pivot item in lIQPivots) lPivotList.Add(item);
 
                 lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
@@ -5705,6 +5990,7 @@ namespace IrrigationAdvisorConsole
 
             #region Horizons Del Lago - El Mirador
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -6721,155 +7007,722 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region Horizons LaPalma
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region Horizons GMO - LaPalma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
+
                 #region Pivot 1
-                var lLaPalmaPivot_1_1 = new Horizon
+                var lGMOLaPalmaPivot_1_1 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma1 + " 1",
+                    Name = Utils.NamePivotGMOLaPalma1 + " 1",
                     Order = 1,
                     HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
+                    HorizonLayerDepth = 20,
+                    Sand = 19,
+                    Limo = 43,
+                    Clay = 38,
+                    OrganicMatter = 3.5,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
+                    BulkDensitySoil = 1.35,
                 };
-                var lLaPalmaPivot_1_2 = new Horizon
+                var lGMOLaPalmaPivot_1_2 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma1 + " 2",
+                    Name = Utils.NamePivotGMOLaPalma1 + " 2",
                     Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 15,
+                    Sand = 10,
+                    Limo = 40,
+                    Clay = 50,
+                    OrganicMatter = 2.8,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
+                    BulkDensitySoil = 1.4,
                 };
-
+                var lGMOLaPalmaPivot_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 25,
+                    Sand = 8,
+                    Limo = 35,
+                    Clay = 57,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+                var lGMOLaPalmaPivot_1_4 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma1 + " 4",
+                    Order = 4,
+                    HorizonLayer = "B3",
+                    HorizonLayerDepth = 30,
+                    Sand = 7,
+                    Limo = 45,
+                    Clay = 48,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
                 #endregion
 
                 #region Pivot 2
-                var lLaPalmaPivot_2_1 = new Horizon
+                var lGMOLaPalmaPivot_2_1 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma2A + " 1",
+                    Name = Utils.NamePivotGMOLaPalma2 + " 1",
                     Order = 1,
                     HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
+                    HorizonLayerDepth = 20,
+                    Sand = 19,
+                    Limo = 43,
+                    Clay = 38,
+                    OrganicMatter = 3.5,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
+                    BulkDensitySoil = 1.35,
                 };
-                var lLaPalmaPivot_2_2 = new Horizon
+                var lGMOLaPalmaPivot_2_2 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma2A + " 2",
+                    Name = Utils.NamePivotGMOLaPalma2 + " 2",
                     Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 15,
+                    Sand = 10,
+                    Limo = 40,
+                    Clay = 50,
+                    OrganicMatter = 2.8,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
+                    BulkDensitySoil = 1.4,
+                };
+                var lGMOLaPalmaPivot_2_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma2 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 25,
+                    Sand = 8,
+                    Limo = 35,
+                    Clay = 57,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+                var lGMOLaPalmaPivot_2_4 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma2 + " 4",
+                    Order = 4,
+                    HorizonLayer = "B3",
+                    HorizonLayerDepth = 30,
+                    Sand = 7,
+                    Limo = 45,
+                    Clay = 48,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+                #endregion
+
+                #region Pivot 3
+                var lGMOLaPalmaPivot_3_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma3 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 19,
+                    Limo = 43,
+                    Clay = 38,
+                    OrganicMatter = 3.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOLaPalmaPivot_3_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma3 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 15,
+                    Sand = 10,
+                    Limo = 40,
+                    Clay = 50,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+                var lGMOLaPalmaPivot_3_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma3 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 25,
+                    Sand = 8,
+                    Limo = 35,
+                    Clay = 57,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+                var lGMOLaPalmaPivot_3_4 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma3 + " 4",
+                    Order = 4,
+                    HorizonLayer = "B3",
+                    HorizonLayerDepth = 30,
+                    Sand = 7,
+                    Limo = 45,
+                    Clay = 48,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+                #endregion
+
+                #region Pivot 4
+                var lGMOLaPalmaPivot_4_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma4 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 25,
+                    Sand = 23,
+                    Limo = 45,
+                    Clay = 32,
+                    OrganicMatter = 4.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lGMOLaPalmaPivot_4_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma4 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 17,
+                    Limo = 48,
+                    Clay = 35,
+                    OrganicMatter = 3.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                var lGMOLaPalmaPivot_4_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma4 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 30,
+                    Sand = 10,
+                    Limo = 52,
+                    Clay = 38,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                #region Pivot 5
+                var lGMOLaPalmaPivot_5_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma5 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 25,
+                    Sand = 23,
+                    Limo = 45,
+                    Clay = 32,
+                    OrganicMatter = 4.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lGMOLaPalmaPivot_5_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma5 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 17,
+                    Limo = 48,
+                    Clay = 35,
+                    OrganicMatter = 3.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                var lGMOLaPalmaPivot_5_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma5 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 30,
+                    Sand = 10,
+                    Limo = 52,
+                    Clay = 38,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons La Palma
+                    context.Horizons.Add(lGMOLaPalmaPivot_1_1);
+                    context.Horizons.Add(lGMOLaPalmaPivot_1_2);
+                    context.Horizons.Add(lGMOLaPalmaPivot_1_3);
+                    context.Horizons.Add(lGMOLaPalmaPivot_1_4);
+                    context.Horizons.Add(lGMOLaPalmaPivot_2_1);
+                    context.Horizons.Add(lGMOLaPalmaPivot_2_2);
+                    context.Horizons.Add(lGMOLaPalmaPivot_2_3);
+                    context.Horizons.Add(lGMOLaPalmaPivot_2_4);
+                    context.Horizons.Add(lGMOLaPalmaPivot_3_1);
+                    context.Horizons.Add(lGMOLaPalmaPivot_3_2);
+                    context.Horizons.Add(lGMOLaPalmaPivot_3_3);
+                    context.Horizons.Add(lGMOLaPalmaPivot_3_4);
+                    context.Horizons.Add(lGMOLaPalmaPivot_4_1);
+                    context.Horizons.Add(lGMOLaPalmaPivot_4_2);
+                    context.Horizons.Add(lGMOLaPalmaPivot_4_3);
+                    context.Horizons.Add(lGMOLaPalmaPivot_5_1);
+                    context.Horizons.Add(lGMOLaPalmaPivot_5_2);
+                    context.Horizons.Add(lGMOLaPalmaPivot_5_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Horizons GMO - LaPalma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+
+                #region Pivot 1
+                var lGMOElTacuruPivot_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.11,
+                };
+                var lGMOElTacuruPivot_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
+                };
+                
+                #endregion
+
+                #region Pivot 2
+                var lGMOElTacuruPivot_2_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru2 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.11,
+                };
+                var lGMOElTacuruPivot_2_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru2 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_2_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru2 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
                 };
 
                 #endregion
 
                 #region Pivot 3
-                var lLaPalmaPivot_3_1 = new Horizon
+                var lGMOElTacuruPivot_3_1 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma3 + " 1",
+                    Name = Utils.NamePivotGMOElTacuru3 + " 1",
                     Order = 1,
                     HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
+                    BulkDensitySoil = 1.11,
                 };
-                var lLaPalmaPivot_3_2 = new Horizon
+                var lGMOElTacuruPivot_3_2 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma3 + " 2",
+                    Name = Utils.NamePivotGMOElTacuru3 + " 2",
                     Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_3_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru3 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
                 };
 
                 #endregion
 
                 #region Pivot 4
-                var lLaPalmaPivot_4_1 = new Horizon
+                var lGMOElTacuruPivot_4_1 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma4 + " 1",
+                    Name = Utils.NamePivotGMOElTacuru4 + " 1",
                     Order = 1,
                     HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
+                    BulkDensitySoil = 1.11,
                 };
-                var lLaPalmaPivot_4_2 = new Horizon
+                var lGMOElTacuruPivot_4_2 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma4 + " 2",
+                    Name = Utils.NamePivotGMOElTacuru4 + " 2",
                     Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_4_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru4 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
                 };
 
                 #endregion
 
                 #region Pivot 5
-                var lLaPalmaPivot_5_1 = new Horizon
+                var lGMOElTacuruPivot_5_1 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma5 + " 1",
+                    Name = Utils.NamePivotGMOElTacuru5 + " 1",
                     Order = 1,
                     HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
+                    BulkDensitySoil = 1.11,
                 };
-                var lLaPalmaPivot_5_2 = new Horizon
+                var lGMOElTacuruPivot_5_2 = new Horizon
                 {
-                    Name = Utils.NamePivotLaPalma5 + " 2",
+                    Name = Utils.NamePivotGMOElTacuru5 + " 2",
                     Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_5_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru5 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
+                };
+
+                #endregion
+
+                #region Pivot 6
+                var lGMOElTacuruPivot_6_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru6 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.11,
+                };
+                var lGMOElTacuruPivot_6_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru6 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_6_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru6 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
+                };
+
+                #endregion
+
+                #region Pivot 7
+                var lGMOElTacuruPivot_7_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru7 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.11,
+                };
+                var lGMOElTacuruPivot_7_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru7 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_7_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru7 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
+                };
+
+                #endregion
+
+                #region Pivot 8
+                var lGMOElTacuruPivot_8_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru8 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.11,
+                };
+                var lGMOElTacuruPivot_8_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru8 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_8_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru8 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
+                };
+
+                #endregion
+
+                #region Pivot 9
+                var lGMOElTacuruPivot_9_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru9 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.11,
+                };
+                var lGMOElTacuruPivot_9_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru9 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_9_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru9 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
+                };
+
+                #endregion
+
+                #region Pivot 10
+                var lGMOElTacuruPivot_10_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru10 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 19,
+                    Sand = 13.1,
+                    Limo = 46.3,
+                    Clay = 40.6,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.11,
+                };
+                var lGMOElTacuruPivot_10_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru10 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 51,
+                    Sand = 7.4,
+                    Limo = 27.4,
+                    Clay = 65.2,
+                    OrganicMatter = 1.81,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lGMOElTacuruPivot_10_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOElTacuru10 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 78,
+                    Sand = 7.1,
+                    Limo = 28.4,
+                    Clay = 64.5,
+                    OrganicMatter = 1.01,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
                 };
 
                 #endregion
@@ -6877,16 +7730,36 @@ namespace IrrigationAdvisorConsole
                 using (var context = new IrrigationAdvisorContext())
                 {
                     #region Horizons La Palma
-                    context.Horizons.Add(lLaPalmaPivot_1_1);
-                    context.Horizons.Add(lLaPalmaPivot_1_2);
-                    context.Horizons.Add(lLaPalmaPivot_2_1);
-                    context.Horizons.Add(lLaPalmaPivot_2_2);
-                    context.Horizons.Add(lLaPalmaPivot_3_1);
-                    context.Horizons.Add(lLaPalmaPivot_3_2);
-                    context.Horizons.Add(lLaPalmaPivot_4_1);
-                    context.Horizons.Add(lLaPalmaPivot_4_2);
-                    context.Horizons.Add(lLaPalmaPivot_5_1);
-                    context.Horizons.Add(lLaPalmaPivot_5_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_1_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_1_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_1_3);
+                    context.Horizons.Add(lGMOElTacuruPivot_2_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_2_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_2_3);
+                    context.Horizons.Add(lGMOElTacuruPivot_3_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_3_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_3_3);
+                    context.Horizons.Add(lGMOElTacuruPivot_4_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_4_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_4_3);
+                    context.Horizons.Add(lGMOElTacuruPivot_5_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_5_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_5_3);
+                    context.Horizons.Add(lGMOElTacuruPivot_6_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_6_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_6_3);
+                    context.Horizons.Add(lGMOElTacuruPivot_7_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_7_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_7_3);
+                    context.Horizons.Add(lGMOElTacuruPivot_8_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_8_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_8_3);
+                    context.Horizons.Add(lGMOElTacuruPivot_9_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_9_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_9_3);
+                    context.Horizons.Add(lGMOElTacuruPivot_10_1);
+                    context.Horizons.Add(lGMOElTacuruPivot_10_2);
+                    context.Horizons.Add(lGMOElTacuruPivot_10_3);
                     #endregion
                     context.SaveChanges();
                 }
@@ -7731,6 +8604,7 @@ namespace IrrigationAdvisorConsole
 
             #region Del Lago - El Mirador Soils
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -8220,7 +9094,7 @@ namespace IrrigationAdvisorConsole
                                  select hor).FirstOrDefault();
                     var lDelLagoElMiradorPivotChaja1 = new Soil
                     {
-                        Name = Utils.NamePivotDelLagoElMirador1,
+                        Name = Utils.NamePivotDelLagoElMiradorChaja1,
                         Description = "Suelo del Pivot Chaja 1 en Del Lago - El Mirador. Suelos profundos, Vertisoles de alto potencial productivo.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
@@ -8287,137 +9161,476 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region La Palma Soils
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region GMO - La Palma Soils
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
 
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma1
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma1
                                  select pos).FirstOrDefault();
                     lHorizon1 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma1 + " 1"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma1 + " 1"
                                  select hor).FirstOrDefault();
                     lHorizon2 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma1 + " 2"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma1 + " 2"
                                  select hor).FirstOrDefault();
-                    var lLaPalmaPivot1 = new Soil
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma1 + " 3"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma1 + " 4"
+                                 select hor).FirstOrDefault();
+                    var lGMOLaPalmaPivot1 = new Soil
                     {
-                        Name = Utils.NamePivotLaPalma1,
-                        Description = "Suelo del Pivot 1 en La Palma. "
-                         + "Suelos moderadamente bien drenados, indice coneat 131.",
+                        Name = Utils.NamePivotGMOLaPalma1,
+                        Description = "Suelo del Pivot 1 en GMO La Palma. "
+                         + "Vertisol.",
                         PositionId = lPosition.PositionId,
-                        TestDate = new DateTime(2015, 12, 29),
-                        DepthLimit = 50,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 45,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPalmaPivot1.HorizonList.Add(lHorizon1);
-                    lLaPalmaPivot1.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon3);
+                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon4);
                     #endregion
 
-                    #region Pivot 2A
+                    #region Pivot 2
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma2A
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma2
                                  select pos).FirstOrDefault();
                     lHorizon1 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma2A + " 1"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma2 + " 1"
                                  select hor).FirstOrDefault();
                     lHorizon2 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma2A + " 2"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma2 + " 2"
                                  select hor).FirstOrDefault();
-                    var lLaPalmaPivot2A = new Soil
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma2 + " 3"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma2 + " 4"
+                                 select hor).FirstOrDefault();
+                    var lGMOLaPalmaPivot2 = new Soil
                     {
-                        Name = Utils.NamePivotLaPalma2A,
-                        Description = "Suelo del Pivot 2 en La Palma. "
-                         + "Suelos moderadamente bien drenados, indice coneat 131.",
+                        Name = Utils.NamePivotGMOLaPalma2,
+                        Description = "Suelo del Pivot 2 en GMO - La Palma. "
+                         + "Vertisol.",
                         PositionId = lPosition.PositionId,
-                        TestDate = new DateTime(2015, 12, 29),
-                        DepthLimit = 50,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 45,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPalmaPivot2A.HorizonList.Add(lHorizon1);
-                    lLaPalmaPivot2A.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot2.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot2.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot2.HorizonList.Add(lHorizon3);
+                    lGMOLaPalmaPivot2.HorizonList.Add(lHorizon4);
                     #endregion
 
                     #region Pivot 3
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma3
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma3
                                  select pos).FirstOrDefault();
                     lHorizon1 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma3 + " 1"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma3 + " 1"
                                  select hor).FirstOrDefault();
                     lHorizon2 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma3 + " 2"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma3 + " 2"
                                  select hor).FirstOrDefault();
-                    var lLaPalmaPivot3 = new Soil
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma3 + " 3"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma3 + " 4"
+                                 select hor).FirstOrDefault();
+                    var lGMOLaPalmaPivot3 = new Soil
                     {
-                        Name = Utils.NamePivotLaPalma3,
+                        Name = Utils.NamePivotGMOLaPalma3,
                         Description = "Suelo del Pivot 3 en La Palma. "
-                         + "Suelos moderadamente bien drenados, indice coneat 131.",
+                         + "Vertisol.",
                         PositionId = lPosition.PositionId,
-                        TestDate = new DateTime(2015, 12, 29),
-                        DepthLimit = 50,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 45,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPalmaPivot3.HorizonList.Add(lHorizon1);
-                    lLaPalmaPivot3.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot3.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot3.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot3.HorizonList.Add(lHorizon3);
+                    lGMOLaPalmaPivot3.HorizonList.Add(lHorizon4);
                     #endregion
 
                     #region Pivot 4
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma4
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma4
                                  select pos).FirstOrDefault();
                     lHorizon1 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma4 + " 1"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma4 + " 1"
                                  select hor).FirstOrDefault();
                     lHorizon2 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma4 + " 2"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma4 + " 2"
                                  select hor).FirstOrDefault();
-                    var lLaPalmaPivot4 = new Soil
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma4 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOLaPalmaPivot4 = new Soil
                     {
-                        Name = Utils.NamePivotLaPalma4,
+                        Name = Utils.NamePivotGMOLaPalma4,
                         Description = "Suelo del Pivot 14 en La Palma. "
-                         + "Suelos moderadamente bien drenados, indice coneat 131.",
+                         + "Brunosol.",
                         PositionId = lPosition.PositionId,
-                        TestDate = new DateTime(2015, 12, 29),
-                        DepthLimit = 50,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 45,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPalmaPivot4.HorizonList.Add(lHorizon1);
-                    lLaPalmaPivot4.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot4.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot4.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot4.HorizonList.Add(lHorizon3);
                     #endregion
 
                     #region Pivot 5
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma5
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma5
                                  select pos).FirstOrDefault();
                     lHorizon1 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma5 + " 1"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma5 + " 1"
                                  select hor).FirstOrDefault();
                     lHorizon2 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotLaPalma5 + " 2"
+                                 where hor.Name == Utils.NamePivotGMOLaPalma5 + " 2"
                                  select hor).FirstOrDefault();
-                    var lLaPalmaPivot5 = new Soil
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma5 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOLaPalmaPivot5 = new Soil
                     {
-                        Name = Utils.NamePivotLaPalma5,
-                        Description = "Suelo del Pivot 5 en La Palma. "
-                         + "Suelos moderadamente bien drenados, indice coneat 131.",
+                        Name = Utils.NamePivotGMOLaPalma5,
+                        Description = "Suelo del Pivot 5 en GMO - La Palma. "
+                         + "Brunosol.",
                         PositionId = lPosition.PositionId,
-                        TestDate = new DateTime(2015, 12, 29),
-                        DepthLimit = 50,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 45,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPalmaPivot5.HorizonList.Add(lHorizon1);
-                    lLaPalmaPivot5.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot5.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot5.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot5.HorizonList.Add(lHorizon3);
                     #endregion
 
-                    context.Soils.Add(lLaPalmaPivot1);
-                    context.Soils.Add(lLaPalmaPivot2A);
-                    context.Soils.Add(lLaPalmaPivot3);
-                    context.Soils.Add(lLaPalmaPivot4);
-                    context.Soils.Add(lLaPalmaPivot5);
+                    context.Soils.Add(lGMOLaPalmaPivot1);
+                    context.Soils.Add(lGMOLaPalmaPivot2);
+                    context.Soils.Add(lGMOLaPalmaPivot3);
+                    context.Soils.Add(lGMOLaPalmaPivot4);
+                    context.Soils.Add(lGMOLaPalmaPivot5);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region GMO - El Tacuru Soils
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    #region Pivot 1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru1 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot1 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru1,
+                        Description = "Suelo del Pivot 1 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot1.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot1.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot1.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 2
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru2
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru2 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru2 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru2 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot2 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru2,
+                        Description = "Suelo del Pivot 2 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot2.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot2.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot2.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 3
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru3
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru3 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru3 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru3 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot3 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru3,
+                        Description = "Suelo del Pivot 3 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot3.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot3.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot3.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 4
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru4
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru4 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru4 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru4 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot4 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru4,
+                        Description = "Suelo del Pivot 14 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot4.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot4.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot4.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 5
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru5
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru5 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru5 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru5 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot5 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru5,
+                        Description = "Suelo del Pivot 5 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot5.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot5.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot5.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 6
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru6
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru6 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru6 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru6 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot6 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru6,
+                        Description = "Suelo del Pivot 6 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot6.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot6.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot6.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 7
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru7
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru7 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru7 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru7 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot7 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru7,
+                        Description = "Suelo del Pivot 7 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(7016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot7.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot7.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot7.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 8
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru8
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru8 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru8 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru8 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot8 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru8,
+                        Description = "Suelo del Pivot 8 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot8.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot8.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot8.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 9
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru9
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru9 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru9 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru9 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot9 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru9,
+                        Description = "Suelo del Pivot 9 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot9.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot9.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot9.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 10
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru10
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru10 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru10 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOElTacuru10 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOElTacuruPivot10 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOElTacuru10,
+                        Description = "Suelo del Pivot 10 en GMO - El Tacuru. "
+                         + "Itapebi-TA. Vertisol Haplicos mod prof.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 30),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOElTacuruPivot10.HorizonList.Add(lHorizon1);
+                    lGMOElTacuruPivot10.HorizonList.Add(lHorizon2);
+                    lGMOElTacuruPivot10.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    context.Soils.Add(lGMOElTacuruPivot1);
+                    context.Soils.Add(lGMOElTacuruPivot2);
+                    context.Soils.Add(lGMOElTacuruPivot3);
+                    context.Soils.Add(lGMOElTacuruPivot4);
+                    context.Soils.Add(lGMOElTacuruPivot5);
+                    context.Soils.Add(lGMOElTacuruPivot6);
+                    context.Soils.Add(lGMOElTacuruPivot7);
+                    context.Soils.Add(lGMOElTacuruPivot8);
+                    context.Soils.Add(lGMOElTacuruPivot9);
+                    context.Soils.Add(lGMOElTacuruPivot10);
                     context.SaveChanges();
                 }
             }
@@ -8660,6 +9873,7 @@ namespace IrrigationAdvisorConsole
 
             #region Bomb Del Lago - El Mirador
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago 
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -8683,25 +9897,54 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region Bomb LaPalma
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region Bomb GMO - LaPalma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionFarmLaPalma
+                                 where pos.Name == Utils.NamePositionFarmGMOLaPalma
                                  select pos).FirstOrDefault();
 
 
-                    var lBombLaPalma = new Bomb
+                    var lBombGMOLaPalma = new Bomb
                     {
-                        Name = Utils.NameBombLaPalma,
+                        Name = Utils.NameBombGMOLaPalma,
                         SerialNumber = "",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
                     };
-                    context.Bombs.Add(lBombLaPalma);
+                    context.Bombs.Add(lBombGMOLaPalma);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Bomb GMO - ElTacuru
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionFarmGMOElTacuru
+                                 select pos).FirstOrDefault();
+
+                    var lBombGMOElTacuru = new Bomb
+                    {
+                        Name = Utils.NameBombGMOElTacuru,
+                        SerialNumber = "",
+                        PurchaseDate = Utils.MIN_DATETIME,
+                        ServiceDate = Utils.MIN_DATETIME,
+                        PositionId = lPosition.PositionId,
+                    };
+                    context.Bombs.Add(lBombGMOElTacuru);
                     context.SaveChanges();
                 }
             }
@@ -9442,6 +10685,7 @@ namespace IrrigationAdvisorConsole
 
             #region Pivots Del Lago - El Mirador
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -9861,128 +11105,389 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region Pivots LaPalma
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
-                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region Pivots GMO - LaPalma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
 
                     #region Pivot 1
                     lBomb = (from b in context.Bombs
-                             where b.Name == Utils.NameBombLaPalma
+                             where b.Name == Utils.NameBombGMOLaPalma
                              select b).FirstOrDefault();
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma1
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma1
                                  select pos).FirstOrDefault();
 
-                    var lLaPalmaPivot1 = new Pivot
+                    var lGMOLaPalmaPivot1 = new Pivot
                     {
-                        Name = Utils.NamePivotLaPalma1,
-                        ShortName = "Pivot 1",
+                        Name = Utils.NamePivotGMOLaPalma1,
+                        ShortName = "Pivot 01",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
+                        IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 48,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 30,
                     };
                     #endregion
 
-                    #region Pivot 2A
+                    #region Pivot 2
                     lBomb = (from b in context.Bombs
-                             where b.Name == Utils.NameBombLaPalma
+                             where b.Name == Utils.NameBombGMOLaPalma
                              select b).FirstOrDefault();
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma2A
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma2
                                  select pos).FirstOrDefault();
 
-                    var lLaPalmaPivot2 = new Pivot
+                    var lGMOLaPalmaPivot2 = new Pivot
                     {
-                        Name = Utils.NamePivotLaPalma2A,
-                        ShortName = "Pivot 2A",
+                        Name = Utils.NamePivotGMOLaPalma2,
+                        ShortName = "Pivot 02",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 60,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                     };
                     #endregion
 
                     #region Pivot 3
                     lBomb = (from b in context.Bombs
-                             where b.Name == Utils.NameBombLaPalma
+                             where b.Name == Utils.NameBombGMOLaPalma
                              select b).FirstOrDefault();
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma3
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma3
                                  select pos).FirstOrDefault();
 
-                    var lLaPalmaPivot3 = new Pivot
+                    var lGMOLaPalmaPivot3 = new Pivot
                     {
-                        Name = Utils.NamePivotLaPalma3,
-                        ShortName = "Pivot 3",
+                        Name = Utils.NamePivotGMOLaPalma3,
+                        ShortName = "Pivot 03",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 54,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
                         Radius = 27,
                     };
                     #endregion
 
                     #region Pivot 4
                     lBomb = (from b in context.Bombs
-                             where b.Name == Utils.NameBombLaPalma
+                             where b.Name == Utils.NameBombGMOLaPalma
                              select b).FirstOrDefault();
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma4
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma4
                                  select pos).FirstOrDefault();
 
-                    var lLaPalmaPivot4 = new Pivot
+                    var lGMOLaPalmaPivot4 = new Pivot
                     {
-                        Name = Utils.NamePivotLaPalma4,
-                        ShortName = "Pivot 4",
+                        Name = Utils.NamePivotGMOLaPalma4,
+                        ShortName = "Pivot 04",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 25.5,
+                        Surface = 28,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 12.7,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 14,
                     };
                     #endregion
 
                     #region Pivot 5
                     lBomb = (from b in context.Bombs
-                             where b.Name == Utils.NameBombLaPalma
+                             where b.Name == Utils.NameBombGMOLaPalma
                              select b).FirstOrDefault();
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotLaPalma5
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma5
                                  select pos).FirstOrDefault();
 
-                    var lLaPalmaPivot5 = new Pivot
+                    var lGMOLaPalmaPivot5 = new Pivot
                     {
-                        Name = Utils.NamePivotLaPalma5,
-                        ShortName = "Pivot 5",
+                        Name = Utils.NamePivotGMOLaPalma5,
+                        ShortName = "Pivot 05",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 50,
+                    };
+                    #endregion
+
+                    context.Pivots.Add(lGMOLaPalmaPivot1);
+                    context.Pivots.Add(lGMOLaPalmaPivot2);
+                    context.Pivots.Add(lGMOLaPalmaPivot3);
+                    context.Pivots.Add(lGMOLaPalmaPivot4);
+                    context.Pivots.Add(lGMOLaPalmaPivot5);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Pivots GMO - ElTacuru
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    #region Pivot 1
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru1
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot1 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru1,
+                        ShortName = "Pivot 01",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 60,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 30,
+                    };
+                    #endregion
+
+                    #region Pivot 2
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru2
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot2 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru2,
+                        ShortName = "Pivot 02",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 143,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 71,
+                    };
+                    #endregion
+
+                    #region Pivot 3
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru3
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot3 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru3,
+                        ShortName = "Pivot 03",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 71,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 36,
+                    };
+                    #endregion
+
+                    #region Pivot 4
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru4
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot4 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru4,
+                        ShortName = "Pivot 04",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 71,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 36,
+                    };
+                    #endregion
+
+                    #region Pivot 5
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru5
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot5 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru5,
+                        ShortName = "Pivot 05",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 100,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
                         Radius = 50,
                     };
                     #endregion
 
-                    context.Pivots.Add(lLaPalmaPivot1);
-                    context.Pivots.Add(lLaPalmaPivot2);
-                    context.Pivots.Add(lLaPalmaPivot3);
-                    context.Pivots.Add(lLaPalmaPivot4);
-                    context.Pivots.Add(lLaPalmaPivot5);
+                    #region Pivot 6
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru6
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot6 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru6,
+                        ShortName = "Pivot 06",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 60,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 30,
+                    };
+                    #endregion
+
+                    #region Pivot 7
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru7
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot7 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru7,
+                        ShortName = "Pivot 07",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 50,
+                    };
+                    #endregion
+
+                    #region Pivot 8
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru8
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot8 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru8,
+                        ShortName = "Pivot 08",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 50,
+                    };
+                    #endregion
+
+                    #region Pivot 9
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru9
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot9 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru9,
+                        ShortName = "Pivot 09",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 50,
+                    };
+                    #endregion
+
+                    #region Pivot 10
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGMOElTacuru
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOElTacuru10
+                                 select pos).FirstOrDefault();
+
+                    var lGMOElTacuruPivot10 = new Pivot
+                    {
+                        Name = Utils.NamePivotGMOElTacuru10,
+                        ShortName = "Pivot 10",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 50,
+                    };
+                    #endregion
+
+                    context.Pivots.Add(lGMOElTacuruPivot1);
+                    context.Pivots.Add(lGMOElTacuruPivot2);
+                    context.Pivots.Add(lGMOElTacuruPivot3);
+                    context.Pivots.Add(lGMOElTacuruPivot4);
+                    context.Pivots.Add(lGMOElTacuruPivot5);
+                    context.Pivots.Add(lGMOElTacuruPivot6);
+                    context.Pivots.Add(lGMOElTacuruPivot7);
+                    context.Pivots.Add(lGMOElTacuruPivot8);
+                    context.Pivots.Add(lGMOElTacuruPivot9);
+                    context.Pivots.Add(lGMOElTacuruPivot10);
                     context.SaveChanges();
                 }
             }
@@ -10019,16 +11524,25 @@ namespace IrrigationAdvisorConsole
             {
                 UpdateSoilsBombsIrrigationUnitsUsersFarmDelLagoSanPedro();
             }
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production 
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
                 UpdateSoilsBombsIrrigationUnitsUsersFarmDelLagoElMirador();
             }
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
-                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO)
             {
-                UpdateSoilsBombsIrrigationUnitsUsersFarmLaPalma();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmGMOLaPalma();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmGMOElTacuru();
             }
-
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+            {
+                UpdateSoilsBombsIrrigationUnitsUsersFarmGMOLaPalma();
+            } 
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+                UpdateSoilsBombsIrrigationUnitsUsersFarmGMOElTacuru();
+            }
         }
 
         private static void InsertCrops()
@@ -10813,7 +12327,8 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
 
-                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
                     DataEntry.AddRainDataDemoPivot1_2015(context);
                     DataEntry.AddRainDataDemoPivot2_2015(context);
@@ -10822,7 +12337,8 @@ namespace IrrigationAdvisorConsole
                     context.SaveChanges();
                 }
 
-                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
                 {
                     DataEntry.AddRainDataLaPerdizPivot2_2015(context);
                     DataEntry.AddRainDataLaPerdizPivot3_2015(context);
@@ -10830,7 +12346,9 @@ namespace IrrigationAdvisorConsole
                     context.SaveChanges();
                 }
 
-                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
                 {
                     DataEntry.AddRainDataDelLagoSanPedroPivot5_2015(context);
                     DataEntry.AddRainDataDelLagoSanPedroPivot6_2015(context);
@@ -10839,7 +12357,9 @@ namespace IrrigationAdvisorConsole
                     context.SaveChanges();
                 }
 
-                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
                     DataEntry.AddRainDataDelLagoElMiradorPivot6_2015(context);
                     DataEntry.AddRainDataDelLagoElMiradorPivot7_2015(context);
@@ -10848,7 +12368,9 @@ namespace IrrigationAdvisorConsole
                     context.SaveChanges();
                 }
 
-                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
                     DataEntry.AddRainDataLaPalmaPivot2A_2015(context);
                     DataEntry.AddRainDataLaPalmaPivot3_2015(context);
@@ -10881,7 +12403,8 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 #region La Perdiz
-                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
                 {
                     //DataEntry.AddRainDataLaPerdizPivot2_2015(context);
                     //DataEntry.AddRainDataLaPerdizPivot3_2015(context);
@@ -10889,6 +12412,7 @@ namespace IrrigationAdvisorConsole
                     //context.SaveChanges();
                 }
                 #endregion
+
                 #region Del Lago - San Pedro
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
@@ -10898,8 +12422,10 @@ namespace IrrigationAdvisorConsole
                     //context.SaveChanges();
                 }
                 #endregion
+
                 #region Del Lago - El Mirador
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
@@ -10923,8 +12449,25 @@ namespace IrrigationAdvisorConsole
                     context.SaveChanges();
                 }
                 #endregion
-                #region La Palma
-                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+
+                #region GMO - La Palma
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+                {
+                    DataEntry.AddRainDataGMOLaPalmaPivot2_2016(context);
+                    DataEntry.AddRainDataGMOLaPalmaPivot3_2016(context);
+                    DataEntry.AddRainDataGMOLaPalmaPivot4_2016(context);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region GMO - La Palma
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO 
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
                     //DataEntry.AddRainDataLaPalmaPivot2A_2015(context);
                     //DataEntry.AddRainDataLaPalmaPivot3_2015(context);
@@ -10971,7 +12514,8 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region La Perdiz
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -10985,7 +12529,9 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region Del Lago - San Pedro
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -10997,7 +12543,9 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region Del Lago - El Mirador
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -11009,7 +12557,9 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region La Palma
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -11068,6 +12618,7 @@ namespace IrrigationAdvisorConsole
 
             #region Del Lago - El Mirador
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago 
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -11077,19 +12628,19 @@ namespace IrrigationAdvisorConsole
                     DataEntry.AddIrrigationDataDelLagoElMiradorPivot2_2016(context);
                     DataEntry.AddIrrigationDataDelLagoElMiradorPivot3_2016(context);
                     DataEntry.AddIrrigationDataDelLagoElMiradorPivot4_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot5_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot6_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot7_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot8_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot9_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot10_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot11_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot12_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot13_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot14_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot15_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivotChaja1_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivotChaja2_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot5_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot6_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot7_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot8_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot9_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot10_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot11_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot12_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot13_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot14_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot15_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivotChaja1_2016(context);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivotChaja2_2016(context);
 
                     context.SaveChanges();
 
@@ -11097,9 +12648,26 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region La Palma
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
-                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region GMO - La Palma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //DataEntry.addirrigationdatagmo
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region GMO - El Tacuru
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -15353,13 +16921,14 @@ namespace IrrigationAdvisorConsole
                 #endregion
 
                 #region La Palma
-                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
                     #region La Palma Pivot 2A 2015
                     //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
-                             where farm.Name == Utils.NameFarmLaPalma
+                             where farm.Name == Utils.NameFarmGMOLaPalma
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
                                            where ws.Name == Utils.NameWeatherStationLasBrujas
@@ -15393,13 +16962,13 @@ namespace IrrigationAdvisorConsole
                                               select cid).FirstOrDefault();
                     //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotLaPalma2A
+                                       where iu.Name == Utils.NamePivotGMOLaPalma2
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilLaPalma2A
+                             where soil.Name == Utils.NameSoilGMOLaPalma2
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotLaPalma2A)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma2)
                                     select horizon)
                                     .ToList<Horizon>();
                     lSowingDate = DataEntry.SowingDate_CornSouth_LaPalmaPivot2A_2015;
@@ -15430,7 +16999,7 @@ namespace IrrigationAdvisorConsole
                     var lCIWLaPalmaPivot2A_2015 = new CropIrrigationWeather
                     {
 
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaPalmaPivot2A,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot2,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -15511,7 +17080,7 @@ namespace IrrigationAdvisorConsole
                     #region La Palma Pivot 3 2015
                     //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
-                             where farm.Name == Utils.NameFarmLaPalma
+                             where farm.Name == Utils.NameFarmGMOLaPalma
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
                                            where ws.Name == Utils.NameWeatherStationLasBrujas
@@ -15545,13 +17114,13 @@ namespace IrrigationAdvisorConsole
                                               select cid).FirstOrDefault();
                     //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotLaPalma3
+                                       where iu.Name == Utils.NamePivotGMOLaPalma3
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilLaPalma3
+                             where soil.Name == Utils.NameSoilGMOLaPalma3
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotLaPalma3)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma3)
                                     select horizon)
                                     .ToList<Horizon>();
                     lSowingDate = DataEntry.SowingDate_CornSouth_LaPalmaPivot3_2015;
@@ -15582,7 +17151,7 @@ namespace IrrigationAdvisorConsole
                     var lCIWLaPalmaPivot3_2015 = new CropIrrigationWeather
                     {
 
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaPalmaPivot3,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot3,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -15663,7 +17232,7 @@ namespace IrrigationAdvisorConsole
                     #region La Palma Pivot 4 2015
                     //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
-                             where farm.Name == Utils.NameFarmLaPalma
+                             where farm.Name == Utils.NameFarmGMOLaPalma
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
                                            where ws.Name == Utils.NameWeatherStationLasBrujas
@@ -15697,13 +17266,13 @@ namespace IrrigationAdvisorConsole
                                               select cid).FirstOrDefault();
                     //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotLaPalma4
+                                       where iu.Name == Utils.NamePivotGMOLaPalma4
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilLaPalma4
+                             where soil.Name == Utils.NameSoilGMOLaPalma4
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotLaPalma4)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma4)
                                     select horizon)
                                     .ToList<Horizon>();
                     lSowingDate = DataEntry.SowingDate_CornSouth_LaPalmaPivot4_2015;
@@ -15734,7 +17303,7 @@ namespace IrrigationAdvisorConsole
                     var lCIWLaPalmaPivot4_2015 = new CropIrrigationWeather
                     {
 
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaPalmaPivot4,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot4,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -17177,6 +18746,7 @@ namespace IrrigationAdvisorConsole
 
                 #region Del Lago - El Mirador
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
@@ -19887,466 +21457,621 @@ namespace IrrigationAdvisorConsole
                 }
                 #endregion
 
-                #region La Palma
-                //if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
-                //{
-                //    #region La Palma Pivot 2A 2016
-                //    //////////////////////////////////////////////////////////////////////
-                //    lFarm = (from farm in context.Farms
-                //             where farm.Name == Utils.NameFarmLaPalma
-                //             select farm).FirstOrDefault();
-                //    lWeatherStationMain = (from ws in context.WeatherStations
-                //                           where ws.Name == Utils.NameWeatherStationLasBrujas
-                //                           select ws).FirstOrDefault();
-                //    lWeatherStationAlternative = (from ws in context.WeatherStations
-                //                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
-                //                                  select ws).FirstOrDefault();
-                //    lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                //                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth) //TODO: Verify Region of La Palma
-                //                          select effectiverain)
-                //                         .ToList<EffectiveRain>();
-                //    //////////////////////////////////////////////////////////////////////
-                //    lSpecie = (from sp in context.Species
-                //               where sp.Name == Utils.NameSpecieCornSouthShort
-                //               select sp).FirstOrDefault();
-                //    lCrop = (from crop in context.Crops
-                //             where crop.Name == Utils.NameSpecieCornSouthShort   //TODO: Verify Specie of La Palma
-                //             select crop).FirstOrDefault();
-                //    lCropCoefficient = (from cc in context.CropCoefficients
-                //                        where cc.Name == Utils.NameSpecieCornSouthShort
-                //                        select cc).FirstOrDefault();
-                //    lPhenologicalStages = (from ps in context.PhenologicalStages
-                //                           where ps.SpecieId == lSpecie.SpecieId
-                //                           select ps).ToList<PhenologicalStage>();
-                //    lKCList = (from cc in context.CropCoefficients
-                //               where cc.Name == Utils.NameSpecieCornSouthShort
-                //               select cc.KCList)
-                //                         .FirstOrDefault();
-                //    lCropInformationByDate = (from cid in context.CropInformationByDates
-                //                              where cid.Name == Utils.NameSpecieCornSouthShort
-                //                              select cid).FirstOrDefault();
-                //    //////////////////////////////////////////////////////////////////////
-                //    lIrrigationUnit = (from iu in context.Pivots
-                //                       where iu.Name == Utils.NamePivotLaPalma2A
-                //                       select iu).FirstOrDefault();
-                //    lSoil = (from soil in context.Soils
-                //             where soil.Name == Utils.NameSoilLaPalma2A
-                //             select soil).FirstOrDefault();
-                //    lHorizonList = (from horizon in context.Horizons
-                //                    where horizon.Name.StartsWith(Utils.NamePivotLaPalma2A)
-                //                    select horizon)
-                //                    .ToList<Horizon>();
-                //    lSowingDate = DataEntry.SowingDate_CornSouth_LaPalmaPivot2A_2016;
-                //    lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
-                //    lCropDate = DateTime.Now;
-                //    if (DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot2A_2016 == 0)
-                //    {
-                //        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
-                //    }
-                //    else
-                //    {
-                //        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot2A_2016;
-                //    }
-                //    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
-                //                            join weatherstation in context.WeatherStations
-                //                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                //                            where (weatherdata.Date >= lSowingDate ||
-                //                                    weatherdata.Date <= lHarvestDate) &&
-                //                                    weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
-                //                            select weatherdata).ToList<WeatherData>();
-                //    lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
-                //                                   join weatherstation in context.WeatherStations
-                //                                   on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                //                                   where (weatherdata.Date.Year >= lSowingDate.Year ||
-                //                                        weatherdata.Date.Year <= lHarvestDate.Year) &&
-                //                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
-                //                                   select weatherdata).ToList<WeatherData>();
-                //    var lCIWLaPalmaPivot2A_2016 = new CropIrrigationWeather
-                //    {
+                #region GMO - La Palma
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+                {
 
-                //        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaPalmaPivot2A,
-                //        CropId = lCrop.CropId,
-                //        Crop = lCrop,
-                //        IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
-                //        IrrigationUnit = lIrrigationUnit,
-                //        MainWeatherStationId = lWeatherStationMain.WeatherStationId,
-                //        MainWeatherStation = lWeatherStationMain,
+                    //#region La Palma Pivot 1 2016
+                    ////////////////////////////////////////////////////////////////////////
+                    //lFarm = (from farm in context.Farms
+                    //         where farm.Name == Utils.NameFarmGMOLaPalma
+                    //         select farm).FirstOrDefault();
+                    //lWeatherStationMain = (from ws in context.WeatherStations
+                    //                       where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                    //                       select ws).FirstOrDefault();
+                    //lWeatherStationAlternative = (from ws in context.WeatherStations
+                    //                              where ws.Name == Utils.NameWeatherStationSanFernando
+                    //                              select ws).FirstOrDefault();
+                    //lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                    //                      where effectiverain.Name.StartsWith(Utils.NameRegionNorth) 
+                    //                      select effectiverain)
+                    //                     .ToList<EffectiveRain>();
+                    ////////////////////////////////////////////////////////////////////////
+                    //lSpecie = (from sp in context.Species
+                    //           where sp.Name == Utils.NameSpecieAlfalfaNorthShort
+                    //           select sp).FirstOrDefault();
+                    //lCrop = (from crop in context.Crops
+                    //         where crop.Name == Utils.NameSpecieAlfalfaNorthShort
+                    //         select crop).FirstOrDefault();
+                    //lCropCoefficient = (from cc in context.CropCoefficients
+                    //                    where cc.Name == Utils.NameSpecieAlfalfaNorthShort
+                    //                    select cc).FirstOrDefault();
+                    //lPhenologicalStages = (from ps in context.PhenologicalStages
+                    //                       where ps.SpecieId == lSpecie.SpecieId
+                    //                       select ps).ToList<PhenologicalStage>();
+                    //lKCList = (from cc in context.CropCoefficients
+                    //           where cc.Name == Utils.NameSpecieAlfalfaNorthShort
+                    //           select cc.KCList)
+                    //                     .FirstOrDefault();
+                    //lCropInformationByDate = (from cid in context.CropInformationByDates
+                    //                          where cid.Name == Utils.NameSpecieAlfalfaNorthShort
+                    //                          select cid).FirstOrDefault();
+                    ////////////////////////////////////////////////////////////////////////
+                    //lIrrigationUnit = (from iu in context.Pivots
+                    //                   where iu.Name == Utils.NamePivotGMOLaPalma1
+                    //                   select iu).FirstOrDefault();
+                    //lSoil = (from soil in context.Soils
+                    //         where soil.Name == Utils.NameSoilGMOLaPalma1
+                    //         select soil).FirstOrDefault();
+                    //lHorizonList = (from horizon in context.Horizons
+                    //                where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma1)
+                    //                select horizon)
+                    //                .ToList<Horizon>();
+                    //lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot1_2016;
+                    //lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
+                    //lCropDate = DateTime.Now;
+                    //if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2016 == 0)
+                    //{
+                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    //}
+                    //else
+                    //{
+                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2016;
+                    //}
+                    //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                    //                        join weatherstation in context.WeatherStations
+                    //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                                weatherdata.Date <= lHarvestDate) &&
+                    //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                    //                        select weatherdata).ToList<WeatherData>();
+                    //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                    //                               join weatherstation in context.WeatherStations
+                    //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                    //                               where (weatherdata.Date.Year >= lSowingDate.Year ||
+                    //                                    weatherdata.Date.Year <= lHarvestDate.Year) &&
+                    //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                    //                               select weatherdata).ToList<WeatherData>();
+                    //var lCIWLaPalmaPivot2A_2016 = new CropIrrigationWeather
+                    //{
 
-                //        AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
-                //        AlternativeWeatherStation = lWeatherStationAlternative,
-                //        PositionId = lFarm.PositionId,
-                //        SoilId = lSoil.SoilId,
-                //        Soil = lSoil,
+                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot2,
+                    //    CropId = lCrop.CropId,
+                    //    Crop = lCrop,
+                    //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
+                    //    IrrigationUnit = lIrrigationUnit,
+                    //    MainWeatherStationId = lWeatherStationMain.WeatherStationId,
+                    //    MainWeatherStation = lWeatherStationMain,
 
-                //        PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
+                    //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
+                    //    AlternativeWeatherStation = lWeatherStationAlternative,
+                    //    PositionId = lFarm.PositionId,
+                    //    SoilId = lSoil.SoilId,
+                    //    Soil = lSoil,
 
-                //        //Set the initial Phenological Stage for the Crop
-                //        PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
-                //        PhenologicalStage = lCrop.PhenologicalStageList[0],
+                    //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
-                //        SowingDate = lSowingDate,
-                //        HarvestDate = lHarvestDate,
-                //        CropDate = lCropDate,
+                    //    //Set the initial Phenological Stage for the Crop
+                    //    PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
+                    //    PhenologicalStage = lCrop.PhenologicalStageList[0],
 
-                //        HydricBalance = 0,
+                    //    SowingDate = lSowingDate,
+                    //    HarvestDate = lHarvestDate,
+                    //    CropDate = lCropDate,
 
-                //        CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
-                //        CropInformationByDate = lCropInformationByDate,
+                    //    HydricBalance = 0,
 
-                //    };
-                //    context.SaveChanges();
+                    //    CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
+                    //    CropInformationByDate = lCropInformationByDate,
 
-                //    //Set Calculus Method for Phenological Adjustment
-                //    lCIWLaPalmaPivot2A_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
-                //    //Get Initial Hydric Balance
-                //    lCIWLaPalmaPivot2A_2016.HydricBalance = lCIWLaPalmaPivot2A_2016.GetInitialHydricBalance();
-                //    //Create the initial registry
-                //    lCIWLaPalmaPivot2A_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    //};
+                    //context.SaveChanges();
 
-                //    context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot2A_2016);
-                //    context.SaveChanges();
+                    ////Set Calculus Method for Phenological Adjustment
+                    //lCIWLaPalmaPivot2A_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    ////Get Initial Hydric Balance
+                    //lCIWLaPalmaPivot2A_2016.HydricBalance = lCIWLaPalmaPivot2A_2016.GetInitialHydricBalance();
+                    ////Create the initial registry
+                    //lCIWLaPalmaPivot2A_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                //    //Save Titles for print
-                //    foreach (var item in lCIWLaPalmaPivot2A_2016.Titles)
-                //    {
-                //        var lTitlesLaPalmaPivot2A_2016 = new Title
-                //        {
-                //            CropIrrigationWeatherId = lCIWLaPalmaPivot2A_2016.CropIrrigationWeatherId,
-                //            CropIrrigationWeather = lCIWLaPalmaPivot2A_2016,
-                //            Daily = false,
-                //            Name = item.Name,
-                //            Abbreviation = item.Abbreviation,
-                //            Description = item.Description,
-                //        };
-                //        context.Titles.Add(lTitlesLaPalmaPivot2A_2016);
-                //    }
-                //    context.SaveChanges();
-                //    long lFirstTitleIdLaPalmaPivot2A_2016 = (from title in context.Titles
-                //                                             where title.Name == "DDS"
-                //                                                && title.Daily == false
-                //                                                && title.CropIrrigationWeatherId == lCIWLaPalmaPivot2A_2016.CropIrrigationWeatherId
-                //                                             select title.TitleId).FirstOrDefault();
-                //    long lTotalTitlesLaPalmaPivot2A_2016 = lCIWLaPalmaPivot2A_2016.Titles.Count();
-                //    long lTitleIdLaPalmaPivot2A_2016 = lFirstTitleIdLaPalmaPivot2A_2016;
-                //    //Update Messages Ids
-                //    foreach (var item in lCIWLaPalmaPivot2A_2016.Messages)
-                //    {
-                //        item.TitleId = lTitleIdLaPalmaPivot2A_2016;
-                //        lTitleIdLaPalmaPivot2A_2016 += 1;
-                //        item.CropIrrigationWeatherId = lCIWLaPalmaPivot2A_2016.CropIrrigationWeatherId;
-                //        if ((lTitleIdLaPalmaPivot2A_2016 - lFirstTitleIdLaPalmaPivot2A_2016) % (lTotalTitlesLaPalmaPivot2A_2016) == 0)
-                //        {
-                //            lTitleIdLaPalmaPivot2A_2016 = lFirstTitleIdLaPalmaPivot2A_2016;
-                //        }
-                //    }
-                //    context.SaveChanges();
-                //    #endregion
+                    //context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot2A_2016);
+                    //context.SaveChanges();
 
-                //    #region La Palma Pivot 3 2016
-                //    //////////////////////////////////////////////////////////////////////
-                //    lFarm = (from farm in context.Farms
-                //             where farm.Name == Utils.NameFarmLaPalma
-                //             select farm).FirstOrDefault();
-                //    lWeatherStationMain = (from ws in context.WeatherStations
-                //                           where ws.Name == Utils.NameWeatherStationLasBrujas
-                //                           select ws).FirstOrDefault();
-                //    lWeatherStationAlternative = (from ws in context.WeatherStations
-                //                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
-                //                                  select ws).FirstOrDefault();
-                //    lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                //                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth) //TODO: Verify Region of La Palma
-                //                          select effectiverain)
-                //                         .ToList<EffectiveRain>();
-                //    //////////////////////////////////////////////////////////////////////
-                //    lSpecie = (from sp in context.Species
-                //               where sp.Name == Utils.NameSpecieCornSouthShort
-                //               select sp).FirstOrDefault();
-                //    lCrop = (from crop in context.Crops
-                //             where crop.Name == Utils.NameSpecieCornSouthShort   //TODO: Verify Specie of La Palma
-                //             select crop).FirstOrDefault();
-                //    lCropCoefficient = (from cc in context.CropCoefficients
-                //                        where cc.Name == Utils.NameSpecieCornSouthShort
-                //                        select cc).FirstOrDefault();
-                //    lPhenologicalStages = (from ps in context.PhenologicalStages
-                //                           where ps.SpecieId == lSpecie.SpecieId
-                //                           select ps).ToList<PhenologicalStage>();
-                //    lKCList = (from cc in context.CropCoefficients
-                //               where cc.Name == Utils.NameSpecieCornSouthShort
-                //               select cc.KCList)
-                //                         .FirstOrDefault();
-                //    lCropInformationByDate = (from cid in context.CropInformationByDates
-                //                              where cid.Name == Utils.NameSpecieCornSouthShort
-                //                              select cid).FirstOrDefault();
-                //    //////////////////////////////////////////////////////////////////////
-                //    lIrrigationUnit = (from iu in context.Pivots
-                //                       where iu.Name == Utils.NamePivotLaPalma3
-                //                       select iu).FirstOrDefault();
-                //    lSoil = (from soil in context.Soils
-                //             where soil.Name == Utils.NameSoilLaPalma3
-                //             select soil).FirstOrDefault();
-                //    lHorizonList = (from horizon in context.Horizons
-                //                    where horizon.Name.StartsWith(Utils.NamePivotLaPalma3)
-                //                    select horizon)
-                //                    .ToList<Horizon>();
-                //    lSowingDate = DataEntry.SowingDate_CornSouth_LaPalmaPivot3_2016;
-                //    lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
-                //    lCropDate = DateTime.Now;
-                //    if (DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot3_2016 == 0)
-                //    {
-                //        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
-                //    }
-                //    else
-                //    {
-                //        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot3_2016;
-                //    }
-                //    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
-                //                            join weatherstation in context.WeatherStations
-                //                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                //                            where (weatherdata.Date >= lSowingDate ||
-                //                                    weatherdata.Date <= lHarvestDate) &&
-                //                                    weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
-                //                            select weatherdata).ToList<WeatherData>();
-                //    lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
-                //                                   join weatherstation in context.WeatherStations
-                //                                   on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                //                                   where (weatherdata.Date.Year >= lSowingDate.Year ||
-                //                                        weatherdata.Date.Year <= lHarvestDate.Year) &&
-                //                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
-                //                                   select weatherdata).ToList<WeatherData>();
-                //    var lCIWLaPalmaPivot3_2016 = new CropIrrigationWeather
-                //    {
+                    ////Save Titles for print
+                    //foreach (var item in lCIWLaPalmaPivot2A_2016.Titles)
+                    //{
+                    //    var lTitlesLaPalmaPivot2A_2016 = new Title
+                    //    {
+                    //        CropIrrigationWeatherId = lCIWLaPalmaPivot2A_2016.CropIrrigationWeatherId,
+                    //        CropIrrigationWeather = lCIWLaPalmaPivot2A_2016,
+                    //        Daily = false,
+                    //        Name = item.Name,
+                    //        Abbreviation = item.Abbreviation,
+                    //        Description = item.Description,
+                    //    };
+                    //    context.Titles.Add(lTitlesLaPalmaPivot2A_2016);
+                    //}
+                    //context.SaveChanges();
+                    //long lFirstTitleIdLaPalmaPivot2A_2016 = (from title in context.Titles
+                    //                                         where title.Name == "DDS"
+                    //                                            && title.Daily == false
+                    //                                            && title.CropIrrigationWeatherId == lCIWLaPalmaPivot2A_2016.CropIrrigationWeatherId
+                    //                                         select title.TitleId).FirstOrDefault();
+                    //long lTotalTitlesLaPalmaPivot2A_2016 = lCIWLaPalmaPivot2A_2016.Titles.Count();
+                    //long lTitleIdLaPalmaPivot2A_2016 = lFirstTitleIdLaPalmaPivot2A_2016;
+                    ////Update Messages Ids
+                    //foreach (var item in lCIWLaPalmaPivot2A_2016.Messages)
+                    //{
+                    //    item.TitleId = lTitleIdLaPalmaPivot2A_2016;
+                    //    lTitleIdLaPalmaPivot2A_2016 += 1;
+                    //    item.CropIrrigationWeatherId = lCIWLaPalmaPivot2A_2016.CropIrrigationWeatherId;
+                    //    if ((lTitleIdLaPalmaPivot2A_2016 - lFirstTitleIdLaPalmaPivot2A_2016) % (lTotalTitlesLaPalmaPivot2A_2016) == 0)
+                    //    {
+                    //        lTitleIdLaPalmaPivot2A_2016 = lFirstTitleIdLaPalmaPivot2A_2016;
+                    //    }
+                    //}
+                    //context.SaveChanges();
+                    //#endregion
 
-                //        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaPalmaPivot3,
-                //        CropId = lCrop.CropId,
-                //        Crop = lCrop,
-                //        IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
-                //        IrrigationUnit = lIrrigationUnit,
-                //        MainWeatherStationId = lWeatherStationMain.WeatherStationId,
-                //        MainWeatherStation = lWeatherStationMain,
+                    //#region La Palma Pivot 2 2016
+                    ////////////////////////////////////////////////////////////////////////
+                    //lFarm = (from farm in context.Farms
+                    //         where farm.Name == Utils.NameFarmGMOLaPalma
+                    //         select farm).FirstOrDefault();
+                    //lWeatherStationMain = (from ws in context.WeatherStations
+                    //                       where ws.Name == Utils.NameWeatherStationLasBrujas
+                    //                       select ws).FirstOrDefault();
+                    //lWeatherStationAlternative = (from ws in context.WeatherStations
+                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                    //                              select ws).FirstOrDefault();
+                    //lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                    //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth) //TODO: Verify Region of La Palma
+                    //                      select effectiverain)
+                    //                     .ToList<EffectiveRain>();
+                    ////////////////////////////////////////////////////////////////////////
+                    //lSpecie = (from sp in context.Species
+                    //           where sp.Name == Utils.NameSpecieCornSouthShort
+                    //           select sp).FirstOrDefault();
+                    //lCrop = (from crop in context.Crops
+                    //         where crop.Name == Utils.NameSpecieCornSouthShort   //TODO: Verify Specie of La Palma
+                    //         select crop).FirstOrDefault();
+                    //lCropCoefficient = (from cc in context.CropCoefficients
+                    //                    where cc.Name == Utils.NameSpecieCornSouthShort
+                    //                    select cc).FirstOrDefault();
+                    //lPhenologicalStages = (from ps in context.PhenologicalStages
+                    //                       where ps.SpecieId == lSpecie.SpecieId
+                    //                       select ps).ToList<PhenologicalStage>();
+                    //lKCList = (from cc in context.CropCoefficients
+                    //           where cc.Name == Utils.NameSpecieCornSouthShort
+                    //           select cc.KCList)
+                    //                     .FirstOrDefault();
+                    //lCropInformationByDate = (from cid in context.CropInformationByDates
+                    //                          where cid.Name == Utils.NameSpecieCornSouthShort
+                    //                          select cid).FirstOrDefault();
+                    ////////////////////////////////////////////////////////////////////////
+                    //lIrrigationUnit = (from iu in context.Pivots
+                    //                   where iu.Name == Utils.NamePivotLaPalma2A
+                    //                   select iu).FirstOrDefault();
+                    //lSoil = (from soil in context.Soils
+                    //         where soil.Name == Utils.NameSoilGMOLaPalma2
+                    //         select soil).FirstOrDefault();
+                    //lHorizonList = (from horizon in context.Horizons
+                    //                where horizon.Name.StartsWith(Utils.NamePivotLaPalma2A)
+                    //                select horizon)
+                    //                .ToList<Horizon>();
+                    //lSowingDate = DataEntry.SowingDate_CornSouth_LaPalmaPivot2A_2016;
+                    //lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
+                    //lCropDate = DateTime.Now;
+                    //if (DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot2A_2016 == 0)
+                    //{
+                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    //}
+                    //else
+                    //{
+                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot2A_2016;
+                    //}
+                    //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                    //                        join weatherstation in context.WeatherStations
+                    //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                                weatherdata.Date <= lHarvestDate) &&
+                    //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                    //                        select weatherdata).ToList<WeatherData>();
+                    //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                    //                               join weatherstation in context.WeatherStations
+                    //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                    //                               where (weatherdata.Date.Year >= lSowingDate.Year ||
+                    //                                    weatherdata.Date.Year <= lHarvestDate.Year) &&
+                    //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                    //                               select weatherdata).ToList<WeatherData>();
+                    //var lCIWLaPalmaPivot2A_2016 = new CropIrrigationWeather
+                    //{
 
-                //        AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
-                //        AlternativeWeatherStation = lWeatherStationAlternative,
-                //        PositionId = lFarm.PositionId,
-                //        SoilId = lSoil.SoilId,
-                //        Soil = lSoil,
+                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot2,
+                    //    CropId = lCrop.CropId,
+                    //    Crop = lCrop,
+                    //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
+                    //    IrrigationUnit = lIrrigationUnit,
+                    //    MainWeatherStationId = lWeatherStationMain.WeatherStationId,
+                    //    MainWeatherStation = lWeatherStationMain,
 
-                //        PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
+                    //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
+                    //    AlternativeWeatherStation = lWeatherStationAlternative,
+                    //    PositionId = lFarm.PositionId,
+                    //    SoilId = lSoil.SoilId,
+                    //    Soil = lSoil,
 
-                //        //Set the initial Phenological Stage for the Crop
-                //        PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
-                //        PhenologicalStage = lCrop.PhenologicalStageList[0],
+                    //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
-                //        SowingDate = lSowingDate,
-                //        HarvestDate = lHarvestDate,
-                //        CropDate = lCropDate,
+                    //    //Set the initial Phenological Stage for the Crop
+                    //    PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
+                    //    PhenologicalStage = lCrop.PhenologicalStageList[0],
 
-                //        HydricBalance = 0,
+                    //    SowingDate = lSowingDate,
+                    //    HarvestDate = lHarvestDate,
+                    //    CropDate = lCropDate,
 
-                //        CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
-                //        CropInformationByDate = lCropInformationByDate,
+                    //    HydricBalance = 0,
 
-                //    };
-                //    context.SaveChanges();
+                    //    CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
+                    //    CropInformationByDate = lCropInformationByDate,
 
-                //    //Set Calculus Method for Phenological Adjustment
-                //    lCIWLaPalmaPivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
-                //    //Get Initial Hydric Balance
-                //    lCIWLaPalmaPivot3_2016.HydricBalance = lCIWLaPalmaPivot3_2016.GetInitialHydricBalance();
-                //    //Create the initial registry
-                //    lCIWLaPalmaPivot3_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    //};
+                    //context.SaveChanges();
 
-                //    context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot3_2016);
-                //    context.SaveChanges();
+                    ////Set Calculus Method for Phenological Adjustment
+                    //lCIWLaPalmaPivot2A_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    ////Get Initial Hydric Balance
+                    //lCIWLaPalmaPivot2A_2016.HydricBalance = lCIWLaPalmaPivot2A_2016.GetInitialHydricBalance();
+                    ////Create the initial registry
+                    //lCIWLaPalmaPivot2A_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                //    //Save Titles for print
-                //    foreach (var item in lCIWLaPalmaPivot3_2016.Titles)
-                //    {
-                //        var lTitlesLaPalmaPivot3_2016 = new Title
-                //        {
-                //            CropIrrigationWeatherId = lCIWLaPalmaPivot3_2016.CropIrrigationWeatherId,
-                //            CropIrrigationWeather = lCIWLaPalmaPivot3_2016,
-                //            Daily = false,
-                //            Name = item.Name,
-                //            Abbreviation = item.Abbreviation,
-                //            Description = item.Description,
-                //        };
-                //        context.Titles.Add(lTitlesLaPalmaPivot3_2016);
-                //    }
-                //    context.SaveChanges();
-                //    long lFirstTitleIdLaPalmaPivot3_2016 = (from title in context.Titles
-                //                                            where title.Name == "DDS"
-                //                                               && title.Daily == false
-                //                                               && title.CropIrrigationWeatherId == lCIWLaPalmaPivot3_2016.CropIrrigationWeatherId
-                //                                            select title.TitleId).FirstOrDefault();
-                //    long lTotalTitlesLaPalmaPivot3_2016 = lCIWLaPalmaPivot3_2016.Titles.Count();
-                //    long lTitleIdLaPalmaPivot3_2016 = lFirstTitleIdLaPalmaPivot3_2016;
-                //    //Update Messages Ids
-                //    foreach (var item in lCIWLaPalmaPivot3_2016.Messages)
-                //    {
-                //        item.TitleId = lTitleIdLaPalmaPivot3_2016;
-                //        lTitleIdLaPalmaPivot3_2016 += 1;
-                //        item.CropIrrigationWeatherId = lCIWLaPalmaPivot3_2016.CropIrrigationWeatherId;
-                //        if ((lTitleIdLaPalmaPivot3_2016 - lFirstTitleIdLaPalmaPivot3_2016) % (lTotalTitlesLaPalmaPivot3_2016) == 0)
-                //        {
-                //            lTitleIdLaPalmaPivot3_2016 = lFirstTitleIdLaPalmaPivot3_2016;
-                //        }
-                //    }
-                //    context.SaveChanges();
-                //    #endregion
+                    //context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot2A_2016);
+                    //context.SaveChanges();
 
-                //    #region La Palma Pivot 4 2016
-                //    //////////////////////////////////////////////////////////////////////
-                //    lFarm = (from farm in context.Farms
-                //             where farm.Name == Utils.NameFarmLaPalma
-                //             select farm).FirstOrDefault();
-                //    lWeatherStationMain = (from ws in context.WeatherStations
-                //                           where ws.Name == Utils.NameWeatherStationLasBrujas
-                //                           select ws).FirstOrDefault();
-                //    lWeatherStationAlternative = (from ws in context.WeatherStations
-                //                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
-                //                                  select ws).FirstOrDefault();
-                //    lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                //                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth) //TODO: Verify Region of La Palma, region north
-                //                          select effectiverain)
-                //                         .ToList<EffectiveRain>();
-                //    //////////////////////////////////////////////////////////////////////
-                //    lSpecie = (from sp in context.Species
-                //               where sp.Name == Utils.NameSpecieCornSouthShort
-                //               select sp).FirstOrDefault();
-                //    lCrop = (from crop in context.Crops
-                //             where crop.Name == Utils.NameSpecieCornSouthShort   //TODO: Verify Specie of La Palma, region north
-                //             select crop).FirstOrDefault();
-                //    lCropCoefficient = (from cc in context.CropCoefficients
-                //                        where cc.Name == Utils.NameSpecieCornSouthShort
-                //                        select cc).FirstOrDefault();
-                //    lPhenologicalStages = (from ps in context.PhenologicalStages
-                //                           where ps.SpecieId == lSpecie.SpecieId
-                //                           select ps).ToList<PhenologicalStage>();
-                //    lKCList = (from cc in context.CropCoefficients
-                //               where cc.Name == Utils.NameSpecieCornSouthShort
-                //               select cc.KCList)
-                //                         .FirstOrDefault();
-                //    lCropInformationByDate = (from cid in context.CropInformationByDates
-                //                              where cid.Name == Utils.NameSpecieCornSouthShort
-                //                              select cid).FirstOrDefault();
-                //    //////////////////////////////////////////////////////////////////////
-                //    lIrrigationUnit = (from iu in context.Pivots
-                //                       where iu.Name == Utils.NamePivotLaPalma4
-                //                       select iu).FirstOrDefault();
-                //    lSoil = (from soil in context.Soils
-                //             where soil.Name == Utils.NameSoilLaPalma4
-                //             select soil).FirstOrDefault();
-                //    lHorizonList = (from horizon in context.Horizons
-                //                    where horizon.Name.StartsWith(Utils.NamePivotLaPalma4)
-                //                    select horizon)
-                //                    .ToList<Horizon>();
-                //    lSowingDate = DataEntry.SowingDate_CornSouth_LaPalmaPivot4_2016;
-                //    lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
-                //    lCropDate = DateTime.Now;
-                //    if (DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot4_2016 == 0)
-                //    {
-                //        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
-                //    }
-                //    else
-                //    {
-                //        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot4_2016;
-                //    }
-                //    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
-                //                            join weatherstation in context.WeatherStations
-                //                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                //                            where (weatherdata.Date >= lSowingDate ||
-                //                                    weatherdata.Date <= lHarvestDate) &&
-                //                                    weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
-                //                            select weatherdata).ToList<WeatherData>();
-                //    lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
-                //                                   join weatherstation in context.WeatherStations
-                //                                   on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                //                                   where (weatherdata.Date.Year >= lSowingDate.Year ||
-                //                                        weatherdata.Date.Year <= lHarvestDate.Year) &&
-                //                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
-                //                                   select weatherdata).ToList<WeatherData>();
-                //    var lCIWLaPalmaPivot4_2016 = new CropIrrigationWeather
-                //    {
+                    ////Save Titles for print
+                    //foreach (var item in lCIWLaPalmaPivot2A_2016.Titles)
+                    //{
+                    //    var lTitlesLaPalmaPivot2A_2016 = new Title
+                    //    {
+                    //        CropIrrigationWeatherId = lCIWLaPalmaPivot2A_2016.CropIrrigationWeatherId,
+                    //        CropIrrigationWeather = lCIWLaPalmaPivot2A_2016,
+                    //        Daily = false,
+                    //        Name = item.Name,
+                    //        Abbreviation = item.Abbreviation,
+                    //        Description = item.Description,
+                    //    };
+                    //    context.Titles.Add(lTitlesLaPalmaPivot2A_2016);
+                    //}
+                    //context.SaveChanges();
+                    //long lFirstTitleIdLaPalmaPivot2A_2016 = (from title in context.Titles
+                    //                                         where title.Name == "DDS"
+                    //                                            && title.Daily == false
+                    //                                            && title.CropIrrigationWeatherId == lCIWLaPalmaPivot2A_2016.CropIrrigationWeatherId
+                    //                                         select title.TitleId).FirstOrDefault();
+                    //long lTotalTitlesLaPalmaPivot2A_2016 = lCIWLaPalmaPivot2A_2016.Titles.Count();
+                    //long lTitleIdLaPalmaPivot2A_2016 = lFirstTitleIdLaPalmaPivot2A_2016;
+                    ////Update Messages Ids
+                    //foreach (var item in lCIWLaPalmaPivot2A_2016.Messages)
+                    //{
+                    //    item.TitleId = lTitleIdLaPalmaPivot2A_2016;
+                    //    lTitleIdLaPalmaPivot2A_2016 += 1;
+                    //    item.CropIrrigationWeatherId = lCIWLaPalmaPivot2A_2016.CropIrrigationWeatherId;
+                    //    if ((lTitleIdLaPalmaPivot2A_2016 - lFirstTitleIdLaPalmaPivot2A_2016) % (lTotalTitlesLaPalmaPivot2A_2016) == 0)
+                    //    {
+                    //        lTitleIdLaPalmaPivot2A_2016 = lFirstTitleIdLaPalmaPivot2A_2016;
+                    //    }
+                    //}
+                    //context.SaveChanges();
+                    //#endregion
 
-                //        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaPalmaPivot4,
-                //        CropId = lCrop.CropId,
-                //        Crop = lCrop,
-                //        IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
-                //        IrrigationUnit = lIrrigationUnit,
-                //        MainWeatherStationId = lWeatherStationMain.WeatherStationId,
-                //        MainWeatherStation = lWeatherStationMain,
+                    //#region La Palma Pivot 3 2016
+                    ////////////////////////////////////////////////////////////////////////
+                    //lFarm = (from farm in context.Farms
+                    //         where farm.Name == Utils.NameFarmLaPalma
+                    //         select farm).FirstOrDefault();
+                    //lWeatherStationMain = (from ws in context.WeatherStations
+                    //                       where ws.Name == Utils.NameWeatherStationLasBrujas
+                    //                       select ws).FirstOrDefault();
+                    //lWeatherStationAlternative = (from ws in context.WeatherStations
+                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                    //                              select ws).FirstOrDefault();
+                    //lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                    //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth) //TODO: Verify Region of La Palma
+                    //                      select effectiverain)
+                    //                     .ToList<EffectiveRain>();
+                    ////////////////////////////////////////////////////////////////////////
+                    //lSpecie = (from sp in context.Species
+                    //           where sp.Name == Utils.NameSpecieCornSouthShort
+                    //           select sp).FirstOrDefault();
+                    //lCrop = (from crop in context.Crops
+                    //         where crop.Name == Utils.NameSpecieCornSouthShort   //TODO: Verify Specie of La Palma
+                    //         select crop).FirstOrDefault();
+                    //lCropCoefficient = (from cc in context.CropCoefficients
+                    //                    where cc.Name == Utils.NameSpecieCornSouthShort
+                    //                    select cc).FirstOrDefault();
+                    //lPhenologicalStages = (from ps in context.PhenologicalStages
+                    //                       where ps.SpecieId == lSpecie.SpecieId
+                    //                       select ps).ToList<PhenologicalStage>();
+                    //lKCList = (from cc in context.CropCoefficients
+                    //           where cc.Name == Utils.NameSpecieCornSouthShort
+                    //           select cc.KCList)
+                    //                     .FirstOrDefault();
+                    //lCropInformationByDate = (from cid in context.CropInformationByDates
+                    //                          where cid.Name == Utils.NameSpecieCornSouthShort
+                    //                          select cid).FirstOrDefault();
+                    ////////////////////////////////////////////////////////////////////////
+                    //lIrrigationUnit = (from iu in context.Pivots
+                    //                   where iu.Name == Utils.NamePivotLaPalma3
+                    //                   select iu).FirstOrDefault();
+                    //lSoil = (from soil in context.Soils
+                    //         where soil.Name == Utils.NameSoilGMOLaPalma3
+                    //         select soil).FirstOrDefault();
+                    //lHorizonList = (from horizon in context.Horizons
+                    //                where horizon.Name.StartsWith(Utils.NamePivotLaPalma3)
+                    //                select horizon)
+                    //                .ToList<Horizon>();
+                    //lSowingDate = DataEntry.SowingDate_CornSouth_LaPalmaPivot3_2016;
+                    //lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
+                    //lCropDate = DateTime.Now;
+                    //if (DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot3_2016 == 0)
+                    //{
+                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    //}
+                    //else
+                    //{
+                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot3_2016;
+                    //}
+                    //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                    //                        join weatherstation in context.WeatherStations
+                    //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                                weatherdata.Date <= lHarvestDate) &&
+                    //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                    //                        select weatherdata).ToList<WeatherData>();
+                    //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                    //                               join weatherstation in context.WeatherStations
+                    //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                    //                               where (weatherdata.Date.Year >= lSowingDate.Year ||
+                    //                                    weatherdata.Date.Year <= lHarvestDate.Year) &&
+                    //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                    //                               select weatherdata).ToList<WeatherData>();
+                    //var lCIWLaPalmaPivot3_2016 = new CropIrrigationWeather
+                    //{
 
-                //        AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
-                //        AlternativeWeatherStation = lWeatherStationAlternative,
-                //        PositionId = lFarm.PositionId,
-                //        SoilId = lSoil.SoilId,
-                //        Soil = lSoil,
+                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot3,
+                    //    CropId = lCrop.CropId,
+                    //    Crop = lCrop,
+                    //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
+                    //    IrrigationUnit = lIrrigationUnit,
+                    //    MainWeatherStationId = lWeatherStationMain.WeatherStationId,
+                    //    MainWeatherStation = lWeatherStationMain,
 
-                //        PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
+                    //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
+                    //    AlternativeWeatherStation = lWeatherStationAlternative,
+                    //    PositionId = lFarm.PositionId,
+                    //    SoilId = lSoil.SoilId,
+                    //    Soil = lSoil,
 
-                //        //Set the initial Phenological Stage for the Crop
-                //        PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
-                //        PhenologicalStage = lCrop.PhenologicalStageList[0],
+                    //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
-                //        SowingDate = lSowingDate,
-                //        HarvestDate = lHarvestDate,
-                //        CropDate = lCropDate,
+                    //    //Set the initial Phenological Stage for the Crop
+                    //    PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
+                    //    PhenologicalStage = lCrop.PhenologicalStageList[0],
 
-                //        HydricBalance = 0,
+                    //    SowingDate = lSowingDate,
+                    //    HarvestDate = lHarvestDate,
+                    //    CropDate = lCropDate,
 
-                //        CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
-                //        CropInformationByDate = lCropInformationByDate,
+                    //    HydricBalance = 0,
 
-                //    };
-                //    context.SaveChanges();
+                    //    CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
+                    //    CropInformationByDate = lCropInformationByDate,
 
-                //    //Set Calculus Method for Phenological Adjustment
-                //    lCIWLaPalmaPivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
-                //    //Get Initial Hydric Balance
-                //    lCIWLaPalmaPivot4_2016.HydricBalance = lCIWLaPalmaPivot4_2016.GetInitialHydricBalance();
-                //    //Create the initial registry
-                //    lCIWLaPalmaPivot4_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    //};
+                    //context.SaveChanges();
 
-                //    context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot4_2016);
-                //    context.SaveChanges();
+                    ////Set Calculus Method for Phenological Adjustment
+                    //lCIWLaPalmaPivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    ////Get Initial Hydric Balance
+                    //lCIWLaPalmaPivot3_2016.HydricBalance = lCIWLaPalmaPivot3_2016.GetInitialHydricBalance();
+                    ////Create the initial registry
+                    //lCIWLaPalmaPivot3_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                //    //Save Titles for print
-                //    foreach (var item in lCIWLaPalmaPivot4_2016.Titles)
-                //    {
-                //        var lTitlesLaPalmaPivot4_2016 = new Title
-                //        {
-                //            CropIrrigationWeatherId = lCIWLaPalmaPivot4_2016.CropIrrigationWeatherId,
-                //            CropIrrigationWeather = lCIWLaPalmaPivot4_2016,
-                //            Daily = false,
-                //            Name = item.Name,
-                //            Abbreviation = item.Abbreviation,
-                //            Description = item.Description,
-                //        };
-                //        context.Titles.Add(lTitlesLaPalmaPivot4_2016);
-                //    }
-                //    context.SaveChanges();
-                //    long lFirstTitleIdLaPalmaPivot4_2016 = (from title in context.Titles
-                //                                            where title.Name == "DDS"
-                //                                               && title.Daily == false
-                //                                               && title.CropIrrigationWeatherId == lCIWLaPalmaPivot4_2016.CropIrrigationWeatherId
-                //                                            select title.TitleId).FirstOrDefault();
-                //    long lTotalTitlesLaPalmaPivot4_2016 = lCIWLaPalmaPivot4_2016.Titles.Count();
-                //    long lTitleIdLaPalmaPivot4_2016 = lFirstTitleIdLaPalmaPivot4_2016;
-                //    //Update Messages Ids
-                //    foreach (var item in lCIWLaPalmaPivot4_2016.Messages)
-                //    {
-                //        item.TitleId = lTitleIdLaPalmaPivot4_2016;
-                //        lTitleIdLaPalmaPivot4_2016 += 1;
-                //        item.CropIrrigationWeatherId = lCIWLaPalmaPivot4_2016.CropIrrigationWeatherId;
-                //        if ((lTitleIdLaPalmaPivot4_2016 - lFirstTitleIdLaPalmaPivot4_2016) % (lTotalTitlesLaPalmaPivot4_2016) == 0)
-                //        {
-                //            lTitleIdLaPalmaPivot4_2016 = lFirstTitleIdLaPalmaPivot4_2016;
-                //        }
-                //    }
-                //    context.SaveChanges();
-                //    #endregion
-                //}
+                    //context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot3_2016);
+                    //context.SaveChanges();
+
+                    ////Save Titles for print
+                    //foreach (var item in lCIWLaPalmaPivot3_2016.Titles)
+                    //{
+                    //    var lTitlesLaPalmaPivot3_2016 = new Title
+                    //    {
+                    //        CropIrrigationWeatherId = lCIWLaPalmaPivot3_2016.CropIrrigationWeatherId,
+                    //        CropIrrigationWeather = lCIWLaPalmaPivot3_2016,
+                    //        Daily = false,
+                    //        Name = item.Name,
+                    //        Abbreviation = item.Abbreviation,
+                    //        Description = item.Description,
+                    //    };
+                    //    context.Titles.Add(lTitlesLaPalmaPivot3_2016);
+                    //}
+                    //context.SaveChanges();
+                    //long lFirstTitleIdLaPalmaPivot3_2016 = (from title in context.Titles
+                    //                                        where title.Name == "DDS"
+                    //                                           && title.Daily == false
+                    //                                           && title.CropIrrigationWeatherId == lCIWLaPalmaPivot3_2016.CropIrrigationWeatherId
+                    //                                        select title.TitleId).FirstOrDefault();
+                    //long lTotalTitlesLaPalmaPivot3_2016 = lCIWLaPalmaPivot3_2016.Titles.Count();
+                    //long lTitleIdLaPalmaPivot3_2016 = lFirstTitleIdLaPalmaPivot3_2016;
+                    ////Update Messages Ids
+                    //foreach (var item in lCIWLaPalmaPivot3_2016.Messages)
+                    //{
+                    //    item.TitleId = lTitleIdLaPalmaPivot3_2016;
+                    //    lTitleIdLaPalmaPivot3_2016 += 1;
+                    //    item.CropIrrigationWeatherId = lCIWLaPalmaPivot3_2016.CropIrrigationWeatherId;
+                    //    if ((lTitleIdLaPalmaPivot3_2016 - lFirstTitleIdLaPalmaPivot3_2016) % (lTotalTitlesLaPalmaPivot3_2016) == 0)
+                    //    {
+                    //        lTitleIdLaPalmaPivot3_2016 = lFirstTitleIdLaPalmaPivot3_2016;
+                    //    }
+                    //}
+                    //context.SaveChanges();
+                    //#endregion
+
+                    //#region La Palma Pivot 4 2016
+                    ////////////////////////////////////////////////////////////////////////
+                    //lFarm = (from farm in context.Farms
+                    //         where farm.Name == Utils.NameFarmLaPalma
+                    //         select farm).FirstOrDefault();
+                    //lWeatherStationMain = (from ws in context.WeatherStations
+                    //                       where ws.Name == Utils.NameWeatherStationLasBrujas
+                    //                       select ws).FirstOrDefault();
+                    //lWeatherStationAlternative = (from ws in context.WeatherStations
+                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                    //                              select ws).FirstOrDefault();
+                    //lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                    //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth) //TODO: Verify Region of La Palma, region north
+                    //                      select effectiverain)
+                    //                     .ToList<EffectiveRain>();
+                    ////////////////////////////////////////////////////////////////////////
+                    //lSpecie = (from sp in context.Species
+                    //           where sp.Name == Utils.NameSpecieCornSouthShort
+                    //           select sp).FirstOrDefault();
+                    //lCrop = (from crop in context.Crops
+                    //         where crop.Name == Utils.NameSpecieCornSouthShort   //TODO: Verify Specie of La Palma, region north
+                    //         select crop).FirstOrDefault();
+                    //lCropCoefficient = (from cc in context.CropCoefficients
+                    //                    where cc.Name == Utils.NameSpecieCornSouthShort
+                    //                    select cc).FirstOrDefault();
+                    //lPhenologicalStages = (from ps in context.PhenologicalStages
+                    //                       where ps.SpecieId == lSpecie.SpecieId
+                    //                       select ps).ToList<PhenologicalStage>();
+                    //lKCList = (from cc in context.CropCoefficients
+                    //           where cc.Name == Utils.NameSpecieCornSouthShort
+                    //           select cc.KCList)
+                    //                     .FirstOrDefault();
+                    //lCropInformationByDate = (from cid in context.CropInformationByDates
+                    //                          where cid.Name == Utils.NameSpecieCornSouthShort
+                    //                          select cid).FirstOrDefault();
+                    ////////////////////////////////////////////////////////////////////////
+                    //lIrrigationUnit = (from iu in context.Pivots
+                    //                   where iu.Name == Utils.NamePivotLaPalma4
+                    //                   select iu).FirstOrDefault();
+                    //lSoil = (from soil in context.Soils
+                    //         where soil.Name == Utils.NameSoilGMOLaPalma4
+                    //         select soil).FirstOrDefault();
+                    //lHorizonList = (from horizon in context.Horizons
+                    //                where horizon.Name.StartsWith(Utils.NamePivotLaPalma4)
+                    //                select horizon)
+                    //                .ToList<Horizon>();
+                    //lSowingDate = DataEntry.SowingDate_CornSouth_LaPalmaPivot4_2016;
+                    //lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
+                    //lCropDate = DateTime.Now;
+                    //if (DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot4_2016 == 0)
+                    //{
+                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    //}
+                    //else
+                    //{
+                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaPalmaPivot4_2016;
+                    //}
+                    //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                    //                        join weatherstation in context.WeatherStations
+                    //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                                weatherdata.Date <= lHarvestDate) &&
+                    //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                    //                        select weatherdata).ToList<WeatherData>();
+                    //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                    //                               join weatherstation in context.WeatherStations
+                    //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                    //                               where (weatherdata.Date.Year >= lSowingDate.Year ||
+                    //                                    weatherdata.Date.Year <= lHarvestDate.Year) &&
+                    //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                    //                               select weatherdata).ToList<WeatherData>();
+                    //var lCIWLaPalmaPivot4_2016 = new CropIrrigationWeather
+                    //{
+
+                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot4,
+                    //    CropId = lCrop.CropId,
+                    //    Crop = lCrop,
+                    //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
+                    //    IrrigationUnit = lIrrigationUnit,
+                    //    MainWeatherStationId = lWeatherStationMain.WeatherStationId,
+                    //    MainWeatherStation = lWeatherStationMain,
+
+                    //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
+                    //    AlternativeWeatherStation = lWeatherStationAlternative,
+                    //    PositionId = lFarm.PositionId,
+                    //    SoilId = lSoil.SoilId,
+                    //    Soil = lSoil,
+
+                    //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
+
+                    //    //Set the initial Phenological Stage for the Crop
+                    //    PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
+                    //    PhenologicalStage = lCrop.PhenologicalStageList[0],
+
+                    //    SowingDate = lSowingDate,
+                    //    HarvestDate = lHarvestDate,
+                    //    CropDate = lCropDate,
+
+                    //    HydricBalance = 0,
+
+                    //    CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
+                    //    CropInformationByDate = lCropInformationByDate,
+
+                    //};
+                    //context.SaveChanges();
+
+                    ////Set Calculus Method for Phenological Adjustment
+                    //lCIWLaPalmaPivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    ////Get Initial Hydric Balance
+                    //lCIWLaPalmaPivot4_2016.HydricBalance = lCIWLaPalmaPivot4_2016.GetInitialHydricBalance();
+                    ////Create the initial registry
+                    //lCIWLaPalmaPivot4_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
+
+                    //context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot4_2016);
+                    //context.SaveChanges();
+
+                    ////Save Titles for print
+                    //foreach (var item in lCIWLaPalmaPivot4_2016.Titles)
+                    //{
+                    //    var lTitlesLaPalmaPivot4_2016 = new Title
+                    //    {
+                    //        CropIrrigationWeatherId = lCIWLaPalmaPivot4_2016.CropIrrigationWeatherId,
+                    //        CropIrrigationWeather = lCIWLaPalmaPivot4_2016,
+                    //        Daily = false,
+                    //        Name = item.Name,
+                    //        Abbreviation = item.Abbreviation,
+                    //        Description = item.Description,
+                    //    };
+                    //    context.Titles.Add(lTitlesLaPalmaPivot4_2016);
+                    //}
+                    //context.SaveChanges();
+                    //long lFirstTitleIdLaPalmaPivot4_2016 = (from title in context.Titles
+                    //                                        where title.Name == "DDS"
+                    //                                           && title.Daily == false
+                    //                                           && title.CropIrrigationWeatherId == lCIWLaPalmaPivot4_2016.CropIrrigationWeatherId
+                    //                                        select title.TitleId).FirstOrDefault();
+                    //long lTotalTitlesLaPalmaPivot4_2016 = lCIWLaPalmaPivot4_2016.Titles.Count();
+                    //long lTitleIdLaPalmaPivot4_2016 = lFirstTitleIdLaPalmaPivot4_2016;
+                    ////Update Messages Ids
+                    //foreach (var item in lCIWLaPalmaPivot4_2016.Messages)
+                    //{
+                    //    item.TitleId = lTitleIdLaPalmaPivot4_2016;
+                    //    lTitleIdLaPalmaPivot4_2016 += 1;
+                    //    item.CropIrrigationWeatherId = lCIWLaPalmaPivot4_2016.CropIrrigationWeatherId;
+                    //    if ((lTitleIdLaPalmaPivot4_2016 - lFirstTitleIdLaPalmaPivot4_2016) % (lTotalTitlesLaPalmaPivot4_2016) == 0)
+                    //    {
+                    //        lTitleIdLaPalmaPivot4_2016 = lFirstTitleIdLaPalmaPivot4_2016;
+                    //    }
+                    //}
+                    //context.SaveChanges();
+                    //#endregion
+                }
                 #endregion
 
                 #region New Farm
@@ -20436,13 +22161,27 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region La Palma
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
-                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region GMO - La Palma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
                     
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region GMO - El Tacuru
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
                     context.SaveChanges();
                 }
             }
@@ -20505,6 +22244,7 @@ namespace IrrigationAdvisorConsole
 
             #region Del Lago - El Mirador
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -20516,8 +22256,25 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region La Palma
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region GMO - La Palma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region GMO - El Tacuru
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -20545,7 +22302,8 @@ namespace IrrigationAdvisorConsole
             #region South
 
             #region Demo - La Perdiz
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -20572,7 +22330,8 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region La Perdiz
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPerdiz)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -20585,7 +22344,9 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region Del Lago - San Pedro
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago 
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -20599,7 +22360,8 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region Del Lago - El Mirador
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -20613,8 +22375,10 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region La Palma
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region GMO - La Palma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -20671,6 +22435,7 @@ namespace IrrigationAdvisorConsole
 
             #region Del Lago - El Mirador
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -20698,12 +22463,32 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region La Palma
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPalma)
+            #region GMO - La Palma
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
                     
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+
+            #region GMO - El Tacuru
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //DataEntry.AddInformationToIrrigationUnitsLaPalmaPivot2A_2015(context);
+                    //DataEntry.AddInformationToIrrigationUnitsLaPalmaPivot3_2015(context);
+                    //DataEntry.AddInformationToIrrigationUnitsLaPalmaPivot4_2015(context);
                     context.SaveChanges();
                 }
             }
@@ -26146,8 +27931,10 @@ namespace IrrigationAdvisorConsole
                 }
                 #endregion
                 
-                #region La Palma
-                if (PrintFarm == Utils.IrrigationAdvisorOutputFiles.All || PrintFarm == Utils.IrrigationAdvisorOutputFiles.LaPalma)
+                #region GMO - La Palma
+                if (PrintFarm == Utils.IrrigationAdvisorOutputFiles.All
+                    || PrintFarm == Utils.IrrigationAdvisorOutputFiles.GMO
+                    || PrintFarm == Utils.IrrigationAdvisorOutputFiles.GMOLaPalma)
                 {
 
                     #region La Palma Pivot 2A 2015
@@ -26159,7 +27946,7 @@ namespace IrrigationAdvisorConsole
                                              .ToList<EffectiveRain>();
 
                     lFarm = (from farm in context.Farms
-                             where farm.Name == Utils.NameFarmLaPalma
+                             where farm.Name == Utils.NameFarmGMOLaPalma
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
                                            where ws.Name == Utils.NameWeatherStationLasBrujas
@@ -26183,7 +27970,7 @@ namespace IrrigationAdvisorConsole
                                          .FirstOrDefault();
 
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotLaPalma2A
+                                       where iu.Name == Utils.NamePivotGMOLaPalma2
                                        select iu).FirstOrDefault();
                     lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                               where ciw.CropId == lCrop.CropId
@@ -26214,10 +28001,10 @@ namespace IrrigationAdvisorConsole
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilLaPalma2A
+                             where soil.Name == Utils.NameSoilGMOLaPalma2
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotLaPalma2A)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma2)
                                     select horizon)
                                     .ToList<Horizon>();
 
@@ -26317,7 +28104,7 @@ namespace IrrigationAdvisorConsole
                                              .ToList<EffectiveRain>();
 
                     lFarm = (from farm in context.Farms
-                             where farm.Name == Utils.NameFarmLaPalma
+                             where farm.Name == Utils.NameFarmGMOLaPalma
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
                                            where ws.Name == Utils.NameWeatherStationLasBrujas
@@ -26341,7 +28128,7 @@ namespace IrrigationAdvisorConsole
                                          .FirstOrDefault();
 
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotLaPalma3
+                                       where iu.Name == Utils.NamePivotGMOLaPalma3
                                        select iu).FirstOrDefault();
                     lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                               where ciw.CropId == lCrop.CropId
@@ -26372,10 +28159,10 @@ namespace IrrigationAdvisorConsole
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilLaPalma3
+                             where soil.Name == Utils.NameSoilGMOLaPalma3
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotLaPalma3)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma3)
                                     select horizon)
                                     .ToList<Horizon>();
 
@@ -26475,7 +28262,7 @@ namespace IrrigationAdvisorConsole
                                              .ToList<EffectiveRain>();
 
                     lFarm = (from farm in context.Farms
-                             where farm.Name == Utils.NameFarmLaPalma
+                             where farm.Name == Utils.NameFarmGMOLaPalma
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
                                            where ws.Name == Utils.NameWeatherStationLasBrujas
@@ -26499,7 +28286,7 @@ namespace IrrigationAdvisorConsole
                                          .FirstOrDefault();
 
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotLaPalma4
+                                       where iu.Name == Utils.NamePivotGMOLaPalma4
                                        select iu).FirstOrDefault();
                     lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                               where ciw.CropId == lCrop.CropId
@@ -26530,10 +28317,10 @@ namespace IrrigationAdvisorConsole
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilLaPalma4
+                             where soil.Name == Utils.NameSoilGMOLaPalma4
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotLaPalma4)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma4)
                                     select horizon)
                                     .ToList<Horizon>();
 
