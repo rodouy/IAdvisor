@@ -1,4 +1,8 @@
-﻿namespace GetWeatherInfoService
+﻿using NLog;
+using System.Configuration;
+using System.Reflection;
+
+namespace GetWeatherInfoService
 {
     partial class ProjectInstaller
     {
@@ -6,6 +10,8 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -28,25 +34,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.serviceProcessInstaller1 = new System.ServiceProcess.ServiceProcessInstaller();
-            this.serviceInstaller1 = new System.ServiceProcess.ServiceInstaller();
-            // 
-            // serviceProcessInstaller1
-            // 
-            this.serviceProcessInstaller1.Password = null;
-            this.serviceProcessInstaller1.Username = null;
-            this.serviceProcessInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceProcessInstaller1_AfterInstall);
-            // 
-            // serviceInstaller1
-            // 
-            this.serviceInstaller1.ServiceName = "PGG Wrightson - Weather Service";
-            this.serviceInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceInstaller1_AfterInstall);
-            // 
-            // ProjectInstaller
-            // 
-            this.Installers.AddRange(new System.Configuration.Install.Installer[] {
-            this.serviceProcessInstaller1,
-            this.serviceInstaller1});
+            try
+            {
+                this.serviceProcessInstaller1 = new System.ServiceProcess.ServiceProcessInstaller();
+                this.serviceInstaller1 = new System.ServiceProcess.ServiceInstaller();
+                // 
+                // serviceProcessInstaller1
+                // 
+                this.serviceProcessInstaller1.Password = null;
+                this.serviceProcessInstaller1.Username = null;
+                this.serviceProcessInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceProcessInstaller1_AfterInstall);
+                // 
+                // serviceInstaller1
+                // 
+                this.serviceInstaller1.ServiceName = GetServiceNameAppConfig("Name");
+                this.serviceInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceInstaller1_AfterInstall);
+                // 
+                // ProjectInstaller
+                // 
+                this.Installers.AddRange(new System.Configuration.Install.Installer[] {
+                this.serviceProcessInstaller1,
+                this.serviceInstaller1});
+            }
+            catch (System.Exception ex)
+            {
+                logger.Error(ex, ex.Message + " -- " + ex.StackTrace);
+            }
+            
 
         }
 
@@ -54,5 +68,11 @@
 
         private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
         private System.ServiceProcess.ServiceInstaller serviceInstaller1;
+
+        public string GetServiceNameAppConfig(string serviceName)
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(Assembly.GetAssembly(typeof(ProjectInstaller)).Location);
+            return config.AppSettings.Settings[serviceName].Value;
+        }
     }
 }

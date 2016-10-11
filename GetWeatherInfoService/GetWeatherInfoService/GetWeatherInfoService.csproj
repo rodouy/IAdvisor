@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums.cs" />
     <Compile Include="GetWeatherInfoService.cs">
       <SubType>Component</SubType>
     </Compile>
