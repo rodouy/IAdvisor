@@ -417,7 +417,6 @@ namespace IrrigationAdvisor.DBContext.Management
             return lReturn;
         }
 
-        
 
         /// <summary>
         /// Get a CropIrrigationWeather list 

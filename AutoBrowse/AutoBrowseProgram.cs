@@ -19,8 +19,8 @@ namespace AutoBrowse
             try
             {
                 string url = args[0];
-                WebClient wc = new WebClient();
-
+                MyWebClient wc = new MyWebClient();
+                
                 NameValueCollection values = new NameValueCollection()
                 {
                     { "pUserName" , "Admin"},
