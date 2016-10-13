@@ -141,7 +141,9 @@ namespace IrrigationAdvisor.DBContext.Management
             {
                 lCropIrrigationWeaterList = db.CropIrrigationWeathers
                     .Include(ciw => ciw.DailyRecordList)
-                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId).ToList();
+                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId
+                            && ciw.SowingDate <= pDateOfReference
+                            && ciw.HarvestDate >= pDateOfReference).ToList();
                 foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
                 {
                     lSowingDate = item.SowingDate;
@@ -152,7 +154,8 @@ namespace IrrigationAdvisor.DBContext.Management
                         && (lHarvestDate >= pDateOfReference))
                     {
                         lCropIrrigationWeather = item;
-                        lDateLastDailyRecord = lCropIrrigationWeather.DailyRecordList.OrderByDescending(dr => dr.DailyRecordDateTime).FirstOrDefault().DailyRecordDateTime;
+                        lDateLastDailyRecord = lCropIrrigationWeather.DailyRecordList
+                            .OrderByDescending(dr => dr.DailyRecordDateTime).FirstOrDefault().DailyRecordDateTime;
                         lMAXDate = Utils.MinDateTimeBetween(lDateLastDailyRecord, lMAXDate);
                     }
                 }
@@ -190,7 +193,9 @@ namespace IrrigationAdvisor.DBContext.Management
             {
                 lCropIrrigationWeaterList = db.CropIrrigationWeathers
                     .Include(ciw => ciw.DailyRecordList)
-                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId).ToList();
+                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId
+                            && ciw.SowingDate <= pDateOfReference
+                            && ciw.HarvestDate >= pDateOfReference).ToList();
                 foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
                 {
                     lSowingDate = item.SowingDate;

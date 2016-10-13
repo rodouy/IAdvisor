@@ -124,7 +124,7 @@ namespace IrrigationAdvisorConsole
         //public static Double PredeterminatedIrrigationQuantity_SantaLuciaPivot5_2015 = 15;
         #endregion
 
-        #region La Perdiz
+        #region DCA - La Perdiz
         //2015 Pivot 1 was not used
         //public static DateOfData SowingDate_CornSouth_LaPerdizPivot1_2015 = new DateOfData(2015, 9, 16);
         //public static Double PredeterminatedIrrigationQuantity_LaPerdizPivot1_2015 = 15;
@@ -1705,6 +1705,246 @@ namespace IrrigationAdvisorConsole
             context.TemperatureDatas.Add(lTD_South_20160208);
             context.TemperatureDatas.Add(lTD_South_20160209);
             context.TemperatureDatas.Add(lTD_South_20160210);
+            context.TemperatureDatas.Add(lTD_South_20160211);
+            context.TemperatureDatas.Add(lTD_South_20160212);
+            context.TemperatureDatas.Add(lTD_South_20160213);
+            context.TemperatureDatas.Add(lTD_South_20160214);
+            context.TemperatureDatas.Add(lTD_South_20160215);
+            context.TemperatureDatas.Add(lTD_South_20160216);
+            context.TemperatureDatas.Add(lTD_South_20160217);
+            context.TemperatureDatas.Add(lTD_South_20160218);
+            context.TemperatureDatas.Add(lTD_South_20160219);
+            context.TemperatureDatas.Add(lTD_South_20160220);
+            context.TemperatureDatas.Add(lTD_South_20160221);
+            context.TemperatureDatas.Add(lTD_South_20160222);
+            context.TemperatureDatas.Add(lTD_South_20160223);
+            context.TemperatureDatas.Add(lTD_South_20160224);
+            context.TemperatureDatas.Add(lTD_South_20160225);
+            context.TemperatureDatas.Add(lTD_South_20160226);
+            context.TemperatureDatas.Add(lTD_South_20160227);
+            context.TemperatureDatas.Add(lTD_South_20160228);
+            context.TemperatureDatas.Add(lTD_South_20160229);
+            context.TemperatureDatas.Add(lTD_South_20160301);
+            context.TemperatureDatas.Add(lTD_South_20160302);
+            context.TemperatureDatas.Add(lTD_South_20160303);
+            context.TemperatureDatas.Add(lTD_South_20160304);
+            context.TemperatureDatas.Add(lTD_South_20160305);
+            context.TemperatureDatas.Add(lTD_South_20160306);
+            context.TemperatureDatas.Add(lTD_South_20160307);
+            context.TemperatureDatas.Add(lTD_South_20160308);
+            context.TemperatureDatas.Add(lTD_South_20160309);
+            context.TemperatureDatas.Add(lTD_South_20160310);
+            context.TemperatureDatas.Add(lTD_South_20160311);
+            context.TemperatureDatas.Add(lTD_South_20160312);
+            context.TemperatureDatas.Add(lTD_South_20160313);
+            context.TemperatureDatas.Add(lTD_South_20160314);
+            context.TemperatureDatas.Add(lTD_South_20160315);
+            context.TemperatureDatas.Add(lTD_South_20160316);
+            context.TemperatureDatas.Add(lTD_South_20160317);
+            context.TemperatureDatas.Add(lTD_South_20160318);
+            context.TemperatureDatas.Add(lTD_South_20160319);
+            context.TemperatureDatas.Add(lTD_South_20160320);
+            context.TemperatureDatas.Add(lTD_South_20160321);
+            context.TemperatureDatas.Add(lTD_South_20160322);
+            context.TemperatureDatas.Add(lTD_South_20160323);
+            context.TemperatureDatas.Add(lTD_South_20160324);
+            context.TemperatureDatas.Add(lTD_South_20160325);
+            context.TemperatureDatas.Add(lTD_South_20160326);
+            context.TemperatureDatas.Add(lTD_South_20160327);
+            context.TemperatureDatas.Add(lTD_South_20160328);
+            context.TemperatureDatas.Add(lTD_South_20160329);
+            context.TemperatureDatas.Add(lTD_South_20160330);
+            context.TemperatureDatas.Add(lTD_South_20160331);
+            context.TemperatureDatas.Add(lTD_South_20160401);
+            context.TemperatureDatas.Add(lTD_South_20160402);
+            context.TemperatureDatas.Add(lTD_South_20160403);
+            context.TemperatureDatas.Add(lTD_South_20160404);
+            context.TemperatureDatas.Add(lTD_South_20160405);
+            context.TemperatureDatas.Add(lTD_South_20160406);
+            context.TemperatureDatas.Add(lTD_South_20160407);
+            context.TemperatureDatas.Add(lTD_South_20160408);
+            context.TemperatureDatas.Add(lTD_South_20160409);
+            context.TemperatureDatas.Add(lTD_South_20160410);
+            context.TemperatureDatas.Add(lTD_South_20160411);
+            context.TemperatureDatas.Add(lTD_South_20160412);
+            context.TemperatureDatas.Add(lTD_South_20160413);
+            context.TemperatureDatas.Add(lTD_South_20160414);
+            context.TemperatureDatas.Add(lTD_South_20160415);
+            context.TemperatureDatas.Add(lTD_South_20160416);
+            context.TemperatureDatas.Add(lTD_South_20160417);
+            context.TemperatureDatas.Add(lTD_South_20160418);
+            context.TemperatureDatas.Add(lTD_South_20160419);
+            context.TemperatureDatas.Add(lTD_South_20160420);
+            context.TemperatureDatas.Add(lTD_South_20160421);
+            context.TemperatureDatas.Add(lTD_South_20160422);
+            context.TemperatureDatas.Add(lTD_South_20160423);
+            context.TemperatureDatas.Add(lTD_South_20160424);
+            context.TemperatureDatas.Add(lTD_South_20160425);
+            context.TemperatureDatas.Add(lTD_South_20160426);
+            context.TemperatureDatas.Add(lTD_South_20160427);
+            context.TemperatureDatas.Add(lTD_South_20160428);
+            context.TemperatureDatas.Add(lTD_South_20160429);
+            context.TemperatureDatas.Add(lTD_South_20160430);
+            context.TemperatureDatas.Add(lTD_South_20160501);
+            context.TemperatureDatas.Add(lTD_South_20160502);
+            context.TemperatureDatas.Add(lTD_South_20160503);
+            context.TemperatureDatas.Add(lTD_South_20160504);
+            context.TemperatureDatas.Add(lTD_South_20160505);
+            context.TemperatureDatas.Add(lTD_South_20160506);
+            context.TemperatureDatas.Add(lTD_South_20160507);
+            context.TemperatureDatas.Add(lTD_South_20160508);
+            context.TemperatureDatas.Add(lTD_South_20160509);
+            context.TemperatureDatas.Add(lTD_South_20160510);
+            context.TemperatureDatas.Add(lTD_South_20160511);
+            context.TemperatureDatas.Add(lTD_South_20160512);
+            context.TemperatureDatas.Add(lTD_South_20160513);
+            context.TemperatureDatas.Add(lTD_South_20160514);
+            context.TemperatureDatas.Add(lTD_South_20160515);
+            context.TemperatureDatas.Add(lTD_South_20160516);
+            context.TemperatureDatas.Add(lTD_South_20160517);
+            context.TemperatureDatas.Add(lTD_South_20160518);
+            context.TemperatureDatas.Add(lTD_South_20160519);
+            context.TemperatureDatas.Add(lTD_South_20160520);
+            context.TemperatureDatas.Add(lTD_South_20160521);
+            context.TemperatureDatas.Add(lTD_South_20160522);
+            context.TemperatureDatas.Add(lTD_South_20160523);
+            context.TemperatureDatas.Add(lTD_South_20160524);
+            context.TemperatureDatas.Add(lTD_South_20160525);
+            context.TemperatureDatas.Add(lTD_South_20160526);
+            context.TemperatureDatas.Add(lTD_South_20160527);
+            context.TemperatureDatas.Add(lTD_South_20160528);
+            context.TemperatureDatas.Add(lTD_South_20160529);
+            context.TemperatureDatas.Add(lTD_South_20160530);
+            context.TemperatureDatas.Add(lTD_South_20160531);
+            context.TemperatureDatas.Add(lTD_South_20160601);
+            context.TemperatureDatas.Add(lTD_South_20160602);
+            context.TemperatureDatas.Add(lTD_South_20160603);
+            context.TemperatureDatas.Add(lTD_South_20160604);
+            context.TemperatureDatas.Add(lTD_South_20160605);
+            context.TemperatureDatas.Add(lTD_South_20160606);
+            context.TemperatureDatas.Add(lTD_South_20160607);
+            context.TemperatureDatas.Add(lTD_South_20160608);
+            context.TemperatureDatas.Add(lTD_South_20160609);
+            context.TemperatureDatas.Add(lTD_South_20160610);
+            context.TemperatureDatas.Add(lTD_South_20160611);
+            context.TemperatureDatas.Add(lTD_South_20160612);
+            context.TemperatureDatas.Add(lTD_South_20160613);
+            context.TemperatureDatas.Add(lTD_South_20160614);
+            context.TemperatureDatas.Add(lTD_South_20160615);
+            context.TemperatureDatas.Add(lTD_South_20160616);
+            context.TemperatureDatas.Add(lTD_South_20160617);
+            context.TemperatureDatas.Add(lTD_South_20160618);
+            context.TemperatureDatas.Add(lTD_South_20160619);
+            context.TemperatureDatas.Add(lTD_South_20160620);
+            context.TemperatureDatas.Add(lTD_South_20160621);
+            context.TemperatureDatas.Add(lTD_South_20160622);
+            context.TemperatureDatas.Add(lTD_South_20160623);
+            context.TemperatureDatas.Add(lTD_South_20160624);
+            context.TemperatureDatas.Add(lTD_South_20160625);
+            context.TemperatureDatas.Add(lTD_South_20160626);
+            context.TemperatureDatas.Add(lTD_South_20160627);
+            context.TemperatureDatas.Add(lTD_South_20160628);
+            context.TemperatureDatas.Add(lTD_South_20160629);
+            context.TemperatureDatas.Add(lTD_South_20160630);
+            context.TemperatureDatas.Add(lTD_South_20160701);
+            context.TemperatureDatas.Add(lTD_South_20160702);
+            context.TemperatureDatas.Add(lTD_South_20160703);
+            context.TemperatureDatas.Add(lTD_South_20160704);
+            context.TemperatureDatas.Add(lTD_South_20160705);
+            context.TemperatureDatas.Add(lTD_South_20160706);
+            context.TemperatureDatas.Add(lTD_South_20160707);
+            context.TemperatureDatas.Add(lTD_South_20160708);
+            context.TemperatureDatas.Add(lTD_South_20160709);
+            context.TemperatureDatas.Add(lTD_South_20160710);
+            context.TemperatureDatas.Add(lTD_South_20160711);
+            context.TemperatureDatas.Add(lTD_South_20160712);
+            context.TemperatureDatas.Add(lTD_South_20160713);
+            context.TemperatureDatas.Add(lTD_South_20160714);
+            context.TemperatureDatas.Add(lTD_South_20160715);
+            context.TemperatureDatas.Add(lTD_South_20160716);
+            context.TemperatureDatas.Add(lTD_South_20160717);
+            context.TemperatureDatas.Add(lTD_South_20160718);
+            context.TemperatureDatas.Add(lTD_South_20160719);
+            context.TemperatureDatas.Add(lTD_South_20160720);
+            context.TemperatureDatas.Add(lTD_South_20160721);
+            context.TemperatureDatas.Add(lTD_South_20160722);
+            context.TemperatureDatas.Add(lTD_South_20160723);
+            context.TemperatureDatas.Add(lTD_South_20160724);
+            context.TemperatureDatas.Add(lTD_South_20160725);
+            context.TemperatureDatas.Add(lTD_South_20160726);
+            context.TemperatureDatas.Add(lTD_South_20160727);
+            context.TemperatureDatas.Add(lTD_South_20160728);
+            context.TemperatureDatas.Add(lTD_South_20160729);
+            context.TemperatureDatas.Add(lTD_South_20160730);
+            context.TemperatureDatas.Add(lTD_South_20160731);
+            context.TemperatureDatas.Add(lTD_South_20160801);
+            context.TemperatureDatas.Add(lTD_South_20160802);
+            context.TemperatureDatas.Add(lTD_South_20160803);
+            context.TemperatureDatas.Add(lTD_South_20160804);
+            context.TemperatureDatas.Add(lTD_South_20160805);
+            context.TemperatureDatas.Add(lTD_South_20160806);
+            context.TemperatureDatas.Add(lTD_South_20160807);
+            context.TemperatureDatas.Add(lTD_South_20160808);
+            context.TemperatureDatas.Add(lTD_South_20160809);
+            context.TemperatureDatas.Add(lTD_South_20160810);
+            context.TemperatureDatas.Add(lTD_South_20160811);
+            context.TemperatureDatas.Add(lTD_South_20160812);
+            context.TemperatureDatas.Add(lTD_South_20160813);
+            context.TemperatureDatas.Add(lTD_South_20160814);
+            context.TemperatureDatas.Add(lTD_South_20160815);
+            context.TemperatureDatas.Add(lTD_South_20160816);
+            context.TemperatureDatas.Add(lTD_South_20160817);
+            context.TemperatureDatas.Add(lTD_South_20160818);
+            context.TemperatureDatas.Add(lTD_South_20160819);
+            context.TemperatureDatas.Add(lTD_South_20160820);
+            context.TemperatureDatas.Add(lTD_South_20160821);
+            context.TemperatureDatas.Add(lTD_South_20160822);
+            context.TemperatureDatas.Add(lTD_South_20160823);
+            context.TemperatureDatas.Add(lTD_South_20160824);
+            context.TemperatureDatas.Add(lTD_South_20160825);
+            context.TemperatureDatas.Add(lTD_South_20160826);
+            context.TemperatureDatas.Add(lTD_South_20160827);
+            context.TemperatureDatas.Add(lTD_South_20160828);
+            context.TemperatureDatas.Add(lTD_South_20160829);
+            context.TemperatureDatas.Add(lTD_South_20160830);
+            context.TemperatureDatas.Add(lTD_South_20160831);
+            context.TemperatureDatas.Add(lTD_South_20160901);
+            context.TemperatureDatas.Add(lTD_South_20160902);
+            context.TemperatureDatas.Add(lTD_South_20160903);
+            context.TemperatureDatas.Add(lTD_South_20160904);
+            context.TemperatureDatas.Add(lTD_South_20160905);
+            context.TemperatureDatas.Add(lTD_South_20160906);
+            context.TemperatureDatas.Add(lTD_South_20160907);
+            context.TemperatureDatas.Add(lTD_South_20160908);
+            context.TemperatureDatas.Add(lTD_South_20160909);
+            context.TemperatureDatas.Add(lTD_South_20160910);
+            context.TemperatureDatas.Add(lTD_South_20160911);
+            context.TemperatureDatas.Add(lTD_South_20160912);
+            context.TemperatureDatas.Add(lTD_South_20160913);
+            context.TemperatureDatas.Add(lTD_South_20160914);
+            context.TemperatureDatas.Add(lTD_South_20160915);
+            context.TemperatureDatas.Add(lTD_South_20160916);
+            context.TemperatureDatas.Add(lTD_South_20160917);
+            context.TemperatureDatas.Add(lTD_South_20160918);
+            context.TemperatureDatas.Add(lTD_South_20160919);
+            context.TemperatureDatas.Add(lTD_South_20160920);
+            context.TemperatureDatas.Add(lTD_South_20160921);
+            context.TemperatureDatas.Add(lTD_South_20160922);
+            context.TemperatureDatas.Add(lTD_South_20160923);
+            context.TemperatureDatas.Add(lTD_South_20160924);
+            context.TemperatureDatas.Add(lTD_South_20160925);
+            context.TemperatureDatas.Add(lTD_South_20160926);
+            context.TemperatureDatas.Add(lTD_South_20160927);
+            context.TemperatureDatas.Add(lTD_South_20160928);
+            context.TemperatureDatas.Add(lTD_South_20160929);
+            context.TemperatureDatas.Add(lTD_South_20160930);
+            context.TemperatureDatas.Add(lTD_South_20161001);
+            context.TemperatureDatas.Add(lTD_South_20161002);
+            context.TemperatureDatas.Add(lTD_South_20161003);
+            context.TemperatureDatas.Add(lTD_South_20161004);
+            context.TemperatureDatas.Add(lTD_South_20161005);
+            context.TemperatureDatas.Add(lTD_South_20161006);
+
 
 #if false
             
@@ -2811,62 +3051,291 @@ namespace IrrigationAdvisorConsole
             #region North
 
             #region 2016 new TemperatureData
-            var lTD_North_20160101 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160101", Date = new DateTime(2016, 01, 01), RegionId = lRegion.RegionId, Min = 21.2, Max = 30.8, Average = 26, ETC = 5.3, Rain = 0, };
-            var lTD_North_20160102 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160102", Date = new DateTime(2016, 01, 02), RegionId = lRegion.RegionId, Min = 20.7, Max = 31.9, Average = 26.3, ETC = 6.6, Rain = 0, };
-            var lTD_North_20160103 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160103", Date = new DateTime(2016, 01, 03), RegionId = lRegion.RegionId, Min = 21.6, Max = 33.8, Average = 27.7, ETC = 6.1, Rain = 0, };
+            var lTD_North_20160101 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160101", Date = new DateTime(2016, 01, 01), RegionId = lRegion.RegionId, Min = 21.2, Max = 30.8, Average = 26, ETC = 5.4, Rain = 0, };
+            var lTD_North_20160102 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160102", Date = new DateTime(2016, 01, 02), RegionId = lRegion.RegionId, Min = 20.7, Max = 31.9, Average = 26.3, ETC = 6.7, Rain = 0, };
+            var lTD_North_20160103 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160103", Date = new DateTime(2016, 01, 03), RegionId = lRegion.RegionId, Min = 21.6, Max = 33.8, Average = 27.7, ETC = 6.2, Rain = 0, };
             var lTD_North_20160104 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160104", Date = new DateTime(2016, 01, 04), RegionId = lRegion.RegionId, Min = 22.1, Max = 29.2, Average = 25.7, ETC = 2.9, Rain = 10.8, };
-            var lTD_North_20160105 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160105", Date = new DateTime(2016, 01, 05), RegionId = lRegion.RegionId, Min = 21.3, Max = 30.8, Average = 26.1, ETC = 4.6, Rain = 0.2, };
+            var lTD_North_20160105 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160105", Date = new DateTime(2016, 01, 05), RegionId = lRegion.RegionId, Min = 21.3, Max = 30.8, Average = 26.1, ETC = 4.7, Rain = 0.2, };
             var lTD_North_20160106 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160106", Date = new DateTime(2016, 01, 06), RegionId = lRegion.RegionId, Min = 22.2, Max = 27.2, Average = 24.7, ETC = 3.4, Rain = 0, };
-            var lTD_North_20160107 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160107", Date = new DateTime(2016, 01, 07), RegionId = lRegion.RegionId, Min = 17.3, Max = 28.7, Average = 23, ETC = 5.5, Rain = 0, };
+            var lTD_North_20160107 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160107", Date = new DateTime(2016, 01, 07), RegionId = lRegion.RegionId, Min = 17.3, Max = 28.7, Average = 23, ETC = 5.6, Rain = 0, };
             var lTD_North_20160108 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160108", Date = new DateTime(2016, 01, 08), RegionId = lRegion.RegionId, Min = 17.4, Max = 30.4, Average = 23.9, ETC = 4.7, Rain = 0, };
-            var lTD_North_20160109 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160109", Date = new DateTime(2016, 01, 09), RegionId = lRegion.RegionId, Min = 18.9, Max = 32, Average = 25.5, ETC = 7.1, Rain = 0, };
-            var lTD_North_20160110 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160110", Date = new DateTime(2016, 01, 10), RegionId = lRegion.RegionId, Min = 21, Max = 32.2, Average = 26.6, ETC = 4.1, Rain = 0, };
-            var lTD_North_20160111 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160111", Date = new DateTime(2016, 01, 11), RegionId = lRegion.RegionId, Min = 22.1, Max = 32.7, Average = 27.4, ETC = 5.5, Rain = 0, };
-            var lTD_North_20160112 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160112", Date = new DateTime(2016, 01, 12), RegionId = lRegion.RegionId, Min = 20.2, Max = 34.9, Average = 27.6, ETC = 5.5, Rain = 6.4, };
+            var lTD_North_20160109 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160109", Date = new DateTime(2016, 01, 09), RegionId = lRegion.RegionId, Min = 18.9, Max = 32, Average = 25.5, ETC = 7.2, Rain = 0, };
+            var lTD_North_20160110 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160110", Date = new DateTime(2016, 01, 10), RegionId = lRegion.RegionId, Min = 21, Max = 32.2, Average = 26.6, ETC = 4.2, Rain = 0, };
+            var lTD_North_20160111 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160111", Date = new DateTime(2016, 01, 11), RegionId = lRegion.RegionId, Min = 22.1, Max = 32.7, Average = 27.4, ETC = 5.6, Rain = 0, };
+            var lTD_North_20160112 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160112", Date = new DateTime(2016, 01, 12), RegionId = lRegion.RegionId, Min = 20.2, Max = 34.9, Average = 27.6, ETC = 5.6, Rain = 6.4, };
             var lTD_North_20160113 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160113", Date = new DateTime(2016, 01, 13), RegionId = lRegion.RegionId, Min = 18.7, Max = 31.2, Average = 25, ETC = 5.5, Rain = 0, };
-            var lTD_North_20160114 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160114", Date = new DateTime(2016, 01, 14), RegionId = lRegion.RegionId, Min = 17.6, Max = 32.1, Average = 24.9, ETC = 6.6, Rain = 0, };
-            var lTD_North_20160115 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160115", Date = new DateTime(2016, 01, 15), RegionId = lRegion.RegionId, Min = 17.2, Max = 34, Average = 25.6, ETC = 6.4, Rain = 0, };
-            var lTD_North_20160116 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160116", Date = new DateTime(2016, 01, 16), RegionId = lRegion.RegionId, Min = 20.5, Max = 34.6, Average = 27.6, ETC = 6.8, Rain = 0, };
-            var lTD_North_20160117 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160117", Date = new DateTime(2016, 01, 17), RegionId = lRegion.RegionId, Min = 22.4, Max = 36.1, Average = 29.3, ETC = 6.5, Rain = 0, };
-            var lTD_North_20160118 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160118", Date = new DateTime(2016, 01, 18), RegionId = lRegion.RegionId, Min = 20.2, Max = 36.8, Average = 28.5, ETC = 7.1, Rain = 0, };
-            var lTD_North_20160119 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160119", Date = new DateTime(2016, 01, 19), RegionId = lRegion.RegionId, Min = 22.1, Max = 35.8, Average = 29, ETC = 7.2, Rain = 0, };
-            var lTD_North_20160120 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160120", Date = new DateTime(2016, 01, 20), RegionId = lRegion.RegionId, Min = 23.2, Max = 35.9, Average = 29.6, ETC = 6.7, Rain = 0, };
-            var lTD_North_20160121 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160121", Date = new DateTime(2016, 01, 21), RegionId = lRegion.RegionId, Min = 21.8, Max = 35.5, Average = 28.7, ETC = 7.3, Rain = 0, };
-            var lTD_North_20160122 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160122", Date = new DateTime(2016, 01, 22), RegionId = lRegion.RegionId, Min = 23.3, Max = 35.8, Average = 29.6, ETC = 7.3, Rain = 0, };
-            var lTD_North_20160123 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160123", Date = new DateTime(2016, 01, 23), RegionId = lRegion.RegionId, Min = 24.1, Max = 38.2, Average = 31.2, ETC = 7.3, Rain = 0, };
-            var lTD_North_20160124 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160124", Date = new DateTime(2016, 01, 24), RegionId = lRegion.RegionId, Min = 24.9, Max = 37.2, Average = 31.1, ETC = 8.3, Rain = 2.3, };
-            var lTD_North_20160125 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160125", Date = new DateTime(2016, 01, 25), RegionId = lRegion.RegionId, Min = 19.8, Max = 29.7, Average = 24.8, ETC = 4.8, Rain = 5.4, };
-            var lTD_North_20160126 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160126", Date = new DateTime(2016, 01, 26), RegionId = lRegion.RegionId, Min = 19.9, Max = 31.2, Average = 25.6, ETC = 5.6, Rain = 0, };
-            var lTD_North_20160127 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160127", Date = new DateTime(2016, 01, 27), RegionId = lRegion.RegionId, Min = 17.1, Max = 30.5, Average = 23.8, ETC = 6.4, Rain = 0, };
-            var lTD_North_20160128 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160128", Date = new DateTime(2016, 01, 28), RegionId = lRegion.RegionId, Min = 19.7, Max = 33.6, Average = 26.7, ETC = 6.9, Rain = 0, };
+            var lTD_North_20160114 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160114", Date = new DateTime(2016, 01, 14), RegionId = lRegion.RegionId, Min = 17.6, Max = 32.1, Average = 24.9, ETC = 6.7, Rain = 0, };
+            var lTD_North_20160115 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160115", Date = new DateTime(2016, 01, 15), RegionId = lRegion.RegionId, Min = 17.2, Max = 34, Average = 25.6, ETC = 6.5, Rain = 0, };
+            var lTD_North_20160116 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160116", Date = new DateTime(2016, 01, 16), RegionId = lRegion.RegionId, Min = 20.5, Max = 34.6, Average = 27.6, ETC = 6.9, Rain = 0, };
+            var lTD_North_20160117 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160117", Date = new DateTime(2016, 01, 17), RegionId = lRegion.RegionId, Min = 22.4, Max = 36.1, Average = 29.3, ETC = 6.6, Rain = 0, };
+            var lTD_North_20160118 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160118", Date = new DateTime(2016, 01, 18), RegionId = lRegion.RegionId, Min = 20.2, Max = 36.8, Average = 28.5, ETC = 7.2, Rain = 0, };
+            var lTD_North_20160119 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160119", Date = new DateTime(2016, 01, 19), RegionId = lRegion.RegionId, Min = 22.1, Max = 35.8, Average = 29, ETC = 7.3, Rain = 0, };
+            var lTD_North_20160120 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160120", Date = new DateTime(2016, 01, 20), RegionId = lRegion.RegionId, Min = 23.2, Max = 35.9, Average = 29.6, ETC = 6.8, Rain = 0, };
+            var lTD_North_20160121 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160121", Date = new DateTime(2016, 01, 21), RegionId = lRegion.RegionId, Min = 21.8, Max = 35.5, Average = 28.7, ETC = 7.4, Rain = 0, };
+            var lTD_North_20160122 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160122", Date = new DateTime(2016, 01, 22), RegionId = lRegion.RegionId, Min = 23.3, Max = 35.8, Average = 29.6, ETC = 7.4, Rain = 0, };
+            var lTD_North_20160123 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160123", Date = new DateTime(2016, 01, 23), RegionId = lRegion.RegionId, Min = 24.1, Max = 38.2, Average = 31.2, ETC = 7.4, Rain = 0, };
+            var lTD_North_20160124 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160124", Date = new DateTime(2016, 01, 24), RegionId = lRegion.RegionId, Min = 24.9, Max = 37.2, Average = 31.1, ETC = 8.4, Rain = 2.3, };
+            var lTD_North_20160125 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160125", Date = new DateTime(2016, 01, 25), RegionId = lRegion.RegionId, Min = 19.8, Max = 29.7, Average = 24.8, ETC = 4.9, Rain = 5.4, };
+            var lTD_North_20160126 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160126", Date = new DateTime(2016, 01, 26), RegionId = lRegion.RegionId, Min = 19.9, Max = 31.2, Average = 25.6, ETC = 5.7, Rain = 0, };
+            var lTD_North_20160127 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160127", Date = new DateTime(2016, 01, 27), RegionId = lRegion.RegionId, Min = 17.1, Max = 30.5, Average = 23.8, ETC = 6.5, Rain = 0, };
+            var lTD_North_20160128 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160128", Date = new DateTime(2016, 01, 28), RegionId = lRegion.RegionId, Min = 19.7, Max = 33.6, Average = 26.7, ETC = 7, Rain = 0, };
             var lTD_North_20160129 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160129", Date = new DateTime(2016, 01, 29), RegionId = lRegion.RegionId, Min = 22.5, Max = 31.2, Average = 26.9, ETC = 3.1, Rain = 0, };
-            var lTD_North_20160130 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160130", Date = new DateTime(2016, 01, 30), RegionId = lRegion.RegionId, Min = 23.6, Max = 33, Average = 28.3, ETC = 4.9, Rain = 0, };
-            var lTD_North_20160131 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160131", Date = new DateTime(2016, 01, 31), RegionId = lRegion.RegionId, Min = 21, Max = 33.3, Average = 27.2, ETC = 7.8, Rain = 0, };
-            var lTD_North_20160201 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160201", Date = new DateTime(2016, 02, 01), RegionId = lRegion.RegionId, Min = 18.3, Max = 30.7, Average = 24.5, ETC = 6.1, Rain = 0, };
-            var lTD_North_20160202 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160202", Date = new DateTime(2016, 02, 02), RegionId = lRegion.RegionId, Min = 14.1, Max = 31.8, Average = 23, ETC = 5.8, Rain = 0, };
-            var lTD_North_20160203 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160203", Date = new DateTime(2016, 02, 03), RegionId = lRegion.RegionId, Min = 18.1, Max = 31.9, Average = 25, ETC = 5.3, Rain = 0, };
-            var lTD_North_20160204 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160204", Date = new DateTime(2016, 02, 04), RegionId = lRegion.RegionId, Min = 20, Max = 34.4, Average = 27.2, ETC = 6, Rain = 0, };
-            var lTD_North_20160205 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160205", Date = new DateTime(2016, 02, 05), RegionId = lRegion.RegionId, Min = 19.4, Max = 36.4, Average = 27.9, ETC = 6.6, Rain = 0, };
-            var lTD_North_20160206 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160206", Date = new DateTime(2016, 02, 06), RegionId = lRegion.RegionId, Min = 24.2, Max = 37.1, Average = 30.7, ETC = 6.9, Rain = 0, };
-            var lTD_North_20160207 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160207", Date = new DateTime(2016, 02, 07), RegionId = lRegion.RegionId, Min = 21.2, Max = 35.5, Average = 28.4, ETC = 7.1, Rain = 10.3, };
-            var lTD_North_20160208 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160208", Date = new DateTime(2016, 02, 08), RegionId = lRegion.RegionId, Min = 23.5, Max = 29.7, Average = 26.6, ETC = 2, Rain = 23.7, };
+            var lTD_North_20160130 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160130", Date = new DateTime(2016, 01, 30), RegionId = lRegion.RegionId, Min = 23.6, Max = 33, Average = 28.3, ETC = 5, Rain = 0, };
+            var lTD_North_20160131 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160131", Date = new DateTime(2016, 01, 31), RegionId = lRegion.RegionId, Min = 21, Max = 33.3, Average = 27.2, ETC = 7.9, Rain = 0, };
+            var lTD_North_20160201 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160201", Date = new DateTime(2016, 02, 01), RegionId = lRegion.RegionId, Min = 18.3, Max = 30.7, Average = 24.5, ETC = 6.2, Rain = 0, };
+            var lTD_North_20160202 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160202", Date = new DateTime(2016, 02, 02), RegionId = lRegion.RegionId, Min = 14.1, Max = 31.8, Average = 23, ETC = 5.9, Rain = 0, };
+            var lTD_North_20160203 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160203", Date = new DateTime(2016, 02, 03), RegionId = lRegion.RegionId, Min = 18.1, Max = 31.9, Average = 25, ETC = 5.4, Rain = 0, };
+            var lTD_North_20160204 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160204", Date = new DateTime(2016, 02, 04), RegionId = lRegion.RegionId, Min = 20, Max = 34.4, Average = 27.2, ETC = 6.1, Rain = 0, };
+            var lTD_North_20160205 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160205", Date = new DateTime(2016, 02, 05), RegionId = lRegion.RegionId, Min = 19.4, Max = 36.4, Average = 27.9, ETC = 6.7, Rain = 0, };
+            var lTD_North_20160206 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160206", Date = new DateTime(2016, 02, 06), RegionId = lRegion.RegionId, Min = 24.2, Max = 37.1, Average = 30.7, ETC = 7, Rain = 0, };
+            var lTD_North_20160207 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160207", Date = new DateTime(2016, 02, 07), RegionId = lRegion.RegionId, Min = 21.2, Max = 35.5, Average = 28.4, ETC = 7.2, Rain = 10.3, };
+            var lTD_North_20160208 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160208", Date = new DateTime(2016, 02, 08), RegionId = lRegion.RegionId, Min = 23.5, Max = 29.7, Average = 26.6, ETC = 2, Rain = 23.8, };
             var lTD_North_20160209 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160209", Date = new DateTime(2016, 02, 09), RegionId = lRegion.RegionId, Min = 23, Max = 32.4, Average = 27.7, ETC = 3.8, Rain = 0, };
-            var lTD_North_20160210 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160210", Date = new DateTime(2016, 02, 10), RegionId = lRegion.RegionId, Min = 22.9, Max = 36.2, Average = 29.6, ETC = 6.9, Rain = 0, };
-            var lTD_North_20160211 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160211", Date = new DateTime(2016, 02, 11), RegionId = lRegion.RegionId, Min = 22.3, Max = 35.9, Average = 29.1, ETC = 6.8, Rain = 0, };
-            var lTD_North_20160212 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160212", Date = new DateTime(2016, 02, 12), RegionId = lRegion.RegionId, Min = 22.3, Max = 35.8, Average = 29.1, ETC = 6.7, Rain = 0, };
+            var lTD_North_20160210 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160210", Date = new DateTime(2016, 02, 10), RegionId = lRegion.RegionId, Min = 22.9, Max = 36.2, Average = 29.6, ETC = 7, Rain = 0, };
+            var lTD_North_20160211 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160211", Date = new DateTime(2016, 02, 11), RegionId = lRegion.RegionId, Min = 22.3, Max = 35.9, Average = 29.1, ETC = 6.9, Rain = 0, };
+            var lTD_North_20160212 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160212", Date = new DateTime(2016, 02, 12), RegionId = lRegion.RegionId, Min = 22.3, Max = 35.8, Average = 29.1, ETC = 6.8, Rain = 0, };
             var lTD_North_20160213 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160213", Date = new DateTime(2016, 02, 13), RegionId = lRegion.RegionId, Min = 22.1, Max = 29.5, Average = 25.8, ETC = 2.2, Rain = 47.2, };
-            var lTD_North_20160214 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160214", Date = new DateTime(2016, 02, 14), RegionId = lRegion.RegionId, Min = 21.4, Max = 33.2, Average = 27.3, ETC = 5.6, Rain = 0, };
-            var lTD_North_20160215 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160215", Date = new DateTime(2016, 02, 15), RegionId = lRegion.RegionId, Min = 22.7, Max = 33, Average = 27.9, ETC = 4.7, Rain = 0.3, };
-            var lTD_North_20160216 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160216", Date = new DateTime(2016, 02, 16), RegionId = lRegion.RegionId, Min = 21.4, Max = 32.5, Average = 27, ETC = 6, Rain = 18.8, };
+            var lTD_North_20160214 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160214", Date = new DateTime(2016, 02, 14), RegionId = lRegion.RegionId, Min = 21.4, Max = 33.2, Average = 27.3, ETC = 5.7, Rain = 0, };
+            var lTD_North_20160215 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160215", Date = new DateTime(2016, 02, 15), RegionId = lRegion.RegionId, Min = 22.7, Max = 33, Average = 27.9, ETC = 4.8, Rain = 0.3, };
+            var lTD_North_20160216 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160216", Date = new DateTime(2016, 02, 16), RegionId = lRegion.RegionId, Min = 21.4, Max = 32.5, Average = 27, ETC = 6.1, Rain = 20.3, };
             var lTD_North_20160217 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160217", Date = new DateTime(2016, 02, 17), RegionId = lRegion.RegionId, Min = 20.7, Max = 27.8, Average = 24.3, ETC = 1.8, Rain = 12, };
             var lTD_North_20160218 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160218", Date = new DateTime(2016, 02, 18), RegionId = lRegion.RegionId, Min = 19.4, Max = 33.1, Average = 26.3, ETC = 5.1, Rain = 2.7, };
-            var lTD_North_20160219 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160219", Date = new DateTime(2016, 02, 19), RegionId = lRegion.RegionId, Min = 17.9, Max = 25.4, Average = 21.7, ETC = 3.4, Rain = 36, };
-            var lTD_North_20160220 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160220", Date = new DateTime(2016, 02, 20), RegionId = lRegion.RegionId, Min = 19.6, Max = 30.9, Average = 25.3, ETC = 5.6, Rain = 0, };
-            var lTD_North_20160221 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160221", Date = new DateTime(2016, 02, 21), RegionId = lRegion.RegionId, Min = 22.1, Max = 32.6, Average = 27.4, ETC = 5.8, Rain = 0, };
-            var lTD_North_20160222 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160222", Date = new DateTime(2016, 02, 22), RegionId = lRegion.RegionId, Min = 22.1, Max = 32.9, Average = 27.5, ETC = 5.6, Rain = 0, };
-            var lTD_North_20160223 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160223", Date = new DateTime(2016, 02, 23), RegionId = lRegion.RegionId, Min = 20.2, Max = 33.8, Average = 27, ETC = 5.4, Rain = 0, };
+            var lTD_North_20160219 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160219", Date = new DateTime(2016, 02, 19), RegionId = lRegion.RegionId, Min = 17.9, Max = 25.4, Average = 21.7, ETC = 3.5, Rain = 36, };
+            var lTD_North_20160220 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160220", Date = new DateTime(2016, 02, 20), RegionId = lRegion.RegionId, Min = 19.6, Max = 30.9, Average = 25.3, ETC = 5.7, Rain = 0, };
+            var lTD_North_20160221 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160221", Date = new DateTime(2016, 02, 21), RegionId = lRegion.RegionId, Min = 22.1, Max = 32.6, Average = 27.4, ETC = 5.9, Rain = 0, };
+            var lTD_North_20160222 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160222", Date = new DateTime(2016, 02, 22), RegionId = lRegion.RegionId, Min = 22.1, Max = 32.9, Average = 27.5, ETC = 5.7, Rain = 0, };
+            var lTD_North_20160223 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160223", Date = new DateTime(2016, 02, 23), RegionId = lRegion.RegionId, Min = 20.2, Max = 33.8, Average = 27, ETC = 5.5, Rain = 0, };
             var lTD_North_20160224 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160224", Date = new DateTime(2016, 02, 24), RegionId = lRegion.RegionId, Min = 23, Max = 33.9, Average = 28.5, ETC = 5.6, Rain = 0, };
-            var lTD_North_20160225 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160225", Date = new DateTime(2016, 02, 25), RegionId = lRegion.RegionId, Min = 22.9, Max = 32.6, Average = 27.8, ETC = 4.4, Rain = 1.5, };
+            var lTD_North_20160225 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160225", Date = new DateTime(2016, 02, 25), RegionId = lRegion.RegionId, Min = 22.9, Max = 32.6, Average = 27.8, ETC = 4.5, Rain = 1.5, };
+            var lTD_North_20160226 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160226", Date = new DateTime(2016, 02, 26), RegionId = lRegion.RegionId, Min = 20.4, Max = 26.2, Average = 23.3, ETC = 1.9, Rain = 25.5, };
+            var lTD_North_20160227 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160227", Date = new DateTime(2016, 02, 27), RegionId = lRegion.RegionId, Min = 17.2, Max = 26.6, Average = 21.9, ETC = 4.2, Rain = 0, };
+            var lTD_North_20160228 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160228", Date = new DateTime(2016, 02, 28), RegionId = lRegion.RegionId, Min = 14.6, Max = 29.3, Average = 22, ETC = 4.7, Rain = 0, };
+            var lTD_North_20160229 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160229", Date = new DateTime(2016, 02, 29), RegionId = lRegion.RegionId, Min = 18.1, Max = 32.2, Average = 25.2, ETC = 5.9, Rain = 0, };
+            var lTD_North_20160301 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160301", Date = new DateTime(2016, 03, 01), RegionId = lRegion.RegionId, Min = 20.2, Max = 28.2, Average = 24.2, ETC = 3.8, Rain = 4.5, };
+            var lTD_North_20160302 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160302", Date = new DateTime(2016, 03, 02), RegionId = lRegion.RegionId, Min = 18.7, Max = 26.1, Average = 22.4, ETC = 3.4, Rain = 17.4, };
+            var lTD_North_20160303 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160303", Date = new DateTime(2016, 03, 03), RegionId = lRegion.RegionId, Min = 17.3, Max = 28.5, Average = 22.9, ETC = 4.6, Rain = 0, };
+            var lTD_North_20160304 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160304", Date = new DateTime(2016, 03, 04), RegionId = lRegion.RegionId, Min = 17.7, Max = 29.2, Average = 23.5, ETC = 4.2, Rain = 0, };
+            var lTD_North_20160305 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160305", Date = new DateTime(2016, 03, 05), RegionId = lRegion.RegionId, Min = 18.8, Max = 27.5, Average = 23.2, ETC = 3.7, Rain = 0, };
+            var lTD_North_20160306 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160306", Date = new DateTime(2016, 03, 06), RegionId = lRegion.RegionId, Min = 15.3, Max = 25.8, Average = 20.6, ETC = 4.2, Rain = 0, };
+            var lTD_North_20160307 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160307", Date = new DateTime(2016, 03, 07), RegionId = lRegion.RegionId, Min = 12.9, Max = 24.6, Average = 18.8, ETC = 3.2, Rain = 0, };
+            var lTD_North_20160308 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160308", Date = new DateTime(2016, 03, 08), RegionId = lRegion.RegionId, Min = 13.1, Max = 28.7, Average = 20.9, ETC = 4, Rain = 0, };
+            var lTD_North_20160309 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160309", Date = new DateTime(2016, 03, 09), RegionId = lRegion.RegionId, Min = 20.3, Max = 27.9, Average = 24.1, ETC = 3.6, Rain = 0.5, };
+            var lTD_North_20160310 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160310", Date = new DateTime(2016, 03, 10), RegionId = lRegion.RegionId, Min = 16.2, Max = 24, Average = 20.1, ETC = 4.1, Rain = 0, };
+            var lTD_North_20160311 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160311", Date = new DateTime(2016, 03, 11), RegionId = lRegion.RegionId, Min = 14.2, Max = 24.2, Average = 19.2, ETC = 3.1, Rain = 0, };
+            var lTD_North_20160312 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160312", Date = new DateTime(2016, 03, 12), RegionId = lRegion.RegionId, Min = 14.1, Max = 25.6, Average = 19.9, ETC = 4.3, Rain = 0, };
+            var lTD_North_20160313 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160313", Date = new DateTime(2016, 03, 13), RegionId = lRegion.RegionId, Min = 13.9, Max = 26.9, Average = 20.4, ETC = 4, Rain = 0, };
+            var lTD_North_20160314 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160314", Date = new DateTime(2016, 03, 14), RegionId = lRegion.RegionId, Min = 15, Max = 29.9, Average = 22.5, ETC = 4.4, Rain = 0, };
+            var lTD_North_20160315 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160315", Date = new DateTime(2016, 03, 15), RegionId = lRegion.RegionId, Min = 18.3, Max = 32.9, Average = 25.6, ETC = 4.6, Rain = 0, };
+            var lTD_North_20160316 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160316", Date = new DateTime(2016, 03, 16), RegionId = lRegion.RegionId, Min = 20.4, Max = 33.7, Average = 27.1, ETC = 5.2, Rain = 0, };
+            var lTD_North_20160317 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160317", Date = new DateTime(2016, 03, 17), RegionId = lRegion.RegionId, Min = 21.5, Max = 33.9, Average = 27.7, ETC = 5.3, Rain = 0, };
+            var lTD_North_20160318 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160318", Date = new DateTime(2016, 03, 18), RegionId = lRegion.RegionId, Min = 21.2, Max = 27.2, Average = 24.2, ETC = 2.2, Rain = 29.1, };
+            var lTD_North_20160319 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160319", Date = new DateTime(2016, 03, 19), RegionId = lRegion.RegionId, Min = 17.3, Max = 22.1, Average = 19.7, ETC = 2.9, Rain = 13.6, };
+            var lTD_North_20160320 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160320", Date = new DateTime(2016, 03, 20), RegionId = lRegion.RegionId, Min = 13.9, Max = 18.9, Average = 16.4, ETC = 1.6, Rain = 14.6, };
+            var lTD_North_20160321 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160321", Date = new DateTime(2016, 03, 21), RegionId = lRegion.RegionId, Min = 16.4, Max = 25.5, Average = 21, ETC = 2.7, Rain = 0.2, };
+            var lTD_North_20160322 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160322", Date = new DateTime(2016, 03, 22), RegionId = lRegion.RegionId, Min = 14.4, Max = 25.9, Average = 20.2, ETC = 3.1, Rain = 0, };
+            var lTD_North_20160323 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160323", Date = new DateTime(2016, 03, 23), RegionId = lRegion.RegionId, Min = 13.9, Max = 27, Average = 20.5, ETC = 3.3, Rain = 0, };
+            var lTD_North_20160324 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160324", Date = new DateTime(2016, 03, 24), RegionId = lRegion.RegionId, Min = 15.4, Max = 27.5, Average = 21.5, ETC = 3.1, Rain = 0, };
+            var lTD_North_20160325 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160325", Date = new DateTime(2016, 03, 25), RegionId = lRegion.RegionId, Min = 18.4, Max = 23.5, Average = 21, ETC = 3.2, Rain = 0, };
+            var lTD_North_20160326 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160326", Date = new DateTime(2016, 03, 26), RegionId = lRegion.RegionId, Min = 17.6, Max = 23.3, Average = 20.5, ETC = 2.7, Rain = 2.7, };
+            var lTD_North_20160327 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160327", Date = new DateTime(2016, 03, 27), RegionId = lRegion.RegionId, Min = 18.4, Max = 26.9, Average = 22.7, ETC = 3, Rain = 0, };
+            var lTD_North_20160328 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160328", Date = new DateTime(2016, 03, 28), RegionId = lRegion.RegionId, Min = 17.3, Max = 27.7, Average = 22.5, ETC = 3.4, Rain = 0, };
+            var lTD_North_20160329 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160329", Date = new DateTime(2016, 03, 29), RegionId = lRegion.RegionId, Min = 13.7, Max = 28.1, Average = 20.9, ETC = 3.2, Rain = 0, };
+            var lTD_North_20160330 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160330", Date = new DateTime(2016, 03, 30), RegionId = lRegion.RegionId, Min = 15.5, Max = 29.1, Average = 22.3, ETC = 3.7, Rain = 0, };
+            var lTD_North_20160331 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160331", Date = new DateTime(2016, 03, 31), RegionId = lRegion.RegionId, Min = 15.4, Max = 30.6, Average = 23, ETC = 3.7, Rain = 0, };
+            var lTD_North_20160401 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160401", Date = new DateTime(2016, 04, 01), RegionId = lRegion.RegionId, Min = 19.2, Max = 32.5, Average = 25.9, ETC = 4, Rain = 20.6, };
+            var lTD_North_20160402 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160402", Date = new DateTime(2016, 04, 02), RegionId = lRegion.RegionId, Min = 19.6, Max = 25.9, Average = 22.8, ETC = 1.4, Rain = 12, };
+            var lTD_North_20160403 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160403", Date = new DateTime(2016, 04, 03), RegionId = lRegion.RegionId, Min = 17.5, Max = 23.9, Average = 20.7, ETC = 1.6, Rain = 3.3, };
+            var lTD_North_20160404 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160404", Date = new DateTime(2016, 04, 04), RegionId = lRegion.RegionId, Min = 19.4, Max = 23.4, Average = 21.4, ETC = 1.3, Rain = 44.6, };
+            var lTD_North_20160405 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160405", Date = new DateTime(2016, 04, 05), RegionId = lRegion.RegionId, Min = 20.8, Max = 22.4, Average = 21.6, ETC = 1.1, Rain = 33.3, };
+            var lTD_North_20160406 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160406", Date = new DateTime(2016, 04, 06), RegionId = lRegion.RegionId, Min = 21.1, Max = 25.9, Average = 23.5, ETC = 1.6, Rain = 1.2, };
+            var lTD_North_20160407 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160407", Date = new DateTime(2016, 04, 07), RegionId = lRegion.RegionId, Min = 17.5, Max = 24.1, Average = 20.8, ETC = 1.3, Rain = 13.2, };
+            var lTD_North_20160408 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160408", Date = new DateTime(2016, 04, 08), RegionId = lRegion.RegionId, Min = 20.1, Max = 26.4, Average = 23.3, ETC = 2.3, Rain = 34.1, };
+            var lTD_North_20160409 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160409", Date = new DateTime(2016, 04, 09), RegionId = lRegion.RegionId, Min = 20.9, Max = 29, Average = 25, ETC = 2.9, Rain = 18.3, };
+            var lTD_North_20160410 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160410", Date = new DateTime(2016, 04, 10), RegionId = lRegion.RegionId, Min = 18.1, Max = 19.7, Average = 18.9, ETC = 1.4, Rain = 7.8, };
+            var lTD_North_20160411 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160411", Date = new DateTime(2016, 04, 11), RegionId = lRegion.RegionId, Min = 18, Max = 20, Average = 19, ETC = 1.3, Rain = 1.7, };
+            var lTD_North_20160412 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160412", Date = new DateTime(2016, 04, 12), RegionId = lRegion.RegionId, Min = 18.9, Max = 23.6, Average = 21.3, ETC = 1.8, Rain = 17.2, };
+            var lTD_North_20160413 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160413", Date = new DateTime(2016, 04, 13), RegionId = lRegion.RegionId, Min = 18.6, Max = 23.6, Average = 21.1, ETC = 1.3, Rain = 2.3, };
+            var lTD_North_20160414 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160414", Date = new DateTime(2016, 04, 14), RegionId = lRegion.RegionId, Min = 20.4, Max = 25.9, Average = 23.2, ETC = 1.7, Rain = 0.1, };
+            var lTD_North_20160415 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160415", Date = new DateTime(2016, 04, 15), RegionId = lRegion.RegionId, Min = 22.9, Max = 32.5, Average = 27.7, ETC = 3.9, Rain = 0, };
+            var lTD_North_20160416 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160416", Date = new DateTime(2016, 04, 16), RegionId = lRegion.RegionId, Min = 26.2, Max = 32.6, Average = 29.4, ETC = 3.8, Rain = 0, };
+            var lTD_North_20160417 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160417", Date = new DateTime(2016, 04, 17), RegionId = lRegion.RegionId, Min = 23.3, Max = 30.5, Average = 26.9, ETC = 2.4, Rain = 13.7, };
+            var lTD_North_20160418 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160418", Date = new DateTime(2016, 04, 18), RegionId = lRegion.RegionId, Min = 18.1, Max = 22.4, Average = 20.3, ETC = 1.1, Rain = 47.5, };
+            var lTD_North_20160419 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160419", Date = new DateTime(2016, 04, 19), RegionId = lRegion.RegionId, Min = 17.6, Max = 22.9, Average = 20.3, ETC = 1.1, Rain = 3, };
+            var lTD_North_20160420 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160420", Date = new DateTime(2016, 04, 20), RegionId = lRegion.RegionId, Min = 14.5, Max = 20.1, Average = 17.3, ETC = 1.2, Rain = 41.6, };
+            var lTD_North_20160421 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160421", Date = new DateTime(2016, 04, 21), RegionId = lRegion.RegionId, Min = 17, Max = 23.9, Average = 20.5, ETC = 2.3, Rain = 0, };
+            var lTD_North_20160422 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160422", Date = new DateTime(2016, 04, 22), RegionId = lRegion.RegionId, Min = 14.9, Max = 23, Average = 19, ETC = 2.9, Rain = 0, };
+            var lTD_North_20160423 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160423", Date = new DateTime(2016, 04, 23), RegionId = lRegion.RegionId, Min = 20.7, Max = 26, Average = 23.4, ETC = 1.9, Rain = 11.7, };
+            var lTD_North_20160424 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160424", Date = new DateTime(2016, 04, 24), RegionId = lRegion.RegionId, Min = 19, Max = 21.5, Average = 20.3, ETC = 1.3, Rain = 11.7, };
+            var lTD_North_20160425 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160425", Date = new DateTime(2016, 04, 25), RegionId = lRegion.RegionId, Min = 12.3, Max = 19.2, Average = 15.8, ETC = 1.2, Rain = 4.7, };
+            var lTD_North_20160426 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160426", Date = new DateTime(2016, 04, 26), RegionId = lRegion.RegionId, Min = 8.1, Max = 14.4, Average = 11.3, ETC = 1.7, Rain = 0, };
+            var lTD_North_20160427 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160427", Date = new DateTime(2016, 04, 27), RegionId = lRegion.RegionId, Min = 7.3, Max = 14, Average = 10.7, ETC = 1.6, Rain = 0, };
+            var lTD_North_20160428 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160428", Date = new DateTime(2016, 04, 28), RegionId = lRegion.RegionId, Min = 6.2, Max = 14.2, Average = 10.2, ETC = 1.2, Rain = 0, };
+            var lTD_North_20160429 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160429", Date = new DateTime(2016, 04, 29), RegionId = lRegion.RegionId, Min = 4.6, Max = 17, Average = 10.8, ETC = 1.3, Rain = 0, };
+            var lTD_North_20160430 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160430", Date = new DateTime(2016, 04, 30), RegionId = lRegion.RegionId, Min = 6, Max = 16.5, Average = 11.3, ETC = 1.4, Rain = 0, };
+            var lTD_North_20160501 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160501", Date = new DateTime(2016, 05, 01), RegionId = lRegion.RegionId, Min = 6, Max = 18.3, Average = 12.2, ETC = 1.5, Rain = 0, };
+            var lTD_North_20160502 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160502", Date = new DateTime(2016, 05, 02), RegionId = lRegion.RegionId, Min = 6.5, Max = 18.7, Average = 12.6, ETC = 1.3, Rain = 0, };
+            var lTD_North_20160503 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160503", Date = new DateTime(2016, 05, 03), RegionId = lRegion.RegionId, Min = 10.8, Max = 19.3, Average = 15.1, ETC = 1.4, Rain = 0, };
+            var lTD_North_20160504 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160504", Date = new DateTime(2016, 05, 04), RegionId = lRegion.RegionId, Min = 7, Max = 19.9, Average = 13.5, ETC = 1.3, Rain = 0, };
+            var lTD_North_20160505 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160505", Date = new DateTime(2016, 05, 05), RegionId = lRegion.RegionId, Min = 8.9, Max = 21, Average = 15, ETC = 1.5, Rain = 0, };
+            var lTD_North_20160506 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160506", Date = new DateTime(2016, 05, 06), RegionId = lRegion.RegionId, Min = 9.4, Max = 19.4, Average = 14.4, ETC = 1.6, Rain = 0, };
+            var lTD_North_20160507 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160507", Date = new DateTime(2016, 05, 07), RegionId = lRegion.RegionId, Min = 9, Max = 21, Average = 15, ETC = 1.6, Rain = 0, };
+            var lTD_North_20160508 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160508", Date = new DateTime(2016, 05, 08), RegionId = lRegion.RegionId, Min = 15, Max = 19.6, Average = 17.3, ETC = 1.3, Rain = 0, };
+            var lTD_North_20160509 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160509", Date = new DateTime(2016, 05, 09), RegionId = lRegion.RegionId, Min = 13.3, Max = 19.7, Average = 16.5, ETC = 0.9, Rain = 0.5, };
+            var lTD_North_20160510 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160510", Date = new DateTime(2016, 05, 10), RegionId = lRegion.RegionId, Min = 16.3, Max = 21.3, Average = 18.8, ETC = 1.3, Rain = 0.1, };
+            var lTD_North_20160511 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160511", Date = new DateTime(2016, 05, 11), RegionId = lRegion.RegionId, Min = 10.4, Max = 17.9, Average = 14.2, ETC = 1.2, Rain = 0, };
+            var lTD_North_20160512 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160512", Date = new DateTime(2016, 05, 12), RegionId = lRegion.RegionId, Min = 6.7, Max = 17.1, Average = 11.9, ETC = 1.2, Rain = 0, };
+            var lTD_North_20160513 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160513", Date = new DateTime(2016, 05, 13), RegionId = lRegion.RegionId, Min = 5.3, Max = 19, Average = 12.2, ETC = 1.2, Rain = 0, };
+            var lTD_North_20160514 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160514", Date = new DateTime(2016, 05, 14), RegionId = lRegion.RegionId, Min = 8.8, Max = 20.6, Average = 14.7, ETC = 1.2, Rain = 37.3, };
+            var lTD_North_20160515 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160515", Date = new DateTime(2016, 05, 15), RegionId = lRegion.RegionId, Min = 12.3, Max = 19.1, Average = 15.7, ETC = 1.2, Rain = 0.5, };
+            var lTD_North_20160516 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160516", Date = new DateTime(2016, 05, 16), RegionId = lRegion.RegionId, Min = 7.3, Max = 14.2, Average = 10.8, ETC = 1, Rain = 0, };
+            var lTD_North_20160517 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160517", Date = new DateTime(2016, 05, 17), RegionId = lRegion.RegionId, Min = 3.5, Max = 14.4, Average = 9, ETC = 1, Rain = 0, };
+            var lTD_North_20160518 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160518", Date = new DateTime(2016, 05, 18), RegionId = lRegion.RegionId, Min = 8, Max = 15.8, Average = 11.9, ETC = 1, Rain = 0, };
+            var lTD_North_20160519 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160519", Date = new DateTime(2016, 05, 19), RegionId = lRegion.RegionId, Min = 6.4, Max = 17.9, Average = 12.2, ETC = 1.3, Rain = 0, };
+            var lTD_North_20160520 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160520", Date = new DateTime(2016, 05, 20), RegionId = lRegion.RegionId, Min = 7.3, Max = 18, Average = 12.7, ETC = 1.4, Rain = 0, };
+            var lTD_North_20160521 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160521", Date = new DateTime(2016, 05, 21), RegionId = lRegion.RegionId, Min = 6, Max = 18, Average = 12, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160522 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160522", Date = new DateTime(2016, 05, 22), RegionId = lRegion.RegionId, Min = 8, Max = 14.7, Average = 11.4, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160523 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160523", Date = new DateTime(2016, 05, 23), RegionId = lRegion.RegionId, Min = 2.9, Max = 16.3, Average = 9.6, ETC = 0.8, Rain = 0, };
+            var lTD_North_20160524 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160524", Date = new DateTime(2016, 05, 24), RegionId = lRegion.RegionId, Min = 5, Max = 18, Average = 11.5, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160525 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160525", Date = new DateTime(2016, 05, 25), RegionId = lRegion.RegionId, Min = 9.4, Max = 21.4, Average = 15.4, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160526 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160526", Date = new DateTime(2016, 05, 26), RegionId = lRegion.RegionId, Min = 8.4, Max = 19.7, Average = 14.1, ETC = 1, Rain = 0, };
+            var lTD_North_20160527 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160527", Date = new DateTime(2016, 05, 27), RegionId = lRegion.RegionId, Min = 9.5, Max = 14.7, Average = 12.1, ETC = 0.8, Rain = 0.4, };
+            var lTD_North_20160528 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160528", Date = new DateTime(2016, 05, 28), RegionId = lRegion.RegionId, Min = 12.6, Max = 18.3, Average = 15.5, ETC = 0.8, Rain = 1.2, };
+            var lTD_North_20160529 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160529", Date = new DateTime(2016, 05, 29), RegionId = lRegion.RegionId, Min = 15.4, Max = 18.3, Average = 16.9, ETC = 0.7, Rain = 0.2, };
+            var lTD_North_20160530 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160530", Date = new DateTime(2016, 05, 30), RegionId = lRegion.RegionId, Min = 13.8, Max = 16, Average = 14.9, ETC = 0.8, Rain = 3.7, };
+            var lTD_North_20160531 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160531", Date = new DateTime(2016, 05, 31), RegionId = lRegion.RegionId, Min = 9.6, Max = 17.3, Average = 13.5, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160601 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160601", Date = new DateTime(2016, 06, 01), RegionId = lRegion.RegionId, Min = 9, Max = 16.2, Average = 12.6, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160602 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160602", Date = new DateTime(2016, 06, 02), RegionId = lRegion.RegionId, Min = 8.3, Max = 18.1, Average = 13.2, ETC = 1.3, Rain = 0, };
+            var lTD_North_20160603 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160603", Date = new DateTime(2016, 06, 03), RegionId = lRegion.RegionId, Min = 6, Max = 15.9, Average = 11, ETC = 0.8, Rain = 0, };
+            var lTD_North_20160604 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160604", Date = new DateTime(2016, 06, 04), RegionId = lRegion.RegionId, Min = 7.3, Max = 11.7, Average = 9.5, ETC = 0.8, Rain = 0, };
+            var lTD_North_20160605 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160605", Date = new DateTime(2016, 06, 05), RegionId = lRegion.RegionId, Min = 6.4, Max = 13.3, Average = 9.9, ETC = 0.7, Rain = 0, };
+            var lTD_North_20160606 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160606", Date = new DateTime(2016, 06, 06), RegionId = lRegion.RegionId, Min = 6.1, Max = 13.4, Average = 9.8, ETC = 0.7, Rain = 0, };
+            var lTD_North_20160607 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160607", Date = new DateTime(2016, 06, 07), RegionId = lRegion.RegionId, Min = 8.3, Max = 18.3, Average = 13.3, ETC = 1.5, Rain = 0, };
+            var lTD_North_20160608 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160608", Date = new DateTime(2016, 06, 08), RegionId = lRegion.RegionId, Min = 3.5, Max = 16, Average = 9.8, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160609 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160609", Date = new DateTime(2016, 06, 09), RegionId = lRegion.RegionId, Min = 2.3, Max = 17.5, Average = 9.9, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160610 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160610", Date = new DateTime(2016, 06, 10), RegionId = lRegion.RegionId, Min = 4.3, Max = 13.3, Average = 8.8, ETC = 1, Rain = 0, };
+            var lTD_North_20160611 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160611", Date = new DateTime(2016, 06, 11), RegionId = lRegion.RegionId, Min = 3.3, Max = 14.4, Average = 8.9, ETC = 0.8, Rain = 0, };
+            var lTD_North_20160612 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160612", Date = new DateTime(2016, 06, 12), RegionId = lRegion.RegionId, Min = 0.3, Max = 16.9, Average = 8.6, ETC = 0.7, Rain = 0, };
+            var lTD_North_20160613 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160613", Date = new DateTime(2016, 06, 13), RegionId = lRegion.RegionId, Min = 2.3, Max = 16, Average = 9.2, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160614 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160614", Date = new DateTime(2016, 06, 14), RegionId = lRegion.RegionId, Min = 5.7, Max = 18.8, Average = 12.3, ETC = 1.2, Rain = 0, };
+            var lTD_North_20160615 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160615", Date = new DateTime(2016, 06, 15), RegionId = lRegion.RegionId, Min = 7.9, Max = 20.3, Average = 14.1, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160616 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160616", Date = new DateTime(2016, 06, 16), RegionId = lRegion.RegionId, Min = 5.9, Max = 17.8, Average = 11.9, ETC = 0.8, Rain = 0, };
+            var lTD_North_20160617 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160617", Date = new DateTime(2016, 06, 17), RegionId = lRegion.RegionId, Min = 2.8, Max = 18, Average = 10.4, ETC = 0.5, Rain = 0, };
+            var lTD_North_20160618 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160618", Date = new DateTime(2016, 06, 18), RegionId = lRegion.RegionId, Min = 3.9, Max = 18, Average = 11, ETC = 0.5, Rain = 0, };
+            var lTD_North_20160619 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160619", Date = new DateTime(2016, 06, 19), RegionId = lRegion.RegionId, Min = 4.1, Max = 18.7, Average = 11.4, ETC = 0.7, Rain = 0, };
+            var lTD_North_20160620 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160620", Date = new DateTime(2016, 06, 20), RegionId = lRegion.RegionId, Min = 3.5, Max = 14.6, Average = 9.1, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160621 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160621", Date = new DateTime(2016, 06, 21), RegionId = lRegion.RegionId, Min = 4.1, Max = 15.9, Average = 10, ETC = 0.7, Rain = 0, };
+            var lTD_North_20160622 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160622", Date = new DateTime(2016, 06, 22), RegionId = lRegion.RegionId, Min = 2.1, Max = 18.3, Average = 10.2, ETC = 0.4, Rain = 0, };
+            var lTD_North_20160623 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160623", Date = new DateTime(2016, 06, 23), RegionId = lRegion.RegionId, Min = 5.9, Max = 20.1, Average = 13, ETC = 0.8, Rain = 0, };
+            var lTD_North_20160624 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160624", Date = new DateTime(2016, 06, 24), RegionId = lRegion.RegionId, Min = 7.9, Max = 18.6, Average = 13.3, ETC = 1.2, Rain = 0, };
+            var lTD_North_20160625 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160625", Date = new DateTime(2016, 06, 25), RegionId = lRegion.RegionId, Min = 10.4, Max = 13.7, Average = 12.1, ETC = 0.8, Rain = 23.1, };
+            var lTD_North_20160626 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160626", Date = new DateTime(2016, 06, 26), RegionId = lRegion.RegionId, Min = 12.5, Max = 17.2, Average = 14.9, ETC = 0.7, Rain = 36.6, };
+            var lTD_North_20160627 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160627", Date = new DateTime(2016, 06, 27), RegionId = lRegion.RegionId, Min = 9.4, Max = 13.7, Average = 11.6, ETC = 0.6, Rain = 4.1, };
+            var lTD_North_20160628 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160628", Date = new DateTime(2016, 06, 28), RegionId = lRegion.RegionId, Min = 9.3, Max = 13.1, Average = 11.2, ETC = 0.7, Rain = 0.6, };
+            var lTD_North_20160629 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160629", Date = new DateTime(2016, 06, 29), RegionId = lRegion.RegionId, Min = 10.1, Max = 20.1, Average = 15.1, ETC = 0.7, Rain = 0.1, };
+            var lTD_North_20160630 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160630", Date = new DateTime(2016, 06, 30), RegionId = lRegion.RegionId, Min = 15.2, Max = 23.5, Average = 19.4, ETC = 1.2, Rain = 0, };
+            var lTD_North_20160701 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160701", Date = new DateTime(2016, 07, 01), RegionId = lRegion.RegionId, Min = 15.9, Max = 21.3, Average = 18.6, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160702 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160702", Date = new DateTime(2016, 07, 02), RegionId = lRegion.RegionId, Min = 15.2, Max = 25.3, Average = 20.3, ETC = 1.4, Rain = 0, };
+            var lTD_North_20160703 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160703", Date = new DateTime(2016, 07, 03), RegionId = lRegion.RegionId, Min = 17.2, Max = 25.2, Average = 21.2, ETC = 1.4, Rain = 0, };
+            var lTD_North_20160704 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160704", Date = new DateTime(2016, 07, 04), RegionId = lRegion.RegionId, Min = 13.2, Max = 19.3, Average = 16.3, ETC = 0.7, Rain = 22.5, };
+            var lTD_North_20160705 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160705", Date = new DateTime(2016, 07, 05), RegionId = lRegion.RegionId, Min = 10.1, Max = 13.3, Average = 11.7, ETC = 0.6, Rain = 24.7, };
+            var lTD_North_20160706 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160706", Date = new DateTime(2016, 07, 06), RegionId = lRegion.RegionId, Min = 8.9, Max = 16.2, Average = 12.6, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160707 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160707", Date = new DateTime(2016, 07, 07), RegionId = lRegion.RegionId, Min = 9.2, Max = 19.1, Average = 14.2, ETC = 1, Rain = 0, };
+            var lTD_North_20160708 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160708", Date = new DateTime(2016, 07, 08), RegionId = lRegion.RegionId, Min = 7.1, Max = 17.7, Average = 12.4, ETC = 1.2, Rain = 6.3, };
+            var lTD_North_20160709 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160709", Date = new DateTime(2016, 07, 09), RegionId = lRegion.RegionId, Min = 11.4, Max = 15.8, Average = 13.6, ETC = 0.9, Rain = 0.5, };
+            var lTD_North_20160710 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160710", Date = new DateTime(2016, 07, 10), RegionId = lRegion.RegionId, Min = 12, Max = 13.8, Average = 12.9, ETC = 1.1, Rain = 0.1, };
+            var lTD_North_20160711 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160711", Date = new DateTime(2016, 07, 11), RegionId = lRegion.RegionId, Min = 11.7, Max = 13.8, Average = 12.8, ETC = 0.6, Rain = 0.9, };
+            var lTD_North_20160712 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160712", Date = new DateTime(2016, 07, 12), RegionId = lRegion.RegionId, Min = 7.7, Max = 17.1, Average = 12.4, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160713 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160713", Date = new DateTime(2016, 07, 13), RegionId = lRegion.RegionId, Min = 5.2, Max = 16.1, Average = 10.7, ETC = 1.1, Rain = 0.4, };
+            var lTD_North_20160714 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160714", Date = new DateTime(2016, 07, 14), RegionId = lRegion.RegionId, Min = 11, Max = 15.1, Average = 13.1, ETC = 0.7, Rain = 0.1, };
+            var lTD_North_20160715 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160715", Date = new DateTime(2016, 07, 15), RegionId = lRegion.RegionId, Min = 8.6, Max = 14.6, Average = 11.6, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160716 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160716", Date = new DateTime(2016, 07, 16), RegionId = lRegion.RegionId, Min = 5.9, Max = 10.7, Average = 8.3, ETC = 1, Rain = 0, };
+            var lTD_North_20160717 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160717", Date = new DateTime(2016, 07, 17), RegionId = lRegion.RegionId, Min = 1.4, Max = 12, Average = 6.7, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160718 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160718", Date = new DateTime(2016, 07, 18), RegionId = lRegion.RegionId, Min = 2.6, Max = 13.5, Average = 8.1, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160719 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160719", Date = new DateTime(2016, 07, 19), RegionId = lRegion.RegionId, Min = 2.2, Max = 13.9, Average = 8.1, ETC = 0.8, Rain = 0, };
+            var lTD_North_20160720 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160720", Date = new DateTime(2016, 07, 20), RegionId = lRegion.RegionId, Min = 1.6, Max = 14.4, Average = 8, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160721 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160721", Date = new DateTime(2016, 07, 21), RegionId = lRegion.RegionId, Min = 0.7, Max = 13.9, Average = 7.3, ETC = 0.8, Rain = 0, };
+            var lTD_North_20160722 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160722", Date = new DateTime(2016, 07, 22), RegionId = lRegion.RegionId, Min = 2.7, Max = 17.1, Average = 9.9, ETC = 1, Rain = 0, };
+            var lTD_North_20160723 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160723", Date = new DateTime(2016, 07, 23), RegionId = lRegion.RegionId, Min = 4.6, Max = 21.2, Average = 12.9, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160724 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160724", Date = new DateTime(2016, 07, 24), RegionId = lRegion.RegionId, Min = 6.7, Max = 21.1, Average = 13.9, ETC = 1.6, Rain = 3.1, };
+            var lTD_North_20160725 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160725", Date = new DateTime(2016, 07, 25), RegionId = lRegion.RegionId, Min = 12.5, Max = 16.5, Average = 14.5, ETC = 1.1, Rain = 4.5, };
+            var lTD_North_20160726 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160726", Date = new DateTime(2016, 07, 26), RegionId = lRegion.RegionId, Min = 9.5, Max = 12, Average = 10.8, ETC = 1.2, Rain = 0.4, };
+            var lTD_North_20160727 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160727", Date = new DateTime(2016, 07, 27), RegionId = lRegion.RegionId, Min = 4.3, Max = 13.6, Average = 9, ETC = 0.9, Rain = 0, };
+            var lTD_North_20160728 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160728", Date = new DateTime(2016, 07, 28), RegionId = lRegion.RegionId, Min = 1.5, Max = 15.3, Average = 8.4, ETC = 1, Rain = 0, };
+            var lTD_North_20160729 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160729", Date = new DateTime(2016, 07, 29), RegionId = lRegion.RegionId, Min = 2.6, Max = 17.1, Average = 9.9, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160730 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160730", Date = new DateTime(2016, 07, 30), RegionId = lRegion.RegionId, Min = 11.3, Max = 24, Average = 17.7, ETC = 1.7, Rain = 0, };
+            var lTD_North_20160731 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160731", Date = new DateTime(2016, 07, 31), RegionId = lRegion.RegionId, Min = 16, Max = 21.3, Average = 18.7, ETC = 1.7, Rain = 0, };
+            var lTD_North_20160801 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160801", Date = new DateTime(2016, 08, 01), RegionId = lRegion.RegionId, Min = 10.3, Max = 17.6, Average = 14, ETC = 1.8, Rain = 0, };
+            var lTD_North_20160802 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160802", Date = new DateTime(2016, 08, 02), RegionId = lRegion.RegionId, Min = 6.9, Max = 17, Average = 12, ETC = 1.6, Rain = 0, };
+            var lTD_North_20160803 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160803", Date = new DateTime(2016, 08, 03), RegionId = lRegion.RegionId, Min = 4.6, Max = 17.8, Average = 11.2, ETC = 1.3, Rain = 0, };
+            var lTD_North_20160804 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160804", Date = new DateTime(2016, 08, 04), RegionId = lRegion.RegionId, Min = 9.2, Max = 23.2, Average = 16.2, ETC = 1.1, Rain = 0, };
+            var lTD_North_20160805 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160805", Date = new DateTime(2016, 08, 05), RegionId = lRegion.RegionId, Min = 13.5, Max = 23.7, Average = 18.6, ETC = 1.5, Rain = 1.5, };
+            var lTD_North_20160806 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160806", Date = new DateTime(2016, 08, 06), RegionId = lRegion.RegionId, Min = 8.6, Max = 17, Average = 12.8, ETC = 1.2, Rain = 0, };
+            var lTD_North_20160807 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160807", Date = new DateTime(2016, 08, 07), RegionId = lRegion.RegionId, Min = 5.6, Max = 21.1, Average = 13.4, ETC = 1.3, Rain = 0, };
+            var lTD_North_20160808 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160808", Date = new DateTime(2016, 08, 08), RegionId = lRegion.RegionId, Min = 7, Max = 21.4, Average = 14.2, ETC = 1.4, Rain = 0.1, };
+            var lTD_North_20160809 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160809", Date = new DateTime(2016, 08, 09), RegionId = lRegion.RegionId, Min = 7, Max = 20.4, Average = 13.7, ETC = 1.4, Rain = 0, };
+            var lTD_North_20160810 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160810", Date = new DateTime(2016, 08, 10), RegionId = lRegion.RegionId, Min = 3.9, Max = 19.9, Average = 11.9, ETC = 1.5, Rain = 0, };
+            var lTD_North_20160811 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160811", Date = new DateTime(2016, 08, 11), RegionId = lRegion.RegionId, Min = 5.3, Max = 20.9, Average = 13.1, ETC = 1.8, Rain = 0, };
+            var lTD_North_20160812 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160812", Date = new DateTime(2016, 08, 12), RegionId = lRegion.RegionId, Min = 6.3, Max = 22, Average = 14.2, ETC = 1.8, Rain = 0, };
+            var lTD_North_20160813 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160813", Date = new DateTime(2016, 08, 13), RegionId = lRegion.RegionId, Min = 11, Max = 26, Average = 18.5, ETC = 1.8, Rain = 0, };
+            var lTD_North_20160814 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160814", Date = new DateTime(2016, 08, 14), RegionId = lRegion.RegionId, Min = 10.1, Max = 26, Average = 18.1, ETC = 1.7, Rain = 0, };
+            var lTD_North_20160815 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160815", Date = new DateTime(2016, 08, 15), RegionId = lRegion.RegionId, Min = 10.3, Max = 23.8, Average = 17.1, ETC = 2.2, Rain = 0, };
+            var lTD_North_20160816 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160816", Date = new DateTime(2016, 08, 16), RegionId = lRegion.RegionId, Min = 8.4, Max = 27.2, Average = 17.8, ETC = 2.6, Rain = 18.2, };
+            var lTD_North_20160817 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160817", Date = new DateTime(2016, 08, 17), RegionId = lRegion.RegionId, Min = 7.4, Max = 20.1, Average = 13.8, ETC = 2.3, Rain = 0, };
+            var lTD_North_20160818 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160818", Date = new DateTime(2016, 08, 18), RegionId = lRegion.RegionId, Min = 6.1, Max = 21.9, Average = 14, ETC = 2.3, Rain = 0, };
+            var lTD_North_20160819 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160819", Date = new DateTime(2016, 08, 19), RegionId = lRegion.RegionId, Min = 7.1, Max = 23.9, Average = 15.5, ETC = 3.4, Rain = 0, };
+            var lTD_North_20160820 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160820", Date = new DateTime(2016, 08, 20), RegionId = lRegion.RegionId, Min = 8.2, Max = 19.4, Average = 13.8, ETC = 3.2, Rain = 0, };
+            var lTD_North_20160821 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160821", Date = new DateTime(2016, 08, 21), RegionId = lRegion.RegionId, Min = 3.1, Max = 15, Average = 9.1, ETC = 1.6, Rain = 0, };
+            var lTD_North_20160822 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160822", Date = new DateTime(2016, 08, 22), RegionId = lRegion.RegionId, Min = 7.6, Max = 20.6, Average = 14.1, ETC = 2.3, Rain = 0, };
+            var lTD_North_20160823 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160823", Date = new DateTime(2016, 08, 23), RegionId = lRegion.RegionId, Min = 5.8, Max = 21.4, Average = 13.6, ETC = 2.3, Rain = 0, };
+            var lTD_North_20160824 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160824", Date = new DateTime(2016, 08, 24), RegionId = lRegion.RegionId, Min = 5.8, Max = 24.4, Average = 15.1, ETC = 2.2, Rain = 0, };
+            var lTD_North_20160825 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160825", Date = new DateTime(2016, 08, 25), RegionId = lRegion.RegionId, Min = 11.7, Max = 25, Average = 18.4, ETC = 2.4, Rain = 0, };
+            var lTD_North_20160826 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160826", Date = new DateTime(2016, 08, 26), RegionId = lRegion.RegionId, Min = 13.8, Max = 30.6, Average = 22.2, ETC = 3, Rain = 4.2, };
+            var lTD_North_20160827 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160827", Date = new DateTime(2016, 08, 27), RegionId = lRegion.RegionId, Min = 12.8, Max = 27.5, Average = 20.2, ETC = 2.4, Rain = 26.8, };
+            var lTD_North_20160828 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160828", Date = new DateTime(2016, 08, 28), RegionId = lRegion.RegionId, Min = 10.2, Max = 13.7, Average = 12, ETC = 1.5, Rain = 0.2, };
+            var lTD_North_20160829 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160829", Date = new DateTime(2016, 08, 29), RegionId = lRegion.RegionId, Min = 11.2, Max = 14.1, Average = 12.7, ETC = 1.3, Rain = 2.1, };
+            var lTD_North_20160830 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160830", Date = new DateTime(2016, 08, 30), RegionId = lRegion.RegionId, Min = 12.5, Max = 17.9, Average = 15.2, ETC = 1.2, Rain = 0.1, };
+            var lTD_North_20160831 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160831", Date = new DateTime(2016, 08, 31), RegionId = lRegion.RegionId, Min = 8.7, Max = 22.8, Average = 15.8, ETC = 1.8, Rain = 0, };
+            var lTD_North_20160901 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160901", Date = new DateTime(2016, 09, 01), RegionId = lRegion.RegionId, Min = 9.9, Max = 17.9, Average = 13.9, ETC = 1.7, Rain = 15.8, };
+            var lTD_North_20160902 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160902", Date = new DateTime(2016, 09, 02), RegionId = lRegion.RegionId, Min = 5.7, Max = 9.9, Average = 7.8, ETC = 1.3, Rain = 9.2, };
+            var lTD_North_20160903 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160903", Date = new DateTime(2016, 09, 03), RegionId = lRegion.RegionId, Min = 7.7, Max = 11.6, Average = 9.7, ETC = 2.2, Rain = 1, };
+            var lTD_North_20160904 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160904", Date = new DateTime(2016, 09, 04), RegionId = lRegion.RegionId, Min = 7, Max = 10.9, Average = 9, ETC = 1.2, Rain = 8.2, };
+            var lTD_North_20160905 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160905", Date = new DateTime(2016, 09, 05), RegionId = lRegion.RegionId, Min = 10.1, Max = 11.7, Average = 10.9, ETC = 1.2, Rain = 4.3, };
+            var lTD_North_20160906 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160906", Date = new DateTime(2016, 09, 06), RegionId = lRegion.RegionId, Min = 7.8, Max = 12.2, Average = 10, ETC = 2, Rain = 0, };
+            var lTD_North_20160907 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160907", Date = new DateTime(2016, 09, 07), RegionId = lRegion.RegionId, Min = 7.2, Max = 16.6, Average = 11.9, ETC = 2.1, Rain = 0, };
+            var lTD_North_20160908 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160908", Date = new DateTime(2016, 09, 08), RegionId = lRegion.RegionId, Min = 4.9, Max = 20, Average = 12.5, ETC = 1.9, Rain = 0, };
+            var lTD_North_20160909 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160909", Date = new DateTime(2016, 09, 09), RegionId = lRegion.RegionId, Min = 8.6, Max = 23.4, Average = 16, ETC = 2.7, Rain = 0, };
+            var lTD_North_20160910 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160910", Date = new DateTime(2016, 09, 10), RegionId = lRegion.RegionId, Min = 11, Max = 27, Average = 19, ETC = 2.9, Rain = 0, };
+            var lTD_North_20160911 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160911", Date = new DateTime(2016, 09, 11), RegionId = lRegion.RegionId, Min = 13.8, Max = 28.9, Average = 21.4, ETC = 3.7, Rain = 0.9, };
+            var lTD_North_20160912 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160912", Date = new DateTime(2016, 09, 12), RegionId = lRegion.RegionId, Min = 16.5, Max = 24.2, Average = 20.4, ETC = 3.2, Rain = 3, };
+            var lTD_North_20160913 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160913", Date = new DateTime(2016, 09, 13), RegionId = lRegion.RegionId, Min = 12.5, Max = 20.6, Average = 16.6, ETC = 4.1, Rain = 0, };
+            var lTD_North_20160914 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160914", Date = new DateTime(2016, 09, 14), RegionId = lRegion.RegionId, Min = 8.3, Max = 16.9, Average = 12.6, ETC = 2.4, Rain = 0, };
+            var lTD_North_20160915 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160915", Date = new DateTime(2016, 09, 15), RegionId = lRegion.RegionId, Min = 5.3, Max = 19.6, Average = 12.5, ETC = 2.2, Rain = 0, };
+            var lTD_North_20160916 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160916", Date = new DateTime(2016, 09, 16), RegionId = lRegion.RegionId, Min = 6.8, Max = 23.3, Average = 15.1, ETC = 2.7, Rain = 0, };
+            var lTD_North_20160917 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160917", Date = new DateTime(2016, 09, 17), RegionId = lRegion.RegionId, Min = 8.1, Max = 25.7, Average = 16.9, ETC = 3.3, Rain = 0, };
+            var lTD_North_20160918 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160918", Date = new DateTime(2016, 09, 18), RegionId = lRegion.RegionId, Min = 12.1, Max = 23.1, Average = 17.6, ETC = 3.8, Rain = 0, };
+            var lTD_North_20160919 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160919", Date = new DateTime(2016, 09, 19), RegionId = lRegion.RegionId, Min = 9.3, Max = 19.8, Average = 14.6, ETC = 3.1, Rain = 0, };
+            var lTD_North_20160920 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160920", Date = new DateTime(2016, 09, 20), RegionId = lRegion.RegionId, Min = 6.3, Max = 22.1, Average = 14.2, ETC = 3.2, Rain = 0, };
+            var lTD_North_20160921 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160921", Date = new DateTime(2016, 09, 21), RegionId = lRegion.RegionId, Min = 9.9, Max = 25.9, Average = 17.9, ETC = 3.7, Rain = 0, };
+            var lTD_North_20160922 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160922", Date = new DateTime(2016, 09, 22), RegionId = lRegion.RegionId, Min = 12, Max = 27.9, Average = 20, ETC = 4, Rain = 0, };
+            var lTD_North_20160923 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160923", Date = new DateTime(2016, 09, 23), RegionId = lRegion.RegionId, Min = 9.7, Max = 19.1, Average = 14.4, ETC = 4.1, Rain = 0, };
+            var lTD_North_20160924 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160924", Date = new DateTime(2016, 09, 24), RegionId = lRegion.RegionId, Min = 7.4, Max = 13, Average = 10.2, ETC = 1.8, Rain = 0, };
+            var lTD_North_20160925 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160925", Date = new DateTime(2016, 09, 25), RegionId = lRegion.RegionId, Min = 1.7, Max = 21.1, Average = 11.4, ETC = 2.9, Rain = 0, };
+            var lTD_North_20160926 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160926", Date = new DateTime(2016, 09, 26), RegionId = lRegion.RegionId, Min = 8, Max = 24.1, Average = 16.1, ETC = 3.6, Rain = 0, };
+            var lTD_North_20160927 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160927", Date = new DateTime(2016, 09, 27), RegionId = lRegion.RegionId, Min = 10.3, Max = 27.5, Average = 18.9, ETC = 3.9, Rain = 0, };
+            var lTD_North_20160928 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160928", Date = new DateTime(2016, 09, 28), RegionId = lRegion.RegionId, Min = 8, Max = 28.3, Average = 18.2, ETC = 5.1, Rain = 0, };
+            var lTD_North_20160929 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160929", Date = new DateTime(2016, 09, 29), RegionId = lRegion.RegionId, Min = 11.3, Max = 22.3, Average = 16.8, ETC = 5, Rain = 0, };
+            var lTD_North_20160930 = new TemperatureData { Name = Utils.NameRegionNorth + "-20160930", Date = new DateTime(2016, 09, 30), RegionId = lRegion.RegionId, Min = 9.8, Max = 22.3, Average = 16.1, ETC = 4, Rain = 0, };
+            var lTD_North_20161001 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161001", Date = new DateTime(2016, 10, 01), RegionId = lRegion.RegionId, Min = 8.9, Max = 25.4, Average = 17.2, ETC = 4.3, Rain = 0, };
+            var lTD_North_20161002 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161002", Date = new DateTime(2016, 10, 02), RegionId = lRegion.RegionId, Min = 14.3, Max = 28.2, Average = 21.3, ETC = 4.5, Rain = 0, };
+            var lTD_North_20161003 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161003", Date = new DateTime(2016, 10, 03), RegionId = lRegion.RegionId, Min = 13.9, Max = 27.5, Average = 20.7, ETC = 4.7, Rain = 0, };
+            var lTD_North_20161004 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161004", Date = new DateTime(2016, 10, 04), RegionId = lRegion.RegionId, Min = 14, Max = 25.9, Average = 20, ETC = 4.9, Rain = 0, };
+            var lTD_North_20161005 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161005", Date = new DateTime(2016, 10, 05), RegionId = lRegion.RegionId, Min = 14.9, Max = 17.3, Average = 16.1, ETC = 1.9, Rain = 11.9, };
+            var lTD_North_20161006 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161006", Date = new DateTime(2016, 10, 06), RegionId = lRegion.RegionId, Min = 11.3, Max = 23.5, Average = 17.4, ETC = 3.5, Rain = 0.1, };
+            var lTD_North_20161007 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161007", Date = new DateTime(2016, 10, 07), RegionId = lRegion.RegionId, Min = 12.5, Max = 22.3, Average = 17.4, ETC = 2.5, Rain = 0.3, };
+            var lTD_North_20161008 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161008", Date = new DateTime(2016, 10, 08), RegionId = lRegion.RegionId, Min = 9.9, Max = 21.3, Average = 15.6, ETC = 3.9, Rain = 0, };
+            var lTD_North_20161009 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161009", Date = new DateTime(2016, 10, 09), RegionId = lRegion.RegionId, Min = 6, Max = 24.6, Average = 15.3, ETC = 4.6, Rain = 0, };
+            var lTD_North_20161010 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161010", Date = new DateTime(2016, 10, 10), RegionId = lRegion.RegionId, Min = 11, Max = 22.6, Average = 16.8, ETC = 3.3, Rain = 0.6, };
+
             #endregion
 
             #region 2016 context Add
@@ -2926,6 +3395,235 @@ namespace IrrigationAdvisorConsole
             context.TemperatureDatas.Add(lTD_North_20160223);
             context.TemperatureDatas.Add(lTD_North_20160224);
             context.TemperatureDatas.Add(lTD_North_20160225);
+            context.TemperatureDatas.Add(lTD_North_20160226);
+            context.TemperatureDatas.Add(lTD_North_20160227);
+            context.TemperatureDatas.Add(lTD_North_20160228);
+            context.TemperatureDatas.Add(lTD_North_20160229);
+            context.TemperatureDatas.Add(lTD_North_20160301);
+            context.TemperatureDatas.Add(lTD_North_20160302);
+            context.TemperatureDatas.Add(lTD_North_20160303);
+            context.TemperatureDatas.Add(lTD_North_20160304);
+            context.TemperatureDatas.Add(lTD_North_20160305);
+            context.TemperatureDatas.Add(lTD_North_20160306);
+            context.TemperatureDatas.Add(lTD_North_20160307);
+            context.TemperatureDatas.Add(lTD_North_20160308);
+            context.TemperatureDatas.Add(lTD_North_20160309);
+            context.TemperatureDatas.Add(lTD_North_20160310);
+            context.TemperatureDatas.Add(lTD_North_20160311);
+            context.TemperatureDatas.Add(lTD_North_20160312);
+            context.TemperatureDatas.Add(lTD_North_20160313);
+            context.TemperatureDatas.Add(lTD_North_20160314);
+            context.TemperatureDatas.Add(lTD_North_20160315);
+            context.TemperatureDatas.Add(lTD_North_20160316);
+            context.TemperatureDatas.Add(lTD_North_20160317);
+            context.TemperatureDatas.Add(lTD_North_20160318);
+            context.TemperatureDatas.Add(lTD_North_20160319);
+            context.TemperatureDatas.Add(lTD_North_20160320);
+            context.TemperatureDatas.Add(lTD_North_20160321);
+            context.TemperatureDatas.Add(lTD_North_20160322);
+            context.TemperatureDatas.Add(lTD_North_20160323);
+            context.TemperatureDatas.Add(lTD_North_20160324);
+            context.TemperatureDatas.Add(lTD_North_20160325);
+            context.TemperatureDatas.Add(lTD_North_20160326);
+            context.TemperatureDatas.Add(lTD_North_20160327);
+            context.TemperatureDatas.Add(lTD_North_20160328);
+            context.TemperatureDatas.Add(lTD_North_20160329);
+            context.TemperatureDatas.Add(lTD_North_20160330);
+            context.TemperatureDatas.Add(lTD_North_20160331);
+            context.TemperatureDatas.Add(lTD_North_20160401);
+            context.TemperatureDatas.Add(lTD_North_20160402);
+            context.TemperatureDatas.Add(lTD_North_20160403);
+            context.TemperatureDatas.Add(lTD_North_20160404);
+            context.TemperatureDatas.Add(lTD_North_20160405);
+            context.TemperatureDatas.Add(lTD_North_20160406);
+            context.TemperatureDatas.Add(lTD_North_20160407);
+            context.TemperatureDatas.Add(lTD_North_20160408);
+            context.TemperatureDatas.Add(lTD_North_20160409);
+            context.TemperatureDatas.Add(lTD_North_20160410);
+            context.TemperatureDatas.Add(lTD_North_20160411);
+            context.TemperatureDatas.Add(lTD_North_20160412);
+            context.TemperatureDatas.Add(lTD_North_20160413);
+            context.TemperatureDatas.Add(lTD_North_20160414);
+            context.TemperatureDatas.Add(lTD_North_20160415);
+            context.TemperatureDatas.Add(lTD_North_20160416);
+            context.TemperatureDatas.Add(lTD_North_20160417);
+            context.TemperatureDatas.Add(lTD_North_20160418);
+            context.TemperatureDatas.Add(lTD_North_20160419);
+            context.TemperatureDatas.Add(lTD_North_20160420);
+            context.TemperatureDatas.Add(lTD_North_20160421);
+            context.TemperatureDatas.Add(lTD_North_20160422);
+            context.TemperatureDatas.Add(lTD_North_20160423);
+            context.TemperatureDatas.Add(lTD_North_20160424);
+            context.TemperatureDatas.Add(lTD_North_20160425);
+            context.TemperatureDatas.Add(lTD_North_20160426);
+            context.TemperatureDatas.Add(lTD_North_20160427);
+            context.TemperatureDatas.Add(lTD_North_20160428);
+            context.TemperatureDatas.Add(lTD_North_20160429);
+            context.TemperatureDatas.Add(lTD_North_20160430);
+            context.TemperatureDatas.Add(lTD_North_20160501);
+            context.TemperatureDatas.Add(lTD_North_20160502);
+            context.TemperatureDatas.Add(lTD_North_20160503);
+            context.TemperatureDatas.Add(lTD_North_20160504);
+            context.TemperatureDatas.Add(lTD_North_20160505);
+            context.TemperatureDatas.Add(lTD_North_20160506);
+            context.TemperatureDatas.Add(lTD_North_20160507);
+            context.TemperatureDatas.Add(lTD_North_20160508);
+            context.TemperatureDatas.Add(lTD_North_20160509);
+            context.TemperatureDatas.Add(lTD_North_20160510);
+            context.TemperatureDatas.Add(lTD_North_20160511);
+            context.TemperatureDatas.Add(lTD_North_20160512);
+            context.TemperatureDatas.Add(lTD_North_20160513);
+            context.TemperatureDatas.Add(lTD_North_20160514);
+            context.TemperatureDatas.Add(lTD_North_20160515);
+            context.TemperatureDatas.Add(lTD_North_20160516);
+            context.TemperatureDatas.Add(lTD_North_20160517);
+            context.TemperatureDatas.Add(lTD_North_20160518);
+            context.TemperatureDatas.Add(lTD_North_20160519);
+            context.TemperatureDatas.Add(lTD_North_20160520);
+            context.TemperatureDatas.Add(lTD_North_20160521);
+            context.TemperatureDatas.Add(lTD_North_20160522);
+            context.TemperatureDatas.Add(lTD_North_20160523);
+            context.TemperatureDatas.Add(lTD_North_20160524);
+            context.TemperatureDatas.Add(lTD_North_20160525);
+            context.TemperatureDatas.Add(lTD_North_20160526);
+            context.TemperatureDatas.Add(lTD_North_20160527);
+            context.TemperatureDatas.Add(lTD_North_20160528);
+            context.TemperatureDatas.Add(lTD_North_20160529);
+            context.TemperatureDatas.Add(lTD_North_20160530);
+            context.TemperatureDatas.Add(lTD_North_20160531);
+            context.TemperatureDatas.Add(lTD_North_20160601);
+            context.TemperatureDatas.Add(lTD_North_20160602);
+            context.TemperatureDatas.Add(lTD_North_20160603);
+            context.TemperatureDatas.Add(lTD_North_20160604);
+            context.TemperatureDatas.Add(lTD_North_20160605);
+            context.TemperatureDatas.Add(lTD_North_20160606);
+            context.TemperatureDatas.Add(lTD_North_20160607);
+            context.TemperatureDatas.Add(lTD_North_20160608);
+            context.TemperatureDatas.Add(lTD_North_20160609);
+            context.TemperatureDatas.Add(lTD_North_20160610);
+            context.TemperatureDatas.Add(lTD_North_20160611);
+            context.TemperatureDatas.Add(lTD_North_20160612);
+            context.TemperatureDatas.Add(lTD_North_20160613);
+            context.TemperatureDatas.Add(lTD_North_20160614);
+            context.TemperatureDatas.Add(lTD_North_20160615);
+            context.TemperatureDatas.Add(lTD_North_20160616);
+            context.TemperatureDatas.Add(lTD_North_20160617);
+            context.TemperatureDatas.Add(lTD_North_20160618);
+            context.TemperatureDatas.Add(lTD_North_20160619);
+            context.TemperatureDatas.Add(lTD_North_20160620);
+            context.TemperatureDatas.Add(lTD_North_20160621);
+            context.TemperatureDatas.Add(lTD_North_20160622);
+            context.TemperatureDatas.Add(lTD_North_20160623);
+            context.TemperatureDatas.Add(lTD_North_20160624);
+            context.TemperatureDatas.Add(lTD_North_20160625);
+            context.TemperatureDatas.Add(lTD_North_20160626);
+            context.TemperatureDatas.Add(lTD_North_20160627);
+            context.TemperatureDatas.Add(lTD_North_20160628);
+            context.TemperatureDatas.Add(lTD_North_20160629);
+            context.TemperatureDatas.Add(lTD_North_20160630);
+            context.TemperatureDatas.Add(lTD_North_20160701);
+            context.TemperatureDatas.Add(lTD_North_20160702);
+            context.TemperatureDatas.Add(lTD_North_20160703);
+            context.TemperatureDatas.Add(lTD_North_20160704);
+            context.TemperatureDatas.Add(lTD_North_20160705);
+            context.TemperatureDatas.Add(lTD_North_20160706);
+            context.TemperatureDatas.Add(lTD_North_20160707);
+            context.TemperatureDatas.Add(lTD_North_20160708);
+            context.TemperatureDatas.Add(lTD_North_20160709);
+            context.TemperatureDatas.Add(lTD_North_20160710);
+            context.TemperatureDatas.Add(lTD_North_20160711);
+            context.TemperatureDatas.Add(lTD_North_20160712);
+            context.TemperatureDatas.Add(lTD_North_20160713);
+            context.TemperatureDatas.Add(lTD_North_20160714);
+            context.TemperatureDatas.Add(lTD_North_20160715);
+            context.TemperatureDatas.Add(lTD_North_20160716);
+            context.TemperatureDatas.Add(lTD_North_20160717);
+            context.TemperatureDatas.Add(lTD_North_20160718);
+            context.TemperatureDatas.Add(lTD_North_20160719);
+            context.TemperatureDatas.Add(lTD_North_20160720);
+            context.TemperatureDatas.Add(lTD_North_20160721);
+            context.TemperatureDatas.Add(lTD_North_20160722);
+            context.TemperatureDatas.Add(lTD_North_20160723);
+            context.TemperatureDatas.Add(lTD_North_20160724);
+            context.TemperatureDatas.Add(lTD_North_20160725);
+            context.TemperatureDatas.Add(lTD_North_20160726);
+            context.TemperatureDatas.Add(lTD_North_20160727);
+            context.TemperatureDatas.Add(lTD_North_20160728);
+            context.TemperatureDatas.Add(lTD_North_20160729);
+            context.TemperatureDatas.Add(lTD_North_20160730);
+            context.TemperatureDatas.Add(lTD_North_20160731);
+            context.TemperatureDatas.Add(lTD_North_20160801);
+            context.TemperatureDatas.Add(lTD_North_20160802);
+            context.TemperatureDatas.Add(lTD_North_20160803);
+            context.TemperatureDatas.Add(lTD_North_20160804);
+            context.TemperatureDatas.Add(lTD_North_20160805);
+            context.TemperatureDatas.Add(lTD_North_20160806);
+            context.TemperatureDatas.Add(lTD_North_20160807);
+            context.TemperatureDatas.Add(lTD_North_20160808);
+            context.TemperatureDatas.Add(lTD_North_20160809);
+            context.TemperatureDatas.Add(lTD_North_20160810);
+            context.TemperatureDatas.Add(lTD_North_20160811);
+            context.TemperatureDatas.Add(lTD_North_20160812);
+            context.TemperatureDatas.Add(lTD_North_20160813);
+            context.TemperatureDatas.Add(lTD_North_20160814);
+            context.TemperatureDatas.Add(lTD_North_20160815);
+            context.TemperatureDatas.Add(lTD_North_20160816);
+            context.TemperatureDatas.Add(lTD_North_20160817);
+            context.TemperatureDatas.Add(lTD_North_20160818);
+            context.TemperatureDatas.Add(lTD_North_20160819);
+            context.TemperatureDatas.Add(lTD_North_20160820);
+            context.TemperatureDatas.Add(lTD_North_20160821);
+            context.TemperatureDatas.Add(lTD_North_20160822);
+            context.TemperatureDatas.Add(lTD_North_20160823);
+            context.TemperatureDatas.Add(lTD_North_20160824);
+            context.TemperatureDatas.Add(lTD_North_20160825);
+            context.TemperatureDatas.Add(lTD_North_20160826);
+            context.TemperatureDatas.Add(lTD_North_20160827);
+            context.TemperatureDatas.Add(lTD_North_20160828);
+            context.TemperatureDatas.Add(lTD_North_20160829);
+            context.TemperatureDatas.Add(lTD_North_20160830);
+            context.TemperatureDatas.Add(lTD_North_20160831);
+            context.TemperatureDatas.Add(lTD_North_20160901);
+            context.TemperatureDatas.Add(lTD_North_20160902);
+            context.TemperatureDatas.Add(lTD_North_20160903);
+            context.TemperatureDatas.Add(lTD_North_20160904);
+            context.TemperatureDatas.Add(lTD_North_20160905);
+            context.TemperatureDatas.Add(lTD_North_20160906);
+            context.TemperatureDatas.Add(lTD_North_20160907);
+            context.TemperatureDatas.Add(lTD_North_20160908);
+            context.TemperatureDatas.Add(lTD_North_20160909);
+            context.TemperatureDatas.Add(lTD_North_20160910);
+            context.TemperatureDatas.Add(lTD_North_20160911);
+            context.TemperatureDatas.Add(lTD_North_20160912);
+            context.TemperatureDatas.Add(lTD_North_20160913);
+            context.TemperatureDatas.Add(lTD_North_20160914);
+            context.TemperatureDatas.Add(lTD_North_20160915);
+            context.TemperatureDatas.Add(lTD_North_20160916);
+            context.TemperatureDatas.Add(lTD_North_20160917);
+            context.TemperatureDatas.Add(lTD_North_20160918);
+            context.TemperatureDatas.Add(lTD_North_20160919);
+            context.TemperatureDatas.Add(lTD_North_20160920);
+            context.TemperatureDatas.Add(lTD_North_20160921);
+            context.TemperatureDatas.Add(lTD_North_20160922);
+            context.TemperatureDatas.Add(lTD_North_20160923);
+            context.TemperatureDatas.Add(lTD_North_20160924);
+            context.TemperatureDatas.Add(lTD_North_20160925);
+            context.TemperatureDatas.Add(lTD_North_20160926);
+            context.TemperatureDatas.Add(lTD_North_20160927);
+            context.TemperatureDatas.Add(lTD_North_20160928);
+            context.TemperatureDatas.Add(lTD_North_20160929);
+            context.TemperatureDatas.Add(lTD_North_20160930);
+            context.TemperatureDatas.Add(lTD_North_20161001);
+            context.TemperatureDatas.Add(lTD_North_20161002);
+            context.TemperatureDatas.Add(lTD_North_20161003);
+            context.TemperatureDatas.Add(lTD_North_20161004);
+            context.TemperatureDatas.Add(lTD_North_20161005);
+            context.TemperatureDatas.Add(lTD_North_20161006);
+            context.TemperatureDatas.Add(lTD_North_20161007);
+            context.TemperatureDatas.Add(lTD_North_20161008);
+            context.TemperatureDatas.Add(lTD_North_20161009);
+            context.TemperatureDatas.Add(lTD_North_20161010);
+
             #endregion
 
             #endregion
@@ -6670,7 +7368,9 @@ namespace IrrigationAdvisorConsole
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(279), 16.1, 508.2, 21.3, 10.9, 2.9);  
 
             #endregion
-            
+
+            //Generate Prediction of Weather Data after the last day
+            lWeatherStation.GeneratePredictionWeatherData();
         }
 
         public static void WeatherDataLasBrujas_2017(IrrigationAdvisorContext context)
@@ -7371,6 +8071,8 @@ namespace IrrigationAdvisorConsole
 
             #endregion
 
+            //Generate Prediction of Weather Data after the last day
+            lWeatherStation.GeneratePredictionWeatherData();
         }
         
         #endregion
@@ -8053,6 +8755,8 @@ namespace IrrigationAdvisorConsole
 
             #endregion
 
+            //Generate Prediction of Weather Data after the last day
+            lWeatherStation.GeneratePredictionWeatherData();
         }
 
         #endregion
@@ -8815,7 +9519,7 @@ namespace IrrigationAdvisorConsole
 
         #region 2016
 
-        public static void AddRainDataDelLagoElMiradorPivot1_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -8836,8 +9540,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.SowingDate <= System.DateTime.Now
-                                          && ciw.HarvestDate >= System.DateTime.Now
+                                          && ciw.SowingDate <= pDateOfReference
+                                          && ciw.HarvestDate >= pDateOfReference
                                       select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -8849,7 +9553,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot2_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -8870,8 +9574,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -8883,7 +9587,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot3_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot3_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -8904,8 +9608,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -8917,7 +9621,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot4_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot4_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -8938,8 +9642,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -8951,7 +9655,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot5_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot5_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -8972,8 +9676,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -8985,7 +9689,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot6_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot6_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9006,8 +9710,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9019,7 +9723,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot7_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot7_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9040,8 +9744,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9053,7 +9757,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot8_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot8_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9074,8 +9778,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9087,7 +9791,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot9_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot9_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9108,8 +9812,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9121,7 +9825,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot10_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot10_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9142,8 +9846,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9155,7 +9859,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot11_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot11_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9176,8 +9880,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9189,7 +9893,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot12_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot12_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9210,8 +9914,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9223,7 +9927,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot13_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot13_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9244,8 +9948,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9257,7 +9961,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot14_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot14_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9278,8 +9982,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9291,7 +9995,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivot15_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivot15_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9312,8 +10016,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9325,7 +10029,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivotChaja1_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivotChaja1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9346,8 +10050,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9359,7 +10063,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataDelLagoElMiradorPivotChaja2_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataDelLagoElMiradorPivotChaja2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9380,8 +10084,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9539,7 +10243,7 @@ namespace IrrigationAdvisorConsole
 
         #region 2016
 
-        public static void AddRainDataGMOLaPalmaPivot1_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOLaPalmaPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9560,8 +10264,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9573,7 +10277,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOLaPalmaPivot2_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOLaPalmaPivot2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9594,8 +10298,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9607,7 +10311,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOLaPalmaPivot3_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOLaPalmaPivot3_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9628,8 +10332,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9641,7 +10345,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOLaPalmaPivot4_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOLaPalmaPivot4_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9662,8 +10366,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9684,7 +10388,7 @@ namespace IrrigationAdvisorConsole
 
         #region 2016
 
-        public static void AddRainDataGMOElTacuruPivot1_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9705,8 +10409,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9718,7 +10422,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOElTacuruPivot2_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9739,8 +10443,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9752,7 +10456,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOElTacuruPivot3_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot3_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9773,8 +10477,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9786,7 +10490,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOElTacuruPivot4_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot4_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9807,8 +10511,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9820,7 +10524,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOElTacuruPivot5_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot5_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9841,8 +10545,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9854,7 +10558,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOElTacuruPivot6_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot6_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9875,8 +10579,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9888,7 +10592,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOElTacuruPivot7_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot7_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9909,8 +10613,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9922,7 +10626,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOElTacuruPivot8_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot8_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9943,8 +10647,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9956,7 +10660,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOElTacuruPivot9_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot9_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -9977,8 +10681,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -9990,7 +10694,7 @@ namespace IrrigationAdvisorConsole
             }
         }
 
-        public static void AddRainDataGMOElTacuruPivot10_2016(IrrigationAdvisorContext context)
+        public static void AddRainDataGMOElTacuruPivot10_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
@@ -10011,8 +10715,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -10547,13 +11251,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 1 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot1_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -10574,8 +11278,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.SowingDate <= System.DateTime.Now
-                                          && ciw.HarvestDate >= System.DateTime.Now
+                                          && ciw.SowingDate <= pDateOfReference
+                                          && ciw.HarvestDate >= pDateOfReference
                                       select ciw).ToList<CropIrrigationWeather>();
             
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -10601,13 +11305,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 2 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot2_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -10628,8 +11332,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -10655,13 +11359,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 3 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot3_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot3_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -10682,8 +11386,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -10709,13 +11413,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 4 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot4_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot4_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -10736,8 +11440,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -10763,13 +11467,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 5 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot5_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot5_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -10790,8 +11494,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -10817,13 +11521,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 6 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot6_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot6_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -10844,8 +11548,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -10871,13 +11575,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 7 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot7_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot7_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -10898,8 +11602,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -10925,13 +11629,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 8 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot8_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot8_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -10952,8 +11656,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -10979,13 +11683,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 9 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot9_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot9_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11006,8 +11710,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11033,13 +11737,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 10 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot10_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot10_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11060,8 +11764,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11087,13 +11791,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 11 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot11_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot11_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11114,8 +11818,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11141,13 +11845,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 12 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot12_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot12_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11168,8 +11872,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11195,13 +11899,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 13 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot13_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot13_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11222,8 +11926,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11249,13 +11953,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 14 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot14_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot14_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11276,8 +11980,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11303,13 +12007,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot 15 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivot15_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivot15_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11330,8 +12034,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11357,13 +12061,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot Chaja 1 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivotChaja1_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivotChaja1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11384,8 +12088,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11411,13 +12115,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to DelLago El Mirador Pivot Chaja 2 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataDelLagoElMiradorPivotChaja2_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataDelLagoElMiradorPivotChaja2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11438,8 +12142,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11471,13 +12175,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to GMO La Palma Pivot 1 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataGMOLaPalmaPivot1_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataGMOLaPalmaPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11498,8 +12202,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             #region Irrigation 2016/10/10 14 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11525,13 +12229,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to GMO La Palma Pivot 2 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataGMOLaPalmaPivot2_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataGMOLaPalmaPivot2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11552,8 +12256,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             #region Irrigation 2016/09/29 16 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11597,13 +12301,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to GMO La Palma Pivot 3 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataGMOLaPalmaPivot3_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataGMOLaPalmaPivot3_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11624,8 +12328,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             #region Irrigation 2016/09/27 7 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11669,13 +12373,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to GMO La Palma Pivot 4 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataGMOLaPalmaPivot4_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataGMOLaPalmaPivot4_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11696,8 +12400,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             #region Irrigation 2016/09/27 7 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11745,13 +12449,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to GMO El Tacuru Pivot 1 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataGMOElTacuruPivot1_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataGMOElTacuruPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11772,8 +12476,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
             #region Irrigation 2016/09/27 10 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
@@ -11835,13 +12539,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to GMO El Tacuru Pivot 2 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataGMOElTacuruPivot2_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataGMOElTacuruPivot2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11862,8 +12566,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             #region Irrigation 2016/09/26 10 mm
@@ -11927,13 +12631,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to GMO El Tacuru Pivot 3 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataGMOElTacuruPivot3_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataGMOElTacuruPivot3_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -11954,8 +12658,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             #region Irrigation 2016/09/25 10 mm
@@ -12037,13 +12741,13 @@ namespace IrrigationAdvisorConsole
         /// Add IrrigationQuantity Data to GMO El Tacuru Pivot 3 for 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddIrrigationDataGMOElTacuruPivot4_2016(IrrigationAdvisorContext context)
+        public static void AddIrrigationDataGMOElTacuruPivot4_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
             Farm lFarm;
             Crop lCrop = null;
             IrrigationUnit lIrrigationUnit;
-            DateTime lToday = System.DateTime.Now;
+            DateTime lToday = pDateOfReference;
             Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
             bool lIsExtraIrrigation;
             DateTime lIrrigationDate;
@@ -12064,8 +12768,8 @@ namespace IrrigationAdvisorConsole
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
                                               && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                              && ciw.SowingDate <= System.DateTime.Now
-                                              && ciw.HarvestDate >= System.DateTime.Now
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                           select ciw).ToList<CropIrrigationWeather>();
 
             #region Irrigation 2016/09/25 10 mm
@@ -17455,7 +18159,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 1 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot1_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -17512,12 +18216,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -17561,9 +18266,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -17643,7 +18348,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 2 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot2_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -17700,12 +18405,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -17749,9 +18455,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -17831,7 +18537,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 3 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -17888,12 +18594,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -17937,9 +18644,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -18019,7 +18726,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 4 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot4_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot4_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -18076,12 +18783,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -18125,9 +18833,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -18207,7 +18915,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 5 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot5_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot5_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -18264,12 +18972,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -18313,9 +19022,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -18395,7 +19104,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 6 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot6_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot6_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -18452,12 +19161,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -18501,9 +19211,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -18583,7 +19293,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 7 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -18640,12 +19350,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -18689,9 +19400,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -18771,7 +19482,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 8 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -18828,12 +19539,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -18877,9 +19589,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -18959,7 +19671,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 9 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -19016,12 +19728,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -19065,9 +19778,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -19147,7 +19860,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 10 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -19204,12 +19917,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -19253,9 +19967,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -19335,7 +20049,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 11 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -19392,12 +20106,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -19441,9 +20156,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -19523,7 +20238,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 12 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -19580,12 +20295,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -19629,9 +20345,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -19711,7 +20427,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 13 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -19768,12 +20484,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -19817,9 +20534,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -19899,7 +20616,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 14 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot14_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot14_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -19956,12 +20673,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -20005,9 +20723,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -20087,7 +20805,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 15 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -20144,12 +20862,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -20193,9 +20912,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -20275,7 +20994,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot Chaja 1 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             Specie lSpecie = null;
             List<Stage> lStages = null;
@@ -20332,12 +21051,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -20381,9 +21101,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -20463,8 +21183,9 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot Chaja 2 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
+            #region local variables
             Specie lSpecie = null;
             List<Stage> lStages = null;
             List<PhenologicalStage> lPhenologicalStages = null;
@@ -20493,7 +21214,8 @@ namespace IrrigationAdvisorConsole
             DateTime lToDate;
             DateTime lDateOfRecord;
             String lObservation;
-
+            #endregion
+            #region Crop
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
@@ -20509,6 +21231,8 @@ namespace IrrigationAdvisorConsole
             lCrop = (from crop in context.Crops
                      where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
+            #endregion
+            #region Weather
             lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                   where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
                                   select effectiverain)
@@ -20520,12 +21244,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationLaTribu
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationLosOlivos
+                                          where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                          && ciw.SowingDate <= pDateOfReference
+                                          && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -20536,7 +21261,8 @@ namespace IrrigationAdvisorConsole
             lRainList = (from rlist in context.Rains
                          where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
                          select rlist).ToList<Rain>();
-
+            #endregion
+            #region Data to Calculate
             lSowingDate = lCropIrrigationWeather.SowingDate;
             lHarvestDate = lCropIrrigationWeather.HarvestDate;
             lMainWeatherDataList = (from weatherdata in context.WeatherDatas
@@ -20565,13 +21291,14 @@ namespace IrrigationAdvisorConsole
             lHorizonList = (from horizon in context.Horizons
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMiradorChaja2)
                             select horizon).ToList<Horizon>();
-
+            #endregion
+            #region Calculate for each day
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -20612,6 +21339,7 @@ namespace IrrigationAdvisorConsole
                 }
             }
             context.SaveChanges();
+            #endregion
             #region Print - Messages
             if (Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.All
                 || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLagoElMirador)
@@ -21231,7 +21959,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - La Palma Pivot 1 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -21292,12 +22020,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationSanFernando
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                          && ciw.SowingDate <= pDateOfReference
+                                          && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
@@ -21343,9 +22072,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -21428,7 +22157,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - La Palma Pivot 2 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -21489,12 +22218,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationSanFernando
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                          && ciw.SowingDate <= pDateOfReference
+                                          && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -21540,9 +22270,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -21625,7 +22355,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - La Palma Pivot 3 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -21686,12 +22416,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationSanFernando
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -21709,14 +22440,14 @@ namespace IrrigationAdvisorConsole
             lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                    where (weatherdata.Date >= lSowingDate ||
+                                    where (weatherdata.Date >= lSowingDate &&
                                             weatherdata.Date <= lHarvestDate) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date.Year >= lSowingDate.Year &&
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -21737,9 +22468,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -21822,7 +22553,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - La Palma Pivot 4 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -21883,12 +22614,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationSanFernando
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -21906,14 +22638,14 @@ namespace IrrigationAdvisorConsole
             lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                    where (weatherdata.Date >= lSowingDate ||
+                                    where (weatherdata.Date >= lSowingDate &&
                                             weatherdata.Date <= lHarvestDate) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date.Year >= lSowingDate.Year &&
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -21934,9 +22666,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -22027,7 +22759,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 1 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot1_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -22088,12 +22820,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieAlfalfaNorthShort
@@ -22224,7 +22957,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 2 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot2_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot2_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -22285,12 +23018,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                            && ciw.SowingDate <= pDateOfReference
+                                            && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -22421,7 +23155,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 3 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot3_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot3_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -22482,12 +23216,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -22533,9 +23268,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -22618,7 +23353,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 4 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot4_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot4_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -22679,12 +23414,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -22730,9 +23466,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -22815,7 +23551,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 5 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot5_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot5_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -22876,12 +23612,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -22927,9 +23664,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -23012,7 +23749,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 6 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot6_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot6_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -23073,12 +23810,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -23124,9 +23862,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -23209,7 +23947,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 7 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot7_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot7_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -23270,12 +24008,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -23321,9 +24060,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -23406,7 +24145,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 8 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot8_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot8_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -23467,12 +24206,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -23518,9 +24258,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -23603,7 +24343,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 9 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot9_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot9_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -23664,12 +24404,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -23715,9 +24456,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {
@@ -23800,7 +24541,7 @@ namespace IrrigationAdvisorConsole
         /// Add Information To IrrigationUnits - GMO - El Tacuru Pivot 10 2016-17
         /// </summary>
         /// <param name="context"></param>
-        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot10_2016(IrrigationAdvisorContext context)
+        public static void AddInformationToIrrigationUnitsGMOElTacuruPivot10_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {
             #region local variables
             Specie lSpecie = null;
@@ -23861,12 +24602,13 @@ namespace IrrigationAdvisorConsole
                                    where ws.Name == Utils.NameWeatherStationZanjaHonda
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == Utils.NameWeatherStationElRetiro
+                                          where ws.Name == Utils.NameWeatherStationSaltoGrande
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
-                                          && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
@@ -23912,9 +24654,9 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            if (lHarvestDate > DateTime.Now)
+            if (lHarvestDate > pDateOfReference)
             {
-                lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
             }
             else
             {

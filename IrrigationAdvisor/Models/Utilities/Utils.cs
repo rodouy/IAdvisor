@@ -505,6 +505,13 @@ namespace IrrigationAdvisor.Models.Utilities
 
             /// <summary>
             /// Del Lago - San Pedro Farm
+            /// Del Lago - El Mirador Farm
+            /// Estancias del Lago S.R.L.
+            /// </summary>
+            DelLago,
+
+            /// <summary>
+            /// Del Lago - San Pedro Farm
             /// Estancias del Lago S.R.L.
             /// </summary>
             DelLagoSanPedro,
@@ -929,7 +936,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserGonza = "gmoreno";
         public static String NameUserDelCarmen = "LaPerdiz";
         public static String NameUserSantaLucia = "SantaLucia";
-        public static String NameUserDelLago1 = "girrazabal";
+        public static String NameUserDelLago1 = "girazabal";
         public static String NameUserDelLago2 = "jhemala";
         public static String NameUserGMO1 = "ptarigo";
         public static String NameUserGMO2 = "danselmi";

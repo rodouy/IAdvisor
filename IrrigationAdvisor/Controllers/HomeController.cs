@@ -1204,17 +1204,17 @@ namespace IrrigationAdvisor.Controllers
             try
             {
 
-                lDateOfData = pDayOfData;
+                lDateOfData = pDayOfData.Date;
 
                 #region Irrigation in the past
                 //Find Irrigation of the Date of Data
-                lIrrigation = pIrrigationList.Where(ir => ir.Date == lDateOfData).FirstOrDefault();
+                lIrrigation = pIrrigationList.Where(ir => ir.Date.Date == lDateOfData.Date).FirstOrDefault();
                 if (lIrrigation != null && lIrrigation.Input > 0 && lDateOfData < pDayOfReference)
                 {
                     lIrrigationQuantity = lIrrigation.Input;
                 }
 
-                lIrrigation = pIrrigationList.Where(ir => ir.ExtraDate == lDateOfData).FirstOrDefault();
+                lIrrigation = pIrrigationList.Where(ir => ir.ExtraDate.Date == lDateOfData.Date).FirstOrDefault();
                 if (lIrrigation != null && lIrrigation.ExtraInput > 0 && lDateOfData < pDayOfReference)
                 {
                     lIrrigationQuantity += lIrrigation.ExtraInput;
@@ -1225,7 +1225,7 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Rain
                 //Find Rain of the Date of Data
-                lRain = pRainList.Where(r => r.Date == lDateOfData || r.ExtraDate == lDateOfData).FirstOrDefault();
+                lRain = pRainList.Where(r => r.Date.Date == lDateOfData.Date || r.ExtraDate.Date == lDateOfData.Date).FirstOrDefault();
                 if (lRain != null && lRain.GetTotalInput() > 0)
                 {
                     lRainQuantity = lRain.GetTotalInput();
@@ -1236,8 +1236,8 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Irrigation for today or in the future
                 //Find Daily Record of the Date of Data
-                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime == lDateOfData).FirstOrDefault();
-                if (lDailyRecord != null && lDateOfData >= pDayOfReference)
+                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData.Date).FirstOrDefault();
+                if (lDailyRecord != null && lDateOfData.Date >= pDayOfReference.Date)
                 {
                     if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
                     {
@@ -1252,7 +1252,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lWaterQuantity += lForcastIrrigationQuantity;
 
-                lIsToday = lDateOfData == pDayOfReference;
+                lIsToday = lDateOfData.Date == pDayOfReference.Date;
 
                 if (lIsToday)
                 {

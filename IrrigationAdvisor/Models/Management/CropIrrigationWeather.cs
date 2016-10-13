@@ -2801,13 +2801,15 @@ namespace IrrigationAdvisor.Models.Management
                 {
                     lWeatherDataMain = this.MainWeatherStation.FindWeatherData(pDateTime);
                 }
-                else if (this.AlternativeWeatherStation != null)
-                {
-                    lWeatherDataAlternative = this.AlternativeWeatherStation.FindWeatherData(pDateTime);
-                }
+                
                 if (lWeatherDataMain == null)
                 {
-                    if (lWeatherDataAlternative == null)
+                    if (this.AlternativeWeatherStation != null)
+                    {
+                        lWeatherDataAlternative = this.AlternativeWeatherStation.FindWeatherData(pDateTime);
+                        lWeatherDataMain = lWeatherDataAlternative;
+                    }
+                    else
                     {
                         return null;
                     }
@@ -2818,7 +2820,10 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 else if (lWeatherDataMain.WeatherDataType == Utils.WeatherDataType.Temperature)
                 {
-                    lWeatherDataMain.Evapotranspiration = lWeatherDataAlternative.Evapotranspiration;
+                    if(lWeatherDataAlternative != null)
+                    {
+                        lWeatherDataMain.Evapotranspiration = lWeatherDataAlternative.Evapotranspiration;
+                    }
                     if(lWeatherDataMain.Evapotranspiration > 0)
                     {
                         lWeatherDataMain.WeatherDataType = Utils.WeatherDataType.AllData;
@@ -2826,9 +2831,12 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 else if (lWeatherDataMain.WeatherDataType == Utils.WeatherDataType.Evapotranspiraton)
                 {
-                    lWeatherDataMain.Temperature = lWeatherDataAlternative.Temperature;
-                    lWeatherDataMain.TemperatureMax = lWeatherDataAlternative.TemperatureMax;
-                    lWeatherDataMain.TemperatureMin = lWeatherDataAlternative.TemperatureMin;
+                    if (lWeatherDataAlternative != null)
+                    {
+                        lWeatherDataMain.Temperature = lWeatherDataAlternative.Temperature;
+                        lWeatherDataMain.TemperatureMax = lWeatherDataAlternative.TemperatureMax;
+                        lWeatherDataMain.TemperatureMin = lWeatherDataAlternative.TemperatureMin;
+                    }
                     if (lWeatherDataMain.TemperatureMax != 0 && lWeatherDataMain.TemperatureMin != 0)
                     {
                         lWeatherDataMain.WeatherDataType = Utils.WeatherDataType.AllData;

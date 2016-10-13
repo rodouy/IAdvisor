@@ -31,6 +31,8 @@ namespace IrrigationAdvisorConsole
         public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Production;
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
+
+        public static DateTime DateOfReference = System.DateTime.Now;
         
         static void Main(string[] args)
         {
@@ -167,7 +169,9 @@ namespace IrrigationAdvisorConsole
                     AddPhenologicalStageAdjustements2016();
                     AddInformationToIrrigationUnits2016();
                 }
-                LayoutDailyRecords();
+                
+                //LayoutDailyRecords();
+                
                 #endif
                 #endregion
 
@@ -299,7 +303,7 @@ namespace IrrigationAdvisorConsole
             {
                 StatusId = 1,
                 Name = "Production",
-                DateOfReference = new DateTime(2016, 10, 10),
+                DateOfReference = DateOfReference, // new DateTime(2016, 10, 13),
                 WebStatus = Utils.IrrigationAdvisorWebStatus.Online,
                 Description = "Web Status of Production",
             };
@@ -308,7 +312,7 @@ namespace IrrigationAdvisorConsole
             {
                 StatusId = 2,
                 Name = "Demo",
-                DateOfReference = new DateTime(2016, 10, 10),
+                DateOfReference = DateOfReference, // new DateTime(2016, 10, 13),
                 WebStatus = Utils.IrrigationAdvisorWebStatus.Online,
                 Description = "Web Status of Demo",
             };
@@ -458,7 +462,7 @@ namespace IrrigationAdvisorConsole
                 Email = "riegopgw@googlegroups.com",
                 UserName = Utils.NameUserAdmin,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "Irrigation4dvis0r"),
-                RoleId = 3,
+                RoleId = 1,
             };
             #endregion
 
@@ -510,7 +514,7 @@ namespace IrrigationAdvisorConsole
                 Address = "",
                 Email = "pablo.tarigo@LaPalma.com.uy",
                 UserName = Utils.NameUserGMO1,
-                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "gmo"),
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GMO2017"),
                 RoleId = 3,
             };
             var lGMODiego = new User()
@@ -2397,7 +2401,7 @@ namespace IrrigationAdvisorConsole
                 lRegion = (from region in context.Regions
                              where region.Name == Utils.NameRegionSouth
                              select region).FirstOrDefault();
-                DataEntry.DataTemperatures_South_2014(context, lRegion);
+                //DataEntry.DataTemperatures_South_2014(context, lRegion);
                 DataEntry.DataTemperatures_South_2015(context, lRegion);
                 DataEntry.DataTemperatures_South_2016(context, lRegion);
 
@@ -2407,7 +2411,7 @@ namespace IrrigationAdvisorConsole
                 lRegion = (from region in context.Regions
                            where region.Name == Utils.NameRegionNorth
                            select region).FirstOrDefault();
-                DataEntry.DataTemperatures_North_2014(context, lRegion);
+                //DataEntry.DataTemperatures_North_2014(context, lRegion);
                 DataEntry.DataTemperatures_North_2015(context, lRegion);
                 DataEntry.DataTemperatures_North_2016(context, lRegion);
 
@@ -12683,23 +12687,23 @@ namespace IrrigationAdvisorConsole
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
-                    DataEntry.AddRainDataDelLagoElMiradorPivot1_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot2_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot3_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot4_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot5_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot6_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot7_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot8_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot9_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot10_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot11_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot12_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot13_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot14_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivot15_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivotChaja1_2016(context);
-                    DataEntry.AddRainDataDelLagoElMiradorPivotChaja2_2016(context);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot1_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot2_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot3_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot4_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot5_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot6_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot7_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot8_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot9_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot10_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot11_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot12_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot13_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot14_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivot15_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivotChaja1_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDelLagoElMiradorPivotChaja2_2016(context, DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -12716,9 +12720,9 @@ namespace IrrigationAdvisorConsole
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
-                    DataEntry.AddRainDataGMOLaPalmaPivot2_2016(context);
-                    DataEntry.AddRainDataGMOLaPalmaPivot3_2016(context);
-                    DataEntry.AddRainDataGMOLaPalmaPivot4_2016(context);
+                    DataEntry.AddRainDataGMOLaPalmaPivot2_2016(context, DateOfReference);
+                    DataEntry.AddRainDataGMOLaPalmaPivot3_2016(context, DateOfReference);
+                    DataEntry.AddRainDataGMOLaPalmaPivot4_2016(context, DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -12729,16 +12733,16 @@ namespace IrrigationAdvisorConsole
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
-                    //DataEntry.AddRainDataGMOElTacuruPivot1_2016(context);
-                    DataEntry.AddRainDataGMOElTacuruPivot2_2016(context);
-                    DataEntry.AddRainDataGMOElTacuruPivot3_2016(context);
-                    DataEntry.AddRainDataGMOElTacuruPivot4_2016(context);
-                    //DataEntry.AddRainDataGMOElTacuruPivot5_2016(context);
-                    //DataEntry.AddRainDataGMOElTacuruPivot6_2016(context);
-                    //DataEntry.AddRainDataGMOElTacuruPivot7_2016(context);
-                    //DataEntry.AddRainDataGMOElTacuruPivot8_2016(context);
-                    //DataEntry.AddRainDataGMOElTacuruPivot9_2016(context);
-                    //DataEntry.AddRainDataGMOElTacuruPivot10_2016(context);
+                    //DataEntry.AddRainDataGMOElTacuruPivot1_2016(context, DateOfReference);
+                    DataEntry.AddRainDataGMOElTacuruPivot2_2016(context, DateOfReference);
+                    DataEntry.AddRainDataGMOElTacuruPivot3_2016(context, DateOfReference);
+                    DataEntry.AddRainDataGMOElTacuruPivot4_2016(context, DateOfReference);
+                    //DataEntry.AddRainDataGMOElTacuruPivot5_2016(context, DateOfReference);
+                    //DataEntry.AddRainDataGMOElTacuruPivot6_2016(context, DateOfReference);
+                    //DataEntry.AddRainDataGMOElTacuruPivot7_2016(context, DateOfReference);
+                    //DataEntry.AddRainDataGMOElTacuruPivot8_2016(context, DateOfReference);
+                    //DataEntry.AddRainDataGMOElTacuruPivot9_2016(context, DateOfReference);
+                    //DataEntry.AddRainDataGMOElTacuruPivot10_2016(context, DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -12884,23 +12888,23 @@ namespace IrrigationAdvisorConsole
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot1_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot2_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot3_2016(context);
-                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot4_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot5_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot6_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot7_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot8_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot9_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot10_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot11_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot12_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot13_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot14_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot15_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivotChaja1_2016(context);
-                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivotChaja2_2016(context);
+                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot1_2016(context, DateOfReference);
+                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot2_2016(context, DateOfReference);
+                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot3_2016(context, DateOfReference);
+                    DataEntry.AddIrrigationDataDelLagoElMiradorPivot4_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot5_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot6_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot7_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot8_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot9_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot10_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot11_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot12_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot13_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot14_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivot15_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivotChaja1_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataDelLagoElMiradorPivotChaja2_2016(context, DateOfReference);
 
                     context.SaveChanges();
 
@@ -12920,10 +12924,10 @@ namespace IrrigationAdvisorConsole
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //DataEntry.AddIrrigationDataGMOLaPalmaPivot1_2016(context);
-                    DataEntry.AddIrrigationDataGMOLaPalmaPivot2_2016(context);
-                    DataEntry.AddIrrigationDataGMOLaPalmaPivot3_2016(context);
-                    DataEntry.AddIrrigationDataGMOLaPalmaPivot4_2016(context);
+                    //DataEntry.AddIrrigationDataGMOLaPalmaPivot1_2016(context, DateTime pDateOfReference);
+                    DataEntry.AddIrrigationDataGMOLaPalmaPivot2_2016(context, DateOfReference);
+                    DataEntry.AddIrrigationDataGMOLaPalmaPivot3_2016(context, DateOfReference);
+                    DataEntry.AddIrrigationDataGMOLaPalmaPivot4_2016(context, DateOfReference);
                     //DataEntry.AddIrrigationDataGMOLaPalmaPivot5_2016(context);
                     context.SaveChanges();
 
@@ -12939,16 +12943,16 @@ namespace IrrigationAdvisorConsole
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //DataEntry.AddIrrigationDataGMOElTacuruPivot1_2016(context);
-                    DataEntry.AddIrrigationDataGMOElTacuruPivot2_2016(context);
-                    DataEntry.AddIrrigationDataGMOElTacuruPivot3_2016(context);
-                    DataEntry.AddIrrigationDataGMOElTacuruPivot4_2016(context);
-                    //DataEntry.AddIrrigationDataGMOElTacuruPivot5_2016(context);
-                    //DataEntry.AddIrrigationDataGMOElTacuruPivot6_2016(context);
-                    //DataEntry.AddIrrigationDataGMOElTacuruPivot7_2016(context);
-                    //DataEntry.AddIrrigationDataGMOElTacuruPivot8_2016(context);
-                    //DataEntry.AddIrrigationDataGMOElTacuruPivot9_2016(context);
-                    //DataEntry.AddIrrigationDataGMOElTacuruPivot10_2016(context);
+                    //DataEntry.AddIrrigationDataGMOElTacuruPivot1_2016(context, DateOfReference);
+                    DataEntry.AddIrrigationDataGMOElTacuruPivot2_2016(context, DateOfReference);
+                    DataEntry.AddIrrigationDataGMOElTacuruPivot3_2016(context, DateOfReference);
+                    DataEntry.AddIrrigationDataGMOElTacuruPivot4_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataGMOElTacuruPivot5_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataGMOElTacuruPivot6_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataGMOElTacuruPivot7_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataGMOElTacuruPivot8_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataGMOElTacuruPivot9_2016(context, DateOfReference);
+                    //DataEntry.AddIrrigationDataGMOElTacuruPivot10_2016(context, DateOfReference);
                     context.SaveChanges();
 
                 }
@@ -17716,8 +17720,8 @@ namespace IrrigationAdvisorConsole
                 CropId = 0,
                 SoilId = 0,
 
-                SowingDate = DateTime.Now.AddMonths(-1),
-                HarvestDate = DateTime.Now.AddMonths(4),
+                SowingDate = DateOfReference.AddMonths(-1),
+                HarvestDate = DateOfReference.AddMonths(4),
                 CropDate = DateTime.Now,
 
                 PhenologicalStageId = 0,
@@ -19032,7 +19036,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -19191,7 +19195,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -19350,7 +19354,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -19509,7 +19513,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -19665,10 +19669,10 @@ namespace IrrigationAdvisorConsole
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLasBrujas
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -19827,7 +19831,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -19986,7 +19990,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -20145,7 +20149,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -20304,7 +20308,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -20463,7 +20467,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -20622,7 +20626,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -20781,7 +20785,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -20940,7 +20944,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -21099,7 +21103,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -21258,7 +21262,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -21417,7 +21421,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -21576,7 +21580,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -21745,7 +21749,7 @@ namespace IrrigationAdvisorConsole
                     //                       where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
                     //                       select ws).FirstOrDefault();
                     //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationSanFernando
+                    //                              where ws.Name == Utils.NameWeatherStationSaltoGrande
                     //                              select ws).FirstOrDefault();
                     //lEffectiveRainList = (from effectiverain in context.EffectiveRains
                     //                      where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -21906,7 +21910,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSanFernando
+                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -21947,7 +21951,7 @@ namespace IrrigationAdvisorConsole
                                     .ToList<Horizon>();
                     lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot2_2016;
                     lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot2_2016;
-                    lCropDate = DateTime.Now;
+                    lCropDate = DateOfReference;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2016 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
@@ -21961,14 +21965,14 @@ namespace IrrigationAdvisorConsole
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                                   where (weatherdata.Date.Year >= lSowingDate.Year &&
                                                         weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -21981,11 +21985,12 @@ namespace IrrigationAdvisorConsole
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
                         IrrigationUnit = lIrrigationUnit,
+
                         MainWeatherStationId = lWeatherStationMain.WeatherStationId,
                         MainWeatherStation = lWeatherStationMain,
-
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
+
                         PositionId = lFarm.PositionId,
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
@@ -22065,7 +22070,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSanFernando
+                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -22224,7 +22229,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSanFernando
+                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -22554,7 +22559,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationZanjaHonda
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationElRetiro
+                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -22713,7 +22718,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationZanjaHonda
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationElRetiro
+                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -22872,7 +22877,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationZanjaHonda
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationElRetiro
+                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -23362,7 +23367,7 @@ namespace IrrigationAdvisorConsole
         {
             #region South
 
-            #region La Perdiz
+            #region DCA - La Perdiz
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
@@ -23396,27 +23401,31 @@ namespace IrrigationAdvisorConsole
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot5_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot6_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot14_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(context);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot5_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot6_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot14_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(context, DateOfReference);
                     context.SaveChanges();
                 }
             }
             #endregion
+
+            #endregion
+
+            #region North
 
             #region GMO - La Palma
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
@@ -23426,11 +23435,12 @@ namespace IrrigationAdvisorConsole
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2016(context);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot5_2016(context);
+
+                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2016(context, DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot5_2016(context, DateOfReference);
                     context.SaveChanges();
                 }
             }
@@ -23444,28 +23454,21 @@ namespace IrrigationAdvisorConsole
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot1_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot2_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot3_2016(context);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot4_2016(context);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot5_2016(context);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot6_2016(context);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot7_2016(context);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot8_2016(context);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot9_2016(context);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot10_2016(context);
+                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot1_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot2_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot3_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot4_2016(context, DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot5_2016(context, DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot6_2016(context, DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot7_2016(context, DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot8_2016(context, DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot9_2016(context, DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot10_2016(context, DateOfReference);
                     context.SaveChanges();
                 }
             }
             #endregion
 
-            #endregion
-
-            #region North
-            using (var context = new IrrigationAdvisorContext())
-            {
-                context.SaveChanges();
-            }
             #endregion
         }
 
@@ -23527,7 +23530,8 @@ namespace IrrigationAdvisorConsole
                 #region South
 
                 #region Demo - La Perdiz
-                if (PrintFarm == Utils.IrrigationAdvisorOutputFiles.All || PrintFarm == Utils.IrrigationAdvisorOutputFiles.Demo)
+                if (PrintFarm == Utils.IrrigationAdvisorOutputFiles.All 
+                    || PrintFarm == Utils.IrrigationAdvisorOutputFiles.Demo)
                 {
 
                     #region Demo - La Perdiz Pivot 1 2015
@@ -24147,7 +24151,8 @@ namespace IrrigationAdvisorConsole
                 #endregion
 
                 #region Santa Lucia
-                if (PrintFarm == Utils.IrrigationAdvisorOutputFiles.All || PrintFarm == Utils.IrrigationAdvisorOutputFiles.SantaLucia)
+                if (PrintFarm == Utils.IrrigationAdvisorOutputFiles.All 
+                    || PrintFarm == Utils.IrrigationAdvisorOutputFiles.SantaLucia)
                 {
                     #region Santa Lucia Pivot 1 2015
                     lFile = "IrrigationSystem_SantaLucia_Pivot_01_Maiz_2015";
@@ -24932,7 +24937,7 @@ namespace IrrigationAdvisorConsole
 
                 #region Del Lago - San Pedro
                 if (PrintFarm == Utils.IrrigationAdvisorOutputFiles.All
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago 
+                    || PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLago 
                     || PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLagoSanPedro)
                 {
                     #region Del Lago - San Pedro Pivot 5 2015
@@ -25571,9 +25576,12 @@ namespace IrrigationAdvisorConsole
 
                 #region Del Lago - El Mirador
                 if (PrintFarm == Utils.IrrigationAdvisorOutputFiles.All
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago 
+                    || PrintFarm == Utils.IrrigationAdvisorOutputFiles.Production
+                    || PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLago 
                     || PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLagoElMirador)
                 {
+                    if(PrintFarm != Utils.IrrigationAdvisorOutputFiles.Production)
+                    {
                     #region 2015
                     #region Del Lago - El Mirador Pivot 6 2015
                     lFile = "IrrigationSystem_DelLago_ElMirador_Pivot_06_Maiz_2015";
@@ -26207,6 +26215,7 @@ namespace IrrigationAdvisorConsole
 
                     #endregion
                     #endregion
+                    }
 
                     #region 2016
                     #region Del Lago - El Mirador Pivot 1 2016
@@ -26224,7 +26233,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -26382,7 +26391,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -26540,7 +26549,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -26698,7 +26707,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -26856,7 +26865,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -27014,7 +27023,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -27172,7 +27181,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -27330,7 +27339,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -27488,7 +27497,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -27646,7 +27655,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -27804,7 +27813,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -27962,7 +27971,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -28120,7 +28129,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -28278,7 +28287,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -28436,7 +28445,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -28594,7 +28603,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -28752,7 +28761,7 @@ namespace IrrigationAdvisorConsole
                                            where ws.Name == Utils.NameWeatherStationLaTribu
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLosOlivos
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops
@@ -28900,6 +28909,7 @@ namespace IrrigationAdvisorConsole
                 
                 #region GMO - La Palma
                 if (PrintFarm == Utils.IrrigationAdvisorOutputFiles.All
+                    || PrintFarm == Utils.IrrigationAdvisorOutputFiles.Production
                     || PrintFarm == Utils.IrrigationAdvisorOutputFiles.GMO
                     || PrintFarm == Utils.IrrigationAdvisorOutputFiles.GMOLaPalma)
                 {
