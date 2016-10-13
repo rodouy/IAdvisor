@@ -323,14 +323,7 @@ namespace IrrigationAdvisor.Models.Weather
 
             if(pDateHour != null)
             {
-                foreach (WeatherData lWeatherDataItem in this.WeatherDataList)
-                {
-                    if(Utils.IsTheSameDayAndHour(pDateHour, lWeatherDataItem.Date))
-                    {
-                        lWeatherData = lWeatherDataItem;
-                        break;
-                    }
-                }
+                lWeatherData = this.WeatherDataList.Find(wd => wd.Date.Date == pDateHour.Date);
             }
 
             lReturn = lWeatherData;
@@ -527,6 +520,65 @@ namespace IrrigationAdvisor.Models.Weather
 
             //Last data record
             lLastDay = this.WeatherDataList[this.WeatherDataList.Count - 1].Date;
+            lEvapotranspirationLast3Weight = 0.2;
+            lEvapotranspirationLast2Weight = 0.3;
+            lEvapotranspirationLast1Weight = 0.5;
+
+            for (int i = 0; i < InitialTables.DAYS_FOR_PREDICTION; i++)
+            {
+                lWeatherData = this.FindWeatherData(lLastDay);
+                lNextDay = lLastDay.AddDays(1);
+                lTemperature = lWeatherData.Temperature;
+                lSolarRadiation = lWeatherData.SolarRadiation;
+                lTemperatureMax = lWeatherData.TemperatureMax;
+                lTemperatureMin = lWeatherData.TemperatureMin;
+
+                lEvapotranspirationLast1 = lWeatherData.Evapotranspiration;
+                lWeatherData = this.FindWeatherData(lLastDay.AddDays(-1));
+                lEvapotranspirationLast2 = lWeatherData.Evapotranspiration;
+                lWeatherData = this.FindWeatherData(lLastDay.AddDays(-2));
+                lEvapotranspirationLast3 = lWeatherData.Evapotranspiration;
+
+                lEvapotranspiration = Math.Round(
+                    lEvapotranspirationLast3 * lEvapotranspirationLast3Weight
+                    + lEvapotranspirationLast2 * lEvapotranspirationLast2Weight
+                    + lEvapotranspirationLast1 * lEvapotranspirationLast1Weight, 2);
+
+                //Add WeatherData to WeatherStation WeatherDataList
+                this.AddWeatherDataToList(lNextDay,
+                                        lTemperature, lSolarRadiation,
+                                        lTemperatureMax, lTemperatureMin,
+                                        lEvapotranspiration);
+                lLastDay = lLastDay.AddDays(1);
+
+            }
+        }
+
+
+        /// <summary>
+        /// Generate Prediction of Weather Data after the last day
+        /// </summary>
+        public void GeneratePredictionWeatherData(DateTime pDateOfReference)
+        {
+            DateTime lLastDay;
+            DateTime lNextDay;
+            WeatherData lWeatherData;
+
+            double lTemperature;
+            double lSolarRadiation;
+            double lTemperatureMax;
+            double lTemperatureMin;
+            double lEvapotranspiration;
+            double lEvapotranspirationLast3;
+            double lEvapotranspirationLast3Weight;
+            double lEvapotranspirationLast2;
+            double lEvapotranspirationLast2Weight;
+            double lEvapotranspirationLast1;
+            double lEvapotranspirationLast1Weight;
+
+            //Last data record
+            lLastDay = this.WeatherDataList[this.WeatherDataList.Count - 1].Date;
+            lLastDay = Utils.MinDateTimeBetween(pDateOfReference, lLastDay);
             lEvapotranspirationLast3Weight = 0.2;
             lEvapotranspirationLast2Weight = 0.3;
             lEvapotranspirationLast1Weight = 0.5;

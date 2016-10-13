@@ -570,6 +570,15 @@ namespace IrrigationAdvisor.Controllers
                     //If Error, continue with others CIWs
                     try
                     {
+                        //Generate Prediction of Weather Data after the last day
+                        if(lCIW.MainWeatherStation != null && lCIW.MainWeatherStation.WeatherDataList != null)
+                        {
+                            lCIW.MainWeatherStation.GeneratePredictionWeatherData(lDateOfReference);
+                        }
+                        if (lCIW.AlternativeWeatherStation != null && lCIW.AlternativeWeatherStation.WeatherDataList != null)
+                        {
+                            lCIW.AlternativeWeatherStation.GeneratePredictionWeatherData(lDateOfReference);
+                        }
                         logger.Info("CalculateAllActiveCropIrrigationWeather: CIWid=" + lCIW.CropIrrigationWeatherId +
                                     " - DateOfReference=" + lDateOfReference +
                                     " - Today=" + lToday + "");

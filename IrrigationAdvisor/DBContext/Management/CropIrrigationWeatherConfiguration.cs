@@ -373,7 +373,7 @@ namespace IrrigationAdvisor.DBContext.Management
                             && ciw.HarvestDate >= pDateOfReference).FirstOrDefault();
                 
                 lReturn = lCropIrrigationWeather.DailyRecordList
-                    .Where(ciw => ciw.DailyRecordDateTime == pDateOfReference).FirstOrDefault();
+                    .Where(ciw => ciw.DailyRecordDateTime.Date == pDateOfReference.Date).FirstOrDefault();
             }
 
             return lReturn;
