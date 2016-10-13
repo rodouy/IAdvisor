@@ -95,22 +95,28 @@ BEGIN
 			 MONTH(Date) = MONTH(@Date) AND
 			 YEAR(Date) = YEAR(@Date) )>0)
 	BEGIN
-				 
-			UPDATE [IrrigationAdvisor].[dbo].[WeatherData] 
-			SET Temperature = @Temperature, TemperatureMax = @TemperatureMax, 
-			  TemperatureMin = @TemperatureMin, TemperatureDewPoint = @TemperatureDewPoint, 
-			  Humidity = @Humidity, HumidityMax = @HumidityMax, HumidityMin = @HumidityMin, 
-			  Barometer = @Barometer, BarometerMax = @BarometerMax, BarometerMin = @BarometerMin, 
-			  SolarRadiation = @SolarRadiation, UVRadiation = @UVRadiation, 
-			  RainDay = @RainDay, RainStorm = @RainStorm, RainMonth = @RainMonth, RainYear = @RainYear, 
-			  Evapotranspiration = @Evapotranspiration, EvapotranspirationMonth = @EvapotranspirationMonth, 
-			  EvapotranspirationYear = @EvapotranspirationYear, WeatherDataType = @WeatherDataType, 
-			  Observations = @Observations
-			  WHERE --WeatherStationId = @WeatherDataId AND
-				 WeatherStationId = @WeatherStationId AND
-				 DAY(Date) = DAY(@Date) AND
-				 MONTH(Date) = MONTH(@Date) AND
-				 YEAR(Date) = YEAR(@Date) 
+				 SELECT  '[WeatherData]' , *
+				 FROM [IrrigationAdvisor].[dbo].[WeatherData] 
+				 WHERE --WeatherStationId = @WeatherDataId AND
+					 WeatherStationId = @WeatherStationId AND
+					 DAY(Date) = DAY(@Date) AND
+					 MONTH(Date) = MONTH(@Date) AND
+					 YEAR(Date) = YEAR(@Date)
+			--UPDATE [IrrigationAdvisor].[dbo].[WeatherData] 
+			--SET Temperature = @Temperature, TemperatureMax = @TemperatureMax, 
+			--  TemperatureMin = @TemperatureMin, TemperatureDewPoint = @TemperatureDewPoint, 
+			--  Humidity = @Humidity, HumidityMax = @HumidityMax, HumidityMin = @HumidityMin, 
+			--  Barometer = @Barometer, BarometerMax = @BarometerMax, BarometerMin = @BarometerMin, 
+			--  SolarRadiation = @SolarRadiation, UVRadiation = @UVRadiation, 
+			--  RainDay = @RainDay, RainStorm = @RainStorm, RainMonth = @RainMonth, RainYear = @RainYear, 
+			--  Evapotranspiration = @Evapotranspiration, EvapotranspirationMonth = @EvapotranspirationMonth, 
+			--  EvapotranspirationYear = @EvapotranspirationYear, WeatherDataType = @WeatherDataType, 
+			--  Observations = @Observations
+			--  WHERE --WeatherStationId = @WeatherDataId AND
+			--	 WeatherStationId = @WeatherStationId AND
+			--	 DAY(Date) = DAY(@Date) AND
+			--	 MONTH(Date) = MONTH(@Date) AND
+			--	 YEAR(Date) = YEAR(@Date) 
 	END
 	ELSE
 	BEGIN
