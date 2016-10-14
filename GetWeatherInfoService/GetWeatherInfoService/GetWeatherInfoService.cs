@@ -55,6 +55,14 @@ namespace GetWeatherInfoService
             return message;
         }
 
+        private void AddUrls(string url)
+        {
+            if(!errorUrls.Any(e => e == url))
+            {
+                errorUrls.Add(url);
+            }
+        }
+
         public void ProcessWeathers()
         {
             try
@@ -65,36 +73,73 @@ namespace GetWeatherInfoService
                 emailLog.Add(LogFormat("Comienzo: ", DateTime.Now));
 
                 var weatherStations = context.WeatherStations.Where(w => w.WebAddress.Length > 0 && w.StationType == (int)Enums.StationType.WeatherLink).ToList();
+
                 foreach (var weatherStation in weatherStations)
                 {
                     emailLog.Add("\n");
+                    
                     try
                     {
 
                         string weatherStationDescription = string.Format(" {0} {1} \n", weatherStation.Name, weatherStation.WebAddress);
                         emailLog.Add(LogFormat("WeatherStation:", weatherStationDescription));
 
-                        List<string> temperatureValues = GetWeatherLinkValues(weatherStation.WebAddress, OUTSIDE_TEMP);
+                        double maxTemperature = 0;
+                        double minTemperature = 0;
+                        bool temperatureOk = false;
+                        string temperatureExceptionMessage = string.Empty;
+                        
+                        try
+                        {
+                            
+                            List<string> temperatureValues = GetWeatherLinkValues(weatherStation.WebAddress, OUTSIDE_TEMP);
 
-                        double maxTemperature = GetDoubleValue(temperatureValues.ElementAt(2), CELSIUS);
-                        double minTemperature = GetDoubleValue(temperatureValues.ElementAt(4), CELSIUS);
+                            maxTemperature = GetDoubleValue(temperatureValues.ElementAt(2), CELSIUS);
+                            minTemperature = GetDoubleValue(temperatureValues.ElementAt(4), CELSIUS);
 
-                        List<string> etValues = GetWeatherLinkValues(weatherStation.WebAddress, ET);
+                            temperatureOk = true;
 
+                        }
+                        catch (Exception ex)
+                        {
+
+                            logger.Error("Falló al levantar Temperatura ver abajo detalle del error.");
+                            logger.Error(ex, ex.Message);
+                            temperatureExceptionMessage = ex.Message;
+                            AddUrls(weatherStation.WebAddress);
+                            // Silent catch
+                        }
+                        
                         double evapotranspirationDay = 0;
                         double evapotranspirationMonth = 0;
                         double evapotranspirationYear = 0;
-
-                        if (etValues.Count > 0)
+                        bool etOk = false;
+                        string etExceptionMessage = string.Empty;
+                        // Try to parse et
+                        try
                         {
-                            evapotranspirationDay = GetDoubleValue(etValues.ElementAt(2), MILIMETERS);
+                            List<string> etValues = GetWeatherLinkValues(weatherStation.WebAddress, ET);
+                            
+                            if (etValues.Count > 0)
+                            {
+                                evapotranspirationDay = GetDoubleValue(etValues.ElementAt(2), MILIMETERS);
 
-                            evapotranspirationMonth = GetDoubleValue(etValues.ElementAt(4), MILIMETERS);
+                                evapotranspirationMonth = GetDoubleValue(etValues.ElementAt(4), MILIMETERS);
 
-                            evapotranspirationYear = GetDoubleValue(etValues.ElementAt(5), MILIMETERS);
+                                evapotranspirationYear = GetDoubleValue(etValues.ElementAt(5), MILIMETERS);
 
+                            }
+
+                            etOk = true;
                         }
-
+                        catch (Exception ex)
+                        {
+                            logger.Warn("Falló al levantar ET ver abajo detalle del error.");
+                            etExceptionMessage = ex.Message;
+                            logger.Warn(ex, ex.Message);
+                            AddUrls(weatherStation.WebAddress);
+                            // Silent catch
+                        }
 
                         List<string> humidityValues = GetWeatherLinkValues(weatherStation.WebAddress, OUTSIDE_HUMIDITY);
 
@@ -183,10 +228,12 @@ namespace GetWeatherInfoService
                         // If there is not a record for the day . It create a new record.
                         if (existingWeatherData == null)
                         {
+                            double temperature = (maxTemperature + minTemperature) / 2;
+
                             WeatherData newWeatherData = new WeatherData()
                             {
                                 Date = DateTime.Now,
-                                Temperature = (maxTemperature + minTemperature) / 2,
+                                Temperature = temperature,
                                 Barometer = (maxBarometer + minBarometer) / 2,
                                 BarometerMax = maxBarometer,
                                 BarometerMin = minBarometer,
@@ -210,11 +257,34 @@ namespace GetWeatherInfoService
                                 Observations = observations
                             };
 
-                            context.WeatherDatas.Add(newWeatherData);
+                            // Check if pass the validations.
+                            if(Validations(currentConditionsAsDate, etOk, temperatureOk))
+                            {
+                                context.WeatherDatas.Add(newWeatherData);
+                            }
 
-                            emailLog.Add(LogFormat("EvapotranspirationDay", evapotranspirationDay));
-                            emailLog.Add(LogFormat("EvapotranspirationMonth", evapotranspirationMonth));
-                            emailLog.Add(LogFormat("EvapotranspirationYear", evapotranspirationYear));
+                            if(temperatureOk)
+                            {
+                                emailLog.Add(LogFormat("Temperature", temperature));
+                                emailLog.Add(LogFormat("TemperatureMax", maxTemperature));
+                                emailLog.Add(LogFormat("TemperatureMin", minTemperature));
+                            }
+                            else
+                            {
+                                emailLog.Add(LogFormat("Temperature, TemperatureMax, TemperatureMin: ", temperatureExceptionMessage));
+                            }
+
+                            if (etOk)
+                            {
+                                emailLog.Add(LogFormat("EvapotranspirationDay", evapotranspirationDay));
+                                emailLog.Add(LogFormat("EvapotranspirationMonth", evapotranspirationMonth));
+                                emailLog.Add(LogFormat("EvapotranspirationYear", evapotranspirationYear)); 
+                            }
+                            else
+                            {
+                                emailLog.Add(LogFormat("EvapotranspirationDay, EvapotranspirationMonth, EvapotranspirationYear: ", etExceptionMessage));
+                            }
+
                             emailLog.Add(LogFormat("MaxHumidity", maxHumidity));
                             emailLog.Add(LogFormat("MinHumidity", minHumidity));
                             emailLog.Add(LogFormat("MaxBarometer", maxBarometer));
@@ -231,7 +301,7 @@ namespace GetWeatherInfoService
                             emailLog.Add("════════════Fin═══════════════\n\n");
 
                         }
-                        else if (existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate)
+                        else if (existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate && Validations(currentConditionsAsDate, etOk, temperatureOk))
                         {
                             existingWeatherData.Date = DateTime.Now;
 
@@ -321,15 +391,14 @@ namespace GetWeatherInfoService
                             emailLog.Add(LogFormat("Last-Update:", observations));
                             emailLog.Add("════════════Fin═══════════════\n\n");
                         }
-
+                            
                         CheckAndUpdateUpdateTimeFromWeatherStations(weatherStation, observations);
-
                     }
                     catch (FormatException ex)
                     {
                         logger.Warn(ex, ex.Message);
                         emailLog.Add("\n");
-                        errorUrls.Add(weatherStation.WebAddress);
+                        AddUrls(weatherStation.WebAddress);
                         emailLog.Add("Error en la carga \n");
                         emailLog.Add(ex.Message + "\n");
                         continue;
@@ -338,14 +407,14 @@ namespace GetWeatherInfoService
                     {
                         logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                         emailLog.Add("\n");
-                        errorUrls.Add(weatherStation.WebAddress);
+                        AddUrls(weatherStation.WebAddress);
                         emailLog.Add("Error en la carga \n");
                         emailLog.Add(ex.Message + "\n");
                         continue;
                     }
                     
                 }
-
+                
                 context.SaveChanges();
 
                 string endMessage = string.Empty;
@@ -366,6 +435,26 @@ namespace GetWeatherInfoService
                             ex.Message + " | " + ex.StackTrace);
                 Stop();
             }
+        }
+
+        private bool Validations(DateTime currentConditionsDate, bool correctEt, bool correctTemperature)
+        {
+            bool lResult = false;
+            int validHour = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["ValidHour"]);
+            //ValidHour
+            if (validHour >= 0 && validHour <= 23 && currentConditionsDate.Hour >= 18 && correctEt && correctTemperature)
+            {
+                lResult = true;
+            }
+            else
+            {
+                logger.Info("No se pasaron las validaciones para guardar WeatherData");
+                logger.Info("validHour >= 0 && validHour <= 23 && currentConditionsDate.Hour >= 18 && correctEt && correctTemperature");
+                logger.Info(string.Format("validHour: {0}, currentConditionsDate.Hour: {1}, correctEt: {2}, correctTemperature: {3}",
+                    validHour, currentConditionsDate.Hour, correctEt, correctTemperature));
+            }
+
+            return lResult;
         }
 
         private void CheckAndUpdateUpdateTimeFromWeatherStations(WeatherStation weatherStation, string currentStatus)

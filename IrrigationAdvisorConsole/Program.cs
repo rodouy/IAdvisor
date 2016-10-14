@@ -17695,13 +17695,6 @@ namespace IrrigationAdvisorConsole
             List<WeatherData> lAlternativeWeatherDataList = null;
 
             //This is used when we have two species in one CropIrrigationWeather
-            Specie lSpecie2 = null;
-            Crop lCrop2 = null;
-            CropCoefficient lCropCoefficient2 = null;
-            List<PhenologicalStage> lPhenologicalStages2 = null;
-            List<KC> lKCList2 = null;
-            CropInformationByDate lCropInformationByDate2 = null;
-
             Soil lSoil = null;
             List<Horizon> lHorizonList = null;
             CropInformationByDate lCropInformationByDate = null;

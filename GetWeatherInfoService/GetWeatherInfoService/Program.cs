@@ -10,7 +10,7 @@ namespace GetWeatherInfoService
         static void Main()
         {
             //In prod change true by false
-#if true
+#if false
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
@@ -18,7 +18,7 @@ namespace GetWeatherInfoService
             };
             ServiceBase.Run(ServicesToRun);
 #endif
-#if false
+#if true
             GetWeatherInfoService www = new GetWeatherInfoService();
             www.ProcessWeathers();
 #endif
