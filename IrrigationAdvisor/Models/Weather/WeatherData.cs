@@ -355,7 +355,8 @@ namespace IrrigationAdvisor.Models.Weather
             Double pTemperatureMin,
             Double pSolarRadiation,
             Double pEvapotranspiration,
-            Utils.WeatherDataType pWeatherDataType
+            Utils.WeatherDataType pWeatherDataType,
+            String pObservations
             )
         {
             this.WeatherDataId = pWeatherDataId;
@@ -381,7 +382,7 @@ namespace IrrigationAdvisor.Models.Weather
             this.EvapotranspirationMonth = 0;
             this.EvapotranspirationYear = 0;
             this.WeatherDataType = pWeatherDataType;
-            this.Observations = "";
+            this.Observations = pObservations;
         }
 
         /// <summary>

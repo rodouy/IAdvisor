@@ -571,11 +571,13 @@ namespace IrrigationAdvisor.Controllers
                     try
                     {
                         //Generate Prediction of Weather Data after the last day
-                        if(lCIW.MainWeatherStation != null && lCIW.MainWeatherStation.WeatherDataList != null)
+                        if(lCIW.MainWeatherStation != null && lCIW.MainWeatherStation.WeatherDataList != null 
+                            && lCIW.MainWeatherStation.WeatherDataList.Any())
                         {
                             lCIW.MainWeatherStation.GeneratePredictionWeatherData(lDateOfReference);
                         }
-                        if (lCIW.AlternativeWeatherStation != null && lCIW.AlternativeWeatherStation.WeatherDataList != null)
+                        if (lCIW.AlternativeWeatherStation != null && lCIW.AlternativeWeatherStation.WeatherDataList != null
+                            && lCIW.AlternativeWeatherStation.WeatherDataList.Any())
                         {
                             lCIW.AlternativeWeatherStation.GeneratePredictionWeatherData(lDateOfReference);
                         }

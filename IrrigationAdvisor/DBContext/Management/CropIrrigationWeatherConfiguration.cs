@@ -392,6 +392,7 @@ namespace IrrigationAdvisor.DBContext.Management
             {
                 lReturn = db.CropIrrigationWeathers
                     .Include(ciw => ciw.Crop)
+                    .Include(ciw => ciw.Crop.Specie)
                     .Include(ciw => ciw.Crop.Region)
                     .Include(ciw => ciw.Crop.Region.EffectiveRainList)
                     .Include(ciw => ciw.Crop.Region.TemperatureDataList)

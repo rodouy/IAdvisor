@@ -369,7 +369,7 @@ namespace IrrigationAdvisor.Models.Weather
         public WeatherData AddWeatherData(DateTime pDateTime,
                                         Double pTemperature, Double pSolarRadiation,
                                         Double pTemperatureMax, Double pTemperatureMin, 
-                                        Double pEvapotranspiration)
+                                        Double pEvapotranspiration, String pObservations)
         {
             WeatherData lReturn;
             WeatherData lWeatherData = null;
@@ -383,7 +383,8 @@ namespace IrrigationAdvisor.Models.Weather
                 
                 lWeatherData = new WeatherData(lWeatherDataId, this.WeatherStationId, pDateTime, 
                                             pTemperature, pTemperatureMax, pTemperatureMin, 
-                                            pSolarRadiation, pEvapotranspiration, lWeatherDataType);
+                                            pSolarRadiation, pEvapotranspiration, lWeatherDataType,
+                                            pObservations);
 
                 lWeatherDataType = SetWeatherDataTypeByWeatherInformation(lWeatherData);
                 
@@ -424,7 +425,7 @@ namespace IrrigationAdvisor.Models.Weather
         public WeatherData UpdateWeatherData(DateTime pDateTime,
                                         Double pTemperature, Double pSolarRadiation,
                                         Double pTemperatureMax, Double pTemperatureMin, 
-                                        Double pEvapotranspiration)
+                                        Double pEvapotranspiration, String pObservations)
         {
             WeatherData lReturn;
             WeatherData lWeatherData = null;
@@ -436,7 +437,7 @@ namespace IrrigationAdvisor.Models.Weather
                 lWeatherData = new WeatherData(this.GetNewWeatherDataListId(), this.WeatherStationId, 
                                                 pDateTime, pTemperature,
                                                 pTemperatureMax, pTemperatureMin, pSolarRadiation,
-                                                pEvapotranspiration, lWeatherDataType);
+                                                pEvapotranspiration, lWeatherDataType, pObservations);
 
                 lReturn = ExistWeatherData(lWeatherData);
                 if(lReturn != null)
@@ -472,7 +473,7 @@ namespace IrrigationAdvisor.Models.Weather
         /// <param name="pEvapotranspiration"></param>
         public void AddWeatherDataToList(DateTime pDateTime,
                                         Double pTemperature, Double pSolarRadiation, Double pTemMax,
-                                        Double pTemMin, Double pEvapotranspiration)
+                                        Double pTemMin, Double pEvapotranspiration, String pObservations)
         {
 
             try
@@ -480,12 +481,12 @@ namespace IrrigationAdvisor.Models.Weather
                 WeatherData lWeatherData;
 
                 lWeatherData = this.AddWeatherData(pDateTime, pTemperature, pSolarRadiation, 
-                                                    pTemMax, pTemMin, pEvapotranspiration);
+                                                    pTemMax, pTemMin, pEvapotranspiration, pObservations);
 
                 if (lWeatherData == null)
                 {
                     this.UpdateWeatherData(pDateTime, pTemperature, pSolarRadiation,
-                                            pTemMax, pTemMin, pEvapotranspiration);
+                                            pTemMax, pTemMin, pEvapotranspiration, pObservations);
                 }
             }
             catch (Exception ex)
@@ -548,7 +549,8 @@ namespace IrrigationAdvisor.Models.Weather
                 this.AddWeatherDataToList(lNextDay,
                                         lTemperature, lSolarRadiation,
                                         lTemperatureMax, lTemperatureMin,
-                                        lEvapotranspiration);
+                                        lEvapotranspiration, 
+                                        "DAYS_FOR_PREDICTION");
                 lLastDay = lLastDay.AddDays(1);
 
             }
@@ -607,7 +609,8 @@ namespace IrrigationAdvisor.Models.Weather
                 this.AddWeatherDataToList(lNextDay,
                                         lTemperature, lSolarRadiation,
                                         lTemperatureMax, lTemperatureMin,
-                                        lEvapotranspiration);
+                                        lEvapotranspiration, 
+                                        "DAYS_FOR_PREDICTION");
                 lLastDay = lLastDay.AddDays(1);
 
             }
