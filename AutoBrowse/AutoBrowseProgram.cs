@@ -31,6 +31,7 @@ namespace AutoBrowse
                 //Get the html text from the web.
                 string webData = Encoding.UTF8.GetString(raw);
 
+                logger.Info("Resultado: " + webData);
                 logger.Info("Se ha ejecutado correctamente AutoBrowse");
                 
             }
