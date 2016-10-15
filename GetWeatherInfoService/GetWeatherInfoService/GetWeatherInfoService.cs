@@ -31,10 +31,12 @@ namespace GetWeatherInfoService
         private const string SOLAR_RADIATION = "Solar Radiation";
         private const string ET = "ET";
         private const string UV_RADIATION = "UV Radiation";
+        private const string WIND_SPEED = "Wind Speed";
         private const string MILIMETERS = "mm";
         private const string PERCENTAGE = "%";
         private const string MB = "mb";
         private const string WM2 = "W/m2";
+        private const string KMH = "km/h";
         private const string INDEX = "Index";
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -63,6 +65,71 @@ namespace GetWeatherInfoService
             }
         }
 
+        private void MailLines(WeatherDataDTO weatherDataDTO, List<string> pEmailLog)
+        {
+            pEmailLog.Add(LogFormat("Temperature", weatherDataDTO.Temperature));
+            pEmailLog.Add(LogFormat("TemperatureMax", weatherDataDTO.MaxTemperature));
+            pEmailLog.Add(LogFormat("TemperatureMin", weatherDataDTO.MinTemperature));
+
+            pEmailLog.Add(LogFormat("EvapotranspirationDay", weatherDataDTO.EvapotranspirationDay));
+            pEmailLog.Add(LogFormat("EvapotranspirationMonth", weatherDataDTO.EvapotranspirationMonth));
+            pEmailLog.Add(LogFormat("EvapotranspirationYear", weatherDataDTO.EvapotranspirationYear));
+
+            pEmailLog.Add(LogFormat("MaxHumidity", weatherDataDTO.MaxHumidity));
+            pEmailLog.Add(LogFormat("MinHumidity", weatherDataDTO.MinHumidity));
+            pEmailLog.Add(LogFormat("MinHumidity", weatherDataDTO.MinHumidity));
+            pEmailLog.Add(LogFormat("MaxBarometer", weatherDataDTO.MaxBarometer));
+            pEmailLog.Add(LogFormat("MinBarometer", weatherDataDTO.MinBarometer));
+            pEmailLog.Add(LogFormat("MaxDewTemperature", weatherDataDTO.MaxDewTemperature));
+            pEmailLog.Add(LogFormat("MinDewTemperature", weatherDataDTO.MinDewTemperature));
+            pEmailLog.Add(LogFormat("RainDay", weatherDataDTO.RainDay));
+            pEmailLog.Add(LogFormat("RainStorm", weatherDataDTO.RainStorm));
+            pEmailLog.Add(LogFormat("RainMonth", weatherDataDTO.RainMonth));
+            pEmailLog.Add(LogFormat("RainYear", weatherDataDTO.RainYear));
+            pEmailLog.Add(LogFormat("SolarRadiation", weatherDataDTO.SolarRadiation));
+            pEmailLog.Add(LogFormat("UvRadiation", weatherDataDTO.UvRadiation));
+            pEmailLog.Add(LogFormat("WindSpeed", weatherDataDTO.WindSpeed));
+            pEmailLog.Add(LogFormat("Last-Update:", weatherDataDTO.Observations));
+            pEmailLog.Add("════════════Fin═══════════════\n\n");
+        }
+
+        private void UpdateAllWeatherDataRecord(WeatherData pPredicatedWeatherData, 
+                                                WeatherDataDTO pWeatherDataDTO,
+                                                DateTime pCurrentConditionsAsDate,
+                                                long pWeatherStationId,
+                                                List<string> pEmailLog)
+        {
+            if (Validations(pCurrentConditionsAsDate))
+            {
+                pPredicatedWeatherData.Date = DateTime.Now;
+                pPredicatedWeatherData.Temperature = pWeatherDataDTO.Temperature;
+                pPredicatedWeatherData.Barometer = (pWeatherDataDTO.MaxBarometer + pWeatherDataDTO.MinBarometer) / 2;
+                pPredicatedWeatherData.BarometerMax = pWeatherDataDTO.MaxBarometer;
+                pPredicatedWeatherData.BarometerMin = pWeatherDataDTO.MinBarometer;
+                pPredicatedWeatherData.Evapotranspiration = pWeatherDataDTO.EvapotranspirationDay;
+                pPredicatedWeatherData.EvapotranspirationMonth = pWeatherDataDTO.EvapotranspirationMonth;
+                pPredicatedWeatherData.EvapotranspirationYear = pWeatherDataDTO.EvapotranspirationYear;
+                pPredicatedWeatherData.Humidity = (pWeatherDataDTO.MinHumidity + pWeatherDataDTO.MaxHumidity) / 2;
+                pPredicatedWeatherData.HumidityMax = pWeatherDataDTO.MaxHumidity;
+                pPredicatedWeatherData.HumidityMin = pWeatherDataDTO.MinHumidity;
+                pPredicatedWeatherData.RainDay = pWeatherDataDTO.RainDay;
+                pPredicatedWeatherData.RainMonth = pWeatherDataDTO.RainMonth;
+                pPredicatedWeatherData.RainStorm = pWeatherDataDTO.RainStorm;
+                pPredicatedWeatherData.RainYear = pWeatherDataDTO.RainYear;
+                pPredicatedWeatherData.SolarRadiation = pWeatherDataDTO.SolarRadiation;
+                pPredicatedWeatherData.TemperatureDewPoint = (pWeatherDataDTO.MaxDewTemperature + pWeatherDataDTO.MinDewTemperature) / 2;
+                pPredicatedWeatherData.TemperatureMax = pWeatherDataDTO.MaxTemperature;
+                pPredicatedWeatherData.TemperatureMin = pWeatherDataDTO.MinTemperature;
+                pPredicatedWeatherData.UVRadiation = pWeatherDataDTO.UvRadiation;
+                pPredicatedWeatherData.WeatherDataType = 0;
+                pPredicatedWeatherData.WeatherDataInputType = (int)Enums.WeatherDataInputType.GetWeatherInfoService;
+                pPredicatedWeatherData.WeatherStationId = pWeatherStationId;
+                pPredicatedWeatherData.Observations = pWeatherDataDTO.Observations;
+            }
+
+            MailLines(pWeatherDataDTO, pEmailLog);
+        }
+
         public void ProcessWeathers()
         {
             try
@@ -80,40 +147,30 @@ namespace GetWeatherInfoService
                     
                     try
                     {
-
                         string weatherStationDescription = string.Format(" {0} {1} \n", weatherStation.Name, weatherStation.WebAddress);
                         emailLog.Add(LogFormat("WeatherStation:", weatherStationDescription));
 
-                        double maxTemperature = 0;
-                        double minTemperature = 0;
-                        bool temperatureOk = false;
-                        string temperatureExceptionMessage = string.Empty;
-                        
+                        WeatherDataDTO weatherDataDTO = new WeatherDataDTO();
+
                         try
                         {
-                            
+
                             List<string> temperatureValues = GetWeatherLinkValues(weatherStation.WebAddress, OUTSIDE_TEMP);
 
-                            maxTemperature = GetDoubleValue(temperatureValues.ElementAt(2), CELSIUS);
-                            minTemperature = GetDoubleValue(temperatureValues.ElementAt(4), CELSIUS);
-
-                            temperatureOk = true;
-
+                            weatherDataDTO.MaxTemperature = GetDoubleValue(temperatureValues.ElementAt(2), CELSIUS);
+                            weatherDataDTO.MinTemperature = GetDoubleValue(temperatureValues.ElementAt(4), CELSIUS);
+                            
                         }
                         catch (Exception ex)
                         {
 
                             logger.Error("Falló al levantar Temperatura ver abajo detalle del error.");
                             logger.Error(ex, ex.Message);
-                            temperatureExceptionMessage = ex.Message;
-                            AddUrls(weatherStation.WebAddress);
+                            emailLog.Add(LogFormat("Temperature, TemperatureMax, TemperatureMin: ", ex.Message));
                             // Silent catch
+                            throw;
                         }
                         
-                        double evapotranspirationDay = 0;
-                        double evapotranspirationMonth = 0;
-                        double evapotranspirationYear = 0;
-                        bool etOk = false;
                         string etExceptionMessage = string.Empty;
                         // Try to parse et
                         try
@@ -122,98 +179,96 @@ namespace GetWeatherInfoService
                             
                             if (etValues.Count > 0)
                             {
-                                evapotranspirationDay = GetDoubleValue(etValues.ElementAt(2), MILIMETERS);
+                                weatherDataDTO.EvapotranspirationDay = GetDoubleValue(etValues.ElementAt(2), MILIMETERS);
 
-                                evapotranspirationMonth = GetDoubleValue(etValues.ElementAt(4), MILIMETERS);
+                                weatherDataDTO.EvapotranspirationMonth = GetDoubleValue(etValues.ElementAt(4), MILIMETERS);
 
-                                evapotranspirationYear = GetDoubleValue(etValues.ElementAt(5), MILIMETERS);
+                                weatherDataDTO.EvapotranspirationYear = GetDoubleValue(etValues.ElementAt(5), MILIMETERS);
 
                             }
 
-                            etOk = true;
                         }
                         catch (Exception ex)
                         {
                             logger.Warn("Falló al levantar ET ver abajo detalle del error.");
                             etExceptionMessage = ex.Message;
                             logger.Warn(ex, ex.Message);
-                            AddUrls(weatherStation.WebAddress);
+                            emailLog.Add(LogFormat("EvapotranspirationDay, EvapotranspirationMonth, EvapotranspirationYear: ", etExceptionMessage));
                             // Silent catch
+                            throw;
                         }
 
-                        List<string> humidityValues = GetWeatherLinkValues(weatherStation.WebAddress, OUTSIDE_HUMIDITY);
-
-                        double maxHumidity = 0;
-                        double minHumidity = 0;
-
-                        if (humidityValues.Count > 0)
+                        try
                         {
-                            maxHumidity = GetDoubleValue(humidityValues.ElementAt(2), PERCENTAGE);
-                            minHumidity = GetDoubleValue(humidityValues.ElementAt(4), PERCENTAGE);
+                            List<string> humidityValues = GetWeatherLinkValues(weatherStation.WebAddress, OUTSIDE_HUMIDITY);
 
+                            if (humidityValues.Any())
+                            {
+                                weatherDataDTO.MaxHumidity = GetDoubleValue(humidityValues.ElementAt(2), PERCENTAGE);
+                                weatherDataDTO.MinHumidity = GetDoubleValue(humidityValues.ElementAt(4), PERCENTAGE);
+                            }
+
+                            List<string> barometerValues = GetWeatherLinkValues(weatherStation.WebAddress, BAROMETER);
+
+                            if (barometerValues.Any())
+                            {
+                                weatherDataDTO.MaxBarometer = GetDoubleValue(barometerValues.ElementAt(2), MB);
+                                weatherDataDTO.MinBarometer = GetDoubleValue(barometerValues.ElementAt(4), MB);
+                            }
+
+                            List<string> dewValues = GetWeatherLinkValues(weatherStation.WebAddress, DEW_POINT);
+
+                            if (dewValues.Any())
+                            {
+                                weatherDataDTO.MaxDewTemperature = GetDoubleValue(dewValues.ElementAt(2), CELSIUS);
+                                weatherDataDTO.MinDewTemperature = GetDoubleValue(dewValues.ElementAt(4), CELSIUS);
+                            }
+
+                            List<string> rainValues = GetWeatherLinkValues(weatherStation.WebAddress, RAIN);
+
+                            if (rainValues.Any())
+                            {
+                                weatherDataDTO.RainDay = GetDoubleValue(rainValues.ElementAt(2), MILIMETERS);
+                                weatherDataDTO.RainStorm = GetDoubleValue(rainValues.ElementAt(3), MILIMETERS);
+                                weatherDataDTO.RainMonth = GetDoubleValue(rainValues.ElementAt(4), MILIMETERS);
+                                weatherDataDTO.RainYear = GetDoubleValue(rainValues.ElementAt(5), MILIMETERS);
+                            }
+
+                            List<string> solarRadiationValues = GetWeatherLinkValues(weatherStation.WebAddress, SOLAR_RADIATION);
+
+                            if (solarRadiationValues.Any())
+                            {
+                                weatherDataDTO.SolarRadiation = GetDoubleValue(solarRadiationValues.ElementAt(2).Replace("W/m<span class=\"threequarter\"><sup>2</sup></span>", ""), string.Empty);
+                            }
+
+                            List<string> uvRadiationValues = GetWeatherLinkValues(weatherStation.WebAddress, UV_RADIATION);
+
+                            if (uvRadiationValues.Any())
+                            {
+                                weatherDataDTO.UvRadiation = GetDoubleValue(uvRadiationValues.ElementAt(2), INDEX);
+                            }
+
+                            List<string> windSpeedValues = GetWeatherLinkValues(weatherStation.WebAddress, WIND_SPEED);
+
+                            if (windSpeedValues.Any())
+                            {
+                                weatherDataDTO.WindSpeed = GetDoubleValue(windSpeedValues.ElementAt(2), KMH);
+                            }
                         }
-
-                        List<string> barometerValues = GetWeatherLinkValues(weatherStation.WebAddress, BAROMETER);
-
-                        double minBarometer = 0;
-                        double maxBarometer = 0;
-
-                        if (barometerValues.Count > 0)
+                        catch (Exception ex)
                         {
-                            maxBarometer = GetDoubleValue(barometerValues.ElementAt(2), MB);
-
-                            minBarometer = GetDoubleValue(barometerValues.ElementAt(4), MB);
-
+                            logger.Warn(ex, "Falló al levantar levantar valores opcionales. Pero se guardó el registro.");
+                            //silent catch
                         }
 
-                        List<string> dewValues = GetWeatherLinkValues(weatherStation.WebAddress, DEW_POINT);
-
-                        double maxDewTemperature = 0;
-                        double minDewTemperature = 0;
-
-                        if (dewValues.Count > 0)
-                        {
-                            maxDewTemperature = GetDoubleValue(dewValues.ElementAt(2), CELSIUS);
-
-                            minDewTemperature = GetDoubleValue(dewValues.ElementAt(4), CELSIUS);
-
-                        }
-
-                        List<string> rainValues = GetWeatherLinkValues(weatherStation.WebAddress, RAIN);
-                        double rainDay = 0;
-                        double rainMonth = 0;
-                        double rainYear = 0;
-                        double rainStorm = 0;
-
-                        if (rainValues.Count > 0)
-                        {
-                            rainDay = GetDoubleValue(rainValues.ElementAt(2), MILIMETERS);
-
-                            rainStorm = GetDoubleValue(rainValues.ElementAt(3), MILIMETERS);
-
-                            rainMonth = GetDoubleValue(rainValues.ElementAt(4), MILIMETERS);
-
-                            rainYear = GetDoubleValue(rainValues.ElementAt(5), MILIMETERS);
-
-                        }
-
-                        List<string> solarRadiationValues = GetWeatherLinkValues(weatherStation.WebAddress, SOLAR_RADIATION);
-                        double solarRadiation = 0;
-
-                        if (solarRadiationValues.Count > 0)
-                        {
-                            solarRadiation = GetDoubleValue(solarRadiationValues.ElementAt(2).Replace("W/m<span class=\"threequarter\"><sup>2</sup></span>", ""), string.Empty);
-
-                        }
-
-                        List<string> uvRadiationValues = GetWeatherLinkValues(weatherStation.WebAddress, UV_RADIATION);
-                        double uvRadiation = 0;
-
-                        if (uvRadiationValues.Count > 0)
-                        {
-                            uvRadiation = GetDoubleValue(uvRadiationValues.ElementAt(2), INDEX);
-                        }
-
+                        // Check if exists a record predicted
+                        WeatherData predicatedWeatherData = context.WeatherDatas.
+                                                            Where(w =>
+                                                            w.WeatherStationId == weatherStation.WeatherStationId &&
+                                                            w.Date.Year == DateTime.Now.Year 
+                                                            && w.Date.Month == DateTime.Now.Month
+                                                            && w.Date.Day == DateTime.Now.Day &&
+                                                            w.WeatherDataInputType == (int)Enums.WeatherDataInputType.Prediction).FirstOrDefault();
 
                         // Search if the station exists
                         WeatherData existingWeatherData = context.WeatherDatas.Where(w => w.WeatherStationId == weatherStation.WeatherStationId &&
@@ -221,178 +276,153 @@ namespace GetWeatherInfoService
                                                                                      && w.Date.Month == DateTime.Now.Month
                                                                                      && w.Date.Day == DateTime.Now.Day).FirstOrDefault();
 
-                        string observations = GetCurrentCoditions(weatherStation.WebAddress);
+                        weatherDataDTO.Observations = GetCurrentCoditions(weatherStation.WebAddress);
 
-                        DateTime currentConditionsAsDate = ConvertCurrentConditionsToDateTime(observations);
-
+                        DateTime currentConditionsAsDate = ConvertCurrentConditionsToDateTime(weatherDataDTO.Observations);
                         // If there is not a record for the day . It create a new record.
                         if (existingWeatherData == null)
                         {
-                            double temperature = (maxTemperature + minTemperature) / 2;
-
                             WeatherData newWeatherData = new WeatherData()
                             {
                                 Date = DateTime.Now,
-                                Temperature = temperature,
-                                Barometer = (maxBarometer + minBarometer) / 2,
-                                BarometerMax = maxBarometer,
-                                BarometerMin = minBarometer,
-                                Evapotranspiration = evapotranspirationDay,
-                                EvapotranspirationMonth = evapotranspirationMonth,
-                                EvapotranspirationYear = evapotranspirationYear,
-                                Humidity = (minHumidity + maxHumidity) / 2,
-                                HumidityMax = maxHumidity,
-                                HumidityMin = minHumidity,
-                                RainDay = rainDay,
-                                RainMonth = rainMonth,
-                                RainStorm = rainStorm,
-                                RainYear = rainYear,
-                                SolarRadiation = solarRadiation,
-                                TemperatureDewPoint = (maxDewTemperature + minDewTemperature) / 2,
-                                TemperatureMax = maxTemperature,
-                                TemperatureMin = minTemperature,
-                                UVRadiation = uvRadiation,
+                                Temperature = weatherDataDTO.Temperature,
+                                Barometer = (weatherDataDTO.MaxBarometer + weatherDataDTO.MinBarometer) / 2,
+                                BarometerMax = weatherDataDTO.MaxBarometer,
+                                BarometerMin = weatherDataDTO.MinBarometer,
+                                Evapotranspiration = weatherDataDTO.EvapotranspirationDay,
+                                EvapotranspirationMonth = weatherDataDTO.EvapotranspirationMonth,
+                                EvapotranspirationYear = weatherDataDTO.EvapotranspirationYear,
+                                Humidity = (weatherDataDTO.MinHumidity + weatherDataDTO.MaxHumidity) / 2,
+                                HumidityMax = weatherDataDTO.MaxHumidity,
+                                HumidityMin = weatherDataDTO.MinHumidity,
+                                RainDay = weatherDataDTO.RainDay,
+                                RainMonth = weatherDataDTO.RainMonth,
+                                RainStorm = weatherDataDTO.RainStorm,
+                                RainYear = weatherDataDTO.RainYear,
+                                SolarRadiation = weatherDataDTO.SolarRadiation,
+                                TemperatureDewPoint = (weatherDataDTO.MaxDewTemperature + weatherDataDTO.MinDewTemperature) / 2,
+                                TemperatureMax = weatherDataDTO.MaxTemperature,
+                                TemperatureMin = weatherDataDTO.MinTemperature,
+                                UVRadiation = weatherDataDTO.UvRadiation,
                                 WeatherDataType = 0,
                                 WeatherStationId = weatherStation.WeatherStationId,
-                                Observations = observations
+                                Observations = weatherDataDTO.Observations,
+                                WeatherDataInputType = (int)Enums.WeatherDataInputType.GetWeatherInfoService,
+                                WindSpeed = weatherDataDTO.WindSpeed
                             };
 
                             // Check if pass the validations.
-                            if(Validations(currentConditionsAsDate, etOk, temperatureOk))
+                            if (Validations(currentConditionsAsDate))
                             {
                                 context.WeatherDatas.Add(newWeatherData);
                             }
 
-                            if(temperatureOk)
-                            {
-                                emailLog.Add(LogFormat("Temperature", temperature));
-                                emailLog.Add(LogFormat("TemperatureMax", maxTemperature));
-                                emailLog.Add(LogFormat("TemperatureMin", minTemperature));
-                            }
-                            else
-                            {
-                                emailLog.Add(LogFormat("Temperature, TemperatureMax, TemperatureMin: ", temperatureExceptionMessage));
-                            }
-
-                            if (etOk)
-                            {
-                                emailLog.Add(LogFormat("EvapotranspirationDay", evapotranspirationDay));
-                                emailLog.Add(LogFormat("EvapotranspirationMonth", evapotranspirationMonth));
-                                emailLog.Add(LogFormat("EvapotranspirationYear", evapotranspirationYear)); 
-                            }
-                            else
-                            {
-                                emailLog.Add(LogFormat("EvapotranspirationDay, EvapotranspirationMonth, EvapotranspirationYear: ", etExceptionMessage));
-                            }
-
-                            emailLog.Add(LogFormat("MaxHumidity", maxHumidity));
-                            emailLog.Add(LogFormat("MinHumidity", minHumidity));
-                            emailLog.Add(LogFormat("MaxBarometer", maxBarometer));
-                            emailLog.Add(LogFormat("MinBarometer", minBarometer));
-                            emailLog.Add(LogFormat("MaxDewTemperature", maxDewTemperature));
-                            emailLog.Add(LogFormat("MinDewTemperature", minDewTemperature));
-                            emailLog.Add(LogFormat("RainDay", rainDay));
-                            emailLog.Add(LogFormat("RainStorm", rainStorm));
-                            emailLog.Add(LogFormat("RainMonth", rainMonth));
-                            emailLog.Add(LogFormat("RainYear", rainYear));
-                            emailLog.Add(LogFormat("SolarRadiation", solarRadiation));
-                            emailLog.Add(LogFormat("UvRadiation", uvRadiation));
-                            emailLog.Add(LogFormat("Last-Update:", observations));
-                            emailLog.Add("════════════Fin═══════════════\n\n");
-
+                            MailLines(weatherDataDTO, emailLog);
+        
                         }
-                        else if (existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate && Validations(currentConditionsAsDate, etOk, temperatureOk))
+                        else if (predicatedWeatherData != null)
                         {
-                            existingWeatherData.Date = DateTime.Now;
+                            logger.Info("Existe un record de WeatherData como pronosticado. Se va a reemplazar por el valor de Weather Link. WeatherSatationId: {0}", weatherStation.WeatherStationId);
 
-                            if (existingWeatherData.TemperatureMax < maxTemperature && maxTemperature != 0)
+                            UpdateAllWeatherDataRecord(predicatedWeatherData, weatherDataDTO, currentConditionsAsDate, weatherStation.WeatherStationId, emailLog);
+                        }
+                        else if (existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate && Validations(currentConditionsAsDate))
+                        {
+                            
+                            existingWeatherData.Date = DateTime.Now;
+                            
+                            if (existingWeatherData.TemperatureMax < weatherDataDTO.MaxTemperature && weatherDataDTO.MaxTemperature != 0)
                             {
-                                existingWeatherData.TemperatureMax = maxTemperature;
+                                existingWeatherData.TemperatureMax = weatherDataDTO.MaxTemperature;
                                 emailLog.Add(LogFormat("TemperatureMax", existingWeatherData.TemperatureMax));
                             }
-
-
-                            if (existingWeatherData.TemperatureMin > minTemperature && minTemperature != 0)
+                            
+                            if (existingWeatherData.TemperatureMin > weatherDataDTO.MinTemperature && weatherDataDTO.MinTemperature != 0)
                             {
-                                existingWeatherData.TemperatureMin = minTemperature;
+                                existingWeatherData.TemperatureMin = weatherDataDTO.MinTemperature;
                                 emailLog.Add(LogFormat("TemperatureMin", existingWeatherData.TemperatureMin));
                             }
 
                             existingWeatherData.Temperature = (existingWeatherData.TemperatureMax + existingWeatherData.TemperatureMin) / 2;
 
-                            if (existingWeatherData.Evapotranspiration < evapotranspirationDay && evapotranspirationDay != 0)
+                            if (existingWeatherData.Evapotranspiration < weatherDataDTO.EvapotranspirationDay && weatherDataDTO.EvapotranspirationDay != 0)
                             {
-                                existingWeatherData.Evapotranspiration = evapotranspirationDay;
-                                existingWeatherData.EvapotranspirationMonth = evapotranspirationMonth;
-                                existingWeatherData.EvapotranspirationYear = evapotranspirationYear;
+                                existingWeatherData.Evapotranspiration = weatherDataDTO.EvapotranspirationDay;
+                                existingWeatherData.EvapotranspirationMonth = weatherDataDTO.EvapotranspirationMonth;
+                                existingWeatherData.EvapotranspirationYear = weatherDataDTO.EvapotranspirationYear;
                                 emailLog.Add(LogFormat("Evapotranspiration", existingWeatherData.Evapotranspiration));
                                 emailLog.Add(LogFormat("EvapotranspirationMonth", existingWeatherData.EvapotranspirationMonth));
                                 emailLog.Add(LogFormat("EvapotranspirationYear", existingWeatherData.EvapotranspirationYear));
                             }
 
-                            if (existingWeatherData.UVRadiation > uvRadiation && uvRadiation != 0)
+                            if (existingWeatherData.UVRadiation > weatherDataDTO.UvRadiation && weatherDataDTO.UvRadiation != 0)
                             {
-                                existingWeatherData.UVRadiation = uvRadiation;
+                                existingWeatherData.UVRadiation = weatherDataDTO.UvRadiation;
                                 emailLog.Add(LogFormat("UVRadiation", existingWeatherData.UVRadiation));
                             }
-
-
-
-                            if (existingWeatherData.SolarRadiation > solarRadiation && solarRadiation != 0)
+                            
+                            if (existingWeatherData.SolarRadiation > weatherDataDTO.SolarRadiation && weatherDataDTO.SolarRadiation != 0)
                             {
-                                existingWeatherData.SolarRadiation = solarRadiation;
+                                existingWeatherData.SolarRadiation = weatherDataDTO.SolarRadiation;
                                 emailLog.Add(LogFormat("SolarRadiation", existingWeatherData.SolarRadiation));
                             }
-
-
-
-                            if (existingWeatherData.HumidityMax < maxHumidity && maxHumidity != 0)
+                            
+                            if (existingWeatherData.HumidityMax < weatherDataDTO.MaxHumidity && weatherDataDTO.MaxHumidity != 0)
                             {
-                                existingWeatherData.HumidityMax = maxHumidity;
+                                existingWeatherData.HumidityMax = weatherDataDTO.MaxHumidity;
                                 emailLog.Add(LogFormat("HumidityMax", existingWeatherData.HumidityMax));
                             }
-
-
-
-                            if (existingWeatherData.HumidityMin > minHumidity && minHumidity != 0)
+                            
+                            if (existingWeatherData.HumidityMin > weatherDataDTO.MinHumidity && weatherDataDTO.MinHumidity != 0)
                             {
-                                existingWeatherData.HumidityMin = minHumidity;
+                                existingWeatherData.HumidityMin = weatherDataDTO.MinHumidity;
                                 emailLog.Add(LogFormat("HumidityMin", existingWeatherData.HumidityMin));
                             }
+                            
+                            existingWeatherData.Humidity = (weatherDataDTO.MaxHumidity + weatherDataDTO.MinHumidity) / 2;
 
-
-                            existingWeatherData.Humidity = (maxHumidity + minHumidity) / 2;
-
-                            if (existingWeatherData.BarometerMax < maxBarometer && maxBarometer != 0)
+                            if (existingWeatherData.BarometerMax < weatherDataDTO.MaxBarometer && weatherDataDTO.MaxBarometer != 0)
                             {
-                                existingWeatherData.BarometerMax = maxBarometer;
+                                existingWeatherData.BarometerMax = weatherDataDTO.MaxBarometer;
                                 emailLog.Add(LogFormat("BarometerMax", existingWeatherData.BarometerMax));
                             }
 
-                            if (existingWeatherData.BarometerMin > minBarometer && minBarometer != 0)
+                            if (existingWeatherData.BarometerMin > weatherDataDTO.MinBarometer && weatherDataDTO.MinBarometer != 0)
                             {
-                                existingWeatherData.BarometerMin = minBarometer;
+                                existingWeatherData.BarometerMin = weatherDataDTO.MinBarometer;
                                 emailLog.Add(LogFormat("BarometerMin", existingWeatherData.BarometerMin));
                             }
 
                             existingWeatherData.Barometer = (existingWeatherData.BarometerMax + existingWeatherData.BarometerMin) / 2;
 
-                            if (existingWeatherData.RainDay < rainDay && rainDay != 0)
+                            if (existingWeatherData.RainDay < weatherDataDTO.RainDay && weatherDataDTO.RainDay != 0)
                             {
-                                existingWeatherData.RainDay = rainDay;
+                                existingWeatherData.RainDay = weatherDataDTO.RainDay;
                                 emailLog.Add(LogFormat("RainDay", existingWeatherData.RainDay));
-                                existingWeatherData.RainMonth = rainMonth;
+                                existingWeatherData.RainMonth = weatherDataDTO.RainMonth;
                                 emailLog.Add(LogFormat("RainMonth", existingWeatherData.RainMonth));
-                                existingWeatherData.RainYear = rainYear;
+                                existingWeatherData.RainYear = weatherDataDTO.RainYear;
                                 emailLog.Add(LogFormat("RainYear", existingWeatherData.RainYear));
                             }
 
-                            existingWeatherData.Observations = observations;
-                            emailLog.Add(LogFormat("Last-Update:", observations));
+                            if(existingWeatherData.WindSpeed < weatherDataDTO.WindSpeed && weatherDataDTO.WindSpeed != 0)
+                            {
+                                existingWeatherData.WindSpeed = weatherDataDTO.WindSpeed;
+                                emailLog.Add(LogFormat("WindSpeed", existingWeatherData.WindSpeed));
+                            }
+
+                            existingWeatherData.Observations = weatherDataDTO.Observations;
+                            emailLog.Add(LogFormat("Last-Update:", weatherDataDTO.Observations));
                             emailLog.Add("════════════Fin═══════════════\n\n");
                         }
+                        else
+                        {
+                            logger.Info("Existe un record de WeatherData de un Tipo de input distinto a GetWeather Service. Se va a reemplazar por el valor de Weather Link. WeatherSatationId: {0}", weatherStation.WeatherStationId);
+
+                            UpdateAllWeatherDataRecord(predicatedWeatherData, weatherDataDTO, currentConditionsAsDate, weatherStation.WeatherStationId, emailLog);
+                        }
                             
-                        CheckAndUpdateUpdateTimeFromWeatherStations(weatherStation, observations);
+                        CheckAndUpdateUpdateTimeFromWeatherStations(weatherStation, weatherDataDTO.Observations);
                     }
                     catch (FormatException ex)
                     {
@@ -412,11 +442,10 @@ namespace GetWeatherInfoService
                         emailLog.Add(ex.Message + "\n");
                         continue;
                     }
-                    
+
+                    context.SaveChanges();
                 }
                 
-                context.SaveChanges();
-
                 string endMessage = string.Empty;
 
                 foreach (string item in emailLog)
@@ -424,8 +453,9 @@ namespace GetWeatherInfoService
                     endMessage = endMessage + item ;
                 }
 
-                 SendEmails("Carga correcta de Weather Data",
-                                 endMessage);
+                SendEmails("Carga correcta de Weather Data",
+                                endMessage);
+
                 Stop();
             }
             catch (Exception ex)
@@ -437,21 +467,21 @@ namespace GetWeatherInfoService
             }
         }
 
-        private bool Validations(DateTime currentConditionsDate, bool correctEt, bool correctTemperature)
+        private bool Validations(DateTime currentConditionsDate)
         {
             bool lResult = false;
             int validHour = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["ValidHour"]);
             //ValidHour
-            if (validHour >= 0 && validHour <= 23 && currentConditionsDate.Hour >= 18 && correctEt && correctTemperature)
+            if (validHour >= 0 && validHour <= 23 && currentConditionsDate.Hour >= validHour)
             {
                 lResult = true;
             }
             else
             {
                 logger.Info("No se pasaron las validaciones para guardar WeatherData");
-                logger.Info("validHour >= 0 && validHour <= 23 && currentConditionsDate.Hour >= 18 && correctEt && correctTemperature");
-                logger.Info(string.Format("validHour: {0}, currentConditionsDate.Hour: {1}, correctEt: {2}, correctTemperature: {3}",
-                    validHour, currentConditionsDate.Hour, correctEt, correctTemperature));
+                logger.Info("validHour >= 0 && validHour <= 23 && currentConditionsDate.Hour >= {0}", validHour);
+                logger.Info(string.Format("validHour: {0}, currentConditionsDate.Hour: {1}",
+                    validHour, currentConditionsDate.Hour));
             }
 
             return lResult;

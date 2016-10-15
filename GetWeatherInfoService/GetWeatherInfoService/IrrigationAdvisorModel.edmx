@@ -32,7 +32,9 @@
           <Property Name="EvapotranspirationMonth" Type="float" Nullable="false" />
           <Property Name="EvapotranspirationYear" Type="float" Nullable="false" />
           <Property Name="WeatherDataType" Type="int" Nullable="false" />
-          <Property Name="Observations" Type="varchar(max)" Nullable="false" />
+          <Property Name="Observations" Type="nvarchar(max)" />
+          <Property Name="WeatherDataInputType" Type="int" Nullable="false" />
+          <Property Name="WindSpeed" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="WeatherStation">
           <Key>
@@ -103,7 +105,9 @@
           <Property Name="EvapotranspirationYear" Type="Double" Nullable="false" />
           <Property Name="WeatherDataType" Type="Int32" Nullable="false" />
           <NavigationProperty Name="WeatherStation" Relationship="Self.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" FromRole="WeatherData" ToRole="WeatherStation" />
-          <Property Name="Observations" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WeatherDataInputType" Type="Int32" Nullable="false" />
+          <Property Name="WindSpeed" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="WeatherStation">
           <Key>
@@ -152,6 +156,8 @@
           <EntitySetMapping Name="WeatherDatas">
             <EntityTypeMapping TypeName="IrrigationAdvisorModel.WeatherData">
               <MappingFragment StoreEntitySet="WeatherData">
+                <ScalarProperty Name="WindSpeed" ColumnName="WindSpeed" />
+                <ScalarProperty Name="WeatherDataInputType" ColumnName="WeatherDataInputType" />
                 <ScalarProperty Name="Observations" ColumnName="Observations" />
                 <ScalarProperty Name="WeatherDataId" ColumnName="WeatherDataId" />
                 <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
