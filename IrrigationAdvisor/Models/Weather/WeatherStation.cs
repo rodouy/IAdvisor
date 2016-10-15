@@ -367,11 +367,9 @@ namespace IrrigationAdvisor.Models.Weather
         /// <param name="pEvapotranspiration"></param>
         /// <returns></returns>
         public WeatherData AddWeatherData(DateTime pDateTime,
-                                        Double pTemperature, Double pSolarRadiation,
-                                        Double pTemperatureMax, Double pTemperatureMin, 
-                                        Double pEvapotranspiration, Double pWindSpeed,
-                                        String pObservations, 
-                                        Utils.WeatherDataInputType pWeatherDataInputType)
+                                        Double pTemperature, Double pTemperatureMax, Double pTemperatureMin,
+                                        Double pSolarRadiation, Double pEvapotranspiration, Double pWindSpeed,
+                                        String pObservations, Utils.WeatherDataInputType pWeatherDataInputType)
         {
             WeatherData lReturn;
             WeatherData lWeatherData = null;
