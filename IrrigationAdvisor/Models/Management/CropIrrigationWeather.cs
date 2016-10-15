@@ -2736,7 +2736,7 @@ namespace IrrigationAdvisor.Models.Management
                     }
                     //the irrigation update to 0 for today
                     lNewIrrigation.Input = 0;
-                    lDailyRecordIrrigationNextDate = this.DailyRecordList.Find(dr => dr.DailyRecordDateTime == lNewIrrigation.Date.AddDays(1));
+                    lDailyRecordIrrigationNextDate = this.DailyRecordList.Find(dr => dr.DailyRecordDateTime.Date == lNewIrrigation.Date.AddDays(1).Date);
                     lDailyRecordIrrigationNextDate.IrrigationId = lNewIrrigationNextDate.WaterInputId;
                     lDailyRecordIrrigationNextDate.Irrigation = lNewIrrigationNextDate;
 
