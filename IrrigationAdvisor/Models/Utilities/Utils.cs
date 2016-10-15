@@ -271,6 +271,29 @@ namespace IrrigationAdvisor.Models.Utilities
             Rain,
         }
 
+        public enum WeatherDataInputType
+        {
+            /// <summary>
+            /// Input from code (Program)
+            /// </summary>
+            CodeInsert,
+
+            /// <summary>
+            /// Input from Win Service
+            /// </summary>
+            GetWeatherInfoService,
+
+            /// <summary>
+            /// Input manually from web
+            /// </summary>
+            WebInsert,
+
+            /// <summary>
+            /// Input for Calculate
+            /// </summary>
+            Prediction,
+        }
+
         /// <summary>
         /// To colour the cell with Irrigation Status
         /// </summary>

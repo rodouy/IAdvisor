@@ -102,7 +102,6 @@ namespace IrrigationAdvisor.Models.Weather
         private Double barometer;
         private Double barometerMax;
         private Double barometerMin;
-        private string observations;
         private Double solarRadiation;
         private Double uvRadiation;
         private Double rainDay;
@@ -112,7 +111,10 @@ namespace IrrigationAdvisor.Models.Weather
         private Double evapotranspiration;
         private Double evapotranspirationMonth;
         private Double evapotranspirationYear;
+        private Double windSpeed;
+        private String observations;
         private Utils.WeatherDataType weatherDataType;
+        private Utils.WeatherDataInputType weatherDataInputType;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -145,8 +147,6 @@ namespace IrrigationAdvisor.Models.Weather
             set 
             { 
                 date = value;
-                //PropertyChanged(this,
-                //    new System.ComponentModel.PropertyChangedEventArgs("Date"));
             }
         }
 
@@ -156,8 +156,6 @@ namespace IrrigationAdvisor.Models.Weather
             set 
             { 
                 temperature = value;
-                //PropertyChanged(this,
-                //    new System.ComponentModel.PropertyChangedEventArgs("Temperature"));
             }
         }
 
@@ -167,8 +165,6 @@ namespace IrrigationAdvisor.Models.Weather
             set 
             { 
                 temperatureMax = value;
-                //PropertyChanged(this,
-                //    new System.ComponentModel.PropertyChangedEventArgs("TemperatureMax"));
             }
         }
 
@@ -178,8 +174,6 @@ namespace IrrigationAdvisor.Models.Weather
             set 
             { 
                 temperatureMin = value;
-                //PropertyChanged(this,
-                //    new System.ComponentModel.PropertyChangedEventArgs("TemperatureMin"));
             }
         }
 
@@ -189,8 +183,6 @@ namespace IrrigationAdvisor.Models.Weather
             set 
             { 
                 temperatureDewPoint = value;
-                //PropertyChanged(this,
-                //    new System.ComponentModel.PropertyChangedEventArgs("TemperatureDewPoint"));
             }
         }
 
@@ -284,20 +276,31 @@ namespace IrrigationAdvisor.Models.Weather
             set { evapotranspirationYear = value; }
         }
 
-        public Utils.WeatherDataType WeatherDataType
+        public Double WindSpeed
         {
-            get { return weatherDataType; }
-            set { weatherDataType = value; }
+            get { return windSpeed; }
+            set { windSpeed = value; }
         }
-
+        
         public string Observations
         {
             get { return observations; }
             set { observations = value; }
         }
 
-        //[field: NonSerialized()]
-        //public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public Utils.WeatherDataType WeatherDataType
+        {
+            get { return weatherDataType; }
+            set { weatherDataType = value; }
+        }
+
+        public Utils.WeatherDataInputType WeatherDataInputType
+        {
+            get { return weatherDataInputType; }
+            set { weatherDataInputType = value; }
+        }
+
+
         #endregion
 
         #region Construction
@@ -329,8 +332,10 @@ namespace IrrigationAdvisor.Models.Weather
             this.Evapotranspiration = 0;
             this.EvapotranspirationMonth = 0;
             this.EvapotranspirationYear = 0;
-            this.WeatherDataType = Utils.WeatherDataType.AllData;
+            this.WindSpeed = 0;
             this.Observations = "";
+            this.WeatherDataType = Utils.WeatherDataType.AllData;
+            this.WeatherDataInputType = Utils.WeatherDataInputType.CodeInsert;
         }
 
         /// <summary>
@@ -344,19 +349,15 @@ namespace IrrigationAdvisor.Models.Weather
         /// <param name="pTemperatureMin"></param>
         /// <param name="pSolarRadiation"></param>
         /// <param name="pEvapotranspiration"></param>
+        /// <param name="pWindSpeed"></param>
+        /// <param name="pObservations"></param>
         /// <param name="pWeatherDataType"></param>
-        public WeatherData
-            (
-            long pWeatherDataId,
-            long pWeatherStationId,
-            DateTime pDate,
-            Double pTemperature,
-            Double pTemperatureMax,
-            Double pTemperatureMin,
-            Double pSolarRadiation,
-            Double pEvapotranspiration,
-            Utils.WeatherDataType pWeatherDataType
-            )
+        /// <param name="pWeatherDataInputType"></param>
+        public WeatherData (long pWeatherDataId, long pWeatherStationId, DateTime pDate,
+                            Double pTemperature, Double pTemperatureMax, Double pTemperatureMin,
+                            Double pSolarRadiation, Double pEvapotranspiration, Double pWindSpeed,
+                            String pObservations, Utils.WeatherDataType pWeatherDataType,
+                            Utils.WeatherDataInputType pWeatherDataInputType)
         {
             this.WeatherDataId = pWeatherDataId;
             this.WeatherStationId = pWeatherStationId;
@@ -380,8 +381,10 @@ namespace IrrigationAdvisor.Models.Weather
             this.Evapotranspiration = pEvapotranspiration;
             this.EvapotranspirationMonth = 0;
             this.EvapotranspirationYear = 0;
+            this.WindSpeed = pWindSpeed;
+            this.Observations = pObservations;
             this.WeatherDataType = pWeatherDataType;
-            this.Observations = "";
+            this.WeatherDataInputType = pWeatherDataInputType;
         }
 
         /// <summary>
@@ -409,35 +412,15 @@ namespace IrrigationAdvisor.Models.Weather
         /// <param name="pEvapotranspiration"></param>
         /// <param name="pEvapotranspirationMonth"></param>
         /// <param name="pEvapotranspirationYear"></param>
-        /// <param name="pWeatherDataType"></param>
         /// <param name="pObservations"></param>
-        public WeatherData
-            (
-            long pWeatherDataId,
-            long pWeatherStationId,
-            DateTime pDate,
-            Double pTemperature,
-            Double pTemperatureMax,
-            Double pTemperatureMin,
-            Double pTemperatureDewPoint,
-            Double pHumidity,
-            Double pHumidityMax,
-            Double pHumidityMin,
-            Double pBarometer,
-            Double pBarometerMax,
-            Double pBarometerMin,
-            Double pSolarRadiation,
-            Double pUVRadiation,
-            Double pRainDay,
-            Double pRainStorm,
-            Double pRainMonth,
-            Double pRainYear,
-            Double pEvapotranspiration,
-            Double pEvapotranspirationMonth,
-            Double pEvapotranspirationYear,
-            Utils.WeatherDataType pWeatherDataType,
-            String pObservations
-            )
+        /// <param name="pWeatherDataType"></param>
+        /// <param name="pWeatherDataInputType"></param>
+        public WeatherData (long pWeatherDataId, long pWeatherStationId, DateTime pDate,
+                            Double pTemperature, Double pTemperatureMax, Double pTemperatureMin, Double pTemperatureDewPoint,
+                            Double pHumidity, Double pHumidityMax, Double pHumidityMin, Double pBarometer, Double pBarometerMax, Double pBarometerMin,
+                            Double pSolarRadiation, Double pUVRadiation, Double pRainDay, Double pRainStorm, Double pRainMonth, Double pRainYear,
+                            Double pEvapotranspiration, Double pEvapotranspirationMonth, Double pEvapotranspirationYear, Double pWindSpeed,
+                            String pObservations, Utils.WeatherDataType pWeatherDataType, Utils.WeatherDataInputType pWeatherDataInputType)
         {
             this.WeatherDataId = pWeatherDataId;
             this.WeatherStationId = pWeatherStationId;
@@ -461,8 +444,10 @@ namespace IrrigationAdvisor.Models.Weather
             this.Evapotranspiration = pEvapotranspiration;
             this.EvapotranspirationMonth = pEvapotranspirationMonth;
             this.EvapotranspirationYear = pEvapotranspirationYear;
-            this.WeatherDataType = pWeatherDataType;
+            this.WindSpeed = pWindSpeed;
             this.Observations = pObservations;
+            this.WeatherDataType = pWeatherDataType;
+            this.WeatherDataInputType = pWeatherDataInputType;
         }
 
         #endregion
