@@ -28,7 +28,7 @@ namespace IrrigationAdvisorConsole
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Production;
+        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador;
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
@@ -192,6 +192,17 @@ namespace IrrigationAdvisorConsole
                 Console.WriteLine("DB Update Exception ");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
+            }
+            catch(System.Data.SqlClient.SqlException ex)
+            {
+                logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("DB is OPEN, close all connections. OR the model changes ");
+                Console.WriteLine(ex.Message);
+                Console.ReadLine();
+                //IF the Model changes:
+                //go to nuget console, select IrrigationAdvisor Project
+                //add-migration Description
+                //ex add-migration AddColumnToWeatherData
             }
             catch (Exception ex)
             {
@@ -2079,7 +2090,7 @@ namespace IrrigationAdvisorConsole
                 var lSantaLuciaWS = new WeatherStation
                 {
                     Name = Utils.NameWeatherStationSantaLucia,
-                    Model = "",
+                    Model = "INIA Santa Lucia",
                     StationType = Utils.WeatherStationType.INIA,
                     DateOfInstallation = new DateTime(2015, 10, 01),
                     DateOfService = new DateTime(2015, 10, 01).AddMonths(6),

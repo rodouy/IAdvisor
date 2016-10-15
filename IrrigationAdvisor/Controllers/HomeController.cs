@@ -570,17 +570,7 @@ namespace IrrigationAdvisor.Controllers
                     //If Error, continue with others CIWs
                     try
                     {
-                        //Generate Prediction of Weather Data after the last day
-                        if(lCIW.MainWeatherStation != null && lCIW.MainWeatherStation.WeatherDataList != null 
-                            && lCIW.MainWeatherStation.WeatherDataList.Any())
-                        {
-                            lCIW.MainWeatherStation.GeneratePredictionWeatherData(lDateOfReference);
-                        }
-                        if (lCIW.AlternativeWeatherStation != null && lCIW.AlternativeWeatherStation.WeatherDataList != null
-                            && lCIW.AlternativeWeatherStation.WeatherDataList.Any())
-                        {
-                            lCIW.AlternativeWeatherStation.GeneratePredictionWeatherData(lDateOfReference);
-                        }
+                        
                         logger.Info("CalculateAllActiveCropIrrigationWeather: CIWid=" + lCIW.CropIrrigationWeatherId +
                                     " - DateOfReference=" + lDateOfReference +
                                     " - Today=" + lToday + "");
@@ -607,6 +597,71 @@ namespace IrrigationAdvisor.Controllers
             return lResult;
         }
 
+        private bool PredictionWeatherData()
+        {
+            bool lResult = false;
+            try
+            {
+                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+                CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
+                List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+                List<WeatherStation> lWeatherStationList = new List<WeatherStation>();
+
+                Status lStatus = ManageSession.GetCurrentStatus();
+                DateTime lDateOfReference = Utils.GetDateOfReference().Value;
+                DateTime lToday = lDateOfReference;
+                
+                if (lStatus.Name == "Production")
+                {
+                    lToday = System.DateTime.Now;
+                }
+
+                lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherListWithWeatherDataBy(lDateOfReference);
+
+                //Add all Weather Stations in use.
+                foreach (CropIrrigationWeather lCIW in lCropIrrigationWeatherList)
+                {
+                    if (lCIW.MainWeatherStation != null)
+                    {
+                        if(!lWeatherStationList.Contains(lCIW.MainWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCIW.MainWeatherStation);
+                        }
+                    }
+                    if (lCIW.AlternativeWeatherStation != null)
+                    {
+                        if (!lWeatherStationList.Contains(lCIW.AlternativeWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCIW.AlternativeWeatherStation);
+                        }
+                    }
+                }
+
+                foreach (WeatherStation lWS in lWeatherStationList)
+                {
+                    try
+                    {
+                        if (lWS.WeatherDataList != null && lWS.WeatherDataList.Any())
+                        {
+                            lWS.GeneratePredictionWeatherData(lDateOfReference);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                        continue;
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                lResult = false;
+            }
+
+            return lResult;
+        }
 
         public void testCalculate()
         {
@@ -620,6 +675,7 @@ namespace IrrigationAdvisor.Controllers
             {
                 if (Login(pUserName, pPassword))
                 {
+                    PredictionWeatherData();
                     if (CalculateAllActiveCropIrrigationWeather())
                     {
                         return Content("Ok");

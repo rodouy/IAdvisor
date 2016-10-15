@@ -2229,21 +2229,23 @@ namespace IrrigationAdvisor.Models.Management
         /// <returns></returns>
         public void AddWeatherDataToList(WeatherStation pWeatherStation, DateTime pDateTime,
                                         Double pTemperature, Double pSolarRadiation, Double pTemMax,
-                                        Double pTemMin, Double pEvapotranspiration, String pObservations)
+                                        Double pTemMin, Double pEvapotranspiration, Double pWindSpeed,
+                                        String pObservations, Utils.WeatherDataInputType pWeatherDataInputType)
         {
             
             try
             {
                 WeatherData lWeatherData;
                 
-                lWeatherData = pWeatherStation.AddWeatherData(pDateTime, pTemperature, pSolarRadiation,
-                                pTemMax, pTemMin, pEvapotranspiration, pObservations);
+                lWeatherData = pWeatherStation.AddWeatherData(pDateTime, pTemperature, pTemMax, pTemMin, 
+                                                        pSolarRadiation, pEvapotranspiration, pWindSpeed,
+                                                        pObservations, pWeatherDataInputType);
 
                 if(lWeatherData == null)
                 {
-                    pWeatherStation.UpdateWeatherData(pDateTime, pTemperature, pSolarRadiation,
-                                                        pTemMax, pTemMin, pEvapotranspiration,
-                                                        pObservations);
+                    pWeatherStation.UpdateWeatherData(pDateTime, pTemperature, pTemMax, pTemMin, 
+                                                        pSolarRadiation, pEvapotranspiration, pWindSpeed,
+                                                        pObservations, Utils.WeatherDataInputType.CodeInsert);
                 }
             }
             catch (Exception ex)
