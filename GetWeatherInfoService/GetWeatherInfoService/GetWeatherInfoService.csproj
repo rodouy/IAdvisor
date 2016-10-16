@@ -111,6 +111,7 @@
     <Compile Include="WeatherData.cs">
       <DependentUpon>IrrigationAdvisorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="WeatherDataDTO.cs" />
     <Compile Include="WeatherStation.cs">
       <DependentUpon>IrrigationAdvisorModel.tt</DependentUpon>
     </Compile>

@@ -23,5 +23,28 @@ namespace GetWeatherInfoService
             /// </summary>
             WeatherLink,
         }
+
+        public enum WeatherDataInputType
+        {
+            /// <summary>
+            /// Input from code (Program)
+            /// </summary>
+            CodeInsert,
+
+            /// <summary>
+            /// Input from Win Service
+            /// </summary>
+            GetWeatherInfoService,
+
+            /// <summary>
+            /// Input manually from web
+            /// </summary>
+            WebInsert,
+
+            /// <summary>
+            /// Input for Calculate
+            /// </summary>
+            Prediction,
+        }
     }
 }
