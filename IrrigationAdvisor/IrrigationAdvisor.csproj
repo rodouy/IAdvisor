@@ -287,6 +287,10 @@
     <Compile Include="Migrations\201610152211294_AddColumnWeatherData.Designer.cs">
       <DependentUpon>201610152211294_AddColumnWeatherData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610160158463_AddWeatherEventType.cs" />
+    <Compile Include="Migrations\201610160158463_AddWeatherEventType.Designer.cs">
+      <DependentUpon>201610160158463_AddWeatherEventType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -849,6 +853,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610152211294_AddColumnWeatherData.resx">
       <DependentUpon>201610152211294_AddColumnWeatherData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610160158463_AddWeatherEventType.resx">
+      <DependentUpon>201610160158463_AddWeatherEventType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

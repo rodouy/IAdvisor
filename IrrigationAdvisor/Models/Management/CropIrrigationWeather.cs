@@ -179,6 +179,7 @@ namespace IrrigationAdvisor.Models.Management
         private long mainWeatherStationId;
         private long alternativeWeatherStationId;
         private bool usingMainWeatherStation;
+        private Utils.WeatherEventType weatherEventType;
 
         #endregion
         
@@ -514,7 +515,13 @@ namespace IrrigationAdvisor.Models.Management
             get { return usingMainWeatherStation; }
             set { usingMainWeatherStation = value; }
         }
-        
+
+        public Utils.WeatherEventType WeatherEventType
+        {
+            get { return weatherEventType; }
+            set { weatherEventType = value; }
+        }
+
         #endregion
 
         #region Daily Data
@@ -713,6 +720,7 @@ namespace IrrigationAdvisor.Models.Management
             this.MainWeatherStationId = 0;
             this.AlternativeWeatherStationId = 0;
             this.UsingMainWeatherStation = true;
+            this.WeatherEventType = Utils.WeatherEventType.None;
             #endregion
 
             #region Daily Data
@@ -755,6 +763,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pSowingDate"></param>
         /// <param name="pHarvestDate"></param>
         /// <param name="pCropDate"></param>
+        /// <param name="pStartAdvisorDate"></param>
         /// <param name="pPhenologicalStageId"></param>
         /// <param name="pHydricBalance"></param>
         /// <param name="pSoilHydricVolume"></param>
@@ -769,7 +778,6 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pIrrigationUnitId"></param>
         /// <param name="pPredeterminatedIrrigationQuantity"></param>
         /// <param name="pPositionId"></param>
-        /// <param name="pEffectiveRain"></param>
         /// <param name="pRainList"></param>
         /// <param name="pIrrigationList"></param>
         /// <param name="pEvapotranspirationCropList"></param>
@@ -777,9 +785,11 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pLastBigWaterInputDate"></param>
         /// <param name="pLastPartialWaterInputDate"></param>
         /// <param name="pLastPartialWaterInput"></param>
+        /// <param name="pLastBigGapWaterInputDate"></param>
         /// <param name="pMainWeatherStationId"></param>
         /// <param name="pAlternativeWeatherStationId"></param>
         /// <param name="pUsingMainWeatherStation"></param>
+        /// <param name="pWeatherEventType"></param>
         /// <param name="pDailyRecords"></param>
         public CropIrrigationWeather(long pCropIrrigationWeatherId, String pCropIrrigationWeatherName, long pCropId, long pSoilId, 
                                 DateTime pSowingDate, DateTime pHarvestDate, DateTime pCropDate, DateTime pStartAdvisorDate,
@@ -793,10 +803,9 @@ namespace IrrigationAdvisor.Models.Management
                                 List<Rain> pRainList, List<Water.Irrigation> pIrrigationList, 
                                 List<EvapotranspirationCrop> pEvapotranspirationCropList,
                                 DateTime pLastWaterInputDate, DateTime pLastBigWaterInputDate, 
-                                DateTime pLastPartialWaterInputDate, Double pLastPartialWaterInput, 
-                                DateTime pLastBigGapWaterInputDate,
-                                long pMainWeatherStationId, long pAlternativeWeatherStationId,
-                                bool pUsingMainWeatherStation, List<DailyRecord> pDailyRecords)
+                                DateTime pLastPartialWaterInputDate, Double pLastPartialWaterInput, DateTime pLastBigGapWaterInputDate,
+                                long pMainWeatherStationId, long pAlternativeWeatherStationId, bool pUsingMainWeatherStation, 
+                                Utils.WeatherEventType pWeatherEventType, List<DailyRecord> pDailyRecords)
         {
             this.CropIrrigationWeatherId = pCropIrrigationWeatherId;
             this.CropIrrigationWeatherName = pCropIrrigationWeatherName;
@@ -847,6 +856,7 @@ namespace IrrigationAdvisor.Models.Management
             this.MainWeatherStationId = pMainWeatherStationId;
             this.AlternativeWeatherStationId = pAlternativeWeatherStationId;
             this.UsingMainWeatherStation = pUsingMainWeatherStation;
+            this.WeatherEventType = pWeatherEventType;
 
             this.DailyRecordList = pDailyRecords;
 
@@ -1333,7 +1343,7 @@ namespace IrrigationAdvisor.Models.Management
             Double lReturn = 0;
             Double lGrowingDegreeDays = 0;
 
-            lGrowingDegreeDays = pAverageTemperature - pBaseTemperature;
+            lGrowingDegreeDays = Math.Max(pAverageTemperature - pBaseTemperature, 0);
 
             lReturn = lGrowingDegreeDays;
             return lReturn;
@@ -1490,7 +1500,7 @@ namespace IrrigationAdvisor.Models.Management
             try
             {
                 lOldPhenologicalStage = this.PhenologicalStage;
-                lOldRootDepth = this.GetHydricBalanceDepthTakingIntoAccountSoilDepthLimit(this.PhenologicalStage);
+                lOldRootDepth = this.GetDepthTakingIntoAccountSoilDepthLimitBy(this.PhenologicalStage);
 
                 //get the modified degrees days
                 lGrowingDegreeDaysModified = this.GrowingDegreeDaysModified;
@@ -1511,7 +1521,7 @@ namespace IrrigationAdvisor.Models.Management
                     lNewPhenologicalStage = this.GetNewPhenologicalStage(lDaysAfterSowingModified);
                 }
 
-                lNewRootDepth = this.GetHydricBalanceDepthTakingIntoAccountSoilDepthLimit(lNewPhenologicalStage);
+                lNewRootDepth = this.GetDepthTakingIntoAccountSoilDepthLimitBy(lNewPhenologicalStage);
                 this.PhenologicalStage = lNewPhenologicalStage;
 
                 //If icrease the Root Depth, we add the new water to the hydric balance,
@@ -2388,14 +2398,25 @@ namespace IrrigationAdvisor.Models.Management
         /// If exceed the DepthLimit of Soil, it will return the DepthLimit
         /// </summary>
         /// <returns></returns>
-        public Double GetHydricBalanceDepthTakingIntoAccountSoilDepthLimit(PhenologicalStage pPhenologicalStage)
+        public Double GetDepthTakingIntoAccountSoilDepthLimitBy(PhenologicalStage pPhenologicalStage)
         {
             Double lReturn;
             Double lDepth = 0;
 
             if (pPhenologicalStage != null)
             {
-                lDepth = pPhenologicalStage.HydricBalanceDepth;
+                if(this.WeatherEventType == Utils.WeatherEventType.LaNinia)
+                {
+                    lDepth = pPhenologicalStage.HydricBalanceDepth;
+                }
+                if(this.WeatherEventType == Utils.WeatherEventType.ElNinio)
+                {
+                    lDepth = pPhenologicalStage.RootDepth;
+                }
+                else
+                {
+                    lDepth = pPhenologicalStage.RootDepth;
+                }
                 if (lDepth > this.Soil.DepthLimit)
                 {
                     lDepth = this.Soil.DepthLimit;
@@ -2473,7 +2494,7 @@ namespace IrrigationAdvisor.Models.Management
 
             if(this.PhenologicalStage != null && this.Soil != null)
             {
-                lDepth = this.GetHydricBalanceDepthTakingIntoAccountSoilDepthLimit(this.PhenologicalStage);
+                lDepth = this.GetDepthTakingIntoAccountSoilDepthLimitBy(this.PhenologicalStage);
                 lSoilPermanentWiltingPoint = this.Soil.GetPermanentWiltingPoint(lDepth);
             }
 
@@ -2494,7 +2515,7 @@ namespace IrrigationAdvisor.Models.Management
 
             if(this.PhenologicalStage != null && this.Soil != null)
             {
-                lDepth = this.GetHydricBalanceDepthTakingIntoAccountSoilDepthLimit(this.PhenologicalStage);
+                lDepth = this.GetDepthTakingIntoAccountSoilDepthLimitBy(this.PhenologicalStage);
                 lSoilAvailableWaterCapacity = this.Soil.GetAvailableWaterCapacity(lDepth);
             }
 
@@ -2515,7 +2536,7 @@ namespace IrrigationAdvisor.Models.Management
 
             if (this.PhenologicalStage != null && this.Soil != null)
             {
-                lDepth = this.GetHydricBalanceDepthTakingIntoAccountSoilDepthLimit(this.PhenologicalStage);
+                lDepth = this.GetDepthTakingIntoAccountSoilDepthLimitBy(this.PhenologicalStage);
                 lSoilFieldCapacity = this.Soil.GetFieldCapacity(lDepth);
             }
 

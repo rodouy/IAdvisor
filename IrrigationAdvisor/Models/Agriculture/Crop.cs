@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using IrrigationAdvisor.Models.Localization;
 
+using NLog;
 
 namespace IrrigationAdvisor.Models.Agriculture
 {
@@ -73,6 +74,8 @@ namespace IrrigationAdvisor.Models.Agriculture
         private Double minEvapotranspirationToIrrigate;
 
         private long stopIrrigationStageId;
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         #endregion
 
@@ -301,7 +304,9 @@ namespace IrrigationAdvisor.Models.Agriculture
         public double GetBaseTemperature ()
         {
             Double lBaseTemperature = 0;
+
             lBaseTemperature = this.Specie.BaseTemperature;
+
             return lBaseTemperature;
         }
 
@@ -316,10 +321,12 @@ namespace IrrigationAdvisor.Models.Agriculture
         public long GetNewStageListId()
         {
             long lReturn = 1;
+
             if (this.StageList != null && this.StageList.Count > 0)
             {
                 lReturn += this.StageList.Max(st => st.StageId);
             }
+
             return lReturn;
         }
 
@@ -330,10 +337,12 @@ namespace IrrigationAdvisor.Models.Agriculture
         public Stage GetInitialStage()
         {
             Stage lReturn = null;
+
             if(this.StageList.Count() > 0)
             {
                 lReturn = this.StageList[0];
             }
+
             return lReturn;
         }
 
@@ -368,6 +377,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         public Stage ExistStage(Stage pStage)
         {
             Stage lReturn = null;
+
             if (pStage != null)
             {
                 foreach (Stage item in this.StageList)
@@ -379,6 +389,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                     }
                 }
             }
+
             return lReturn;
         }
 
@@ -392,13 +403,16 @@ namespace IrrigationAdvisor.Models.Agriculture
                                 int pOrder)
         {
             Stage lReturn = null;
+
             long lStageId = this.GetNewStageListId();
             Stage lStage = new Stage(lStageId, pName, pShortName, pDescription, pOrder);
+
             if (ExistStage(lStage) == null)
             {
                 this.StageList.Add(lStage);
                 lReturn = lStage;
             }
+
             return lReturn;
         }
 
@@ -450,6 +464,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                 this.StopIrrigationStage = lStage;
                 lReturn = lStage;
             }
+
             return lReturn;
         }
 
@@ -463,10 +478,12 @@ namespace IrrigationAdvisor.Models.Agriculture
         public long GetNewPhenologicalStageListId()
         {
             long lReturn = 1;
+
             if (this.PhenologicalStageList != null && this.PhenologicalStageList.Count > 0)
             {
                 lReturn += this.PhenologicalStageList.Max(ps => ps.PhenologicalStageId);
             }
+
             return lReturn;
         }
 
@@ -477,10 +494,12 @@ namespace IrrigationAdvisor.Models.Agriculture
         public PhenologicalStage GetInitialPhenologicalStage()
         {
             PhenologicalStage lReturn = null;
+
             if(this.PhenologicalStageList.Count() > 0)
             {
                 lReturn = this.PhenologicalStageList[0];
             }
+
             return lReturn;
         }
 
@@ -493,6 +512,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         public PhenologicalStage FindPhenologicalStage(Stage pStage)
         {
             PhenologicalStage lReturn = null;
+
             if(pStage != null)
             {
                 foreach (PhenologicalStage item in this.PhenologicalStageList)
@@ -504,6 +524,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                     }
                 }
             }
+
             return lReturn;
         }
 
@@ -516,6 +537,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         public PhenologicalStage ExistPhenologicalStage(PhenologicalStage pPhenologicalStage)
         {
             PhenologicalStage lReturn = null;
+
             if (pPhenologicalStage != null)
             {
                 foreach (PhenologicalStage item in this.PhenologicalStageList)
@@ -527,6 +549,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                     }
                 }
             }
+
             return lReturn;
         }
 
@@ -548,6 +571,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             PhenologicalStage lPhenologicalStage = new PhenologicalStage(lPhenologicalStageId,
                                                     pSpecie, pStage, pMinDegree, pMaxDegree,
                                                     pRootDepth, pHydricBalanceDepth);
+
             lReturn = ExistPhenologicalStage(lPhenologicalStage);
             if (lReturn == null)
             {
@@ -555,6 +579,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                 this.PhenologicalStageList.Add(lPhenologicalStage);
                 lReturn = lPhenologicalStage;
             }
+
             return lReturn;
         }
 
@@ -574,29 +599,42 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             PhenologicalStage lReturn = null;
             Stage lStage = null;
-            PhenologicalStage lPhenologicalStage = new PhenologicalStage(0, pSpecie, pStage,
-                                                        pMinDegree, pMaxDegree, pRootDepth,
-                                                        pHydricBalanceDepth);
-            lReturn = ExistPhenologicalStage(lPhenologicalStage);
-            if (lReturn != null)
+
+            try
             {
-                lStage = this.FindStage(pStage.Name);
-                if(lStage != null)
+                PhenologicalStage lPhenologicalStage = new PhenologicalStage(0, pSpecie, pStage,
+                                                                pMinDegree, pMaxDegree, pRootDepth,
+                                                                pHydricBalanceDepth);
+                lReturn = ExistPhenologicalStage(lPhenologicalStage);
+                if (lReturn != null)
                 {
-                    lStage.Name = pStage.Name;
-                    lStage.ShortName = pStage.ShortName;
-                    lStage.Description = pStage.Description;
+                    lStage = this.FindStage(pStage.Name);
+                    if (lStage != null)
+                    {
+                        lStage.Name = pStage.Name;
+                        lStage.ShortName = pStage.ShortName;
+                        lStage.Description = pStage.Description;
+                    }
+                    else
+                    {
+                        //TODO throw exception "There is a Phenological Stage without Stage in StageList!! Error of data."
+                        logger.Error("Phenological Stage", "UpdatePhenologicalStage" + "\n" 
+                            + "There is a Phenological Stage without Stage in StageList!! Error of data.");
+                        Console.WriteLine("Exception in Crop.UpdatePhenologicalStage " + "There is a Phenological Stage without Stage in StageList!! Error of data.");
+                    }
+                    lReturn.SpecieId = pSpecie.SpecieId;
+                    lReturn.UpdateStage(pStage.Name, pStage.ShortName, pStage.Description, pStage.Order);
+                    lReturn.MinDegree = pMinDegree;
+                    lReturn.MaxDegree = pMaxDegree;
+                    lReturn.RootDepth = pRootDepth;
+                    lReturn.HydricBalanceDepth = pHydricBalanceDepth;
                 }
-                else
-                {
-                    //TODO throw exception "There is a Phenological Stage without Stage in StageList!! Error of data."
-                }
-                lReturn.SpecieId = pSpecie.SpecieId;
-                lReturn.UpdateStage(pStage.Name, pStage.ShortName, pStage.Description, pStage.Order);
-                lReturn.MinDegree = pMinDegree;
-                lReturn.MaxDegree = pMaxDegree;
-                lReturn.RootDepth = pRootDepth;
-                lReturn.HydricBalanceDepth = pHydricBalanceDepth;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + ex.Message);
+                throw ex;
             }
             return lReturn;
         }

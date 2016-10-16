@@ -56,6 +56,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         ///     - minDegree: double
         ///     - maxDegree: double
         ///     - rootDepth: double
+        ///     - hydricBalanceDepth : double
         ///     
         /// </summary>
         private long phenologicalStageId;

@@ -340,7 +340,7 @@ namespace IrrigationAdvisor.Models.Localization
                 if (Utils.IsTheSameDay(lDay, pCurrentDate))
                 {
                     lTemperature = item.Average;
-                    lGrowingDegreeDays = lTemperature - pBaseTemperature;
+                    lGrowingDegreeDays = Math.Max(lTemperature - pBaseTemperature, 0);
                     break;
                 }
             }

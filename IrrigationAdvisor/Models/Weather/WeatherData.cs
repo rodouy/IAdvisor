@@ -491,14 +491,13 @@ namespace IrrigationAdvisor.Models.Weather
             Double lAverageTemperature = 0;
             try
             {
-                lAverageTemperature =
-                    this.getAverage(this.TemperatureMax, this.TemperatureMin);
+                lAverageTemperature = this.getAverage(this.TemperatureMax, this.TemperatureMin);
             }
             catch (Exception ex)
             {
                 logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageTemperature " + ex.Message);
-                throw;
+                throw ex;
             }
             return lAverageTemperature;
         }
