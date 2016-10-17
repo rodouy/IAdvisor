@@ -164,8 +164,8 @@ namespace GetWeatherInfoService
                         catch (Exception ex)
                         {
 
-                            logger.Error("Falló al levantar Temperatura ver abajo detalle del error.");
-                            logger.Error(ex, ex.Message);
+                            logger.Info("Falló al levantar Temperatura ver abajo detalle del error.");
+                            logger.Info(ex, ex.Message);
                             emailLog.Add(LogFormat("Temperature, TemperatureMax, TemperatureMin: ", ex.Message));
                             // Silent catch
                             throw;
@@ -190,9 +190,9 @@ namespace GetWeatherInfoService
                         }
                         catch (Exception ex)
                         {
-                            logger.Warn("Falló al levantar ET ver abajo detalle del error.");
+                            logger.Info("Falló al levantar ET ver abajo detalle del error.");
                             etExceptionMessage = ex.Message;
-                            logger.Warn(ex, ex.Message);
+                            logger.Info(ex, ex.Message);
                             emailLog.Add(LogFormat("EvapotranspirationDay, EvapotranspirationMonth, EvapotranspirationYear: ", etExceptionMessage));
                             // Silent catch
                             throw;
