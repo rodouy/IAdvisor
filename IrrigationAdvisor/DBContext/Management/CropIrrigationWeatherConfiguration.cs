@@ -385,8 +385,7 @@ namespace IrrigationAdvisor.DBContext.Management
         /// </summary>
         /// <param name="pDateOfReference"></param>
         /// <returns></returns>
-        public List<CropIrrigationWeather> GetActiveCropIrrigationWeatherListBy(
-                                            DateTime pDateOfReference)
+        public List<CropIrrigationWeather> GetActiveCropIrrigationWeatherListBy(DateTime pDateOfReference)
         {
             List<CropIrrigationWeather> lReturn = null;
             if (pDateOfReference != null)
@@ -447,8 +446,8 @@ namespace IrrigationAdvisor.DBContext.Management
                         .Include(ciw => ciw.MainWeatherStation.WeatherDataList)
                         .Include(ciw => ciw.AlternativeWeatherStation)
                         .Include(ciw => ciw.AlternativeWeatherStation.WeatherDataList)
-                        .Where(ciw => ciw.SowingDate.Date >= pDateOfReference.Date
-                                        && ciw.HarvestDate.Date <= pDateOfReference.Date).ToList();
+                        .Where(ciw => ciw.SowingDate <= pDateOfReference
+                                        && ciw.HarvestDate >= pDateOfReference).ToList();
                     lReturn = lCropIrrigationWeaterList;
                 }
             }

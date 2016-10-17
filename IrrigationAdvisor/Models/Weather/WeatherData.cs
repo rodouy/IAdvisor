@@ -620,7 +620,7 @@ namespace IrrigationAdvisor.Models.Weather
             }
             WeatherData lWeatherData = obj as WeatherData;
             lReturn = lWeatherData.WeatherStationId == this.WeatherStationId
-                && Utils.IsTheSameDayAndHour(lWeatherData.Date, this.Date);
+                && Utils.IsTheSameDay(lWeatherData.Date, this.Date);
             return lReturn;
         }
 

@@ -573,6 +573,8 @@ namespace IrrigationAdvisor.Models.Weather
             DateTime lNextDay;
             WeatherData lWeatherData;
 
+            List<WeatherData> lWeatherDataList;
+
             double lTemperature;
             double lSolarRadiation;
             double lTemperatureMax;
@@ -588,7 +590,10 @@ namespace IrrigationAdvisor.Models.Weather
 
             //Last data record
             lLastDay = this.WeatherDataList[this.WeatherDataList.Count - 1].Date;
-            lLastDay = Utils.MinDateTimeBetween(pDateOfReference, lLastDay);
+            if (pDateOfReference != null && this.FindWeatherData(pDateOfReference) != null)
+            {
+                lLastDay = Utils.MinDateTimeBetween(pDateOfReference, lLastDay);
+            }
             lEvapotranspirationLast3Weight = 0.2;
             lEvapotranspirationLast2Weight = 0.3;
             lEvapotranspirationLast1Weight = 0.5;

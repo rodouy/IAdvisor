@@ -227,11 +227,19 @@ namespace IrrigationAdvisor.Models.Utilities
         /// </summary>
         public enum WeatherEventType
         {
-            
+            /// <summary>
+            /// Default
+            /// </summary>
             None,
 
+            /// <summary>
+            /// 
+            /// </summary>
             ElNinio,
 
+            /// <summary>
+            /// 
+            /// </summary>
             LaNinia,
 
         }
