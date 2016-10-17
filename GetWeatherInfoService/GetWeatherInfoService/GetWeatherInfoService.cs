@@ -415,12 +415,12 @@ namespace GetWeatherInfoService
                             emailLog.Add(LogFormat("Last-Update:", weatherDataDTO.Observations));
                             emailLog.Add("════════════Fin═══════════════\n\n");
                         }
-                        else
-                        {
-                            logger.Info("Existe un record de WeatherData de un Tipo de input distinto a GetWeather Service. Se va a reemplazar por el valor de Weather Link. WeatherSatationId: {0}", weatherStation.WeatherStationId);
+                        //else
+                        //{
+                        //    logger.Info("Existe un record de WeatherData de un Tipo de input distinto a GetWeather Service. Se va a reemplazar por el valor de Weather Link. WeatherSatationId: {0}", weatherStation.WeatherStationId);
 
-                            UpdateAllWeatherDataRecord(predicatedWeatherData, weatherDataDTO, currentConditionsAsDate, weatherStation.WeatherStationId, emailLog);
-                        }
+                        //    UpdateAllWeatherDataRecord(predicatedWeatherData, weatherDataDTO, currentConditionsAsDate, weatherStation.WeatherStationId, emailLog);
+                        //}
                             
                         CheckAndUpdateUpdateTimeFromWeatherStations(weatherStation, weatherDataDTO.Observations);
                     }
