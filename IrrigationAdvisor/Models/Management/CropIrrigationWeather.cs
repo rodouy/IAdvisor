@@ -1221,11 +1221,11 @@ namespace IrrigationAdvisor.Models.Management
             lFieldCapacity = this.GetSoilFieldCapacity();
 
             #region only for debug - do nothing
-            if (pDailyRecord.DailyRecordDateTime.Equals(new DateTime(2015, 10, 01)))
+            if (pDailyRecord.DailyRecordDateTime.Equals(new DateTime(2016, 10, 09)))
             {
                 //System.Diagnostics.Debugger.Break();
             }
-            if (pDailyRecord.DailyRecordDateTime.Equals(new DateTime(2015, 12, 20)))
+            if (pDailyRecord.DailyRecordDateTime.Equals(new DateTime(2016, 10, 10)))
             {
                 //System.Diagnostics.Debugger.Break();
             }
@@ -1388,6 +1388,12 @@ namespace IrrigationAdvisor.Models.Management
             Water.Irrigation lHaveIrrigation = null;
 
             lReturn = new Pair<Double, Utils.WaterInputType>();
+
+            if (pDateTime.Equals(new DateTime(2016, 10, 09)))
+            {
+                //System.Diagnostics.Debugger.Break();
+            }
+
             lIrrigationByEvapotranspiration = this.IrrigateByEvapotranspiration();
             lIrrigationByHydricBalance = this.IrrigateByHydricBalance();
             lPercentageAvailableWater = this.GetPercentageOfAvailableWaterTakingIntoAccointPermanentWiltingPoint();
@@ -1462,6 +1468,9 @@ namespace IrrigationAdvisor.Models.Management
                         + lPermanentWiltingPoint;
 
             lMinEvapotrasnpirationToIrrigate = this.Crop.MinEvapotranspirationToIrrigate;
+
+            //2016-10-17 Not to consider ETc for HydricBalance Irrigation
+            lMinEvapotrasnpirationToIrrigate = 0;
 
             lEvapotrAcum = this.GetTotalEvapotranspirationCropFromLastWaterInput();
 

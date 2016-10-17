@@ -27,7 +27,9 @@ DECLARE
     @EvapotranspirationMonth		AS FLOAT,
     @EvapotranspirationYear		AS FLOAT,
     @WeatherDataType		AS INT,
-    @Observations			AS NVARCHAR(MAX)
+    @Observations			AS NVARCHAR(MAX),
+    @WindSpeed				AS FLOAT,
+    @WeatherDataInputType	AS INT
 
 DECLARE UpdateWeatherData_cursor CURSOR FOR
 
@@ -55,7 +57,11 @@ DECLARE UpdateWeatherData_cursor CURSOR FOR
       ,WD.[EvapotranspirationYear]
       ,WD.[WeatherDataType]
       ,WD.[Observations]
-  FROM [IrrigationAdvisor].[dbo].[WeatherData-DEMO] AS WD
+      ,WD.[WindSpeed]
+      ,WD.[WeatherDataInputType]
+  FROM [IrrigationAdvisor].[dbo].[WeatherData-PROD] AS WD
+  WHERE wd.Date >= '2016-09-01'
+  ORDER BY WD.Date
     --WHERE EXISTS
 				--  (SELECT wd2.WeatherDataId, wd2.[Date]
 				--  FROM [IrrigationAdvisor-DEMO].[dbo].[WeatherData] wd2
@@ -71,7 +77,7 @@ INTO @WeatherDataId,@WeatherStationId, @Date, @Temperature,
       @RainDay, @RainStorm, @RainMonth, @RainYear, 
       @Evapotranspiration, @EvapotranspirationMonth, 
       @EvapotranspirationYear, @WeatherDataType, 
-      @Observations
+      @Observations, @WindSpeed, @WeatherDataInputType
 
 WHILE (@@FETCH_STATUS = 0)
 BEGIN
@@ -85,7 +91,7 @@ BEGIN
       @RainDay, @RainStorm, @RainMonth, @RainYear, 
       @Evapotranspiration, @EvapotranspirationMonth, 
       @EvapotranspirationYear, @WeatherDataType, 
-      @Observations
+      @Observations, @WindSpeed, @WeatherDataInputType
     
     IF((SELECT COUNT(1)
 		FROM [IrrigationAdvisor-DEMO].[dbo].[WeatherData] 
@@ -95,22 +101,34 @@ BEGIN
 			 MONTH(Date) = MONTH(@Date) AND
 			 YEAR(Date) = YEAR(@Date) )>0)
 	BEGIN
-				 
-			UPDATE [IrrigationAdvisor-DEMO].[dbo].[WeatherData] 
-			SET Temperature = @Temperature, TemperatureMax = @TemperatureMax, 
-			  TemperatureMin = @TemperatureMin, TemperatureDewPoint = @TemperatureDewPoint, 
-			  Humidity = @Humidity, HumidityMax = @HumidityMax, HumidityMin = @HumidityMin, 
-			  Barometer = @Barometer, BarometerMax = @BarometerMax, BarometerMin = @BarometerMin, 
-			  SolarRadiation = @SolarRadiation, UVRadiation = @UVRadiation, 
-			  RainDay = @RainDay, RainStorm = @RainStorm, RainMonth = @RainMonth, RainYear = @RainYear, 
-			  Evapotranspiration = @Evapotranspiration, EvapotranspirationMonth = @EvapotranspirationMonth, 
-			  EvapotranspirationYear = @EvapotranspirationYear, WeatherDataType = @WeatherDataType, 
-			  Observations = @Observations
-			  WHERE --WeatherStationId = @WeatherDataId AND
-				 WeatherStationId = @WeatherStationId AND
-				 DAY(Date) = DAY(@Date) AND
-				 MONTH(Date) = MONTH(@Date) AND
-				 YEAR(Date) = YEAR(@Date) 
+				SELECT WD.[WeatherDataId]
+					  ,WD.[WeatherStationId]
+					  ,WD.[Date]
+					  ,WD.[Observations]
+					  ,WD.[WindSpeed]
+					  ,WD.[WeatherDataInputType]
+				  FROM [IrrigationAdvisor-DEMO].[dbo].[WeatherData] AS WD
+					WHERE --WeatherStationId = @WeatherDataId AND
+						 WeatherStationId = @WeatherStationId AND
+						 DAY(Date) = DAY(@Date) AND
+						 MONTH(Date) = MONTH(@Date) AND
+						 YEAR(Date) = YEAR(@Date)
+			
+			--UPDATE [IrrigationAdvisor-DEMO].[dbo].[WeatherData] 
+			--SET Temperature = @Temperature, TemperatureMax = @TemperatureMax, 
+			--  TemperatureMin = @TemperatureMin, TemperatureDewPoint = @TemperatureDewPoint, 
+			--  Humidity = @Humidity, HumidityMax = @HumidityMax, HumidityMin = @HumidityMin, 
+			--  Barometer = @Barometer, BarometerMax = @BarometerMax, BarometerMin = @BarometerMin, 
+			--  SolarRadiation = @SolarRadiation, UVRadiation = @UVRadiation, 
+			--  RainDay = @RainDay, RainStorm = @RainStorm, RainMonth = @RainMonth, RainYear = @RainYear, 
+			--  Evapotranspiration = @Evapotranspiration, EvapotranspirationMonth = @EvapotranspirationMonth, 
+			--  EvapotranspirationYear = @EvapotranspirationYear, WeatherDataType = @WeatherDataType, 
+			--  Observations = @Observations, WindSpeed = @WindSpeed, WeatherDataInputType = @WeatherDataInputType
+			--  WHERE --WeatherStationId = @WeatherDataId AND
+			--	 WeatherStationId = @WeatherStationId AND
+			--	 DAY(Date) = DAY(@Date) AND
+			--	 MONTH(Date) = MONTH(@Date) AND
+			--	 YEAR(Date) = YEAR(@Date) 
 	END
 	ELSE
 	BEGIN
@@ -124,7 +142,7 @@ BEGIN
 			Barometer, BarometerMax, BarometerMin, SolarRadiation, UVRadiation,
 			RainDay, RainStorm, RainMonth, RainYear, Evapotranspiration,
 			EvapotranspirationMonth, EvapotranspirationYear, WeatherDataType,
-			Observations)
+			Observations, WindSpeed, WeatherDataInputType)
 			  SELECT
 			  @WeatherStationId, @Date, @Temperature,
 			  @TemperatureMax, @TemperatureMin, @TemperatureDewPoint, 
@@ -134,7 +152,7 @@ BEGIN
 			  @RainDay, @RainStorm, @RainMonth, @RainYear, 
 			  @Evapotranspiration, @EvapotranspirationMonth, 
 			  @EvapotranspirationYear, @WeatherDataType, 
-			  @Observations
+			  @Observations, @WindSpeed, @WeatherDataInputType
 	END
 	
 	
@@ -147,7 +165,7 @@ BEGIN
       @RainDay, @RainStorm, @RainMonth, @RainYear, 
       @Evapotranspiration, @EvapotranspirationMonth, 
       @EvapotranspirationYear, @WeatherDataType, 
-      @Observations
+      @Observations, @WindSpeed, @WeatherDataInputType
 END
 
 CLOSE UpdateWeatherData_cursor;
