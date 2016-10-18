@@ -717,12 +717,75 @@ namespace IrrigationAdvisorConsole
                 }
                 #endregion
 
+                #region Del Carmen ACISA S.A. - El Paraiso - DCA
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
+                {
+                    lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA2, Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin };
+
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmDCAElParaiso
+                             select farm).FirstOrDefault();
+                    lUserList = (from user in context.Users
+                                 where lUserNames.Contains(user.UserName)
+                                 select user).ToList();
+                    foreach (User item in lUserList)
+                    {
+                        var lUserFarm = new UserFarm()
+                        {
+                            UserId = item.UserId,
+                            FarmId = lFarm.FarmId,
+                            Name = item.Name + lFarm.Name,
+                            StartDate = DateTime.Now,
+                        };
+
+                        context.UserFarms.Add(lUserFarm);
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
+
+                #region Del Carmen ACISA S.A. - San Jose - DCA
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+                {
+                    lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA2, Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin };
+
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmDCASanJose
+                             select farm).FirstOrDefault();
+                    lUserList = (from user in context.Users
+                                 where lUserNames.Contains(user.UserName)
+                                 select user).ToList();
+                    foreach (User item in lUserList)
+                    {
+                        var lUserFarm = new UserFarm()
+                        {
+                            UserId = item.UserId,
+                            FarmId = lFarm.FarmId,
+                            Name = item.Name + lFarm.Name,
+                            StartDate = DateTime.Now,
+                        };
+
+                        context.UserFarms.Add(lUserFarm);
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
+
                 #region Del Carmen ACISA S.A. - La Perdiz - DCA
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
-                    lUserNames = new String[] { Utils.NameUserDelCarmen, Utils.NameUserSeba, Utils.NameUserGonza,
+                    lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA2, Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin };
 
                     lFarm = (from farm in context.Farms
@@ -2961,8 +3024,87 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region LaPerdiz - Del Carmen ACISA SA
+            #region DCA - El Paraiso - Del Carmen ACISA SA
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lWeatherStation = (from ws in context.WeatherStations
+                                       where ws.Name == Utils.NameWeatherStationSanFernando
+                                       select ws).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionFarmDCAElParaiso
+                                 select pos).FirstOrDefault();
+                    lCity = (from city in context.Cities
+                             where city.Name == Utils.NameCityMercedes
+                             select city).FirstOrDefault();
+
+                    var lDCAElParaiso = new Farm
+                    {
+                        Name = Utils.NameFarmDCAElParaiso,
+                        Company = "Del Carmen ACISA SA",
+                        Address = "Ruta 2 km 270",
+                        Phone = "099 830 058",
+                        PositionId = lPosition.PositionId,
+                        Has = 298,
+                        WeatherStationId = lWeatherStation.WeatherStationId,
+                        SoilList = null,
+                        BombList = null,
+                        IrrigationUnitList = null,
+                        CityId = lCity.CityId,
+                        UserFarmList = null,
+                    };
+                    context.Farms.Add(lDCAElParaiso);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region DCA - SanJose - Del Carmen ACISA SA
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lWeatherStation = (from ws in context.WeatherStations
+                                       where ws.Name == Utils.NameWeatherStationSanFernando
+                                       select ws).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionFarmDCASanJose
+                                 select pos).FirstOrDefault();
+                    lCity = (from city in context.Cities
+                             where city.Name == Utils.NameCityMercedes
+                             select city).FirstOrDefault();
+
+                    var lDCASanJose = new Farm
+                    {
+                        Name = Utils.NameFarmDCASanJose,
+                        Company = "Del Carmen ACISA SA",
+                        Address = "Ruta 21 km 70",
+                        Phone = "099 830 058",
+                        PositionId = lPosition.PositionId,
+                        Has = 330,
+                        WeatherStationId = lWeatherStation.WeatherStationId,
+                        SoilList = null,
+                        BombList = null,
+                        IrrigationUnitList = null,
+                        CityId = lCity.CityId,
+                        UserFarmList = null,
+                    };
+                    context.Farms.Add(lDCASanJose);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region DCA - LaPerdiz - Del Carmen ACISA SA
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
@@ -2978,14 +3120,14 @@ namespace IrrigationAdvisorConsole
                              where city.Name == Utils.NameCityMercedes
                              select city).FirstOrDefault();
 
-                    var lLaPerdiz = new Farm
+                    var lDCALaPerdiz = new Farm
                     {
                         Name = Utils.NameFarmDCALaPerdiz,
                         Company = "Del Carmen ACISA SA",
-                        Address = "",
-                        Phone = "",
+                        Address = "Ruta 55 km 60",
+                        Phone = "099 830 058",
                         PositionId = lPosition.PositionId,
-                        Has = 411,
+                        Has = 1156,
                         WeatherStationId = lWeatherStation.WeatherStationId,
                         SoilList = null,
                         BombList = null,
@@ -2993,7 +3135,7 @@ namespace IrrigationAdvisorConsole
                         CityId = lCity.CityId,
                         UserFarmList = null,
                     };
-                    context.Farms.Add(lLaPerdiz);
+                    context.Farms.Add(lDCALaPerdiz);
                     context.SaveChanges();
                 }
             }
@@ -3481,7 +3623,167 @@ namespace IrrigationAdvisorConsole
 
         }
 
-        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmLaPerdiz()
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmDCAElParaiso()
+        {
+            Farm lFarm = null;
+            List<Bomb> lBombList = new List<Bomb>();
+            IQueryable<Bomb> lIQBombs = null;
+            List<Soil> lSoilList = new List<Soil>();
+            IQueryable<Soil> lIQSoils = null;
+            List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
+            IQueryable<IrrigationUnit> lIQPivots = null;
+            String[] lUserNames = { Utils.NameUserDCA1, Utils.NameUserDCA2, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
+            List<User> lUserList = new List<User>();
+            IQueryable<User> lIQUsers = null;
+            List<UserFarm> lUserFarmList = new List<UserFarm>();
+            IQueryable<UserFarm> lIQUserFarms = null;
+
+            Bomb lBomb = null;
+            Soil lSoil = null;
+            Pivot lPivot = null;
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                //Set context information
+                lFarm = (from farm in context.Farms
+                         where farm.Name == Utils.NameFarmDCAElParaiso
+                         select farm).FirstOrDefault();
+                lBomb = (from bomb in context.Bombs
+                         where bomb.Name.Contains(Utils.NameFarmDCAElParaiso)
+                         select bomb).FirstOrDefault();
+                lSoil = (from soil in context.Soils
+                         where soil.Name.Contains(Utils.NameFarmDCAElParaiso)
+                         select soil).FirstOrDefault();
+                lPivot = (from pivot in context.Pivots
+                          where pivot.Name.Contains(Utils.NameFarmDCAElParaiso)
+                          select pivot).FirstOrDefault();
+                lUserList = (from user in context.Users
+                             select user).ToList();
+                lUserFarmList = (from userFarm in context.UserFarms
+                                 where userFarm.FarmId == lFarm.FarmId
+                                 select userFarm).ToList();
+
+                lIQBombs = context.Bombs;
+                lIQSoils = context.Soils;
+                lIQPivots = context.Pivots;
+                lIQUsers = context.Users;
+                lIQUserFarms = context.UserFarms;
+
+                lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmDCAElParaiso));
+                foreach (Bomb item in lIQBombs) lBombList.Add(item);
+
+                lIQSoils = lIQSoils.Where(b => b.Name.Contains(Utils.NameFarmDCAElParaiso));
+                foreach (Soil item in lIQSoils) lSoilList.Add(item);
+
+                lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmDCAElParaiso));
+                foreach (Pivot item in lIQPivots) lPivotList.Add(item);
+
+                lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
+                lIQUserFarms = lIQUserFarms.Where(uf => uf.FarmId == lFarm.FarmId);
+                lUserFarmList = new List<UserFarm>();
+                foreach (User lUser in lIQUsers)
+                {
+                    foreach (UserFarm lUserFarm in lIQUserFarms)
+                    {
+                        if (lUserFarm.UserId == lUser.UserId)
+                        {
+                            lUserFarmList.Add(lUserFarm);
+                        }
+                    }
+                }
+
+                // Update list of Bombs, Soils, Irrigation Units and Users
+                lFarm.BombList = lBombList;
+                lFarm.SoilList = lSoilList;
+                lFarm.IrrigationUnitList = lPivotList;
+                lFarm.UserFarmList = lUserFarmList;
+
+                context.SaveChanges();
+            }
+
+        }
+
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmDCASanJose()
+        {
+            Farm lFarm = null;
+            List<Bomb> lBombList = new List<Bomb>();
+            IQueryable<Bomb> lIQBombs = null;
+            List<Soil> lSoilList = new List<Soil>();
+            IQueryable<Soil> lIQSoils = null;
+            List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
+            IQueryable<IrrigationUnit> lIQPivots = null;
+            String[] lUserNames = { Utils.NameUserDCA1, Utils.NameUserDCA2, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
+            List<User> lUserList = new List<User>();
+            IQueryable<User> lIQUsers = null;
+            List<UserFarm> lUserFarmList = new List<UserFarm>();
+            IQueryable<UserFarm> lIQUserFarms = null;
+
+            Bomb lBomb = null;
+            Soil lSoil = null;
+            Pivot lPivot = null;
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                //Set context information
+                lFarm = (from farm in context.Farms
+                         where farm.Name == Utils.NameFarmDCASanJose
+                         select farm).FirstOrDefault();
+                lBomb = (from bomb in context.Bombs
+                         where bomb.Name.Contains(Utils.NameFarmDCASanJose)
+                         select bomb).FirstOrDefault();
+                lSoil = (from soil in context.Soils
+                         where soil.Name.Contains(Utils.NameFarmDCASanJose)
+                         select soil).FirstOrDefault();
+                lPivot = (from pivot in context.Pivots
+                          where pivot.Name.Contains(Utils.NameFarmDCASanJose)
+                          select pivot).FirstOrDefault();
+                lUserList = (from user in context.Users
+                             select user).ToList();
+                lUserFarmList = (from userFarm in context.UserFarms
+                                 where userFarm.FarmId == lFarm.FarmId
+                                 select userFarm).ToList();
+
+                lIQBombs = context.Bombs;
+                lIQSoils = context.Soils;
+                lIQPivots = context.Pivots;
+                lIQUsers = context.Users;
+                lIQUserFarms = context.UserFarms;
+
+                lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmDCASanJose));
+                foreach (Bomb item in lIQBombs) lBombList.Add(item);
+
+                lIQSoils = lIQSoils.Where(b => b.Name.Contains(Utils.NameFarmDCASanJose));
+                foreach (Soil item in lIQSoils) lSoilList.Add(item);
+
+                lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmDCASanJose));
+                foreach (Pivot item in lIQPivots) lPivotList.Add(item);
+
+                lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
+                lIQUserFarms = lIQUserFarms.Where(uf => uf.FarmId == lFarm.FarmId);
+                lUserFarmList = new List<UserFarm>();
+                foreach (User lUser in lIQUsers)
+                {
+                    foreach (UserFarm lUserFarm in lIQUserFarms)
+                    {
+                        if (lUserFarm.UserId == lUser.UserId)
+                        {
+                            lUserFarmList.Add(lUserFarm);
+                        }
+                    }
+                }
+
+                // Update list of Bombs, Soils, Irrigation Units and Users
+                lFarm.BombList = lBombList;
+                lFarm.SoilList = lSoilList;
+                lFarm.IrrigationUnitList = lPivotList;
+                lFarm.UserFarmList = lUserFarmList;
+
+                context.SaveChanges();
+            }
+
+        }
+
+        private static void UpdateSoilsBombsIrrigationUnitsUsersFarmDCALaPerdiz()
         {
             Farm lFarm = null;
             List<Bomb> lBombList = new List<Bomb>();
@@ -3490,7 +3792,7 @@ namespace IrrigationAdvisorConsole
             IQueryable<Soil> lIQSoils = null;
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
-            String[] lUserNames = { Utils.NameUserDelCarmen, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
+            String[] lUserNames = { Utils.NameUserDCA1, Utils.NameUserDCA2, Utils.NameUserSeba, Utils.NameUserGonza, Utils.NameUserAdmin };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
             List<UserFarm> lUserFarmList = new List<UserFarm>();
@@ -11872,7 +12174,7 @@ namespace IrrigationAdvisorConsole
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
-                UpdateSoilsBombsIrrigationUnitsUsersFarmLaPerdiz();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmDCALaPerdiz();
             }
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago)
