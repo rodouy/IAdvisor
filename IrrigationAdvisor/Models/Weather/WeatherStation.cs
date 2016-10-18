@@ -573,8 +573,6 @@ namespace IrrigationAdvisor.Models.Weather
             DateTime lNextDay;
             WeatherData lWeatherData;
 
-            List<WeatherData> lWeatherDataList;
-
             double lTemperature;
             double lSolarRadiation;
             double lTemperatureMax;
