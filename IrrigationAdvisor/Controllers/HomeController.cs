@@ -423,7 +423,8 @@ namespace IrrigationAdvisor.Controllers
         /// <returns></returns>
         public ActionResult ChangeDateOfReference(int pDay,
                                                     int pMonth,
-                                                    int pYear)
+                                                    int pYear,
+                                                    int pFarmId)
         {
 
             DateTime newDateOfReference = new DateTime(pYear,
@@ -434,7 +435,15 @@ namespace IrrigationAdvisor.Controllers
             {
                 ManageSession.SetNavigationDate(newDateOfReference);
 
-                return Content("Ok");
+                if(pFarmId > -1)
+                {
+                    return Content("./home?farm=" + pFarmId);
+                }
+                else
+                {
+                    return Content("./home");
+                }
+                
             }
             catch (Exception ex)
             {
