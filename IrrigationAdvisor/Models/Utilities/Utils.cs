@@ -1107,7 +1107,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserAdmin = "Admin";
         public static String NameUserSeba = "scasanova";
         public static String NameUserGonza = "gmoreno";
-        public static String NameUserDelCarmen = "LaPerdiz";
+        public static String NameUserDCA1 = "jplatero";
+        public static String NameUserDCA2 = "fartigue";
         public static String NameUserSantaLucia = "SantaLucia";
         public static String NameUserDelLago1 = "girazabal";
         public static String NameUserDelLago2 = "jhemala";

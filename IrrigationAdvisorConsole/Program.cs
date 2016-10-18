@@ -477,16 +477,27 @@ namespace IrrigationAdvisorConsole
             };
             #endregion
 
-            #region Del Carmen ACISA S.A. - La Perdiz - DCA
-            var lLaPerdiz = new User()
+            #region Del Carmen ACISA S.A. - El Paraiso - San Jose - La Perdiz - DCA
+            var lDCAJuan = new User()
             {
                 Name = "Juan",
                 Surname = "Platero",
                 Phone = "+598 98 938 269",
                 Address = "Mercedes",
                 Email = "jplatero@delcarmen.com.uy",
-                UserName = Utils.NameUserDelCarmen,
-                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "Laperdiz"),
+                UserName = Utils.NameUserDCA1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "ADC2017"),
+                RoleId = 3,
+            };
+            var lDCAFabian = new User()
+            {
+                Name = "Fabian",
+                Surname = "Artigue",
+                Phone = "+598 99 830 058",
+                Address = "Mercedes Ruta 14",
+                Email = "fartigue@delcarmen.com.uy",
+                UserName = Utils.NameUserDCA2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "ADC2017"),
                 RoleId = 3,
             };
             #endregion
@@ -559,7 +570,8 @@ namespace IrrigationAdvisorConsole
                 context.Users.Add(lDemoAdmin);
                 context.Users.Add(lSCasanova);
                 context.Users.Add(lAdmin);
-                context.Users.Add(lLaPerdiz);
+                context.Users.Add(lDCAJuan);
+                context.Users.Add(lDCAFabian);
                 context.Users.Add(lDelLagoGuzman);
                 context.Users.Add(lDelLagoJose);
                 context.Users.Add(lGMOPablo);
@@ -1000,7 +1012,21 @@ namespace IrrigationAdvisorConsole
                 Longitude = -55.541477,
             };
 
-            var lLaPerdiz = new Position()
+            var lDCAElParaiso = new Position()
+            {
+                Name = Utils.NamePositionFarmDCAElParaiso,
+                Latitude = -33.023674,
+                Longitude = -57.514196,
+            };
+
+            var lDCASanJose = new Position()
+            {
+                Name = Utils.NamePositionFarmDCASanJose,
+                Latitude = -33.023674,
+                Longitude = -57.514196,
+            };
+
+            var lDCALaPerdiz = new Position()
             {
                 Name = Utils.NamePositionFarmDCALaPerdiz,
                 Latitude = -33.023674,
@@ -1271,37 +1297,173 @@ namespace IrrigationAdvisorConsole
             };
             #endregion
 
-            #region Pivots La Perdiz
-            var lLaPerdizPivot1 = new Position()
+            #region Pivots DCA
+
+            #region DCA El Paraiso
+            var lDCAElParaisoPivot1 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCAElParaiso1,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDCAElParaisoPivot2 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCAElParaiso2,
+                Latitude = -33.024191,
+                Longitude = -57.543566,
+            };
+            var lDCAElParaisoPivot3 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCAElParaiso3,
+                Latitude = -33.020039,
+                Longitude = -57.530693
+            };
+            var lDCAElParaisoPivot4 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCAElParaiso4,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCAElParaisoPivot5 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCAElParaiso5,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCAElParaisoPivot6 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCAElParaiso6,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCAElParaisoPivot7 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCAElParaiso7,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            #endregion
+
+            #region DCA San Jose
+            var lDCASanJosePivot1 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCASanJose1,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDCASanJosePivot2 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCASanJose2,
+                Latitude = -33.024191,
+                Longitude = -57.543566,
+            };
+            var lDCASanJosePivot3 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCASanJose3,
+                Latitude = -33.020039,
+                Longitude = -57.530693
+            };
+            var lDCASanJosePivot4 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCASanJose4,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            #endregion
+            
+            #region DCA La Perdiz
+            var lDCALaPerdizPivot1 = new Position()
             {
                 Name = Utils.NamePositionPivotDCALaPerdiz1,
                 Latitude = -33.035406,
                 Longitude = -57.551740,
             };
-            var lLaPerdizPivot2 = new Position()
+            var lDCALaPerdizPivot2 = new Position()
             {
                 Name = Utils.NamePositionPivotDCALaPerdiz2,
                 Latitude = -33.024191,
                 Longitude = -57.543566,
             };
-            var lLaPerdizPivot3 = new Position()
+            var lDCALaPerdizPivot3 = new Position()
             {
                 Name = Utils.NamePositionPivotDCALaPerdiz3,
                 Latitude = -33.020039,
                 Longitude = -57.530693
             };
-            var lLaPerdizPivot5 = new Position()
+            var lDCALaPerdizPivot4 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz4,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot5 = new Position()
             {
                 Name = Utils.NamePositionPivotDCALaPerdiz5,
                 Latitude = -33.031979,
                 Longitude = -57.531700
             };
-            var lLaPerdizPivot14 = new Position()
+            var lDCALaPerdizPivot6 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz6,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot7 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz7,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot8 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz8,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot9 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz9,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot10 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz10,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot11 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz11,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot12 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz12,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot13 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz13,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot14 = new Position()
             {
                 Name = Utils.NamePositionPivotDCALaPerdiz14,
                 Latitude = -33.045291,
                 Longitude = -57.531845
             };
+            var lDCALaPerdizPivot15 = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz15,
+                Latitude = -33.045291,
+                Longitude = -57.531845
+            };
+            #endregion
+
             #endregion
 
             #region Pivots Del Lago
@@ -1552,7 +1714,9 @@ namespace IrrigationAdvisorConsole
                 context.Positions.Add(lDemo2);
                 context.Positions.Add(lDemo3);
                 context.Positions.Add(lSantaLucia);
-                context.Positions.Add(lLaPerdiz);
+                context.Positions.Add(lDCAElParaiso);
+                context.Positions.Add(lDCASanJose);
+                context.Positions.Add(lDCALaPerdiz);
                 context.Positions.Add(lDelLagoSanPedro);
                 context.Positions.Add(lDelLagoElMirador);
                 context.Positions.Add(lGMOLaPalma);
@@ -1599,12 +1763,33 @@ namespace IrrigationAdvisorConsole
                 context.Positions.Add(lSantaLuciaPivot4);
                 context.Positions.Add(lSantaLuciaPivot5);
                 #endregion
-                #region Pivots - La Perdiz
-                context.Positions.Add(lLaPerdizPivot1);
-                context.Positions.Add(lLaPerdizPivot2);
-                context.Positions.Add(lLaPerdizPivot3);
-                context.Positions.Add(lLaPerdizPivot5);
-                context.Positions.Add(lLaPerdizPivot14);
+                #region Pivots - DCA
+                context.Positions.Add(lDCAElParaisoPivot1);
+                context.Positions.Add(lDCAElParaisoPivot2);
+                context.Positions.Add(lDCAElParaisoPivot3);
+                context.Positions.Add(lDCAElParaisoPivot4);
+                context.Positions.Add(lDCAElParaisoPivot5);
+                context.Positions.Add(lDCAElParaisoPivot6);
+                context.Positions.Add(lDCAElParaisoPivot7);
+                context.Positions.Add(lDCASanJosePivot1);
+                context.Positions.Add(lDCASanJosePivot2);
+                context.Positions.Add(lDCASanJosePivot3);
+                context.Positions.Add(lDCASanJosePivot4);
+                context.Positions.Add(lDCALaPerdizPivot1);
+                context.Positions.Add(lDCALaPerdizPivot2);
+                context.Positions.Add(lDCALaPerdizPivot3);
+                context.Positions.Add(lDCALaPerdizPivot4);
+                context.Positions.Add(lDCALaPerdizPivot5);
+                context.Positions.Add(lDCALaPerdizPivot6);
+                context.Positions.Add(lDCALaPerdizPivot7);
+                context.Positions.Add(lDCALaPerdizPivot8);
+                context.Positions.Add(lDCALaPerdizPivot9);
+                context.Positions.Add(lDCALaPerdizPivot10);
+                context.Positions.Add(lDCALaPerdizPivot11);
+                context.Positions.Add(lDCALaPerdizPivot12);
+                context.Positions.Add(lDCALaPerdizPivot13);
+                context.Positions.Add(lDCALaPerdizPivot14);
+                context.Positions.Add(lDCALaPerdizPivot15);
                 #endregion
                 #region Pivots - Estancias Del Lago
                 context.Positions.Add(lDelLagoSanPedroPivot5);
