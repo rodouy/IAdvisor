@@ -28,7 +28,7 @@ namespace IrrigationAdvisorConsole
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.GMOLaPalma;
+        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.DCA;
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
@@ -1489,9 +1489,15 @@ namespace IrrigationAdvisorConsole
                 Latitude = -33.031979,
                 Longitude = -57.531700
             };
-            var lDCALaPerdizPivot10 = new Position()
+            var lDCALaPerdizPivot10a = new Position()
             {
-                Name = Utils.NamePositionPivotDCALaPerdiz10,
+                Name = Utils.NamePositionPivotDCALaPerdiz10a,
+                Latitude = -33.031979,
+                Longitude = -57.531700
+            };
+            var lDCALaPerdizPivot10b = new Position()
+            {
+                Name = Utils.NamePositionPivotDCALaPerdiz10b,
                 Latitude = -33.031979,
                 Longitude = -57.531700
             };
@@ -1847,7 +1853,8 @@ namespace IrrigationAdvisorConsole
                 context.Positions.Add(lDCALaPerdizPivot7);
                 context.Positions.Add(lDCALaPerdizPivot8);
                 context.Positions.Add(lDCALaPerdizPivot9);
-                context.Positions.Add(lDCALaPerdizPivot10);
+                context.Positions.Add(lDCALaPerdizPivot10a);
+                context.Positions.Add(lDCALaPerdizPivot10b);
                 context.Positions.Add(lDCALaPerdizPivot11);
                 context.Positions.Add(lDCALaPerdizPivot12);
                 context.Positions.Add(lDCALaPerdizPivot13);
@@ -6264,16 +6271,500 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
-            #region Horizons La Perdiz
+            #region Horizons DCA El Paraiso
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
+            {
+                #region Pivot 1
+                var lDCAElParaisoPivot_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 15,
+                    Sand = 24,
+                    Limo = 45,
+                    Clay = 31,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDCAElParaisoPivot_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 46,
+                    Clay = 34,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDCAElParaisoPivot_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "BC",
+                    HorizonLayerDepth = 20,
+                    Sand = 12,
+                    Limo = 48,
+                    Clay = 40,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                #endregion
+
+                #region Pivot 2
+                var lDCAElParaisoPivot_2_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso2 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 15,
+                    Sand = 24,
+                    Limo = 45,
+                    Clay = 31,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDCAElParaisoPivot_2_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso2 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 46,
+                    Clay = 34,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDCAElParaisoPivot_2_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso2 + " 3",
+                    Order = 3,
+                    HorizonLayer = "BC",
+                    HorizonLayerDepth = 20,
+                    Sand = 12,
+                    Limo = 48,
+                    Clay = 40,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                #endregion
+
+                #region Pivot 3
+                var lDCAElParaisoPivot_3_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso3 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 15,
+                    Sand = 24,
+                    Limo = 45,
+                    Clay = 31,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDCAElParaisoPivot_3_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso3 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 46,
+                    Clay = 34,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDCAElParaisoPivot_3_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso3 + " 3",
+                    Order = 3,
+                    HorizonLayer = "BC",
+                    HorizonLayerDepth = 20,
+                    Sand = 12,
+                    Limo = 48,
+                    Clay = 40,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                #endregion
+
+                #region Pivot 4
+                var lDCAElParaisoPivot_4_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso4 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 15,
+                    Sand = 24,
+                    Limo = 45,
+                    Clay = 31,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDCAElParaisoPivot_4_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso4 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 46,
+                    Clay = 34,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDCAElParaisoPivot_4_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso4 + " 3",
+                    Order = 3,
+                    HorizonLayer = "BC",
+                    HorizonLayerDepth = 20,
+                    Sand = 12,
+                    Limo = 48,
+                    Clay = 40,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                #endregion
+
+                #region Pivot 5
+                var lDCAElParaisoPivot_5_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso5 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 10,
+                    Sand = 25,
+                    Limo = 45,
+                    Clay = 30,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                var lDCAElParaisoPivot_5_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso5 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 22,
+                    Limo = 46,
+                    Clay = 32,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                #region Pivot 6
+                var lDCAElParaisoPivot_6_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso6 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 10,
+                    Sand = 25,
+                    Limo = 45,
+                    Clay = 30,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                var lDCAElParaisoPivot_6_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso6 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 22,
+                    Limo = 46,
+                    Clay = 32,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                #region Pivot 7
+                var lDCAElParaisoPivot_7_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso7 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 10,
+                    Sand = 25,
+                    Limo = 45,
+                    Clay = 30,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                var lDCAElParaisoPivot_7_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCAElParaiso7 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 22,
+                    Limo = 46,
+                    Clay = 32,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons DCA El Paraiso
+                    context.Horizons.Add(lDCAElParaisoPivot_1_1);
+                    context.Horizons.Add(lDCAElParaisoPivot_1_2);
+                    context.Horizons.Add(lDCAElParaisoPivot_1_3);
+                    context.Horizons.Add(lDCAElParaisoPivot_2_1);
+                    context.Horizons.Add(lDCAElParaisoPivot_2_2);
+                    context.Horizons.Add(lDCAElParaisoPivot_2_3);
+                    context.Horizons.Add(lDCAElParaisoPivot_3_1);
+                    context.Horizons.Add(lDCAElParaisoPivot_3_2);
+                    context.Horizons.Add(lDCAElParaisoPivot_3_3);
+                    context.Horizons.Add(lDCAElParaisoPivot_4_1);
+                    context.Horizons.Add(lDCAElParaisoPivot_4_2);
+                    context.Horizons.Add(lDCAElParaisoPivot_4_3);
+                    context.Horizons.Add(lDCAElParaisoPivot_5_1);
+                    context.Horizons.Add(lDCAElParaisoPivot_5_2);
+                    context.Horizons.Add(lDCAElParaisoPivot_6_1);
+                    context.Horizons.Add(lDCAElParaisoPivot_6_2);
+                    context.Horizons.Add(lDCAElParaisoPivot_7_1);
+                    context.Horizons.Add(lDCAElParaisoPivot_7_2);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Horizons DCA San Jose
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+            {
+                #region Pivot 1
+                var lDCASanJosePivot_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 30,
+                    Sand = 21,
+                    Limo = 43,
+                    Clay = 33,
+                    OrganicMatter = 4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCASanJosePivot_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 23,
+                    Sand = 18,
+                    Limo = 46,
+                    Clay = 36,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCASanJosePivot_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 28,
+                    Sand = 10,
+                    Limo = 48,
+                    Clay = 42,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 2
+                var lDCASanJosePivot_2_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose2 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 30,
+                    Sand = 21,
+                    Limo = 43,
+                    Clay = 33,
+                    OrganicMatter = 4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCASanJosePivot_2_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose2 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 23,
+                    Sand = 18,
+                    Limo = 46,
+                    Clay = 36,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCASanJosePivot_2_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose2 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 28,
+                    Sand = 10,
+                    Limo = 48,
+                    Clay = 42,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 3
+                var lDCASanJosePivot_3_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose3 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 30,
+                    Sand = 21,
+                    Limo = 43,
+                    Clay = 33,
+                    OrganicMatter = 4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCASanJosePivot_3_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose3 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 23,
+                    Sand = 18,
+                    Limo = 46,
+                    Clay = 36,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCASanJosePivot_3_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose3 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 28,
+                    Sand = 10,
+                    Limo = 48,
+                    Clay = 42,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 4
+                var lDCASanJosePivot_4_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose4 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 30,
+                    Sand = 21,
+                    Limo = 43,
+                    Clay = 33,
+                    OrganicMatter = 4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCASanJosePivot_4_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose4 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 23,
+                    Sand = 18,
+                    Limo = 46,
+                    Clay = 36,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCASanJosePivot_4_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCASanJose4 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 28,
+                    Sand = 10,
+                    Limo = 48,
+                    Clay = 42,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons DCA San Jose
+                    context.Horizons.Add(lDCASanJosePivot_1_1);
+                    context.Horizons.Add(lDCASanJosePivot_1_2);
+                    context.Horizons.Add(lDCASanJosePivot_1_3);
+                    context.Horizons.Add(lDCASanJosePivot_2_1);
+                    context.Horizons.Add(lDCASanJosePivot_2_2);
+                    context.Horizons.Add(lDCASanJosePivot_2_3);
+                    context.Horizons.Add(lDCASanJosePivot_3_1);
+                    context.Horizons.Add(lDCASanJosePivot_3_2);
+                    context.Horizons.Add(lDCASanJosePivot_3_3);
+                    context.Horizons.Add(lDCASanJosePivot_4_1);
+                    context.Horizons.Add(lDCASanJosePivot_4_2);
+                    context.Horizons.Add(lDCASanJosePivot_4_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Horizons DCA La Perdiz
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
                 #region Pivot 1
-                var lLaPerdizPivot_1_1 = new Horizon
+                var lDCALaPerdizPivot_1_1 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz1 + " 1",
-                    Order = 0,
+                    Order = 1,
                     HorizonLayer = "A",
                     HorizonLayerDepth = 21,
                     Sand = 31,
@@ -6283,10 +6774,10 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_1_2 = new Horizon
+                var lDCALaPerdizPivot_1_2 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz1 + " 2",
-                    Order = 1,
+                    Order = 2,
                     HorizonLayer = "AB",
                     HorizonLayerDepth = 20,
                     Sand = 25,
@@ -6296,10 +6787,10 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_1_3 = new Horizon
+                var lDCALaPerdizPivot_1_3 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz1 + " 3",
-                    Order = 2,
+                    Order = 3,
                     HorizonLayer = "B",
                     HorizonLayerDepth = 25,
                     Sand = 19,
@@ -6312,10 +6803,10 @@ namespace IrrigationAdvisorConsole
                 #endregion
 
                 #region Pivot 2
-                var lLaPerdizPivot_2_1 = new Horizon
+                var lDCALaPerdizPivot_2_1 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz2 + " 1",
-                    Order = 0,
+                    Order = 1,
                     HorizonLayer = "A",
                     HorizonLayerDepth = 21,
                     Sand = 31,
@@ -6325,10 +6816,10 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_2_2 = new Horizon
+                var lDCALaPerdizPivot_2_2 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz2 + " 2",
-                    Order = 1,
+                    Order = 2,
                     HorizonLayer = "AB",
                     HorizonLayerDepth = 20,
                     Sand = 25,
@@ -6338,10 +6829,10 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_2_3 = new Horizon
+                var lDCALaPerdizPivot_2_3 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz2 + " 3",
-                    Order = 2,
+                    Order = 3,
                     HorizonLayer = "B",
                     HorizonLayerDepth = 25,
                     Sand = 19,
@@ -6354,10 +6845,10 @@ namespace IrrigationAdvisorConsole
                 #endregion
 
                 #region Pivot 3
-                var lLaPerdizPivot_3_1 = new Horizon
+                var lDCALaPerdizPivot_3_1 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz3 + " 1",
-                    Order = 0,
+                    Order = 1,
                     HorizonLayer = "A",
                     HorizonLayerDepth = 21,
                     Sand = 31,
@@ -6367,10 +6858,10 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_3_2 = new Horizon
+                var lDCALaPerdizPivot_3_2 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz3 + " 2",
-                    Order = 1,
+                    Order = 2,
                     HorizonLayer = "AB",
                     HorizonLayerDepth = 20,
                     Sand = 25,
@@ -6380,10 +6871,52 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_3_3 = new Horizon
+                var lDCALaPerdizPivot_3_3 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz3 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 19,
+                    Limo = 35,
+                    Clay = 46,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 4
+                var lDCALaPerdizPivot_4_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz4 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_4_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz4 + " 2",
                     Order = 2,
+                    HorizonLayer = "AB",
+                    HorizonLayerDepth = 20,
+                    Sand = 25,
+                    Limo = 36,
+                    Clay = 39,
+                    OrganicMatter = 3,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_4_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz4 + " 3",
+                    Order = 3,
                     HorizonLayer = "B",
                     HorizonLayerDepth = 25,
                     Sand = 19,
@@ -6396,10 +6929,10 @@ namespace IrrigationAdvisorConsole
                 #endregion
 
                 #region Pivot 5
-                var lLaPerdizPivot_5_1 = new Horizon
+                var lDCALaPerdizPivot_5_1 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz5 + " 1",
-                    Order = 0,
+                    Order = 1,
                     HorizonLayer = "A",
                     HorizonLayerDepth = 21,
                     Sand = 31,
@@ -6409,10 +6942,10 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_5_2 = new Horizon
+                var lDCALaPerdizPivot_5_2 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz5 + " 2",
-                    Order = 1,
+                    Order = 2,
                     HorizonLayer = "AB",
                     HorizonLayerDepth = 20,
                     Sand = 25,
@@ -6422,10 +6955,10 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_5_3 = new Horizon
+                var lDCALaPerdizPivot_5_3 = new Horizon
                 {
                     Name = Utils.NamePivotDCALaPerdiz5 + " 3",
-                    Order = 2,
+                    Order = 3,
                     HorizonLayer = "B",
                     HorizonLayerDepth = 25,
                     Sand = 19,
@@ -6437,11 +6970,11 @@ namespace IrrigationAdvisorConsole
                 };
                 #endregion
 
-                #region Pivot 14
-                var lLaPerdizPivot_14_1 = new Horizon
+                #region Pivot 6
+                var lDCALaPerdizPivot_6_1 = new Horizon
                 {
-                    Name = Utils.NamePivotDCALaPerdiz14 + " 1",
-                    Order = 0,
+                    Name = Utils.NamePivotDCALaPerdiz6 + " 1",
+                    Order = 1,
                     HorizonLayer = "A",
                     HorizonLayerDepth = 21,
                     Sand = 31,
@@ -6451,10 +6984,10 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_14_2 = new Horizon
+                var lDCALaPerdizPivot_6_2 = new Horizon
                 {
-                    Name = Utils.NamePivotDCALaPerdiz14 + " 2",
-                    Order = 1,
+                    Name = Utils.NamePivotDCALaPerdiz6 + " 2",
+                    Order = 2,
                     HorizonLayer = "AB",
                     HorizonLayerDepth = 20,
                     Sand = 25,
@@ -6464,10 +6997,313 @@ namespace IrrigationAdvisorConsole
                     NitrogenAnalysis = 0,
                     BulkDensitySoil = 1.25,
                 };
-                var lLaPerdizPivot_14_3 = new Horizon
+                var lDCALaPerdizPivot_6_3 = new Horizon
                 {
-                    Name = Utils.NamePivotDCALaPerdiz14 + " 3",
+                    Name = Utils.NamePivotDCALaPerdiz6 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 19,
+                    Limo = 35,
+                    Clay = 46,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 7
+                var lDCALaPerdizPivot_7_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz7 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 12,
+                    Sand = 30,
+                    Limo = 36,
+                    Clay = 34,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_7_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz7 + " 2",
                     Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 25,
+                    Limo = 38,
+                    Clay = 37,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 8
+                var lDCALaPerdizPivot_8_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz8 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 12,
+                    Sand = 30,
+                    Limo = 36,
+                    Clay = 34,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_8_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz8 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 25,
+                    Limo = 38,
+                    Clay = 37,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 9
+                var lDCALaPerdizPivot_9_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz9 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 12,
+                    Sand = 30,
+                    Limo = 36,
+                    Clay = 34,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_9_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz9 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 25,
+                    Limo = 38,
+                    Clay = 37,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 10a
+                var lDCALaPerdizPivot_10a_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz10a + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 12,
+                    Sand = 30,
+                    Limo = 36,
+                    Clay = 34,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_10a_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz10a + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 25,
+                    Limo = 38,
+                    Clay = 37,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 10b
+                var lDCALaPerdizPivot_10b_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz10b + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 12,
+                    Sand = 30,
+                    Limo = 36,
+                    Clay = 34,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_10b_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz10b + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 25,
+                    Limo = 38,
+                    Clay = 37,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 11
+                var lDCALaPerdizPivot_11_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz11 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 12,
+                    Sand = 30,
+                    Limo = 36,
+                    Clay = 34,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_11_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz11 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 25,
+                    Limo = 38,
+                    Clay = 37,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 12
+                var lDCALaPerdizPivot_12_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz12 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 12,
+                    Sand = 30,
+                    Limo = 36,
+                    Clay = 34,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_12_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz12 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 25,
+                    Limo = 38,
+                    Clay = 37,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 13
+                var lDCALaPerdizPivot_13_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz13 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 12,
+                    Sand = 30,
+                    Limo = 36,
+                    Clay = 34,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_13_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz13 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 25,
+                    Limo = 38,
+                    Clay = 37,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 14
+                var lDCALaPerdizPivot_14_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz14 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 12,
+                    Sand = 30,
+                    Limo = 36,
+                    Clay = 34,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_14_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz14 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 25,
+                    Sand = 25,
+                    Limo = 38,
+                    Clay = 37,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                #endregion
+
+                #region Pivot 15
+                var lDCALaPerdizPivot_15_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz15 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_15_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz15 + " 2",
+                    Order = 2,
+                    HorizonLayer = "AB",
+                    HorizonLayerDepth = 20,
+                    Sand = 25,
+                    Limo = 36,
+                    Clay = 39,
+                    OrganicMatter = 3,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDCALaPerdizPivot_15_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDCALaPerdiz15 + " 3",
+                    Order = 3,
                     HorizonLayer = "B",
                     HorizonLayerDepth = 25,
                     Sand = 19,
@@ -6481,22 +7317,46 @@ namespace IrrigationAdvisorConsole
 
                 using (var context = new IrrigationAdvisorContext())
                 { 
-                    #region Horizons La Perdiz
-                    context.Horizons.Add(lLaPerdizPivot_1_1);
-                    context.Horizons.Add(lLaPerdizPivot_1_2);
-                    context.Horizons.Add(lLaPerdizPivot_1_3);
-                    context.Horizons.Add(lLaPerdizPivot_2_1);
-                    context.Horizons.Add(lLaPerdizPivot_2_2);
-                    context.Horizons.Add(lLaPerdizPivot_2_3);
-                    context.Horizons.Add(lLaPerdizPivot_3_1);
-                    context.Horizons.Add(lLaPerdizPivot_3_2);
-                    context.Horizons.Add(lLaPerdizPivot_3_3);
-                    context.Horizons.Add(lLaPerdizPivot_5_1);
-                    context.Horizons.Add(lLaPerdizPivot_5_2);
-                    context.Horizons.Add(lLaPerdizPivot_5_3);
-                    context.Horizons.Add(lLaPerdizPivot_14_1);
-                    context.Horizons.Add(lLaPerdizPivot_14_2);
-                    context.Horizons.Add(lLaPerdizPivot_14_3);
+                    #region Horizons DCA La Perdiz
+                    context.Horizons.Add(lDCALaPerdizPivot_1_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_1_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_1_3);
+                    context.Horizons.Add(lDCALaPerdizPivot_2_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_2_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_2_3);
+                    context.Horizons.Add(lDCALaPerdizPivot_3_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_3_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_3_3);
+                    context.Horizons.Add(lDCALaPerdizPivot_4_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_4_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_4_3);
+                    context.Horizons.Add(lDCALaPerdizPivot_5_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_5_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_5_3);
+                    context.Horizons.Add(lDCALaPerdizPivot_6_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_6_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_6_3);
+                    context.Horizons.Add(lDCALaPerdizPivot_7_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_7_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_8_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_8_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_9_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_9_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_10a_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_10a_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_10b_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_10b_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_11_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_11_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_12_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_12_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_13_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_13_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_14_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_14_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_15_1);
+                    context.Horizons.Add(lDCALaPerdizPivot_15_2);
+                    context.Horizons.Add(lDCALaPerdizPivot_15_3);
                     #endregion
                     context.SaveChanges();
                 }
@@ -8984,8 +9844,341 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
+            #region DCA El Paraiso Soils
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    #region Pivot 1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso1 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCAElParaisoPivot1 = new Soil
+                    {
+                        Name = Utils.NamePivotDCAElParaiso1,
+                        Description = "Suelo del Pivot 1 en El Paraiso. Brunosoles profundos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCAElParaisoPivot1.HorizonList.Add(lHorizon1);
+                    lDCAElParaisoPivot1.HorizonList.Add(lHorizon2);
+                    lDCAElParaisoPivot1.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 2
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso2
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso2 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso2 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso2 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCAElParaisoPivot2 = new Soil
+                    {
+                        Name = Utils.NamePivotDCAElParaiso2,
+                        Description = "Suelo del Pivot 2 en El Paraiso. Brunosoles profundos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCAElParaisoPivot2.HorizonList.Add(lHorizon1);
+                    lDCAElParaisoPivot2.HorizonList.Add(lHorizon2);
+                    lDCAElParaisoPivot2.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 3
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso3
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso3 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso3 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso3 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCAElParaisoPivot3 = new Soil
+                    {
+                        Name = Utils.NamePivotDCAElParaiso3,
+                        Description = "Suelo del Pivot 3 en El Paraiso. Brunosoles profundos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCAElParaisoPivot3.HorizonList.Add(lHorizon1);
+                    lDCAElParaisoPivot3.HorizonList.Add(lHorizon2);
+                    lDCAElParaisoPivot3.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 4
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso4
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso4 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso4 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso4 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCAElParaisoPivot4 = new Soil
+                    {
+                        Name = Utils.NamePivotDCAElParaiso4,
+                        Description = "Suelo del Pivot 4 en El Paraiso. Brunosoles profundos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCAElParaisoPivot4.HorizonList.Add(lHorizon1);
+                    lDCAElParaisoPivot4.HorizonList.Add(lHorizon2);
+                    lDCAElParaisoPivot4.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 5
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso5
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso5 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso5 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDCAElParaisoPivot5 = new Soil
+                    {
+                        Name = Utils.NamePivotDCAElParaiso5,
+                        Description = "Suelo del Pivot 5 en El Paraiso. Suelo superficial con mucha grava.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 30,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCAElParaisoPivot5.HorizonList.Add(lHorizon1);
+                    lDCAElParaisoPivot5.HorizonList.Add(lHorizon2);
+                    #endregion
+
+                    #region Pivot 6
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso6
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso6 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso6 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso6 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCAElParaisoPivot6 = new Soil
+                    {
+                        Name = Utils.NamePivotDCAElParaiso6,
+                        Description = "Suelo del Pivot 6 en El Paraiso. Brunosoles profundos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCAElParaisoPivot6.HorizonList.Add(lHorizon1);
+                    lDCAElParaisoPivot6.HorizonList.Add(lHorizon2);
+                    lDCAElParaisoPivot6.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 7
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso7
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso7 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso7 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCAElParaiso7 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCAElParaisoPivot7 = new Soil
+                    {
+                        Name = Utils.NamePivotDCAElParaiso7,
+                        Description = "Suelo del Pivot 7 en El Paraiso. Brunosoles profundos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCAElParaisoPivot7.HorizonList.Add(lHorizon1);
+                    lDCAElParaisoPivot7.HorizonList.Add(lHorizon2);
+                    lDCAElParaisoPivot7.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    context.Soils.Add(lDCAElParaisoPivot1);
+                    context.Soils.Add(lDCAElParaisoPivot2);
+                    context.Soils.Add(lDCAElParaisoPivot3);
+                    context.Soils.Add(lDCAElParaisoPivot4);
+                    context.Soils.Add(lDCAElParaisoPivot5);
+                    context.Soils.Add(lDCAElParaisoPivot6);
+                    context.Soils.Add(lDCAElParaisoPivot7);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region DCA San Jose Soils
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    #region Pivot 1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose1 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCASanJosePivot1 = new Soil
+                    {
+                        Name = Utils.NamePivotDCASanJose1,
+                        Description = "Suelo del Pivot 1 en San Jose. Unidad Bequlo con incidencia de Villa Soriano.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 55,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCASanJosePivot1.HorizonList.Add(lHorizon1);
+                    lDCASanJosePivot1.HorizonList.Add(lHorizon2);
+                    lDCASanJosePivot1.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 2
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose2
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose2 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose2 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose2 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCASanJosePivot2 = new Soil
+                    {
+                        Name = Utils.NamePivotDCASanJose2,
+                        Description = "Suelo del Pivot 2 en El Paraiso. Unidad Bequlo con incidencia de Villa Soriano.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 55,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCASanJosePivot2.HorizonList.Add(lHorizon1);
+                    lDCASanJosePivot2.HorizonList.Add(lHorizon2);
+                    lDCASanJosePivot2.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 3
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose3
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose3 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose3 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose3 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCASanJosePivot3 = new Soil
+                    {
+                        Name = Utils.NamePivotDCASanJose3,
+                        Description = "Suelo del Pivot 3 en El Paraiso. Unidad Bequlo con incidencia de Villa Soriano.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 55,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCASanJosePivot3.HorizonList.Add(lHorizon1);
+                    lDCASanJosePivot3.HorizonList.Add(lHorizon2);
+                    lDCASanJosePivot3.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 4
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose4
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose4 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose4 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCASanJose4 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCASanJosePivot4 = new Soil
+                    {
+                        Name = Utils.NamePivotDCASanJose4,
+                        Description = "Suelo del Pivot 4 en El Paraiso. Unidad Bequlo con incidencia de Villa Soriano.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 55,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCASanJosePivot4.HorizonList.Add(lHorizon1);
+                    lDCASanJosePivot4.HorizonList.Add(lHorizon2);
+                    lDCASanJosePivot4.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    context.Soils.Add(lDCASanJosePivot1);
+                    context.Soils.Add(lDCASanJosePivot2);
+                    context.Soils.Add(lDCASanJosePivot3);
+                    context.Soils.Add(lDCASanJosePivot4);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
             #region DCA La Perdiz Soils
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
@@ -9005,18 +10198,18 @@ namespace IrrigationAdvisorConsole
                     lHorizon3 = (from hor in context.Horizons
                                  where hor.Name == Utils.NamePivotDCALaPerdiz1 + " 3"
                                  select hor).FirstOrDefault();
-                    var lLaPerdizPivot1 = new Soil
+                    var lDCALaPerdizPivot1 = new Soil
                     {
                         Name = Utils.NamePivotDCALaPerdiz1,
                         Description = "Suelo del Pivot 1 en La Perdiz. Unidad Bequelo.",
                         PositionId = lPosition.PositionId,
-                        TestDate = new DateTime(2015, 11, 6),
+                        TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPerdizPivot1.HorizonList.Add(lHorizon1);
-                    lLaPerdizPivot1.HorizonList.Add(lHorizon2);
-                    lLaPerdizPivot1.HorizonList.Add(lHorizon3);
+                    lDCALaPerdizPivot1.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot1.HorizonList.Add(lHorizon2);
+                    lDCALaPerdizPivot1.HorizonList.Add(lHorizon3);
                     #endregion
 
                     #region Pivot 2
@@ -9032,18 +10225,18 @@ namespace IrrigationAdvisorConsole
                     lHorizon3 = (from hor in context.Horizons
                                  where hor.Name == Utils.NamePivotDCALaPerdiz2 + " 3"
                                  select hor).FirstOrDefault();
-                    var lLaPerdizPivot2 = new Soil
+                    var lDCALaPerdizPivot2 = new Soil
                     {
                         Name = Utils.NamePivotDCALaPerdiz2,
                         Description = "Suelo del Pivot 2 en La Perdiz. Unidad Bequelo.",
                         PositionId = lPosition.PositionId,
-                        TestDate = new DateTime(2015, 11, 6),
+                        TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPerdizPivot2.HorizonList.Add(lHorizon1);
-                    lLaPerdizPivot2.HorizonList.Add(lHorizon2);
-                    lLaPerdizPivot2.HorizonList.Add(lHorizon3);
+                    lDCALaPerdizPivot2.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot2.HorizonList.Add(lHorizon2);
+                    lDCALaPerdizPivot2.HorizonList.Add(lHorizon3);
                     #endregion
 
                     #region Pivot 3
@@ -9059,18 +10252,45 @@ namespace IrrigationAdvisorConsole
                     lHorizon3 = (from hor in context.Horizons
                                  where hor.Name == Utils.NamePivotDCALaPerdiz3 + " 3"
                                  select hor).FirstOrDefault();
-                    var lLaPerdizPivot3 = new Soil
+                    var lDCALaPerdizPivot3 = new Soil
                     {
                         Name = Utils.NamePivotDCALaPerdiz3,
                         Description = "Suelo del Pivot 3 en La Perdiz. Unidad Bequelo.",
                         PositionId = lPosition.PositionId,
-                        TestDate = new DateTime(2015, 11, 7),
+                        TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPerdizPivot3.HorizonList.Add(lHorizon1);
-                    lLaPerdizPivot3.HorizonList.Add(lHorizon2);
-                    lLaPerdizPivot3.HorizonList.Add(lHorizon3);
+                    lDCALaPerdizPivot3.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot3.HorizonList.Add(lHorizon2);
+                    lDCALaPerdizPivot3.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 4
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz4
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz4 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz4 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz4 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot4 = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz4,
+                        Description = "Suelo del Pivot 4 en La Perdiz. Unidad Bequelo.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 50,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot4.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot4.HorizonList.Add(lHorizon2);
+                    lDCALaPerdizPivot4.HorizonList.Add(lHorizon3);
                     #endregion
 
                     #region Pivot 5
@@ -9086,18 +10306,229 @@ namespace IrrigationAdvisorConsole
                     lHorizon3 = (from hor in context.Horizons
                                  where hor.Name == Utils.NamePivotDCALaPerdiz5 + " 3"
                                  select hor).FirstOrDefault();
-                    var lLaPerdizPivot5 = new Soil
+                    var lDCALaPerdizPivot5 = new Soil
                     {
                         Name = Utils.NamePivotDCALaPerdiz5,
                         Description = "Suelo del Pivot 5 en La Perdiz. Unidad Bequelo.",
                         PositionId = lPosition.PositionId,
-                        TestDate = new DateTime(2015, 11, 8),
+                        TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPerdizPivot5.HorizonList.Add(lHorizon1);
-                    lLaPerdizPivot5.HorizonList.Add(lHorizon2);
-                    lLaPerdizPivot5.HorizonList.Add(lHorizon3);
+                    lDCALaPerdizPivot5.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot5.HorizonList.Add(lHorizon2);
+                    lDCALaPerdizPivot5.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 6
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz6
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz6 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz6 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz6 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot6 = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz6,
+                        Description = "Suelo del Pivot 6 en La Perdiz. Unidad Bequelo.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 50,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot6.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot6.HorizonList.Add(lHorizon2);
+                    lDCALaPerdizPivot6.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 7
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz7
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz7 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz7 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot7 = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz7,
+                        Description = "Suelo del Pivot 7 en La Perdiz. Brunosoles superficiales c/grava.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot7.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot7.HorizonList.Add(lHorizon2);
+                    #endregion
+
+                    #region Pivot 8
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz8
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz8 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz8 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot8 = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz8,
+                        Description = "Suelo del Pivot 8 en La Perdiz. Brunosoles superficiales c/grava.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot8.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot8.HorizonList.Add(lHorizon2);
+                    #endregion
+
+                    #region Pivot 9
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz9
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz9 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz9 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot9 = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz9,
+                        Description = "Suelo del Pivot 9 en La Perdiz. Brunosoles superficiales c/grava.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot9.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot9.HorizonList.Add(lHorizon2);
+                    #endregion
+
+                    #region Pivot 10a
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz10a
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz10a + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz10a + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot10a = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz10a,
+                        Description = "Suelo del Pivot 10a en La Perdiz. Brunosoles superficiales c/grava.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot10a.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot10a.HorizonList.Add(lHorizon2);
+                    #endregion
+
+                    #region Pivot 10b
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz10b
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz10b + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz10b + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot10b = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz10b,
+                        Description = "Suelo del Pivot 10b en La Perdiz. Brunosoles superficiales c/grava.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot10b.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot10b.HorizonList.Add(lHorizon2);
+                    #endregion
+
+                    #region Pivot 11
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz11
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz11 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz11 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot11 = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz11,
+                        Description = "Suelo del Pivot 11 en La Perdiz. Brunosoles superficiales c/grava.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot11.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot11.HorizonList.Add(lHorizon2);
+                    #endregion
+
+                    #region Pivot 12
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz12
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz12 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz12 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot12 = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz12,
+                        Description = "Suelo del Pivot 12 en La Perdiz. Brunosoles superficiales c/grava.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot12.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot12.HorizonList.Add(lHorizon2);
+                    #endregion
+
+                    #region Pivot 13
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz13
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz13 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz13 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot13 = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz13,
+                        Description = "Suelo del Pivot 13 en La Perdiz. Brunosoles superficiales c/grava.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot13.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot13.HorizonList.Add(lHorizon2);
                     #endregion
 
                     #region Pivot 14
@@ -9110,28 +10541,62 @@ namespace IrrigationAdvisorConsole
                     lHorizon2 = (from hor in context.Horizons
                                  where hor.Name == Utils.NamePivotDCALaPerdiz14 + " 2"
                                  select hor).FirstOrDefault();
-                    lHorizon3 = (from hor in context.Horizons
-                                 where hor.Name == Utils.NamePivotDCALaPerdiz14 + " 3"
-                                 select hor).FirstOrDefault();
-                    var lLaPerdizPivot14 = new Soil
+                    var lDCALaPerdizPivot14 = new Soil
                     {
                         Name = Utils.NamePivotDCALaPerdiz14,
-                        Description = "Suelo del Pivot 14 en La Perdiz. Unidad Bequelo.",
+                        Description = "Suelo del Pivot 14 en La Perdiz. Brunosoles superficiales c/grava.",
                         PositionId = lPosition.PositionId,
-                        TestDate = Utils.MIN_DATETIME,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDCALaPerdizPivot14.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot14.HorizonList.Add(lHorizon2);
+                    #endregion
+
+                    #region Pivot 15
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz15
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz15 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz15 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDCALaPerdiz15 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lDCALaPerdizPivot15 = new Soil
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz15,
+                        Description = "Suelo del Pivot 15 en La Perdiz. Unidad Bequelo.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
                         HorizonList = new List<Horizon>(),
                     };
-                    lLaPerdizPivot14.HorizonList.Add(lHorizon1);
-                    lLaPerdizPivot14.HorizonList.Add(lHorizon2);
-                    lLaPerdizPivot14.HorizonList.Add(lHorizon3);
+                    lDCALaPerdizPivot15.HorizonList.Add(lHorizon1);
+                    lDCALaPerdizPivot15.HorizonList.Add(lHorizon2);
+                    lDCALaPerdizPivot15.HorizonList.Add(lHorizon3);
                     #endregion
 
-                    context.Soils.Add(lLaPerdizPivot1);
-                    context.Soils.Add(lLaPerdizPivot2);
-                    context.Soils.Add(lLaPerdizPivot3);
-                    context.Soils.Add(lLaPerdizPivot5);
-                    context.Soils.Add(lLaPerdizPivot14);
+                    context.Soils.Add(lDCALaPerdizPivot1);
+                    context.Soils.Add(lDCALaPerdizPivot2);
+                    context.Soils.Add(lDCALaPerdizPivot3);
+                    context.Soils.Add(lDCALaPerdizPivot4);
+                    context.Soils.Add(lDCALaPerdizPivot5);
+                    context.Soils.Add(lDCALaPerdizPivot6);
+                    context.Soils.Add(lDCALaPerdizPivot7);
+                    context.Soils.Add(lDCALaPerdizPivot8);
+                    context.Soils.Add(lDCALaPerdizPivot9);
+                    context.Soils.Add(lDCALaPerdizPivot10a);
+                    context.Soils.Add(lDCALaPerdizPivot10b);
+                    context.Soils.Add(lDCALaPerdizPivot11);
+                    context.Soils.Add(lDCALaPerdizPivot12);
+                    context.Soils.Add(lDCALaPerdizPivot13);
+                    context.Soils.Add(lDCALaPerdizPivot14);
+                    context.Soils.Add(lDCALaPerdizPivot15);
                     context.SaveChanges();
                 }
             }
@@ -10481,8 +11946,61 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
+            #region Bomb El Paraiso
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionFarmDCAElParaiso
+                                 select pos).FirstOrDefault();
+
+                    var lBombDCAElParaiso = new Bomb
+                    {
+                        Name = Utils.NameBombDCAElParaiso,
+                        SerialNumber = "98134759807",
+                        PurchaseDate = Utils.MIN_DATETIME,
+                        ServiceDate = Utils.MIN_DATETIME,
+                        PositionId = lPosition.PositionId,
+                    };
+                    context.Bombs.Add(lBombDCAElParaiso);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Bomb San Jose
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionFarmDCASanJose
+                                 select pos).FirstOrDefault();
+
+                    var lBombDCASanJose = new Bomb
+                    {
+                        Name = Utils.NameBombDCASanJose,
+                        SerialNumber = "98134759807",
+                        PurchaseDate = Utils.MIN_DATETIME,
+                        ServiceDate = Utils.MIN_DATETIME,
+                        PositionId = lPosition.PositionId,
+                    };
+                    context.Bombs.Add(lBombDCASanJose);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
             #region Bomb La Perdiz
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
@@ -10492,7 +12010,7 @@ namespace IrrigationAdvisorConsole
                                  where pos.Name == Utils.NamePositionFarmDCALaPerdiz
                                  select pos).FirstOrDefault();
 
-                    var lBombLaPerdiz = new Bomb
+                    var lBombDCALaPerdiz = new Bomb
                     {
                         Name = Utils.NameBombDCALaPerdiz,
                         SerialNumber = "98134759807",
@@ -10500,7 +12018,7 @@ namespace IrrigationAdvisorConsole
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
                     };
-                    context.Bombs.Add(lBombLaPerdiz);
+                    context.Bombs.Add(lBombDCALaPerdiz);
                     context.SaveChanges();
                 }
             }
@@ -11111,8 +12629,281 @@ namespace IrrigationAdvisorConsole
             }
             #endregion
 
+            #region Pivots DCA El Paraiso
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    #region Pivot 1
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCAElParaiso
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso1
+                                 select pos).FirstOrDefault();
+
+                    var lDCAElParaisoPivot1 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCAElParaiso1,
+                        ShortName = "Pivot 1",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCAElParaiso
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso2
+                                 select pos).FirstOrDefault();
+
+                    var lDCAElParaisoPivot2 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCAElParaiso2,
+                        ShortName = "Pivot 2",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 137,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCAElParaiso
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso3
+                                 select pos).FirstOrDefault();
+
+                    var lDCAElParaisoPivot3 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCAElParaiso3,
+                        ShortName = "Pivot 3",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 120,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCAElParaiso
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso4
+                                 select pos).FirstOrDefault();
+
+                    var lDCAElParaisoPivot4 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCAElParaiso4,
+                        ShortName = "Pivot 4",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 154,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCAElParaiso
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso5
+                                 select pos).FirstOrDefault();
+
+                    var lDCAElParaisoPivot5 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCAElParaiso5,
+                        ShortName = "Pivot 5",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 154,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
+                    #region Pivot 6
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCAElParaiso
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso6
+                                 select pos).FirstOrDefault();
+
+                    var lDCAElParaisoPivot6 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCAElParaiso6,
+                        ShortName = "Pivot 6",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+                    #region Pivot 7
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCAElParaiso
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCAElParaiso7
+                                 select pos).FirstOrDefault();
+
+                    var lDCAElParaisoPivot7 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCAElParaiso7,
+                        ShortName = "Pivot 7",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+
+                    context.Pivots.Add(lDCAElParaisoPivot1);
+                    context.Pivots.Add(lDCAElParaisoPivot2);
+                    context.Pivots.Add(lDCAElParaisoPivot3);
+                    context.Pivots.Add(lDCAElParaisoPivot4);
+                    context.Pivots.Add(lDCAElParaisoPivot5);
+                    context.Pivots.Add(lDCAElParaisoPivot6);
+                    context.Pivots.Add(lDCAElParaisoPivot7);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Pivots DCA San Jose
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    #region Pivot 1
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCASanJose
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose1
+                                 select pos).FirstOrDefault();
+
+                    var lDCASanJosePivot1 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCASanJose1,
+                        ShortName = "Pivot 1",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCASanJose
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose2
+                                 select pos).FirstOrDefault();
+
+                    var lDCASanJosePivot2 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCASanJose2,
+                        ShortName = "Pivot 2",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 137,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCASanJose
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose3
+                                 select pos).FirstOrDefault();
+
+                    var lDCASanJosePivot3 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCASanJose3,
+                        ShortName = "Pivot 3",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 120,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCASanJose
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose4
+                                 select pos).FirstOrDefault();
+
+                    var lDCASanJosePivot4 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCASanJose4,
+                        ShortName = "Pivot 4",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 154,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
+
+                    context.Pivots.Add(lDCASanJosePivot1);
+                    context.Pivots.Add(lDCASanJosePivot2);
+                    context.Pivots.Add(lDCASanJosePivot3);
+                    context.Pivots.Add(lDCASanJosePivot4);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
             #region Pivots DCA La Perdiz
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
@@ -11127,12 +12918,12 @@ namespace IrrigationAdvisorConsole
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz1
                                  select pos).FirstOrDefault();
 
-                    var lLaPerdizPivot1 = new Pivot
+                    var lDCALaPerdizPivot1 = new Pivot
                     {
                         Name = Utils.NamePivotDCALaPerdiz1,
                         ShortName = "Pivot 1",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
+                        IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 100,
                         BombId = lBomb.BombId,
@@ -11140,7 +12931,6 @@ namespace IrrigationAdvisorConsole
                         Radius = 120,
                     };
                     #endregion
-
                     #region Pivot 2
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombDCALaPerdiz
@@ -11149,12 +12939,12 @@ namespace IrrigationAdvisorConsole
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz2
                                  select pos).FirstOrDefault();
 
-                    var lLaPerdizPivot2 = new Pivot
+                    var lDCALaPerdizPivot2 = new Pivot
                     {
                         Name = Utils.NamePivotDCALaPerdiz2,
                         ShortName = "Pivot 2",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
+                        IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 137,
                         BombId = lBomb.BombId,
@@ -11162,7 +12952,6 @@ namespace IrrigationAdvisorConsole
                         Radius = 120,
                     };
                     #endregion
-
                     #region Pivot 3
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombDCALaPerdiz
@@ -11171,12 +12960,12 @@ namespace IrrigationAdvisorConsole
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz3
                                  select pos).FirstOrDefault();
 
-                    var lLaPerdizPivot3 = new Pivot
+                    var lDCALaPerdizPivot3 = new Pivot
                     {
                         Name = Utils.NamePivotDCALaPerdiz3,
                         ShortName = "Pivot 3",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
+                        IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 120,
                         BombId = lBomb.BombId,
@@ -11184,7 +12973,27 @@ namespace IrrigationAdvisorConsole
                         Radius = 120,
                     };
                     #endregion
+                    #region Pivot 4
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz4
+                                 select pos).FirstOrDefault();
 
+                    var lDCALaPerdizPivot4 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz4,
+                        ShortName = "Pivot 4",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 154,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                    };
+                    #endregion
                     #region Pivot 5
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombDCALaPerdiz
@@ -11193,12 +13002,12 @@ namespace IrrigationAdvisorConsole
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz5
                                  select pos).FirstOrDefault();
 
-                    var lLaPerdizPivot5 = new Pivot
+                    var lDCALaPerdizPivot5 = new Pivot
                     {
                         Name = Utils.NamePivotDCALaPerdiz5,
                         ShortName = "Pivot 5",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
+                        IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 154,
                         BombId = lBomb.BombId,
@@ -11206,7 +13015,195 @@ namespace IrrigationAdvisorConsole
                         Radius = 120,
                     };
                     #endregion
+                    #region Pivot 6
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz6
+                                 select pos).FirstOrDefault();
 
+                    var lDCALaPerdizPivot6 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz6,
+                        ShortName = "Pivot 6",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+                    #region Pivot 7
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz7
+                                 select pos).FirstOrDefault();
+
+                    var lDCALaPerdizPivot7 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz7,
+                        ShortName = "Pivot 7",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+                    #region Pivot 8
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz8
+                                 select pos).FirstOrDefault();
+
+                    var lDCALaPerdizPivot8 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz8,
+                        ShortName = "Pivot 8",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+                    #region Pivot 9
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz9
+                                 select pos).FirstOrDefault();
+
+                    var lDCALaPerdizPivot9 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz9,
+                        ShortName = "Pivot 9",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+                    #region Pivot 10a
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz10a
+                                 select pos).FirstOrDefault();
+
+                    var lDCALaPerdizPivot10a = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz10a,
+                        ShortName = "Pivot 10a",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+                    #region Pivot 10b
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz10b
+                                 select pos).FirstOrDefault();
+
+                    var lDCALaPerdizPivot10b = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz10b,
+                        ShortName = "Pivot 10b",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+                    #region Pivot 11
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz11
+                                 select pos).FirstOrDefault();
+
+                    var lDCALaPerdizPivot11 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz11,
+                        ShortName = "Pivot 11",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+                    #region Pivot 12
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz12
+                                 select pos).FirstOrDefault();
+
+                    var lDCALaPerdizPivot12 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz12,
+                        ShortName = "Pivot 12",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
+                    #region Pivot 13
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz13
+                                 select pos).FirstOrDefault();
+
+                    var lDCALaPerdizPivot13 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz13,
+                        ShortName = "Pivot 13",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
+                    };
+                    #endregion
                     #region Pivot 14
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombDCALaPerdiz
@@ -11215,25 +13212,57 @@ namespace IrrigationAdvisorConsole
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz14
                                  select pos).FirstOrDefault();
 
-                    var lLaPerdizPivot14 = new Pivot
+                    var lDCALaPerdizPivot14 = new Pivot
                     {
                         Name = Utils.NamePivotDCALaPerdiz14,
-                        ShortName = "Pivot 4",
+                        ShortName = "Pivot 14",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
+                        IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 73.8,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
+                        Radius = 37,
+                    };
+                    #endregion
+                    #region Pivot 15
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCALaPerdiz
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCALaPerdiz15
+                                 select pos).FirstOrDefault();
+
+                    var lDCALaPerdizPivot15 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz15,
+                        ShortName = "Pivot 15",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100.6,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 50,
                     };
                     #endregion
 
-                    //context.Pivots.Add(lLaPerdizPivot1);
-                    context.Pivots.Add(lLaPerdizPivot2);
-                    context.Pivots.Add(lLaPerdizPivot3);
-                    context.Pivots.Add(lLaPerdizPivot5);
-                    //context.Pivots.Add(lLaPerdizPivot14);
+                    context.Pivots.Add(lDCALaPerdizPivot1);
+                    context.Pivots.Add(lDCALaPerdizPivot2);
+                    context.Pivots.Add(lDCALaPerdizPivot3);
+                    context.Pivots.Add(lDCALaPerdizPivot4);
+                    context.Pivots.Add(lDCALaPerdizPivot5);
+                    context.Pivots.Add(lDCALaPerdizPivot6);
+                    context.Pivots.Add(lDCALaPerdizPivot7);
+                    context.Pivots.Add(lDCALaPerdizPivot8);
+                    context.Pivots.Add(lDCALaPerdizPivot9);
+                    context.Pivots.Add(lDCALaPerdizPivot10a);
+                    context.Pivots.Add(lDCALaPerdizPivot10b);
+                    context.Pivots.Add(lDCALaPerdizPivot11);
+                    context.Pivots.Add(lDCALaPerdizPivot12);
+                    context.Pivots.Add(lDCALaPerdizPivot13);
+                    context.Pivots.Add(lDCALaPerdizPivot14);
+                    context.Pivots.Add(lDCALaPerdizPivot15);
                     context.SaveChanges();
                 }
             }
@@ -12171,7 +14200,23 @@ namespace IrrigationAdvisorConsole
                 UpdateSoilsBombsIrrigationUnitsUsersFarmSantaLucia();
             }
             if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA)
+            {
+                UpdateSoilsBombsIrrigationUnitsUsersFarmDCAElParaiso();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmDCASanJose();
+                UpdateSoilsBombsIrrigationUnitsUsersFarmDCALaPerdiz();
+            }
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
+            {
+                UpdateSoilsBombsIrrigationUnitsUsersFarmDCAElParaiso();
+            }
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+            {
+                UpdateSoilsBombsIrrigationUnitsUsersFarmDCASanJose();
+            }
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
                 UpdateSoilsBombsIrrigationUnitsUsersFarmDCALaPerdiz();

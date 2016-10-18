@@ -928,7 +928,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotDCALaPerdiz7 = NameFarmDCALaPerdiz + " Pivot 07";
         public static String NamePivotDCALaPerdiz8 = NameFarmDCALaPerdiz + " Pivot 08";
         public static String NamePivotDCALaPerdiz9 = NameFarmDCALaPerdiz + " Pivot 09";
-        public static String NamePivotDCALaPerdiz10 = NameFarmDCALaPerdiz + " Pivot 10";
+        public static String NamePivotDCALaPerdiz10a = NameFarmDCALaPerdiz + " Pivot 10a";
+        public static String NamePivotDCALaPerdiz10b = NameFarmDCALaPerdiz + " Pivot 10b";
         public static String NamePivotDCALaPerdiz11 = NameFarmDCALaPerdiz + " Pivot 11";
         public static String NamePivotDCALaPerdiz12 = NameFarmDCALaPerdiz + " Pivot 12";
         public static String NamePivotDCALaPerdiz13 = NameFarmDCALaPerdiz + " Pivot 13";
@@ -1041,7 +1042,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherDCALaPerdizPivot7 = NamePivotDCALaPerdiz7 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot8 = NamePivotDCALaPerdiz8 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot9 = NamePivotDCALaPerdiz9 + " " + NameSpecieCornSouthShort;
-        public static String NameCropIrrigationWeatherDCALaPerdizPivot10 = NamePivotDCALaPerdiz10 + " " + NameSpecieFescueForageSouthShort;
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot10a = NamePivotDCALaPerdiz10a + " " + NameSpecieFescueForageSouthShort;
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot10b = NamePivotDCALaPerdiz10b + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot11 = NamePivotDCALaPerdiz11 + " " + NameSpecieFescueForageSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot12 = NamePivotDCALaPerdiz12 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot13 = NamePivotDCALaPerdiz13 + " " + NameSpecieCornSouthShort;
@@ -1216,7 +1218,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotDCALaPerdiz7 = NamePivotDCALaPerdiz7;
         public static String NamePositionPivotDCALaPerdiz8 = NamePivotDCALaPerdiz8;
         public static String NamePositionPivotDCALaPerdiz9 = NamePivotDCALaPerdiz9;
-        public static String NamePositionPivotDCALaPerdiz10 = NamePivotDCALaPerdiz10;
+        public static String NamePositionPivotDCALaPerdiz10a = NamePivotDCALaPerdiz10a;
+        public static String NamePositionPivotDCALaPerdiz10b = NamePivotDCALaPerdiz10b;
         public static String NamePositionPivotDCALaPerdiz11 = NamePivotDCALaPerdiz11;
         public static String NamePositionPivotDCALaPerdiz12 = NamePivotDCALaPerdiz12;
         public static String NamePositionPivotDCALaPerdiz13 = NamePivotDCALaPerdiz13;

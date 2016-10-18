@@ -9988,7 +9988,7 @@ namespace IrrigationAdvisorConsole
                      where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotDCALaPerdiz10
+                               where iu.Name == Utils.NamePivotDCALaPerdiz10a
                                select iu).FirstOrDefault();
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
