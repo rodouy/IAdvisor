@@ -714,11 +714,11 @@
     <Content Include="Views\Home\_WeatherPartial.cshtml" />
     <Content Include="Views\Home\_AddPhenology.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
-    <Content Include="Views\Weather\WeatherDatas\Create.cshtml" />
-    <Content Include="Views\Weather\WeatherDatas\Delete.cshtml" />
-    <Content Include="Views\Weather\WeatherDatas\Details.cshtml" />
-    <Content Include="Views\Weather\WeatherDatas\Edit.cshtml" />
-    <Content Include="Views\Weather\WeatherDatas\Index.cshtml" />
+    <Content Include="Views\WeatherDatas\Create.cshtml" />
+    <Content Include="Views\WeatherDatas\Delete.cshtml" />
+    <Content Include="Views\WeatherDatas\Details.cshtml" />
+    <Content Include="Views\WeatherDatas\Edit.cshtml" />
+    <Content Include="Views\WeatherDatas\Index.cshtml" />
     <Content Include="Views\Weather\WeatherInformations\Create.cshtml" />
     <Content Include="Views\Weather\WeatherInformations\Delete.cshtml" />
     <Content Include="Views\Weather\WeatherInformations\Details.cshtml" />

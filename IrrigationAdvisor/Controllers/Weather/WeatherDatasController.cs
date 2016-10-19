@@ -16,11 +16,22 @@ namespace IrrigationAdvisor.Controllers.Weather
     public class WeatherDatasController : Controller
     {
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+        
 
-        // GET: WeatherDatas
-        public ActionResult Index()
+        [HttpGet()]
+        public ActionResult Index(string pStartDateTime, string pEndDateTime)
         {
-            return View(db.WeatherDatas.ToList());
+            DateTime from = Convert.ToDateTime(pStartDateTime);
+            DateTime end = Convert.ToDateTime(pEndDateTime);
+
+            if (pStartDateTime == null && pEndDateTime == null)
+            {
+                return View(db.WeatherDatas.ToList());
+            }
+            else
+            {
+                return View(db.WeatherDatas.Where(w => w.Date >= from && w.Date <= end).ToList());
+            }
         }
 
         // GET: WeatherDatas/Details/5
@@ -49,13 +60,23 @@ namespace IrrigationAdvisor.Controllers.Weather
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WeatherDataId,Date,Temperature,TemperatureMax,TemperatureMin,TemperatureDewPoint,Humidity,HumidityMax,HumidityMin,Barometer,BarometerMax,BarometerMin,SolarRadiation,UVRadiation,RainDay,RainStorm,RainMonth,RainYear,Evapotranspiration,EvapotranspirationMonth,EvapotranspirationYear,WeatherDataType")] WeatherData weatherData)
+        public ActionResult Create([Bind(Include = "WeatherDataId,WeatherStationId,Date,Temperature,TemperatureMax,TemperatureMin,TemperatureDewPoint,Humidity,HumidityMax,HumidityMin,Barometer,BarometerMax,BarometerMin,SolarRadiation,UVRadiation,RainDay,RainStorm,RainMonth,RainYear,Evapotranspiration,EvapotranspirationMonth,EvapotranspirationYear,WeatherDataType")] WeatherData weatherData)
         {
-            if (ModelState.IsValid)
+            
+            try
             {
-                db.WeatherDatas.Add(weatherData);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    weatherData.Temperature = weatherData.TemperatureMax + weatherData.TemperatureMin / 2;
+                    weatherData.WeatherDataInputType = Models.Utilities.Utils.WeatherDataInputType.WebInsert;
+                    db.WeatherDatas.Add(weatherData);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
             }
 
             return View(weatherData);
@@ -81,11 +102,18 @@ namespace IrrigationAdvisor.Controllers.Weather
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WeatherDataId,Date,Temperature,TemperatureMax,TemperatureMin,TemperatureDewPoint,Humidity,HumidityMax,HumidityMin,Barometer,BarometerMax,BarometerMin,SolarRadiation,UVRadiation,RainDay,RainStorm,RainMonth,RainYear,Evapotranspiration,EvapotranspirationMonth,EvapotranspirationYear,WeatherDataType")] WeatherData weatherData)
+        public ActionResult Edit([Bind(Include = "WeatherDataId,WeatherStationId,Date,Temperature,TemperatureMax,TemperatureMin,TemperatureDewPoint,Humidity,HumidityMax,HumidityMin,Barometer,BarometerMax,BarometerMin,SolarRadiation,UVRadiation,RainDay,RainStorm,RainMonth,RainYear,Evapotranspiration,EvapotranspirationMonth,EvapotranspirationYear,WeatherDataType")] WeatherData weatherData)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(weatherData).State = EntityState.Modified;
+                WeatherData updatedWeatherData = db.WeatherDatas.Find(weatherData.WeatherDataId);
+
+                updatedWeatherData.WeatherDataInputType = Models.Utilities.Utils.WeatherDataInputType.WebInsert;
+                updatedWeatherData.Temperature = weatherData.TemperatureMin + weatherData.TemperatureMax / 2;
+                updatedWeatherData.TemperatureMin = weatherData.TemperatureMin;
+                updatedWeatherData.TemperatureMax = weatherData.TemperatureMax;
+                updatedWeatherData.Evapotranspiration = weatherData.Evapotranspiration;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -120,11 +148,11 @@ namespace IrrigationAdvisor.Controllers.Weather
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            //if (disposing)
+            //{
+            //    db.Dispose();
+            //}
+            //base.Dispose(disposing);
         }
     }
 }
