@@ -74,7 +74,10 @@ namespace IrrigationAdvisor.Controllers
 
             if (String.IsNullOrEmpty(lcurrentFarmViaUrl))
             {
-                lCurrentFarm = pFarmList.FirstOrDefault();
+                lCurrentFarm = pFarmList
+                                    .Where(f => f.BombList.Count > 0
+                                        && f.IrrigationUnitList.Count > 0)
+                                    .FirstOrDefault();
             }
             else
             {
@@ -82,7 +85,10 @@ namespace IrrigationAdvisor.Controllers
                 lCurrentFarm = pFarmList.Single(f => f.FarmId == lFarmId);
                 if(lCurrentFarm == null)
                 {
-                    lCurrentFarm = pFarmList.FirstOrDefault();
+                    lCurrentFarm = pFarmList
+                                    .Where(f => f.BombList.Count > 0
+                                        && f.IrrigationUnitList.Count > 0)
+                                    .FirstOrDefault();
                 }
             }
 
@@ -216,7 +222,10 @@ namespace IrrigationAdvisor.Controllers
                     lBombList = lFarm.BombList;
                     lIrrigationUnitList = lFarm.IrrigationUnitList;
                     lFarmViewModel = new FarmViewModel(lFarm);
-                    lFarmViewModelList.Add(lFarmViewModel);
+                    if (lBombList.Count > 0 && lIrrigationUnitList.Count > 0)
+                    {
+                        lFarmViewModelList.Add(lFarmViewModel);
+                    }
                 }
                 #endregion
 
@@ -1636,7 +1645,7 @@ namespace IrrigationAdvisor.Controllers
             catch (Exception ex)
             {
                 logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                throw;
+                throw ex;
             }
 
             return lReturn;

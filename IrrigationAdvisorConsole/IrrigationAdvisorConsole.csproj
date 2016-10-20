@@ -130,6 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataEntry.cs" />
+    <Compile Include="Data\DataEntry2015.cs" />
+    <Compile Include="Data\DataEntryDataTemperatures.cs" />
+    <Compile Include="Data\DataEntryWeatherData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -98,6 +98,9 @@ namespace IrrigationAdvisor.Models.Data
         //2015-02-12 DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_BIG_WATER_INPUT Change from 2 to 5 
         public const double DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_BIG_WATER_INPUT = 5;
 
+        //2016-10-19 MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT
+        public const double MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT = 3;
+
         public const double DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_SOWING = 5;
 
         public const double PERCENTAGE_LIMIT_OF_AVAILABLE_WATER_CAPACITY = 0.10;

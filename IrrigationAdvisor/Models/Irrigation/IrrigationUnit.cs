@@ -51,6 +51,7 @@ namespace IrrigationAdvisor.Models.Irrigation
         private long bombId;
         private long positionId;
         private Double predeterminatedIrrigationQuantity;
+        private bool show;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -125,6 +126,12 @@ namespace IrrigationAdvisor.Models.Irrigation
             set { predeterminatedIrrigationQuantity = value; }
         }
 
+        public bool Show
+        {
+            get { return show; }
+            set { show = value; }
+        }
+
         #endregion
 
         #region Construction
@@ -144,6 +151,7 @@ namespace IrrigationAdvisor.Models.Irrigation
             this.BombId = 0;
             this.PositionId = 0;
             this.PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+            this.Show = false;
         }
         
         /// <summary>
@@ -174,6 +182,7 @@ namespace IrrigationAdvisor.Models.Irrigation
             this.BombId = pBombId;
             this.PositionId = pPositionId;
             this.PredeterminatedIrrigationQuantity = pPredeterminatedIrrigationQuantity;
+            this.Show = false;
         }
 
         #endregion

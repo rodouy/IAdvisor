@@ -291,6 +291,10 @@
     <Compile Include="Migrations\201610160158463_AddWeatherEventType.Designer.cs">
       <DependentUpon>201610160158463_AddWeatherEventType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.cs" />
+    <Compile Include="Migrations\201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.Designer.cs">
+      <DependentUpon>201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -856,6 +860,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610160158463_AddWeatherEventType.resx">
       <DependentUpon>201610160158463_AddWeatherEventType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.resx">
+      <DependentUpon>201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

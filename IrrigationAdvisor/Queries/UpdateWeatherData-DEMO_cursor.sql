@@ -59,7 +59,7 @@ DECLARE UpdateWeatherData_cursor CURSOR FOR
       ,WD.[Observations]
       ,WD.[WindSpeed]
       ,WD.[WeatherDataInputType]
-  FROM [IrrigationAdvisor].[dbo].[WeatherData-PROD] AS WD
+  FROM [IrrigationAdvisor].[dbo].[WeatherData] AS WD
   WHERE wd.Date >= '2016-09-01'
   ORDER BY WD.Date
     --WHERE EXISTS
@@ -104,7 +104,7 @@ BEGIN
 				SELECT WD.[WeatherDataId]
 					  ,WD.[WeatherStationId]
 					  ,WD.[Date]
-					  ,WD.[Observations]
+					  ,RTRIM(LTRIM(WD.[Observations])) as obs
 					  ,WD.[WindSpeed]
 					  ,WD.[WeatherDataInputType]
 				  FROM [IrrigationAdvisor-DEMO].[dbo].[WeatherData] AS WD
