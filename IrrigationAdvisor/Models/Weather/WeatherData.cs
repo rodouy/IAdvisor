@@ -614,11 +614,12 @@ namespace IrrigationAdvisor.Models.Weather
         public override bool Equals(object obj)
         {
             bool lReturn = false;
-            if (obj == null || obj.GetType() != this.GetType())
+
+            WeatherData lWeatherData = obj as WeatherData;
+            if (lWeatherData == null)
             {
                 return lReturn;
             }
-            WeatherData lWeatherData = obj as WeatherData;
             lReturn = lWeatherData.WeatherStationId == this.WeatherStationId
                 && Utils.IsTheSameDay(lWeatherData.Date, this.Date);
             return lReturn;

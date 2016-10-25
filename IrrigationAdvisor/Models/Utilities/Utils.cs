@@ -798,7 +798,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilDCALaPerdiz7 = NameFarmDCALaPerdiz + " Pivot 07";
         public static String NameSoilDCALaPerdiz8 = NameFarmDCALaPerdiz + " Pivot 08";
         public static String NameSoilDCALaPerdiz9 = NameFarmDCALaPerdiz + " Pivot 09";
-        public static String NameSoilDCALaPerdiz10 = NameFarmDCALaPerdiz + " Pivot 10";
+        public static String NameSoilDCALaPerdiz10a = NameFarmDCALaPerdiz + " Pivot 10a";
+        public static String NameSoilDCALaPerdiz10b = NameFarmDCALaPerdiz + " Pivot 10b";
         public static String NameSoilDCALaPerdiz11 = NameFarmDCALaPerdiz + " Pivot 11";
         public static String NameSoilDCALaPerdiz12 = NameFarmDCALaPerdiz + " Pivot 12";
         public static String NameSoilDCALaPerdiz13 = NameFarmDCALaPerdiz + " Pivot 13";
