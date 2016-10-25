@@ -5,6 +5,7 @@ using System.Web;
 
 using IrrigationAdvisor.Models.Utilities;
 using NLog;
+using System.ComponentModel.DataAnnotations;
 
 namespace IrrigationAdvisor.Models.Weather
 {
@@ -91,6 +92,7 @@ namespace IrrigationAdvisor.Models.Weather
 
         private long weatherDataId;
         private long weatherStationId;
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         private DateTime date;
         private Double temperature;
         private Double temperatureMax;

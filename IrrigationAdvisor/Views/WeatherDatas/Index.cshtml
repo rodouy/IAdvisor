@@ -5,14 +5,47 @@
     //Layout = "Weather";
 }
 <script>
+
+
     $(document).ready(function () {
 
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+
+        
         var dateFrom = $('#dateFrom');
         var dateTo = $('#dateTo');
         var btnSearch = $('#btnSearch');
+        var today = moment().year() + '-' + (moment().month() + 1) + '-' + moment().date();
+        //yyyy-MM-dd
 
-        $('#dateFrom').val(new Date());
-        $('#dateTo').val(new Date());
+        var startDate = getUrlParameter('pStartDateTime');
+        var endDate = getUrlParameter('pEndDateTime');
+
+        if (startDate && endDate)
+        {
+            $('#dateFrom').val(startDate);
+            $('#dateTo').val(endDate);
+        }
+        else
+        {
+            $('#dateFrom').val(today);
+            $('#dateTo').val(today);
+        }
+        
 
         btnSearch.click(function ()
         {

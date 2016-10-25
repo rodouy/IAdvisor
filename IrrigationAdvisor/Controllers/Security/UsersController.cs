@@ -231,11 +231,11 @@ namespace IrrigationAdvisor.Controllers.Security
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            //if (disposing)
+            //{
+            //    db.Dispose();
+            //}
+            //base.Dispose(disposing);
         }
     }
 }

@@ -23,10 +23,11 @@ namespace IrrigationAdvisor.Controllers.Weather
         {
             DateTime from = Convert.ToDateTime(pStartDateTime);
             DateTime end = Convert.ToDateTime(pEndDateTime);
+            DateTime now = DateTime.Now;
 
             if (pStartDateTime == null && pEndDateTime == null)
             {
-                return View(db.WeatherDatas.ToList());
+                return View(db.WeatherDatas.Where(w => w.Date.Year == now.Year && w.Date.Month == now.Month && w.Date.Day == now.Day).ToList());
             }
             else
             {
@@ -112,8 +113,9 @@ namespace IrrigationAdvisor.Controllers.Weather
                 updatedWeatherData.Temperature = weatherData.TemperatureMin + weatherData.TemperatureMax / 2;
                 updatedWeatherData.TemperatureMin = weatherData.TemperatureMin;
                 updatedWeatherData.TemperatureMax = weatherData.TemperatureMax;
+                updatedWeatherData.WeatherStationId = weatherData.WeatherStationId;
                 updatedWeatherData.Evapotranspiration = weatherData.Evapotranspiration;
-
+                updatedWeatherData.Date = weatherData.Date;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -1,17 +1,18 @@
 ﻿@model IrrigationAdvisor.Models.Weather.WeatherData
+@using IrrigationAdvisor.DBContext;
 
 @{
     ViewBag.Title = "Edit";
     //Layout = "Weather";
 }
-<link rel="stylesheet" type="text/css" href="../../css/library/bootstrap.min.css">
-<link rel="stylesheet" href="~/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/style.css">
-<link rel="stylesheet" type="text/css" href="../../css/md-font.css">
-<link rel="stylesheet" type="text/css" href="../../css/flatWeather-index.css">
-<link rel="stylesheet" type="text/css" href="../../css/slippry.css">
-<script type="text/javascript" src="../../js/library/jquery-2.1.1.min.js"></script>
-<link href="~/css/shared.css" rel="stylesheet" />
+@*<link rel="stylesheet" type="text/css" href="../../../css/library/bootstrap.min.css">
+<link rel="stylesheet" href="../../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../css/style.css">
+<link rel="stylesheet" type="text/css" href="../../../css/md-font.css">
+<link rel="stylesheet" type="text/css" href="../../../css/flatWeather-index.css">
+<link rel="stylesheet" type="text/css" href="../../../css/slippry.css">
+<script type="text/javascript" src="../../../js/library/jquery-2.1.1.min.js"></script>
+<link href="../../../css/shared.css" rel="stylesheet" />*@
 
 <h2>Edit</h2>
 
@@ -28,12 +29,32 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @type = "date", @Value = @Model.Date.ToString("yyyy-MM-dd") } })
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
+        @{
 
+            IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
+            var weatherStations = (from ws in db.WeatherStations
+                                   select new SelectListItem()
+                                   {
+                                       Selected = Model.WeatherStationId == ws.WeatherStationId,
+                                       Value = ws.WeatherStationId.ToString(),
+                                       Text = ws.Name
+
+                                   }).ToList();
+
+        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.WeatherStationId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.WeatherStationId, weatherStations, "-- Select Weather Station --")
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
         @*<div class="form-group">
             @Html.LabelFor(model => model.Temperature, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -44,7 +65,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.TemperatureMax, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-6">
                 @Html.EditorFor(model => model.TemperatureMax, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TemperatureMax, "", new { @class = "text-danger" })
             </div>
@@ -52,7 +73,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.TemperatureMin, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-6">
                 @Html.EditorFor(model => model.TemperatureMin, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TemperatureMin, "", new { @class = "text-danger" })
             </div>
@@ -164,7 +185,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Evapotranspiration, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-6">
                 @Html.EditorFor(model => model.Evapotranspiration, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Evapotranspiration, "", new { @class = "text-danger" })
             </div>
@@ -206,13 +227,13 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-<script type="text/javascript" src="../../js/library/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.owl.carousel.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.appear.min.js"></script>
-<script type="text/javascript" src="../../js/library/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="../../css/slippry.min.js"></script>
-<script type="text/javascript" src="../../js/scripts.js"></script>
+@*<script type="text/javascript" src="../../../js/library/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../../js/library/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../js/library/jquery.owl.carousel.js"></script>
+<script type="text/javascript" src="../../../js/library/jquery.appear.min.js"></script>
+<script type="text/javascript" src="../../../js/library/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="../../../css/slippry.min.js"></script>
+<script type="text/javascript" src="../../../js/scripts.js"></script>*@
 
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
