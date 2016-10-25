@@ -118,6 +118,9 @@ namespace IrrigationAdvisor.Models.Management
         private DateTime harvestDate;
         private DateTime cropDate;
         private DateTime startAdvisorDate;
+        //2016-10-19
+        //DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_SOWING
+        private int daysForHydricBalanceUnchangableAfterSowing;
 
         #endregion
 
@@ -284,6 +287,12 @@ namespace IrrigationAdvisor.Models.Management
           set { startAdvisorDate = value; }
         }
 
+        public int DaysForHydricBalanceUnchangableAfterSowing
+        {
+            get { return daysForHydricBalanceUnchangableAfterSowing; }
+            set { daysForHydricBalanceUnchangableAfterSowing = value; }
+        }
+        
         #endregion
 
         #region Crop State
@@ -674,6 +683,8 @@ namespace IrrigationAdvisor.Models.Management
             this.HarvestDate = Utils.MIN_DATETIME;
             this.CropDate = Utils.MIN_DATETIME;
             this.StartAdvisorDate = Utils.MIN_DATETIME;
+
+            this.DaysForHydricBalanceUnchangableAfterSowing = 0;
             #endregion
 
             #region Crop State
@@ -793,6 +804,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pDailyRecords"></param>
         public CropIrrigationWeather(long pCropIrrigationWeatherId, String pCropIrrigationWeatherName, long pCropId, long pSoilId, 
                                 DateTime pSowingDate, DateTime pHarvestDate, DateTime pCropDate, DateTime pStartAdvisorDate,
+                                int pDaysForHydricBalanceUnchangableAfterSowing,
                                 long pPhenologicalStageId, Double pHydricBalance, Double pSoilHydricVolume,
                                 Double pTotalEvapotranspirationCropFromLastWaterInput,
                                 List<PhenologicalStageAdjustment> pPhenologicalStageAdjustmentList,
@@ -817,6 +829,7 @@ namespace IrrigationAdvisor.Models.Management
             this.HarvestDate = pHarvestDate;
             this.CropDate = pCropDate;
             this.StartAdvisorDate = pStartAdvisorDate;
+            this.DaysForHydricBalanceUnchangableAfterSowing = pDaysForHydricBalanceUnchangableAfterSowing;
 
             this.PhenologicalStageId = pPhenologicalStageId;
             this.HydricBalance = pHydricBalance;
@@ -1073,7 +1086,7 @@ namespace IrrigationAdvisor.Models.Management
                     this.TotalEvapotranspirationCropFromLastWaterInput = 0;
                     this.LastWaterInputDate = pDailyRecord.DailyRecordDateTime;
                 }
-                // If two "partial" water inputs, between 3 days, are bigger than 10 mm then set the last water output
+                // If two "partial" water inputs, between 3 days, are bigger than 5 mm then set the last water output
                 else if (lDaysBetweenRains <= InitialTables.DAYS_BETWEEN_TWO_PARTIAL_BIG_WATER_INPUT)
                 {
                     if (lEffectiveRain + this.LastPartialWaterInput > InitialTables.CONSIDER_WATER_TO_INITIALIZE_ETC_ACUMULATED)
@@ -1094,8 +1107,12 @@ namespace IrrigationAdvisor.Models.Management
                 // If the HydricBalance is bigger than the FieldCapacity set the HydricBalance as de FieldCapacity and take off the lRainItem not used -> total lRainItem
                 if (this.HydricBalance >= pFieldCapacity)
                 {
-                    //We have to save the date to keep the hydric balance unchangable
-                    this.LastBigWaterInputDate = pDailyRecord.DailyRecordDateTime;
+                    //Rains higher than 3 mm do consider as BigWaterInput
+                    if (lRealRain > InitialTables.MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT)
+                    {
+                        //We have to save the date to keep the hydric balance unchangable
+                        this.LastBigWaterInputDate = pDailyRecord.DailyRecordDateTime;
+                    }
 
                     //Take off the Rain not used in Total Effective Rain 
                     //because (HydricBalanc + Rain) is bigger than FieldCapacity
@@ -1294,7 +1311,9 @@ namespace IrrigationAdvisor.Models.Management
             }
 
             //The first days after sowing, hydric balance is maintained at field capacity
-            if (lDayAfterSowing <= InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_SOWING)
+            //2016-10-20 InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_SOWING is not used anymore
+            //Now is a property of CropIrrigationUnit
+            if (lDayAfterSowing <= this.DaysForHydricBalanceUnchangableAfterSowing)
             {
                 this.HydricBalance = lFieldCapacity;
             }

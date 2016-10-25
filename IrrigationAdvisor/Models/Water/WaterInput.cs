@@ -110,9 +110,9 @@ namespace IrrigationAdvisor.Models.Water
         public WaterInput()
         {
             this.WaterInputId = 0;
-            this.Date = DateTime.Now;
+            this.Date = Utilities.Utils.MIN_DATETIME;
             this.Input = 0;
-            this.ExtraDate = DateTime.Now;
+            this.ExtraDate = Utilities.Utils.MIN_DATETIME;
             this.ExtraInput = 0;
             this.CropIrrigationWeatherId = 0;
         }

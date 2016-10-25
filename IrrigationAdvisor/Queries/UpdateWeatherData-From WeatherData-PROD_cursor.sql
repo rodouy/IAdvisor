@@ -1,6 +1,6 @@
 
 
-USE [IrrigationAdvisor-DEMO];
+USE [IrrigationAdvisor];
 GO
 SET NOCOUNT ON
 DECLARE 
@@ -59,7 +59,7 @@ DECLARE UpdateWeatherData_cursor CURSOR FOR
       ,WD.[Observations]
       ,WD.[WindSpeed]
       ,WD.[WeatherDataInputType]
-  FROM [IrrigationAdvisor].[dbo].[WeatherData] AS WD
+  FROM [IrrigationAdvisor].[dbo].[WeatherData-PROD] AS WD
   WHERE wd.Date >= '2016-09-01'
   ORDER BY WD.Date
     --WHERE EXISTS
@@ -94,7 +94,7 @@ BEGIN
       @Observations, @WindSpeed, @WeatherDataInputType
     
     IF((SELECT COUNT(1)
-		FROM [IrrigationAdvisor-DEMO].[dbo].[WeatherData] 
+		FROM [IrrigationAdvisor].[dbo].[WeatherData] 
 		WHERE --WeatherStationId = @WeatherDataId AND
 			 WeatherStationId = @WeatherStationId AND
 			 DAY(Date) = DAY(@Date) AND
@@ -107,7 +107,7 @@ BEGIN
 					  ,RTRIM(LTRIM(WD.[Observations])) as obs
 					  ,WD.[WindSpeed]
 					  ,WD.[WeatherDataInputType]
-				  FROM [IrrigationAdvisor-DEMO].[dbo].[WeatherData] AS WD
+				  FROM [IrrigationAdvisor].[dbo].[WeatherData-PROD] AS WD
 					WHERE --WeatherStationId = @WeatherDataId AND
 						 WeatherStationId = @WeatherStationId AND
 						 DAY(Date) = DAY(@Date) AND
@@ -134,9 +134,9 @@ BEGIN
 	BEGIN
 		
 		SELECT @WeatherDataId = (MAX(WeatherDataId) + 1)
-		FROM [IrrigationAdvisor-DEMO].[dbo].[WeatherData] 
+		FROM [IrrigationAdvisor].[dbo].[WeatherData] 
 		
-			INSERT INTO [IrrigationAdvisor-DEMO].[dbo].[WeatherData] 
+			INSERT INTO [IrrigationAdvisor].[dbo].[WeatherData] 
 			(WeatherStationId, Date, Temperature, TemperatureMax,
 			TemperatureMin, TemperatureDewPoint, Humidity, HumidityMax, HumidityMin,
 			Barometer, BarometerMax, BarometerMin, SolarRadiation, UVRadiation,
