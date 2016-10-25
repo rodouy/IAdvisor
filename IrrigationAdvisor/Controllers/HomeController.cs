@@ -188,7 +188,7 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Get list of Farms from User
                 lFarmList = fc.GetFarmListBy(lLoggedUser);
-
+                lFarmList = new List<Farm>();
                 // If the user doesnt have farms
                 if (lFarmList.Count == 0)
                 {

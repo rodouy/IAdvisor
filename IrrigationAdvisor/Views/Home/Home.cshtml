@@ -221,16 +221,15 @@
             <!-- end Location pivots-->
             
         </div>
-    
+
             }
             else
             {
                 Html.RenderPartial("~/Views/Errors/_Error.cshtml", Model.ErrorViewModel);
-
             }
 }
-      
-      
+
+
         <div class="row">
             <div class="col-md-12">
                 <!-- modal agregar riego--->
@@ -265,15 +264,21 @@
                                             <div class="dropdown">
                                                 Seleccionar pivot
                                                 <select id="IrrigationUnitIrrigation" class="form-control">
-                                                    <option value="-1">Todos</option>
-                                                    @foreach (var item in Model.IrrigationUnitViewModelList)
-                                                    {
-                                                        <option value="@item.IrrigationUnitId">@item.Name</option>
+                                                    @{ if(Model.IrrigationUnitViewModelList != null)
+                                                        {
+                                                            <option value="-1">Todos</option>
+                                                            foreach (var item in Model.IrrigationUnitViewModelList)
+                                                            {
+                                                                <option value="@item.IrrigationUnitId">@item.Name</option>
 
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            Html.RenderPartial("~/Views/Errors/_Error.cshtml", Model.ErrorViewModel);
+                                                        }
                                                     }
                                                 </select>
-
-
                                                 <br />
                                             </div>
 
@@ -303,11 +308,6 @@
                                         <span id="rainMilimetersError" class="red-color"></span>
                                         <br />
                                         <div class="dropdown">
-                                            @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                Seleccionar Día
-                                                <span class="caret"></span>
-                                                </button>
-                                            *@
                                             Seleccionar Día
                                             <select id="rainDate" class="form-control">
                                                 <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
@@ -410,7 +410,9 @@
             
             
         </div>
-    </div>
+
+
+                </div>
         </div>
     
 </section>
