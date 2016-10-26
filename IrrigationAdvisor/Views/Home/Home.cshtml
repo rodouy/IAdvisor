@@ -1,7 +1,9 @@
 ﻿@model IrrigationAdvisor.ViewModels.Home.HomeViewModel
 @using IrrigationAdvisor.Models.Utilities
+@using NLog
 @{
     ViewBag.Title = "Home Page";
+    Logger logger = LogManager.GetCurrentClassLogger();
 }
 <link rel="stylesheet" type="text/css" href="../css/flatWeatherPlugin.css">
 <link rel="stylesheet" type="text/css" href="../css/modal.css">
@@ -76,7 +78,32 @@
             <div class="avatar-acount">
                 <div class="info-acount">
                     <h3 class="fa fa-dashboard fa-2x"> Pivots </h3>
+                    <div>
+                        <div class="col-md-7">
+                            @{
+                                if (Model.IrrigationUnitViewModelList == null)
+                                {
+                                    <div class="alert alert-danger fade in">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong>La lista de pivots es nula. Contacte a su administrador.</strong>
+                                    </div>
+                                    logger.Error("La lista de pivots es nula. Contacte a su administrador.");
+                                }
 
+                                if (Model.CropIrrigationWeatherViewModelList == null)
+                                {
+                                    <div class="alert alert-danger fade in">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong>La relación cultivo pivot clima es nula. Contacte a su administrador.</strong>
+                                    </div>
+                                    logger.Error("La relación cultivo pivot clima es nula. Contacte a su administrador.");
+                                }
+
+                            }
+                            
+                            
+                        </div>
+                    </div>
                     <div class="">
 
                         
@@ -221,16 +248,15 @@
             <!-- end Location pivots-->
             
         </div>
-    
+
             }
             else
             {
                 Html.RenderPartial("~/Views/Errors/_Error.cshtml", Model.ErrorViewModel);
-
             }
 }
-      
-      
+
+
         <div class="row">
             <div class="col-md-12">
                     <!-- modal agregar riego--->
@@ -244,7 +270,9 @@
                                     <p>  </p>
                                     <form role="form" id="irrigationForm">
                                         <div class="form-group">
-                                            <input type="number" placeholder="Ingrese el riego en 'mm'" class="form-control" id="irrigationMilimeters" name="irrigationMilimeters" min="0" max="100">
+                                            
+                                            <input type="number" placeholder="Ingrese el riego en 'mm'" class="form-control" id="irrigationMilimeters" name="irrigationMilimeters" min="0" max="100" @if (Model.IrrigationUnitViewModelList == null) {<text>disabled</text>}/>
+
                                             <span id="irrigationMilimetersError" class="red-color"></span>
                                             <br />
                                             <div class="dropdown">
@@ -263,16 +291,25 @@
                                             <br />
                                             <div class="dropdown">
                                                 Seleccionar pivot
-                                                <select id="IrrigationUnitIrrigation" class="form-control">
-                                                    <option value="-1">Todos</option>
-                                                    @foreach (var item in Model.IrrigationUnitViewModelList)
+                                                
+                                                @{ if (Model.IrrigationUnitViewModelList != null)
                                                     {
-                                                        <option value="@item.IrrigationUnitId">@item.Name</option>
+                                                        <select id="IrrigationUnitIrrigation" class="form-control">
+                                                            <option value="-1">Todos</option>
+                                                            @foreach (var item in Model.IrrigationUnitViewModelList)
+                                                            {
+                                                                <option value="@item.IrrigationUnitId">@item.Name</option>
 
+                                                            }
+
+                                                        </select>
                                                     }
-                                                </select>
-
-
+                                                    else
+                                                    {
+                                                        <span class="text-danger disable-save-button">La lista de pivots esta vacía</span>
+                                                    }
+                                                }
+                                                
                                                 <br />
                                             </div>
 
@@ -299,15 +336,12 @@
                                     <p>  </p>
 
                                     <div class="form-group">
-                                        <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain" min="0" max="999">
+                                          
+                                        <input type="number" placeholder="Ingrese la lluvia en 'mm'" class="form-control" id="rain" min="0" max="999"  @if (Model.IrrigationUnitViewModelList == null) {<text>disabled</text>}/>
+                                            
                                         <span id="rainMilimetersError" class="red-color"></span>
                                         <br />
                                         <div class="dropdown">
-                                            @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                Seleccionar Día
-                                                <span class="caret"></span>
-                                                </button>
-                                            *@
                                             Seleccionar Día
                                             <select id="rainDate" class="form-control">
                                                 <option value="@(dateValue.AddDays(-1).Month + "/" + dateValue.AddDays(-1).Day + "/" + dateValue.AddDays(-1).Year)">@(dateValue.AddDays(-1).ToShortDateString())</option>
@@ -321,15 +355,23 @@
                                         <br />
                                         <div class="dropdown">
                                             Seleccionar Unidad de Riego
-                                            <select id="IrrigationUnit" class="form-control">
-                                                <option value="-1">Todos</option>
-                                                @foreach (var item in Model.IrrigationUnitViewModelList)
-                                                {
-                                                    <option value="@item.IrrigationUnitId">@item.Name</option>
+                                                @{ if (Model.IrrigationUnitViewModelList != null)
+                                                    {
+                                                        <select id="IrrigationUnit" class="form-control">
+                                                            <option value="-1">Todos</option>
+                                                            @foreach (var item in Model.IrrigationUnitViewModelList)
+                                                            {
+                                                                <option value="@item.IrrigationUnitId">@item.Name</option>
+
+                                                            }
+                                                        </select>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-danger disable-save-button">La lista de pivots esta vacía</span>
+                                                    }
 
                                                 }
-                                            </select>
-
                                             <br />
                                         </div>
 
@@ -377,14 +419,23 @@
                                             </div>
                                             <br />
                                             <div class="dropdown">
-                                                Contexto de cosecha
-                                                <select id="CropIrriWeatherPheno" class="form-control">
-                                                    @foreach (var item in Model.CropIrrigationWeatherViewModelList)
-                                                    {
-                                                        <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
-                                                    }
-                                                </select>
+                                                Contexto de cosecha: 
 
+                                                @{ if (Model.CropIrrigationWeatherViewModelList != null)
+                                                    {
+                                                        <select id="CropIrriWeatherPheno" class="form-control">
+
+                                                            @foreach (var item in Model.CropIrrigationWeatherViewModelList)
+                                                            {
+                                                                <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
+                                                            }
+                                                        </select>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-danger disable-save-button">La relación Cultivo Pivot y clima esta vacía</span>
+                                                    }
+                                                }
                                                 <br />
                                             </div>
                                             <br />
@@ -399,8 +450,8 @@
                                     </form>
                                 </div>
                                 <div class="cf footer">
-                                    <p> <button class="btn  btn-style-2" id="CancelPheno">Cancelar</button></p>
-                                    <button class="btn btn-success" id="savePhenoBtn">Guardar</button>
+                                     <p> <button class="btn  btn-style-2" id="CancelPheno">Cancelar</button></p>
+                                    <button class="btn btn-success" id="savePhenoBtn" @if (Model.CropIrrigationWeatherViewModelList == null) {<text>disabled</text>}>Guardar</button>
                                 </div>
                             </div>
                         </div>
@@ -411,7 +462,7 @@
             
             
         </div>
-    </div>
+                </div>
         </div>
     
 </section>

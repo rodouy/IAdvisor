@@ -260,16 +260,7 @@ namespace GetWeatherInfoService
                             logger.Warn(ex, "Falló al levantar levantar valores opcionales. Pero se guardó el registro.");
                             //silent catch
                         }
-
-                        // Check if exists a record predicted
-                        WeatherData predicatedWeatherData = context.WeatherDatas.
-                                                            Where(w =>
-                                                            w.WeatherStationId == weatherStation.WeatherStationId &&
-                                                            w.Date.Year == DateTime.Now.Year 
-                                                            && w.Date.Month == DateTime.Now.Month
-                                                            && w.Date.Day == DateTime.Now.Day &&
-                                                            w.WeatherDataInputType == (int)Enums.WeatherDataInputType.Prediction).FirstOrDefault();
-
+                        
                         // Search if the station exists
                         WeatherData existingWeatherData = context.WeatherDatas.Where(w => w.WeatherStationId == weatherStation.WeatherStationId &&
                                                                                      w.Date.Year == DateTime.Now.Year
@@ -320,11 +311,11 @@ namespace GetWeatherInfoService
                             MailLines(weatherDataDTO, emailLog);
         
                         }
-                        else if (predicatedWeatherData != null)
+                        else if (existingWeatherData != null && existingWeatherData.WeatherDataInputType == (int)Enums.WeatherDataInputType.Prediction)
                         {
                             logger.Info("Existe un record de WeatherData como pronosticado. Se va a reemplazar por el valor de Weather Link. WeatherSatationId: {0}", weatherStation.WeatherStationId);
 
-                            UpdateAllWeatherDataRecord(predicatedWeatherData, weatherDataDTO, currentConditionsAsDate, weatherStation.WeatherStationId, emailLog);
+                            UpdateAllWeatherDataRecord(existingWeatherData, weatherDataDTO, currentConditionsAsDate, weatherStation.WeatherStationId, emailLog);
                         }
                         else if (existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate && Validations(currentConditionsAsDate))
                         {

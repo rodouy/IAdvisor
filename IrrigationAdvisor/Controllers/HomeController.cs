@@ -194,7 +194,7 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Get list of Farms from User
                 lFarmList = fc.GetFarmListBy(lLoggedUser);
-
+                
                 // If the user doesnt have farms
                 if (lFarmList.Count == 0)
                 {
@@ -285,16 +285,11 @@ namespace IrrigationAdvisor.Controllers
                 //Create View Model of Home
                 //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
                 lHVM.DateOfReference = lDateOfReference;
-
-                #region ViewBags
-
+                
                 //TODO: Change when implement multiple farms
                 lHVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
                 ViewBag.SpecieId = lFirstCropIrrigationWeather.Crop.SpecieId;
-
-                #endregion
-
-
+                
                 ManageSession.SetHomeViewModel(lHVM);
 
                 return View(lHVM);
@@ -841,6 +836,7 @@ namespace IrrigationAdvisor.Controllers
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
                 ManageSession.SetNavigationDate(lReferenceDate);
+
             }
             catch (Exception ex)
             {
