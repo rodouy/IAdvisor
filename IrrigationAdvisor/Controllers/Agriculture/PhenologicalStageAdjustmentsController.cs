@@ -20,7 +20,10 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // GET: PhenologicalStageAdjustments
         public ActionResult Index()
         {
-            var phenologicalStageAdjustments = db.PhenologicalStageAdjustments.Include(p => p.Crop).Include(p => p.PhenologicalStage).Include(p => p.Stage);
+            var phenologicalStageAdjustments = db.PhenologicalStageAdjustments
+                                                    .Include(p => p.Crop)
+                                                    .Include(p => p.PhenologicalStage)
+                                                    .Include(p => p.Stage);
             return View(phenologicalStageAdjustments.ToList());
         }
 
