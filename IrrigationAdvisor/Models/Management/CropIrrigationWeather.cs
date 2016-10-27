@@ -78,11 +78,15 @@ namespace IrrigationAdvisor.Models.Management
         #region Fields
         /// <summary>
         /// The fields are:
-        ///     - cropId: long
-        ///     - soilId: long
-        ///     - sowingDate: DateTime
-        ///     - harvestDate: DateTime
-        ///     - cropDate: DateTime
+        ///     - cropIrrigationWeatherId                                   long
+        ///     - cropIrrigationWeatherName                                 String
+        ///     - cropId                                                    long
+        ///     - soilId                                                    long
+        ///     - sowingDate                                                DateTime
+        ///     - harvestDate                                               DateTime
+        ///     - cropDate                                                  DateTime
+        ///     - startAdvisorDate                                          DateTime
+        ///     - daysForHydricBalanceUnchangableAfterSowing                int
         ///     - phenologicalStageId: long
         ///     - hydricBalance: Double
         ///     - soilHydricVolume: Double
@@ -122,6 +126,10 @@ namespace IrrigationAdvisor.Models.Management
         //DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_SOWING
         private int daysForHydricBalanceUnchangableAfterSowing;
 
+        private List<DateTime> cutoffDateList;
+        private List<DateTime> continueDateList;
+        private Utils.CropIrrigationWeatherStatus cropStatus;
+
         #endregion
 
         #region Crop State
@@ -143,6 +151,17 @@ namespace IrrigationAdvisor.Models.Management
         private Double growingDegreeDaysAccumulated;
         private Double growingDegreeDaysModified;
         
+        #endregion
+
+        #region Calculus of Dry Matter per Hectare
+
+        private int ageOfCrop;
+        private Utils.Season seasonOfCrop;
+        private int dayAfterSeasonStart; //date of reference
+        private Double rateOfDryMatterPerHectareByDay;
+        private Double dryMatterPerHectare;
+        private Double dryMatterPerHectareModified;
+
         #endregion
 
         #endregion
@@ -292,7 +311,25 @@ namespace IrrigationAdvisor.Models.Management
             get { return daysForHydricBalanceUnchangableAfterSowing; }
             set { daysForHydricBalanceUnchangableAfterSowing = value; }
         }
-        
+
+        public List<DateTime> CutoffDateList
+        {
+            get { return cutoffDateList; }
+            set { cutoffDateList = value; }
+        }
+
+        public List<DateTime> ContinueDateList
+        {
+            get { return continueDateList; }
+            set { continueDateList = value; }
+        }
+
+        public Utils.CropIrrigationWeatherStatus CropStatus
+        {
+            get { return cropStatus; }
+            set { cropStatus = value; }
+        }
+
         #endregion
 
         #region Crop State
@@ -380,7 +417,48 @@ namespace IrrigationAdvisor.Models.Management
         }
 
         #endregion
-        
+
+        #region Calculus of Dry Matter per Hectare
+
+        public int AgeOfCrop
+        {
+            get { return ageOfCrop; }
+            set { ageOfCrop = value; }
+        }
+
+        public Utils.Season SeasonOfCrop
+        {
+            get { return seasonOfCrop; }
+            set { seasonOfCrop = value; }
+        }
+
+        public int DayAfterSeasonStart
+        {
+            get { return dayAfterSeasonStart; }
+            set { dayAfterSeasonStart = value; }
+        }
+
+        public Double RateOfDryMatterPerHectareByDay
+        {
+            get { return rateOfDryMatterPerHectareByDay; }
+            set { rateOfDryMatterPerHectareByDay = value; }
+        }
+
+
+        public Double DryMatterPerHectare
+        {
+            get { return dryMatterPerHectare; }
+            set { dryMatterPerHectare = value; }
+        }
+
+        public Double DryMatterPerHectareModified
+        {
+            get { return dryMatterPerHectareModified; }
+            set { dryMatterPerHectareModified = value; }
+        }
+
+        #endregion
+
         #endregion
 
         #region Irrigation

@@ -348,6 +348,56 @@ namespace IrrigationAdvisor.Models.Utilities
         }
         
         /// <summary>
+        /// Status of the Crop in each IrrigationUnit
+        /// Growing, Cutting, Discontinued, Stopped
+        /// </summary>
+        public enum CropIrrigationWeatherStatus
+        {
+            /// <summary>
+            /// Crop is growing, default status
+            /// </summary>
+            Growing,
+
+            /// <summary>
+            /// Crop cutting in process
+            /// </summary>
+            Cutting,
+
+            /// <summary>
+            /// Crop is discontinued for some days
+            /// </summary>
+            Discontinued,
+
+            /// <summary>
+            /// Crop is stopped for more than 100 days
+            /// </summary>
+            Stopped,
+        }
+
+        public enum Season
+        {
+            /// <summary>
+            /// Spring from 21/09 - 20/12
+            /// </summary>
+            Spring,
+            
+            /// <summary>
+            /// Summer from 21/12 - 20/03
+            /// </summary>
+            Summer,
+            
+            /// <summary>
+            /// Autumn from 21/03 - 20/06
+            /// </summary>
+            Autumn,
+
+            /// <summary>
+            /// Winter from 21/06 - 20/09
+            /// </summary>
+            Winter,
+        }
+
+        /// <summary>
         /// The days of the week in Spanish
         /// </summary>
         public enum DayOfWeekSpanish
