@@ -189,6 +189,8 @@ namespace IrrigationAdvisor.DBContext.Irrigation
         public List<IrrigationUnit> GetIrrigationUnitListBy(Farm pFarm)
         {
             List<IrrigationUnit> lReturn = null;
+            List<IrrigationUnit> lIrrigationUnitList = null;
+            int lIrrigationUnitToShow = 0;
             Farm lFarm = null;
 
             if (pFarm != null)
@@ -196,7 +198,23 @@ namespace IrrigationAdvisor.DBContext.Irrigation
                 lFarm = db.Farms
                     .Include(f => f.IrrigationUnitList)
                     .Where(f => f.FarmId == pFarm.FarmId).FirstOrDefault();
-                lReturn = lFarm.IrrigationUnitList.ToList();
+
+                lIrrigationUnitList = lFarm.IrrigationUnitList.ToList();
+                if(lIrrigationUnitList != null && lIrrigationUnitList.Count > 0)
+                {
+                    foreach (IrrigationUnit item in lIrrigationUnitList)
+                    {
+                        if(item.Show)
+                        {
+                            lIrrigationUnitToShow += 1;
+                            if(lIrrigationUnitToShow == 1)
+                            {
+                                lReturn = new List<IrrigationUnit>();
+                            }
+                            lReturn.Add(item);
+                        }
+                    }
+                }
             }
 
             return lReturn;
