@@ -632,8 +632,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + ex.Message);
+                logger.Error(ex, "Exception in CropIrrigationWeather.UpdatePhenologicalStage " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
             }
             return lReturn;

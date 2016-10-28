@@ -209,9 +209,8 @@ namespace IrrigationAdvisor.Models.Irrigation
             }
             catch(Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in IrrigationUnit.addIrrigation " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 lReturn = false;
-                Console.WriteLine("Error in IrrigationUnit.addIrrigation " + ex.Message);
             }
             return lReturn;
         }
@@ -284,8 +283,7 @@ namespace IrrigationAdvisor.Models.Irrigation
             }
             catch(Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Error in IrrigationUnit.addCrop " + ex.Message);
+                logger.Error(ex, "Exception in IrrigationUnit.addCrop " + "\n" + ex.Message + "\n" + ex.StackTrace);
             }
             return lReturn;
         }

@@ -295,6 +295,10 @@
     <Compile Include="Migrations\201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.Designer.cs">
       <DependentUpon>201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610281554174_DailyRecordCorrection.cs" />
+    <Compile Include="Migrations\201610281554174_DailyRecordCorrection.Designer.cs">
+      <DependentUpon>201610281554174_DailyRecordCorrection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -572,7 +576,7 @@
     <Content Include="css\mdfonts\md-font.eot" />
     <Content Include="css\mdfonts\md-font.ttf" />
     <Content Include="css\mdfonts\md-font.woff" />
-    <None Include="Properties\PublishProfiles\prueba.pubxml" />
+    <None Include="Properties\PublishProfiles\IAdvisor.pubxml" />
     <Content Include="Scripts\jssor.slider.mini.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -863,6 +867,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.resx">
       <DependentUpon>201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610281554174_DailyRecordCorrection.resx">
+      <DependentUpon>201610281554174_DailyRecordCorrection.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

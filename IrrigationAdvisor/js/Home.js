@@ -360,8 +360,8 @@ $(document).ready(function () {
 
                 if(data == "Ok")
                 {
-                    $.when(sendMail("Se ha modificado Fenología", "CropIrrigationWeatherId: " + selectedCropIrriWeatherPheno + ", StageId: " + stagePhenoVal + ", Fecha: " + phenoDateVal)).done(function () {
-                        location.href = "./home";
+                    $.when(sendMail("Se ha modificado Fenología para el establecimiento " + lstFarms.val() + ".", "CropIrrigationWeatherId: " + selectedCropIrriWeatherPheno + ", StageId: " + stagePhenoVal + ", Fecha: " + phenoDateVal)).done(function () {
+                        location.href = "./home?farm=" + lstFarms.val();
                     });
                 }
                 else {
@@ -483,7 +483,7 @@ $(document).ready(function () {
                         pIrrigationUnitId = "Todos";
                     }
                     
-                    $.when(sendMail("Se ha agregado Lluvia", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
+                    $.when(sendMail("Se ha agregado Lluvia para el establecimiento " + lstFarms.val() + ".", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
                         location.href = "./home?farm=" + lstFarms.val();
                     });
                    
@@ -530,7 +530,7 @@ $(document).ready(function () {
                         pIrrigationUnitId = "Todos";
                     }
                     
-                    $.when(sendMail("Se ha agregado Riego", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
+                    $.when(sendMail("Se ha agregado Riego para el establecimiento " + lstFarms.val() + ".", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
                         location.href = "./home?farm=" + lstFarms.val();
                     });
                     

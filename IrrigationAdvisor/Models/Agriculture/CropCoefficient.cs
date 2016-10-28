@@ -178,8 +178,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             catch(Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropCoefficient.getKCFromList" + ex.Message);
+                logger.Error(ex, "Exception in CropCoefficient.getKCFromList " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 lReturn = -1;
             }
             return lReturn;
@@ -211,8 +210,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropCoefficient.getKCFromList" + ex.Message);
+                logger.Error(ex, "Exception in CropCoefficient.getKCFromList " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 lReturn = -1;
             }
             return lReturn;
@@ -256,8 +254,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             catch(Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropCoefficient.addDayToList" + ex.Message);
+                logger.Error(ex, "Exception in CropCoefficient.AddOrUpdateKCforDayAfterSowing " + "\n" + ex.Message + "\n" + ex.StackTrace);
             }
             return lReturn;
         }
