@@ -65,7 +65,7 @@ namespace IrrigationAdvisor.Models.Management
         private long dailyRecordId;
         private DateTime dailyRecordDateTime;
 
-        private long cropIrrgationWeatherId;
+        private long cropIrrigationWeatherId;
 
         #region Weather Data
 
@@ -143,10 +143,10 @@ namespace IrrigationAdvisor.Models.Management
             set { dailyRecordDateTime = value; }
         }
 
-        public long CropIrrgationWeatherId
+        public long CropIrrigationWeatherId
         {
-            get { return cropIrrgationWeatherId; }
-            set { cropIrrgationWeatherId = value; }
+            get { return cropIrrigationWeatherId; }
+            set { cropIrrigationWeatherId = value; }
         }
 
         public virtual CropIrrigationWeather CropIrrigationWeather
@@ -430,7 +430,7 @@ namespace IrrigationAdvisor.Models.Management
             this.DailyRecordId = 0;
             this.DailyRecordDateTime = Utils.MIN_DATETIME;
 
-            this.CropIrrgationWeatherId = 0;
+            this.CropIrrigationWeatherId = 0;
 
             this.MainWeatherDataId = 0;
             this.AlternativeWeatherDataId = 0;
@@ -510,7 +510,7 @@ namespace IrrigationAdvisor.Models.Management
         {
             this.DailyRecordDateTime = pDailyRecordDateTime;
 
-            this.CropIrrgationWeatherId = pCropIrrigationWeatherId;
+            this.CropIrrigationWeatherId = pCropIrrigationWeatherId;
 
             this.MainWeatherDataId = pMainWeatherDataId;
             this.AlternativeWeatherDataId = pAlternativeWeatherDataId;

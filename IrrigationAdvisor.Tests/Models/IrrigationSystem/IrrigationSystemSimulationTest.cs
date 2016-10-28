@@ -553,8 +553,8 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             #endregion
 
             #region 9.  Create PhenologicalStage List & Add Stage List to Crop
-            testPhenologicalStageList_Maiz = InitialTables.CreatePhenologicalStageListForMaiz(testCrop_Maiz_Sur, testSpecieMaiz);
-            testPhenologicalStageList_Soja = InitialTables.CreatePhenologicalStageListForSoja(testCrop_Soja_Sur, testSpecieSoja);
+            testPhenologicalStageList_Maiz = InitialTables.CreatePhenologicalStageListForCorn(testCrop_Maiz_Sur, testSpecieMaiz);
+            testPhenologicalStageList_Soja = InitialTables.CreatePhenologicalStageListForSoya(testCrop_Soja_Sur, testSpecieSoja);
             #endregion
 
             #region 10.  Add PhenologicalStageList to Crop

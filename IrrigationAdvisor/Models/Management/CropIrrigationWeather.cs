@@ -1574,9 +1574,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in IrrigationSystem.addCropIrrigWeatherToList " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in CropIrrigationWeather.setNewPhenologicalStageAccordingCalculusMethod " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             
         }
@@ -1638,9 +1637,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.CalculateDegreeStageDifference " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in CropIrrigationWeather.CalculateDegreeStageDifference " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lReturn;
         }
@@ -2129,9 +2127,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine(ex.Message, ex);
-                throw;
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddInformationToIrrigationUnits " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
         }
 
@@ -2228,8 +2225,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine(ex.Message, ex);
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddInformationToIrrigationUnits " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
             }
         }
@@ -2823,8 +2819,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + ex.Message);
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddOrUpdateIrrigationDataToList " + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
             }
 
@@ -2931,9 +2926,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddRainDataToList " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddRainDataToList " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
 
             return lNewRain;
@@ -3254,7 +3248,7 @@ namespace IrrigationAdvisor.Models.Management
             {
                 lDailyRecordToDelete = pIrrigationAdvisorContext.DailyRecords
                                         .Where(dr => dr.DailyRecordDateTime >= pDailyRecordDateTime &&
-                                        dr.CropIrrgationWeatherId == this.CropIrrigationWeatherId).FirstOrDefault();
+                                        dr.CropIrrigationWeatherId == this.CropIrrigationWeatherId).FirstOrDefault();
             }
             //We have a unique record by day
             if (lDailyRecordToDelete != null)
@@ -3267,7 +3261,7 @@ namespace IrrigationAdvisor.Models.Management
                 //Delete DailyRecords from database after date of record to delete.
                 pIrrigationAdvisorContext.DailyRecords.RemoveRange(pIrrigationAdvisorContext.DailyRecords
                                         .Where(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime &&
-                                        dr.CropIrrgationWeatherId == this.CropIrrigationWeatherId));
+                                        dr.CropIrrigationWeatherId == this.CropIrrigationWeatherId));
 
                 //Delete Irrigations input from database after date of record to delete. 
                 //Extra input will not be deleted
@@ -3411,9 +3405,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddDailyRecordToList " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lReturn;
         }
@@ -3624,9 +3617,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
         }
 
@@ -3640,6 +3632,7 @@ namespace IrrigationAdvisor.Models.Management
         {
             try
             {
+                #region local variables
                 WeatherData lWeatherData;
                 DateTime lDailyRecordDateTime;
                 Double lEvapotranspiration = 0;
@@ -3661,6 +3654,7 @@ namespace IrrigationAdvisor.Models.Management
                 long lRainWaterInputId = 0;
                 Water.Irrigation lIrrigation = null;
                 long lIrrigationWaterInputId = 0;
+                #endregion
 
                 lWeatherData = pWeatherData;
                 
@@ -3832,9 +3826,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
         }
 
@@ -3888,9 +3881,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordToList " + ex.Message);
-                throw;
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddDailyRecordToList " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lReturn;
         }
@@ -3906,6 +3898,7 @@ namespace IrrigationAdvisor.Models.Management
         {
             try
             {
+                #region local variables
                 WeatherData lWeatherData;
                 DateTime lDailyRecordDateTime;
                 Double lEvapotranspiration = 0;
@@ -3927,6 +3920,7 @@ namespace IrrigationAdvisor.Models.Management
                 long lRainWaterInputId = 0;
                 Water.Irrigation lIrrigation = null;
                 long lIrrigationWaterInputId = 0;
+                #endregion
 
                 lWeatherData = pWeatherData;
 
@@ -4112,9 +4106,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + ex.Message);
-                throw;
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
         }
 
@@ -4129,6 +4122,7 @@ namespace IrrigationAdvisor.Models.Management
         {
             try
             {
+                #region local variables
                 WeatherData lWeatherData;
                 DateTime lDailyRecordDateTime;
                 Double lEvapotranspiration = 0;
@@ -4150,6 +4144,7 @@ namespace IrrigationAdvisor.Models.Management
                 long lRainWaterInputId = 0;
                 Water.Irrigation lIrrigation = null;
                 long lIrrigationWaterInputId = 0;
+                #endregion
 
                 lWeatherData = pWeatherData;
 
@@ -4331,9 +4326,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + ex.Message);
-                throw;
+                logger.Error(ex, "Exception in CropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
         }
 

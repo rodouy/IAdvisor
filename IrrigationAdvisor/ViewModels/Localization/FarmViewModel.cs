@@ -99,6 +99,7 @@ namespace IrrigationAdvisor.ViewModels.Localization
 
         /// <summary>
         /// Get IrrigationUnitViewModel list by IrrigationUnit list
+        /// Only if Show is true
         /// </summary>
         /// <param name="pIrrigationUnitList"></param>
         /// <returns></returns>
@@ -110,11 +111,35 @@ namespace IrrigationAdvisor.ViewModels.Localization
             {
                 foreach (IrrigationUnit item in pIrrigationUnitList)
                 {
+                    if(item.Show)
+                    {
+                        IrrigationUnitViewModel lIrrigationUnit = new IrrigationUnitViewModel(item);
+                        lReturn.Add(lIrrigationUnit);
+                    }
+                }
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Set IrrigationUnitViewModel list by IrrigationUnit list
+        /// </summary>
+        /// <param name="pIrrigationUnitList"></param>
+        /// <returns></returns>
+        public List<IrrigationUnitViewModel> SetIrrigationUnitListBy(List<IrrigationUnit> pIrrigationUnitList)
+        {
+            List<IrrigationUnitViewModel> lReturn = new List<IrrigationUnitViewModel>();
+
+            if (pIrrigationUnitList != null && pIrrigationUnitList.Count() > 0)
+            {
+                foreach (IrrigationUnit item in pIrrigationUnitList)
+                {
                     IrrigationUnitViewModel lIrrigationUnit = new IrrigationUnitViewModel(item);
                     lReturn.Add(lIrrigationUnit);
                 }
             }
-
+            this.IrrigationUnitViewModelList = lReturn;
             return lReturn;
         }
 
