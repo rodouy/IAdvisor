@@ -220,8 +220,10 @@ namespace IrrigationAdvisor.Controllers
                 foreach (var lFarm in lFarmList)
                 {
                     lBombList = lFarm.BombList;
-                    lIrrigationUnitList = lFarm.IrrigationUnitList;
+                    lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lFarm);
+
                     lFarmViewModel = new FarmViewModel(lFarm);
+                    lFarmViewModel.SetIrrigationUnitListBy(lIrrigationUnitList);
                     if (lBombList.Count > 0 && lIrrigationUnitList.Count > 0)
                     {
                         lFarmViewModelList.Add(lFarmViewModel);
@@ -297,15 +299,14 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (NullReferenceException ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 ManageSession.CleanSession();
 
-                Console.WriteLine(ex.Message, ex);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 ManageSession.CleanSession();
                 return RedirectToAction("Index");
             }
@@ -362,7 +363,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.GetFarmsByUser " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 return Json(ex.Message, JsonRequestBehavior.AllowGet);
             }
         }
@@ -410,7 +411,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.GetStagesBy " + "\n" + ex.Message + "\n" + ex.StackTrace);
             }
 
             return Json(lStageResult, JsonRequestBehavior.AllowGet);
@@ -425,15 +426,10 @@ namespace IrrigationAdvisor.Controllers
         /// <param name="pMonth"></param>
         /// <param name="pYear"></param>
         /// <returns></returns>
-        public ActionResult ChangeDateOfReference(int pDay,
-                                                    int pMonth,
-                                                    int pYear,
-                                                    int pFarmId)
+        public ActionResult ChangeDateOfReference(int pDay, int pMonth, int pYear, int pFarmId)
         {
 
-            DateTime newDateOfReference = new DateTime(pYear,
-                                                        pMonth,
-                                                        pDay);
+            DateTime newDateOfReference = new DateTime(pYear, pMonth, pDay);
 
             try
             {
@@ -451,7 +447,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.ChangeDateOfReference " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 return Content(ex.Message);
             }
 
@@ -524,7 +520,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.SendEmails " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 return Content(ex.Message);
             }
 
@@ -593,7 +589,7 @@ namespace IrrigationAdvisor.Controllers
                     }
                     catch (Exception ex)
                     {
-                        logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                        logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
                         continue;
                     }
                 }
@@ -603,7 +599,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 lResult = false;
             }
 
@@ -661,7 +657,7 @@ namespace IrrigationAdvisor.Controllers
                     }
                     catch (Exception ex)
                     {
-                        logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                        logger.Error(ex, "Exception in HomeController.PredictionWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
                         continue;
                     }
                 }
@@ -669,7 +665,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.PredictionWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 lResult = false;
             }
 
@@ -697,7 +693,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                //return Content("Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message);
             }
 
             return Content("Error al calcular los Cultivos activos");
@@ -755,8 +752,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                return Content(ex.Message);
+                logger.Error(ex, "Exception in HomeController.AddPhenology " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                return Content("Exception in HomeController.AddPhenology " + "\n" + ex.Message);
             }
 
             return Content("Ok");
@@ -840,11 +837,10 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                return Content(ex.Message);
+                logger.Error(ex, "Exception in HomeController.AddIrrigation " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                return Content("Exception in HomeController.AddIrrigation " + "\n" + ex.Message);
 
             }
-
 
             return Content("Ok");
 
@@ -922,8 +918,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                return Content(ex.Message);
+                logger.Error(ex, "Exception in HomeController.AddRain " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                return Content("Exception in HomeController.AddRain " + "\n" + ex.Message);
 
             }
 
@@ -1026,7 +1022,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);   
+                logger.Error(ex, "Exception in HomeController.Login " + "\n" + ex.Message + "\n" + ex.StackTrace); 
             }
 
             return lResult;
@@ -1094,7 +1090,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.GetGridPivotHomeTitles " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
             }
 
@@ -1215,8 +1211,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine(ex.Message, ex);
+                logger.Error(ex, "Exception in HomeController.GetGridPivotHome " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
             }
 
@@ -1364,8 +1359,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                throw;
+                logger.Error(ex, "Exception in HomeController.AddGridIrrigationUnit " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
 
             return lReturn;
@@ -1451,6 +1446,7 @@ namespace IrrigationAdvisor.Controllers
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
 
+                #region Get Latitude, Longitude
                 if (lLoggedUser != null)
                 {
                     //Get list of Farms from User
@@ -1487,6 +1483,7 @@ namespace IrrigationAdvisor.Controllers
                         lLongitude.Replace(",", ".");
                     }
                 }
+                #endregion
 
                 lAPIWUndergroundBase = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIbase"]);
                 lAPIWUndergroundKey = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIkeyIndex"]);
@@ -1560,8 +1557,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCantGetWeatherData = true;
                         //Do nothing
-                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
-                        Console.WriteLine(ex.Message, ex);
+                        logger.Info(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
                     }
                     #endregion
 
@@ -1595,8 +1591,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCantGetWeatherData = true;
                         //Do nothing
-                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
-                        Console.WriteLine(ex.Message, ex);
+                        logger.Info(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
                     }
                     #endregion
 
@@ -1627,8 +1622,7 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lCantGetWeatherData = true;
                         //Do nothing
-                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
-                        Console.WriteLine(ex.Message, ex);
+                        logger.Info(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
                     }
                     #endregion
 
@@ -1647,9 +1641,14 @@ namespace IrrigationAdvisor.Controllers
                 lReturn = lWeatherDataToShow;
 
             }
+            catch (System.InvalidOperationException ex)
+            {
+                logger.Info(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                //throw ex;
+            }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
             }
 
@@ -1732,6 +1731,7 @@ namespace IrrigationAdvisor.Controllers
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
 
+                #region Get Latitude, Longitude
                 if (lLoggedUser != null)
                 {
                     //Get list of Farms from User
@@ -1768,6 +1768,7 @@ namespace IrrigationAdvisor.Controllers
                         lLongitude.Replace(",", ".");
                     }
                 }
+                #endregion
 
                 lAPIWUndergroundBase = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIbase"]);
                 lAPIWUndergroundKey = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["WUndergroundAPIkeyHome"]);
@@ -1785,131 +1786,137 @@ namespace IrrigationAdvisor.Controllers
                     lWeatherDataItemList = new List<WeatherDataItem>();
 
                     #region Request Forcast 10 days
-                    try
+                    if (!lCantGetWeatherData)
                     {
-                        lAPIWUnderground = lAPIWUndergroundBase + lAPIWUndergroundKey + lAPIWUndergroundForcast10Days;
-                        lLinkAPIWUnderground = lAPIWUnderground + lLatitude + "," + lLongitude + ".json";
-                        lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
-                        lHttpWebRequest.Method = WebRequestMethods.Http.Get;
-                        lHttpWebRequest.Accept = "application/json";
-                        var lResponseForcast10Days = (HttpWebResponse)lHttpWebRequest.GetResponse();
-
-                        lJson = string.Empty;
-                        using (var sr = new StreamReader(lResponseForcast10Days.GetResponseStream()))
+                        try
                         {
-                            lJson = sr.ReadToEnd();
+                            lAPIWUnderground = lAPIWUndergroundBase + lAPIWUndergroundKey + lAPIWUndergroundForcast10Days;
+                            lLinkAPIWUnderground = lAPIWUnderground + lLatitude + "," + lLongitude + ".json";
+                            lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
+                            lHttpWebRequest.Method = WebRequestMethods.Http.Get;
+                            lHttpWebRequest.Accept = "application/json";
+                            var lResponseForcast10Days = (HttpWebResponse)lHttpWebRequest.GetResponse();
+
+                            lJson = string.Empty;
+                            using (var sr = new StreamReader(lResponseForcast10Days.GetResponseStream()))
+                            {
+                                lJson = sr.ReadToEnd();
+                            }
+
+                            // Json To C#  DeserializeJsno to IrrigationAdvisor.ViewModels.Weather.WUndergroundForecast10daysResultToCSharp.RootObject
+                            lJsonObjForcast10Days = JsonConvert.DeserializeObject<WUndergroundForecast10daysResultToCSharp.RootObject>(lJson);
+
+                            //Data of Forcast 10 days
+                            // Iterate ForecastDay
+                            foreach (var item in lJsonObjForcast10Days.forecast.simpleforecast.forecastday)
+                            {
+                                lToday++;
+                                if (lToday > 1 && lWeatherDataItemList.Count <= 2)
+                                {
+                                    lItemTempHigh = item.high.celsius;
+                                    lItemTempLow = item.low.celsius;
+                                    lItemMonth = item.date.month.ToString();
+                                    lItemWeekday = item.date.weekday;
+                                    lItemURLImage = "//icons.wxug.com/i/c/v4/" + item.icon + ".svg";
+                                    lItemDescription = item.conditions;
+                                    lItemProbabilityRain = item.pop.ToString();
+                                    lItemRainMM = item.qpf_allday.mm.ToString();
+                                    lWeatherDataItemList.Add(new WeatherDataItem(lItemTempHigh, lItemTempLow,
+                                                                                lItemMonth, lItemWeekday,
+                                                                                lItemURLImage, lItemDescription,
+                                                                                lItemProbabilityRain, lItemRainMM));
+                                }
+                                else if (lToday > 2)
+                                {
+                                    break;
+                                }
+                            }
+                            lToday = 0;
+                            lURLImage = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].icon_url;
+                            lConditions = lJsonObjForcast10Days.forecast.txt_forecast.forecastday[lToday].fcttext_metric;
+                            lDay = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].date.weekday;
+                            lTempHigh = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].high.celsius.ToString();
+                            lTempLow = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].low.celsius.ToString();
+                            lAverageWind = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].avewind.kph.ToString();
+                            lRelativeHumidity = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].avehumidity.ToString();
                         }
-
-                        // Json To C#  DeserializeJsno to IrrigationAdvisor.ViewModels.Weather.WUndergroundForecast10daysResultToCSharp.RootObject
-                        lJsonObjForcast10Days = JsonConvert.DeserializeObject<WUndergroundForecast10daysResultToCSharp.RootObject>(lJson);
-
-                        //Data of Forcast 10 days
-                        // Iterate ForecastDay
-                        foreach (var item in lJsonObjForcast10Days.forecast.simpleforecast.forecastday)
+                        catch (Exception ex)
                         {
-                            lToday++;
-                            if (lToday > 1 && lWeatherDataItemList.Count <= 2)
-                            {
-                                lItemTempHigh = item.high.celsius;
-                                lItemTempLow = item.low.celsius;
-                                lItemMonth = item.date.month.ToString();
-                                lItemWeekday = item.date.weekday;
-                                lItemURLImage = "//icons.wxug.com/i/c/v4/" + item.icon + ".svg";
-                                lItemDescription = item.conditions;
-                                lItemProbabilityRain = item.pop.ToString();
-                                lItemRainMM = item.qpf_allday.mm.ToString();
-                                lWeatherDataItemList.Add(new WeatherDataItem(lItemTempHigh, lItemTempLow,
-                                                                            lItemMonth, lItemWeekday,
-                                                                            lItemURLImage, lItemDescription,
-                                                                            lItemProbabilityRain, lItemRainMM));
-                            }
-                            else if (lToday > 2)
-                            {
-                                break;
-                            }
+                            lCantGetWeatherData = true;
+                            //Do nothing
+                            logger.Info(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
                         }
-                        lToday = 0;
-                        lURLImage = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].icon_url;
-                        lConditions = lJsonObjForcast10Days.forecast.txt_forecast.forecastday[lToday].fcttext_metric;
-                        lDay = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].date.weekday;
-                        lTempHigh = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].high.celsius.ToString();
-                        lTempLow = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].low.celsius.ToString();
-                        lAverageWind = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].avewind.kph.ToString();
-                        lRelativeHumidity = lJsonObjForcast10Days.forecast.simpleforecast.forecastday[lToday].avehumidity.ToString();
-                    }
-                    catch (Exception ex)
-                    {
-                        lCantGetWeatherData = true;
-                        //Do nothing
-                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
-                        Console.WriteLine(ex.Message, ex);
                     }
                     #endregion
 
                     #region Conditions
-                    try
+                    if (!lCantGetWeatherData)
                     {
-                        lAPIWUnderground = lAPIWUndergroundBase + lAPIWUndergroundKey + lAPIWUndergroundConditions;
-                        lLinkAPIWUnderground = lAPIWUnderground + lLatitude + "," + lLongitude + ".json";
-                        lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
-                        lHttpWebRequest.Method = WebRequestMethods.Http.Get;
-                        lHttpWebRequest.Accept = "application/json";
-                        var lResponseConditions = (HttpWebResponse)lHttpWebRequest.GetResponse();
-
-                        lJson = string.Empty;
-                        using (var sr = new StreamReader(lResponseConditions.GetResponseStream()))
+                        try
                         {
-                            lJson = sr.ReadToEnd();
+                            lAPIWUnderground = lAPIWUndergroundBase + lAPIWUndergroundKey + lAPIWUndergroundConditions;
+                            lLinkAPIWUnderground = lAPIWUnderground + lLatitude + "," + lLongitude + ".json";
+                            lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
+                            lHttpWebRequest.Method = WebRequestMethods.Http.Get;
+                            lHttpWebRequest.Accept = "application/json";
+                            var lResponseConditions = (HttpWebResponse)lHttpWebRequest.GetResponse();
+
+                            lJson = string.Empty;
+                            using (var sr = new StreamReader(lResponseConditions.GetResponseStream()))
+                            {
+                                lJson = sr.ReadToEnd();
+                            }
+
+                            lJsonObjConditions = JsonConvert.DeserializeObject<WUndergroundConditionsResultToCSharp.RootObject>(lJson);
+
+                            //Data of Conditions
+                            lCity = lJsonObjConditions.current_observation.display_location.full;
+                            lRelativeHumidity = lJsonObjConditions.current_observation.relative_humidity;
+                            lPressure = lJsonObjConditions.current_observation.pressure_mb;
+                            lVisibility = lJsonObjConditions.current_observation.visibility_km;
+                            lDewPoint = lJsonObjConditions.current_observation.dewpoint_c.ToString();
+                            lAverageTemperature = lJsonObjConditions.current_observation.temp_c.ToString();
                         }
-
-                        lJsonObjConditions = JsonConvert.DeserializeObject<WUndergroundConditionsResultToCSharp.RootObject>(lJson);
-
-                        //Data of Conditions
-                        lCity = lJsonObjConditions.current_observation.display_location.full;
-                        lRelativeHumidity = lJsonObjConditions.current_observation.relative_humidity;
-                        lPressure = lJsonObjConditions.current_observation.pressure_mb;
-                        lVisibility = lJsonObjConditions.current_observation.visibility_km;
-                        lDewPoint = lJsonObjConditions.current_observation.dewpoint_c.ToString();
-                        lAverageTemperature = lJsonObjConditions.current_observation.temp_c.ToString();
-                    }
-                    catch (Exception ex)
-                    {
-                        lCantGetWeatherData = true;
-                        //Do nothing
-                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
-                        Console.WriteLine(ex.Message, ex);
+                        catch (Exception ex)
+                        {
+                            lCantGetWeatherData = true;
+                            //Do nothing
+                            logger.Info(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                        }
                     }
                     #endregion
 
                     #region Astronomy
-                    try
+                    if (!lCantGetWeatherData)
                     {
-                        lAPIWUnderground = lAPIWUndergroundBase + lAPIWUndergroundKey + lAPIWUndergroundAstronomy;
-                        lLinkAPIWUnderground = lAPIWUnderground + lLatitude + "," + lLongitude + ".json";
-                        lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
-                        lHttpWebRequest.Method = WebRequestMethods.Http.Get;
-                        lHttpWebRequest.Accept = "application/json";
-                        var lResponseAstronomy = (HttpWebResponse)lHttpWebRequest.GetResponse();
-
-                        lJson = string.Empty;
-                        using (var sr = new StreamReader(lResponseAstronomy.GetResponseStream()))
+                        try
                         {
-                            lJson = sr.ReadToEnd();
+                            lAPIWUnderground = lAPIWUndergroundBase + lAPIWUndergroundKey + lAPIWUndergroundAstronomy;
+                            lLinkAPIWUnderground = lAPIWUnderground + lLatitude + "," + lLongitude + ".json";
+                            lHttpWebRequest = (HttpWebRequest)WebRequest.Create(lLinkAPIWUnderground);
+                            lHttpWebRequest.Method = WebRequestMethods.Http.Get;
+                            lHttpWebRequest.Accept = "application/json";
+                            var lResponseAstronomy = (HttpWebResponse)lHttpWebRequest.GetResponse();
+
+                            lJson = string.Empty;
+                            using (var sr = new StreamReader(lResponseAstronomy.GetResponseStream()))
+                            {
+                                lJson = sr.ReadToEnd();
+                            }
+
+                            // Json To C#  DeserializeJsno to IrrigationAdvisor.ViewModels.Weather.WUndergroundAstronomyResultToCSharp.RootObject
+                            lJsonObjAstronomy = JsonConvert.DeserializeObject<WUndergroundAstronomyResultToCSharp.RootObject>(lJson);
+
+                            lSunriseTime = lJsonObjAstronomy.moon_phase.sunrise.hour.ToString() + ":" + lJsonObjAstronomy.moon_phase.sunrise.minute.ToString();
+                            lSunsetTime = lJsonObjAstronomy.moon_phase.sunset.hour.ToString() + ":" + lJsonObjAstronomy.moon_phase.sunset.minute.ToString();
+
                         }
-
-                        // Json To C#  DeserializeJsno to IrrigationAdvisor.ViewModels.Weather.WUndergroundAstronomyResultToCSharp.RootObject
-                        lJsonObjAstronomy = JsonConvert.DeserializeObject<WUndergroundAstronomyResultToCSharp.RootObject>(lJson);
-
-                        lSunriseTime = lJsonObjAstronomy.moon_phase.sunrise.hour.ToString() + ":" + lJsonObjAstronomy.moon_phase.sunrise.minute.ToString();
-                        lSunsetTime = lJsonObjAstronomy.moon_phase.sunset.hour.ToString() + ":" + lJsonObjAstronomy.moon_phase.sunset.minute.ToString();
-
-                    }
-                    catch (Exception ex)
-                    {
-                        lCantGetWeatherData = true;
-                        //Do nothing
-                        logger.Info(ex, ex.Message + "\n" + ex.StackTrace);
-                        Console.WriteLine(ex.Message, ex);
+                        catch (Exception ex)
+                        {
+                            lCantGetWeatherData = true;
+                            //Do nothing
+                            logger.Info(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                        }
                     }
                     #endregion
 
@@ -1930,8 +1937,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                throw;
+                logger.Error(ex, "Exception in HomeController.GetWeatherDataFromWUndergroundHome " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
 
             return lReturn;

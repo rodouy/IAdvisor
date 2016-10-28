@@ -18,7 +18,7 @@ namespace IrrigationAdvisor.DBContext.Management
                 .IsRequired();
             Property(c => c.DailyRecordDateTime)
                 .IsRequired();
-            Property(c => c.CropIrrgationWeatherId)
+            Property(c => c.CropIrrigationWeatherId)
                 .IsRequired();
             
         }

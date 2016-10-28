@@ -50,7 +50,7 @@ namespace IrrigationAdvisor.DBContext.Data
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in StatusConfiguration.GetDateOfReference " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 lResult = false;
             }
 
@@ -72,7 +72,7 @@ namespace IrrigationAdvisor.DBContext.Data
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                logger.Error(ex, "Exception in StatusConfiguration.GetDateOfReference " + "\n" + ex.Message + "\n" + ex.StackTrace);
             }
 
             return lResult;
