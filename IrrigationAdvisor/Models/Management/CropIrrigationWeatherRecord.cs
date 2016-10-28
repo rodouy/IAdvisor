@@ -966,8 +966,7 @@ namespace IrrigationAdvisor.Models.Management
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in IrrigationSystem.addCropIrrigWeatherToList " + ex.Message);
+                logger.Error(ex, "Exception in IrrigationUnit.AddDailyRecordAccordingGrowinDegreeDays " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
             }
         }

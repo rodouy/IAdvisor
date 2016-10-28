@@ -2191,12 +2191,12 @@ namespace IrrigationAdvisor.Models.Data
 
 
         /// <summary>
-        /// TODO explain CreatePhenologicalStageListForMaiz
+        /// TODO explain CreatePhenologicalStageListForCorn
         /// </summary>
         /// <param name="pCrop"></param>
         /// <param name="pSpecie"></param>
         /// <returns></returns>
-        public static List<PhenologicalStage> CreatePhenologicalStageListForMaiz(Crop pCrop, Specie pSpecie)                        
+        public static List<PhenologicalStage> CreatePhenologicalStageListForCorn(Crop pCrop, Specie pSpecie)                        
         {
             List<PhenologicalStage> lReturn = null;
             List<PhenologicalStage> lPhenolStageList;
@@ -2328,20 +2328,19 @@ namespace IrrigationAdvisor.Models.Data
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in IrrigationSystem.InitialTables.CreatePhenologicalStageListForMaiz " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in InitialTables.CreatePhenologicalStageListForCorn " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lReturn;
         }
 
         /// <summary>
-        /// TODO explain CreatePhenologicalStageListForSoja
+        /// TODO explain CreatePhenologicalStageListForSoya
         /// </summary>
         /// <param name="pCrop"></param>
         /// <param name="pSpecie"></param>
         /// <returns></returns>
-        public static List<PhenologicalStage> CreatePhenologicalStageListForSoja(Crop pCrop, Specie pSpecie)
+        public static List<PhenologicalStage> CreatePhenologicalStageListForSoya(Crop pCrop, Specie pSpecie)
         {
             List<PhenologicalStage> lReturn = null;
             List<PhenologicalStage> lPhenolStageList;
@@ -2463,9 +2462,8 @@ namespace IrrigationAdvisor.Models.Data
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in InitialTables.CreatePhenologicalStageListForSoja " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in InitialTables.CreatePhenologicalStageListForSoya " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lReturn;
         }

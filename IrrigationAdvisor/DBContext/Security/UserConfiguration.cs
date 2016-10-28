@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel.DataAnnotations.Schema;
 using IrrigationAdvisor.Models.Security;
+using NLog;
 
 namespace IrrigationAdvisor.DBContext.Security
 {
@@ -15,6 +16,8 @@ namespace IrrigationAdvisor.DBContext.Security
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         private const string ERROR_USER_EXISTS = "User not found";
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public UserConfiguration()
         {
@@ -61,15 +64,24 @@ namespace IrrigationAdvisor.DBContext.Security
         public User GetUserByName(String pName)
         {
             User lReturn;
-            bool exists = db.Users.Where(u => u.UserName == pName).Any();
+            try
+            {
+                bool exists = db.Users.Where(u => u.UserName == pName).Any();
 
-            if (pName != null && exists)
-            {
-                lReturn = db.Users.Where(u => u.UserName == pName).Single();
+                if (pName != null && exists)
+                {
+                    lReturn = db.Users.Where(u => u.UserName == pName).Single();
+                }
+                else
+                {
+                    lReturn = null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lReturn = null;
+                logger.Error(ex, "Exception in User.GetUserByName " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                
+                throw ex;
             }
 
             return lReturn;

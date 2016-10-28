@@ -216,8 +216,8 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                throw;
+                logger.Error(ex, "Exception in Soil.getLayerCapacityByProrationOfHorizon " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
                 
             }
             return lReturnLayerWaterSum;

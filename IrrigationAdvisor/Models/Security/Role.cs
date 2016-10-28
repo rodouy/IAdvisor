@@ -155,8 +155,8 @@ namespace IrrigationAdvisor.Models.Security
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                throw;
+                logger.Error(ex, "Exception in Role.setUpperFirstLetter " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lUpperFirstLetter;
         }

@@ -452,8 +452,8 @@ namespace IrrigationAdvisor.DBContext.Management
                 }
             }
             catch (Exception ex)
-            {   
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+            {
+                logger.Error(ex, "Exception in CropIrrigationWeatherConfiguration.GetCropIrrigationWeatherListWithWeatherDataBy " + "\n" + ex.Message + "\n" + ex.StackTrace);
             }
 
             return lReturn;

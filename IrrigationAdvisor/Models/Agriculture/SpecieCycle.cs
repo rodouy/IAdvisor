@@ -142,7 +142,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in SpecieCycle.setUpperFirstLetter " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw;
             }
             return lUpperFirstLetter;
