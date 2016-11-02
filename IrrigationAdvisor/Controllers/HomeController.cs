@@ -483,8 +483,9 @@ namespace IrrigationAdvisor.Controllers
             mail.From = new MailAddress(emailFrom);
             mail.To.Add(emailTo);
             mail.Subject = subject;
+            body = body.Replace("[br]", "<br>");
             mail.Body = body;
-            mail.IsBodyHtml = false;
+            mail.IsBodyHtml = true;
 
             return mail;
         }
