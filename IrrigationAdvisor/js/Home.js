@@ -101,22 +101,37 @@ $(document).ready(function () {
                     });
 
                     $('#IrrigationUnit > option').each(function (index) {
-                        if (irrigationUnitRainMail.val() == "")
+
+                        var formattedString = $(this).val() + " - " + $(this).text() + "[br]";
+
+                        if ($(this).val() == "-1")
                         {
                             irrigationUnitRainMail.val($(this).text() + "[br]");
                         }
+
+                        if (irrigationUnitRainMail.val() == "")
+                        {
+                            irrigationUnitRainMail.val(formattedString);
+                        }
                         else
                         {
-                            irrigationUnitRainMail.val(irrigationUnitRainMail.val() + $(this).text() + "[br]");
+                            irrigationUnitRainMail.val(irrigationUnitRainMail.val() + formattedString);
                         }                       
                     });
 
                     $('#IrrigationUnitIrrigation > option').each(function (index) {
-                        if (irrigationUnitIrrigationMail.val() == "") {
+
+                        var formattedString = $(this).val() + " - " + $(this).text() + "[br]";
+
+                        if ($(this).val() == "-1") {
                             irrigationUnitIrrigationMail.val($(this).text() + "[br]");
                         }
+
+                        if (irrigationUnitIrrigationMail.val() == "") {
+                            irrigationUnitIrrigationMail.val(formattedString);
+                        }
                         else {
-                            irrigationUnitIrrigationMail.val(irrigationUnitIrrigationMail.val() + $(this).text() + "[br]");
+                            irrigationUnitIrrigationMail.val(irrigationUnitIrrigationMail.val() + formattedString);
                         }
                     });
                     
@@ -586,7 +601,7 @@ $(document).ready(function () {
 
                     if (selected == "Todos")
                     {
-                        irrigationMailText = $('#IrrigationUnitIrrigation').text().replace("Todos", "");
+                        irrigationMailText = irrigationUnitIrrigationMail.val().replace("Todos", "");
                     }
                     else
                     {
