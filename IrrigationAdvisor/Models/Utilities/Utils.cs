@@ -1670,6 +1670,20 @@ namespace IrrigationAdvisor.Models.Utilities
 
         #endregion
 
+        #region WebStatus
+        public static bool SetStatusAsMaintenaince(string pName)
+        {
+            StatusConfiguration sc = new StatusConfiguration();
+            return sc.SetStatus(IrrigationAdvisorWebStatus.Maintenance, pName);
+        }
+
+        public static bool SetStatusAsOnline(string pName)
+        {
+            StatusConfiguration sc = new StatusConfiguration();
+            return sc.SetStatus(IrrigationAdvisorWebStatus.Online, pName);
+        }
+        #endregion
+
         #endregion
 
         #region Overrides

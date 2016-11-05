@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity.ModelConfiguration;
 using IrrigationAdvisor.Models.Data;
 using NLog;
+using static IrrigationAdvisor.Models.Utilities.Utils;
 
 namespace IrrigationAdvisor.DBContext.Data
 {
@@ -37,7 +38,7 @@ namespace IrrigationAdvisor.DBContext.Data
                     where s.Name.Equals(pName)
                     select s).FirstOrDefault();
         }
-
+        
         public bool SetStatus(DateTime pDateOfReference, string pName)
         {
             bool lResult = false;
@@ -45,6 +46,26 @@ namespace IrrigationAdvisor.DBContext.Data
             {
                 Status status = GetStatus(pName);
                 status.DateOfReference = pDateOfReference;
+                db.SaveChanges();
+                lResult = true;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in StatusConfiguration.GetDateOfReference " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                lResult = false;
+            }
+
+            return lResult;
+        }
+
+        public bool SetStatus(IrrigationAdvisorWebStatus pWebStatus, string pName)
+        {
+            bool lResult = false;
+
+            try
+            {
+                Status status = GetStatus(pName);
+                status.WebStatus = pWebStatus;
                 db.SaveChanges();
                 lResult = true;
             }
