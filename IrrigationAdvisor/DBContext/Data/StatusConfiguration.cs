@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity.ModelConfiguration;
 using IrrigationAdvisor.Models.Data;
+using IrrigationAdvisor.Models.Utilities;
 using NLog;
-using static IrrigationAdvisor.Models.Utilities.Utils;
 
 namespace IrrigationAdvisor.DBContext.Data
 {
@@ -58,7 +58,7 @@ namespace IrrigationAdvisor.DBContext.Data
             return lResult;
         }
 
-        public bool SetStatus(IrrigationAdvisorWebStatus pWebStatus, string pName)
+        public bool SetStatus(Utils.IrrigationAdvisorWebStatus pWebStatus, string pName)
         {
             bool lResult = false;
 

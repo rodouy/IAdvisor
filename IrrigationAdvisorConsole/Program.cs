@@ -15517,11 +15517,9 @@ namespace IrrigationAdvisorConsole
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
                     DataEntry.AddRainDataDCASanJosePivot1_2016(context, DateOfReference);
-                    DataEntry.AddRainDataDCASanJosePivot4_2016(context, DateOfReference);
-                    //DataEntry.AddRainDataDCASanJosePivot1_2016(context, DateOfReference);
                     //DataEntry.AddRainDataDCASanJosePivot2_2016(context, DateOfReference);
                     //DataEntry.AddRainDataDCASanJosePivot3_2016(context, DateOfReference);
-                    //DataEntry.AddRainDataDCASanJosePivot4_2016(context, DateOfReference);
+                    DataEntry.AddRainDataDCASanJosePivot4_2016(context, DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
