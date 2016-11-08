@@ -139,6 +139,7 @@ namespace IrrigationAdvisor.Controllers
             sc = new StatusConfiguration();
             #endregion
 
+            int trace = 0;
             try
             {
 
@@ -152,10 +153,11 @@ namespace IrrigationAdvisor.Controllers
                     pLoginViewModel = ManageSession.GetLoginViewModel();
                 }
 
+                trace = 10;
                 ManageSession.SetUserName(pLoginViewModel.UserName);
                 ManageSession.SetUserPassword(pLoginViewModel.Password);
 
-
+                trace = 20;
                 lAuthentication = new Authentication(pLoginViewModel.UserName, pLoginViewModel.Password);
 
                 if (!lAuthentication.IsAuthenticated())
@@ -170,6 +172,8 @@ namespace IrrigationAdvisor.Controllers
                     var routes = new RouteValueDictionary { { "msg", NOT_ONLINE_SITE } };
                     return RedirectToAction("Index", routes);
                 }
+
+                trace = 30;
                 #endregion
 
                 #region new Instances - Configurations/ErrorVM 
@@ -183,6 +187,7 @@ namespace IrrigationAdvisor.Controllers
                 ciwc = new CropIrrigationWeatherConfiguration();
                 #endregion
 
+                trace = 40;
                 #region Date of Reference
                 if (ManageSession.GetNavigationDate() >= Utils.MAX_DATETIME)
                 {
@@ -197,7 +202,7 @@ namespace IrrigationAdvisor.Controllers
 
                 ViewBag.DateOfReference = lDateOfReference;
                 #endregion
-
+                trace = 50;
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
 
@@ -206,6 +211,7 @@ namespace IrrigationAdvisor.Controllers
                 #region Get list of Farms from User
                 lFarmList = fc.GetFarmListBy(lLoggedUser);
 
+                trace = 60;
                 // If the user doesnt have farms
                 if (lFarmList.Count == 0)
                 {
@@ -226,7 +232,7 @@ namespace IrrigationAdvisor.Controllers
                 //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
 
-
+                trace = 70;
                 //Map each farm with FarmViewModel and add to a list
                 foreach (var lFarm in lFarmList)
                 {
@@ -242,6 +248,7 @@ namespace IrrigationAdvisor.Controllers
                 }
                 #endregion
 
+                trace = 80;
                 #region Current Farm
                 lCurrentFarm = GetCurrenFarm(lFarmList);
 
@@ -250,6 +257,8 @@ namespace IrrigationAdvisor.Controllers
                 lFarmViewModel = new FarmViewModel(lCurrentFarm);
                 lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lCurrentFarm);
                 #endregion
+
+                trace = 90;
 
                 lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
                 lDailyRecordList = new List<DailyRecord>();
@@ -263,6 +272,7 @@ namespace IrrigationAdvisor.Controllers
                     lMaxDateOfReference = ciwc.GetMaxDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
                 }
 
+                trace = 100;
                 //TODO Change First CropIrrigationWeather
                 lFirstCropIrrigationWeather = lCropIrrigationWeatherList.FirstOrDefault();
                 //lDailyRecordList = lFirstCropIrrigationWeather.DailyRecordList;
@@ -274,6 +284,7 @@ namespace IrrigationAdvisor.Controllers
                     lRainViewModelList.Add(new RainViewModel(rain));
                 }
 
+                trace = 110;
                 lIrrigationList = lFirstCropIrrigationWeather.IrrigationList;
                 lIrrigationViewModelList = new List<IrrigationViewModel>();
                 foreach (var irrigation in lIrrigationList)
@@ -287,6 +298,7 @@ namespace IrrigationAdvisor.Controllers
                     lDailyRecordViewModelList.Add(new DailyRecordViewModel(daily));
                 }
 
+                trace = 120;
                 lCropIrrigationWeatherVM = new List<CropIrrigationWeather>();
                 lCropIrrigationWeatherVM.Add(lFirstCropIrrigationWeather);
                 //Demo - One Pivot
@@ -295,6 +307,7 @@ namespace IrrigationAdvisor.Controllers
                     lDailyRecordViewModelList, lRainViewModelList, lIrrigationViewModelList,
                     lMinDateOfReference, lMaxDateOfReference);
 
+                trace = 130;
                 //Create View Model of Home
                 //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
                 lHVM.DateOfReference = lDateOfReference;
@@ -307,15 +320,17 @@ namespace IrrigationAdvisor.Controllers
 
                 #endregion
 
+                trace = 140;
 
                 ManageSession.SetHomeViewModel(lHVM);
 
+                trace = 150;
                 return View(lHVM);
 
             }
             catch (NullReferenceException ex)
             {
-                logger.Error(ex, "Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Trace: " + trace + " - Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 ManageSession.CleanSession();
 
                 return RedirectToAction("Index");
