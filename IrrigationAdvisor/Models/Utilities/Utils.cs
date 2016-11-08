@@ -1682,6 +1682,12 @@ namespace IrrigationAdvisor.Models.Utilities
             StatusConfiguration sc = new StatusConfiguration();
             return sc.SetStatus(IrrigationAdvisorWebStatus.Online, pName);
         }
+
+        public static bool IsOnline(string pName)
+        {
+            StatusConfiguration sc = new StatusConfiguration();
+            return sc.GetStatus(pName).WebStatus == IrrigationAdvisorWebStatus.Online;
+        }
         #endregion
 
         #endregion

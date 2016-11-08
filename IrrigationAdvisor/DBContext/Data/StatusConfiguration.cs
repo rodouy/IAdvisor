@@ -34,6 +34,7 @@ namespace IrrigationAdvisor.DBContext.Data
 
         public Status GetStatus(string pName)
         {
+            db = new IrrigationAdvisorContext(); // Refresh the context.
             return (from s in db.Status
                     where s.Name.Equals(pName)
                     select s).FirstOrDefault();

@@ -34,6 +34,7 @@ using IrrigationAdvisor.ViewModels.Weather;
 using IrrigationAdvisor.Controllers.Helpers;
 using NLog;
 using IrrigationAdvisor.DBContext.Data;
+using System.Web.Routing;
 
 namespace IrrigationAdvisor.Controllers
 {
@@ -43,6 +44,7 @@ namespace IrrigationAdvisor.Controllers
         //TODO: Refactor ErrorClass with code and text
         private const int AUTHENTICATION_ERROR_NR = 10001;
         private const string AUTHENTICATION_ERROR = "Credenciales inválidas";
+        private const string NOT_ONLINE_SITE = "El sitio no se encuentra on-line";
         private const int NO_FARMS_FOR_USER_NR = 10002;
         private const string NO_FARMS_FOR_USER = "El usuario no tiene granjas asignadas";
 
@@ -94,7 +96,7 @@ namespace IrrigationAdvisor.Controllers
 
             return lCurrentFarm;
         }
-
+        
         public ActionResult Home(LoginViewModel pLoginViewModel)
         {
             Authentication lAuthentication;
@@ -105,6 +107,7 @@ namespace IrrigationAdvisor.Controllers
             FarmConfiguration fc;
             IrrigationUnitConfigurarion iuc;
             CropIrrigationWeatherConfiguration ciwc;
+            StatusConfiguration sc;
             #endregion
 
             #region Local Variables
@@ -133,6 +136,7 @@ namespace IrrigationAdvisor.Controllers
             List<IrrigationViewModel> lIrrigationViewModelList;
 
             List<CropIrrigationWeather> lCropIrrigationWeatherVM;
+            sc = new StatusConfiguration();
             #endregion
 
             try
@@ -156,8 +160,15 @@ namespace IrrigationAdvisor.Controllers
 
                 if (!lAuthentication.IsAuthenticated())
                 {
-                    pLoginViewModel.InvalidPasswordMessage = AUTHENTICATION_ERROR;
-                    return View("Index", pLoginViewModel);
+                    var routes = new RouteValueDictionary { { "msg", AUTHENTICATION_ERROR } };
+                    return RedirectToAction("Index", routes);
+                }
+                bool lIsOnline = Utils.IsOnline(System.Configuration.ConfigurationManager.AppSettings["Status"]);
+
+                if(!lIsOnline)
+                {
+                    var routes = new RouteValueDictionary { { "msg", NOT_ONLINE_SITE } };
+                    return RedirectToAction("Index", routes);
                 }
                 #endregion
 
@@ -1027,7 +1038,9 @@ namespace IrrigationAdvisor.Controllers
             UserConfiguration uc = new UserConfiguration();
             User user = uc.GetUserByName(lLoggedUser);
 
-            if (user != null && user.RoleId == (int)Utils.UserRoles.Administrator)
+            bool lIsOnline = Utils.IsOnline(System.Configuration.ConfigurationManager.AppSettings["Status"]);
+
+            if (user != null && user.RoleId == (int)Utils.UserRoles.Administrator && lIsOnline)
                 menuVM.IsAdministrator = true;
             else
                 menuVM.IsAdministrator = false;

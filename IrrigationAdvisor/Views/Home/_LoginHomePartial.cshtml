@@ -23,9 +23,25 @@
 </div><!-- /.modal -->
 <script>
 
+    
     $(document).ready(function () {
+        var msg = $('#msg');
 
-        
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
         $('#loading').modal({
             keyboard: false,
             backdrop: 'static'
@@ -40,13 +56,18 @@
             $('#loading').modal('hide');
         }
 
+        var init = function () {
+            if(getUrlParameter('msg'))
+            {
+                msg.html(getUrlParameter('msg'));
+            }
+        }
+
+        init();
         hideLoading();
 
         var signInBtn = $('#signInBtn');
         
-
-        
-
         signInBtn.click(function(){
 
             showLoading();
@@ -78,7 +99,7 @@
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                             
-                            <span style="color:red">@Model.InvalidPasswordMessage</span>
+                            <span style="color:red" id="msg"></span>
                         </div>
                         <div class="form-check">
                             @*<input type="checkbox" id="check">
