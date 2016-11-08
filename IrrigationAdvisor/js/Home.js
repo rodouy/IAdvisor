@@ -28,12 +28,12 @@ $(document).ready(function () {
     var cancelRain = $('#CancelRain');
     var cancelPheno = $('#CancelPheno');
     var lstFarms = $('#lstFarms');
+    var modalLoadStatus = $('.disable-save-button').length == 0;
     var farmInfo = $('#farm-info');
     var irrigationUnitIrrigation = $('#IrrigationUnitIrrigation');
     var irrigationUnit = $('#IrrigationUnit');
     var irrigationUnitRainMail = $('#irrigationUnitRainMail');
     var irrigationUnitIrrigationMail = $('#irrigationUnitIrrigationMail');
-   
 
     
 
@@ -155,6 +155,35 @@ $(document).ready(function () {
         });
     };
 
+    var loadStageForCropIrrigationWeather = function () {
+
+        var selectedCropIrriWeatherPheno = cropIrriWeatherPheno.val();
+        var specieId = specieIdInput.val();
+
+        var comboStages = $('#StagePheno');
+
+        $.ajax({
+            type: 'GET',
+            url: './GetStagesBy?pSpecieId=' + specieId + '&pCropIrrigationWeatherId=' + selectedCropIrriWeatherPheno,
+            success: function (data) {
+
+                var values = JSON.stringify(data);
+
+                comboStages.empty();
+                $.each($.parseJSON(values), function (key, value) {
+                    comboStages.append('<option value="' + value.StageId + '">' + value.ShortName + '</option>');
+                });
+
+            },
+            error: function (data) {
+
+                console.log("Error on irrigationUnitPheno.change");
+
+            }
+        });
+
+    };
+
     var init = function () {
 
         addIrrigationModal.hide();
@@ -167,6 +196,11 @@ $(document).ready(function () {
         modalRain.modal(initModal);
         modalPheno.modal(initModal);
         loadUserFarms();
+
+        if (modalLoadStatus) {
+            loadStageForCropIrrigationWeather();
+        }
+
         hideLoading();
     };
 
@@ -282,7 +316,7 @@ $(document).ready(function () {
 
         var currentValue = event.target.value;
 
-        if (currentValue)
+        if (currentValue && modalLoadStatus)
             saveRainBtn.attr('disabled', false);
         else
             saveRainBtn.attr('disabled', true);
@@ -294,7 +328,7 @@ $(document).ready(function () {
 
         var currentValue = event.target.value;
 
-        if (currentValue)
+        if (currentValue && modalLoadStatus)
             saveIrrigationBtn.attr('disabled', false);
         else
             saveIrrigationBtn.attr('disabled', true);
@@ -306,7 +340,7 @@ $(document).ready(function () {
 
         var currentValue = event.target.value;
 
-        if (currentValue)
+        if (currentValue && modalLoadStatus)
             saveRainBtn.attr('disabled', false);
         else
             saveRainBtn.attr('disabled', true);
@@ -318,7 +352,7 @@ $(document).ready(function () {
 
         var currentValue = event.target.value;
 
-        if (currentValue)
+        if (currentValue && modalLoadStatus)
             saveIrrigationBtn.attr('disabled', false);
         else
             saveIrrigationBtn.attr('disabled', true);
@@ -353,38 +387,6 @@ $(document).ready(function () {
             }
         });
     }
-
-    var loadStageForCropIrrigationWeather = function () {
-
-        var selectedCropIrriWeatherPheno = cropIrriWeatherPheno.val();
-        var specieId = specieIdInput.val();
-
-        var comboStages = $('#StagePheno');
-
-        $.ajax({
-            type: 'GET',
-            url: './GetStagesBy?pSpecieId=' + specieId + '&pCropIrrigationWeatherId=' + selectedCropIrriWeatherPheno,
-            success: function (data) {
-
-                var values = JSON.stringify(data);
-
-                comboStages.empty();
-                $.each($.parseJSON(values), function (key, value) {
-                   comboStages.append('<option value="' + value.StageId + '">' + value.ShortName + '</option>');
-                });
-
-            },
-            error: function (data) {
-
-                console.log("Error on irrigationUnitPheno.change");
-
-            }
-        });
-
-    };
-
-
-    loadStageForCropIrrigationWeather();
 
     cropIrriWeatherPheno.change(function () {
 
