@@ -45,6 +45,8 @@ namespace IrrigationAdvisor.Controllers
         private const int AUTHENTICATION_ERROR_NR = 10001;
         private const string AUTHENTICATION_ERROR = "Credenciales inválidas";
         private const string NOT_ONLINE_SITE = "El sitio no se encuentra on-line";
+        private const string USER_IS_NULL = "El usuario es nulo";
+        private const int USER_IS_NULL_CODE = 10003;
         private const int NO_FARMS_FOR_USER_NR = 10002;
         private const string NO_FARMS_FOR_USER = "El usuario no tiene granjas asignadas";
 
@@ -209,7 +211,20 @@ namespace IrrigationAdvisor.Controllers
                 lErrorVM = new ErrorViewModel();
 
                 #region Get list of Farms from User
-                lFarmList = fc.GetFarmListBy(lLoggedUser);
+                if(lLoggedUser != null)
+                {
+                    lFarmList = fc.GetFarmListBy(lLoggedUser);
+                }
+                else
+                {
+                    lErrorVM.Code = USER_IS_NULL_CODE;
+                    lErrorVM.Description = USER_IS_NULL;
+
+                    HomeViewModel HVMError = new HomeViewModel(lErrorVM);
+                    logger.Debug(USER_IS_NULL);
+                    return View(HVMError);
+                }
+                
                 
                 trace = 60;
                 // If the user doesnt have farms
@@ -1046,15 +1061,22 @@ namespace IrrigationAdvisor.Controllers
 
             string lLoggedUser = ManageSession.GetUserName();
 
-            UserConfiguration uc = new UserConfiguration();
-            User user = uc.GetUserByName(lLoggedUser);
+            if (lLoggedUser != null)
+            {
+                UserConfiguration uc = new UserConfiguration();
+                User user = uc.GetUserByName(lLoggedUser);
 
-            bool lIsOnline = Utils.IsOnline(System.Configuration.ConfigurationManager.AppSettings["Status"]);
+                bool lIsOnline = Utils.IsOnline(System.Configuration.ConfigurationManager.AppSettings["Status"]);
 
-            if (user != null && user.RoleId == (int)Utils.UserRoles.Administrator && lIsOnline)
-                menuVM.IsAdministrator = true;
+                if (user != null && user.RoleId == (int)Utils.UserRoles.Administrator && lIsOnline)
+                    menuVM.IsAdministrator = true;
+                else
+                    menuVM.IsAdministrator = false; 
+            }
             else
+            {
                 menuVM.IsAdministrator = false;
+            }
 
             return PartialView("_GenerateMenu", menuVM);
         }
