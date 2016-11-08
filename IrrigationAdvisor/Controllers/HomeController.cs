@@ -210,7 +210,6 @@ namespace IrrigationAdvisor.Controllers
 
                 lErrorVM = new ErrorViewModel();
 
-                lLoggedUser = null;
                 #region Get list of Farms from User
                 if(lLoggedUser != null)
                 {
