@@ -44,7 +44,8 @@ namespace IrrigationAdvisor.Controllers
         //TODO: Refactor ErrorClass with code and text
         private const int AUTHENTICATION_ERROR_NR = 10001;
         private const string AUTHENTICATION_ERROR = "Credenciales inválidas";
-        private const string NOT_ONLINE_SITE = "El sitio no se encuentra on-line";
+        private const string NOT_ONLINE_SITE_STATUS = "El sitio se encuentra actualizando datos.";
+        private const string NOT_ONLINE_WAITING_TIME = "Intente nuevamente en 10 minutos.";
         private const string USER_IS_NULL = "El usuario es nulo";
         private const int USER_IS_NULL_CODE = 10003;
         private const int NO_FARMS_FOR_USER_NR = 10002;
@@ -139,6 +140,7 @@ namespace IrrigationAdvisor.Controllers
 
             List<CropIrrigationWeather> lCropIrrigationWeatherVM;
             sc = new StatusConfiguration();
+            lErrorVM = new ErrorViewModel();
             #endregion
 
             int trace = 0;
@@ -146,13 +148,23 @@ namespace IrrigationAdvisor.Controllers
             {
 
                 #region Manage Session, Get Login from Session
-                if (!pLoginViewModel.UserName.Equals(string.Empty))
+                
+                if (pLoginViewModel != null && !string.IsNullOrEmpty(pLoginViewModel.UserName))
                 {
                     ManageSession.SetLoginViewModel(pLoginViewModel);
                 }
                 else
                 {
-                    pLoginViewModel = ManageSession.GetLoginViewModel();
+                    LoginViewModel localLgM = ManageSession.GetLoginViewModel();
+
+                    if(localLgM == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        pLoginViewModel = ManageSession.GetLoginViewModel();
+                    }
                 }
 
                 trace = 10;
@@ -164,14 +176,14 @@ namespace IrrigationAdvisor.Controllers
 
                 if (!lAuthentication.IsAuthenticated())
                 {
-                    var routes = new RouteValueDictionary { { "msg", AUTHENTICATION_ERROR } };
+                    var routes = new RouteValueDictionary { { "msg", AUTHENTICATION_ERROR }};
                     return RedirectToAction("Index", routes);
                 }
                 bool lIsOnline = Utils.IsOnline(System.Configuration.ConfigurationManager.AppSettings["Status"]);
 
                 if(!lIsOnline)
                 {
-                    var routes = new RouteValueDictionary { { "msg", NOT_ONLINE_SITE } };
+                    var routes = new RouteValueDictionary { { "msg", NOT_ONLINE_SITE_STATUS } , { "msg2", NOT_ONLINE_WAITING_TIME } };
                     return RedirectToAction("Index", routes);
                 }
 
@@ -207,9 +219,7 @@ namespace IrrigationAdvisor.Controllers
                 trace = 50;
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(pLoginViewModel.UserName);
-
-                lErrorVM = new ErrorViewModel();
-
+                
                 #region Get list of Farms from User
                 if(lLoggedUser != null)
                 {
