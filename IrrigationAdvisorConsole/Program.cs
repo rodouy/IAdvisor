@@ -578,6 +578,32 @@ namespace IrrigationAdvisorConsole
             };
             #endregion
 
+
+            #region Maria Elena SRL - La Rinconada - LR
+            var lLaRinconadaJuanB = new User()
+            {
+                Name = "Juan",
+                Surname = "Baroffio",
+                Phone = "+598 99 492 897",
+                Address = "Ruta 3 km 287.3",
+                Email = "juanbaroffio@ingleby.com.uy",
+                UserName = Utils.NameUserDelLago1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LR2017"),
+                RoleId = 3,
+            };
+            var lLarinconadaJuanP = new User()
+            {
+                Name = "Juan",
+                Surname = "Pastorini",
+                Phone = "+598 91 035 584",
+                Address = "Ruta 3 km 287.3",
+                Email = "juanpastorini@ingleby.com.uy",
+                UserName = Utils.NameUserDelLago2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LR2017"),
+                RoleId = 3,
+            };
+            #endregion
+
             using (var context = new IrrigationAdvisorContext())
             {
                 //context.Users.Add(lBase);
@@ -592,6 +618,8 @@ namespace IrrigationAdvisorConsole
                 context.Users.Add(lGMOPablo);
                 context.Users.Add(lGMODiego);
                 context.Users.Add(lGMOMauricio);
+                context.Users.Add(lLaRinconadaJuanB);
+                context.Users.Add(lLarinconadaJuanP);
                 context.SaveChanges();
             }
  
