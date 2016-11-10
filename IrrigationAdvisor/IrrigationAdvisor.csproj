@@ -318,7 +318,7 @@
     <Compile Include="Models\Data\InitialTables.cs" />
     <Compile Include="Models\Data\Status.cs" />
     <Compile Include="Models\GridHome\GridDetailPivottHome.cs" />
-    <Compile Include="Models\GridHome\GriPivotHome .cs" />
+    <Compile Include="Models\GridHome\GriPivotHome.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Language\LanguageContext.cs" />
     <Compile Include="Models\Localization\Farm.cs" />
@@ -361,6 +361,7 @@
     <Compile Include="Models\Utilities\Utils.cs" />
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
+    <Compile Include="Models\Weather\Season.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
     <Compile Include="ViewModels\Weather\GridWeather.cs" />
     <Compile Include="Models\Weather\TemperatureData.cs" />

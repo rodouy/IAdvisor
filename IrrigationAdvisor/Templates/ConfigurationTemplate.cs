@@ -15,7 +15,7 @@ namespace IrrigationAdvisor.Templates
         public ConfigurationTemplate()
         {
             ToTable("ClassTemplate");
-            HasKey(c => c.Id);
+            HasKey(c => c.ClassTemplateId);
             Property(c => c.Name).IsRequired();
 
             #region Relationship

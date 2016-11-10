@@ -44,7 +44,7 @@ namespace IrrigationAdvisor.Templates
         ///     
         /// </summary>
 
-        private long id;
+        private long classTemplateId;
         private string name;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -56,10 +56,10 @@ namespace IrrigationAdvisor.Templates
         ///     - Name: the name of the instance
         /// </summary>
         
-        public long Id
+        public long ClassTemplateId
         {
-            get { return id; }
-            set { id = value; }
+            get { return classTemplateId; }
+            set { classTemplateId = value; }
         }
 
         public string Name
@@ -76,7 +76,7 @@ namespace IrrigationAdvisor.Templates
         /// </summary>
         public ClassTemplate()
         {
-            this.Id = 0;
+            this.ClassTemplateId = 0;
             this.Name = "noname";
         }
 
@@ -86,7 +86,7 @@ namespace IrrigationAdvisor.Templates
         /// <param name="pName"></param>
         public ClassTemplate(long pId, String pNewName)
         {
-            this.Id = pId;
+            this.ClassTemplateId = pId;
             this.Name = pNewName;
         }
 

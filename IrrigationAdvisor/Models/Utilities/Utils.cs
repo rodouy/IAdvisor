@@ -321,6 +321,33 @@ namespace IrrigationAdvisor.Models.Utilities
         }
 
         /// <summary>
+        /// Season of the year
+        /// </summary>
+        public enum WeatherSeason
+        {
+            /// <summary>
+            /// Spring, from September to December
+            /// </summary>
+            Spring,
+            
+            /// <summary>
+            /// Summer, from December to March
+            /// </summary>
+            Summer,
+            
+            /// <summary>
+            /// Fall from March to June
+            /// </summary>
+            Fall,
+
+            /// <summary>
+            /// Winter, from June to September
+            /// </summary>
+            Winter,
+
+        }
+
+        /// <summary>
         /// To colour the cell with Irrigation Status
         /// </summary>
         public enum IrrigationStatus
@@ -1415,11 +1442,12 @@ namespace IrrigationAdvisor.Models.Utilities
         }
 
         /// <summary>
-        /// Return if the Date One is Later than Date Two.
-        /// NOT Compares Years.
+        /// Return true if DateBetween is between the Date One and Date Two.
+        /// NOT Compares Years. 
         /// </summary>
         /// <param name="pDateOne"></param>
         /// <param name="pDateTwo"></param>
+        /// <param name="pDateBetween"></param>
         /// <returns></returns>
         public static bool IsBetweenDatesWithoutYear(DateTime pDateOne, DateTime pDateTwo, DateTime pDateBetween)
         {
