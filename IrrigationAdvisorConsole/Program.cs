@@ -587,7 +587,7 @@ namespace IrrigationAdvisorConsole
                 Phone = "+598 99 492 897",
                 Address = "Ruta 3 km 287.3",
                 Email = "juanbaroffio@ingleby.com.uy",
-                UserName = Utils.NameUserDelLago1,
+                UserName = Utils.NameUserLR1,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LR2017"),
                 RoleId = 3,
             };
@@ -598,7 +598,7 @@ namespace IrrigationAdvisorConsole
                 Phone = "+598 91 035 584",
                 Address = "Ruta 3 km 287.3",
                 Email = "juanpastorini@ingleby.com.uy",
-                UserName = Utils.NameUserDelLago2,
+                UserName = Utils.NameUserLR2,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LR2017"),
                 RoleId = 3,
             };
