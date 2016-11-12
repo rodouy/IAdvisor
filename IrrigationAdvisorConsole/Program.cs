@@ -12182,6 +12182,7 @@ namespace IrrigationAdvisorConsole
         {
             Bomb lBomb = null;
             Position lPosition = null;
+            Farm lFarm = null;
 
             #region Base
             var lBase = new Pivot
@@ -12212,6 +12213,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDemo11
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmDemo1
+                             select f).FirstOrDefault();
 
                     var lDemo1Pivot11 = new Pivot
                     {
@@ -12225,6 +12229,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 12
@@ -12247,6 +12252,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 13
@@ -12269,6 +12275,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 15
@@ -12291,6 +12298,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12317,6 +12325,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDemo21
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmDemo2
+                             select f).FirstOrDefault();
 
                     var lDemo2Pivot21 = new Pivot
                     {
@@ -12330,6 +12341,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 22
@@ -12352,6 +12364,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 23
@@ -12374,6 +12387,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 24
@@ -12396,6 +12410,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 25
@@ -12418,6 +12433,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12445,6 +12461,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDemo31
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmDemo3
+                             select f).FirstOrDefault();
 
                     var lDemo3Pivot31 = new Pivot
                     {
@@ -12458,6 +12477,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 32A
@@ -12480,6 +12500,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 33
@@ -12502,6 +12523,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 34
@@ -12524,6 +12546,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 35
@@ -12546,6 +12569,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12574,6 +12598,10 @@ namespace IrrigationAdvisorConsole
                                  where pos.Name == Utils.NamePositionPivotSantaLucia1
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmSantaLucia
+                             select f).FirstOrDefault();
+
                     var lSantaLuciaPivot1 = new Pivot
                     {
                         Name = Utils.NamePivotSantaLucia1,
@@ -12586,6 +12614,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12606,6 +12635,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12626,6 +12656,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12646,6 +12677,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12666,6 +12698,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12696,6 +12729,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCAElParaiso1
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmDCAElParaiso
+                             select f).FirstOrDefault();
 
                     var lDCAElParaisoPivot1 = new Pivot
                     {
@@ -12709,6 +12745,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 2
@@ -12731,6 +12768,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 3
@@ -12753,6 +12791,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 4
@@ -12775,6 +12814,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 5
@@ -12797,6 +12837,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 6
@@ -12819,6 +12860,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 7
@@ -12841,6 +12883,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12872,6 +12915,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCASanJose1
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmDCASanJose
+                             select f).FirstOrDefault();
 
                     var lDCASanJosePivot1 = new Pivot
                     {
@@ -12885,6 +12931,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 2
@@ -12907,6 +12954,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 3
@@ -12929,6 +12977,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 4
@@ -12951,6 +13000,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -12979,6 +13029,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz1
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmDCALaPerdiz
+                             select f).FirstOrDefault();
 
                     var lDCALaPerdizPivot1 = new Pivot
                     {
@@ -12992,6 +13045,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 2
@@ -13014,6 +13068,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 3
@@ -13036,6 +13091,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 4
@@ -13058,6 +13114,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 5
@@ -13080,6 +13137,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 120,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 6
@@ -13102,6 +13160,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 7
@@ -13124,6 +13183,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 8
@@ -13146,6 +13206,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 9
@@ -13168,6 +13229,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 10a
@@ -13190,6 +13252,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 10b
@@ -13212,6 +13275,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 11
@@ -13234,6 +13298,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 12
@@ -13256,6 +13321,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 13
@@ -13278,6 +13344,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 14
@@ -13300,6 +13367,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 37,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 15
@@ -13322,6 +13390,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 50,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -13361,6 +13430,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoSanPedro5
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmDCALaPerdiz
+                             select f).FirstOrDefault();
 
                     var lDelLagoSanPedroPivot5 = new Pivot
                     {
@@ -13374,6 +13446,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 59,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -13397,6 +13470,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -13420,6 +13494,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 55,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -13443,6 +13518,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         Radius = 16,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -13471,6 +13547,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador1
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmDelLagoElMirador
+                             select f).FirstOrDefault();
 
                     var lDelLagoElMiradorPivot1 = new Pivot
                     {
@@ -13485,6 +13564,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 02
@@ -13508,6 +13588,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 03
@@ -13531,6 +13612,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 04
@@ -13554,6 +13636,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 05
@@ -13577,6 +13660,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 06
@@ -13600,6 +13684,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 07
@@ -13623,6 +13708,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 08
@@ -13646,6 +13732,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 09
@@ -13669,6 +13756,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 10
@@ -13692,6 +13780,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 11
@@ -13715,6 +13804,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 12
@@ -13738,6 +13828,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 13
@@ -13761,6 +13852,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 14
@@ -13784,6 +13876,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 15
@@ -13807,6 +13900,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot Chaja 01
@@ -13830,6 +13924,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot Chaja 02
@@ -13853,6 +13948,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -13894,6 +13990,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotGMOLaPalma1
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmGMOLaPalma
+                             select f).FirstOrDefault();
 
                     var lGMOLaPalmaPivot1 = new Pivot
                     {
@@ -13908,6 +14007,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -13932,6 +14032,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -13956,6 +14057,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 27,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -13980,6 +14082,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 14,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -14004,6 +14107,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 
@@ -14033,6 +14137,9 @@ namespace IrrigationAdvisorConsole
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotGMOElTacuru1
                                  select pos).FirstOrDefault();
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmGMOElTacuru
+                             select f).FirstOrDefault();
 
                     var lGMOElTacuruPivot1 = new Pivot
                     {
@@ -14047,6 +14154,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 2
@@ -14070,6 +14178,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 12,
                         Radius = 71,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 3
@@ -14093,6 +14202,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 12,
                         Radius = 36,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 4
@@ -14116,6 +14226,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 12,
                         Radius = 36,
                         Show = true,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 5
@@ -14139,6 +14250,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 11,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 6
@@ -14162,6 +14274,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 7
@@ -14185,6 +14298,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 8
@@ -14208,6 +14322,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 12,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 9
@@ -14231,6 +14346,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 12,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
                     #region Pivot 10
@@ -14254,6 +14370,7 @@ namespace IrrigationAdvisorConsole
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 50,
                         Show = false,
+                        FarmId = lFarm.FarmId
                     };
                     #endregion
 

@@ -108,7 +108,7 @@ namespace IrrigationAdvisor.Controllers
             #region Configuration Variables
             UserConfiguration uc;
             FarmConfiguration fc;
-            IrrigationUnitConfigurarion iuc;
+            IrrigationUnitConfiguration iuc;
             CropIrrigationWeatherConfiguration ciwc;
             StatusConfiguration sc;
             #endregion
@@ -196,7 +196,7 @@ namespace IrrigationAdvisor.Controllers
                 //fc - GetFarmListBy - GetLatitudeBy - GetLongitudeBy
                 fc = new FarmConfiguration();
                 //iuc - GetIrrigationUnitListBy - GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy
-                iuc = new IrrigationUnitConfigurarion();
+                iuc = new IrrigationUnitConfiguration();
                 //ciwc - GetDailyRecordListIncludeDailyRecordListBy - GetMinDateOfReferenceBy - GetMaxDateOfReferenceBy
                 ciwc = new CropIrrigationWeatherConfiguration();
                 #endregion
@@ -362,6 +362,40 @@ namespace IrrigationAdvisor.Controllers
                 return RedirectToAction("Index");
             }
 
+        }
+
+        private List<CropIrrigationWeather> GetCropIrrigationWeatherListByFarmId(long farmId, DateTime dateOfReference)
+        {
+            IrrigationAdvisorContext context = new IrrigationAdvisorContext();
+            IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
+
+            List<CropIrrigationWeather> lResult = null;
+
+           Farm lCurrentFarm = context.Farms.FirstOrDefault(f => f.FarmId == farmId);
+
+            if (lCurrentFarm != null)
+            {
+                List<IrrigationUnit> lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lCurrentFarm);
+
+                List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+
+                foreach (var lIrrigationUnit in lIrrigationUnitList)
+                {
+                    var lGetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy = iuc.GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy(lIrrigationUnit, dateOfReference);
+
+                    foreach (var ciw in lGetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy)
+                    {
+                        if(!lCropIrrigationWeatherList.Any(c => c.CropIrrigationWeatherId == ciw.CropIrrigationWeatherId))
+                        {
+                            lCropIrrigationWeatherList.Add(ciw);
+                        }
+                    }
+
+                    lResult = lCropIrrigationWeatherList;
+                } 
+            }
+
+            return lResult;
         }
 
         /// <summary>
@@ -600,12 +634,12 @@ namespace IrrigationAdvisor.Controllers
 
             return RedirectToAction("Home");
         }
-
+      
         /// <summary>
         /// Calculate All CropIrrigationWeather from Date Of Reference to Now (System Date)
         /// </summary>
         /// <returns></returns>
-        private bool CalculateAllActiveCropIrrigationWeather()
+        private bool CalculateAllActiveCropIrrigationWeather(long farmId = 0)
         {
             bool lResult = false;
             try
@@ -633,7 +667,15 @@ namespace IrrigationAdvisor.Controllers
                             lToday = DateTime.Now;
                         }
 
-                        lCropIrrigationWeatherList = ciwc.GetActiveCropIrrigationWeatherListBy(lDateOfReference);
+                        if(farmId == 0)
+                        {
+                            lCropIrrigationWeatherList = ciwc.GetActiveCropIrrigationWeatherListBy(lDateOfReference);
+                        }
+                        else
+                        {
+                            lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByFarm(farmId, lDateOfReference);
+                        }
+                        
 
                         foreach (CropIrrigationWeather lCIW in lCropIrrigationWeatherList)
                         {
@@ -763,20 +805,36 @@ namespace IrrigationAdvisor.Controllers
             return lResult;
         }
 
-        public void testCalculate()
+        public void CalculateByFarm(long farmId)
+        {
+            CalculateAllActiveCropIrrigationWeather("Demo", "lluvia", farmId);
+        }
+        public void TestCalculate()
         {
             CalculateAllActiveCropIrrigationWeather("Demo", "lluvia");
         }
 
         [HttpPost]
-        public ActionResult CalculateAllActiveCropIrrigationWeather(string pUserName, string pPassword)
+        public ActionResult CalculateAllActiveCropIrrigationWeather(string pUserName, string pPassword, long farmId = 0)
         {
             try
             {
+                bool lResult = false;
+
                 if (Login(pUserName, pPassword))
                 {
                     PredictionWeatherData();
-                    if (CalculateAllActiveCropIrrigationWeather())
+                    
+                    if(farmId == 0)
+                    {
+                        lResult = CalculateAllActiveCropIrrigationWeather();
+                    }
+                    else
+                    {
+                        lResult = CalculateAllActiveCropIrrigationWeather(farmId);
+                    }
+
+                    if (lResult)
                     {
                         return Content("Ok");
                     }
@@ -805,7 +863,7 @@ namespace IrrigationAdvisor.Controllers
         {
 
             IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
-            IrrigationUnitConfigurarion iuc = new IrrigationUnitConfigurarion();
+            IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
 
             try
             {
@@ -871,7 +929,7 @@ namespace IrrigationAdvisor.Controllers
                 DateTime lReferenceDate = Utils.GetDateOfReference().Value;
 
                 IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
-                IrrigationUnitConfigurarion iuc = new IrrigationUnitConfigurarion();
+                IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
                 CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
 
                 IrrigationUnit lIrrigationUnit = null;
@@ -959,7 +1017,7 @@ namespace IrrigationAdvisor.Controllers
                 DateTime lReferenceDate = Utils.GetDateOfReference().Value;
 
                 IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
-                IrrigationUnitConfigurarion iuc = new IrrigationUnitConfigurarion();
+                IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
                 CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
 
                 IrrigationUnit lIrrigationUnit = null;
@@ -1229,7 +1287,7 @@ namespace IrrigationAdvisor.Controllers
             #region Configuration Variables
             UserConfiguration uc;
             FarmConfiguration fc;
-            IrrigationUnitConfigurarion iuc;
+            IrrigationUnitConfiguration iuc;
             CropIrrigationWeatherConfiguration ciwc;
             #endregion
 
@@ -1239,7 +1297,7 @@ namespace IrrigationAdvisor.Controllers
                 #region Configuration - Instance
                 uc = new UserConfiguration();
                 fc = new FarmConfiguration();
-                iuc = new IrrigationUnitConfigurarion();
+                iuc = new IrrigationUnitConfiguration();
                 ciwc = new CropIrrigationWeatherConfiguration();
                 #endregion
 
