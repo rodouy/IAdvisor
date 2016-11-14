@@ -416,6 +416,21 @@ namespace IrrigationAdvisor.Models.Utilities
         public enum IrrigationAdvisorProcessFarm
         {
             /// <summary>
+            /// None
+            /// </summary>
+            NONE,
+
+            /// <summary>
+            /// Print all Farms
+            /// </summary>
+            All,
+
+            /// <summary>
+            /// Print all Farms in Production
+            /// </summary>
+            Production,
+
+            /// <summary>
             /// Demo Farm
             /// DCA Data (Del Carmen ACISA SA; La Perdiz Farm)
             /// </summary>
@@ -492,19 +507,11 @@ namespace IrrigationAdvisor.Models.Utilities
             GMOElTacuru,
 
             /// <summary>
-            /// Print all Farms
+            /// La Rinconada Farm
+            /// Maria Elena SRL
             /// </summary>
-            All,
+            LaRinconada,
 
-            /// <summary>
-            /// Print all Farms in Production
-            /// </summary>
-            Production,
-
-            /// <summary>
-            /// None
-            /// </summary>
-            NONE,
         }
 
 
@@ -514,6 +521,21 @@ namespace IrrigationAdvisor.Models.Utilities
         /// </summary>
         public enum IrrigationAdvisorOutputFiles
         {
+            /// <summary>
+            /// None
+            /// </summary>
+            NONE,
+
+            /// <summary>
+            /// Print all Farms
+            /// </summary>
+            All,
+
+            /// <summary>
+            /// Print all Farms in Production
+            /// </summary>
+            Production,
+
             /// <summary>
             /// Demo Farm
             /// DCA Data (Del Carmen ACISA SA; La Perdiz Farm)
@@ -591,19 +613,11 @@ namespace IrrigationAdvisor.Models.Utilities
             GMOElTacuru,
 
             /// <summary>
-            /// Print all Farms
+            /// La Rinconada Farm
+            /// Maria Elena SRL
             /// </summary>
-            All,
+            LaRinconada,
 
-            /// <summary>
-            /// Print all Farms in Production
-            /// </summary>
-            Production,
-
-            /// <summary>
-            /// None
-            /// </summary>
-            NONE,
         }
 
 
@@ -862,7 +876,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #region La Rinconada
         public static String NameSoilLaRinconada1 = NameFarmLaRinconada + " Pivot 01";
         public static String NameSoilLaRinconada2 = NameFarmLaRinconada + " Pivot 02";
-        public static String NameSoilLaRinconada3_1 = NameFarmLaRinconada + " Pivot 03.1";
+        public static String NameSoilLaRinconada3_1 = NameFarmLaRinconada + " Pivot 3.1";
         public static String NameSoilLaRinconada4 = NameFarmLaRinconada + " Pivot 04";
         public static String NameSoilLaRinconada5 = NameFarmLaRinconada + " Pivot 05";
         public static String NameSoilLaRinconada6 = NameFarmLaRinconada + " Pivot 06";
@@ -1136,6 +1150,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region Security
         public static String NameUserDemo = "Demo";
+        public static String NameUserTesting = "Testing";
         public static String NameUserTestAdm = "TestAdm";
         public static String NameUserAdmin = "Admin";
         public static String NameUserSeba = "scasanova";
@@ -1330,8 +1345,10 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Crop
         public static int MaxEvapotranspirationToIrrigate_Corn = 35;
         public static int MinEvapotranspirationToIrrigate_Corn = 30;
-        public static int MaxEvapotranspirationToIrrigate_Soya = 30;
-        public static int MinEvapotranspirationToIrrigate_Soya = 25;
+        //2016-11-12 rodouy Change Max/Min ET to Irrigate from 30/25 to 35/30
+        public static int MaxEvapotranspirationToIrrigate_Soya = 35;
+        public static int MinEvapotranspirationToIrrigate_Soya = 30;
+        
         public static int MaxEvapotranspirationToIrrigate_SorghumForage = 30;
         public static int MinEvapotranspirationToIrrigate_SorghumForage = 25;
         public static int MaxEvapotranspirationToIrrigate_SorghumGrain = 30;
