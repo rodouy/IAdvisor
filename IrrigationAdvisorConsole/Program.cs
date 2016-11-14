@@ -1003,18 +1003,17 @@ namespace IrrigationAdvisorConsole
                 }
                 #endregion
 
-                #region  - La Rinconada - LR
+                #region Maria Elena SRL - La Rinconada - LR
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
                 {
-                    lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA2, 
+                    lUserNames = new String[] { Utils.NameUserLR1, Utils.NameUserLR2, 
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
-                             where farm.Name == Utils.NameFarmDCALaPerdiz
+                             where farm.Name == Utils.NameFarmLaRinconada
                              select farm).FirstOrDefault();
                     lUserList = (from user in context.Users
                                  where lUserNames.Contains(user.UserName)
@@ -14438,7 +14437,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
-                        Show = true,
+                        Show = false,
                     };
                     #endregion
                     #region Pivot 11
@@ -14576,7 +14575,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
-                        Show = true,
+                        Show = false,
                     };
                     #endregion
                     #region Pivot Chaja 02
@@ -15050,7 +15049,6 @@ namespace IrrigationAdvisorConsole
                         Show = false,
                     };
                     #endregion
-
                     #region Pivot 2
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombLaRinconada
@@ -15074,7 +15072,6 @@ namespace IrrigationAdvisorConsole
                         Show = true,
                     };
                     #endregion
-
                     #region Pivot 3.1
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombLaRinconada
@@ -15095,10 +15092,9 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 29,
-                        Show = true,
+                        Show = false,
                     };
                     #endregion
-
                     #region Pivot 13.1
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombLaRinconada
@@ -15119,7 +15115,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 24,
-                        Show = true,
+                        Show = false,
                     };
                     #endregion
 
@@ -25026,163 +25022,163 @@ namespace IrrigationAdvisorConsole
                     //#endregion
                     #endregion
                     #region Del Lago - El Mirador Pivot 11 2016
-                    //#region Farm //////////////////////////////////////////////////////////////////////
-                    //lFarm = (from farm in context.Farms
-                    //         where farm.Name == Utils.NameFarmDelLagoElMirador
-                    //         select farm).FirstOrDefault();
-                    //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationLaTribu
-                    //                       select ws).FirstOrDefault();
-                    //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
-                    //                              select ws).FirstOrDefault();
-                    //lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                    //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
-                    //                      select effectiverain)
-                    //                     .ToList<EffectiveRain>();
-                    //#endregion
-                    //#region Crop //////////////////////////////////////////////////////////////////////
-                    //lSpecie = (from sp in context.Species
-                    //           where sp.Name == Utils.NameSpecieCornSouthShort
-                    //           select sp).FirstOrDefault();
-                    //lCrop = (from crop in context.Crops
-                    //         where crop.Name == Utils.NameSpecieCornSouthShort
-                    //         select crop).FirstOrDefault();
-                    //lCropCoefficient = (from cc in context.CropCoefficients
-                    //                    where cc.Name == Utils.NameSpecieCornSouthShort
-                    //                    select cc).FirstOrDefault();
-                    //lPhenologicalStages = (from ps in context.PhenologicalStages
-                    //                       where ps.SpecieId == lSpecie.SpecieId
-                    //                       select ps).ToList<PhenologicalStage>();
-                    //lKCList = (from cc in context.CropCoefficients
-                    //           where cc.Name == Utils.NameSpecieCornSouthShort
-                    //           select cc.KCList)
-                    //                     .FirstOrDefault();
-                    //lCropInformationByDate = (from cid in context.CropInformationByDates
-                    //                          where cid.Name == Utils.NameSpecieCornSouthShort
-                    //                          select cid).FirstOrDefault();
-                    //#endregion
-                    //#region Agriculture //////////////////////////////////////////////////////////////////////
-                    //lIrrigationUnit = (from iu in context.Pivots
-                    //                   where iu.Name == Utils.NamePivotDelLagoElMirador11
-                    //                   select iu).FirstOrDefault();
-                    //lSoil = (from soil in context.Soils
-                    //         where soil.Name == Utils.NameSoilDelLagoElMirador11
-                    //         select soil).FirstOrDefault();
-                    //lHorizonList = (from horizon in context.Horizons
-                    //                where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador11)
-                    //                select horizon)
-                    //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot11_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot11_2016;
-                    //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot11_2016 == 0)
-                    //{
-                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
-                    //}
-                    //else
-                    //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot11_2016;
-                    //}
-                    //#endregion
-                    //#region Weather Data
-                    //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
-                    //                        join weatherstation in context.WeatherStations
-                    //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
-                    //                                weatherdata.Date <= lHarvestDate) &&
-                    //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
-                    //                        select weatherdata).ToList<WeatherData>();
-                    //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
-                    //                               join weatherstation in context.WeatherStations
-                    //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
-                    //                                    weatherdata.Date <= lHarvestDate) &&
-                    //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
-                    //                               select weatherdata).ToList<WeatherData>();
-                    //#endregion
-                    //#region New CIW DelLago ElMirador Pivot11 2016
-                    //var lCIWDelLagoElMiradorPivot11_2016 = new CropIrrigationWeather
-                    //{
-                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot11,
-                    //    CropId = lCrop.CropId,
-                    //    Crop = lCrop,
-                    //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
-                    //    IrrigationUnit = lIrrigationUnit,
-                    //    MainWeatherStationId = lWeatherStationMain.WeatherStationId,
-                    //    MainWeatherStation = lWeatherStationMain,
+                    #region Farm //////////////////////////////////////////////////////////////////////
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmDelLagoElMirador
+                             select farm).FirstOrDefault();
+                    lWeatherStationMain = (from ws in context.WeatherStations
+                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           select ws).FirstOrDefault();
+                    lWeatherStationAlternative = (from ws in context.WeatherStations
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  select ws).FirstOrDefault();
+                    lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          select effectiverain)
+                                         .ToList<EffectiveRain>();
+                    #endregion
+                    #region Crop //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
+                    lCrop = (from crop in context.Crops
+                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             select crop).FirstOrDefault();
+                    lCropCoefficient = (from cc in context.CropCoefficients
+                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
+                    lKCList = (from cc in context.CropCoefficients
+                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               select cc.KCList)
+                                         .FirstOrDefault();
+                    lCropInformationByDate = (from cid in context.CropInformationByDates
+                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              select cid).FirstOrDefault();
+                    #endregion
+                    #region Agriculture //////////////////////////////////////////////////////////////////////
+                    lIrrigationUnit = (from iu in context.Pivots
+                                       where iu.Name == Utils.NamePivotDelLagoElMirador11
+                                       select iu).FirstOrDefault();
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NameSoilDelLagoElMirador11
+                             select soil).FirstOrDefault();
+                    lHorizonList = (from horizon in context.Horizons
+                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador11)
+                                    select horizon)
+                                    .ToList<Horizon>();
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot11_2016;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot11_2016;
+                    lCropDate = DateTime.Now;
+                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot11_2016 == 0)
+                    {
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    }
+                    else
+                    {
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot11_2016;
+                    }
+                    #endregion
+                    #region Weather Data
+                    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                                            join weatherstation in context.WeatherStations
+                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                            where (weatherdata.Date >= lSowingDate ||
+                                                    weatherdata.Date <= lHarvestDate) &&
+                                                    weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                                            select weatherdata).ToList<WeatherData>();
+                    lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                                                   join weatherstation in context.WeatherStations
+                                                   on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                                   where (weatherdata.Date >= lSowingDate ||
+                                                        weatherdata.Date <= lHarvestDate) &&
+                                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                                                   select weatherdata).ToList<WeatherData>();
+                    #endregion
+                    #region New CIW DelLago ElMirador Pivot11 2016
+                    var lCIWDelLagoElMiradorPivot11_2016 = new CropIrrigationWeather
+                    {
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot11,
+                        CropId = lCrop.CropId,
+                        Crop = lCrop,
+                        IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
+                        IrrigationUnit = lIrrigationUnit,
+                        MainWeatherStationId = lWeatherStationMain.WeatherStationId,
+                        MainWeatherStation = lWeatherStationMain,
 
-                    //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
-                    //    AlternativeWeatherStation = lWeatherStationAlternative,
-                    //    PositionId = lFarm.PositionId,
-                    //    SoilId = lSoil.SoilId,
-                    //    Soil = lSoil,
+                        AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
+                        AlternativeWeatherStation = lWeatherStationAlternative,
+                        PositionId = lFarm.PositionId,
+                        SoilId = lSoil.SoilId,
+                        Soil = lSoil,
 
-                    //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
+                        PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
-                    //    //Set the initial Phenological Stage for the Crop
-                    //    PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
-                    //    PhenologicalStage = lCrop.PhenologicalStageList[0],
+                        //Set the initial Phenological Stage for the Crop
+                        PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
+                        PhenologicalStage = lCrop.PhenologicalStageList[0],
 
-                    //    SowingDate = lSowingDate,
-                    //    HarvestDate = lHarvestDate,
-                    //    CropDate = lCropDate,
-                    //    DaysForHydricBalanceUnchangableAfterSowing = 0,
+                        SowingDate = lSowingDate,
+                        HarvestDate = lHarvestDate,
+                        CropDate = lCropDate,
+                        DaysForHydricBalanceUnchangableAfterSowing = 0,
 
-                    //    HydricBalance = 0,
+                        HydricBalance = 0,
 
-                    //    CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
-                    //    CropInformationByDate = lCropInformationByDate,
+                        CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
+                        CropInformationByDate = lCropInformationByDate,
 
-                    //};
-                    //context.SaveChanges();
+                    };
+                    context.SaveChanges();
 
-                    ////Set Calculus Method for Phenological Adjustment
-                    //lCIWDelLagoElMiradorPivot11_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
-                    ////Get Initial Hydric Balance
-                    //lCIWDelLagoElMiradorPivot11_2016.HydricBalance = lCIWDelLagoElMiradorPivot11_2016.GetInitialHydricBalance();
-                    ////Create the initial registry
-                    //lCIWDelLagoElMiradorPivot11_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    //Set Calculus Method for Phenological Adjustment
+                    lCIWDelLagoElMiradorPivot11_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    //Get Initial Hydric Balance
+                    lCIWDelLagoElMiradorPivot11_2016.HydricBalance = lCIWDelLagoElMiradorPivot11_2016.GetInitialHydricBalance();
+                    //Create the initial registry
+                    lCIWDelLagoElMiradorPivot11_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    //context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot11_2016);
-                    //context.SaveChanges();
-                    //#endregion
-                    //#region Save Titles for print
-                    //foreach (var item in lCIWDelLagoElMiradorPivot11_2016.Titles)
-                    //{
-                    //    var lTitlesDelLagoElMiradorPivot11_2016 = new Title
-                    //    {
-                    //        CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot11_2016.CropIrrigationWeatherId,
-                    //        CropIrrigationWeather = lCIWDelLagoElMiradorPivot11_2016,
-                    //        Daily = false,
-                    //        Name = item.Name,
-                    //        Abbreviation = item.Abbreviation,
-                    //        Description = item.Description,
-                    //    };
-                    //    context.Titles.Add(lTitlesDelLagoElMiradorPivot11_2016);
-                    //}
-                    //context.SaveChanges();
-                    //long lFirstTitleIdDelLagoElMiradorPivot11_2016 = (from title in context.Titles
-                    //                                                 where title.Name == "DDS"
-                    //                                                    && title.Daily == false
-                    //                                                    && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot11_2016.CropIrrigationWeatherId
-                    //                                                 select title.TitleId).FirstOrDefault();
-                    //long lTotalTitlesDelLagoElMiradorPivot11_2016 = lCIWDelLagoElMiradorPivot11_2016.Titles.Count();
-                    //long lTitleIdDelLagoElMiradorPivot11_2016 = lFirstTitleIdDelLagoElMiradorPivot11_2016;
-                    //#endregion
-                    //#region Update Messages Ids
-                    //foreach (var item in lCIWDelLagoElMiradorPivot11_2016.Messages)
-                    //{
-                    //    item.TitleId = lTitleIdDelLagoElMiradorPivot11_2016;
-                    //    lTitleIdDelLagoElMiradorPivot11_2016 += 1;
-                    //    item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot11_2016.CropIrrigationWeatherId;
-                    //    if ((lTitleIdDelLagoElMiradorPivot11_2016 - lFirstTitleIdDelLagoElMiradorPivot11_2016) % (lTotalTitlesDelLagoElMiradorPivot11_2016) == 0)
-                    //    {
-                    //        lTitleIdDelLagoElMiradorPivot11_2016 = lFirstTitleIdDelLagoElMiradorPivot11_2016;
-                    //    }
-                    //}
-                    //context.SaveChanges();
-                    //#endregion
+                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot11_2016);
+                    context.SaveChanges();
+                    #endregion
+                    #region Save Titles for print
+                    foreach (var item in lCIWDelLagoElMiradorPivot11_2016.Titles)
+                    {
+                        var lTitlesDelLagoElMiradorPivot11_2016 = new Title
+                        {
+                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot11_2016.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot11_2016,
+                            Daily = false,
+                            Name = item.Name,
+                            Abbreviation = item.Abbreviation,
+                            Description = item.Description,
+                        };
+                        context.Titles.Add(lTitlesDelLagoElMiradorPivot11_2016);
+                    }
+                    context.SaveChanges();
+                    long lFirstTitleIdDelLagoElMiradorPivot11_2016 = (from title in context.Titles
+                                                                      where title.Name == "DDS"
+                                                                         && title.Daily == false
+                                                                         && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot11_2016.CropIrrigationWeatherId
+                                                                      select title.TitleId).FirstOrDefault();
+                    long lTotalTitlesDelLagoElMiradorPivot11_2016 = lCIWDelLagoElMiradorPivot11_2016.Titles.Count();
+                    long lTitleIdDelLagoElMiradorPivot11_2016 = lFirstTitleIdDelLagoElMiradorPivot11_2016;
+                    #endregion
+                    #region Update Messages Ids
+                    foreach (var item in lCIWDelLagoElMiradorPivot11_2016.Messages)
+                    {
+                        item.TitleId = lTitleIdDelLagoElMiradorPivot11_2016;
+                        lTitleIdDelLagoElMiradorPivot11_2016 += 1;
+                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot11_2016.CropIrrigationWeatherId;
+                        if ((lTitleIdDelLagoElMiradorPivot11_2016 - lFirstTitleIdDelLagoElMiradorPivot11_2016) % (lTotalTitlesDelLagoElMiradorPivot11_2016) == 0)
+                        {
+                            lTitleIdDelLagoElMiradorPivot11_2016 = lFirstTitleIdDelLagoElMiradorPivot11_2016;
+                        }
+                    }
+                    context.SaveChanges();
+                    #endregion
                     #endregion
                     #region Del Lago - El Mirador Pivot 12 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -25344,163 +25340,163 @@ namespace IrrigationAdvisorConsole
                     #endregion
                     #endregion
                     #region Del Lago - El Mirador Pivot 13 2016
-                    //#region Farm //////////////////////////////////////////////////////////////////////
-                    //lFarm = (from farm in context.Farms
-                    //         where farm.Name == Utils.NameFarmDelLagoElMirador
-                    //         select farm).FirstOrDefault();
-                    //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationLaTribu
-                    //                       select ws).FirstOrDefault();
-                    //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
-                    //                              select ws).FirstOrDefault();
-                    //lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                    //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
-                    //                      select effectiverain)
-                    //                     .ToList<EffectiveRain>();
-                    //#endregion
-                    //#region Crop //////////////////////////////////////////////////////////////////////
-                    //lSpecie = (from sp in context.Species
-                    //           where sp.Name == Utils.NameSpecieCornSouthShort
-                    //           select sp).FirstOrDefault();
-                    //lCrop = (from crop in context.Crops
-                    //         where crop.Name == Utils.NameSpecieCornSouthShort
-                    //         select crop).FirstOrDefault();
-                    //lCropCoefficient = (from cc in context.CropCoefficients
-                    //                    where cc.Name == Utils.NameSpecieCornSouthShort
-                    //                    select cc).FirstOrDefault();
-                    //lPhenologicalStages = (from ps in context.PhenologicalStages
-                    //                       where ps.SpecieId == lSpecie.SpecieId
-                    //                       select ps).ToList<PhenologicalStage>();
-                    //lKCList = (from cc in context.CropCoefficients
-                    //           where cc.Name == Utils.NameSpecieCornSouthShort
-                    //           select cc.KCList)
-                    //                     .FirstOrDefault();
-                    //lCropInformationByDate = (from cid in context.CropInformationByDates
-                    //                          where cid.Name == Utils.NameSpecieCornSouthShort
-                    //                          select cid).FirstOrDefault();
-                    //#endregion
-                    //#region Agriculture //////////////////////////////////////////////////////////////////////
-                    //lIrrigationUnit = (from iu in context.Pivots
-                    //                   where iu.Name == Utils.NamePivotDelLagoElMirador13
-                    //                   select iu).FirstOrDefault();
-                    //lSoil = (from soil in context.Soils
-                    //         where soil.Name == Utils.NameSoilDelLagoElMirador13
-                    //         select soil).FirstOrDefault();
-                    //lHorizonList = (from horizon in context.Horizons
-                    //                where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador13)
-                    //                select horizon)
-                    //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot13_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot13_2016;
-                    //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2016 == 0)
-                    //{
-                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
-                    //}
-                    //else
-                    //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2016;
-                    //}
-                    //#endregion
-                    //#region Weather Data
-                    //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
-                    //                        join weatherstation in context.WeatherStations
-                    //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
-                    //                                weatherdata.Date <= lHarvestDate) &&
-                    //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
-                    //                        select weatherdata).ToList<WeatherData>();
-                    //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
-                    //                               join weatherstation in context.WeatherStations
-                    //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
-                    //                                    weatherdata.Date <= lHarvestDate) &&
-                    //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
-                    //                               select weatherdata).ToList<WeatherData>();
-                    //#endregion
-                    //#region New CIW DelLago ElMirador Pivot13 2016
-                    //var lCIWDelLagoElMiradorPivot13_2016 = new CropIrrigationWeather
-                    //{
-                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot13,
-                    //    CropId = lCrop.CropId,
-                    //    Crop = lCrop,
-                    //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
-                    //    IrrigationUnit = lIrrigationUnit,
-                    //    MainWeatherStationId = lWeatherStationMain.WeatherStationId,
-                    //    MainWeatherStation = lWeatherStationMain,
+                    #region Farm //////////////////////////////////////////////////////////////////////
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmDelLagoElMirador
+                             select farm).FirstOrDefault();
+                    lWeatherStationMain = (from ws in context.WeatherStations
+                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           select ws).FirstOrDefault();
+                    lWeatherStationAlternative = (from ws in context.WeatherStations
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  select ws).FirstOrDefault();
+                    lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          select effectiverain)
+                                         .ToList<EffectiveRain>();
+                    #endregion
+                    #region Crop //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
+                    lCrop = (from crop in context.Crops
+                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             select crop).FirstOrDefault();
+                    lCropCoefficient = (from cc in context.CropCoefficients
+                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
+                    lKCList = (from cc in context.CropCoefficients
+                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               select cc.KCList)
+                                         .FirstOrDefault();
+                    lCropInformationByDate = (from cid in context.CropInformationByDates
+                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              select cid).FirstOrDefault();
+                    #endregion
+                    #region Agriculture //////////////////////////////////////////////////////////////////////
+                    lIrrigationUnit = (from iu in context.Pivots
+                                       where iu.Name == Utils.NamePivotDelLagoElMirador13
+                                       select iu).FirstOrDefault();
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NameSoilDelLagoElMirador13
+                             select soil).FirstOrDefault();
+                    lHorizonList = (from horizon in context.Horizons
+                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador13)
+                                    select horizon)
+                                    .ToList<Horizon>();
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot13_2016;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot13_2016;
+                    lCropDate = DateTime.Now;
+                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2016 == 0)
+                    {
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    }
+                    else
+                    {
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2016;
+                    }
+                    #endregion
+                    #region Weather Data
+                    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                                            join weatherstation in context.WeatherStations
+                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                            where (weatherdata.Date >= lSowingDate ||
+                                                    weatherdata.Date <= lHarvestDate) &&
+                                                    weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                                            select weatherdata).ToList<WeatherData>();
+                    lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                                                   join weatherstation in context.WeatherStations
+                                                   on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                                   where (weatherdata.Date >= lSowingDate ||
+                                                        weatherdata.Date <= lHarvestDate) &&
+                                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                                                   select weatherdata).ToList<WeatherData>();
+                    #endregion
+                    #region New CIW DelLago ElMirador Pivot13 2016
+                    var lCIWDelLagoElMiradorPivot13_2016 = new CropIrrigationWeather
+                    {
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot13,
+                        CropId = lCrop.CropId,
+                        Crop = lCrop,
+                        IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
+                        IrrigationUnit = lIrrigationUnit,
+                        MainWeatherStationId = lWeatherStationMain.WeatherStationId,
+                        MainWeatherStation = lWeatherStationMain,
 
-                    //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
-                    //    AlternativeWeatherStation = lWeatherStationAlternative,
-                    //    PositionId = lFarm.PositionId,
-                    //    SoilId = lSoil.SoilId,
-                    //    Soil = lSoil,
+                        AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
+                        AlternativeWeatherStation = lWeatherStationAlternative,
+                        PositionId = lFarm.PositionId,
+                        SoilId = lSoil.SoilId,
+                        Soil = lSoil,
 
-                    //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
+                        PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
-                    //    //Set the initial Phenological Stage for the Crop
-                    //    PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
-                    //    PhenologicalStage = lCrop.PhenologicalStageList[0],
+                        //Set the initial Phenological Stage for the Crop
+                        PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
+                        PhenologicalStage = lCrop.PhenologicalStageList[0],
 
-                    //    SowingDate = lSowingDate,
-                    //    HarvestDate = lHarvestDate,
-                    //    CropDate = lCropDate,
-                    //    DaysForHydricBalanceUnchangableAfterSowing = 0,
+                        SowingDate = lSowingDate,
+                        HarvestDate = lHarvestDate,
+                        CropDate = lCropDate,
+                        DaysForHydricBalanceUnchangableAfterSowing = 0,
 
-                    //    HydricBalance = 0,
+                        HydricBalance = 0,
 
-                    //    CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
-                    //    CropInformationByDate = lCropInformationByDate,
+                        CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
+                        CropInformationByDate = lCropInformationByDate,
 
-                    //};
-                    //context.SaveChanges();
+                    };
+                    context.SaveChanges();
 
-                    ////Set Calculus Method for Phenological Adjustment
-                    //lCIWDelLagoElMiradorPivot13_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
-                    ////Get Initial Hydric Balance
-                    //lCIWDelLagoElMiradorPivot13_2016.HydricBalance = lCIWDelLagoElMiradorPivot13_2016.GetInitialHydricBalance();
-                    ////Create the initial registry
-                    //lCIWDelLagoElMiradorPivot13_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    //Set Calculus Method for Phenological Adjustment
+                    lCIWDelLagoElMiradorPivot13_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    //Get Initial Hydric Balance
+                    lCIWDelLagoElMiradorPivot13_2016.HydricBalance = lCIWDelLagoElMiradorPivot13_2016.GetInitialHydricBalance();
+                    //Create the initial registry
+                    lCIWDelLagoElMiradorPivot13_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    //context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot13_2016);
-                    //context.SaveChanges();
-                    //#endregion
-                    //#region Save Titles for print
-                    //foreach (var item in lCIWDelLagoElMiradorPivot13_2016.Titles)
-                    //{
-                    //    var lTitlesDelLagoElMiradorPivot13_2016 = new Title
-                    //    {
-                    //        CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot13_2016.CropIrrigationWeatherId,
-                    //        CropIrrigationWeather = lCIWDelLagoElMiradorPivot13_2016,
-                    //        Daily = false,
-                    //        Name = item.Name,
-                    //        Abbreviation = item.Abbreviation,
-                    //        Description = item.Description,
-                    //    };
-                    //    context.Titles.Add(lTitlesDelLagoElMiradorPivot13_2016);
-                    //}
-                    //context.SaveChanges();
-                    //long lFirstTitleIdDelLagoElMiradorPivot13_2016 = (from title in context.Titles
-                    //                                                 where title.Name == "DDS"
-                    //                                                    && title.Daily == false
-                    //                                                    && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot13_2016.CropIrrigationWeatherId
-                    //                                                 select title.TitleId).FirstOrDefault();
-                    //long lTotalTitlesDelLagoElMiradorPivot13_2016 = lCIWDelLagoElMiradorPivot13_2016.Titles.Count();
-                    //long lTitleIdDelLagoElMiradorPivot13_2016 = lFirstTitleIdDelLagoElMiradorPivot13_2016;
-                    //#endregion
-                    //#region Update Messages Ids
-                    //foreach (var item in lCIWDelLagoElMiradorPivot13_2016.Messages)
-                    //{
-                    //    item.TitleId = lTitleIdDelLagoElMiradorPivot13_2016;
-                    //    lTitleIdDelLagoElMiradorPivot13_2016 += 1;
-                    //    item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot13_2016.CropIrrigationWeatherId;
-                    //    if ((lTitleIdDelLagoElMiradorPivot13_2016 - lFirstTitleIdDelLagoElMiradorPivot13_2016) % (lTotalTitlesDelLagoElMiradorPivot13_2016) == 0)
-                    //    {
-                    //        lTitleIdDelLagoElMiradorPivot13_2016 = lFirstTitleIdDelLagoElMiradorPivot13_2016;
-                    //    }
-                    //}
-                    //context.SaveChanges();
-                    //#endregion
+                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot13_2016);
+                    context.SaveChanges();
+                    #endregion
+                    #region Save Titles for print
+                    foreach (var item in lCIWDelLagoElMiradorPivot13_2016.Titles)
+                    {
+                        var lTitlesDelLagoElMiradorPivot13_2016 = new Title
+                        {
+                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot13_2016.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot13_2016,
+                            Daily = false,
+                            Name = item.Name,
+                            Abbreviation = item.Abbreviation,
+                            Description = item.Description,
+                        };
+                        context.Titles.Add(lTitlesDelLagoElMiradorPivot13_2016);
+                    }
+                    context.SaveChanges();
+                    long lFirstTitleIdDelLagoElMiradorPivot13_2016 = (from title in context.Titles
+                                                                      where title.Name == "DDS"
+                                                                         && title.Daily == false
+                                                                         && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot13_2016.CropIrrigationWeatherId
+                                                                      select title.TitleId).FirstOrDefault();
+                    long lTotalTitlesDelLagoElMiradorPivot13_2016 = lCIWDelLagoElMiradorPivot13_2016.Titles.Count();
+                    long lTitleIdDelLagoElMiradorPivot13_2016 = lFirstTitleIdDelLagoElMiradorPivot13_2016;
+                    #endregion
+                    #region Update Messages Ids
+                    foreach (var item in lCIWDelLagoElMiradorPivot13_2016.Messages)
+                    {
+                        item.TitleId = lTitleIdDelLagoElMiradorPivot13_2016;
+                        lTitleIdDelLagoElMiradorPivot13_2016 += 1;
+                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot13_2016.CropIrrigationWeatherId;
+                        if ((lTitleIdDelLagoElMiradorPivot13_2016 - lFirstTitleIdDelLagoElMiradorPivot13_2016) % (lTotalTitlesDelLagoElMiradorPivot13_2016) == 0)
+                        {
+                            lTitleIdDelLagoElMiradorPivot13_2016 = lFirstTitleIdDelLagoElMiradorPivot13_2016;
+                        }
+                    }
+                    context.SaveChanges();
+                    #endregion
                     #endregion
                     #region Del Lago - El Mirador Pivot 14 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -25662,163 +25658,163 @@ namespace IrrigationAdvisorConsole
                     #endregion
                     #endregion
                     #region Del Lago - El Mirador Pivot 15 2016
-                    //#region Farm //////////////////////////////////////////////////////////////////////
-                    //lFarm = (from farm in context.Farms
-                    //         where farm.Name == Utils.NameFarmDelLagoElMirador
-                    //         select farm).FirstOrDefault();
-                    //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationLaTribu
-                    //                       select ws).FirstOrDefault();
-                    //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
-                    //                              select ws).FirstOrDefault();
-                    //lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                    //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
-                    //                      select effectiverain)
-                    //                     .ToList<EffectiveRain>();
-                    //#endregion
-                    //#region Crop //////////////////////////////////////////////////////////////////////
-                    //lSpecie = (from sp in context.Species
-                    //           where sp.Name == Utils.NameSpecieCornSouthShort
-                    //           select sp).FirstOrDefault();
-                    //lCrop = (from crop in context.Crops
-                    //         where crop.Name == Utils.NameSpecieCornSouthShort
-                    //         select crop).FirstOrDefault();
-                    //lCropCoefficient = (from cc in context.CropCoefficients
-                    //                    where cc.Name == Utils.NameSpecieCornSouthShort
-                    //                    select cc).FirstOrDefault();
-                    //lPhenologicalStages = (from ps in context.PhenologicalStages
-                    //                       where ps.SpecieId == lSpecie.SpecieId
-                    //                       select ps).ToList<PhenologicalStage>();
-                    //lKCList = (from cc in context.CropCoefficients
-                    //           where cc.Name == Utils.NameSpecieCornSouthShort
-                    //           select cc.KCList)
-                    //                     .FirstOrDefault();
-                    //lCropInformationByDate = (from cid in context.CropInformationByDates
-                    //                          where cid.Name == Utils.NameSpecieCornSouthShort
-                    //                          select cid).FirstOrDefault();
-                    //#endregion
-                    //#region Agriculture //////////////////////////////////////////////////////////////////////
-                    //lIrrigationUnit = (from iu in context.Pivots
-                    //                   where iu.Name == Utils.NamePivotDelLagoElMirador15
-                    //                   select iu).FirstOrDefault();
-                    //lSoil = (from soil in context.Soils
-                    //         where soil.Name == Utils.NameSoilDelLagoElMirador15
-                    //         select soil).FirstOrDefault();
-                    //lHorizonList = (from horizon in context.Horizons
-                    //                where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador15)
-                    //                select horizon)
-                    //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot15_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot15_2016;
-                    //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016 == 0)
-                    //{
-                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
-                    //}
-                    //else
-                    //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016;
-                    //}
-                    //#endregion
-                    //#region Weather Data
-                    //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
-                    //                        join weatherstation in context.WeatherStations
-                    //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
-                    //                                weatherdata.Date <= lHarvestDate) &&
-                    //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
-                    //                        select weatherdata).ToList<WeatherData>();
-                    //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
-                    //                               join weatherstation in context.WeatherStations
-                    //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
-                    //                                    weatherdata.Date <= lHarvestDate) &&
-                    //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
-                    //                               select weatherdata).ToList<WeatherData>();
-                    //#endregion
-                    //#region New CIW DelLago ElMirador Pivot15 2016
-                    //var lCIWDelLagoElMiradorPivot15_2016 = new CropIrrigationWeather
-                    //{
-                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot15,
-                    //    CropId = lCrop.CropId,
-                    //    Crop = lCrop,
-                    //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
-                    //    IrrigationUnit = lIrrigationUnit,
-                    //    MainWeatherStationId = lWeatherStationMain.WeatherStationId,
-                    //    MainWeatherStation = lWeatherStationMain,
+                    #region Farm //////////////////////////////////////////////////////////////////////
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmDelLagoElMirador
+                             select farm).FirstOrDefault();
+                    lWeatherStationMain = (from ws in context.WeatherStations
+                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           select ws).FirstOrDefault();
+                    lWeatherStationAlternative = (from ws in context.WeatherStations
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  select ws).FirstOrDefault();
+                    lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          select effectiverain)
+                                         .ToList<EffectiveRain>();
+                    #endregion
+                    #region Crop //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
+                    lCrop = (from crop in context.Crops
+                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             select crop).FirstOrDefault();
+                    lCropCoefficient = (from cc in context.CropCoefficients
+                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
+                    lKCList = (from cc in context.CropCoefficients
+                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               select cc.KCList)
+                                         .FirstOrDefault();
+                    lCropInformationByDate = (from cid in context.CropInformationByDates
+                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              select cid).FirstOrDefault();
+                    #endregion
+                    #region Agriculture //////////////////////////////////////////////////////////////////////
+                    lIrrigationUnit = (from iu in context.Pivots
+                                       where iu.Name == Utils.NamePivotDelLagoElMirador15
+                                       select iu).FirstOrDefault();
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NameSoilDelLagoElMirador15
+                             select soil).FirstOrDefault();
+                    lHorizonList = (from horizon in context.Horizons
+                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador15)
+                                    select horizon)
+                                    .ToList<Horizon>();
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot15_2016;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot15_2016;
+                    lCropDate = DateTime.Now;
+                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016 == 0)
+                    {
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    }
+                    else
+                    {
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016;
+                    }
+                    #endregion
+                    #region Weather Data
+                    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                                            join weatherstation in context.WeatherStations
+                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                            where (weatherdata.Date >= lSowingDate ||
+                                                    weatherdata.Date <= lHarvestDate) &&
+                                                    weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                                            select weatherdata).ToList<WeatherData>();
+                    lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                                                   join weatherstation in context.WeatherStations
+                                                   on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                                   where (weatherdata.Date >= lSowingDate ||
+                                                        weatherdata.Date <= lHarvestDate) &&
+                                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                                                   select weatherdata).ToList<WeatherData>();
+                    #endregion
+                    #region New CIW DelLago ElMirador Pivot15 2016
+                    var lCIWDelLagoElMiradorPivot15_2016 = new CropIrrigationWeather
+                    {
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot15,
+                        CropId = lCrop.CropId,
+                        Crop = lCrop,
+                        IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
+                        IrrigationUnit = lIrrigationUnit,
+                        MainWeatherStationId = lWeatherStationMain.WeatherStationId,
+                        MainWeatherStation = lWeatherStationMain,
 
-                    //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
-                    //    AlternativeWeatherStation = lWeatherStationAlternative,
-                    //    PositionId = lFarm.PositionId,
-                    //    SoilId = lSoil.SoilId,
-                    //    Soil = lSoil,
+                        AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
+                        AlternativeWeatherStation = lWeatherStationAlternative,
+                        PositionId = lFarm.PositionId,
+                        SoilId = lSoil.SoilId,
+                        Soil = lSoil,
 
-                    //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
+                        PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
-                    //    //Set the initial Phenological Stage for the Crop
-                    //    PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
-                    //    PhenologicalStage = lCrop.PhenologicalStageList[0],
+                        //Set the initial Phenological Stage for the Crop
+                        PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
+                        PhenologicalStage = lCrop.PhenologicalStageList[0],
 
-                    //    SowingDate = lSowingDate,
-                    //    HarvestDate = lHarvestDate,
-                    //    CropDate = lCropDate,
-                    //    DaysForHydricBalanceUnchangableAfterSowing = 0,
+                        SowingDate = lSowingDate,
+                        HarvestDate = lHarvestDate,
+                        CropDate = lCropDate,
+                        DaysForHydricBalanceUnchangableAfterSowing = 0,
 
-                    //    HydricBalance = 0,
+                        HydricBalance = 0,
 
-                    //    CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
-                    //    CropInformationByDate = lCropInformationByDate,
+                        CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
+                        CropInformationByDate = lCropInformationByDate,
 
-                    //};
-                    //context.SaveChanges();
+                    };
+                    context.SaveChanges();
 
-                    ////Set Calculus Method for Phenological Adjustment
-                    //lCIWDelLagoElMiradorPivot15_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
-                    ////Get Initial Hydric Balance
-                    //lCIWDelLagoElMiradorPivot15_2016.HydricBalance = lCIWDelLagoElMiradorPivot15_2016.GetInitialHydricBalance();
-                    ////Create the initial registry
-                    //lCIWDelLagoElMiradorPivot15_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    //Set Calculus Method for Phenological Adjustment
+                    lCIWDelLagoElMiradorPivot15_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    //Get Initial Hydric Balance
+                    lCIWDelLagoElMiradorPivot15_2016.HydricBalance = lCIWDelLagoElMiradorPivot15_2016.GetInitialHydricBalance();
+                    //Create the initial registry
+                    lCIWDelLagoElMiradorPivot15_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    //context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot15_2016);
-                    //context.SaveChanges();
-                    //#endregion
-                    //#region Save Titles for print
-                    //foreach (var item in lCIWDelLagoElMiradorPivot15_2016.Titles)
-                    //{
-                    //    var lTitlesDelLagoElMiradorPivot15_2016 = new Title
-                    //    {
-                    //        CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot15_2016.CropIrrigationWeatherId,
-                    //        CropIrrigationWeather = lCIWDelLagoElMiradorPivot15_2016,
-                    //        Daily = false,
-                    //        Name = item.Name,
-                    //        Abbreviation = item.Abbreviation,
-                    //        Description = item.Description,
-                    //    };
-                    //    context.Titles.Add(lTitlesDelLagoElMiradorPivot15_2016);
-                    //}
-                    //context.SaveChanges();
-                    //long lFirstTitleIdDelLagoElMiradorPivot15_2016 = (from title in context.Titles
-                    //                                                 where title.Name == "DDS"
-                    //                                                    && title.Daily == false
-                    //                                                    && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot15_2016.CropIrrigationWeatherId
-                    //                                                 select title.TitleId).FirstOrDefault();
-                    //long lTotalTitlesDelLagoElMiradorPivot15_2016 = lCIWDelLagoElMiradorPivot15_2016.Titles.Count();
-                    //long lTitleIdDelLagoElMiradorPivot15_2016 = lFirstTitleIdDelLagoElMiradorPivot15_2016;
-                    //#endregion
-                    //#region Update Messages Ids
-                    //foreach (var item in lCIWDelLagoElMiradorPivot15_2016.Messages)
-                    //{
-                    //    item.TitleId = lTitleIdDelLagoElMiradorPivot15_2016;
-                    //    lTitleIdDelLagoElMiradorPivot15_2016 += 1;
-                    //    item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot15_2016.CropIrrigationWeatherId;
-                    //    if ((lTitleIdDelLagoElMiradorPivot15_2016 - lFirstTitleIdDelLagoElMiradorPivot15_2016) % (lTotalTitlesDelLagoElMiradorPivot15_2016) == 0)
-                    //    {
-                    //        lTitleIdDelLagoElMiradorPivot15_2016 = lFirstTitleIdDelLagoElMiradorPivot15_2016;
-                    //    }
-                    //}
-                    //context.SaveChanges();
-                    //#endregion
+                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot15_2016);
+                    context.SaveChanges();
+                    #endregion
+                    #region Save Titles for print
+                    foreach (var item in lCIWDelLagoElMiradorPivot15_2016.Titles)
+                    {
+                        var lTitlesDelLagoElMiradorPivot15_2016 = new Title
+                        {
+                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot15_2016.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot15_2016,
+                            Daily = false,
+                            Name = item.Name,
+                            Abbreviation = item.Abbreviation,
+                            Description = item.Description,
+                        };
+                        context.Titles.Add(lTitlesDelLagoElMiradorPivot15_2016);
+                    }
+                    context.SaveChanges();
+                    long lFirstTitleIdDelLagoElMiradorPivot15_2016 = (from title in context.Titles
+                                                                      where title.Name == "DDS"
+                                                                         && title.Daily == false
+                                                                         && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot15_2016.CropIrrigationWeatherId
+                                                                      select title.TitleId).FirstOrDefault();
+                    long lTotalTitlesDelLagoElMiradorPivot15_2016 = lCIWDelLagoElMiradorPivot15_2016.Titles.Count();
+                    long lTitleIdDelLagoElMiradorPivot15_2016 = lFirstTitleIdDelLagoElMiradorPivot15_2016;
+                    #endregion
+                    #region Update Messages Ids
+                    foreach (var item in lCIWDelLagoElMiradorPivot15_2016.Messages)
+                    {
+                        item.TitleId = lTitleIdDelLagoElMiradorPivot15_2016;
+                        lTitleIdDelLagoElMiradorPivot15_2016 += 1;
+                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot15_2016.CropIrrigationWeatherId;
+                        if ((lTitleIdDelLagoElMiradorPivot15_2016 - lFirstTitleIdDelLagoElMiradorPivot15_2016) % (lTotalTitlesDelLagoElMiradorPivot15_2016) == 0)
+                        {
+                            lTitleIdDelLagoElMiradorPivot15_2016 = lFirstTitleIdDelLagoElMiradorPivot15_2016;
+                        }
+                    }
+                    context.SaveChanges();
+                    #endregion
                     #endregion
                     #region Del Lago - El Mirador Pivot Chaja 1 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
@@ -25980,163 +25976,163 @@ namespace IrrigationAdvisorConsole
                     //#endregion
                     #endregion
                     #region Del Lago - El Mirador Pivot Chaja 2 2016
-                    //#region Farm //////////////////////////////////////////////////////////////////////
-                    //lFarm = (from farm in context.Farms
-                    //         where farm.Name == Utils.NameFarmDelLagoElMirador
-                    //         select farm).FirstOrDefault();
-                    //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationLaTribu
-                    //                       select ws).FirstOrDefault();
-                    //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
-                    //                              select ws).FirstOrDefault();
-                    //lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                    //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
-                    //                      select effectiverain)
-                    //                     .ToList<EffectiveRain>();
-                    //#endregion
-                    //#region Crop //////////////////////////////////////////////////////////////////////
-                    //lSpecie = (from sp in context.Species
-                    //           where sp.Name == Utils.NameSpecieCornSouthShort
-                    //           select sp).FirstOrDefault();
-                    //lCrop = (from crop in context.Crops
-                    //         where crop.Name == Utils.NameSpecieCornSouthShort
-                    //         select crop).FirstOrDefault();
-                    //lCropCoefficient = (from cc in context.CropCoefficients
-                    //                    where cc.Name == Utils.NameSpecieCornSouthShort
-                    //                    select cc).FirstOrDefault();
-                    //lPhenologicalStages = (from ps in context.PhenologicalStages
-                    //                       where ps.SpecieId == lSpecie.SpecieId
-                    //                       select ps).ToList<PhenologicalStage>();
-                    //lKCList = (from cc in context.CropCoefficients
-                    //           where cc.Name == Utils.NameSpecieCornSouthShort
-                    //           select cc.KCList)
-                    //                     .FirstOrDefault();
-                    //lCropInformationByDate = (from cid in context.CropInformationByDates
-                    //                          where cid.Name == Utils.NameSpecieCornSouthShort
-                    //                          select cid).FirstOrDefault();
-                    //#endregion
-                    //#region Agriculture //////////////////////////////////////////////////////////////////////
-                    //lIrrigationUnit = (from iu in context.Pivots
-                    //                   where iu.Name == Utils.NamePivotDelLagoElMiradorChaja2
-                    //                   select iu).FirstOrDefault();
-                    //lSoil = (from soil in context.Soils
-                    //         where soil.Name == Utils.NameSoilDelLagoElMiradorChaja2
-                    //         select soil).FirstOrDefault();
-                    //lHorizonList = (from horizon in context.Horizons
-                    //                where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMiradorChaja2)
-                    //                select horizon)
-                    //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivotChaja2_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivotChaja2_2016;
-                    //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja2_2016 == 0)
-                    //{
-                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
-                    //}
-                    //else
-                    //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja2_2016;
-                    //}
-                    //#endregion
-                    //#region Weather Data
-                    //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
-                    //                        join weatherstation in context.WeatherStations
-                    //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
-                    //                                weatherdata.Date <= lHarvestDate) &&
-                    //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
-                    //                        select weatherdata).ToList<WeatherData>();
-                    //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
-                    //                               join weatherstation in context.WeatherStations
-                    //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
-                    //                                    weatherdata.Date <= lHarvestDate) &&
-                    //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
-                    //                               select weatherdata).ToList<WeatherData>();
-                    //#endregion
-                    //#region New CIW DelLago ElMirador PivotChaja2 2016
-                    //var lCIWDelLagoElMiradorPivotChaja2_2016 = new CropIrrigationWeather
-                    //{
-                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivotChaja2,
-                    //    CropId = lCrop.CropId,
-                    //    Crop = lCrop,
-                    //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
-                    //    IrrigationUnit = lIrrigationUnit,
-                    //    MainWeatherStationId = lWeatherStationMain.WeatherStationId,
-                    //    MainWeatherStation = lWeatherStationMain,
+                    #region Farm //////////////////////////////////////////////////////////////////////
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmDelLagoElMirador
+                             select farm).FirstOrDefault();
+                    lWeatherStationMain = (from ws in context.WeatherStations
+                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           select ws).FirstOrDefault();
+                    lWeatherStationAlternative = (from ws in context.WeatherStations
+                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  select ws).FirstOrDefault();
+                    lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          select effectiverain)
+                                         .ToList<EffectiveRain>();
+                    #endregion
+                    #region Crop //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
+                    lCrop = (from crop in context.Crops
+                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             select crop).FirstOrDefault();
+                    lCropCoefficient = (from cc in context.CropCoefficients
+                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
+                    lKCList = (from cc in context.CropCoefficients
+                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               select cc.KCList)
+                                         .FirstOrDefault();
+                    lCropInformationByDate = (from cid in context.CropInformationByDates
+                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              select cid).FirstOrDefault();
+                    #endregion
+                    #region Agriculture //////////////////////////////////////////////////////////////////////
+                    lIrrigationUnit = (from iu in context.Pivots
+                                       where iu.Name == Utils.NamePivotDelLagoElMiradorChaja2
+                                       select iu).FirstOrDefault();
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NameSoilDelLagoElMiradorChaja2
+                             select soil).FirstOrDefault();
+                    lHorizonList = (from horizon in context.Horizons
+                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMiradorChaja2)
+                                    select horizon)
+                                    .ToList<Horizon>();
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivotChaja2_2016;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivotChaja2_2016;
+                    lCropDate = DateTime.Now;
+                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja2_2016 == 0)
+                    {
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    }
+                    else
+                    {
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja2_2016;
+                    }
+                    #endregion
+                    #region Weather Data
+                    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                                            join weatherstation in context.WeatherStations
+                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                            where (weatherdata.Date >= lSowingDate ||
+                                                    weatherdata.Date <= lHarvestDate) &&
+                                                    weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                                            select weatherdata).ToList<WeatherData>();
+                    lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                                                   join weatherstation in context.WeatherStations
+                                                   on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                                   where (weatherdata.Date >= lSowingDate ||
+                                                        weatherdata.Date <= lHarvestDate) &&
+                                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                                                   select weatherdata).ToList<WeatherData>();
+                    #endregion
+                    #region New CIW DelLago ElMirador PivotChaja2 2016
+                    var lCIWDelLagoElMiradorPivotChaja2_2016 = new CropIrrigationWeather
+                    {
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivotChaja2,
+                        CropId = lCrop.CropId,
+                        Crop = lCrop,
+                        IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
+                        IrrigationUnit = lIrrigationUnit,
+                        MainWeatherStationId = lWeatherStationMain.WeatherStationId,
+                        MainWeatherStation = lWeatherStationMain,
 
-                    //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
-                    //    AlternativeWeatherStation = lWeatherStationAlternative,
-                    //    PositionId = lFarm.PositionId,
-                    //    SoilId = lSoil.SoilId,
-                    //    Soil = lSoil,
+                        AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
+                        AlternativeWeatherStation = lWeatherStationAlternative,
+                        PositionId = lFarm.PositionId,
+                        SoilId = lSoil.SoilId,
+                        Soil = lSoil,
 
-                    //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
+                        PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
-                    //    //Set the initial Phenological Stage for the Crop
-                    //    PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
-                    //    PhenologicalStage = lCrop.PhenologicalStageList[0],
+                        //Set the initial Phenological Stage for the Crop
+                        PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
+                        PhenologicalStage = lCrop.PhenologicalStageList[0],
 
-                    //    SowingDate = lSowingDate,
-                    //    HarvestDate = lHarvestDate,
-                    //    CropDate = lCropDate,
-                    //    DaysForHydricBalanceUnchangableAfterSowing = 0,
+                        SowingDate = lSowingDate,
+                        HarvestDate = lHarvestDate,
+                        CropDate = lCropDate,
+                        DaysForHydricBalanceUnchangableAfterSowing = 0,
 
-                    //    HydricBalance = 0,
+                        HydricBalance = 0,
 
-                    //    CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
-                    //    CropInformationByDate = lCropInformationByDate,
+                        CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
+                        CropInformationByDate = lCropInformationByDate,
 
-                    //};
-                    //context.SaveChanges();
+                    };
+                    context.SaveChanges();
 
-                    ////Set Calculus Method for Phenological Adjustment
-                    //lCIWDelLagoElMiradorPivotChaja2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
-                    ////Get Initial Hydric Balance
-                    //lCIWDelLagoElMiradorPivotChaja2_2016.HydricBalance = lCIWDelLagoElMiradorPivotChaja2_2016.GetInitialHydricBalance();
-                    ////Create the initial registry
-                    //lCIWDelLagoElMiradorPivotChaja2_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    //Set Calculus Method for Phenological Adjustment
+                    lCIWDelLagoElMiradorPivotChaja2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    //Get Initial Hydric Balance
+                    lCIWDelLagoElMiradorPivotChaja2_2016.HydricBalance = lCIWDelLagoElMiradorPivotChaja2_2016.GetInitialHydricBalance();
+                    //Create the initial registry
+                    lCIWDelLagoElMiradorPivotChaja2_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    //context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivotChaja2_2016);
-                    //context.SaveChanges();
-                    //#endregion
-                    //#region Save Titles for print
-                    //foreach (var item in lCIWDelLagoElMiradorPivotChaja2_2016.Titles)
-                    //{
-                    //    var lTitlesDelLagoElMiradorPivotChaja2_2016 = new Title
-                    //    {
-                    //        CropIrrigationWeatherId = lCIWDelLagoElMiradorPivotChaja2_2016.CropIrrigationWeatherId,
-                    //        CropIrrigationWeather = lCIWDelLagoElMiradorPivotChaja2_2016,
-                    //        Daily = false,
-                    //        Name = item.Name,
-                    //        Abbreviation = item.Abbreviation,
-                    //        Description = item.Description,
-                    //    };
-                    //    context.Titles.Add(lTitlesDelLagoElMiradorPivotChaja2_2016);
-                    //}
-                    //context.SaveChanges();
-                    //long lFirstTitleIdDelLagoElMiradorPivotChaja2_2016 = (from title in context.Titles
-                    //                                                 where title.Name == "DDS"
-                    //                                                    && title.Daily == false
-                    //                                                    && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivotChaja2_2016.CropIrrigationWeatherId
-                    //                                                 select title.TitleId).FirstOrDefault();
-                    //long lTotalTitlesDelLagoElMiradorPivotChaja2_2016 = lCIWDelLagoElMiradorPivotChaja2_2016.Titles.Count();
-                    //long lTitleIdDelLagoElMiradorPivotChaja2_2016 = lFirstTitleIdDelLagoElMiradorPivotChaja2_2016;
-                    //#endregion
-                    //#region Update Messages Ids
-                    //foreach (var item in lCIWDelLagoElMiradorPivotChaja2_2016.Messages)
-                    //{
-                    //    item.TitleId = lTitleIdDelLagoElMiradorPivotChaja2_2016;
-                    //    lTitleIdDelLagoElMiradorPivotChaja2_2016 += 1;
-                    //    item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivotChaja2_2016.CropIrrigationWeatherId;
-                    //    if ((lTitleIdDelLagoElMiradorPivotChaja2_2016 - lFirstTitleIdDelLagoElMiradorPivotChaja2_2016) % (lTotalTitlesDelLagoElMiradorPivotChaja2_2016) == 0)
-                    //    {
-                    //        lTitleIdDelLagoElMiradorPivotChaja2_2016 = lFirstTitleIdDelLagoElMiradorPivotChaja2_2016;
-                    //    }
-                    //}
-                    //context.SaveChanges();
-                    //#endregion
+                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivotChaja2_2016);
+                    context.SaveChanges();
+                    #endregion
+                    #region Save Titles for print
+                    foreach (var item in lCIWDelLagoElMiradorPivotChaja2_2016.Titles)
+                    {
+                        var lTitlesDelLagoElMiradorPivotChaja2_2016 = new Title
+                        {
+                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivotChaja2_2016.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWDelLagoElMiradorPivotChaja2_2016,
+                            Daily = false,
+                            Name = item.Name,
+                            Abbreviation = item.Abbreviation,
+                            Description = item.Description,
+                        };
+                        context.Titles.Add(lTitlesDelLagoElMiradorPivotChaja2_2016);
+                    }
+                    context.SaveChanges();
+                    long lFirstTitleIdDelLagoElMiradorPivotChaja2_2016 = (from title in context.Titles
+                                                                          where title.Name == "DDS"
+                                                                             && title.Daily == false
+                                                                             && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivotChaja2_2016.CropIrrigationWeatherId
+                                                                          select title.TitleId).FirstOrDefault();
+                    long lTotalTitlesDelLagoElMiradorPivotChaja2_2016 = lCIWDelLagoElMiradorPivotChaja2_2016.Titles.Count();
+                    long lTitleIdDelLagoElMiradorPivotChaja2_2016 = lFirstTitleIdDelLagoElMiradorPivotChaja2_2016;
+                    #endregion
+                    #region Update Messages Ids
+                    foreach (var item in lCIWDelLagoElMiradorPivotChaja2_2016.Messages)
+                    {
+                        item.TitleId = lTitleIdDelLagoElMiradorPivotChaja2_2016;
+                        lTitleIdDelLagoElMiradorPivotChaja2_2016 += 1;
+                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivotChaja2_2016.CropIrrigationWeatherId;
+                        if ((lTitleIdDelLagoElMiradorPivotChaja2_2016 - lFirstTitleIdDelLagoElMiradorPivotChaja2_2016) % (lTotalTitlesDelLagoElMiradorPivotChaja2_2016) == 0)
+                        {
+                            lTitleIdDelLagoElMiradorPivotChaja2_2016 = lFirstTitleIdDelLagoElMiradorPivotChaja2_2016;
+                        }
+                    }
+                    context.SaveChanges();
+                    #endregion
                     #endregion
                     
                 }
@@ -27614,7 +27610,6 @@ namespace IrrigationAdvisorConsole
                     //context.SaveChanges();
                     //#endregion
                     #endregion
-
                     #region La Rinconada Pivot 2 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -27775,7 +27770,6 @@ namespace IrrigationAdvisorConsole
                     context.SaveChanges();
                     #endregion
                     #endregion
-
                     #region La Rinconada Pivot 3.1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -27935,7 +27929,6 @@ namespace IrrigationAdvisorConsole
                     context.SaveChanges();
                     #endregion
                     #endregion
-
                     #region La Rinconada Pivot 13.1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -28514,13 +28507,13 @@ namespace IrrigationAdvisorConsole
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2016(context, DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2016(context, DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2016(context, DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot14_2016(context, DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2016(context, DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2016(context, DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(context, DateOfReference);
                     context.SaveChanges();
                 }
             }
