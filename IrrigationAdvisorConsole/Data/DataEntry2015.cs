@@ -172,10 +172,6 @@ namespace IrrigationAdvisorConsole.Data
 
         #endregion
 
-        #region CropIrrigationWeather
-
-        #endregion
-
         #region RainData
 
         #region Demo - La Perdiz
