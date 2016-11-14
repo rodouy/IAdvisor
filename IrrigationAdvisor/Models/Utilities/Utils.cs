@@ -416,6 +416,21 @@ namespace IrrigationAdvisor.Models.Utilities
         public enum IrrigationAdvisorProcessFarm
         {
             /// <summary>
+            /// None
+            /// </summary>
+            NONE,
+
+            /// <summary>
+            /// Print all Farms
+            /// </summary>
+            All,
+
+            /// <summary>
+            /// Print all Farms in Production
+            /// </summary>
+            Production,
+
+            /// <summary>
             /// Demo Farm
             /// DCA Data (Del Carmen ACISA SA; La Perdiz Farm)
             /// </summary>
@@ -492,19 +507,11 @@ namespace IrrigationAdvisor.Models.Utilities
             GMOElTacuru,
 
             /// <summary>
-            /// Print all Farms
+            /// La Rinconada Farm
+            /// Maria Elena SRL
             /// </summary>
-            All,
+            LaRinconada,
 
-            /// <summary>
-            /// Print all Farms in Production
-            /// </summary>
-            Production,
-
-            /// <summary>
-            /// None
-            /// </summary>
-            NONE,
         }
 
 
@@ -514,6 +521,21 @@ namespace IrrigationAdvisor.Models.Utilities
         /// </summary>
         public enum IrrigationAdvisorOutputFiles
         {
+            /// <summary>
+            /// None
+            /// </summary>
+            NONE,
+
+            /// <summary>
+            /// Print all Farms
+            /// </summary>
+            All,
+
+            /// <summary>
+            /// Print all Farms in Production
+            /// </summary>
+            Production,
+
             /// <summary>
             /// Demo Farm
             /// DCA Data (Del Carmen ACISA SA; La Perdiz Farm)
@@ -591,19 +613,11 @@ namespace IrrigationAdvisor.Models.Utilities
             GMOElTacuru,
 
             /// <summary>
-            /// Print all Farms
+            /// La Rinconada Farm
+            /// Maria Elena SRL
             /// </summary>
-            All,
+            LaRinconada,
 
-            /// <summary>
-            /// Print all Farms in Production
-            /// </summary>
-            Production,
-
-            /// <summary>
-            /// None
-            /// </summary>
-            NONE,
         }
 
 
@@ -650,6 +664,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameFarmGMOElTacuru = "GMO - El Tacuru";
         public static String NameFarmAlbanellTresMarias = "Albanell - Tres Marias";
         public static String NameFarmPortonCampero = "Porton Campero";
+        public static String NameFarmLaRinconada = "La Rinconada";
         public static String NameFarm = "";
         #endregion
         #region Weather
@@ -858,6 +873,22 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilPortonCampero3 = NameFarmPortonCampero + " Pivot 03";
         public static String NameSoilPortonCampero4 = NameFarmPortonCampero + " Pivot 04";
         #endregion
+        #region La Rinconada
+        public static String NameSoilLaRinconada1 = NameFarmLaRinconada + " Pivot 01";
+        public static String NameSoilLaRinconada2 = NameFarmLaRinconada + " Pivot 02";
+        public static String NameSoilLaRinconada3_1 = NameFarmLaRinconada + " Pivot 3.1";
+        public static String NameSoilLaRinconada4 = NameFarmLaRinconada + " Pivot 04";
+        public static String NameSoilLaRinconada5 = NameFarmLaRinconada + " Pivot 05";
+        public static String NameSoilLaRinconada6 = NameFarmLaRinconada + " Pivot 06";
+        public static String NameSoilLaRinconada7 = NameFarmLaRinconada + " Pivot 07";
+        public static String NameSoilLaRinconada8 = NameFarmLaRinconada + " Pivot 08";
+        public static String NameSoilLaRinconada9 = NameFarmLaRinconada + " Pivot 09";
+        public static String NameSoilLaRinconada10 = NameFarmLaRinconada + " Pivot 10";
+        public static String NameSoilLaRinconada11 = NameFarmLaRinconada + " Pivot 11";
+        public static String NameSoilLaRinconada12 = NameFarmLaRinconada + " Pivot 12";
+        public static String NameSoilLaRinconada13_1 = NameFarmLaRinconada + " Pivot 13.1";
+        public static String NameSoilLaRinconada14 = NameFarmLaRinconada + " Pivot 14";
+        #endregion
         #endregion
         #endregion
         #region Data
@@ -878,6 +909,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameBombGMOElTacuru = NameFarmGMOElTacuru + " Bomba";
         public static String NameBombAlbanellTresMarias = NameFarmAlbanellTresMarias + " Bomba";
         public static String NameBombPortonCampero = NameFarmPortonCampero + " Bomba";
+        public static String NameBombLaRinconada = NameFarmLaRinconada + " Bomba";
         #endregion
         #region Pivots
         #region Demo
@@ -994,6 +1026,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotPortonCampero3 = NameFarmPortonCampero + " Pivot 03";
         public static String NamePivotPortonCampero4 = NameFarmPortonCampero + " Pivot 04";
         #endregion
+        #region La Rinconada
+        public static String NamePivotLaRinconada1 = NameFarmLaRinconada + " Pivot 01";
+        public static String NamePivotLaRinconada2 = NameFarmLaRinconada + " Pivot 02";
+        public static String NamePivotLaRinconada3_1 = NameFarmLaRinconada + " Pivot 3.1";
+        public static String NamePivotLaRinconada13_1 = NameFarmLaRinconada + " Pivot 13.1";
+        #endregion
         public static String NamePivot = "";
         #endregion
         #endregion
@@ -1103,9 +1141,16 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherPortonCamperoPivot3 = NamePivotPortonCampero3 + " " + NameSpecieSoyaSouthShort;
         public static String NameCropIrrigationWeatherPortonCamperoPivot4 = NamePivotPortonCampero4 + " " + NameSpecieSoyaSouthShort;
         #endregion
+        #region La Rinconada
+        public static String NameCropIrrigationWeatherLaRinconadaPivot1 = NamePivotLaRinconada1 + " " + NameSpecieSoyaNorthShort;
+        public static String NameCropIrrigationWeatherLaRinconadaPivot2 = NamePivotLaRinconada2 + " " + NameSpecieSoyaNorthShort;
+        public static String NameCropIrrigationWeatherLaRinconadaPivot3_1 = NamePivotLaRinconada3_1 + " " + NameSpecieSoyaNorthShort;
+        public static String NameCropIrrigationWeatherLaRinconadaPivot13_1 = NamePivotLaRinconada13_1 + " " + NameSpecieSoyaNorthShort;
+        #endregion
         #endregion
         #region Security
         public static String NameUserDemo = "Demo";
+        public static String NameUserTesting = "Testing";
         public static String NameUserTestAdm = "TestAdm";
         public static String NameUserAdmin = "Admin";
         public static String NameUserSeba = "scasanova";
@@ -1118,6 +1163,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserGMO1 = "ptarigo";
         public static String NameUserGMO2 = "danselmi";
         public static String NameUserGMO3 = "mrios";
+        public static String NameUserLR1 = "jbaroffio";
+        public static String NameUserLR2 = "jpastorini";
         #endregion
         #region Utilities
         #endregion
@@ -1153,6 +1200,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionFarmGMOElTacuru = NameFarmGMOElTacuru;
         public static String NamePositionFarmAlbanellTresMarias = NameFarmAlbanellTresMarias;
         public static String NamePositionFarmPortonCampero = NameFarmPortonCampero;
+        public static String NamePositionFarmLaRinconada = NameFarmLaRinconada;
         public static String NamePositionFarm = NameFarm;
         #endregion
         #region PositionsWeatherStations
@@ -1280,6 +1328,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotPortonCampero3 = NamePivotPortonCampero3;
         public static String NamePositionPivotPortonCampero4 = NamePivotPortonCampero4;
         #endregion
+        #region La Rinconada
+        public static String NamePositionPivotLaRinconada1 = NamePivotLaRinconada1;
+        public static String NamePositionPivotLaRinconada2 = NamePivotLaRinconada2;
+        public static String NamePositionPivotLaRinconada3_1 = NamePivotLaRinconada3_1;
+        public static String NamePositionPivotLaRinconada13_1 = NamePivotLaRinconada13_1;
+        #endregion
         public static String NamePositionPivot = "";
         #endregion
         public static String NamePosition = "";
@@ -1291,8 +1345,10 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Crop
         public static int MaxEvapotranspirationToIrrigate_Corn = 35;
         public static int MinEvapotranspirationToIrrigate_Corn = 30;
-        public static int MaxEvapotranspirationToIrrigate_Soya = 30;
-        public static int MinEvapotranspirationToIrrigate_Soya = 25;
+        //2016-11-12 rodouy Change Max/Min ET to Irrigate from 30/25 to 35/30
+        public static int MaxEvapotranspirationToIrrigate_Soya = 35;
+        public static int MinEvapotranspirationToIrrigate_Soya = 30;
+        
         public static int MaxEvapotranspirationToIrrigate_SorghumForage = 30;
         public static int MinEvapotranspirationToIrrigate_SorghumForage = 25;
         public static int MaxEvapotranspirationToIrrigate_SorghumGrain = 30;
