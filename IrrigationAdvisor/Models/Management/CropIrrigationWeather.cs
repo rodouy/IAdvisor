@@ -2756,6 +2756,7 @@ namespace IrrigationAdvisor.Models.Management
                     // Set the type of lIrrigationItem. 
                     lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                    lNewIrrigation.CropIrrigationWeather = this;
                     this.IrrigationList.Add(lNewIrrigation);
                 }
                 //If there is an Irrigation Registry and new Irrigation Input is 0, Input goes for tomorrow
@@ -2768,6 +2769,7 @@ namespace IrrigationAdvisor.Models.Management
                         lNewIrrigationNextDate.ExtraDate = pIrrigationDate.AddDays(1);
                         lNewIrrigationNextDate.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                         lNewIrrigationNextDate.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                        lNewIrrigationNextDate.CropIrrigationWeather = this;
                     }
                     else
                     {
@@ -2775,9 +2777,10 @@ namespace IrrigationAdvisor.Models.Management
                         lNewIrrigationNextDate = new Water.Irrigation();
                         lNewIrrigationNextDate.WaterInputId = this.GetNewIrrigationListId();
                         lNewIrrigationNextDate.ExtraDate = pIrrigationDate.AddDays(1);
-                        lNewIrrigationNextDate.ExtraInput = lNewIrrigation.Input;
+                        lNewIrrigationNextDate.ExtraInput += lNewIrrigation.Input;
                         lNewIrrigationNextDate.Type = lNewIrrigation.Type;
                         lNewIrrigationNextDate.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                        lNewIrrigationNextDate.CropIrrigationWeather = this;
                         this.IrrigationList.Add(lNewIrrigationNextDate);
                     }
                     //the irrigation update to 0 for today
@@ -2809,6 +2812,7 @@ namespace IrrigationAdvisor.Models.Management
                     }
                     // Override the type of lIrrigationItem. 
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                    lNewIrrigationNextDate.CropIrrigationWeather = this;
                 }
                 else
                 {
@@ -2915,6 +2919,7 @@ namespace IrrigationAdvisor.Models.Management
                     lNewRain.Date = pDate;
                     lNewRain.Input = pInput;
                     lNewRain.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                    lNewRain.CropIrrigationWeather = this;
                     this.RainList.Add(lNewRain);
                 }
                 else 
@@ -2923,6 +2928,7 @@ namespace IrrigationAdvisor.Models.Management
                     lNewRain.ExtraInput += pInput;
                     lNewRain.ExtraDate = pDate;
                     lNewRain.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                    lNewRain.CropIrrigationWeather = this;
                 }
             }
             catch (Exception ex)
