@@ -127,6 +127,7 @@ namespace IrrigationAdvisor.Controllers
             List<FarmViewModel> lFarmViewModelList;
             List<Bomb> lBombList;
             List<IrrigationUnit> lIrrigationUnitList;
+            List<CropIrrigationWeather> lPosibleCropIrrigationWeatherList;
             List<CropIrrigationWeather> lCropIrrigationWeatherList;
             Crop lCrop;
             CropIrrigationWeather lFirstCropIrrigationWeather;
@@ -289,12 +290,20 @@ namespace IrrigationAdvisor.Controllers
                 lDailyRecordList = new List<DailyRecord>();
                 foreach (var lIrrigationUnit in lIrrigationUnitList)
                 {
-                    lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
-                    //TODO Demo - First CropIrrigationWeather 
-                    lCrop = lCropIrrigationWeatherList.FirstOrDefault().Crop;
-                    lDailyRecordList = ciwc.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lCrop);
-                    lMinDateOfReference = ciwc.GetMinDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
-                    lMaxDateOfReference = ciwc.GetMaxDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
+                    lPosibleCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
+                    //Only using Active CropIrrigationWeather, depending in DateOfReference 
+                    if (lPosibleCropIrrigationWeatherList != null && lPosibleCropIrrigationWeatherList.Count() > 0)
+                    {
+                        lCrop = lPosibleCropIrrigationWeatherList.FirstOrDefault().Crop;
+                        lDailyRecordList = ciwc.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lCrop);
+                        lMinDateOfReference = ciwc.GetMinDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
+                        lMaxDateOfReference = ciwc.GetMaxDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
+                        lCropIrrigationWeatherList.AddRange(lPosibleCropIrrigationWeatherList);
+                    }
+                    else
+                    {
+                        trace = 95;
+                    }
                 }
 
                 trace = 100;
@@ -886,14 +895,14 @@ namespace IrrigationAdvisor.Controllers
                     lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
 
-                    foreach (var item in lCropIrrigationWeatherList)
+                    foreach (var lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
-                        item.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                        lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
                         lSaveChanges = lContext.SaveChanges();
 
                         if (pMilimeters > 0)
                         {
-                            item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                            lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
                             lSaveChanges = lContext.SaveChanges();
                         }
                     }
@@ -901,9 +910,9 @@ namespace IrrigationAdvisor.Controllers
                 }
                 else
                 {
-                    foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
+                    foreach (var lIrrigationUnitViewModel in lHomeViewModel.IrrigationUnitViewModelList)
                     {
-                        lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
+                        lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == lIrrigationUnitViewModel.IrrigationUnitId).FirstOrDefault();
                         lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
 
                         foreach (var lCIW in lCropIrrigationWeatherList)

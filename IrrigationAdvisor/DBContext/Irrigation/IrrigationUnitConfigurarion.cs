@@ -202,16 +202,16 @@ namespace IrrigationAdvisor.DBContext.Irrigation
                 lIrrigationUnitList = lFarm.IrrigationUnitList.ToList();
                 if(lIrrigationUnitList != null && lIrrigationUnitList.Count > 0)
                 {
-                    foreach (IrrigationUnit item in lIrrigationUnitList)
+                    foreach (IrrigationUnit lIrrigationUnit in lIrrigationUnitList)
                     {
-                        if(item.Show)
+                        if(lIrrigationUnit.Show)
                         {
                             lIrrigationUnitToShow += 1;
                             if(lIrrigationUnitToShow == 1)
                             {
                                 lReturn = new List<IrrigationUnit>();
                             }
-                            lReturn.Add(item);
+                            lReturn.Add(lIrrigationUnit);
                         }
                     }
                 }
