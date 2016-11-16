@@ -127,6 +127,7 @@ namespace IrrigationAdvisor.Controllers
             List<FarmViewModel> lFarmViewModelList;
             List<Bomb> lBombList;
             List<IrrigationUnit> lIrrigationUnitList;
+            List<CropIrrigationWeather> lPosibleCropIrrigationWeatherList;
             List<CropIrrigationWeather> lCropIrrigationWeatherList;
             Crop lCrop;
             CropIrrigationWeather lFirstCropIrrigationWeather;
@@ -289,12 +290,20 @@ namespace IrrigationAdvisor.Controllers
                 lDailyRecordList = new List<DailyRecord>();
                 foreach (var lIrrigationUnit in lIrrigationUnitList)
                 {
-                    lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
-                    //TODO Demo - First CropIrrigationWeather 
-                    lCrop = lCropIrrigationWeatherList.FirstOrDefault().Crop;
-                    lDailyRecordList = ciwc.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lCrop);
-                    lMinDateOfReference = ciwc.GetMinDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
-                    lMaxDateOfReference = ciwc.GetMaxDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
+                    lPosibleCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
+                    //Only using Active CropIrrigationWeather, depending in DateOfReference 
+                    if (lPosibleCropIrrigationWeatherList != null && lPosibleCropIrrigationWeatherList.Count() > 0)
+                    {
+                        lCrop = lPosibleCropIrrigationWeatherList.FirstOrDefault().Crop;
+                        lDailyRecordList = ciwc.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lCrop);
+                        lMinDateOfReference = ciwc.GetMinDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
+                        lMaxDateOfReference = ciwc.GetMaxDateOfReferenceBy(lIrrigationUnit, lDateOfReference);
+                        lCropIrrigationWeatherList.AddRange(lPosibleCropIrrigationWeatherList);
+                    }
+                    else
+                    {
+                        trace = 95;
+                    }
                 }
 
                 trace = 100;
