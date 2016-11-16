@@ -895,14 +895,14 @@ namespace IrrigationAdvisor.Controllers
                     lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
 
-                    foreach (var item in lCropIrrigationWeatherList)
+                    foreach (var lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
-                        item.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                        lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
                         lSaveChanges = lContext.SaveChanges();
 
                         if (pMilimeters > 0)
                         {
-                            item.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                            lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
                             lSaveChanges = lContext.SaveChanges();
                         }
                     }
@@ -910,9 +910,9 @@ namespace IrrigationAdvisor.Controllers
                 }
                 else
                 {
-                    foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
+                    foreach (var lIrrigationUnitViewModel in lHomeViewModel.IrrigationUnitViewModelList)
                     {
-                        lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
+                        lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == lIrrigationUnitViewModel.IrrigationUnitId).FirstOrDefault();
                         lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
 
                         foreach (var lCIW in lCropIrrigationWeatherList)
