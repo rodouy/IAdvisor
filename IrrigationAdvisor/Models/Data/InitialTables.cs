@@ -128,7 +128,8 @@ namespace IrrigationAdvisor.Models.Data
         /// </summary>
         public const Double ACCURANCY_RANGE_MIN_MAX_DEGREE = 0.005;
 
-        public const String STAGE_TO_STOP_IRRIGATION_ADVICE = "R4";
+        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN = "R4";
+        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA = "R4";
 
         #endregion
 
@@ -2007,6 +2008,201 @@ namespace IrrigationAdvisor.Models.Data
 
         }
 
+
+        /// <summary>
+        /// Create or Update CropCoefficient, depends on Specie (not null)
+        /// Create when CropCoefficient parameter is null
+        /// </summary>
+        /// <returns></returns>
+        public static CropCoefficient CreateUpdateCropCoefficient_SoyaNorthShort(CropCoefficient pCropCoefficient,
+                                                                    long pCropCoefficientId, Specie pSpecie)
+        {
+            CropCoefficient lCropCoefficient = null;
+            long lSpecieId = 0;
+
+            if (pSpecie != null)
+            {
+                if (pCropCoefficient == null)
+                {
+                    lCropCoefficient = new CropCoefficient(pCropCoefficientId, pSpecie.Name, pSpecie.SpecieId, new List<KC>());
+                }
+                else
+                {
+                    lCropCoefficient = pCropCoefficient;
+                }
+
+                lSpecieId = pSpecie.SpecieId;
+
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 0, 0.30);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 1, 0.31);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 2, 0.31);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 3, 0.32);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 4, 0.33);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 5, 0.34);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 6, 0.34);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 7, 0.35);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 8, 0.36);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 9, 0.37);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 10, 0.37); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 11, 0.38);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 12, 0.39);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 13, 0.40); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 14, 0.40);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 15, 0.41);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 16, 0.42);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 17, 0.43); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 18, 0.43);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 19, 0.44);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 20, 0.45);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 21, 0.45); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 22, 0.46);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 23, 0.47);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 24, 0.48);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 25, 0.48);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 26, 0.50); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 27, 0.51);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 28, 0.51);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 29, 0.52); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 30, 0.52);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 31, 0.53);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 32, 0.54);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 33, 0.54); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 34, 0.55);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 35, 0.56);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 36, 0.57); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 37, 0.57);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 38, 0.58);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 39, 0.59); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 40, 0.59);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 41, 0.60);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 42, 0.61); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 43, 0.62);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 44, 0.62);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 45, 0.63); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 46, 0.64);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 47, 0.65);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 48, 0.65);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 49, 0.66);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 50, 0.67);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 51, 0.68); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 52, 0.68);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 53, 0.69);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 54, 0.70);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 55, 0.71);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 56, 0.71);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 57, 0.72);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 58, 0.73);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 59, 0.73);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 60, 0.74);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 61, 0.75); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 62, 0.76);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 63, 0.76);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 64, 0.77);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 65, 0.78); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 66, 0.79);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 67, 0.79);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 68, 0.80);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 69, 0.81);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 70, 0.82);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 71, 0.82);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 72, 0.83); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 73, 0.84);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 74, 0.85);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 75, 0.85);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 76, 0.86);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 77, 0.87);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 78, 0.87);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 79, 0.88); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 80, 0.89);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 81, 0.90);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 82, 0.90);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 83, 0.91);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 84, 0.92);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 85, 0.93);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 86, 0.93);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 87, 0.94);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 88, 0.95);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 89, 0.96);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 90, 0.96);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 91, 0.97);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 92, 0.98);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 93, 0.99);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 94, 0.99);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 95, 1.00);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 96, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 97, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 98, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 99, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 100, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 101, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 102, 1.15); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 103, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 104, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 105, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 106, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 107, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 108, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 109, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 110, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 111, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 112, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 113, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 114, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 115, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 112, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 113, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 114, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 115, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 116, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 117, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 118, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 119, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 120, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 121, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 122, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 123, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 124, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 125, 1.15); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 126, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 127, 1.15);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 128, 1.13);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 129, 1.11);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 130, 1.09);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 131, 1.07);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 132, 1.05);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 133, 1.03);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 134, 1.01);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 135, 0.99);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 136, 0.97);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 137, 0.95);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 138, 0.93);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 139, 0.91);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 140, 0.89);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 141, 0.87);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 142, 0.85);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 143, 0.83);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 144, 0.80);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 145, 0.78);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 146, 0.78);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 147, 0.78);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 148, 0.78); ////
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 149, 0.77);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 150, 0.76);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 151, 0.76);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 152, 0.75);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 153, 0.74);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 154, 0.73);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 155, 0.73);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 156, 0.72);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 157, 0.71);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 158, 0.71);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 159, 0.70);
+                lCropCoefficient.AddOrUpdateKCforDayAfterSowing(lSpecieId, 160, 0.69);
+            }
+
+            return lCropCoefficient;
+
+        }
         
         #endregion
 

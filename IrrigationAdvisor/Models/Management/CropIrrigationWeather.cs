@@ -2767,6 +2767,7 @@ namespace IrrigationAdvisor.Models.Management
                         lNewIrrigationNextDate.ExtraInput += lNewIrrigation.Input;
                         lNewIrrigationNextDate.ExtraDate = pIrrigationDate.AddDays(1);
                         lNewIrrigationNextDate.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
+                        lNewIrrigationNextDate.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                     }
                     else
                     {
@@ -2776,7 +2777,7 @@ namespace IrrigationAdvisor.Models.Management
                         lNewIrrigationNextDate.ExtraDate = pIrrigationDate.AddDays(1);
                         lNewIrrigationNextDate.ExtraInput = lNewIrrigation.Input;
                         lNewIrrigationNextDate.Type = lNewIrrigation.Type;
-                        lNewIrrigationNextDate.CropIrrigationWeatherId = this.cropIrrigationWeatherId;
+                        lNewIrrigationNextDate.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
                         this.IrrigationList.Add(lNewIrrigationNextDate);
                     }
                     //the irrigation update to 0 for today
