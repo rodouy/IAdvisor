@@ -1,19 +1,32 @@
 ﻿using IrrigationAdvisor.Authorize;
+using IrrigationAdvisor.Controllers.Helpers;
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.DBContext.Agriculture;
+using IrrigationAdvisor.DBContext.Data;
 using IrrigationAdvisor.DBContext.Irrigation;
 using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.DBContext.Management;
 using IrrigationAdvisor.DBContext.Security;
 using IrrigationAdvisor.Models;
+using IrrigationAdvisor.Models.Agriculture;
+using IrrigationAdvisor.Models.Data;
 using IrrigationAdvisor.Models.GridHome;
 using IrrigationAdvisor.Models.Irrigation;
 using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.Models.Management;
 using IrrigationAdvisor.Models.Security;
 using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.Models.Water;
+using IrrigationAdvisor.Models.Weather;
+using IrrigationAdvisor.ViewModels.Agriculture;
+using IrrigationAdvisor.ViewModels.Errors;
 using IrrigationAdvisor.ViewModels.Home;
 using IrrigationAdvisor.ViewModels.Localization;
-using IrrigationAdvisor.ViewModels.Errors;
+using IrrigationAdvisor.ViewModels.Management;
+using IrrigationAdvisor.ViewModels.Water;
+using IrrigationAdvisor.ViewModels.Weather;
 using Newtonsoft.Json;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,19 +34,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Web.Mvc;
-using IrrigationAdvisor.DBContext.Management;
-using IrrigationAdvisor.Models.Water;
-using IrrigationAdvisor.ViewModels.Management;
-using IrrigationAdvisor.ViewModels.Water;
-using IrrigationAdvisor.Models.Weather;
-using IrrigationAdvisor.Models.Agriculture;
-using IrrigationAdvisor.DBContext.Agriculture;
-using IrrigationAdvisor.Models.Data;
-using IrrigationAdvisor.ViewModels.Agriculture;
-using IrrigationAdvisor.ViewModels.Weather;
-using IrrigationAdvisor.Controllers.Helpers;
-using NLog;
-using IrrigationAdvisor.DBContext.Data;
 using System.Web.Routing;
 
 namespace IrrigationAdvisor.Controllers
@@ -152,7 +152,7 @@ namespace IrrigationAdvisor.Controllers
                 
                 if (pLoginViewModel != null && !string.IsNullOrEmpty(pLoginViewModel.UserName))
                 {
-                    ManageSession.SetLoginViewModel(pLoginViewModel);
+                    ManageSession.SetLoginViewModel(pLoginViewModel);                   
                 }
                 else
                 {
@@ -167,6 +167,8 @@ namespace IrrigationAdvisor.Controllers
                         pLoginViewModel = ManageSession.GetLoginViewModel();
                     }
                 }
+
+                ViewBag.UserName = pLoginViewModel.UserName;
 
                 trace = 10;
                 ManageSession.SetUserName(pLoginViewModel.UserName);
