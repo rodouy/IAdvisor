@@ -299,6 +299,10 @@
     <Compile Include="Migrations\201610281554174_DailyRecordCorrection.Designer.cs">
       <DependentUpon>201610281554174_DailyRecordCorrection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.cs" />
+    <Compile Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.Designer.cs">
+      <DependentUpon>201611121537073_AddFarmIdInIrrigationUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -870,6 +874,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610281554174_DailyRecordCorrection.resx">
       <DependentUpon>201610281554174_DailyRecordCorrection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.resx">
+      <DependentUpon>201611121537073_AddFarmIdInIrrigationUnit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -245,7 +245,7 @@ namespace IrrigationAdvisor.DBContext
 
             modelBuilder.Configurations.Add(new BombConfiguration());
             modelBuilder.Configurations.Add(new DripConfiguration());
-            modelBuilder.Configurations.Add(new IrrigationUnitConfigurarion());
+            modelBuilder.Configurations.Add(new IrrigationUnitConfiguration());
             modelBuilder.Configurations.Add(new PivotConfiguration());
             modelBuilder.Configurations.Add(new SprinklerConfiguration());
 

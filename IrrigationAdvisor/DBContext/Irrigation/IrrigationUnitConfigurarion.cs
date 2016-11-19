@@ -11,13 +11,13 @@ using IrrigationAdvisor.Models.Management;
 
 namespace IrrigationAdvisor.DBContext.Irrigation
 {
-    public class IrrigationUnitConfigurarion:
+    public class IrrigationUnitConfiguration:
         EntityTypeConfiguration<IrrigationUnit>
     {
 
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
-        public IrrigationUnitConfigurarion()
+        public IrrigationUnitConfiguration()
         {
             ToTable("IrrigationUnit");
             HasKey(c => c.IrrigationUnitId);

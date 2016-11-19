@@ -504,5 +504,45 @@ namespace IrrigationAdvisor.DBContext.Management
             return lReturn;
         }
 
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherByFarm(long farmId, DateTime pDateOfReference)
+        {
+            var q = (from ciw in db.CropIrrigationWeathers
+                     join iu in db.IrrigationUnits
+                     on ciw.IrrigationUnitId equals iu.IrrigationUnitId
+                     join f in db.Farms
+                     on iu.FarmId equals f.FarmId
+                     where f.FarmId == farmId &&
+                     ciw.SowingDate <= pDateOfReference &&
+                     ciw.HarvestDate >= pDateOfReference
+                     select ciw)
+                    .Include(ciw => ciw.Crop)
+                    .Include(ciw => ciw.Crop.Specie)
+                    .Include(ciw => ciw.Crop.Region)
+                    .Include(ciw => ciw.Crop.Region.EffectiveRainList)
+                    .Include(ciw => ciw.Crop.Region.TemperatureDataList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.CropCoefficient)
+                    .Include(ciw => ciw.Crop.CropCoefficient.KCList)
+                    .Include(ciw => ciw.Soil)
+                    .Include(ciw => ciw.Soil.HorizonList)
+                    .Include(ciw => ciw.CropInformationByDate)
+                    .Include(ciw => ciw.MainWeatherStation)
+                    .Include(ciw => ciw.MainWeatherStation.WeatherDataList)
+                    .Include(ciw => ciw.AlternativeWeatherStation)
+                    .Include(ciw => ciw.AlternativeWeatherStation.WeatherDataList)
+                    .Include(ciw => ciw.RainList)
+                    .Include(ciw => ciw.IrrigationList)
+                    .Include(ciw => ciw.EvapotranspirationCropList)
+                    .Include(ciw => ciw.DailyRecordList)
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.MainWeatherData))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.AlternativeWeatherData))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.PhenologicalStage))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Rain))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop));
+
+            return q.ToList();
+        }
+
     }
 }
