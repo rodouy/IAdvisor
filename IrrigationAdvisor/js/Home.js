@@ -34,6 +34,7 @@ $(document).ready(function () {
     var irrigationUnit = $('#IrrigationUnit');
     var irrigationUnitRainMail = $('#irrigationUnitRainMail');
     var irrigationUnitIrrigationMail = $('#irrigationUnitIrrigationMail');
+    var userName = $('#userName').val();
 
     
 
@@ -551,7 +552,7 @@ $(document).ready(function () {
                         irrigationMailText = selected;
                     }
                     
-                    $.when(sendMail("Se ha agregado Lluvia para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Milimetros: " + pMilimiters + "[br] Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year() + "[br] IrrigationUnitId: " + pIrrigationUnitId + " - " + irrigationMailText)).done(function () {
+                    $.when(sendMail("Usuario: " + userName + " ha agregado Lluvia para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Milimetros: " + pMilimiters + "[br] Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year() + "[br] IrrigationUnitId: " + pIrrigationUnitId + " - " + irrigationMailText)).done(function () {
                         location.href = "./home?farm=" + lstFarms.val();
                     });
                    
@@ -610,7 +611,7 @@ $(document).ready(function () {
                         irrigationMailText = selected;
                     }
 
-                    $.when(sendMail("Se ha agregado Riego para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Milimetros: " + pMilimiters +  "[br] Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year() + "[br] IrrigationUnitId: " + pIrrigationUnitId + " - " + irrigationMailText)).done(function () {
+                    $.when(sendMail("Usuario: " + userName + " ha agregado Riego para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Milimetros: " + pMilimiters +  "[br] Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year() + "[br] IrrigationUnitId: " + pIrrigationUnitId + " - " + irrigationMailText)).done(function () {
                         location.href = "./home?farm=" + lstFarms.val();
                     });
                     
