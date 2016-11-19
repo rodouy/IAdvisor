@@ -2812,7 +2812,7 @@ namespace IrrigationAdvisor.Models.Management
                     }
                     // Override the type of lIrrigationItem. 
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
-                    lNewIrrigationNextDate.CropIrrigationWeather = this;
+                    lNewIrrigation.CropIrrigationWeather = this;
                 }
                 else
                 {
