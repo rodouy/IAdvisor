@@ -302,7 +302,7 @@ namespace IrrigationAdvisorConsole
         public static DateTime SowingDate_SoyaNorth_LaRinconadaPivot2_2016 = new DateTime(2016, 11, 25);
         public static DateTime HarvestDate_SoyaNorth_LaRinconadaPivot2_2016 = new DateTime(2017, 02, 28);
         public static Double PredeterminatedIrrigationQuantity_LaRinconadaPivot2_2016 = 14;
-        public static DateTime SowingDate_SoyaNorth_LaRinconadaPivot3_1_2016 = new DateTime(2016, 20, 29);
+        public static DateTime SowingDate_SoyaNorth_LaRinconadaPivot3_1_2016 = new DateTime(2016, 10, 29);
         public static DateTime HarvestDate_SoyaNorth_LaRinconadaPivot3_1_2016 = new DateTime(2017, 02, 28);
         public static Double PredeterminatedIrrigationQuantity_LaRinconadaPivot3_1_2016 = 14;
         public static DateTime SowingDate_SoyaNorth_LaRinconadaPivot13_1_2016 = new DateTime(2016, 11, 15);

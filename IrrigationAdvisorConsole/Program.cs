@@ -4540,19 +4540,19 @@ namespace IrrigationAdvisorConsole
             #endregion
             
             #region Norte
-            var lNorteCorto = new SpecieCycle
+            var lNorthShort = new SpecieCycle
             {
                 Name = Utils.NameSpecieCycleNorthShort,
                 Duration = 160,
             };
 
-            var lNorteMedio = new SpecieCycle
+            var lNorthMedium = new SpecieCycle
             {
                 Name = Utils.NameSpecieCycleNorthMedium,
                 Duration = 180,
             };
 
-            var lNorteLargo = new SpecieCycle
+            var lNorthLong = new SpecieCycle
             {
                 Name = Utils.NameSpecieCycleNorthLong,
                 Duration = 200,
@@ -4565,9 +4565,9 @@ namespace IrrigationAdvisorConsole
                 context.SpecieCycles.Add(lSurCorto);
                 context.SpecieCycles.Add(lSurMedio);
                 context.SpecieCycles.Add(lSurLargo); 
-                context.SpecieCycles.Add(lNorteCorto);
-                context.SpecieCycles.Add(lNorteMedio);
-                context.SpecieCycles.Add(lNorteLargo);
+                context.SpecieCycles.Add(lNorthShort);
+                context.SpecieCycles.Add(lNorthMedium);
+                context.SpecieCycles.Add(lNorthLong);
                 context.SaveChanges();
             }
         }
@@ -4595,7 +4595,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
                 
                 var lCornSouthShort = new Specie
                 {
@@ -4616,7 +4616,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
                 var lSoyaSouthShort = new Specie
                 {
@@ -4637,7 +4637,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthMedium);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
                 var lSoyaSouthMedium = new Specie
                 {
@@ -4658,7 +4658,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
                 var lSorghumForageSouthShort = new Specie
                 {
@@ -4679,7 +4679,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
                 var lSorghumGrainSouthShort = new Specie
                 {
@@ -4700,7 +4700,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
                 var lAlfalfaSouthShort = new Specie
                 {
@@ -4721,7 +4721,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
                 var lRedCloverForageSouthShort = new Specie
                 {
@@ -4742,7 +4742,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
                 var lRedCloverSeedSouthShort = new Specie
                 {
@@ -4763,7 +4763,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
                 var lFescueForageSouthShort = new Specie
                 {
@@ -4784,7 +4784,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleSouthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
                 var lFescueSeedSouthShort = new Specie
                 {
@@ -4809,7 +4809,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleNorthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
                 var lCornNorthShort = new Specie
                 {
                     Name = Utils.NameSpecieCornNorthShort,
@@ -4828,7 +4828,7 @@ namespace IrrigationAdvisorConsole
             using (var context = new IrrigationAdvisorContext())
             {
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
-                                        region => region.Name == Utils.NameSpecieCycleNorthShort);
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
                 var lSoyaNorthShort = new Specie
                 {
