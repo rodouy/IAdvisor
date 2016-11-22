@@ -15420,7 +15420,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 24,
-                        Show = true,
+                        Show = false,
                     };
                     #endregion
 
