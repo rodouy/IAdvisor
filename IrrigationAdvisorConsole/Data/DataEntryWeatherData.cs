@@ -3801,6 +3801,9 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(319), 22.3, 566.0, 28.7, 15.9, 5.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-11-15
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(320), 18.0, 334.8, 21.0, 15.0, 3.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(321), 12.4, 489.4, 15.6, 09.2, 3.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(322), 13.3, 493.7, 19.7, 07.0, 3.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(323), 17.3, 669.4, 25.1, 09.4, 4.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(324), 18.7, 550.2, 25.1, 12.2, 4.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-11-20
 
             #endregion
 
@@ -5272,6 +5275,9 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(319), 24.8, 655.8, 31.7, 17.9, 5.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-11-15
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(320), 20.7, 350.3, 26.8, 14.6, 4.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(321), 16.7, 558.0, 22.3, 11.1, 5.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(322), 14.5, 658.7, 22.0, 07.0, 4.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(323), 17.9, 404.1, 25.0, 10.8, 4.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(324), 21.3, 438.1, 27.5, 15.0, 4.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-11-20
 
             #endregion
 

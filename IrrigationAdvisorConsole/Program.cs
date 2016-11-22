@@ -14674,7 +14674,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
-                        Show = false,
+                        Show = true,
                     };
                     #endregion
                     #region Pivot 11
@@ -15502,7 +15502,8 @@ namespace IrrigationAdvisorConsole
             {
                 UpdateSoilsBombsIrrigationUnitsUsersFarmGMOElTacuru();
             }
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
             {
                 UpdateSoilsBombsIrrigationUnitsUsersFarmLaRinconada();
@@ -17019,6 +17020,7 @@ namespace IrrigationAdvisorConsole
                 {
                     DataEntry.AddIrrigationDataDCALaPerdizPivot1_2016(context, DateOfReference);
                     DataEntry.AddIrrigationDataDCALaPerdizPivot6_2016(context, DateOfReference);
+                    DataEntry.AddIrrigationDataDCALaPerdizPivot10b_2016(context, DateOfReference);
                     DataEntry.AddIrrigationDataDCALaPerdizPivot15_2016(context, DateOfReference);
                     context.SaveChanges();
 
@@ -29975,7 +29977,7 @@ namespace IrrigationAdvisorConsole
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2016(context, DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2016(context, DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2016(context, DateOfReference);

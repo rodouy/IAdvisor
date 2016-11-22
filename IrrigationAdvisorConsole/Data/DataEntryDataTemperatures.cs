@@ -1345,6 +1345,22 @@ namespace IrrigationAdvisorConsole.Data
             var lTD_South_20161029 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161029", Date = new DateTime(2016, 10, 29), RegionId = lRegion.RegionId, Min = 8.4, Max = 24.4, Average = 16.4, ETC = 5.3, Rain = 0, };
             var lTD_South_20161030 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161030", Date = new DateTime(2016, 10, 30), RegionId = lRegion.RegionId, Min = 12.4, Max = 28, Average = 20.2, ETC = 5.2, Rain = 0, };
             var lTD_South_20161031 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161031", Date = new DateTime(2016, 10, 31), RegionId = lRegion.RegionId, Min = 16.2, Max = 26.8, Average = 21.5, ETC = 4.1, Rain = 0.8, };
+            var lTD_South_20161101 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161101", Date = new DateTime(2016, 11, 01), RegionId = lRegion.RegionId, Min = 13.4, Max = 16.6, Average = 15, ETC = 1.9, Rain = 34.9, };
+            var lTD_South_20161102 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161102", Date = new DateTime(2016, 11, 02), RegionId = lRegion.RegionId, Min = 8.8, Max = 16.8, Average = 12.8, ETC = 4.5, Rain = 0, };
+            var lTD_South_20161103 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161103", Date = new DateTime(2016, 11, 03), RegionId = lRegion.RegionId, Min = 8.6, Max = 25.4, Average = 17, ETC = 7.1, Rain = 0, };
+            var lTD_South_20161104 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161104", Date = new DateTime(2016, 11, 04), RegionId = lRegion.RegionId, Min = 15.6, Max = 26.8, Average = 21.2, ETC = 5.8, Rain = 0, };
+            var lTD_South_20161105 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161105", Date = new DateTime(2016, 11, 05), RegionId = lRegion.RegionId, Min = 15, Max = 31.2, Average = 23.1, ETC = 5.9, Rain = 0, };
+            var lTD_South_20161106 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161106", Date = new DateTime(2016, 11, 06), RegionId = lRegion.RegionId, Min = 17.2, Max = 31.7, Average = 24.5, ETC = 6.4, Rain = 0, };
+            var lTD_South_20161107 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161107", Date = new DateTime(2016, 11, 07), RegionId = lRegion.RegionId, Min = 17, Max = 21.8, Average = 19.4, ETC = 2.6, Rain = 0, };
+            var lTD_South_20161108 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161108", Date = new DateTime(2016, 11, 08), RegionId = lRegion.RegionId, Min = 17, Max = 21.4, Average = 19.2, ETC = 2.4, Rain = 0, };
+            var lTD_South_20161109 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161109", Date = new DateTime(2016, 11, 09), RegionId = lRegion.RegionId, Min = 14.6, Max = 25.7, Average = 20.2, ETC = 4, Rain = 0, };
+            var lTD_South_20161110 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161110", Date = new DateTime(2016, 11, 10), RegionId = lRegion.RegionId, Min = 11.8, Max = 23.5, Average = 17.7, ETC = 6.2, Rain = 0, };
+            var lTD_South_20161111 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161111", Date = new DateTime(2016, 11, 11), RegionId = lRegion.RegionId, Min = 13.1, Max = 22.9, Average = 18, ETC = 5.8, Rain = 0, };
+            var lTD_South_20161112 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161112", Date = new DateTime(2016, 11, 12), RegionId = lRegion.RegionId, Min = 11.6, Max = 27.6, Average = 19.6, ETC = 6.6, Rain = 0, };
+            var lTD_South_20161113 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161113", Date = new DateTime(2016, 11, 13), RegionId = lRegion.RegionId, Min = 15, Max = 23.2, Average = 19.1, ETC = 3.2, Rain = 2.8, };
+            var lTD_South_20161114 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161114", Date = new DateTime(2016, 11, 14), RegionId = lRegion.RegionId, Min = 15.1, Max = 29.8, Average = 22.5, ETC = 5.4, Rain = 0, };
+            var lTD_South_20161115 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161115", Date = new DateTime(2016, 11, 15), RegionId = lRegion.RegionId, Min = 18.2, Max = 27.4, Average = 22.8, ETC = 5.9, Rain = 4.3, };
+            var lTD_South_20161116 = new TemperatureData { Name = Utils.NameRegionSouth + "-20161116", Date = new DateTime(2016, 11, 16), RegionId = lRegion.RegionId, Min = 15.4, Max = 20.8, Average = 18.1, ETC = 3.4, Rain = 0, };
 
             #endregion
 
@@ -1655,6 +1671,22 @@ namespace IrrigationAdvisorConsole.Data
             context.TemperatureDatas.Add(lTD_South_20161029);
             context.TemperatureDatas.Add(lTD_South_20161030);
             context.TemperatureDatas.Add(lTD_South_20161031);
+            context.TemperatureDatas.Add(lTD_South_20161101);
+            context.TemperatureDatas.Add(lTD_South_20161102);
+            context.TemperatureDatas.Add(lTD_South_20161103);
+            context.TemperatureDatas.Add(lTD_South_20161104);
+            context.TemperatureDatas.Add(lTD_South_20161105);
+            context.TemperatureDatas.Add(lTD_South_20161106);
+            context.TemperatureDatas.Add(lTD_South_20161107);
+            context.TemperatureDatas.Add(lTD_South_20161108);
+            context.TemperatureDatas.Add(lTD_South_20161109);
+            context.TemperatureDatas.Add(lTD_South_20161110);
+            context.TemperatureDatas.Add(lTD_South_20161111);
+            context.TemperatureDatas.Add(lTD_South_20161112);
+            context.TemperatureDatas.Add(lTD_South_20161113);
+            context.TemperatureDatas.Add(lTD_South_20161114);
+            context.TemperatureDatas.Add(lTD_South_20161115);
+            context.TemperatureDatas.Add(lTD_South_20161116);
 
 
 
@@ -2989,6 +3021,26 @@ namespace IrrigationAdvisorConsole.Data
             var lTD_North_20161029 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161029", Date = new DateTime(2016, 10, 29), RegionId = lRegion.RegionId, Min = 8.8, Max = 24.8, Average = 16.8, ETC = 3.6, Rain = 0, };
             var lTD_North_20161030 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161030", Date = new DateTime(2016, 10, 30), RegionId = lRegion.RegionId, Min = 12.6, Max = 28.3, Average = 20.5, ETC = 5.3, Rain = 0, };
             var lTD_North_20161031 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161031", Date = new DateTime(2016, 10, 31), RegionId = lRegion.RegionId, Min = 18.1, Max = 31.4, Average = 24.8, ETC = 5.5, Rain = 18.8, };
+            var lTD_North_20161101 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161101", Date = new DateTime(2016, 11, 01), RegionId = lRegion.RegionId, Min = 15.6, Max = 21.2, Average = 18.4, ETC = 1.8, Rain = 33, };
+            var lTD_North_20161102 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161102", Date = new DateTime(2016, 11, 02), RegionId = lRegion.RegionId, Min = 9.8, Max = 19.8, Average = 14.8, ETC = 6.6, Rain = 0, };
+            var lTD_North_20161103 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161103", Date = new DateTime(2016, 11, 03), RegionId = lRegion.RegionId, Min = 10.8, Max = 24.8, Average = 17.8, ETC = 5.1, Rain = 0, };
+            var lTD_North_20161104 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161104", Date = new DateTime(2016, 11, 04), RegionId = lRegion.RegionId, Min = 17.6, Max = 30, Average = 23.8, ETC = 5.4, Rain = 0, };
+            var lTD_North_20161105 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161105", Date = new DateTime(2016, 11, 05), RegionId = lRegion.RegionId, Min = 15.9, Max = 31.4, Average = 23.7, ETC = 5.6, Rain = 0, };
+            var lTD_North_20161106 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161106", Date = new DateTime(2016, 11, 06), RegionId = lRegion.RegionId, Min = 16.3, Max = 32.8, Average = 24.6, ETC = 5.9, Rain = 0, };
+            var lTD_North_20161107 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161107", Date = new DateTime(2016, 11, 07), RegionId = lRegion.RegionId, Min = 21.3, Max = 33.2, Average = 27.3, ETC = 5.2, Rain = 0, };
+            var lTD_North_20161108 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161108", Date = new DateTime(2016, 11, 08), RegionId = lRegion.RegionId, Min = 18.6, Max = 28.9, Average = 23.8, ETC = 3.1, Rain = 1, };
+            var lTD_North_20161109 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161109", Date = new DateTime(2016, 11, 09), RegionId = lRegion.RegionId, Min = 20.3, Max = 29.7, Average = 25, ETC = 5.1, Rain = 0, };
+            var lTD_North_20161110 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161110", Date = new DateTime(2016, 11, 10), RegionId = lRegion.RegionId, Min = 19.1, Max = 29.8, Average = 24.5, ETC = 5.5, Rain = 5, };
+            var lTD_North_20161111 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161111", Date = new DateTime(2016, 11, 11), RegionId = lRegion.RegionId, Min = 14.4, Max = 26.2, Average = 20.3, ETC = 5.3, Rain = 0, };
+            var lTD_North_20161112 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161112", Date = new DateTime(2016, 11, 12), RegionId = lRegion.RegionId, Min = 13.7, Max = 26.5, Average = 20.1, ETC = 6, Rain = 0, };
+            var lTD_North_20161113 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161113", Date = new DateTime(2016, 11, 13), RegionId = lRegion.RegionId, Min = 14.3, Max = 31, Average = 22.7, ETC = 7, Rain = 0, };
+            var lTD_North_20161114 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161114", Date = new DateTime(2016, 11, 14), RegionId = lRegion.RegionId, Min = 16.1, Max = 29.7, Average = 22.9, ETC = 3.1, Rain = 0, };
+            var lTD_North_20161115 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161115", Date = new DateTime(2016, 11, 15), RegionId = lRegion.RegionId, Min = 17.9, Max = 31.7, Average = 24.8, ETC = 5.9, Rain = 0, };
+            var lTD_North_20161116 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161116", Date = new DateTime(2016, 11, 16), RegionId = lRegion.RegionId, Min = 14.6, Max = 26.8, Average = 20.7, ETC = 4.5, Rain = 4.9, };
+            var lTD_North_20161117 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161117", Date = new DateTime(2016, 11, 17), RegionId = lRegion.RegionId, Min = 11.1, Max = 22.3, Average = 16.7, ETC = 5, Rain = 0, };
+            var lTD_North_20161118 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161118", Date = new DateTime(2016, 11, 18), RegionId = lRegion.RegionId, Min = 7, Max = 22, Average = 14.5, ETC = 4.3, Rain = 0, };
+            var lTD_North_20161119 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161119", Date = new DateTime(2016, 11, 19), RegionId = lRegion.RegionId, Min = 10.8, Max = 25, Average = 17.9, ETC = 4.1, Rain = 0, };
+            var lTD_North_20161120 = new TemperatureData { Name = Utils.NameRegionNorth + "-20161120", Date = new DateTime(2016, 11, 20), RegionId = lRegion.RegionId, Min = 15, Max = 27.5, Average = 21.3, ETC = 4.2, Rain = 0, };
 
             #endregion
 
@@ -3298,6 +3350,26 @@ namespace IrrigationAdvisorConsole.Data
             context.TemperatureDatas.Add(lTD_North_20161029);
             context.TemperatureDatas.Add(lTD_North_20161030);
             context.TemperatureDatas.Add(lTD_North_20161031);
+            context.TemperatureDatas.Add(lTD_North_20161101);
+            context.TemperatureDatas.Add(lTD_North_20161102);
+            context.TemperatureDatas.Add(lTD_North_20161103);
+            context.TemperatureDatas.Add(lTD_North_20161104);
+            context.TemperatureDatas.Add(lTD_North_20161105);
+            context.TemperatureDatas.Add(lTD_North_20161106);
+            context.TemperatureDatas.Add(lTD_North_20161107);
+            context.TemperatureDatas.Add(lTD_North_20161108);
+            context.TemperatureDatas.Add(lTD_North_20161109);
+            context.TemperatureDatas.Add(lTD_North_20161110);
+            context.TemperatureDatas.Add(lTD_North_20161111);
+            context.TemperatureDatas.Add(lTD_North_20161112);
+            context.TemperatureDatas.Add(lTD_North_20161113);
+            context.TemperatureDatas.Add(lTD_North_20161114);
+            context.TemperatureDatas.Add(lTD_North_20161115);
+            context.TemperatureDatas.Add(lTD_North_20161116);
+            context.TemperatureDatas.Add(lTD_North_20161117);
+            context.TemperatureDatas.Add(lTD_North_20161118);
+            context.TemperatureDatas.Add(lTD_North_20161119);
+            context.TemperatureDatas.Add(lTD_North_20161120);
 
 
             #endregion
