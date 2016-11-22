@@ -15374,7 +15374,7 @@ namespace IrrigationAdvisorConsole
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 26,
-                        Show = true,
+                        Show = false,
                     };
                     #endregion
                     #region Pivot 3.1
