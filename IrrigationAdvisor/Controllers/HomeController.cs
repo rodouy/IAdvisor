@@ -33,6 +33,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -336,7 +337,8 @@ namespace IrrigationAdvisor.Controllers
 
                 trace = 120;
                 lCropIrrigationWeatherVM = new List<CropIrrigationWeather>();
-                lCropIrrigationWeatherVM.Add(lFirstCropIrrigationWeather);
+                lCropIrrigationWeatherVM.AddRange(lCropIrrigationWeatherList);
+
                 //Demo - One Pivot
                 lHVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
                     lFarmViewModel, lCurrentFarmLatitude, lCurrentFarmLongitude, lCropIrrigationWeatherVM,
@@ -348,9 +350,7 @@ namespace IrrigationAdvisor.Controllers
                 //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
                 lHVM.DateOfReference = lDateOfReference;
                 
-                //TODO: Change when implement multiple farms
                 lHVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
-                ViewBag.SpecieId = lFirstCropIrrigationWeather.Crop.SpecieId;
                 
                 trace = 140;
                 ManageSession.SetHomeViewModel(lHVM);
@@ -467,51 +467,68 @@ namespace IrrigationAdvisor.Controllers
         /// <summary>
         /// TODO: Description of GetStagesBy
         /// </summary>
-        /// <param name="pSpecieId"></param>
         /// <param name="pCropIrrigationWeatherId"></param>
         /// <returns></returns>
-        public JsonResult GetStagesBy(long pSpecieId, long pCropIrrigationWeatherId)
+        public JsonResult GetStagesBy(long pCropIrrigationWeatherId)
         {
 
             StageConfiguration st = new StageConfiguration();
             List<StageViewModel> lStageViewModelList = new List<StageViewModel>();
 
             IrrigationAdvisorContext context = new IrrigationAdvisorContext();
-
-            CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
-
-            Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.StageId).FirstOrDefault();
             List<Stage> lStageResult = null;
 
             //irrigationUnit
             try
             {
+                CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
 
-                lStageResult = st.GetStageBy(pSpecieId, foundStage.Order);
+                Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.StageId).FirstOrDefault();
 
-                foreach (var stageItem in lStageResult)
+                if (ciw != null)
                 {
-
-                    StageViewModel stageViewModel = new StageViewModel
+                    if (foundStage != null)
                     {
-                        Description = stageItem.Description,
-                        Name = stageItem.Name,
-                        order = stageItem.Order,
-                        ShortName = stageItem.ShortName,
-                        StageId = stageItem.StageId
-                    };
+                        lStageResult = st.GetStageBy(ciw.Crop.SpecieId, foundStage.Order);
 
-                    lStageViewModelList.Add(stageViewModel);
+                        if (lStageResult != null)
+                        {
+                            foreach (var stageItem in lStageResult)
+                            {
+
+                                StageViewModel stageViewModel = new StageViewModel
+                                {
+                                    Description = stageItem.Description,
+                                    Name = stageItem.Name,
+                                    order = stageItem.Order,
+                                    ShortName = stageItem.ShortName,
+                                    StageId = stageItem.StageId
+                                };
+
+                                lStageViewModelList.Add(stageViewModel);
+                            }
+                        }
+                        else
+                        {
+                            logger.Warn("No se ha podido encontrar un stage en el método GetStageBy en el método {0}", MethodBase.GetCurrentMethod().Name);
+                        }
+                    }
+                    else
+                    {
+                        logger.Warn("No se ha podido encontrar el StageId = {0} en el método {1}", ciw.PhenologicalStage.StageId, MethodBase.GetCurrentMethod().Name);
+                    } 
                 }
-
+                else
+                {
+                    logger.Warn("No se ha podido encontrar el CropIrrigationWeatherId = {0} en el método {1}", pCropIrrigationWeatherId, MethodBase.GetCurrentMethod().Name);
+                }
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetStagesBy " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.GetStagesBy \n {0} \n {1}", ex.Message , ex.StackTrace);
             }
 
             return Json(lStageResult, JsonRequestBehavior.AllowGet);
-
         }
 
 

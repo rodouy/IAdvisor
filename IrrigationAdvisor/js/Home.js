@@ -11,7 +11,6 @@ $(document).ready(function () {
     var rainMilimeters = $('#rain');
     var dateOfReferenceBtn = $('#dateOfReferenceBtn');
     var cropIrriWeatherPheno = $('#CropIrriWeatherPheno');
-    var specieIdInput = $('#specieId');
     var phenoDate = $('#phenoDate');
     var stagePheno = $('#StagePheno'); 
     var dateOfReferenceBtn2 = $('#dateOfReferenceBtn2');
@@ -157,15 +156,13 @@ $(document).ready(function () {
     };
 
     var loadStageForCropIrrigationWeather = function () {
-
         var selectedCropIrriWeatherPheno = cropIrriWeatherPheno.val();
-        var specieId = specieIdInput.val();
-
+        
         var comboStages = $('#StagePheno');
 
         $.ajax({
             type: 'GET',
-            url: './GetStagesBy?pSpecieId=' + specieId + '&pCropIrrigationWeatherId=' + selectedCropIrriWeatherPheno,
+            url: './GetStagesBy?pCropIrrigationWeatherId=' + selectedCropIrriWeatherPheno,
             success: function (data) {
 
                 var values = JSON.stringify(data);
@@ -405,7 +402,6 @@ $(document).ready(function () {
     savePhenoBtn.click(function () {
 
         var selectedCropIrriWeatherPheno = cropIrriWeatherPheno.val();
-        var specieId = specieIdInput.val();
         var phenoDateVal = phenoDate.val();
         var stagePhenoVal = stagePheno.val();
 
