@@ -337,7 +337,8 @@ namespace IrrigationAdvisor.Controllers
 
                 trace = 120;
                 lCropIrrigationWeatherVM = new List<CropIrrigationWeather>();
-                lCropIrrigationWeatherVM.Add(lFirstCropIrrigationWeather);
+                lCropIrrigationWeatherVM.AddRange(lCropIrrigationWeatherList);
+
                 //Demo - One Pivot
                 lHVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
                     lFarmViewModel, lCurrentFarmLatitude, lCurrentFarmLongitude, lCropIrrigationWeatherVM,
@@ -349,9 +350,7 @@ namespace IrrigationAdvisor.Controllers
                 //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
                 lHVM.DateOfReference = lDateOfReference;
                 
-                //TODO: Change when implement multiple farms
                 lHVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
-                ViewBag.SpecieId = lFirstCropIrrigationWeather.Crop.SpecieId;
                 
                 trace = 140;
                 ManageSession.SetHomeViewModel(lHVM);
@@ -468,10 +467,9 @@ namespace IrrigationAdvisor.Controllers
         /// <summary>
         /// TODO: Description of GetStagesBy
         /// </summary>
-        /// <param name="pSpecieId"></param>
         /// <param name="pCropIrrigationWeatherId"></param>
         /// <returns></returns>
-        public JsonResult GetStagesBy(long pSpecieId, long pCropIrrigationWeatherId)
+        public JsonResult GetStagesBy(long pCropIrrigationWeatherId)
         {
 
             StageConfiguration st = new StageConfiguration();
@@ -491,7 +489,7 @@ namespace IrrigationAdvisor.Controllers
                 {
                     if (foundStage != null)
                     {
-                        lStageResult = st.GetStageBy(pSpecieId, foundStage.Order);
+                        lStageResult = st.GetStageBy(ciw.Crop.SpecieId, foundStage.Order);
 
                         if (lStageResult != null)
                         {
