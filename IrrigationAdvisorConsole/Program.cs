@@ -13185,7 +13185,7 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region Pivots Demo1 - La Perdiz
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -13297,7 +13297,7 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region Pivots Demo2 - Santa Lucia
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -13433,7 +13433,7 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region Pivots Demo3 - La Palmas
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -13569,7 +13569,7 @@ namespace IrrigationAdvisorConsole
             #endregion
 
             #region Pivots Santa Lucia
-            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
+            if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -15179,7 +15179,7 @@ namespace IrrigationAdvisorConsole
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
-                    #endregion 
+                    #endregion
                     #region Pivot 2b
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombGMOElTacuru
