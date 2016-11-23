@@ -39,7 +39,6 @@
 
 <input type="hidden" value="@Utils.GetDateTimeForClientScripts(Model.MaxDateOfReference)" id="maxDateOfReference"/>
 <!-- TODO: Change when implement multiple farms -->
-<input type="hidden" value="@ViewBag.SpecieId" id="specieId"/>
 <input type="hidden" value="@Utils.GetDateTimeForClientScripts(Model.MinDateOfReference)" id="minDateOfReference" />
 <input type="hidden" value="" id="farm-info"/>
 <input type="hidden" value="" id="irrigationUnitRainMail"/>
@@ -425,7 +424,7 @@
                                             </div>
                                             <br />
                                             <div class="dropdown">
-                                                Contexto de cosecha: 
+                                                Contexto del cultivo: 
 
                                                 @{ if (Model.CropIrrigationWeatherViewModelList != null)
                                                     {
