@@ -209,7 +209,7 @@ namespace IrrigationAdvisorConsole
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot9_2016 = new DateTime(2016, 10, 16); //9
         public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot9_2016 = new DateTime(2017, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot9_2016 = 14;
-        public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot10_2016 = new DateTime(2016, 10, 03); //10
+        public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot10_2016 = new DateTime(2016, 11, 14); //10
         public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot10_2016 = new DateTime(2017, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot10_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot11_2016 = new DateTime(2016, 11, 11); //11
