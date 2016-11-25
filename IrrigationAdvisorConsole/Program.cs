@@ -507,6 +507,18 @@ namespace IrrigationAdvisorConsole
                 RoleId = 1,
             };
 
+            var lGMoreno = new User()
+            {
+                Name = "Gonzalo",
+                Surname = "Moreno",
+                Phone = "098 645 016",
+                Address = "1958 Cuareim, Montevideo",
+                Email = "gmoreno@pgwwater.com.uy",
+                UserName = Utils.NameUserGonza,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GMoreno"),
+                RoleId = 1,
+            };
+
             var lAdmin = new User()
             {
                 Name = Utils.NameUserAdmin,
@@ -638,6 +650,7 @@ namespace IrrigationAdvisorConsole
                 context.Users.Add(lTesting);
                 context.Users.Add(lTestAdmin);
                 context.Users.Add(lSCasanova);
+                context.Users.Add(lGMoreno);
                 context.Users.Add(lAdmin);
                 context.Users.Add(lDCAJuan);
                 context.Users.Add(lDCAFabian);
