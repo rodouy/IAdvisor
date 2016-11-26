@@ -35,19 +35,6 @@ $(document).ready(function () {
     var irrigationUnitIrrigationMail = $('#irrigationUnitIrrigationMail');
     var userName = $('#userName').val();
 
-    $(window).resize(function () {
-
-        var width = $(window).width(), height = $(window).height();
-
-        if ((width <= 760) && (height >= 768)) {
-            alert('Remove my nav!');
-        } else {
-            alert('Do nothing');
-        }
-
-    });
-    
-
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
