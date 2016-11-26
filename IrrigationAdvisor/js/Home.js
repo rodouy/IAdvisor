@@ -35,6 +35,17 @@ $(document).ready(function () {
     var irrigationUnitIrrigationMail = $('#irrigationUnitIrrigationMail');
     var userName = $('#userName').val();
 
+    $(window).resize(function () {
+
+        var width = $(window).width(), height = $(window).height();
+
+        if ((width <= 760) && (height >= 768)) {
+            alert('Remove my nav!');
+        } else {
+            alert('Do nothing');
+        }
+
+    });
     
 
     var getUrlParameter = function getUrlParameter(sParam) {
@@ -200,6 +211,8 @@ $(document).ready(function () {
         }
 
         hideLoading();
+
+        $('td:nth-of-type(4):before').html('Mateo te adoro!');
     };
 
     init();
