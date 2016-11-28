@@ -1409,9 +1409,9 @@ namespace IrrigationAdvisor.Models.Management
 
             lReturn = new Pair<Double, Utils.WaterInputType>();
 
-            if (pDateTime.Equals(new DateTime(2016, 11, 14)))
+            if (pDateTime.Equals(new DateTime(2016, 11, 22)))
             {
-                //System.Diagnostics.Debugger.Break();
+                System.Diagnostics.Debugger.Break();
             }
 
             lIrrigationByEvapotranspiration = this.IrrigateByEvapotranspiration();
