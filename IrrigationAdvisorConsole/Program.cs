@@ -29,7 +29,7 @@ namespace IrrigationAdvisorConsole
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Production;
+        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.GMOElTacuru;
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
@@ -30062,6 +30062,7 @@ namespace IrrigationAdvisorConsole
                     DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot1_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot4_2016(context, DateOfReference);
                     context.SaveChanges();
+                    Console.WriteLine("DCA - San Jose - Completed.");
                 }
             }
             #endregion
@@ -30079,6 +30080,7 @@ namespace IrrigationAdvisorConsole
                     DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot10b_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2016(context, DateOfReference);
                     context.SaveChanges();
+                    Console.WriteLine("DCA - La Perdiz - Completed.");
                 }
             }
             #endregion
@@ -30122,6 +30124,7 @@ namespace IrrigationAdvisorConsole
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(context, DateOfReference);
                     context.SaveChanges();
+                    Console.WriteLine("Del Lago - El Mirador - Completed.");
                 }
             }
             #endregion
@@ -30141,6 +30144,7 @@ namespace IrrigationAdvisorConsole
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2016(context, DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot5_2016(context, DateOfReference);
                     context.SaveChanges();
+                    Console.WriteLine("GMO - La Palma - Completed.");
                 }
             }
             #endregion
@@ -30171,6 +30175,7 @@ namespace IrrigationAdvisorConsole
                     DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot9_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot10_2016(context, DateOfReference);
                     context.SaveChanges();
+                    Console.WriteLine("GMO - El Tacuru - Completed.");
                 }
             }
             #endregion
@@ -30188,6 +30193,7 @@ namespace IrrigationAdvisorConsole
                     DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot3_1_2016(context, DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot13_1_2016(context, DateOfReference);
                     context.SaveChanges();
+                    Console.WriteLine("La Rinconada - Completed.");
                 }
             }
             #endregion

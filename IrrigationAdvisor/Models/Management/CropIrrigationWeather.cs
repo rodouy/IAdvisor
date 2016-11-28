@@ -3179,6 +3179,7 @@ namespace IrrigationAdvisor.Models.Management
             List<PhenologicalStage> lPhenologicalStageList;
             IEnumerable<PhenologicalStage> lPhenologicalTableOrderByMinDegree;
             PhenologicalStage lNewPhenologicalStage = null;
+            PhenologicalStage lLastPhenologicalStage = null;
             
             //Order the phenological table
             lPhenologicalStageList = this.Crop.PhenologicalStageList;
@@ -3194,6 +3195,12 @@ namespace IrrigationAdvisor.Models.Management
                     lNewPhenologicalStage = lPhenologicalStage;
                     break;
                 }
+                lLastPhenologicalStage = lPhenologicalStage;
+            }
+
+            if (lNewPhenologicalStage == null && pGrowingDegreeDaysModified > lLastPhenologicalStage.MaxDegree)
+            {
+                lNewPhenologicalStage = lLastPhenologicalStage;
             }
             
             lReturn = lNewPhenologicalStage;
