@@ -1529,6 +1529,7 @@ namespace IrrigationAdvisor.Controllers
 
         /// <summary>
         /// Add Grid Irrigation Unit with all columns data
+        /// Using DailyRecords for obtain Irrigation, Rain information.
         /// </summary>
         /// <param name="pDayOfReference"></param>
         /// <param name="pDayOfData"></param>
@@ -1546,30 +1547,33 @@ namespace IrrigationAdvisor.Controllers
             Double lForcastIrrigationQuantity = 0;
             Double lWaterQuantity = 0;
             DateTime lDateOfData = Utils.MIN_DATETIME;
+            DateTime lDayOfReference = Utils.MIN_DATETIME;
             bool lIsToday = false;
             Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Default;
             String lPhenology = "";
 
-            Models.Water.Irrigation lIrrigation = null;
             Rain lRain = null;
             DailyRecord lDailyRecord = null;
             try
             {
 
                 lDateOfData = pDayOfData.Date;
+                lDayOfReference = pDayOfReference.Date;
+
+                //Find Daily Record of the Date of Data
+                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData.Date).FirstOrDefault();
 
                 #region Irrigation in the past
-                //Find Irrigation of the Date of Data
-                lIrrigation = pIrrigationList.Where(ir => ir.Date.Date == lDateOfData.Date).FirstOrDefault();
-                if (lIrrigation != null && lIrrigation.Input > 0 && lDateOfData < pDayOfReference)
+                if (lDailyRecord != null && lDateOfData < lDayOfReference)
                 {
-                    lIrrigationQuantity = lIrrigation.Input;
-                }
-
-                lIrrigation = pIrrigationList.Where(ir => ir.ExtraDate.Date == lDateOfData.Date).FirstOrDefault();
-                if (lIrrigation != null && lIrrigation.ExtraInput > 0 && lDateOfData < pDayOfReference)
-                {
-                    lIrrigationQuantity += lIrrigation.ExtraInput;
+                    if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
+                    {
+                        lIrrigationQuantity += lDailyRecord.Irrigation.Input;
+                    }
+                    else if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.ExtraInput > 0)
+                    {
+                        lIrrigationQuantity += lDailyRecord.Irrigation.ExtraInput;
+                    }
                 }
                 #endregion
 
@@ -1577,7 +1581,7 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Rain
                 //Find Rain of the Date of Data
-                lRain = pRainList.Where(r => r.Date.Date == lDateOfData.Date || r.ExtraDate.Date == lDateOfData.Date).FirstOrDefault();
+                lRain = pRainList.Where(r => r.Date.Date == lDateOfData || r.ExtraDate.Date == lDateOfData).FirstOrDefault();
                 if (lRain != null && lRain.GetTotalInput() > 0)
                 {
                     lRainQuantity = lRain.GetTotalInput();
@@ -1588,8 +1592,8 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Irrigation for today or in the future
                 //Find Daily Record of the Date of Data
-                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData.Date).FirstOrDefault();
-                if (lDailyRecord != null && lDateOfData.Date >= pDayOfReference.Date)
+                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData).FirstOrDefault();
+                if (lDailyRecord != null && lDateOfData >= lDayOfReference)
                 {
                     if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
                     {
@@ -1604,7 +1608,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lWaterQuantity += lForcastIrrigationQuantity;
 
-                lIsToday = lDateOfData.Date == pDayOfReference.Date;
+                lIsToday = lDateOfData == lDayOfReference;
 
                 if (lIsToday)
                 {
@@ -1631,7 +1635,6 @@ namespace IrrigationAdvisor.Controllers
                 lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
                                                                 lDateOfData, lIsToday, lIrrigationStatus,
                                                                 lPhenology);
-
             }
             catch (Exception ex)
             {

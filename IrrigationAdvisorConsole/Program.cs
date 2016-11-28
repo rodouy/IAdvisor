@@ -30186,7 +30186,7 @@ namespace IrrigationAdvisorConsole
                     //DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot1_2016(context, DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot2_2016(context, DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot3_1_2016(context, DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot13_1_2016(context, DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot13_1_2016(context, DateOfReference);
                     context.SaveChanges();
                 }
             }
