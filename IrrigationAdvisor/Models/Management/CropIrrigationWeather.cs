@@ -151,7 +151,8 @@ namespace IrrigationAdvisor.Models.Management
 
         private long irrigationUnitId;
         private Double predeterminatedIrrigationQuantity;
-        
+        private bool hasAdviseOfIrrigation;
+
         #endregion
 
         #region Localization
@@ -403,6 +404,12 @@ namespace IrrigationAdvisor.Models.Management
             set { predeterminatedIrrigationQuantity = value; }
         }
 
+        public bool HasAdviseOfIrrigation
+        {
+            get { return hasAdviseOfIrrigation; }
+            set { hasAdviseOfIrrigation = value; }
+        }
+        
         #endregion
 
         #region Localization
@@ -707,6 +714,7 @@ namespace IrrigationAdvisor.Models.Management
             #region Irrigation
             this.IrrigationUnitId = 0;
             this.PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+            this.HasAdviseOfIrrigation = false;
             #endregion
 
             #region Localization
@@ -853,6 +861,7 @@ namespace IrrigationAdvisor.Models.Management
             
             this.IrrigationUnitId = pIrrigationUnitId;
             this.PredeterminatedIrrigationQuantity = pPredeterminatedIrrigationQuantity;
+            this.HasAdviseOfIrrigation = false;
 
             this.PositionId = pPositionId;
             
@@ -1411,7 +1420,7 @@ namespace IrrigationAdvisor.Models.Management
 
             if (pDateTime.Equals(new DateTime(2016, 11, 22)))
             {
-                System.Diagnostics.Debugger.Break();
+                //System.Diagnostics.Debugger.Break();
             }
 
             lIrrigationByEvapotranspiration = this.IrrigateByEvapotranspiration();
@@ -2070,13 +2079,15 @@ namespace IrrigationAdvisor.Models.Management
             Utils.WaterInputType lTypeOfIrrigation;
             bool lIsExtraIrrigation;
 
+            
             lNeedForIrrigationPair = this.HowMuchToIrrigate(pDateTime);
             lQuantityOfWaterToIrrigate = lNeedForIrrigationPair.First;
             lTypeOfIrrigation = lNeedForIrrigationPair.Second;
             lIsExtraIrrigation = false;
 
-            if(lQuantityOfWaterToIrrigate > 0)
+            if(lQuantityOfWaterToIrrigate > 0 && !this.HasAdviseOfIrrigation)
             {
+                this.HasAdviseOfIrrigation = true;
                 this.AddOrUpdateIrrigationDataToList(pDateTime, lNeedForIrrigationPair, lIsExtraIrrigation);
                 this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString());
             }
@@ -2084,9 +2095,9 @@ namespace IrrigationAdvisor.Models.Management
                 && (lTypeOfIrrigation == Utils.WaterInputType.IrrigationByETCAcumulated 
                 || lTypeOfIrrigation == Utils.WaterInputType.IrrigationByHydricBalance))
             {
+                this.HasAdviseOfIrrigation = true;
                 lIsExtraIrrigation = true;
                 this.AddOrUpdateIrrigationDataToList(pDateTime, lNeedForIrrigationPair, lIsExtraIrrigation);
-                //this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString());
             }
 
         }
@@ -2124,6 +2135,8 @@ namespace IrrigationAdvisor.Models.Management
                         {
                             lObservation = "Día " + (lCropDays + i);
                             lDateOfRecord = lFromDate.AddDays(i);
+                            this.HasAdviseOfIrrigation = false;
+                        
                             this.AddDailyRecordToList(lDateOfRecord, lObservation);
                             //Adjustment of Phenological Stage
                             foreach (PhenologicalStageAdjustment item in this.PhenologicalStageAdjustmentList)
@@ -2169,11 +2182,21 @@ namespace IrrigationAdvisor.Models.Management
             lTypeOfIrrigation = lNeedForIrrigationPair.Second;
             lIsExtraIrrigation = false;
 
-            if (lQuantityOfWaterToIrrigate > 0)
+            if (lQuantityOfWaterToIrrigate > 0 && !this.HasAdviseOfIrrigation)
             {
+                this.HasAdviseOfIrrigation = true;
                 this.AddOrUpdateIrrigationDataToList(pDateTime, lNeedForIrrigationPair, lIsExtraIrrigation);
                 pIrrigationAdvisorContext.SaveChanges();
                 this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString(), pIrrigationAdvisorContext);
+                pIrrigationAdvisorContext.SaveChanges();
+            }
+            else if (lQuantityOfWaterToIrrigate == 0
+                && (lTypeOfIrrigation == Utils.WaterInputType.IrrigationByETCAcumulated
+                || lTypeOfIrrigation == Utils.WaterInputType.IrrigationByHydricBalance))
+            {
+                this.HasAdviseOfIrrigation = true;
+                lIsExtraIrrigation = true;
+                this.AddOrUpdateIrrigationDataToList(pDateTime, lNeedForIrrigationPair, lIsExtraIrrigation);
                 pIrrigationAdvisorContext.SaveChanges();
             }
         }
@@ -2218,6 +2241,8 @@ namespace IrrigationAdvisor.Models.Management
                         {
                             lObservation = "Día " + (lCropDays + i);
                             lDateOfRecord = lFromDate.AddDays(i);
+                            this.HasAdviseOfIrrigation = false;
+
                             this.AddDailyRecordToList(lDateOfRecord, lObservation, pIrrigationAdvisorContext);
 
                             //Save Changes to Database

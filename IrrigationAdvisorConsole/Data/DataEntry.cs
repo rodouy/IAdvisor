@@ -2560,12 +2560,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -2680,12 +2680,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -2800,12 +2800,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -2920,12 +2920,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3030,12 +3030,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3140,12 +3140,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3250,12 +3250,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3360,12 +3360,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3470,12 +3470,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3570,12 +3570,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3610,12 +3610,12 @@ namespace IrrigationAdvisorConsole
                                           select ciw).ToList<CropIrrigationWeather>();
             #endregion
 
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3700,12 +3700,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3740,12 +3740,12 @@ namespace IrrigationAdvisorConsole
                                           select ciw).ToList<CropIrrigationWeather>();
             #endregion
 
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3830,12 +3830,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3870,12 +3870,12 @@ namespace IrrigationAdvisorConsole
                                           select ciw).ToList<CropIrrigationWeather>();
             #endregion
 
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -3980,12 +3980,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -4040,12 +4040,12 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2016/11/26 51 mm
+            #region Rain 2016/11/26 65 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2016, 11, 26);
-                lRainQuantity = 51;
+                lRainQuantity = 65;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -5453,7 +5453,7 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOElTacuru
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornNorthShort
+                     where crop.Name == Utils.NameSpecieSoyaNorthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru9
@@ -5493,7 +5493,7 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOElTacuru
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornNorthShort
+                     where crop.Name == Utils.NameSpecieSoyaNorthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru10
@@ -10595,23 +10595,24 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
             }
             #endregion
+            //Erased
             #region Irrigation 2016/11/24 12 mm - Calculated Irrigation
-            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
-            {
-                //Data to change about Irrigation
-                lIrrigationDate = new DateTime(2016, 11, 24);
-                lIrrigationQuantity = 12;
-                lIsExtraIrrigation = false;
-                /////////////////////////////////////////////////////////////////////////////////////////////
-                lIrrigationList = (from ilist in context.Irrigations
-                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
-                                   select ilist).ToList<Irrigation>();
-                lRainList = (from rlist in context.Rains
-                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
-                             select rlist).ToList<Rain>();
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, Utils.WaterInputType.Irrigation);
-                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
-            }
+            //foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            //{
+            //    //Data to change about Irrigation
+            //    lIrrigationDate = new DateTime(2016, 11, 24);
+            //    lIrrigationQuantity = 12;
+            //    lIsExtraIrrigation = false;
+            //    /////////////////////////////////////////////////////////////////////////////////////////////
+            //    lIrrigationList = (from ilist in context.Irrigations
+            //                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+            //                       select ilist).ToList<Irrigation>();
+            //    lRainList = (from rlist in context.Rains
+            //                 where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+            //                 select rlist).ToList<Rain>();
+            //    lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, Utils.WaterInputType.Irrigation);
+            //    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+            //}
             #endregion
 
         }
@@ -10836,23 +10837,24 @@ namespace IrrigationAdvisorConsole
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
             }
             #endregion
+            //Erased
             #region Irrigation 2016/11/24 12 mm - Calculated Irrigation
-            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
-            {
-                //Data to change about Irrigation
-                lIrrigationDate = new DateTime(2016, 11, 24);
-                lIrrigationQuantity = 12;
-                lIsExtraIrrigation = false;
-                /////////////////////////////////////////////////////////////////////////////////////////////
-                lIrrigationList = (from ilist in context.Irrigations
-                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
-                                   select ilist).ToList<Irrigation>();
-                lRainList = (from rlist in context.Rains
-                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
-                             select rlist).ToList<Rain>();
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, Utils.WaterInputType.Irrigation);
-                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
-            }
+            //foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            //{
+            //    //Data to change about Irrigation
+            //    lIrrigationDate = new DateTime(2016, 11, 24);
+            //    lIrrigationQuantity = 12;
+            //    lIsExtraIrrigation = false;
+            //    /////////////////////////////////////////////////////////////////////////////////////////////
+            //    lIrrigationList = (from ilist in context.Irrigations
+            //                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+            //                       select ilist).ToList<Irrigation>();
+            //    lRainList = (from rlist in context.Rains
+            //                 where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+            //                 select rlist).ToList<Rain>();
+            //    lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, Utils.WaterInputType.Irrigation);
+            //    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+            //}
             #endregion
 
         }
@@ -11772,6 +11774,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -11962,6 +11965,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -12144,6 +12148,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -12326,6 +12331,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -12519,6 +12525,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -12709,6 +12716,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -12891,6 +12899,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -13072,6 +13081,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -13254,6 +13264,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -13447,6 +13458,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -13637,6 +13649,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -13819,6 +13832,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -14000,6 +14014,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -14181,6 +14196,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -14363,6 +14379,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -14572,6 +14589,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -14770,6 +14788,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -14976,6 +14995,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -15174,6 +15194,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -15372,6 +15393,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -15570,6 +15592,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -15768,6 +15791,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -15982,6 +16006,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -16180,6 +16205,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -16378,6 +16404,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -16574,6 +16601,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -16772,6 +16800,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -17168,6 +17197,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -17366,6 +17396,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -17564,6 +17595,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -17762,6 +17794,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -17960,6 +17993,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -18158,6 +18192,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -18356,6 +18391,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -18554,6 +18590,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -18752,6 +18789,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -18950,6 +18988,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -19148,6 +19187,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -19354,6 +19394,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -19552,6 +19593,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -19750,6 +19792,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -19948,6 +19991,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -20154,6 +20198,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -20352,6 +20397,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -20550,6 +20596,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -20748,6 +20795,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -20946,6 +20994,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -21144,6 +21193,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -21342,6 +21392,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -21540,6 +21591,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -21738,6 +21790,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -21936,6 +21989,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -22134,6 +22188,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -22332,6 +22387,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -22530,6 +22586,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -22736,6 +22793,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -22933,6 +22991,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -23130,6 +23189,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 
@@ -23327,6 +23387,7 @@ namespace IrrigationAdvisorConsole
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
                 context.SaveChanges();
 

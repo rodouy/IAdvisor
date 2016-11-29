@@ -303,6 +303,10 @@
     <Compile Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.Designer.cs">
       <DependentUpon>201611121537073_AddFarmIdInIrrigationUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611290128005_HasAdviseOfIrrigation.cs" />
+    <Compile Include="Migrations\201611290128005_HasAdviseOfIrrigation.Designer.cs">
+      <DependentUpon>201611290128005_HasAdviseOfIrrigation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -877,6 +881,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.resx">
       <DependentUpon>201611121537073_AddFarmIdInIrrigationUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611290128005_HasAdviseOfIrrigation.resx">
+      <DependentUpon>201611290128005_HasAdviseOfIrrigation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
