@@ -18,8 +18,10 @@ $(document).ready(function () {
     var maxDateOfReference = $('#maxDateOfReference');
     var minDateOfReference = $('#minDateOfReference');
     var addIrrigationModal = $('#addIrrigationModal');
+    var addIrrigationModalMobile = $('#addIrrigationModalMobile');
     var addPhenoModal = $('#addPhenoModal');
     var addRainModal = $('#addRainModal');
+    var addRainModalMobile = $('#addRainModalMobile');
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
@@ -184,6 +186,8 @@ $(document).ready(function () {
 
         addIrrigationModal.hide();
         addRainModal.hide();
+        addIrrigationModalMobile.hide();
+        addRainModalMobile.hide();
         addPhenoModal.hide();
         lstFarms.hide();
         var initModal = { backdrop: false, show: false };
@@ -198,20 +202,69 @@ $(document).ready(function () {
         }
 
         hideLoading();
-
-        $('td:nth-of-type(4):before').html('Mateo te adoro!');
     };
 
     init();
+
+    $(window).resize(function () {
+
+        var width = $(window).width();
+        var height = $(window).height();
+
+        if (width <= 760) {
+            addIrrigationModalMobile.show();
+            addRainModalMobile.show();
+
+            addIrrigationModal.hide();
+            addRainModal.hide();
+
+        }
+        else {
+            addIrrigationModalMobile.hide();
+            addRainModalMobile.hide();
+
+
+            addIrrigationModal.show();
+            addRainModal.show();
+
+        }
+
+    });
 
 
     $.getScript("https://code.jquery.com/ui/1.12.0/jquery-ui.js", function () {
         var addIrrigationModal = $('#addIrrigationModal');
         var addRainModal = $('#addRainModal');
         var addPhenoModal = $('#addPhenoModal');
-        addIrrigationModal.show();
-        addRainModal.show();
+
+        var addIrrigationModalMobile = $('#addIrrigationModalMobile');
+        var addRainModalMobile = $('#addRainModalMobile');
+        var addPhenoModalMobile = $('#addPhenoModalMobile');
+
+        var width = $(window).width();
+        var height = $(window).height();
+
         addPhenoModal.show();
+
+        if (width <= 760)
+        {
+            addIrrigationModalMobile.show();
+            addRainModalMobile.show();
+
+            addIrrigationModal.hide();
+            addRainModal.hide();
+           
+        }
+        else
+        {
+            addIrrigationModalMobile.hide();
+            addRainModalMobile.hide();
+
+            addIrrigationModal.show();
+            addRainModal.show();
+
+        }
+        
     });
 
     
@@ -220,7 +273,17 @@ $(document).ready(function () {
         $('.modal-content').draggable();
     });
 
+    addIrrigationModalMobile.click(function () {
+        modalIrrigation.modal('show');
+        $('.modal-content').draggable();
+    });
+
     addRainModal.click(function () {
+        modalRain.modal('show');
+        $('.modal-content').draggable();
+    });
+
+    addRainModalMobile.click(function () {
         modalRain.modal('show');
         $('.modal-content').draggable();
     });

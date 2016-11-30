@@ -1173,7 +1173,58 @@ padding-right: 10px;
 		td:nth-of-type(8):before { content: "Friday"; }
 		td:nth-of-type(9):before { content: "Saturday"; }
 		td:nth-of-type(10):before { content: "Sunday"; }*/
+
+
+        /*Seguir acá*/
+.ref-irrigated{
+    height:10px;
+    background:#4aca83;
+    width: 50%;
+    position: relative;
+    left: 27%;
+}
+
+.ref-rain{
+	height:10px;
+	background:#00a1d3;
+     width: 50%;
+    position: relative;
+    left: 27%;
+}
+
+.ref-default{
+	height:10px;
+	background:#c9d0d4;
+     width: 50%;
+    position: relative;
+    left: 27%;
+}
+.ref-next-irrigation{
+	height:10px;
+	background:#4169E1;
+     width: 50%;
+    position: relative;
+    left: 27%;
 	}
+
+ /*#addIrrigationModalMobile
+    {
+        display:block;
+    }
+    #addRainModalMobile
+    {
+        display:block;
+    }
+    #addIrrigationModal
+    {
+        display:none;
+    }
+    #addRainModal
+    {
+        display:none;
+    }*/
+
+}
 	
 #contact_name,
 #contact_email,
@@ -1307,37 +1358,6 @@ padding-right: 10px;
     color: #a6a6a6;
     line-height: 30px;
 }
-.ref-irrigated{
-	height:10px;
-	background:#4aca83;
-    width: 50%;
-    position: relative;
-    left: 27%;
-}
-
-.ref-rain{
-	height:10px;
-	background:#00a1d3;
-     width: 50%;
-    position: relative;
-    left: 27%;
-}
-
-.ref-default{
-	height:10px;
-	background:#c9d0d4;
-     width: 50%;
-    position: relative;
-    left: 27%;
-}
-.ref-next-irrigation{
-	height:10px;
-	background:#4169E1;
-     width: 50%;
-    position: relative;
-    left: 27%;
-	}
-
 
 
 .top-nav {
@@ -1434,10 +1454,80 @@ padding-right: 10px;
 	 ;
 }
 
+@media screen and (min-width: 760px) {
 
+    /*Roll back mobile layout*/
+    .description-mobile-left
+    {
+        display:none;
+    }
+
+    .ref-irrigated
+    {
+        position:relative;
+        top:5px;
+        width:100%;
+	    left:0;
+        height: 10px;
+        background: #4aca83;
+   
+    }
+
+    .ref-rain{
+        position:relative;
+        top:5px;
+        width:100%;
+	    left:0;
+	    height:10px;
+	    background:#00a1d3;
+    }
+
+    .ref-default{
+        position:relative;
+        top:5px;
+        width:100%;
+	        left:0;
+	    height:10px;
+	    background:#c9d0d4;
+    }
+
+    .ref-next-irrigation{
+        position:relative;
+        top:5px;
+        width:100%;
+	    left:0;
+	    height:10px;
+	    background:#4169E1;
+	    }
+
+    .value-mobile-position
+    {
+        position:relative;
+        bottom:16px;
+    }
+
+    /*#addIrrigationModalMobile
+    {
+        display:none;
+    }
+    #addRainModalMobile
+    {
+        display:none;
+    }
+    #addIrrigationModal
+    {
+        display:block;
+    }
+    #addRainModal
+    {
+        display:block;
+    }*/
+}
 /*   Responsive-----------------------------------------------*/
 
 @media screen and (max-width: 1199px) {
+
+
   .after-slider-content .inner {
     width: 80%;
     padding-right: 15px;
