@@ -36,6 +36,8 @@ $(document).ready(function () {
     var irrigationUnitRainMail = $('#irrigationUnitRainMail');
     var irrigationUnitIrrigationMail = $('#irrigationUnitIrrigationMail');
     var userName = $('#userName').val();
+    var dvtxtDateOfReferencedateOfReferenceBtn2 = $('#dv-for-txtDateOfReference-dateOfReferenceBtn2');
+    var barResp = $('.bar-resp');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -206,6 +208,35 @@ $(document).ready(function () {
 
     init();
 
+    var removeClasses = function()
+    {
+        dvtxtDateOfReferencedateOfReferenceBtn2.removeClass('col-xs-8');
+        dvtxtDateOfReferencedateOfReferenceBtn2.removeClass('col-md-5');
+        dvtxtDateOfReferencedateOfReferenceBtn2.removeClass('col-lg-5');
+        //lstFarms
+        lstFarms.css("width", "100%");
+        txtDateOfReference.css("bottom", "0");
+        txtDateOfReference.css("width", "100%");
+        addIrrigationModalMobile.css("background-color", "#4aca83");
+        addPhenoModal.css("background-color", "#4169E1");
+        dateOfReferenceBtn2.css("background-color", "#5A91FA");
+        barResp.css('width', 'inherit');
+    }
+
+    var addClasses = function()
+    {
+        dvtxtDateOfReferencedateOfReferenceBtn2.addClass('col-xs-8');
+        dvtxtDateOfReferencedateOfReferenceBtn2.addClass('col-md-5');
+        dvtxtDateOfReferencedateOfReferenceBtn2.addClass('col-lg-5');
+        lstFarms.css("width", "50%");
+        txtDateOfReference.css("bottom", "8px");
+        txtDateOfReference.css("width", "50%");
+        addIrrigationModalMobile.css("background-color", "#00a1d3");
+        addPhenoModal.css("background-color", "#00a1d3");
+        dateOfReferenceBtn2.css("background-color", "#00a1d3");
+        barResp.css('width', '842px');
+    }
+
     $(window).resize(function () {
 
         var width = $(window).width();
@@ -217,7 +248,7 @@ $(document).ready(function () {
 
             addIrrigationModal.hide();
             addRainModal.hide();
-
+            removeClasses();
         }
         else {
             addIrrigationModalMobile.hide();
@@ -226,7 +257,7 @@ $(document).ready(function () {
 
             addIrrigationModal.show();
             addRainModal.show();
-
+            addClasses();
         }
 
     });
@@ -253,7 +284,7 @@ $(document).ready(function () {
 
             addIrrigationModal.hide();
             addRainModal.hide();
-           
+            removeClasses();
         }
         else
         {
@@ -262,7 +293,7 @@ $(document).ready(function () {
 
             addIrrigationModal.show();
             addRainModal.show();
-
+            addClasses();
         }
         
     });
