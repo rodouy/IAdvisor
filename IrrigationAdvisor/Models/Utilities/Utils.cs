@@ -1421,8 +1421,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static int MaxEvapotranspirationToIrrigate_FescueSeed = 30;
         public static int MinEvapotranspirationToIrrigate_FescueSeed = 25;
 
-        public static int CropDensity_Corn = 81000;
-        public static int CropDensity_Soya = 350000;
+        public static int CropDensity_Corn = 0;
+        public static int CropDensity_Soya = 0;
         public static int CropDensity_SorghumForage = 0;
         public static int CropDensity_SorghumGrain = 0;
         public static int CropDensity_Alfalfa = 0;

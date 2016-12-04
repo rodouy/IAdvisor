@@ -128,6 +128,9 @@ namespace IrrigationAdvisor.Models.Data
         /// </summary>
         public const Double ACCURANCY_RANGE_MIN_MAX_DEGREE = 0.005;
 
+        public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_CORN = "V7";
+        public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SOYA = "V7";
+
         public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN = "R4";
         public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA = "R4";
 

@@ -113,7 +113,8 @@ namespace IrrigationAdvisor.Models.Management
         private long soilId;
         
         #region Data of Crop
-        
+
+        private Double density;
         private DateTime sowingDate;
         private DateTime harvestDate;
         private DateTime cropDate;
@@ -263,6 +264,12 @@ namespace IrrigationAdvisor.Models.Management
         }
 
         #region Data of Crop
+
+        public Double Density
+        {
+            get { return density; }
+            set { density = value; }
+        }
 
         public DateTime SowingDate
         {
@@ -685,7 +692,8 @@ namespace IrrigationAdvisor.Models.Management
             #region Crop Information
             this.CropId = 0;
             this.SoilId = 0;
-            
+
+            this.Density = 0;
             this.SowingDate = Utils.MIN_DATETIME;
             this.HarvestDate = Utils.MIN_DATETIME;
             this.CropDate = Utils.MIN_DATETIME;
@@ -779,6 +787,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pCropIrrigationWeatherName"></param>
         /// <param name="pCropId"></param>
         /// <param name="pSoilId"></param>
+        /// <param name="pDensity"></param>
         /// <param name="pSowingDate"></param>
         /// <param name="pHarvestDate"></param>
         /// <param name="pCropDate"></param>
@@ -811,7 +820,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pWeatherEventType"></param>
         /// <param name="pDailyRecords"></param>
         public CropIrrigationWeather(long pCropIrrigationWeatherId, String pCropIrrigationWeatherName, long pCropId, long pSoilId, 
-                                DateTime pSowingDate, DateTime pHarvestDate, DateTime pCropDate, DateTime pStartAdvisorDate,
+                                Double pDensity, DateTime pSowingDate, DateTime pHarvestDate, DateTime pCropDate, DateTime pStartAdvisorDate,
                                 int pDaysForHydricBalanceUnchangableAfterSowing,
                                 long pPhenologicalStageId, Double pHydricBalance, Double pSoilHydricVolume,
                                 Double pTotalEvapotranspirationCropFromLastWaterInput,
@@ -833,6 +842,7 @@ namespace IrrigationAdvisor.Models.Management
             this.CropId = pCropId;
             this.SoilId = pSoilId;
 
+            this.Density = pDensity;
             this.SowingDate = pSowingDate;
             this.HarvestDate = pHarvestDate;
             this.CropDate = pCropDate;

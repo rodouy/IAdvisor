@@ -15655,6 +15655,7 @@ namespace IrrigationAdvisorConsole
             List<Stage> lStages = null;
             List<PhenologicalStage> lPhenologicalStages = null;
 
+            Stage lMinStageToConsiderETinHBCalculation = null;
             Stage lStopIrrigationStage = null;
 
             #region Base
@@ -15663,7 +15664,6 @@ namespace IrrigationAdvisorConsole
                 Name = Utils.NameBase,
                 RegionId = 0,
                 SpecieId = 0,
-                Density = 0,
                 MaxEvapotranspirationToIrrigate = 0,
                 MinEvapotranspirationToIrrigate = 0,
                 CropCoefficient = null,
@@ -15694,6 +15694,10 @@ namespace IrrigationAdvisorConsole
                 lPhenologicalStages = (from ps in context.PhenologicalStages
                            where ps.SpecieId == lSpecie.SpecieId
                            select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                              where st.Name.Contains(Utils.NameStagesCorn)
+                                                 && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_CORN)
+                                              select st).FirstOrDefault();
                 lStopIrrigationStage = (from st in context.Stages
                                         where st.Name.Contains(Utils.NameStagesCorn)
                                            && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN)
@@ -15707,7 +15711,8 @@ namespace IrrigationAdvisorConsole
                     Region = lRegion,
                     SpecieId = lSpecie.SpecieId,
                     Specie = lSpecie,
-                    Density = Utils.CropDensity_Corn,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
                     MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Corn,
                     MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Corn,
                     CropCoefficientId = lCropCoefficient.CropCoefficientId,
@@ -15737,6 +15742,10 @@ namespace IrrigationAdvisorConsole
                 lPhenologicalStages = (from ps in context.PhenologicalStages
                                        where ps.SpecieId == lSpecie.SpecieId
                                        select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesSoya)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SOYA)
+                                                        select st).FirstOrDefault();
                 lStopIrrigationStage = (from st in context.Stages
                                         where st.Name.Contains(Utils.NameStagesSoya)
                                            && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA)
@@ -15748,7 +15757,8 @@ namespace IrrigationAdvisorConsole
                     ShortName = "Soja",
                     RegionId = lRegion.RegionId,
                     SpecieId = lSpecie.SpecieId,
-                    Density = Utils.CropDensity_Soya,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
                     MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Soya,
                     MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Soya,
                     CropCoefficientId = lCropCoefficient.CropCoefficientId,
@@ -15776,6 +15786,10 @@ namespace IrrigationAdvisorConsole
                 lPhenologicalStages = (from ps in context.PhenologicalStages
                                        where ps.SpecieId == lSpecie.SpecieId
                                        select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesCorn)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_CORN)
+                                                        select st).FirstOrDefault();
                 lStopIrrigationStage = (from st in context.Stages
                                         where st.Name.Contains(Utils.NameStagesCorn)
                                            && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN)
@@ -15789,7 +15803,8 @@ namespace IrrigationAdvisorConsole
                     Region = lRegion,
                     SpecieId = lSpecie.SpecieId,
                     Specie = lSpecie,
-                    Density = Utils.CropDensity_Corn,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
                     MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Corn,
                     MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Corn,
                     CropCoefficientId = lCropCoefficient.CropCoefficientId,
@@ -15819,6 +15834,10 @@ namespace IrrigationAdvisorConsole
                 lPhenologicalStages = (from ps in context.PhenologicalStages
                                        where ps.SpecieId == lSpecie.SpecieId
                                        select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesSoya)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SOYA)
+                                                        select st).FirstOrDefault();
                 lStopIrrigationStage = (from st in context.Stages
                                         where st.Name.Contains(Utils.NameStagesSoya)
                                            && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA)
@@ -15830,7 +15849,8 @@ namespace IrrigationAdvisorConsole
                     ShortName = "Soja",
                     RegionId = lRegion.RegionId,
                     SpecieId = lSpecie.SpecieId,
-                    Density = Utils.CropDensity_Soya,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
                     MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Soya,
                     MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Soya,
                     CropCoefficientId = lCropCoefficient.CropCoefficientId,
