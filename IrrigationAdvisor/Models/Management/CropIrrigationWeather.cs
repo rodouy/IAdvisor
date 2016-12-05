@@ -1504,6 +1504,7 @@ namespace IrrigationAdvisor.Models.Management
             Double lHydricBalance;
             Double lPermanentWiltingPoint;
             Double lThreshold;
+            Stage lMinStageToConsiderETinHBCalculation;
             Double lMinEvapotrasnpirationToIrrigate;
             Double lEvapotrAcum;
 
@@ -1516,8 +1517,20 @@ namespace IrrigationAdvisor.Models.Management
 
             lMinEvapotrasnpirationToIrrigate = this.Crop.MinEvapotranspirationToIrrigate;
 
+            //**************************************************************************************
+            //2016-12-04 If the stage is bigger than MinStageToConsiderETinHBCalculation consider MinET
+            lMinStageToConsiderETinHBCalculation = this.Crop.MinStageToConsiderETinHBCalculation;
+            if (this.PhenologicalStage.StageId < this.Crop.MinStageToConsiderETinHBCalculationId)
+            {
+                lMinEvapotrasnpirationToIrrigate = 0;
+            }
+            //**************************************************************************************
+
+            //**************************************************************************************
+            //2012-12-04 This is Disabled
             //2016-10-17 Not to consider ETc for HydricBalance Irrigation
-            lMinEvapotrasnpirationToIrrigate = 0;
+            //lMinEvapotrasnpirationToIrrigate = 0;
+            //**************************************************************************************
 
             lEvapotrAcum = this.GetTotalEvapotranspirationCropFromLastWaterInput();
 
@@ -2452,6 +2465,21 @@ namespace IrrigationAdvisor.Models.Management
             lBaseTemperature = this.Crop.GetBaseTemperature();
 
             lReturn = lBaseTemperature;
+            return lReturn;
+        }
+        
+        /// <summary>
+        /// Get Stress Temperature from Crop
+        /// </summary>
+        /// <returns></returns>
+        public Double GetStressTemperature() 
+        {
+            Double lReturn;
+            Double lStressTemperature = 0;
+
+            lStressTemperature = this.Crop.GetStressTemperature();
+
+            lReturn = lStressTemperature;
             return lReturn;
         }
 
@@ -3550,10 +3578,13 @@ namespace IrrigationAdvisor.Models.Management
         {
             try
             {
+                #region local variables
                 WeatherData lWeatherData;
                 DateTime lDailyRecordDateTime;
                 Double lEvapotranspiration = 0;
                 Double lBaseTemperature = 0;
+                Double lStressTemperature = 0;
+                Double lAverageTemperature = 0;
                 Double lGrowingDegreeDays = 0;
                 Double lGrowingDegreeDaysModified = 0;
                 DailyRecord lDailyRecord;
@@ -3571,7 +3602,8 @@ namespace IrrigationAdvisor.Models.Management
                 long lRainWaterInputId = 0;
                 Water.Irrigation lIrrigation = null;
                 long lIrrigationWaterInputId = 0;
-                
+                #endregion
+
                 lWeatherData = pWeatherData;
                 
                 lDailyRecordDateTime = pCurrentDateTime;
@@ -3598,6 +3630,7 @@ namespace IrrigationAdvisor.Models.Management
                 #region 3.- Growing Degree Days
                 //Growing Degree Days is average temperature menous Base Temperature 
                 lBaseTemperature = this.GetBaseTemperature();
+                lStressTemperature = this.GetStressTemperature();
                 if (lWeatherData != null)
                 {
                     if (lWeatherData.WeatherDataType == Utils.WeatherDataType.AllData
@@ -3605,7 +3638,8 @@ namespace IrrigationAdvisor.Models.Management
                     {
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
-                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lWeatherData.GetAverageTemperature());
+                        lAverageTemperature = lWeatherData.GetAverageTemperature(lStressTemperature, lBaseTemperature);
+                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                     }
@@ -3766,6 +3800,8 @@ namespace IrrigationAdvisor.Models.Management
                 DateTime lDailyRecordDateTime;
                 Double lEvapotranspiration = 0;
                 Double lBaseTemperature = 0;
+                Double lStressTemperature = 0;
+                Double lAverageTemperature = 0;
                 Double lGrowingDegreeDays = 0;
                 Double lGrowingDegreeDaysModified = 0;
                 DailyRecord lDailyRecord;
@@ -3811,6 +3847,7 @@ namespace IrrigationAdvisor.Models.Management
                 #region 3.- Growing Degree Days
                 //Growing Degree Days is average temperature menous Base Temperature 
                 lBaseTemperature = this.GetBaseTemperature();
+                lStressTemperature = this.GetStressTemperature();
                 if (lWeatherData != null)
                 {
                     if (lWeatherData.WeatherDataType == Utils.WeatherDataType.AllData
@@ -3818,7 +3855,8 @@ namespace IrrigationAdvisor.Models.Management
                     {
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
-                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lWeatherData.GetAverageTemperature());
+                        lAverageTemperature = lWeatherData.GetAverageTemperature(lStressTemperature, lBaseTemperature);
+                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                     }
@@ -4032,6 +4070,8 @@ namespace IrrigationAdvisor.Models.Management
                 DateTime lDailyRecordDateTime;
                 Double lEvapotranspiration = 0;
                 Double lBaseTemperature = 0;
+                Double lStressTemperature = 0;
+                Double lAverageTemperature = 0;
                 Double lGrowingDegreeDays = 0;
                 Double lGrowingDegreeDaysModified = 0;
                 DailyRecord lDailyRecord;
@@ -4086,6 +4126,7 @@ namespace IrrigationAdvisor.Models.Management
                 #region 3.- Growing Degree Days
                 //Growing Degree Days is average temperature menous Base Temperature 
                 lBaseTemperature = this.GetBaseTemperature();
+                lStressTemperature = this.GetStressTemperature();
                 if (lWeatherData != null)
                 {
                     if (lWeatherData.WeatherDataType == Utils.WeatherDataType.AllData
@@ -4093,7 +4134,8 @@ namespace IrrigationAdvisor.Models.Management
                     {
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
-                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lWeatherData.GetAverageTemperature());
+                        lAverageTemperature = lWeatherData.GetAverageTemperature(lStressTemperature, lBaseTemperature);
+                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                     }
@@ -4256,6 +4298,8 @@ namespace IrrigationAdvisor.Models.Management
                 DateTime lDailyRecordDateTime;
                 Double lEvapotranspiration = 0;
                 Double lBaseTemperature = 0;
+                Double lStressTemperature = 0;
+                Double lAverageTemperature = 0;
                 Double lGrowingDegreeDays = 0;
                 Double lGrowingDegreeDaysModified = 0;
                 DailyRecord lDailyRecord;
@@ -4310,6 +4354,7 @@ namespace IrrigationAdvisor.Models.Management
                 #region 3.- Growing Degree Days
                 //Growing Degree Days is average temperature menous Base Temperature 
                 lBaseTemperature = this.GetBaseTemperature();
+                lStressTemperature = this.GetStressTemperature();
                 if (lWeatherData != null)
                 {
                     if (lWeatherData.WeatherDataType == Utils.WeatherDataType.AllData
@@ -4317,7 +4362,8 @@ namespace IrrigationAdvisor.Models.Management
                     {
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
-                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lWeatherData.GetAverageTemperature());
+                        lAverageTemperature = lWeatherData.GetAverageTemperature(lStressTemperature, lBaseTemperature);
+                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                     }

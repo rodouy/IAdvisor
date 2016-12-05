@@ -153,6 +153,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return minStageToConsiderETinHBCalculationId; }
             set { minStageToConsiderETinHBCalculationId = value; }
         }
+        
         public virtual Stage MinStageToConsiderETinHBCalculation
         {
             get;
@@ -303,19 +304,32 @@ namespace IrrigationAdvisor.Models.Agriculture
 
         #region Public Methods
 
-        #region BaseTemperature
+        #region Temperature
 
         /// <summary>
         /// Return the Base Temperature for the Specie of the Crop
         /// </summary>
         /// <returns></returns>
-        public double GetBaseTemperature ()
+        public double GetBaseTemperature()
         {
             Double lBaseTemperature = 0;
 
             lBaseTemperature = this.Specie.BaseTemperature;
 
             return lBaseTemperature;
+        }
+
+        /// <summary>
+        /// Return the Stress Temperature for the Specie of the Crop
+        /// </summary>
+        /// <returns></returns>
+        public double GetStressTemperature()
+        {
+            Double lStressTemperature = 0;
+
+            lStressTemperature = this.Specie.StressTemperature;
+
+            return lStressTemperature;
         }
 
         #endregion
@@ -628,7 +642,6 @@ namespace IrrigationAdvisor.Models.Agriculture
                         //TODO throw exception "There is a Phenological Stage without Stage in StageList!! Error of data."
                         logger.Error("Phenological Stage", "UpdatePhenologicalStage" + "\n" 
                             + "There is a Phenological Stage without Stage in StageList!! Error of data.");
-                        Console.WriteLine("Exception in Crop.UpdatePhenologicalStage " + "There is a Phenological Stage without Stage in StageList!! Error of data.");
                     }
                     lReturn.SpecieId = pSpecie.SpecieId;
                     lReturn.UpdateStage(pStage.Name, pStage.ShortName, pStage.Description, pStage.Order);

@@ -179,6 +179,18 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Insert\01-Data\" />
+    <Folder Include="Insert\02-Language\" />
+    <Folder Include="Insert\03-Security\" />
+    <Folder Include="Insert\04-Localization\" />
+    <Folder Include="Insert\05-Weather\" />
+    <Folder Include="Insert\06-Localization\" />
+    <Folder Include="Insert\07-Agriculture\" />
+    <Folder Include="Insert\08-Irrigation\" />
+    <Folder Include="Insert\09-Water\" />
+    <Folder Include="Insert\10-Management\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

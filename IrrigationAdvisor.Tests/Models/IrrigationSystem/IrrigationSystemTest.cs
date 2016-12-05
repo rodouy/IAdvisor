@@ -136,8 +136,8 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
         private double testMinEvapotranspirationToIrrigate_Maiz;
         private double testMinEvapotranspirationToIrrigate_Soja;
         
-        private double testCropDensityMaiz;
-        private double testCropDensitySoja;
+        //private double testCropDensityMaiz;
+        //private double testCropDensitySoja;
 
         private List<EffectiveRain> testEffectiveRainsList;
         
@@ -228,8 +228,8 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             testMaxEvapotranspirationToIrrigate_Soja = 30;
             testMinEvapotranspirationToIrrigate_Maiz = 30;
             testMinEvapotranspirationToIrrigate_Soja = 25;
-            testCropDensityMaiz = 80000;
-            testCropDensitySoja = 350000;
+            //testCropDensityMaiz = 80000;
+            //testCropDensitySoja = 350000;
 
             #endregion
 
