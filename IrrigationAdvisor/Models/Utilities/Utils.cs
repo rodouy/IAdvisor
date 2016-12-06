@@ -1787,13 +1787,13 @@ namespace IrrigationAdvisor.Models.Utilities
         public static bool SetStatusAsMaintenaince(string pName)
         {
             StatusConfiguration sc = new StatusConfiguration();
-            return sc.SetStatus(IrrigationAdvisorWebStatus.Maintenance, pName);
+            return sc.SetWebStatus(IrrigationAdvisorWebStatus.Maintenance, pName);
         }
 
         public static bool SetStatusAsOnline(string pName)
         {
             StatusConfiguration sc = new StatusConfiguration();
-            return sc.SetStatus(IrrigationAdvisorWebStatus.Online, pName);
+            return sc.SetWebStatus(IrrigationAdvisorWebStatus.Online, pName);
         }
 
         public static bool IsOnline(string pName)

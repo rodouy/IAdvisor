@@ -40,7 +40,7 @@ namespace IrrigationAdvisor.DBContext.Data
                     select s).FirstOrDefault();
         }
         
-        public bool SetStatus(DateTime pDateOfReference, string pName)
+        public bool SetDateOfReferenceStatus(DateTime pDateOfReference, string pName)
         {
             bool lResult = false;
             try
@@ -52,14 +52,14 @@ namespace IrrigationAdvisor.DBContext.Data
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in StatusConfiguration.GetDateOfReference " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in StatusConfiguration.SetDateOfReferenceStatus " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 lResult = false;
             }
 
             return lResult;
         }
 
-        public bool SetStatus(Utils.IrrigationAdvisorWebStatus pWebStatus, string pName)
+        public bool SetWebStatus(Utils.IrrigationAdvisorWebStatus pWebStatus, string pName)
         {
             bool lResult = false;
 
@@ -72,7 +72,7 @@ namespace IrrigationAdvisor.DBContext.Data
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in StatusConfiguration.GetDateOfReference " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in StatusConfiguration.SetWebStatus " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 lResult = false;
             }
 

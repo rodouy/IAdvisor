@@ -748,7 +748,7 @@ namespace IrrigationAdvisor.Controllers
                         //}
                         
                         StatusConfiguration sc = new StatusConfiguration();
-                        lResult = sc.SetStatus(lStatus.DateOfReference, lStatus.Name);
+                        lResult = sc.SetDateOfReferenceStatus(lStatus.DateOfReference, lStatus.Name);
 
                         lStatusResult = Utils.SetStatusAsOnline(status);
 
@@ -808,6 +808,7 @@ namespace IrrigationAdvisor.Controllers
 
             return lResult;
         }
+
         /// <summary>
         /// Calculate All CropIrrigationWeather by Date Of Reference to Now (System Date)
         /// </summary>
