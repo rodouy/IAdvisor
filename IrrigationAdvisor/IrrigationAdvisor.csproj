@@ -307,6 +307,10 @@
     <Compile Include="Migrations\201611290128005_HasAdviseOfIrrigation.Designer.cs">
       <DependentUpon>201611290128005_HasAdviseOfIrrigation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612052045273_StageToUseETinHBCalculation.cs" />
+    <Compile Include="Migrations\201612052045273_StageToUseETinHBCalculation.Designer.cs">
+      <DependentUpon>201612052045273_StageToUseETinHBCalculation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -884,6 +888,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611290128005_HasAdviseOfIrrigation.resx">
       <DependentUpon>201611290128005_HasAdviseOfIrrigation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612052045273_StageToUseETinHBCalculation.resx">
+      <DependentUpon>201612052045273_StageToUseETinHBCalculation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

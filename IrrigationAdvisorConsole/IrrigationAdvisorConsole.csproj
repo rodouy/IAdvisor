@@ -133,6 +133,10 @@
     <Compile Include="Data\DataEntry2015.cs" />
     <Compile Include="Data\DataEntryDataTemperatures.cs" />
     <Compile Include="Data\DataEntryWeatherData.cs" />
+    <Compile Include="Data\IrrigationData.cs" />
+    <Compile Include="Data\RainData.cs" />
+    <Compile Include="Insert\07-Agriculture\AgricultureInsert.cs" />
+    <Compile Include="Insert\09-Water\WaterInsert.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -186,9 +190,7 @@
     <Folder Include="Insert\04-Localization\" />
     <Folder Include="Insert\05-Weather\" />
     <Folder Include="Insert\06-Localization\" />
-    <Folder Include="Insert\07-Agriculture\" />
     <Folder Include="Insert\08-Irrigation\" />
-    <Folder Include="Insert\09-Water\" />
     <Folder Include="Insert\10-Management\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

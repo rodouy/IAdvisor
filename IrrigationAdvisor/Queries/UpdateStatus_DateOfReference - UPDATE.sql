@@ -7,7 +7,7 @@ FROM    dbo.Status;
 UPDATE  dbo.Status
 SET     DateOfReference = GETDATE()
 WHERE   Name = 'Demo';
- --'Production';
+  --Name = 'Production';
 
 SELECT  * ,
         GETDATE()
