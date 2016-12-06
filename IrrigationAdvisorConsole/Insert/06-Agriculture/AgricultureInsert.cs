@@ -13,7 +13,7 @@ using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.DBContext;
 using NLog;
 
-namespace IrrigationAdvisorConsole.Insert._07_Agriculture
+namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 {
     public static class AgricultureInsert
     {

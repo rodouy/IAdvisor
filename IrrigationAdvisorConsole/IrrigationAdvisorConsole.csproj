@@ -135,8 +135,17 @@
     <Compile Include="Data\DataEntryWeatherData.cs" />
     <Compile Include="Data\IrrigationData.cs" />
     <Compile Include="Data\RainData.cs" />
-    <Compile Include="Insert\07-Agriculture\AgricultureInsert.cs" />
-    <Compile Include="Insert\09-Water\WaterInsert.cs" />
+    <Compile Include="Insert\01-Data\DataInsert.cs" />
+    <Compile Include="Insert\02-Language\LanguageInsert.cs" />
+    <Compile Include="Insert\03-Security\SecurityInsert.cs" />
+    <Compile Include="Insert\04-Localization\LocalizationInsert.cs" />
+    <Compile Include="Insert\05-Weather\WeatherInsert.cs" />
+    <Compile Include="Insert\06-Agriculture\AgricultureInsert.cs" />
+    <Compile Include="Insert\07-Irrigation\IrrigationInsert.cs" />
+    <Compile Include="Insert\08-Water\WaterInsert.cs" />
+    <Compile Include="Insert\09-Management\CropIrrigationWeatherInsert2015.cs" />
+    <Compile Include="Insert\09-Management\CropIrrigationWeatherInsert2016.cs" />
+    <Compile Include="Print\PrintDailyRecord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -183,16 +192,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Insert\01-Data\" />
-    <Folder Include="Insert\02-Language\" />
-    <Folder Include="Insert\03-Security\" />
-    <Folder Include="Insert\04-Localization\" />
-    <Folder Include="Insert\05-Weather\" />
-    <Folder Include="Insert\06-Localization\" />
-    <Folder Include="Insert\08-Irrigation\" />
-    <Folder Include="Insert\10-Management\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

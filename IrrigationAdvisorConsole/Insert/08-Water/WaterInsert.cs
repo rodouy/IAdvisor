@@ -14,7 +14,7 @@ using IrrigationAdvisorConsole.Data;
 using IrrigationAdvisor.DBContext;
 using NLog;
 
-namespace IrrigationAdvisorConsole.Insert._09_Water
+namespace IrrigationAdvisorConsole.Insert._08_Water
 {
     public static class WaterInsert
     {
