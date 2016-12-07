@@ -726,7 +726,8 @@ namespace IrrigationAdvisor.Controllers
                         {
                             ProcessInformationToIrrigationUnits(lCropIrrigationWeatherList, pDateFrom.Value, lStatus.DateOfReference);
                         }
-                       
+
+                        #region before 
                         //foreach (CropIrrigationWeather lCIW in lCropIrrigationWeatherList)
                         //{
                         //    //If Error, continue with others CIWs
@@ -746,13 +747,14 @@ namespace IrrigationAdvisor.Controllers
                         //        continue;
                         //    }
                         //}
-                        
+                        #endregion
+
                         StatusConfiguration sc = new StatusConfiguration();
                         lResult = sc.SetDateOfReferenceStatus(lStatus.DateOfReference, lStatus.Name);
 
                         lStatusResult = Utils.SetStatusAsOnline(status);
 
-                        // Re - try
+                        #region Re - try Set Web Status as Online
                         if (!lStatusResult)
                         {
                             int tries = 3;
@@ -769,7 +771,7 @@ namespace IrrigationAdvisor.Controllers
                                 logger.Error("The method Utils.SetStatusAsOnline fail " + tries + "times " + "It's necessary to update the record manually in the database to set the web site as online.");
                             }
                         }
-
+                        #endregion
                     }
                     else
                     {

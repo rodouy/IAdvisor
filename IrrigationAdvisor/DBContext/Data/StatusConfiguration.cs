@@ -45,8 +45,8 @@ namespace IrrigationAdvisor.DBContext.Data
             bool lResult = false;
             try
             {
-                Status status = GetStatus(pName);
-                status.DateOfReference = pDateOfReference;
+                Status lStatus = GetStatus(pName);
+                lStatus.DateOfReference = pDateOfReference;
                 db.SaveChanges();
                 lResult = true;
             }
@@ -65,8 +65,8 @@ namespace IrrigationAdvisor.DBContext.Data
 
             try
             {
-                Status status = GetStatus(pName);
-                status.WebStatus = pWebStatus;
+                Status lWebStatus = GetStatus(pName);
+                lWebStatus.WebStatus = pWebStatus;
                 db.SaveChanges();
                 lResult = true;
             }
@@ -85,11 +85,11 @@ namespace IrrigationAdvisor.DBContext.Data
 
             try
             {
-                Status status = GetStatus(pStatusName);
+                Status lStatus = GetStatus(pStatusName);
 
-                if(status != null)
+                if(lStatus != null)
                 {
-                    lResult = status.DateOfReference;
+                    lResult = lStatus.DateOfReference;
                 }
             }
             catch (Exception ex)
@@ -99,5 +99,6 @@ namespace IrrigationAdvisor.DBContext.Data
 
             return lResult;
         }
+
     }
 }
