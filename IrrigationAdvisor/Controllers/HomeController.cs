@@ -707,6 +707,7 @@ namespace IrrigationAdvisor.Controllers
 
                 string status = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["Status"]);
                 Status lStatus = ManageSession.GetCurrentStatus();
+                DateTime lDateOfReference = lStatus.DateOfReference;
 
                 if (lStatus.WebStatus == Utils.IrrigationAdvisorWebStatus.Online)
                 {
@@ -720,11 +721,12 @@ namespace IrrigationAdvisor.Controllers
                         // TO-DO : Verlo con Rodo
                         if (pDateFrom == null)
                         {
-                            ProcessInformationToIrrigationUnits(lCropIrrigationWeatherList, lStatus.DateOfReference, DateTime.Now);
+                            ProcessInformationToIrrigationUnits(lCropIrrigationWeatherList, lDateOfReference, DateTime.Now);
+                            lDateOfReference = DateTime.Now;
                         }
                         else
                         {
-                            ProcessInformationToIrrigationUnits(lCropIrrigationWeatherList, pDateFrom.Value, lStatus.DateOfReference);
+                            ProcessInformationToIrrigationUnits(lCropIrrigationWeatherList, pDateFrom.Value, lDateOfReference);
                         }
 
                         #region before 
@@ -750,7 +752,7 @@ namespace IrrigationAdvisor.Controllers
                         #endregion
 
                         StatusConfiguration sc = new StatusConfiguration();
-                        lResult = sc.SetDateOfReferenceStatus(lStatus.DateOfReference, lStatus.Name);
+                        lResult = sc.SetDateOfReferenceStatus(lDateOfReference, lStatus.Name);
 
                         lStatusResult = Utils.SetStatusAsOnline(status);
 
