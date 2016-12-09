@@ -1479,7 +1479,18 @@ namespace IrrigationAdvisor.Models.Management
             Double lMaxEvapotrToIrr;
             Double lEvapotrAcum;
 
-            lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+            if (this.WeatherEventType == Utils.WeatherEventType.LaNinia)
+            {
+                lMaxEvapotrToIrr = Math.Round(this.Crop.MaxEvapotranspirationToIrrigate * 0.7, 2);
+            }
+            else if (this.WeatherEventType == Utils.WeatherEventType.ElNinio)
+            {
+                lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+            }
+            else //By default The same as Ninio
+            {
+                lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+            }
 
             lEvapotrAcum = this.GetTotalEvapotranspirationCropFromLastWaterInput();
 
@@ -2519,7 +2530,7 @@ namespace IrrigationAdvisor.Models.Management
                 {
                     lDepth = pPhenologicalStage.RootDepth;
                 }
-                else
+                else //By default The same as Ninio
                 {
                     lDepth = pPhenologicalStage.RootDepth;
                 }
