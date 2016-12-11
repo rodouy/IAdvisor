@@ -1481,7 +1481,15 @@ namespace IrrigationAdvisor.Models.Management
 
             if (this.WeatherEventType == Utils.WeatherEventType.LaNinia)
             {
-                lMaxEvapotrToIrr = Math.Round(this.Crop.MaxEvapotranspirationToIrrigate * 0.7, 2);
+                if(this.PhenologicalStage.StageId >= this.Crop.MinStageToConsiderETinHBCalculationId)
+                {
+                    lMaxEvapotrToIrr = Math.Round(this.Crop.MaxEvapotranspirationToIrrigate * 
+                        InitialTables.PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE / 100, 2);
+                }
+                else
+                {
+                    lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+                }
             }
             else if (this.WeatherEventType == Utils.WeatherEventType.ElNinio)
             {
@@ -4354,13 +4362,14 @@ namespace IrrigationAdvisor.Models.Management
                 lDaysAfterSowing = this.calculateDaysAfterSowingForOneDay(this.SowingDate, lDailyRecordDateTime);
                 #endregion
 
+                //20161209 - Not to be used in Calculus by Growing Degree Days
                 #region 2.2.- Daily Record by Days After Sowing for updating GDD
-                lDailyRecord = this.getDailyRecordByDaysAfterSowingAccumulated(lDaysAfterSowing);
-                if (lDailyRecord != null)
-                {
-                    this.GrowingDegreeDaysAccumulated = lDailyRecord.GrowingDegreeDaysAccumulated;
-                    this.GrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified;
-                }
+                //lDailyRecord = this.getDailyRecordByDaysAfterSowingAccumulated(lDaysAfterSowing);
+                //if (lDailyRecord != null)
+                //{
+                //    this.GrowingDegreeDaysAccumulated = lDailyRecord.GrowingDegreeDaysAccumulated;
+                //    this.GrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified;
+                //}
                 #endregion
 
                 #region 3.- Growing Degree Days

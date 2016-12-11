@@ -64,6 +64,7 @@ namespace IrrigationAdvisor.Models.Data
         public const int DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE = 7;
         public const int MAX_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE = 2;
         public const int MIN_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE = 2;
+        public const double PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE = 70;
 
         #endregion
 
