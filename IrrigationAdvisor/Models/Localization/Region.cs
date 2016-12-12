@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using IrrigationAdvisor.Models.Water;
 using IrrigationAdvisor.Models.Agriculture;
 using IrrigationAdvisor.Models.Weather;
@@ -292,14 +291,18 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="pSowingDate"></param>
         /// <param name="pCurrentDate"></param>
         /// <param name="pBaseTemperature"></param>
+        /// <param name="pMaxTemperatureLimit"></param>
+        /// <param name="pMinTemperatureLimit"></param>
         /// <returns></returns>
-        public Double GetAccumulatedGrowingDegreeDays(DateTime pSowingDate, DateTime pCurrentDate,
-                                                            Double pBaseTemperature)
+        public Double GetAccumulatedGrowingDegreeDays(DateTime pSowingDate, DateTime pCurrentDate, Double pBaseTemperature, 
+                                                     Double pMaxTemperatureLimit, Double pMinTemperatureLimit)
         {
             Double lReturn = 0;
             Double lAccumulatedGrowingDegreeDays = 0;
             Double lTemperature;
             Double lGrowingDegreeDays;
+            Double lTemperatureMax = 0;
+            Double lTemperatureMin = 0; 
             DateTime lDay;
 
             foreach (TemperatureData item in this.TemperatureDataList)
@@ -307,7 +310,9 @@ namespace IrrigationAdvisor.Models.Localization
                 lDay = item.Date;
                 if (Utils.IsBetweenDatesWithoutYear(pSowingDate, pCurrentDate, lDay))
                 {
-                    lTemperature = item.Average;
+                    lTemperatureMax = Utils.GetMin(pMaxTemperatureLimit, item.Max);
+                    lTemperatureMin = Utils.GetMax(pMinTemperatureLimit, item.Min);
+                    lTemperature = Utils.GetAverage(lTemperatureMax, lTemperatureMin);
                     lGrowingDegreeDays = lTemperature - pBaseTemperature;
                     lAccumulatedGrowingDegreeDays += lGrowingDegreeDays;
                 }
@@ -322,16 +327,21 @@ namespace IrrigationAdvisor.Models.Localization
         }
 
         /// <summary>
-        /// Return the GrowingDegreeDays
+        ///  Return the GrowingDegreeDays
         /// </summary>
         /// <param name="pCurrentDate"></param>
         /// <param name="pBaseTemperature"></param>
+        /// <param name="pMaxTemperatureLimit"></param>
+        /// <param name="pMinTemperatureLimit"></param>
         /// <returns></returns>
-        public Double GetGrowingDegreeDays(DateTime pCurrentDate, Double pBaseTemperature)
+        public Double GetGrowingDegreeDays(DateTime pCurrentDate, Double pBaseTemperature,
+                                                     Double pMaxTemperatureLimit, Double pMinTemperatureLimit)
         {
             Double lReturn = 0;
             Double lTemperature = 0;
             Double lGrowingDegreeDays = 0;
+            Double lTemperatureMax = 0;
+            Double lTemperatureMin = 0;
             DateTime lDay;
 
             foreach (TemperatureData item in this.TemperatureDataList)
@@ -339,7 +349,9 @@ namespace IrrigationAdvisor.Models.Localization
                 lDay = item.Date;
                 if (Utils.IsTheSameDay(lDay, pCurrentDate))
                 {
-                    lTemperature = item.Average;
+                    lTemperatureMax = Utils.GetMin(pMaxTemperatureLimit, item.Max);
+                    lTemperatureMin = Utils.GetMax(pMinTemperatureLimit, item.Min);
+                    lTemperature = Utils.GetAverage(lTemperatureMax, lTemperatureMin);
                     lGrowingDegreeDays = Math.Max(lTemperature - pBaseTemperature, 0);
                     break;
                 }

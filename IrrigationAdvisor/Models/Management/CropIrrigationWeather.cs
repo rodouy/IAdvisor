@@ -3666,7 +3666,8 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 else
                 {
-                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime, lBaseTemperature);
+                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime, 
+                                                                                        lBaseTemperature, lStressTemperature);
                     this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                     this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                 }
@@ -3883,7 +3884,8 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 else
                 {
-                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime, lBaseTemperature);
+                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime, 
+                                                                                        lBaseTemperature, lStressTemperature);
                     this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                     this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                 }
@@ -4162,7 +4164,8 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 else
                 {
-                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime, lBaseTemperature);
+                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime, 
+                                                                                        lBaseTemperature, lStressTemperature);
                     this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                     this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                 }
@@ -4361,17 +4364,7 @@ namespace IrrigationAdvisor.Models.Management
                 #region 2.- Days After Sowing
                 lDaysAfterSowing = this.calculateDaysAfterSowingForOneDay(this.SowingDate, lDailyRecordDateTime);
                 #endregion
-
-                //20161209 - Not to be used in Calculus by Growing Degree Days
-                #region 2.2.- Daily Record by Days After Sowing for updating GDD
-                //lDailyRecord = this.getDailyRecordByDaysAfterSowingAccumulated(lDaysAfterSowing);
-                //if (lDailyRecord != null)
-                //{
-                //    this.GrowingDegreeDaysAccumulated = lDailyRecord.GrowingDegreeDaysAccumulated;
-                //    this.GrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified;
-                //}
-                #endregion
-
+                
                 #region 3.- Growing Degree Days
                 //Growing Degree Days is average temperature menous Base Temperature 
                 lBaseTemperature = this.GetBaseTemperature();
@@ -4391,7 +4384,8 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 else
                 {
-                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime, lBaseTemperature);
+                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime, 
+                                                                                        lBaseTemperature, lStressTemperature);
                     this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                     this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                 }

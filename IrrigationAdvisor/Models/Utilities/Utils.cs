@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using System.Drawing;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.InteropServices;
@@ -11,9 +7,9 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+
 using IrrigationAdvisor.DBContext.Data;
-using System.Linq.Expressions;
-using System.Collections;
+using NLog;
 
 namespace IrrigationAdvisor.Models.Utilities
 {
@@ -1447,6 +1443,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static Double PredeterminatedIrrigationQuantity = 15;
         #endregion
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         #endregion
 
         #region Properties
@@ -1459,6 +1457,77 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
 
         #region Public Methods
+
+        #region Numeric
+
+        /// <summary>
+        /// Get Average from two Double values;
+        /// </summary>
+        /// <param name="pMax"></param>
+        /// <param name="pMin"></param>
+        /// <returns></returns>
+        public static Double GetAverage(Double pMax, Double pMin)
+        {
+            Double lAverage = 0;
+            try
+            {
+                if (pMax == 0 || pMin == 0)
+                {
+                    return 0;
+                }
+                lAverage = Math.Round((pMax + pMin) / 2, 2);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in Utils.GetAverage " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+            return lAverage;
+        }
+
+        /// <summary>
+        /// Get Min from two Double values;
+        /// </summary>
+        /// <param name="pFirst"></param>
+        /// <param name="pSecond"></param>
+        /// <returns></returns>
+        public static Double GetMin(Double pFirst, Double pSecond)
+        {
+            Double lMin = 0;
+            try
+            {
+                lMin = Math.Min(pFirst, pSecond);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in Utils.GetMin " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+            return lMin;
+        }
+
+        /// <summary>
+        /// Get Max from two Double values;
+        /// </summary>
+        /// <param name="pFirst"></param>
+        /// <param name="pSecond"></param>
+        /// <returns></returns>
+        public static Double GetMax(Double pFirst, Double pSecond)
+        {
+            Double lMax = 0;
+            try
+            {
+                lMax = Math.Max(pFirst, pSecond);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in Utils.GetMax " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+            return lMax;
+        }
+
+        #endregion
 
         #region Dates
 

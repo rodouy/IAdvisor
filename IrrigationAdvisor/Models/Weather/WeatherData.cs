@@ -456,73 +456,6 @@ namespace IrrigationAdvisor.Models.Weather
 
         #region Private Helpers
 
-        /// <summary>
-        /// Get Average from two Double values;
-        /// </summary>
-        /// <param name="pMax"></param>
-        /// <param name="pMin"></param>
-        /// <returns></returns>
-        private Double getAverage(Double pMax, Double pMin)
-        {
-            Double lAverage = 0;
-            try
-            {
-                if (pMax == 0 || pMin == 0)
-                {
-                    return 0;
-                }
-                lAverage = Math.Round((pMax + pMin)/ 2, 2);
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex, "Exception in WeatherData.getAverage " + "\n" + ex.Message + "\n" + ex.StackTrace);
-                throw ex;
-            }
-            return lAverage;
-        }
-
-        /// <summary>
-        /// Get Min from two Double values;
-        /// </summary>
-        /// <param name="pFirst"></param>
-        /// <param name="pSecond"></param>
-        /// <returns></returns>
-        private Double getMin (Double pFirst, Double pSecond)
-        {
-            Double lMin = 0;
-            try
-            {
-                lMin = Math.Min(pFirst, pSecond);
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex, "Exception in WeatherData.getMin " + "\n" + ex.Message + "\n" + ex.StackTrace);
-                throw ex;
-            }
-            return lMin;
-        }
-
-        /// <summary>
-        /// Get Max from two Double values;
-        /// </summary>
-        /// <param name="pFirst"></param>
-        /// <param name="pSecond"></param>
-        /// <returns></returns>
-        private Double getMax(Double pFirst, Double pSecond)
-        {
-            Double lMax = 0;
-            try
-            {
-                lMax = Math.Max(pFirst, pSecond);
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex, "Exception in WeatherData.getMax " + "\n" + ex.Message + "\n" + ex.StackTrace);
-                throw ex;
-            }
-            return lMax;
-        }
-
         #endregion
 
         #region Public Methods
@@ -534,11 +467,11 @@ namespace IrrigationAdvisor.Models.Weather
         public Double GetAverageTemperature(Double pMaxTemperatureLimit, Double pMinTemperatureLimit)
         {
             Double lAverageTemperature = 0;
-            Double lTemperatureMax = this.getMin(pMaxTemperatureLimit, this.TemperatureMax);
-            Double lTemperatureMin = this.getMax(pMinTemperatureLimit, this.TemperatureMin);
+            Double lTemperatureMax = Utils.GetMin(pMaxTemperatureLimit, this.TemperatureMax);
+            Double lTemperatureMin = Utils.GetMax(pMinTemperatureLimit, this.TemperatureMin);
             try
             {
-                lAverageTemperature = this.getAverage(lTemperatureMax, lTemperatureMin);
+                lAverageTemperature = Utils.GetAverage(lTemperatureMax, lTemperatureMin);
             }
             catch (Exception ex)
             {
@@ -557,7 +490,7 @@ namespace IrrigationAdvisor.Models.Weather
             Double lAverageTemperature = 0;
             try
             {
-                lAverageTemperature = this.getAverage(this.TemperatureMax, this.TemperatureMin);
+                lAverageTemperature = Utils.GetAverage(this.TemperatureMax, this.TemperatureMin);
             }
             catch (Exception ex)
             {
@@ -576,8 +509,7 @@ namespace IrrigationAdvisor.Models.Weather
             Double lAverageHumidity = 0;
             try
             {
-                lAverageHumidity = 
-                    this.getAverage(this.HumidityMax, this.HumidityMin);
+                lAverageHumidity = Utils.GetAverage(this.HumidityMax, this.HumidityMin);
             }
             catch (Exception ex)
             {
@@ -596,8 +528,7 @@ namespace IrrigationAdvisor.Models.Weather
             Double lAverageBarometer = 0;
             try
             {                
-                lAverageBarometer = 
-                    this.getAverage(this.BarometerMax, this.BarometerMin);
+                lAverageBarometer = Utils.GetAverage(this.BarometerMax, this.BarometerMin);
             }
             catch (Exception ex)
             {

@@ -45,8 +45,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             List<PhenologicalStage> lPhenologicalStages = null;
             IrrigationUnit lIrrigationUnit = null;
             WeatherStation lWeatherStationMain = null;
+            String lWeatherStationMainName = "";
             List<WeatherData> lMainWeatherDataList = null;
             WeatherStation lWeatherStationAlternative = null;
+            String lWeatherStationAlternativeName = "";
             List<WeatherData> lAlternativeWeatherDataList = null;
 
             //This is used when we have two species in one CropIrrigationWeather
@@ -124,6 +126,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 //if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 //    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
                 //{
+                //    lWeatherStationMainName = Utils.NameWeatherStationLaEstanzuela;
+                //    lWeatherStationAlternativeName = Utils.NameWeatherStationElRetiro;
 
                 //    #region Santa Lucia Pivot 1 2016
                 //    //////////////////////////////////////////////////////////////////////
@@ -131,10 +135,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 //             where farm.Name == Utils.NameFarmSantaLucia
                 //             select farm).FirstOrDefault();
                 //    lWeatherStationMain = (from ws in context.WeatherStations
-                //                           where ws.Name == Utils.NameWeatherStationLasBrujas
+                //                           where ws.Name == lWeatherStationMainName
                 //                           select ws).FirstOrDefault();
                 //    lWeatherStationAlternative = (from ws in context.WeatherStations
-                //                                  where ws.Name == Utils.NameWeatherStationSantaLucia
+                //                                  where ws.Name == lWeatherStationAlternativeName
                 //                                  select ws).FirstOrDefault();
                 //    lEffectiveRainList = (from effectiverain in context.EffectiveRains
                 //                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -305,6 +309,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
+                    lWeatherStationMainName = Utils.NameWeatherStationLaEstanzuela;
+                    lWeatherStationAlternativeName = Utils.NameWeatherStationViveroSanFrancisco;
 
                     #region DCA - San Jose Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -312,10 +318,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDCASanJose
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -474,10 +480,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDCASanJose
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -639,6 +645,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
+                    lWeatherStationMainName = Utils.NameWeatherStationLaEstanzuela;
+                    lWeatherStationAlternativeName = Utils.NameWeatherStationViveroSanFrancisco;
 
                     #region DCA - La Perdiz Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -646,10 +654,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDCALaPerdiz
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -808,10 +816,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDCALaPerdiz
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -970,10 +978,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDCALaPerdiz
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -1132,10 +1140,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDCALaPerdiz
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -1296,6 +1304,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
                 {
+                    lWeatherStationMainName = Utils.NameWeatherStationLasBrujas;
+                    lWeatherStationAlternativeName = Utils.NameWeatherStationLaTribu;
+
 
                     #region Del Lago - San Pedro Pivot 5 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
@@ -1303,10 +1314,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //         where farm.Name == Utils.NameFarmDelLagoSanPedro
                     //         select farm).FirstOrDefault();
                     //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationLasBrujas
+                    //                       where ws.Name == lWeatherStationMainName
                     //                       select ws).FirstOrDefault();
                     //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                    //                              where ws.Name == lWeatherStationAlternativeName
                     //                              select ws).FirstOrDefault();
                     //lEffectiveRainList = (from effectiverain in context.EffectiveRains
                     //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -1466,10 +1477,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //         where farm.Name == Utils.NameFarmDelLagoSanPedro
                     //         select farm).FirstOrDefault();
                     //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationLasBrujas
+                    //                       where ws.Name == lWeatherStationMainName
                     //                       select ws).FirstOrDefault();
                     //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                    //                              where ws.Name == lWeatherStationAlternativeName
                     //                              select ws).FirstOrDefault();
                     //lEffectiveRainList = (from effectiverain in context.EffectiveRains
                     //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -1630,10 +1641,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //         where farm.Name == Utils.NameFarmDelLagoSanPedro
                     //         select farm).FirstOrDefault();
                     //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationLasBrujas
+                    //                       where ws.Name == lWeatherStationMainName
                     //                       select ws).FirstOrDefault();
                     //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                    //                              where ws.Name == lWeatherStationAlternativeName
                     //                              select ws).FirstOrDefault();
                     //lEffectiveRainList = (from effectiverain in context.EffectiveRains
                     //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -1792,10 +1803,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //         where farm.Name == Utils.NameFarmDelLagoSanPedro
                     //         select farm).FirstOrDefault();
                     //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationLasBrujas
+                    //                       where ws.Name == lWeatherStationMainName
                     //                       select ws).FirstOrDefault();
                     //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                    //                              where ws.Name == lWeatherStationAlternativeName
                     //                              select ws).FirstOrDefault();
                     //lEffectiveRainList = (from effectiverain in context.EffectiveRains
                     //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -1955,6 +1966,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
+                    lWeatherStationMainName = Utils.NameWeatherStationLasBrujas;
+                    lWeatherStationAlternativeName = Utils.NameWeatherStationLaTribu;
 
                     #region Del Lago - El Mirador Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -1962,10 +1975,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -2123,10 +2136,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -2284,10 +2297,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -2445,10 +2458,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -2606,10 +2619,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -2767,10 +2780,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -2928,10 +2941,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -3089,10 +3102,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -3250,10 +3263,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -3411,10 +3424,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -3572,10 +3585,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -3733,10 +3746,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -3894,10 +3907,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -4055,10 +4068,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -4216,10 +4229,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -4377,10 +4390,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //         where farm.Name == Utils.NameFarmDelLagoElMirador
                     //         select farm).FirstOrDefault();
                     //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationLaTribu
+                    //                       where ws.Name == lWeatherStationMainName
                     //                       select ws).FirstOrDefault();
                     //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                    //                              where ws.Name == lWeatherStationAlternativeName
                     //                              select ws).FirstOrDefault();
                     //lEffectiveRainList = (from effectiverain in context.EffectiveRains
                     //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -4538,10 +4551,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationLaTribu
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -4703,16 +4716,19 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
+                    lWeatherStationMainName = Utils.NameWeatherStationSaltoGrande;
+                    lWeatherStationAlternativeName = Utils.NameWeatherStationViveroSanFrancisco;
+
                     #region GMO - La Palma Pivot 1 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
                     //lFarm = (from farm in context.Farms
                     //         where farm.Name == Utils.NameFarmGMOLaPalma
                     //         select farm).FirstOrDefault();
                     //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                    //                       where ws.Name == lWeatherStationMainName
                     //                       select ws).FirstOrDefault();
                     //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                    //                              where ws.Name == lWeatherStationAlternativeName
                     //                              select ws).FirstOrDefault();
                     //lEffectiveRainList = (from effectiverain in context.EffectiveRains
                     //                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -4872,10 +4888,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOLaPalma
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -5035,10 +5051,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOLaPalma
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -5196,10 +5212,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOLaPalma
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationViveroSanFrancisco
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
@@ -5355,21 +5371,25 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
 
                 #region GMO - El Tacuru
+
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
+                    lWeatherStationMainName = Utils.NameWeatherStationSaltoGrande;
+                    lWeatherStationAlternativeName = Utils.NameWeatherStationElRetiro;
+
                     #region GMO - El Tacuru Pivot 1a 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
                     //lFarm = (from farm in context.Farms
                     //         where farm.Name == Utils.NameFarmGMOElTacuru
                     //         select farm).FirstOrDefault();
                     //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationElRetiro
+                    //                       where ws.Name == lWeatherStationMainName
                     //                       select ws).FirstOrDefault();
                     //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationSaltoGrande
+                    //                              where ws.Name == lWeatherStationAlternativeName
                     //                              select ws).FirstOrDefault();
                     //lEffectiveRainList = (from effectiverain in context.EffectiveRains
                     //                      where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -5529,10 +5549,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -5692,10 +5712,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -5853,10 +5873,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -6014,10 +6034,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -6175,10 +6195,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -6336,10 +6356,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -6497,10 +6517,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -6658,10 +6678,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -6819,10 +6839,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -6980,10 +7000,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmGMOElTacuru
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -7143,6 +7163,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
                 {
+                    lWeatherStationMainName = Utils.NameWeatherStationSaltoGrande;
+                    lWeatherStationAlternativeName = Utils.NameWeatherStationElRetiro;
 
                     #region La Rinconada Pivot 1 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
@@ -7150,10 +7172,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //         where farm.Name == Utils.NameFarmLaRinconada
                     //         select farm).FirstOrDefault();
                     //lWeatherStationMain = (from ws in context.WeatherStations
-                    //                       where ws.Name == Utils.NameWeatherStationElRetiro
+                    //                       where ws.Name == lWeatherStationMainName
                     //                       select ws).FirstOrDefault();
                     //lWeatherStationAlternative = (from ws in context.WeatherStations
-                    //                              where ws.Name == Utils.NameWeatherStationSaltoGrande
+                    //                              where ws.Name == lWeatherStationAlternativeName
                     //                              select ws).FirstOrDefault();
                     //lEffectiveRainList = (from effectiverain in context.EffectiveRains
                     //                      where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -7313,10 +7335,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmLaRinconada
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -7476,10 +7498,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmLaRinconada
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
@@ -7637,10 +7659,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                              where farm.Name == Utils.NameFarmLaRinconada
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == Utils.NameWeatherStationElRetiro
+                                           where ws.Name == lWeatherStationMainName
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == Utils.NameWeatherStationSaltoGrande
+                                                  where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                           where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
