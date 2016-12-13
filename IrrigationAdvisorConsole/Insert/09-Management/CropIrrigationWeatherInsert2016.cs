@@ -122,12 +122,12 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
 
                 #region Santa Lucia
-
+                
                 //if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 //    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
                 //{
-                //    lWeatherStationMainName = Utils.NameWeatherStationLaEstanzuela;
-                //    lWeatherStationAlternativeName = Utils.NameWeatherStationElRetiro;
+                //    lWeatherStationMainName = DataEntry.WeatherStationAlternativeName_SantaLucia_2016;
+                //    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_SantaLucia_2016;
 
                 //    #region Santa Lucia Pivot 1 2016
                 //    //////////////////////////////////////////////////////////////////////
@@ -309,8 +309,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
-                    lWeatherStationMainName = Utils.NameWeatherStationLaEstanzuela;
-                    lWeatherStationAlternativeName = Utils.NameWeatherStationViveroSanFrancisco;
+                    lWeatherStationMainName = DataEntry.WeatherStationMainName_DCASanJose_2016;
+                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DCASanJose_2016;
 
                     #region DCA - San Jose Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -645,8 +645,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
-                    lWeatherStationMainName = Utils.NameWeatherStationLaEstanzuela;
-                    lWeatherStationAlternativeName = Utils.NameWeatherStationViveroSanFrancisco;
+                    lWeatherStationMainName = DataEntry.WeatherStationMainName_DCALaPerdiz_2016;
+                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2016;
 
                     #region DCA - La Perdiz Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -1304,8 +1304,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
                 {
-                    lWeatherStationMainName = Utils.NameWeatherStationLasBrujas;
-                    lWeatherStationAlternativeName = Utils.NameWeatherStationLaTribu;
+                    lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoSanPedro_2016;
+                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2016;
 
 
                     #region Del Lago - San Pedro Pivot 5 2016
@@ -1966,8 +1966,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
-                    lWeatherStationMainName = Utils.NameWeatherStationLasBrujas;
-                    lWeatherStationAlternativeName = Utils.NameWeatherStationLaTribu;
+                    lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoElMirador_2016;
+                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2016;
 
                     #region Del Lago - El Mirador Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -4716,8 +4716,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
-                    lWeatherStationMainName = Utils.NameWeatherStationSaltoGrande;
-                    lWeatherStationAlternativeName = Utils.NameWeatherStationViveroSanFrancisco;
+                    lWeatherStationMainName = DataEntry.WeatherStationMainName_GMOLaPalma_2016;
+                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_GMOLaPalma_2016;
 
                     #region GMO - La Palma Pivot 1 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
@@ -5377,8 +5377,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
-                    lWeatherStationMainName = Utils.NameWeatherStationSaltoGrande;
-                    lWeatherStationAlternativeName = Utils.NameWeatherStationElRetiro;
+                    lWeatherStationMainName = DataEntry.WeatherStationMainName_GMOElTacuru_2016;
+                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_GMOElTacuru_2016;
 
                     #region GMO - El Tacuru Pivot 1a 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
@@ -7163,8 +7163,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
                 {
-                    lWeatherStationMainName = Utils.NameWeatherStationSaltoGrande;
-                    lWeatherStationAlternativeName = Utils.NameWeatherStationElRetiro;
+                    lWeatherStationMainName = DataEntry.WeatherStationMainName_LaRinconada_2016;
+                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_LaRinconada_2016;
 
                     #region La Rinconada Pivot 1 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
