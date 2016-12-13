@@ -244,7 +244,7 @@ namespace IrrigationAdvisorConsole
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot15_2016 = new DateTime(2016, 11, 09); //15
         public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot15_2016 = new DateTime(2017, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016 = 14;
-        public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivotChaja1_2016 = new DateTime(2016, 10, 03); //Chaja 1
+        public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivotChaja1_2016 = new DateTime(2016, 12, 11); //Chaja 1
         public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivotChaja1_2016 = new DateTime(2017, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja1_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivotChaja2_2016 = new DateTime(2016, 11, 07); //Chaja 2
@@ -319,7 +319,7 @@ namespace IrrigationAdvisorConsole
         #endregion
 
         #region LR - La Rinconada
-        public static String WeatherStationMainName_LaRinconada_2016 = Utils.NameWeatherStationSaltoGrande;
+        public static String WeatherStationMainName_LaRinconada_2016 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_LaRinconada_2016 = Utils.NameWeatherStationElRetiro;
 
         public static DateTime SowingDate_SoyaNorth_LaRinconadaPivot1_2016 = new DateTime(2016, 10, 29);
