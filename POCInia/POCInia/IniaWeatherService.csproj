@@ -33,10 +33,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NLog.4.3.11\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,16 +68,61 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums.cs" />
+    <Compile Include="IniaDTO.cs" />
     <Compile Include="IniaWeatherService.cs" />
+    <Compile Include="IrrigationAdvisor.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IrrigationAdvisor.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IrrigationAdvisor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IrrigationAdvisor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IrrigationAdvisor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IrrigationAdvisor.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeatherData.cs">
+      <DependentUpon>IrrigationAdvisor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WeatherStation.cs">
+      <DependentUpon>IrrigationAdvisor.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="IrrigationAdvisor.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IrrigationAdvisor.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="IrrigationAdvisor.edmx.diagram">
+      <DependentUpon>IrrigationAdvisor.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IrrigationAdvisor.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IrrigationAdvisor.edmx</DependentUpon>
+      <LastGenOutput>IrrigationAdvisor.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="IrrigationAdvisor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IrrigationAdvisor.edmx</DependentUpon>
+      <LastGenOutput>IrrigationAdvisor.cs</LastGenOutput>
+    </Content>
     <Content Include="lib\geckodriver.exe" />
     <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
