@@ -284,13 +284,15 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
         private double testMaizStressTemperature;
         private double testPREDETERMINATED_IRRIGATION;
 
+        private long testMinPhenologicalStageIdToConsiderETinHBCalculation_Maiz;
+        private long testMinPhenologicalStageIdToConsiderETinHBCalculation_Soja;
         private double testMaxEvapotranspirationToIrrigate_Maiz;
         private double testMaxEvapotranspirationToIrrigate_Soja;
         private double testMinEvapotranspirationToIrrigate_Maiz;
         private double testMinEvapotranspirationToIrrigate_Soja;
         
-        private double testCropDensityMaiz;
-        private double testCropDensitySoja;
+        //private double testCropDensityMaiz;
+        //private double testCropDensitySoja;
 
         private List<EffectiveRain> testEffectiveRainsList;
         
@@ -493,13 +495,14 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
                 Alta: más de 400.000 pl/ha. En este caso tomar cropCoefficient correspondiente a región Árida
                 Baja: por el momento nada
              */
-            
+            testMinPhenologicalStageIdToConsiderETinHBCalculation_Maiz = 7;
+            testMinPhenologicalStageIdToConsiderETinHBCalculation_Soja = 7;
             testMaxEvapotranspirationToIrrigate_Maiz = 35;
             testMaxEvapotranspirationToIrrigate_Soja = 30;
             testMinEvapotranspirationToIrrigate_Maiz = 30;
             testMinEvapotranspirationToIrrigate_Soja = 25;
-            testCropDensityMaiz = 80000;
-            testCropDensitySoja = 350000;
+            //testCropDensityMaiz = 80000;
+            //testCropDensitySoja = 350000;
 
             #endregion
 
@@ -543,11 +546,13 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
 
             #region 7. Create Crops (Name, Region, Specie, Density, MaxEvapoTrransToIrrigate, MinEvapoTrransToIrrigate)
             testCrop_Maiz_Sur = new Crop(0, "Maiz Sur", "Maíz", testRegion.RegionId, testSpecieMaiz.SpecieId, 
-                                        testCropCoefficient_Maiz.CropCoefficientId, testCropDensityMaiz,
+                                        testCropCoefficient_Maiz.CropCoefficientId,
+                                        testMinPhenologicalStageIdToConsiderETinHBCalculation_Maiz,
                                         testMaxEvapotranspirationToIrrigate_Maiz,
                                         testMinEvapotranspirationToIrrigate_Maiz, 0);
             testCrop_Soja_Sur = new Crop(1, "Soja Sur", "Soja", testRegion.RegionId, testSpecieSoja.SpecieId,
-                                        testCropCoefficient_Soja.CropCoefficientId, testCropDensitySoja,
+                                        testCropCoefficient_Soja.CropCoefficientId,
+                                        testMinPhenologicalStageIdToConsiderETinHBCalculation_Soja,
                                         testMaxEvapotranspirationToIrrigate_Soja,
                                         testMinEvapotranspirationToIrrigate_Soja, 0);
             #endregion

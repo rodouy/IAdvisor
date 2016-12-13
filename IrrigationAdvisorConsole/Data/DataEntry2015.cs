@@ -1046,7 +1046,7 @@ namespace IrrigationAdvisorConsole.Data
                                where iu.Name == Utils.NamePivotDCALaPerdiz3
                                select iu).FirstOrDefault();
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == Utils.NameWeatherStationLasBrujas
+                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
 
 
@@ -4726,12 +4726,16 @@ namespace IrrigationAdvisorConsole.Data
 
         #region DCA El Paraiso
 
-        #region 2016
+        #region 2015
         #endregion
 
         #endregion
 
         #region DCA San Jose
+
+        #region 2015
+
+        #endregion
 
         #endregion
 
@@ -7379,6 +7383,18 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
 
         #region GMO - El Tacuru
+
+        #region 2015
+
+        #endregion
+
+        #endregion
+
+        #region La Rinconada
+
+        #region 2015
+
+        #endregion
 
         #endregion
 

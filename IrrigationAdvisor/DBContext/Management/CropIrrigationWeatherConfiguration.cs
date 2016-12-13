@@ -297,6 +297,7 @@ namespace IrrigationAdvisor.DBContext.Management
         /// </summary>
         /// <param name="pIrrigationUnit"></param>
         /// <param name="pDateOfReference"></param>
+        /// <param name="pCrop"></param>
         /// <returns></returns>
         public List<DailyRecord> GetDailyRecordListIncludeDailyRecordListBy(IrrigationUnit pIrrigationUnit,
                                                       DateTime pDateOfReference, Crop pCrop)

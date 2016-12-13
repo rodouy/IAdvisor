@@ -64,6 +64,7 @@ namespace IrrigationAdvisor.Models.Data
         public const int DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE = 7;
         public const int MAX_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE = 2;
         public const int MIN_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE = 2;
+        public const double PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE = 70;
 
         #endregion
 
@@ -127,6 +128,9 @@ namespace IrrigationAdvisor.Models.Data
         /// Constant for precision for min and max degree ranges calculus.
         /// </summary>
         public const Double ACCURANCY_RANGE_MIN_MAX_DEGREE = 0.005;
+
+        public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_CORN = "V7";
+        public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SOYA = "V7";
 
         public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN = "R4";
         public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA = "R4";
