@@ -402,9 +402,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in WeatherStation.AddWeatherData " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in WeatherStation.AddWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
 
             lReturn = lWeatherData;
@@ -464,9 +463,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in WeatherStation.UpdateWeatherData " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in WeatherStation.UpdateWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lReturn;
         }
@@ -503,9 +501,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in WeatherStation.AddWeatherDataToList " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in WeatherStation.AddWeatherDataToList " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
 
         }

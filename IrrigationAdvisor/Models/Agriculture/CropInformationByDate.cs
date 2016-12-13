@@ -86,7 +86,6 @@ namespace IrrigationAdvisor.Models.Agriculture
         private Double cropCoefficientValue;
         private Double rootDepth;
         #endregion
-
         
         #endregion
 
@@ -284,16 +283,17 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pSowingDate"></param>
         /// <param name="pCurrentDate"></param>
         /// <param name="pBaseTemperature"></param>
-        /// <param name="pRegion"></param>
+        /// <param name="pStressTemperature"></param>
         /// <returns></returns>
         public Double GetAccumulatedGrowingDegreeDays(DateTime pSowingDate, DateTime pCurrentDate,
-                                                    Double pBaseTemperature)
+                                                    Double pBaseTemperature, Double pStressTemperature)
         {
             Double lReturn = 0;
             Double lAccumulatedGrowingDegreeDays = 0;
 
             lAccumulatedGrowingDegreeDays = this.Region.GetAccumulatedGrowingDegreeDays(pSowingDate,
-                                                        pCurrentDate, pBaseTemperature);
+                                                        pCurrentDate, pBaseTemperature,
+                                                        pStressTemperature, -pBaseTemperature);
             
             lReturn = lAccumulatedGrowingDegreeDays;
 
@@ -305,14 +305,15 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         /// <param name="pCurrentDate"></param>
         /// <param name="pBaseTemperature"></param>
-        /// <param name="pRegion"></param>
+        /// <param name="pStressTemperature"></param>
         /// <returns></returns>
-        public Double GetGrowingDegreeDays(DateTime pCurrentDate, Double pBaseTemperature)
+        public Double GetGrowingDegreeDays(DateTime pCurrentDate, Double pBaseTemperature, Double pStressTemperature)
         {
             Double lReturn = 0;
             Double lGrowingDegreeDays = 0;
 
-            lGrowingDegreeDays = this.Region.GetGrowingDegreeDays(pCurrentDate, pBaseTemperature);
+            lGrowingDegreeDays = this.Region.GetGrowingDegreeDays(pCurrentDate, pBaseTemperature, 
+                                                                pStressTemperature, -pBaseTemperature);
 
             lReturn = lGrowingDegreeDays;
             return lReturn;
@@ -407,7 +408,8 @@ namespace IrrigationAdvisor.Models.Agriculture
 
             //Set AccumulatedGrowingDegreeDays
             this.AccumulatedGrowingDegreeDays = GetAccumulatedGrowingDegreeDays(this.SowingDate, 
-                                                this.CurrentDate, this.Specie.BaseTemperature);
+                                                this.CurrentDate, this.Specie.BaseTemperature, 
+                                                this.Specie.StressTemperature);
 
             //Set Stage
             lStageDurationInformation = getStageDurationInformation();

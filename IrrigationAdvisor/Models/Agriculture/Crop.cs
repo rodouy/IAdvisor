@@ -69,7 +69,8 @@ namespace IrrigationAdvisor.Models.Agriculture
         private List<Stage> stageList;
         private List<PhenologicalStage> phenologicalStageList;
 
-        private Double density;
+        private long minStageToConsiderETinHBCalculationId;
+
         private Double maxEvapotranspirationToIrrigate;
         private Double minEvapotranspirationToIrrigate;
 
@@ -147,10 +148,16 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { phenologicalStageList = value; }
         }
 
-        public Double Density
+        public long MinStageToConsiderETinHBCalculationId
         {
-            get { return density; }
-            set { density = value; }
+            get { return minStageToConsiderETinHBCalculationId; }
+            set { minStageToConsiderETinHBCalculationId = value; }
+        }
+        
+        public virtual Stage MinStageToConsiderETinHBCalculation
+        {
+            get;
+            set;
         }
 
         public Double MaxEvapotranspirationToIrrigate
@@ -194,7 +201,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.CropCoefficientId = 0;
             this.StageList = new List<Stage>();
             this.PhenologicalStageList = new List<PhenologicalStage>();
-            this.Density = 0;
+            this.MinStageToConsiderETinHBCalculationId = 0;
             this.MaxEvapotranspirationToIrrigate = 0;
             this.MinEvapotranspirationToIrrigate = 0;
             this.StopIrrigationStageId = 0;
@@ -209,13 +216,14 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pRegionId"></param>
         /// <param name="pSpecieId"></param>
         /// <param name="pCropCoefficientId"></param>
-        /// <param name="pDensity"></param>
+        /// <param name="pMinStageToConsiderETinHBCalculationId"></param>
         /// <param name="pMaxEvapotranspirationToIrrigate"></param>
         /// <param name="pMinEvapotranspirationToIrrigate"></param>
         /// <param name="pStopIrrigationStageId"></param>
         public Crop(long pCropId, String pName, String pShortName,
                     long pRegionId, long pSpecieId,long pCropCoefficientId,
-                    Double pDensity, Double pMaxEvapotranspirationToIrrigate, 
+                    long pMinStageToConsiderETinHBCalculationId,
+                    Double pMaxEvapotranspirationToIrrigate, 
                     Double pMinEvapotranspirationToIrrigate, long pStopIrrigationStageId)
         {
             this.CropId = pCropId;
@@ -226,7 +234,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.CropCoefficientId = pCropCoefficientId;
             this.StageList = new List<Stage>();
             this.PhenologicalStageList = new List<PhenologicalStage>();
-            this.Density = pDensity;
+            this.MinStageToConsiderETinHBCalculationId = pMinStageToConsiderETinHBCalculationId;
             this.MaxEvapotranspirationToIrrigate = pMaxEvapotranspirationToIrrigate;
             this.MinEvapotranspirationToIrrigate = pMinEvapotranspirationToIrrigate;
             this.StopIrrigationStageId = pStopIrrigationStageId;
@@ -242,15 +250,16 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pSpecieId"></param>
         /// <param name="pCropCoefficientId"></param>
         /// <param name="pPhenologicalStageList"></param>
-        /// <param name="pDensity"></param>
+        /// <param name="pMinPhenologicalStageIdToConsiderETinHBCalculation"></param>
         /// <param name="pMaxEvapotranspirationToIrrigate"></param>
         /// <param name="pMinEvapotranspirationToIrrigate"></param>
         /// <param name="pStopIrrigationStageId"></param>
         public Crop(long pCropId, String pName, String pShortName,
                     long pRegionId, long pSpecieId, long pCropCoefficientId,
                     List<PhenologicalStage> pPhenologicalStageList,
-                    double pDensity, double pMaxEvapotranspirationToIrrigate,
-                    double pMinEvapotranspirationToIrrigate, long pStopIrrigationStageId)
+                    long pMinStageToConsiderETinHBCalculationId,       
+                    Double pMaxEvapotranspirationToIrrigate,
+                    Double pMinEvapotranspirationToIrrigate, long pStopIrrigationStageId)
         {
             
             this.CropId = pCropId;
@@ -261,7 +270,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.CropCoefficientId = pCropCoefficientId;
             this.StageList = this.getStageList(pPhenologicalStageList);
             this.PhenologicalStageList = pPhenologicalStageList;
-            this.Density = pDensity;
+            this.MinStageToConsiderETinHBCalculationId = pMinStageToConsiderETinHBCalculationId;
             this.MaxEvapotranspirationToIrrigate = pMaxEvapotranspirationToIrrigate;
             this.MinEvapotranspirationToIrrigate = pMinEvapotranspirationToIrrigate;
             this.StopIrrigationStageId = pStopIrrigationStageId;
@@ -295,19 +304,32 @@ namespace IrrigationAdvisor.Models.Agriculture
 
         #region Public Methods
 
-        #region BaseTemperature
+        #region Temperature
 
         /// <summary>
         /// Return the Base Temperature for the Specie of the Crop
         /// </summary>
         /// <returns></returns>
-        public double GetBaseTemperature ()
+        public double GetBaseTemperature()
         {
             Double lBaseTemperature = 0;
 
             lBaseTemperature = this.Specie.BaseTemperature;
 
             return lBaseTemperature;
+        }
+
+        /// <summary>
+        /// Return the Stress Temperature for the Specie of the Crop
+        /// </summary>
+        /// <returns></returns>
+        public double GetStressTemperature()
+        {
+            Double lStressTemperature = 0;
+
+            lStressTemperature = this.Specie.StressTemperature;
+
+            return lStressTemperature;
         }
 
         #endregion
@@ -620,7 +642,6 @@ namespace IrrigationAdvisor.Models.Agriculture
                         //TODO throw exception "There is a Phenological Stage without Stage in StageList!! Error of data."
                         logger.Error("Phenological Stage", "UpdatePhenologicalStage" + "\n" 
                             + "There is a Phenological Stage without Stage in StageList!! Error of data.");
-                        Console.WriteLine("Exception in Crop.UpdatePhenologicalStage " + "There is a Phenological Stage without Stage in StageList!! Error of data.");
                     }
                     lReturn.SpecieId = pSpecie.SpecieId;
                     lReturn.UpdateStage(pStage.Name, pStage.ShortName, pStage.Description, pStage.Order);
