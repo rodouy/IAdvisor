@@ -18,5 +18,6 @@ namespace POCInia
         public double AvgHumedity { get; set; }
         public double MaxHumedity { get; set; }
         public double MinHumedity { get; set; }
+        public double WindSpeed { get; set; }
     }
 }
