@@ -4,19 +4,19 @@
     ViewBag.Title = "Pivot Irrigation";
 }
 
-@helper CustomRain(Double value)
+@helper CustomRain(Double value, string date)
 {
-    <td>@value <div class="ref-rain"></div></td>
+    <td><span class="description-mobile-left">@date</span><div class="ref-rain"><span class="value-mobile-position">@value</span></div></td>
 }
 
-@helper CustomIrrigation(Double value)
+@helper CustomIrrigation(Double value, string date)
 {  
-    <td>@value <div class="ref-irrigated"></div></td>
+    <td><span class="description-mobile-left">@date</span> <div class="ref-irrigated"><span class="value-mobile-position">@value</span></div></td>
 }
 
-@helper ForecastIrrigation(Double value)
+@helper ForecastIrrigation(Double value, string date)
 {
-    <td>@value <div class="ref-next-irrigation"></div></td>
+    <td><span class="description-mobile-left">@date</span><div class="ref-next-irrigation"> <span class="value-mobile-position">@value</span> </div></td>
 }
 
 @foreach (var item in Model)
@@ -31,25 +31,24 @@
         <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.SowingDate</td>
         <td>@gridPivotItem.PhenologyName</td>
-
         @foreach (var detail in @gridPivotItem.ListGridPivotDetailHome)
         {
             if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Rain)
             {
-                @CustomRain(detail.IrrigationQuantity + detail.RainQuantity)
+                @CustomRain(detail.IrrigationQuantity + detail.RainQuantity, detail.Day)
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Irrigated)
             {
-                @CustomIrrigation(detail.IrrigationQuantity + detail.RainQuantity)
+                @CustomIrrigation(detail.IrrigationQuantity + detail.RainQuantity, detail.Day)
 
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NextIrrigation)
             {
-                @ForecastIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity)
+                @ForecastIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day)
             }
             else
             {
-                <td>  <div class="ref-default"></div></td>
+                <td><span class="description-mobile-left">@detail.Day</span>  <div class="ref-default"></div></td>
             }
         }
     </tr>

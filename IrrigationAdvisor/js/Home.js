@@ -18,8 +18,10 @@ $(document).ready(function () {
     var maxDateOfReference = $('#maxDateOfReference');
     var minDateOfReference = $('#minDateOfReference');
     var addIrrigationModal = $('#addIrrigationModal');
+    var addIrrigationModalMobile = $('#addIrrigationModalMobile');
     var addPhenoModal = $('#addPhenoModal');
     var addRainModal = $('#addRainModal');
+    var addRainModalMobile = $('#addRainModalMobile');
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
@@ -34,8 +36,8 @@ $(document).ready(function () {
     var irrigationUnitRainMail = $('#irrigationUnitRainMail');
     var irrigationUnitIrrigationMail = $('#irrigationUnitIrrigationMail');
     var userName = $('#userName').val();
-
-    
+    var dvtxtDateOfReferencedateOfReferenceBtn2 = $('#dv-for-txtDateOfReference-dateOfReferenceBtn2');
+    var barResp = $('.bar-resp');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -186,6 +188,8 @@ $(document).ready(function () {
 
         addIrrigationModal.hide();
         addRainModal.hide();
+        addIrrigationModalMobile.hide();
+        addRainModalMobile.hide();
         addPhenoModal.hide();
         lstFarms.hide();
         var initModal = { backdrop: false, show: false };
@@ -204,14 +208,94 @@ $(document).ready(function () {
 
     init();
 
+    var removeClasses = function()
+    {
+        dvtxtDateOfReferencedateOfReferenceBtn2.removeClass('col-xs-8');
+        dvtxtDateOfReferencedateOfReferenceBtn2.removeClass('col-md-5');
+        dvtxtDateOfReferencedateOfReferenceBtn2.removeClass('col-lg-5');
+        //lstFarms
+        lstFarms.css("width", "100%");
+        txtDateOfReference.css("bottom", "0");
+        txtDateOfReference.css("width", "100%");
+        addIrrigationModalMobile.css("background-color", "#4aca83");
+        addPhenoModal.css("background-color", "#4169E1");
+        dateOfReferenceBtn2.css("background-color", "#5A91FA");
+        barResp.css('width', 'inherit');
+    }
+
+    var addClasses = function()
+    {
+        dvtxtDateOfReferencedateOfReferenceBtn2.addClass('col-xs-8');
+        dvtxtDateOfReferencedateOfReferenceBtn2.addClass('col-md-5');
+        dvtxtDateOfReferencedateOfReferenceBtn2.addClass('col-lg-5');
+        lstFarms.css("width", "50%");
+        txtDateOfReference.css("bottom", "8px");
+        txtDateOfReference.css("width", "50%");
+        addIrrigationModalMobile.css("background-color", "#00a1d3");
+        addPhenoModal.css("background-color", "#00a1d3");
+        dateOfReferenceBtn2.css("background-color", "#00a1d3");
+        barResp.css('width', '842px');
+    }
+
+    $(window).resize(function () {
+
+        var width = $(window).width();
+        var height = $(window).height();
+
+        if (width <= 760) {
+            addIrrigationModalMobile.show();
+            addRainModalMobile.show();
+
+            addIrrigationModal.hide();
+            addRainModal.hide();
+            removeClasses();
+        }
+        else {
+            addIrrigationModalMobile.hide();
+            addRainModalMobile.hide();
+
+
+            addIrrigationModal.show();
+            addRainModal.show();
+            addClasses();
+        }
+
+    });
+
 
     $.getScript("https://code.jquery.com/ui/1.12.0/jquery-ui.js", function () {
         var addIrrigationModal = $('#addIrrigationModal');
         var addRainModal = $('#addRainModal');
         var addPhenoModal = $('#addPhenoModal');
-        addIrrigationModal.show();
-        addRainModal.show();
+
+        var addIrrigationModalMobile = $('#addIrrigationModalMobile');
+        var addRainModalMobile = $('#addRainModalMobile');
+        var addPhenoModalMobile = $('#addPhenoModalMobile');
+
+        var width = $(window).width();
+        var height = $(window).height();
+
         addPhenoModal.show();
+
+        if (width <= 760)
+        {
+            addIrrigationModalMobile.show();
+            addRainModalMobile.show();
+
+            addIrrigationModal.hide();
+            addRainModal.hide();
+            removeClasses();
+        }
+        else
+        {
+            addIrrigationModalMobile.hide();
+            addRainModalMobile.hide();
+
+            addIrrigationModal.show();
+            addRainModal.show();
+            addClasses();
+        }
+        
     });
 
     
@@ -220,7 +304,17 @@ $(document).ready(function () {
         $('.modal-content').draggable();
     });
 
+    addIrrigationModalMobile.click(function () {
+        modalIrrigation.modal('show');
+        $('.modal-content').draggable();
+    });
+
     addRainModal.click(function () {
+        modalRain.modal('show');
+        $('.modal-content').draggable();
+    });
+
+    addRainModalMobile.click(function () {
         modalRain.modal('show');
         $('.modal-content').draggable();
     });
