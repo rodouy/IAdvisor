@@ -1392,13 +1392,14 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePosition = "";
         #endregion
         #endregion
-        
+
         #endregion
 
         #region Crop
+        //2016-11-12 rodouy Change Max/Min ET to Irrigate from 30/25 to 35/30
+        //Changes respect the year (ninia or ninio) 
         public static int MaxEvapotranspirationToIrrigate_Corn = 35;
         public static int MinEvapotranspirationToIrrigate_Corn = 30;
-        //2016-11-12 rodouy Change Max/Min ET to Irrigate from 30/25 to 35/30
         public static int MaxEvapotranspirationToIrrigate_Soya = 35;
         public static int MinEvapotranspirationToIrrigate_Soya = 30;
         
