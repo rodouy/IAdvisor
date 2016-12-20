@@ -32,6 +32,7 @@ namespace IrrigationAdvisor.ViewModels.Management
         public Double GrowingDegreeDays { get; set; }
         public Double GrowingDegreeDaysAccumulated { get; set; }
         public Double GrowingDegreeDaysModified { get; set; }
+        public DateTime LastDayOfGrowingDegreeDays { get; set; }
         #endregion
 
         #region Water Data
@@ -89,6 +90,7 @@ namespace IrrigationAdvisor.ViewModels.Management
             this.GrowingDegreeDays = pDailyRecord.GrowingDegreeDays;
             this.GrowingDegreeDaysAccumulated = pDailyRecord.GrowingDegreeDaysAccumulated;
             this.GrowingDegreeDaysModified = pDailyRecord.GrowingDegreeDaysModified;
+            this.LastDayOfGrowingDegreeDays = pDailyRecord.LastDayOfGrowingDegreeDays;
             #endregion
 
             #region Water Data

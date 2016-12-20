@@ -65,6 +65,8 @@ namespace IrrigationAdvisor.ViewModels.Management
 
         public Double GrowingDegreeDaysModified { get; set; }
 
+        public DateTime LastDayOfGrowingDegreeDays { get; set; }
+
         public Double PredeterminatedIrrigationQuantity { get; set; }
         #endregion
 
@@ -125,6 +127,7 @@ namespace IrrigationAdvisor.ViewModels.Management
             this.DayAfterSowingModified = pCropIrrigationWeather.DaysAfterSowingModified;
             this.GrowingDegreeDaysAccumulated = pCropIrrigationWeather.GrowingDegreeDaysAccumulated;
             this.GrowingDegreeDaysModified = pCropIrrigationWeather.GrowingDegreeDaysModified;
+            this.LastDayOfGrowingDegreeDays = pCropIrrigationWeather.LastDayOfGrowingDegreeDays;
             this.PredeterminatedIrrigationQuantity = pCropIrrigationWeather.PredeterminatedIrrigationQuantity;
             #endregion
             #region Water

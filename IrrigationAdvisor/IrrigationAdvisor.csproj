@@ -311,6 +311,10 @@
     <Compile Include="Migrations\201612052045273_StageToUseETinHBCalculation.Designer.cs">
       <DependentUpon>201612052045273_StageToUseETinHBCalculation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612200710390_AddColumnLastDayOfGrowingDegreeDays.cs" />
+    <Compile Include="Migrations\201612200710390_AddColumnLastDayOfGrowingDegreeDays.Designer.cs">
+      <DependentUpon>201612200710390_AddColumnLastDayOfGrowingDegreeDays.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -349,7 +353,6 @@
     <Compile Include="Models\Management\CalculusAvailableWater.cs" />
     <Compile Include="Models\Management\CalculusEvapotranspiration.cs" />
     <Compile Include="Models\Management\CropIrrigationWeather.cs" />
-    <Compile Include="Models\Management\CropIrrigationWeatherRecord.cs" />
     <Compile Include="Models\Management\DailyRecord.cs" />
     <Compile Include="Models\Management\IrrigationCalculus.cs" />
     <Compile Include="Models\Management\Message.cs" />
@@ -891,6 +894,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612052045273_StageToUseETinHBCalculation.resx">
       <DependentUpon>201612052045273_StageToUseETinHBCalculation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612200710390_AddColumnLastDayOfGrowingDegreeDays.resx">
+      <DependentUpon>201612200710390_AddColumnLastDayOfGrowingDegreeDays.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
