@@ -1356,6 +1356,7 @@ namespace IrrigationAdvisor.Models.Management
             lReturn.DaysAfterSowingModified = this.DaysAfterSowingModified;
             lReturn.GrowingDegreeDaysAccumulated = this.GrowingDegreeDaysAccumulated;
             lReturn.GrowingDegreeDaysModified = this.GrowingDegreeDaysModified;
+            lReturn.LastDayOfGrowingDegreeDays = this.LastDayOfGrowingDegreeDays;
 
             lReturn.LastWaterInputDate = this.LastWaterInputDate;
             lReturn.LastBigWaterInputDate = this.LastBigWaterInputDate;
@@ -1746,6 +1747,7 @@ namespace IrrigationAdvisor.Models.Management
             this.DaysAfterSowingModified = lDailyRecordBeforeRecordToDelete.DaysAfterSowingModified;
             this.GrowingDegreeDaysAccumulated = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysAccumulated;
             this.GrowingDegreeDaysModified = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysModified;
+            this.LastDayOfGrowingDegreeDays = lDailyRecordBeforeRecordToDelete.LastDayOfGrowingDegreeDays;
 
             this.LastWaterInputDate = lDailyRecordBeforeRecordToDelete.LastWaterInputDate;
             this.LastBigWaterInputDate = lDailyRecordBeforeRecordToDelete.LastBigWaterInputDate;
@@ -1795,6 +1797,7 @@ namespace IrrigationAdvisor.Models.Management
             this.DaysAfterSowingModified = lDailyRecordBeforeRecordToDelete.DaysAfterSowingModified;
             this.GrowingDegreeDaysAccumulated = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysAccumulated;
             this.GrowingDegreeDaysModified = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysModified;
+            this.LastDayOfGrowingDegreeDays = lDailyRecordBeforeRecordToDelete.LastDayOfGrowingDegreeDays;
 
             this.LastWaterInputDate = lDailyRecordBeforeRecordToDelete.LastWaterInputDate;
             this.LastBigWaterInputDate = lDailyRecordBeforeRecordToDelete.LastBigWaterInputDate;
@@ -3675,6 +3678,7 @@ namespace IrrigationAdvisor.Models.Management
                         lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
+                        this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
                 }
                 else
@@ -3686,6 +3690,7 @@ namespace IrrigationAdvisor.Models.Management
                                                                                             lBaseTemperature, lStressTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
+                        this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
                 }
                 lGrowingDegreeDaysModified = this.GrowingDegreeDaysModified;
@@ -3901,6 +3906,7 @@ namespace IrrigationAdvisor.Models.Management
                         lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
+                        this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
                 }
                 else
@@ -3912,6 +3918,7 @@ namespace IrrigationAdvisor.Models.Management
                                                                                             lBaseTemperature, lStressTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
+                        this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
                 }
                 lGrowingDegreeDaysModified = this.GrowingDegreeDaysModified;
@@ -4190,6 +4197,7 @@ namespace IrrigationAdvisor.Models.Management
                         lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
+                        this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
                 }
                 else
@@ -4201,6 +4209,7 @@ namespace IrrigationAdvisor.Models.Management
                                                                                             lBaseTemperature, lStressTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
+                        this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
                 }
                 lGrowingDegreeDaysModified = this.GrowingDegreeDaysModified;
@@ -4419,6 +4428,7 @@ namespace IrrigationAdvisor.Models.Management
                         lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
+                        this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
                 }
                 else
@@ -4430,6 +4440,7 @@ namespace IrrigationAdvisor.Models.Management
                                                                                         lBaseTemperature, lStressTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
+                        this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
                 }
                 lGrowingDegreeDaysModified = this.GrowingDegreeDaysModified;

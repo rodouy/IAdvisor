@@ -328,8 +328,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieCornNorthShort,
                     ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = 10,
-                    StressTemperature = 40,
+                    BaseTemperature = DataEntry.BaseTemperature_CornNorth_2016,
+                    StressTemperature = DataEntry.StressTemperature_CornNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lCornNorthShort);
@@ -348,8 +348,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSoyaNorthShort,
                     ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = 8,
-                    StressTemperature = 40,
+                    BaseTemperature = DataEntry.BaseTemperature_SoyaNorth_2016,
+                    StressTemperature = DataEntry.StressTemperature_SoyaNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lSoyaNorthShort);

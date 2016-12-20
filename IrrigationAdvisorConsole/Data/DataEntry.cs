@@ -6457,7 +6457,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (i >= 48)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -6855,7 +6855,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (i >= 48)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
