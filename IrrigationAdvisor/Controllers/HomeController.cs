@@ -902,6 +902,12 @@ namespace IrrigationAdvisor.Controllers
             return lResult;
         }
 
+        /// <summary>
+        /// Calculate for a Farm and from a Date
+        /// EX: ../Home/CalculateByFarm?farmid=6&pDateFrom=2016-12-19
+        /// </summary>
+        /// <param name="farmId"></param>
+        /// <param name="pDateFrom"></param>
         public void CalculateByFarm(long farmId, DateTime pDateFrom)
         {
             CalculateAllActiveCropIrrigationWeatherByFarmId("Demo", "lluvia", farmId, pDateFrom);
