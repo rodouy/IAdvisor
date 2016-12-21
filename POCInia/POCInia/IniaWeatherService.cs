@@ -12,6 +12,7 @@ using NLog;
 using System.Globalization;
 using System.Net.Mail;
 using System.Net;
+using System.IO;
 
 namespace POCInia
 {
@@ -35,13 +36,14 @@ namespace POCInia
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
+        private static Dictionary<string, DateTime> lastDates = new Dictionary<string, DateTime>();
+        
         static void Main(string[] args)
         {
             try
             {
                 using (IWebDriver driver = new FirefoxDriver())
                 {
-
                     List<string> weatherStationsId = LoadIniaWeatherStations();
 
                     List<string> dataIds = LoadIniaDataIds();
@@ -51,37 +53,42 @@ namespace POCInia
                     foreach (var station in weatherStationsId)
                     {
 
-                        driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["url"]);
-
-                        wait.Until(d => d.FindElement(By.Id("selectEstacion")));
-
-                        IWebElement select = driver.FindElement(By.Id("selectEstacion"));
-
-                        var selectElement = new SelectElement(select);
-
-                        // select by text
-                        selectElement.SelectByValue(station);
-
-                        IWebElement variables = driver.FindElement(By.Id("variables"));
-
-                        var variablesElement = new SelectElement(variables);
-
-                        foreach (var data in dataIds)
+                        try
                         {
-                            variablesElement.SelectByValue(data);
+                            driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["url"]);
+
+                            wait.Until(d => d.FindElement(By.Id("selectEstacion")));
+
+                            IWebElement select = driver.FindElement(By.Id("selectEstacion"));
+
+                            var selectElement = new SelectElement(select);
+
+                            // select by text
+                            selectElement.SelectByValue(station);
+
+                            IWebElement variables = driver.FindElement(By.Id("variables"));
+
+                            var variablesElement = new SelectElement(variables);
+
+                            foreach (var data in dataIds)
+                            {
+                                variablesElement.SelectByValue(data);
+                            }
                         }
-
+                        catch (Exception ex)
+                        {
+                            logger.Error(ex, "Falló en el momento de seleccionar estación y/o datos. StationId = {0} || " + ex.Message, station);
+                            continue;
+                        }
+                        
                         wait.Until(d => d.FindElement(By.Name("Button")));
-
 
                         IWebElement buttom = driver.FindElement(By.Name("Button"));
 
                         buttom.Click();
 
-                        //Thread.Sleep(5000);
                         // Parse logic        
-                        ProcessIniaData(driver, station);
-                        
+                        ProcessIniaData(driver, station);                      
                     }
 
                     // Carga correcta de Weather Data
@@ -102,7 +109,7 @@ namespace POCInia
             }
         }
 
-        private static IniaDTO LoadIniaDTO(string[] values)
+        private static IniaDTO LoadIniaDTO(string[] values, string stationIniaId)
         {
             // Get ET
             IniaDTO dto = new IniaDTO();
@@ -113,6 +120,13 @@ namespace POCInia
             int day = Convert.ToInt32(dateData[0]);
 
             dto.Date = new DateTime(year, month, day);
+
+            string weatherStationName = GetWeatherStationName(stationIniaId);
+
+            if(!lastDates.ContainsKey(weatherStationName))
+            {
+                lastDates.Add(weatherStationName, dto.Date);
+            }
 
             emailLines.Add("Date : " + dto.Date.ToShortDateString());
             emailLines.Add("\n");
@@ -192,6 +206,32 @@ namespace POCInia
             return dto;
         }
 
+        private static string GetWeatherStationName(string stationIniaId)
+        {
+            string result = null;
+
+            switch (stationIniaId)
+            {
+                case "1":
+                    result = "WeatherStation: Inia Las Brujas";
+                    break;
+                case "2":
+                    result = "WeatherStation: Inia La Estanzuela";
+                    break;
+                case "3":
+                    result = "WeatherStation: Inia Tacuarembó";
+                    break;
+                case "5":
+                    result = "WeatherStation: Inia Salto Grande";
+                    break;
+                default:
+                    result = "No se reconoce el WeatherStation";
+                    break;
+            }
+
+            return result;
+        }
+
         public static void ProcessIniaData(IWebDriver driver, string stationIniaId)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -213,37 +253,29 @@ namespace POCInia
 
                 index++;
             }
-            
-            switch (stationIniaId)
-            {
-                case "1":
-                    emailLines.Add("WeatherStation: Inia Las Brujas");
-                    break;
-                case "2":
-                    emailLines.Add("WeatherStation: Inia La Estanzuela");
-                    break;
-                case "3":
-                    emailLines.Add("WeatherStation: Inia Tacuarembó");
-                    break;
-                case "5":
-                    emailLines.Add("WeatherStation: Inia Salto Grande");
-                    break;
-                default:
-                    emailLines.Add("No se reconoce el WeatherStation");
-                    break;
-            }
 
+            emailLines.Add(GetWeatherStationName(stationIniaId));
+            
             emailLines.Add("\n \n");
 
             foreach (var item in filterRow)
             {
                 string[] values = item.Text.Split(' ');
 
-                IniaDTO dto = LoadIniaDTO(values);
+                IniaDTO dto = LoadIniaDTO(values, stationIniaId);
 
                 SaveIniaRecords(dto, stationIniaId);
             }
             
+        }
+
+        private static string WriteLogAttachment(List<string> lines)
+        {
+            string result = Path.GetTempFileName().Replace(".tmp",".txt");
+
+            File.WriteAllLines(result, lines);
+
+            return result;
         }
 
         public static void SendEmails(string subject, List<string> body)
@@ -271,11 +303,18 @@ namespace POCInia
 
                     body.Reverse();
 
-                    foreach (var item in body)
+                    string message = "Últimas fecha cargadas \n";
+                    string dates = string.Empty;
+
+                    foreach (var item in lastDates)
                     {
-                        mail.Body = item + mail.Body;
+                        dates += item.Key + " - " + item.Value + "\n";
                     }
-    
+
+                    mail.Body = message + dates;
+
+                    mail.Attachments.Add(new Attachment(WriteLogAttachment(body)));
+
                     mail.IsBodyHtml = false;
                     
                     using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
