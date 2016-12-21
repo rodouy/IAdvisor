@@ -15,9 +15,9 @@ namespace POCInia
         public double AvgTemperature { get; set; }
         public double MaxTemperature { get; set; }
         public double MinTemperature { get; set; }
-        public double AvgHumedity { get; set; }
-        public double MaxHumedity { get; set; }
-        public double MinHumedity { get; set; }
+        public double AvgHumidity { get; set; }
+        public double MaxHumidity { get; set; }
+        public double MinHumidity { get; set; }
         public double WindSpeed { get; set; }
     }
 }

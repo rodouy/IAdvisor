@@ -21,14 +21,14 @@ namespace POCInia
         private const int Date = 0;
         private const int ET = 1;
         private const int Radiation = 2;
-        private const int RainDay = 3;
-        private const int AvgTemperature = 4;
-        private const int MaxTemperature = 5;
-        private const int MinTemperature = 6;
-        private const int WindSpeed = 7;
-        private const int AvgHumedity = 8;
-        private const int MaxHumedity = 9;
-        private const int MinHumedity = 10;
+        private const int AvgTemperature = 3;
+        private const int MaxTemperature = 4;
+        private const int MinTemperature = 5;
+        private const int WindSpeed = 6;
+        private const int AvgHumedity = 7;
+        private const int MaxHumedity = 8;
+        private const int MinHumedity = 9;
+        private const int RainDay = 10;
 
         private const int RowIndex = 12;
 
@@ -41,7 +41,7 @@ namespace POCInia
         static void Main(string[] args)
         {
             try
-            {
+            {              
                 using (IWebDriver driver = new FirefoxDriver())
                 {
                     List<string> weatherStationsId = LoadIniaWeatherStations();
@@ -93,6 +93,8 @@ namespace POCInia
 
                     // Carga correcta de Weather Data
                     SendEmails("Carga correcta de INIA Weather Data", emailLines);
+
+                    driver.Quit();
                 }
             }
             catch (Exception ex)
@@ -150,35 +152,46 @@ namespace POCInia
 
             try
             {
-                dto.AvgHumedity = Convert.ToDouble(values[AvgHumedity], provider);
-                emailLines.Add("Average Humedity : " + dto.AvgHumedity);
+                dto.AvgHumidity = Convert.ToDouble(values[AvgHumedity], provider);
+                emailLines.Add("Average Humidity : " + dto.AvgHumidity);
                 emailLines.Add("\n");
             }
             catch (Exception)
             {
-                logger.Warn("Error al cargar Average Humedity");
+                logger.Warn("Error al cargar Average Humidity");
             }
 
             try
             {
-                dto.MaxHumedity = Convert.ToDouble(values[MaxHumedity], provider);
-                emailLines.Add("Max Humedity : " + dto.MaxHumedity);
+                dto.SolarRadiation = Convert.ToDouble(values[Radiation], provider);
+                emailLines.Add("Solar Radiation : " + dto.SolarRadiation);
                 emailLines.Add("\n");
             }
             catch (Exception)
             {
-                logger.Warn("Error al cargar Max Humedity");
+                logger.Warn("Error al cargar Solar Radiation");
             }
 
             try
             {
-                dto.MinHumedity = Convert.ToDouble(values[MinHumedity], provider);
-                emailLines.Add("Min Humedity : " + dto.MinHumedity);
+                dto.MaxHumidity = Convert.ToDouble(values[MaxHumedity], provider);
+                emailLines.Add("Max Humidity : " + dto.MaxHumidity);
                 emailLines.Add("\n");
             }
             catch (Exception)
             {
-                logger.Warn("Error al cargar Min Humedity");
+                logger.Warn("Error al cargar Max Humidity");
+            }
+
+            try
+            {
+                dto.MinHumidity = Convert.ToDouble(values[MinHumedity], provider);
+                emailLines.Add("Min Humidity : " + dto.MinHumidity);
+                emailLines.Add("\n");
+            }
+            catch (Exception)
+            {
+                logger.Warn("Error al cargar Min Humidity");
             }
 
             try
@@ -376,9 +389,9 @@ namespace POCInia
                 {
                     Date = dto.Date,
                     Evapotranspiration = dto.ET,
-                    Humidity = dto.AvgHumedity,
-                    HumidityMax = dto.MaxHumedity,
-                    HumidityMin = dto.MinHumedity,
+                    Humidity = dto.AvgHumidity,
+                    HumidityMax = dto.MaxHumidity,
+                    HumidityMin = dto.MinHumidity,
                     RainDay = dto.RainDay,
                     SolarRadiation = dto.SolarRadiation,
                     Temperature = dto.AvgTemperature,
@@ -399,9 +412,9 @@ namespace POCInia
             {
                 existingWeatherData.Date = dto.Date;
                 existingWeatherData.Evapotranspiration = dto.ET;
-                existingWeatherData.Humidity = dto.AvgHumedity;
-                existingWeatherData.HumidityMax = dto.MaxHumedity;
-                existingWeatherData.HumidityMin = dto.MinHumedity;
+                existingWeatherData.Humidity = dto.AvgHumidity;
+                existingWeatherData.HumidityMax = dto.MaxHumidity;
+                existingWeatherData.HumidityMin = dto.MinHumidity;
                 existingWeatherData.RainDay = dto.RainDay;
                 existingWeatherData.SolarRadiation = dto.SolarRadiation;
                 existingWeatherData.Temperature = dto.AvgTemperature;
