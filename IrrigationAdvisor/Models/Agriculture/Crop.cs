@@ -578,21 +578,23 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <summary>
         /// Add a new PhenologicalStage, if exists, return null
         /// </summary>
-        /// <param name="pSpecieCycle"></param>
+        /// <param name="pSpecie"></param>
         /// <param name="pStage"></param>
         /// <param name="pMinDegree"></param>
         /// <param name="pMaxDegree"></param>
-        /// <param name="pDepth"></param>
+        /// <param name="pCoefficient"></param>
+        /// <param name="pRootDepth"></param>
+        /// <param name="pHydricBalanceDepth"></param>
         /// <returns></returns>
         public PhenologicalStage AddPhenologicalStage(Specie pSpecie, Stage pStage,
-                                        double pMinDegree, double pMaxDegree, 
-                                        double pRootDepth, double pHydricBalanceDepth)
+                                        Double pMinDegree, Double pMaxDegree, Double pCoefficient,
+                                        Double pRootDepth, Double pHydricBalanceDepth)
         {
             PhenologicalStage lReturn = null;
             long lPhenologicalStageId = this.GetNewPhenologicalStageListId();
             PhenologicalStage lPhenologicalStage = new PhenologicalStage(lPhenologicalStageId,
                                                     pSpecie, pStage, pMinDegree, pMaxDegree,
-                                                    pRootDepth, pHydricBalanceDepth);
+                                                    pCoefficient, pRootDepth, pHydricBalanceDepth);
 
             lReturn = ExistPhenologicalStage(lPhenologicalStage);
             if (lReturn == null)
@@ -609,15 +611,17 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// Update all the information about an existing PhenologicalStage,
         /// if not exist, return null
         /// </summary>
+        /// <param name="pSpecie"></param>
         /// <param name="pStage"></param>
         /// <param name="pMinDegree"></param>
         /// <param name="pMaxDegree"></param>
+        /// <param name="pCoefficient"></param>
         /// <param name="pRootDepth"></param>
         /// <param name="pHydricBalanceDepth"></param>
         /// <returns></returns>
         public PhenologicalStage UpdatePhenologicalStage(Specie pSpecie, Stage pStage,
-                                        double pMinDegree, double pMaxDegree,
-                                        double pRootDepth, double pHydricBalanceDepth)
+                                        Double pMinDegree, Double pMaxDegree, Double pCoefficient,
+                                        Double pRootDepth, Double pHydricBalanceDepth)
         {
             PhenologicalStage lReturn = null;
             Stage lStage = null;
@@ -625,8 +629,8 @@ namespace IrrigationAdvisor.Models.Agriculture
             try
             {
                 PhenologicalStage lPhenologicalStage = new PhenologicalStage(0, pSpecie, pStage,
-                                                                pMinDegree, pMaxDegree, pRootDepth,
-                                                                pHydricBalanceDepth);
+                                                                pMinDegree, pMaxDegree, pCoefficient,
+                                                                pRootDepth, pHydricBalanceDepth);
                 lReturn = ExistPhenologicalStage(lPhenologicalStage);
                 if (lReturn != null)
                 {
@@ -647,6 +651,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                     lReturn.UpdateStage(pStage.Name, pStage.ShortName, pStage.Description, pStage.Order);
                     lReturn.MinDegree = pMinDegree;
                     lReturn.MaxDegree = pMaxDegree;
+                    lReturn.Coefficient = pCoefficient;
                     lReturn.RootDepth = pRootDepth;
                     lReturn.HydricBalanceDepth = pHydricBalanceDepth;
                 }
@@ -687,6 +692,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                                     pPhenologicalStage.Stage.Description, pPhenologicalStage.Stage.Order);
                 lReturn.MinDegree = pPhenologicalStage.MinDegree;
                 lReturn.MaxDegree = pPhenologicalStage.MaxDegree;
+                lReturn.Coefficient = pPhenologicalStage.Coefficient;
                 lReturn.RootDepth = pPhenologicalStage.RootDepth;
                 lReturn.HydricBalanceDepth = pPhenologicalStage.HydricBalanceDepth;
             }
