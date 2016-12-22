@@ -71,7 +71,7 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
-        private Farm GetCurrenFarm(List<Farm> pFarmList)
+        private Farm GetCurrentFarm(List<Farm> pFarmList)
         {
             string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
             Uri lMyUri = new Uri(lURL);
@@ -177,7 +177,7 @@ namespace IrrigationAdvisor.Controllers
 
                 trace = 20;
                 lAuthentication = new Authentication(pLoginViewModel.UserName, pLoginViewModel.Password);
-
+                
                 if (!lAuthentication.IsAuthenticated())
                 {
                     var routes = new RouteValueDictionary { { "msg", AUTHENTICATION_ERROR }};
@@ -279,7 +279,7 @@ namespace IrrigationAdvisor.Controllers
 
                 trace = 80;
                 #region Current Farm
-                lCurrentFarm = GetCurrenFarm(lFarmList);
+                lCurrentFarm = GetCurrentFarm(lFarmList);
 
                 lCurrentFarmLatitude = fc.GetLatitudeBy(lCurrentFarm.PositionId).ToString().Replace(",", ".");
                 lCurrentFarmLongitude = fc.GetLongitudeBy(lCurrentFarm.PositionId).ToString().Replace(",", ".");
@@ -361,14 +361,14 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (NullReferenceException ex)
             {
-                logger.Error(ex, "Trace: " + trace + " - Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Trace: {0} - Exception in HomeController.Home ", trace);
                 ManageSession.CleanSession();
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Trace: {0} - Exception in HomeController.Home ", trace);
                 ManageSession.CleanSession();
                 return RedirectToAction("Index");
             }
@@ -459,7 +459,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetFarmsByUser " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetFarmsByUser");
                 return Json(ex.Message, JsonRequestBehavior.AllowGet);
             }
         }
@@ -525,7 +525,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetStagesBy \n {0} \n {1}", ex.Message , ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetStagesBy");
             }
 
             return Json(lStageResult, JsonRequestBehavior.AllowGet);
@@ -560,7 +560,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.ChangeDateOfReference " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.ChangeDateOfReference");
                 return Content(ex.Message);
             }
 
@@ -634,7 +634,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.SendEmails " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.SendEmails");
                 return Content(ex.Message);
             }
 
@@ -684,7 +684,7 @@ namespace IrrigationAdvisor.Controllers
                     }
                     catch (Exception ex)
                     {
-                        logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                        Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
                         continue;
                     }
                 } 
@@ -787,7 +787,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
                 lResult = false;
             }
 
@@ -806,8 +806,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
-               
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
             }
 
             return lResult;
@@ -829,7 +828,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
                 lResult = false;
             }
 
@@ -887,7 +886,8 @@ namespace IrrigationAdvisor.Controllers
                     }
                     catch (Exception ex)
                     {
-                        logger.Error(ex, "Exception in HomeController.PredictionWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                        Utils.LogError(ex, "Exception in HomeController.PredictionWeatherData");
+                       
                         continue;
                     }
                 }
@@ -895,7 +895,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.PredictionWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.PredictionWeatherData");
                 lResult = false;
             }
 
@@ -941,7 +941,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
+               
             }
 
             return Content("Error al calcular los Cultivos activos");
@@ -971,7 +972,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
+               
                 //return Content("Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message);
             }
 
@@ -1030,7 +1032,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.AddPhenology " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.AddPhenology");
+               
                 return Content("Exception in HomeController.AddPhenology " + "\n" + ex.Message);
             }
 
@@ -1115,7 +1118,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.AddIrrigation " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.AddIrrigation ");
+               
                 return Content("Exception in HomeController.AddIrrigation " + "\n" + ex.Message);
 
             }
@@ -1196,7 +1200,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.AddRain " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.AddRain ");
+               
                 return Content("Exception in HomeController.AddRain " + "\n" + ex.Message);
 
             }
@@ -1309,7 +1314,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.Login " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.Login");
+               
             }
 
             return lResult;
@@ -1377,7 +1383,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetGridPivotHomeTitles " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetGridPivotHomeTitles");
+                
                 throw ex;
             }
 
@@ -1441,7 +1448,7 @@ namespace IrrigationAdvisor.Controllers
                 //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
 
-                lCurrentFarm = GetCurrenFarm(lFarmList);
+                lCurrentFarm = GetCurrentFarm(lFarmList);
                 lFarmViewModel = new FarmViewModel(lCurrentFarm);
                 lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lCurrentFarm);
 
@@ -1498,7 +1505,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetGridPivotHome " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetGridPivotHome");
+               
                 throw ex;
             }
 
@@ -1649,7 +1657,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.AddGridIrrigationUnit " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.AddGridIrrigationUnit");
+                
                 throw ex;
             }
 
@@ -1742,7 +1751,7 @@ namespace IrrigationAdvisor.Controllers
                     //Get list of Farms from User
                     lFarmList = fc.GetFarmListBy(lLoggedUser);
 
-                    lCurrentFarm = GetCurrenFarm(lFarmList);
+                    lCurrentFarm = GetCurrentFarm(lFarmList);
                     lPositionId = lCurrentFarm.PositionId;
 
                     lLatitude = fc.GetLatitudeBy(lPositionId).ToString().Replace(",", ".");
@@ -1938,7 +1947,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetWeatherDataFromWUnderground");
+               
                 throw ex;
             }
 
@@ -2027,7 +2037,7 @@ namespace IrrigationAdvisor.Controllers
                     //Get list of Farms from User
                     lFarmList = fc.GetFarmListBy(lLoggedUser);
 
-                    lCurrentFarm = GetCurrenFarm(lFarmList);
+                    lCurrentFarm = GetCurrentFarm(lFarmList);
                     lPositionId = lCurrentFarm.PositionId;
 
                     lLatitude = fc.GetLatitudeBy(lPositionId).ToString().Replace(",", ".");
@@ -2227,7 +2237,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetWeatherDataFromWUndergroundHome " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetWeatherDataFromWUndergroundHome");
+                
                 throw ex;
             }
 

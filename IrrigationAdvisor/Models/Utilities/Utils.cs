@@ -1873,6 +1873,24 @@ namespace IrrigationAdvisor.Models.Utilities
         }
         #endregion
 
+        public static void LogError(Exception ex, string pDescription, params object[] args)
+        {
+            string userName = ManageSession.GetUserName();
+
+            LogManager.Configuration.Variables["userName"] = userName != null ? userName : "Undefined";
+            
+            string lDescription = string.Format(pDescription + " | {0} | {1} ", ex.Message, ex.StackTrace);
+
+            if (userName == null)
+            {
+                logger.Error(ex, lDescription, args);
+            }
+            else
+            {
+                logger.Error(ex, "User: " + userName + " | " + lDescription, args);
+            }
+        }
+
         #endregion
 
         #region Overrides
