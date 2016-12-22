@@ -798,12 +798,6 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilDCAElParaiso6 = NameFarmDCAElParaiso + " Pivot 06";
         public static String NameSoilDCAElParaiso7 = NameFarmDCAElParaiso + " Pivot 07";
         #endregion
-        #region SanJose
-        public static String NameSoilDCASanJose1 = NameFarmDCASanJose + " Pivot 01";
-        public static String NameSoilDCASanJose2 = NameFarmDCASanJose + " Pivot 02";
-        public static String NameSoilDCASanJose3 = NameFarmDCASanJose + " Pivot 03";
-        public static String NameSoilDCASanJose4 = NameFarmDCASanJose + " Pivot 04";
-        #endregion
         #region LaPerdiz
         public static String NameSoilDCALaPerdiz1 = NameFarmDCALaPerdiz + " Pivot 01";
         public static String NameSoilDCALaPerdiz2 = NameFarmDCALaPerdiz + " Pivot 02";
@@ -821,6 +815,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilDCALaPerdiz13 = NameFarmDCALaPerdiz + " Pivot 13";
         public static String NameSoilDCALaPerdiz14 = NameFarmDCALaPerdiz + " Pivot 14";
         public static String NameSoilDCALaPerdiz15 = NameFarmDCALaPerdiz + " Pivot 15";
+        #endregion
+        #region SanJose
+        public static String NameSoilDCASanJose1 = NameFarmDCASanJose + " Pivot 01";
+        public static String NameSoilDCASanJose2 = NameFarmDCASanJose + " Pivot 02";
+        public static String NameSoilDCASanJose3 = NameFarmDCASanJose + " Pivot 03";
+        public static String NameSoilDCASanJose4 = NameFarmDCASanJose + " Pivot 04";
         #endregion
         #endregion
         #region Del Lago
@@ -958,12 +958,6 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotDCAElParaiso6 = NameFarmDCAElParaiso + " Pivot 06";
         public static String NamePivotDCAElParaiso7 = NameFarmDCAElParaiso + " Pivot 07";
         #endregion
-        #region DCA - San Jose
-        public static String NamePivotDCASanJose1 = NameFarmDCASanJose + " Pivot 01";
-        public static String NamePivotDCASanJose2 = NameFarmDCASanJose + " Pivot 02";
-        public static String NamePivotDCASanJose3 = NameFarmDCASanJose + " Pivot 03";
-        public static String NamePivotDCASanJose4 = NameFarmDCASanJose + " Pivot 04";
-        #endregion
         #region DCA - La Perdiz
         public static String NamePivotDCALaPerdiz1 = NameFarmDCALaPerdiz + " Pivot 01";
         public static String NamePivotDCALaPerdiz2 = NameFarmDCALaPerdiz + " Pivot 02";
@@ -981,6 +975,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotDCALaPerdiz13 = NameFarmDCALaPerdiz + " Pivot 13";
         public static String NamePivotDCALaPerdiz14 = NameFarmDCALaPerdiz + " Pivot 14";
         public static String NamePivotDCALaPerdiz15 = NameFarmDCALaPerdiz + " Pivot 15";
+        #endregion
+        #region DCA - San Jose
+        public static String NamePivotDCASanJose1 = NameFarmDCASanJose + " Pivot 01";
+        public static String NamePivotDCASanJose2 = NameFarmDCASanJose + " Pivot 02";
+        public static String NamePivotDCASanJose3 = NameFarmDCASanJose + " Pivot 03";
+        public static String NamePivotDCASanJose4 = NameFarmDCASanJose + " Pivot 04";
         #endregion
         #endregion
         #region Del Lago
@@ -1293,12 +1293,6 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotDCAElParaiso6 = NamePivotDCAElParaiso6;
         public static String NamePositionPivotDCAElParaiso7 = NamePivotDCAElParaiso7;
         #endregion
-        #region SanJose
-        public static String NamePositionPivotDCASanJose1 = NamePivotDCASanJose1;
-        public static String NamePositionPivotDCASanJose2 = NamePivotDCASanJose2;
-        public static String NamePositionPivotDCASanJose3 = NamePivotDCASanJose3;
-        public static String NamePositionPivotDCASanJose4 = NamePivotDCASanJose4;
-        #endregion
         #region LaPerdiz
         public static String NamePositionPivotDCALaPerdiz1 = NamePivotDCALaPerdiz1;
         public static String NamePositionPivotDCALaPerdiz2 = NamePivotDCALaPerdiz2;
@@ -1316,6 +1310,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotDCALaPerdiz13 = NamePivotDCALaPerdiz13;
         public static String NamePositionPivotDCALaPerdiz14 = NamePivotDCALaPerdiz14;
         public static String NamePositionPivotDCALaPerdiz15 = NamePivotDCALaPerdiz15;
+        #endregion
+        #region SanJose
+        public static String NamePositionPivotDCASanJose1 = NamePivotDCASanJose1;
+        public static String NamePositionPivotDCASanJose2 = NamePivotDCASanJose2;
+        public static String NamePositionPivotDCASanJose3 = NamePivotDCASanJose3;
+        public static String NamePositionPivotDCASanJose4 = NamePivotDCASanJose4;
         #endregion
         #endregion
         #region Del Lago - Pivots
