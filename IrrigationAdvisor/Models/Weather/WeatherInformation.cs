@@ -175,9 +175,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in IrrigationSystem.WeatherInformation.ExtractInformationFromData " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in WeatherInformation.ExtractInformationFromData " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
 
 

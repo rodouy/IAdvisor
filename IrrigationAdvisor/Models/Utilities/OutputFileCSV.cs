@@ -597,9 +597,8 @@ namespace IrrigationAdvisor.Models.Utilities
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in OutputFileCSV.WriteFile " + ex.Message);
-                throw ;
+                logger.Error(ex, "Exception in OutputFileCSV.WriteFile " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
         }
 

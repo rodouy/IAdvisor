@@ -82,7 +82,7 @@ namespace IrrigationAdvisor.Models.Management
         private Double growingDegreeDays;
         private Double growingDegreeDaysAccumulated;
         private Double growingDegreeDaysModified;
-
+        private DateTime lastDayOfGrowingDegreeDays;
         #endregion
 
         #region Water Data
@@ -217,6 +217,12 @@ namespace IrrigationAdvisor.Models.Management
         {
             get { return growingDegreeDaysModified; }
             set { growingDegreeDaysModified = value; }
+        }
+
+        public DateTime LastDayOfGrowingDegreeDays
+        {
+            get { return lastDayOfGrowingDegreeDays; }
+            set { lastDayOfGrowingDegreeDays = value; }
         }
 
         #endregion
@@ -441,6 +447,7 @@ namespace IrrigationAdvisor.Models.Management
             this.GrowingDegreeDays = 0;
             this.GrowingDegreeDaysAccumulated = 0;
             this.GrowingDegreeDaysModified = 0;
+            this.LastDayOfGrowingDegreeDays = Utils.MIN_DATETIME;
 
             this.RainId = 0;
             this.IrrigationId = 0;
@@ -500,6 +507,7 @@ namespace IrrigationAdvisor.Models.Management
                             long pMainWeatherDataId, long pAlternativeWeatherDataId,
                             int pDaysAfterSowing, int pDaysAfterSowingModified,
                             Double pGrowingDegreeDays, Double pGrowingDegreeDaysAccumulated, Double pGrowingDegreeDaysModified, 
+                            DateTime pLastDayOfGrowingDegreeDays,
                             long pRainId, long pIrrigationId,
                             DateTime pLastWaterInputDate, DateTime pLastBigWaterInputDate,
                             DateTime pLastPartialWaterInputDate, Double pLastPartialWaterInput, 
@@ -521,6 +529,7 @@ namespace IrrigationAdvisor.Models.Management
             this.GrowingDegreeDays = pGrowingDegreeDays;
             this.GrowingDegreeDaysAccumulated = pGrowingDegreeDaysAccumulated;
             this.GrowingDegreeDaysModified = pGrowingDegreeDaysModified;
+            this.LastDayOfGrowingDegreeDays = pLastDayOfGrowingDegreeDays;
 
             this.RainId = pRainId;
             this.IrrigationId = pIrrigationId;

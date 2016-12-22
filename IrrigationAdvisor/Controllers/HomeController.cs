@@ -71,7 +71,7 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
-        private Farm GetCurrenFarm(List<Farm> pFarmList)
+        private Farm GetCurrentFarm(List<Farm> pFarmList)
         {
             string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
             Uri lMyUri = new Uri(lURL);
@@ -177,7 +177,7 @@ namespace IrrigationAdvisor.Controllers
 
                 trace = 20;
                 lAuthentication = new Authentication(pLoginViewModel.UserName, pLoginViewModel.Password);
-
+                
                 if (!lAuthentication.IsAuthenticated())
                 {
                     var routes = new RouteValueDictionary { { "msg", AUTHENTICATION_ERROR }};
@@ -279,7 +279,7 @@ namespace IrrigationAdvisor.Controllers
 
                 trace = 80;
                 #region Current Farm
-                lCurrentFarm = GetCurrenFarm(lFarmList);
+                lCurrentFarm = GetCurrentFarm(lFarmList);
 
                 lCurrentFarmLatitude = fc.GetLatitudeBy(lCurrentFarm.PositionId).ToString().Replace(",", ".");
                 lCurrentFarmLongitude = fc.GetLongitudeBy(lCurrentFarm.PositionId).ToString().Replace(",", ".");
@@ -361,14 +361,14 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (NullReferenceException ex)
             {
-                logger.Error(ex, "Trace: " + trace + " - Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Trace: {0} - Exception in HomeController.Home ", trace);
                 ManageSession.CleanSession();
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Trace: {0} - Exception in HomeController.Home ", trace);
                 ManageSession.CleanSession();
                 return RedirectToAction("Index");
             }
@@ -459,7 +459,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetFarmsByUser " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetFarmsByUser");
                 return Json(ex.Message, JsonRequestBehavior.AllowGet);
             }
         }
@@ -525,7 +525,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetStagesBy \n {0} \n {1}", ex.Message , ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetStagesBy");
             }
 
             return Json(lStageResult, JsonRequestBehavior.AllowGet);
@@ -560,7 +560,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.ChangeDateOfReference " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.ChangeDateOfReference");
                 return Content(ex.Message);
             }
 
@@ -634,7 +634,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.SendEmails " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.SendEmails");
                 return Content(ex.Message);
             }
 
@@ -684,7 +684,7 @@ namespace IrrigationAdvisor.Controllers
                     }
                     catch (Exception ex)
                     {
-                        logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                        Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
                         continue;
                     }
                 } 
@@ -707,6 +707,7 @@ namespace IrrigationAdvisor.Controllers
 
                 string status = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["Status"]);
                 Status lStatus = ManageSession.GetCurrentStatus();
+                DateTime lDateOfReference = lStatus.DateOfReference;
 
                 if (lStatus.WebStatus == Utils.IrrigationAdvisorWebStatus.Online)
                 {
@@ -720,13 +721,15 @@ namespace IrrigationAdvisor.Controllers
                         // TO-DO : Verlo con Rodo
                         if (pDateFrom == null)
                         {
-                            ProcessInformationToIrrigationUnits(lCropIrrigationWeatherList, lStatus.DateOfReference, DateTime.Now);
+                            ProcessInformationToIrrigationUnits(lCropIrrigationWeatherList, lDateOfReference, DateTime.Now);
+                            lDateOfReference = DateTime.Now;
                         }
                         else
                         {
-                            ProcessInformationToIrrigationUnits(lCropIrrigationWeatherList, pDateFrom.Value, lStatus.DateOfReference);
+                            ProcessInformationToIrrigationUnits(lCropIrrigationWeatherList, pDateFrom.Value, lDateOfReference);
                         }
-                       
+
+                        #region before 
                         //foreach (CropIrrigationWeather lCIW in lCropIrrigationWeatherList)
                         //{
                         //    //If Error, continue with others CIWs
@@ -746,13 +749,14 @@ namespace IrrigationAdvisor.Controllers
                         //        continue;
                         //    }
                         //}
-                        
+                        #endregion
+
                         StatusConfiguration sc = new StatusConfiguration();
-                        lResult = sc.SetStatus(lStatus.DateOfReference, lStatus.Name);
+                        lResult = sc.SetDateOfReferenceStatus(lDateOfReference, lStatus.Name);
 
                         lStatusResult = Utils.SetStatusAsOnline(status);
 
-                        // Re - try
+                        #region Re - try Set Web Status as Online
                         if (!lStatusResult)
                         {
                             int tries = 3;
@@ -769,7 +773,7 @@ namespace IrrigationAdvisor.Controllers
                                 logger.Error("The method Utils.SetStatusAsOnline fail " + tries + "times " + "It's necessary to update the record manually in the database to set the web site as online.");
                             }
                         }
-
+                        #endregion
                     }
                     else
                     {
@@ -783,7 +787,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
                 lResult = false;
             }
 
@@ -802,12 +806,12 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
-               
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
             }
 
             return lResult;
         }
+
         /// <summary>
         /// Calculate All CropIrrigationWeather by Date Of Reference to Now (System Date)
         /// </summary>
@@ -824,7 +828,7 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
                 lResult = false;
             }
 
@@ -882,7 +886,8 @@ namespace IrrigationAdvisor.Controllers
                     }
                     catch (Exception ex)
                     {
-                        logger.Error(ex, "Exception in HomeController.PredictionWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                        Utils.LogError(ex, "Exception in HomeController.PredictionWeatherData");
+                       
                         continue;
                     }
                 }
@@ -890,13 +895,19 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.PredictionWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.PredictionWeatherData");
                 lResult = false;
             }
 
             return lResult;
         }
 
+        /// <summary>
+        /// Calculate for a Farm and from a Date
+        /// EX: ../Home/CalculateByFarm?farmid=6&pDateFrom=2016-12-19
+        /// </summary>
+        /// <param name="farmId"></param>
+        /// <param name="pDateFrom"></param>
         public void CalculateByFarm(long farmId, DateTime pDateFrom)
         {
             CalculateAllActiveCropIrrigationWeatherByFarmId("Demo", "lluvia", farmId, pDateFrom);
@@ -930,7 +941,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
+               
             }
 
             return Content("Error al calcular los Cultivos activos");
@@ -960,7 +972,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather");
+               
                 //return Content("Exception in HomeController.CalculateAllActiveCropIrrigationWeather " + "\n" + ex.Message);
             }
 
@@ -1019,7 +1032,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.AddPhenology " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.AddPhenology");
+               
                 return Content("Exception in HomeController.AddPhenology " + "\n" + ex.Message);
             }
 
@@ -1104,7 +1118,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.AddIrrigation " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.AddIrrigation ");
+               
                 return Content("Exception in HomeController.AddIrrigation " + "\n" + ex.Message);
 
             }
@@ -1185,7 +1200,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.AddRain " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.AddRain ");
+               
                 return Content("Exception in HomeController.AddRain " + "\n" + ex.Message);
 
             }
@@ -1298,7 +1314,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.Login " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.Login");
+               
             }
 
             return lResult;
@@ -1366,7 +1383,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetGridPivotHomeTitles " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetGridPivotHomeTitles");
+                
                 throw ex;
             }
 
@@ -1430,7 +1448,7 @@ namespace IrrigationAdvisor.Controllers
                 //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
 
-                lCurrentFarm = GetCurrenFarm(lFarmList);
+                lCurrentFarm = GetCurrentFarm(lFarmList);
                 lFarmViewModel = new FarmViewModel(lCurrentFarm);
                 lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lCurrentFarm);
 
@@ -1487,7 +1505,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetGridPivotHome " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetGridPivotHome");
+               
                 throw ex;
             }
 
@@ -1529,6 +1548,7 @@ namespace IrrigationAdvisor.Controllers
 
         /// <summary>
         /// Add Grid Irrigation Unit with all columns data
+        /// Using DailyRecords for obtain Irrigation, Rain information.
         /// </summary>
         /// <param name="pDayOfReference"></param>
         /// <param name="pDayOfData"></param>
@@ -1546,30 +1566,33 @@ namespace IrrigationAdvisor.Controllers
             Double lForcastIrrigationQuantity = 0;
             Double lWaterQuantity = 0;
             DateTime lDateOfData = Utils.MIN_DATETIME;
+            DateTime lDayOfReference = Utils.MIN_DATETIME;
             bool lIsToday = false;
             Utils.IrrigationStatus lIrrigationStatus = Utils.IrrigationStatus.Default;
             String lPhenology = "";
 
-            Models.Water.Irrigation lIrrigation = null;
             Rain lRain = null;
             DailyRecord lDailyRecord = null;
             try
             {
 
                 lDateOfData = pDayOfData.Date;
+                lDayOfReference = pDayOfReference.Date;
+
+                //Find Daily Record of the Date of Data
+                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData.Date).FirstOrDefault();
 
                 #region Irrigation in the past
-                //Find Irrigation of the Date of Data
-                lIrrigation = pIrrigationList.Where(ir => ir.Date.Date == lDateOfData.Date).FirstOrDefault();
-                if (lIrrigation != null && lIrrigation.Input > 0 && lDateOfData < pDayOfReference)
+                if (lDailyRecord != null && lDateOfData < lDayOfReference)
                 {
-                    lIrrigationQuantity = lIrrigation.Input;
-                }
-
-                lIrrigation = pIrrigationList.Where(ir => ir.ExtraDate.Date == lDateOfData.Date).FirstOrDefault();
-                if (lIrrigation != null && lIrrigation.ExtraInput > 0 && lDateOfData < pDayOfReference)
-                {
-                    lIrrigationQuantity += lIrrigation.ExtraInput;
+                    if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
+                    {
+                        lIrrigationQuantity += lDailyRecord.Irrigation.Input;
+                    }
+                    else if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.ExtraInput > 0)
+                    {
+                        lIrrigationQuantity += lDailyRecord.Irrigation.ExtraInput;
+                    }
                 }
                 #endregion
 
@@ -1577,7 +1600,7 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Rain
                 //Find Rain of the Date of Data
-                lRain = pRainList.Where(r => r.Date.Date == lDateOfData.Date || r.ExtraDate.Date == lDateOfData.Date).FirstOrDefault();
+                lRain = pRainList.Where(r => r.Date.Date == lDateOfData || r.ExtraDate.Date == lDateOfData).FirstOrDefault();
                 if (lRain != null && lRain.GetTotalInput() > 0)
                 {
                     lRainQuantity = lRain.GetTotalInput();
@@ -1588,8 +1611,8 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Irrigation for today or in the future
                 //Find Daily Record of the Date of Data
-                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData.Date).FirstOrDefault();
-                if (lDailyRecord != null && lDateOfData.Date >= pDayOfReference.Date)
+                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData).FirstOrDefault();
+                if (lDailyRecord != null && lDateOfData >= lDayOfReference)
                 {
                     if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
                     {
@@ -1604,7 +1627,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lWaterQuantity += lForcastIrrigationQuantity;
 
-                lIsToday = lDateOfData.Date == pDayOfReference.Date;
+                lIsToday = lDateOfData == lDayOfReference;
 
                 if (lIsToday)
                 {
@@ -1631,11 +1654,11 @@ namespace IrrigationAdvisor.Controllers
                 lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
                                                                 lDateOfData, lIsToday, lIrrigationStatus,
                                                                 lPhenology);
-
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.AddGridIrrigationUnit " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.AddGridIrrigationUnit");
+                
                 throw ex;
             }
 
@@ -1728,7 +1751,7 @@ namespace IrrigationAdvisor.Controllers
                     //Get list of Farms from User
                     lFarmList = fc.GetFarmListBy(lLoggedUser);
 
-                    lCurrentFarm = GetCurrenFarm(lFarmList);
+                    lCurrentFarm = GetCurrentFarm(lFarmList);
                     lPositionId = lCurrentFarm.PositionId;
 
                     lLatitude = fc.GetLatitudeBy(lPositionId).ToString().Replace(",", ".");
@@ -1924,7 +1947,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetWeatherDataFromWUnderground " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetWeatherDataFromWUnderground");
+               
                 throw ex;
             }
 
@@ -2013,7 +2037,7 @@ namespace IrrigationAdvisor.Controllers
                     //Get list of Farms from User
                     lFarmList = fc.GetFarmListBy(lLoggedUser);
 
-                    lCurrentFarm = GetCurrenFarm(lFarmList);
+                    lCurrentFarm = GetCurrentFarm(lFarmList);
                     lPositionId = lCurrentFarm.PositionId;
 
                     lLatitude = fc.GetLatitudeBy(lPositionId).ToString().Replace(",", ".");
@@ -2213,7 +2237,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetWeatherDataFromWUndergroundHome " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Utils.LogError(ex, "Exception in HomeController.GetWeatherDataFromWUndergroundHome");
+                
                 throw ex;
             }
 

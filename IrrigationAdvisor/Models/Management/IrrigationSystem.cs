@@ -605,7 +605,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pCropCoefficient"></param>
         /// <param name="pStageList"></param>
         /// <param name="pPhenologicalStageList"></param>
-        /// <param name="pDensity"></param>
+        /// <param name="pMinStageToConsiderETinHBCalculationId"></param>
         /// <param name="pMaxEvapotranspirationToIrrigate"></param>
         /// <param name="pMinEvapotranspirationToIrrigate"></param>
         /// <param name="pStopIrrigationStageId"></param>
@@ -613,14 +613,16 @@ namespace IrrigationAdvisor.Models.Management
         public Crop AddCrop(String pName, String pShortName, Region pRegion, Specie pSpecie, 
                         CropCoefficient pCropCoefficient, List<Stage> pStageList,
                         List<PhenologicalStage> pPhenologicalStageList, 
-                        Double pDensity, Double pMaxEvapotranspirationToIrrigate,
+                        long pMinStageToConsiderETinHBCalculationId,
+                        Double pMaxEvapotranspirationToIrrigate,
                         Double pMinEvapotranspirationToIrrigate, long pStopIrrigationStageId)
         {
             Crop lReturn = null;
             int lCropId = this.CropList.Count();
             Crop lCrop = new Crop(lCropId, pName, pShortName, pRegion.RegionId, pSpecie.SpecieId, 
                                 pCropCoefficient.CropCoefficientId, pPhenologicalStageList,
-                                pDensity, pMaxEvapotranspirationToIrrigate, pMinEvapotranspirationToIrrigate,
+                                pMinStageToConsiderETinHBCalculationId,
+                                pMaxEvapotranspirationToIrrigate, pMinEvapotranspirationToIrrigate,
                                 pStopIrrigationStageId);
             lReturn = ExistCrop(lCrop);
             if (lReturn == null)
@@ -661,20 +663,22 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pSpecie"></param>
         /// <param name="pCropCoefficient"></param>
         /// <param name="pPhenologicalStageList"></param>
-        /// <param name="pDensity"></param>
+        /// <param name="pMinStageToConsiderETinHBCalculationId"></param>
         /// <param name="pMaxEvapotranspirationToIrrigate"></param>
         /// <param name="pMinEvapotranspirationToIrrigate"></param>
         /// <param name="pStopIrrigationStageId"></param>
         /// <returns></returns>
         public Crop UpdateCrop(String pName, String pShortName, Region pRegion, Specie pSpecie,
                         CropCoefficient pCropCoefficient, List<PhenologicalStage> pPhenologicalStageList, 
-                        Double pDensity, Double pMaxEvapotranspirationToIrrigate, Double pMinEvapotranspirationToIrrigate,
+                        long pMinStageToConsiderETinHBCalculationId,
+                        Double pMaxEvapotranspirationToIrrigate, Double pMinEvapotranspirationToIrrigate,
                         long pStopIrrigationStageId)
         {
             Crop lReturn = null;
             Crop lCrop = new Crop(0, pName, pShortName, pRegion.RegionId, pSpecie.SpecieId, 
                             pCropCoefficient.CropCoefficientId, pPhenologicalStageList,
-                            pDensity, pMaxEvapotranspirationToIrrigate, pMinEvapotranspirationToIrrigate,
+                            pMinStageToConsiderETinHBCalculationId,
+                            pMaxEvapotranspirationToIrrigate, pMinEvapotranspirationToIrrigate,
                             pStopIrrigationStageId);
             lReturn = ExistCrop(lCrop);
             if (lReturn != null)
@@ -684,7 +688,7 @@ namespace IrrigationAdvisor.Models.Management
                 lReturn.Specie = pSpecie;
                 lReturn.CropCoefficient = pCropCoefficient;
                 lReturn.UpdatePhenologicalStageList(pPhenologicalStageList);
-                lReturn.Density = pDensity;
+                lReturn.MinStageToConsiderETinHBCalculationId = pMinStageToConsiderETinHBCalculationId;
                 lReturn.MaxEvapotranspirationToIrrigate = pMaxEvapotranspirationToIrrigate;
                 lReturn.MinEvapotranspirationToIrrigate = pMinEvapotranspirationToIrrigate;
                 lReturn.StopIrrigationStageId = pStopIrrigationStageId;

@@ -456,33 +456,30 @@ namespace IrrigationAdvisor.Models.Weather
 
         #region Private Helpers
 
-        /// <summary>
-        /// Get Average from two Double values;
-        /// </summary>
-        /// <param name="pMax"></param>
-        /// <param name="pMin"></param>
-        /// <returns></returns>
-        private Double getAverage(Double pMax, Double pMin)
-        {
-            Double lAverage = 0;
-            try
-            {
-                if (pMax == 0 || pMin == 0)
-                    return 0;
-                lAverage = Math.Round((pMax + pMin)/ 2, 2);
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in IrrigationSystem.WeatherData.getAverage " + ex.Message);
-                throw;
-            }
-            return lAverage;
-        }
-
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Get the Average Temperature between Max and Min Temperature
+        /// </summary>
+        /// <returns></returns>
+        public Double GetAverageTemperature(Double pMaxTemperatureLimit, Double pMinTemperatureLimit)
+        {
+            Double lAverageTemperature = 0;
+            Double lTemperatureMax = Utils.GetMin(pMaxTemperatureLimit, this.TemperatureMax);
+            Double lTemperatureMin = Utils.GetMax(pMinTemperatureLimit, this.TemperatureMin);
+            try
+            {
+                lAverageTemperature = Utils.GetAverage(lTemperatureMax, lTemperatureMin);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in WeatherData.GetAverageTemperature " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+            return lAverageTemperature;
+        }
 
         /// <summary>
         /// Get the Average Temperature between Max and Min Temperature
@@ -493,12 +490,11 @@ namespace IrrigationAdvisor.Models.Weather
             Double lAverageTemperature = 0;
             try
             {
-                lAverageTemperature = this.getAverage(this.TemperatureMax, this.TemperatureMin);
+                lAverageTemperature = Utils.GetAverage(this.TemperatureMax, this.TemperatureMin);
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageTemperature " + ex.Message);
+                logger.Error(ex, "Exception in WeatherData.GetAverageTemperature " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
             }
             return lAverageTemperature;
@@ -513,14 +509,12 @@ namespace IrrigationAdvisor.Models.Weather
             Double lAverageHumidity = 0;
             try
             {
-                lAverageHumidity = 
-                    this.getAverage(this.HumidityMax, this.HumidityMin);
+                lAverageHumidity = Utils.GetAverage(this.HumidityMax, this.HumidityMin);
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageHumidity " + ex.Message);
-                throw;
+                logger.Error(ex, "Exception in WeatherData.GetAverageHumidity " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lAverageHumidity;
         }
@@ -534,14 +528,12 @@ namespace IrrigationAdvisor.Models.Weather
             Double lAverageBarometer = 0;
             try
             {                
-                lAverageBarometer = 
-                    this.getAverage(this.BarometerMax, this.BarometerMin);
+                lAverageBarometer = Utils.GetAverage(this.BarometerMax, this.BarometerMin);
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetAverageBarometer " + ex.Message);
-                throw;
+                logger.Error(ex, "Exception in WeatherData.GetAverageBarometer " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lAverageBarometer;
         }
@@ -563,9 +555,8 @@ namespace IrrigationAdvisor.Models.Weather
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("Exception in IrrigationSystem.WeatherData.GetEvapotranspiration " + ex.Message);
-                throw;
+                logger.Error(ex, "Exception in WeatherData.GetEvapotranspiration " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lEvapotranspiration;
         }
