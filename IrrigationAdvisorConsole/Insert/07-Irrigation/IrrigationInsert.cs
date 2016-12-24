@@ -1069,120 +1069,6 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             }
             #endregion
 
-            #region Pivots DCA San Jose
-            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
-            {
-                using (var context = new IrrigationAdvisorContext())
-                {
-                    lFarm = (from f in context.Farms
-                             where f.Name == Utils.NameFarmDCASanJose
-                             select f).FirstOrDefault();
-
-                    #region Pivot 1
-                    lBomb = (from b in context.Bombs
-                             where b.Name == Utils.NameBombDCASanJose
-                             select b).FirstOrDefault();
-                    lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotDCASanJose1
-                                 select pos).FirstOrDefault();
-
-                    var lDCASanJosePivot1 = new Pivot
-                    {
-                        Name = Utils.NamePivotDCASanJose1,
-                        ShortName = "Pivot 1",
-                        IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
-                        IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
-                        BombId = lBomb.BombId,
-                        PositionId = lPosition.PositionId,
-                        Radius = 120,
-                        Show = true,
-                        FarmId = lFarm.FarmId,
-                    };
-                    #endregion
-                    #region Pivot 2
-                    lBomb = (from b in context.Bombs
-                             where b.Name == Utils.NameBombDCASanJose
-                             select b).FirstOrDefault();
-                    lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotDCASanJose2
-                                 select pos).FirstOrDefault();
-
-                    var lDCASanJosePivot2 = new Pivot
-                    {
-                        Name = Utils.NamePivotDCASanJose2,
-                        ShortName = "Pivot 2",
-                        IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
-                        IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 64.4,
-                        BombId = lBomb.BombId,
-                        PositionId = lPosition.PositionId,
-                        Radius = 32.2,
-                        Show = true,
-                        FarmId = lFarm.FarmId,
-                    };
-                    #endregion
-                    #region Pivot 3
-                    lBomb = (from b in context.Bombs
-                             where b.Name == Utils.NameBombDCASanJose
-                             select b).FirstOrDefault();
-                    lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotDCASanJose3
-                                 select pos).FirstOrDefault();
-
-                    var lDCASanJosePivot3 = new Pivot
-                    {
-                        Name = Utils.NamePivotDCASanJose3,
-                        ShortName = "Pivot 3",
-                        IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
-                        IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 64.4,
-                        BombId = lBomb.BombId,
-                        PositionId = lPosition.PositionId,
-                        Radius = 32.2,
-                        Show = true,
-                        FarmId = lFarm.FarmId,
-                    };
-                    #endregion
-                    #region Pivot 4
-                    lBomb = (from b in context.Bombs
-                             where b.Name == Utils.NameBombDCASanJose
-                             select b).FirstOrDefault();
-                    lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotDCASanJose4
-                                 select pos).FirstOrDefault();
-
-                    var lDCASanJosePivot4 = new Pivot
-                    {
-                        Name = Utils.NamePivotDCASanJose4,
-                        ShortName = "Pivot 4",
-                        IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.90,
-                        IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 136.27,
-                        BombId = lBomb.BombId,
-                        PositionId = lPosition.PositionId,
-                        Radius = 68,
-                        Show = true,
-                        FarmId = lFarm.FarmId,
-                    };
-                    #endregion
-
-                    context.Pivots.Add(lDCASanJosePivot1);
-                    context.Pivots.Add(lDCASanJosePivot2);
-                    context.Pivots.Add(lDCASanJosePivot3);
-                    context.Pivots.Add(lDCASanJosePivot4);
-                    context.SaveChanges();
-                }
-            }
-            #endregion
-
             #region Pivots DCA La Perdiz
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -1580,6 +1466,120 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     context.Pivots.Add(lDCALaPerdizPivot13);
                     context.Pivots.Add(lDCALaPerdizPivot14);
                     context.Pivots.Add(lDCALaPerdizPivot15);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Pivots DCA San Jose
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmDCASanJose
+                             select f).FirstOrDefault();
+
+                    #region Pivot 1
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCASanJose
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose1
+                                 select pos).FirstOrDefault();
+
+                    var lDCASanJosePivot1 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCASanJose1,
+                        ShortName = "Pivot 1",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 100,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCASanJose
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose2
+                                 select pos).FirstOrDefault();
+
+                    var lDCASanJosePivot2 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCASanJose2,
+                        ShortName = "Pivot 2",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 137,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCASanJose
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose3
+                                 select pos).FirstOrDefault();
+
+                    var lDCASanJosePivot3 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCASanJose3,
+                        ShortName = "Pivot 3",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 120,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDCASanJose
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDCASanJose4
+                                 select pos).FirstOrDefault();
+
+                    var lDCASanJosePivot4 = new Pivot
+                    {
+                        Name = Utils.NamePivotDCASanJose4,
+                        ShortName = "Pivot 4",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 154,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 120,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+
+                    context.Pivots.Add(lDCASanJosePivot1);
+                    context.Pivots.Add(lDCASanJosePivot2);
+                    context.Pivots.Add(lDCASanJosePivot3);
+                    context.Pivots.Add(lDCASanJosePivot4);
                     context.SaveChanges();
                 }
             }
@@ -2773,14 +2773,14 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDCAElParaiso();
             }
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
-            {
-                LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDCASanJose();
-            }
-            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDCALaPerdiz();
+            }
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+               || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+            {
+                LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDCASanJose();
             }
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago)

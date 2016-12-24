@@ -2264,7 +2264,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.35,
                 };
                 #endregion
-
                 #region Pivot 2
                 var lDCAElParaisoPivot_2_1 = new Horizon
                 {
@@ -2306,7 +2305,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.35,
                 };
                 #endregion
-
                 #region Pivot 3
                 var lDCAElParaisoPivot_3_1 = new Horizon
                 {
@@ -2348,7 +2346,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.35,
                 };
                 #endregion
-
                 #region Pivot 4
                 var lDCAElParaisoPivot_4_1 = new Horizon
                 {
@@ -2390,7 +2387,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.35,
                 };
                 #endregion
-
                 #region Pivot 5
                 var lDCAElParaisoPivot_5_1 = new Horizon
                 {
@@ -2419,7 +2415,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.3,
                 };
                 #endregion
-
                 #region Pivot 6
                 var lDCAElParaisoPivot_6_1 = new Horizon
                 {
@@ -2448,7 +2443,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.3,
                 };
                 #endregion
-
                 #region Pivot 7
                 var lDCAElParaisoPivot_7_1 = new Horizon
                 {
@@ -2552,7 +2546,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 2
                 var lDCASanJosePivot_2_1 = new Horizon
                 {
@@ -2594,7 +2587,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 3
                 var lDCASanJosePivot_3_1 = new Horizon
                 {
@@ -2636,7 +2628,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 4
                 var lDCASanJosePivot_4_1 = new Horizon
                 {
@@ -2747,7 +2738,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 2
                 var lDCALaPerdizPivot_2_1 = new Horizon
                 {
@@ -2789,7 +2779,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 3
                 var lDCALaPerdizPivot_3_1 = new Horizon
                 {
@@ -2831,7 +2820,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 4
                 var lDCALaPerdizPivot_4_1 = new Horizon
                 {
@@ -2873,7 +2861,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 5
                 var lDCALaPerdizPivot_5_1 = new Horizon
                 {
@@ -2915,7 +2902,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 6
                 var lDCALaPerdizPivot_6_1 = new Horizon
                 {
@@ -2957,7 +2943,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 7
                 var lDCALaPerdizPivot_7_1 = new Horizon
                 {
@@ -2986,7 +2971,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 8
                 var lDCALaPerdizPivot_8_1 = new Horizon
                 {
@@ -3015,7 +2999,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 9
                 var lDCALaPerdizPivot_9_1 = new Horizon
                 {
@@ -3044,7 +3027,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 10a
                 var lDCALaPerdizPivot_10a_1 = new Horizon
                 {
@@ -3086,7 +3068,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 10b
                 var lDCALaPerdizPivot_10b_1 = new Horizon
                 {
@@ -3115,7 +3096,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 11
                 var lDCALaPerdizPivot_11_1 = new Horizon
                 {
@@ -3144,7 +3124,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 12
                 var lDCALaPerdizPivot_12_1 = new Horizon
                 {
@@ -3173,7 +3152,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 13
                 var lDCALaPerdizPivot_13_1 = new Horizon
                 {
@@ -3202,7 +3180,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 14
                 var lDCALaPerdizPivot_14_1 = new Horizon
                 {
@@ -3231,7 +3208,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.25,
                 };
                 #endregion
-
                 #region Pivot 15
                 var lDCALaPerdizPivot_15_1 = new Horizon
                 {
@@ -6176,7 +6152,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCAElParaisoPivot1.HorizonList.Add(lHorizon2);
                     lDCAElParaisoPivot1.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 2
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCAElParaiso2
@@ -6203,7 +6178,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCAElParaisoPivot2.HorizonList.Add(lHorizon2);
                     lDCAElParaisoPivot2.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 3
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCAElParaiso3
@@ -6230,7 +6204,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCAElParaisoPivot3.HorizonList.Add(lHorizon2);
                     lDCAElParaisoPivot3.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 4
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCAElParaiso4
@@ -6257,7 +6230,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCAElParaisoPivot4.HorizonList.Add(lHorizon2);
                     lDCAElParaisoPivot4.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 5
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCAElParaiso5
@@ -6280,7 +6252,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCAElParaisoPivot5.HorizonList.Add(lHorizon1);
                     lDCAElParaisoPivot5.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 6
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCAElParaiso6
@@ -6307,7 +6278,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCAElParaisoPivot6.HorizonList.Add(lHorizon2);
                     lDCAElParaisoPivot6.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 7
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCAElParaiso7
@@ -6335,13 +6305,13 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCAElParaisoPivot7.HorizonList.Add(lHorizon3);
                     #endregion
 
-                    //context.Soils.Add(lDCAElParaisoPivot1);
-                    //context.Soils.Add(lDCAElParaisoPivot2);
-                    //context.Soils.Add(lDCAElParaisoPivot3);
-                    //context.Soils.Add(lDCAElParaisoPivot4);
-                    //context.Soils.Add(lDCAElParaisoPivot5);
-                    //context.Soils.Add(lDCAElParaisoPivot6);
-                    //context.Soils.Add(lDCAElParaisoPivot7);
+                    context.Soils.Add(lDCAElParaisoPivot1);
+                    context.Soils.Add(lDCAElParaisoPivot2);
+                    context.Soils.Add(lDCAElParaisoPivot3);
+                    context.Soils.Add(lDCAElParaisoPivot4);
+                    context.Soils.Add(lDCAElParaisoPivot5);
+                    context.Soils.Add(lDCAElParaisoPivot6);
+                    context.Soils.Add(lDCAElParaisoPivot7);
                     context.SaveChanges();
                 }
             }
@@ -6382,7 +6352,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCASanJosePivot1.HorizonList.Add(lHorizon2);
                     lDCASanJosePivot1.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 2
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCASanJose2
@@ -6409,7 +6378,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCASanJosePivot2.HorizonList.Add(lHorizon2);
                     lDCASanJosePivot2.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 3
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCASanJose3
@@ -6436,7 +6404,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCASanJosePivot3.HorizonList.Add(lHorizon2);
                     lDCASanJosePivot3.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 4
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCASanJose4
@@ -6508,7 +6475,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot1.HorizonList.Add(lHorizon2);
                     lDCALaPerdizPivot1.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 2
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz2
@@ -6535,7 +6501,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot2.HorizonList.Add(lHorizon2);
                     lDCALaPerdizPivot2.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 3
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz3
@@ -6562,7 +6527,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot3.HorizonList.Add(lHorizon2);
                     lDCALaPerdizPivot3.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 4
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz4
@@ -6589,7 +6553,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot4.HorizonList.Add(lHorizon2);
                     lDCALaPerdizPivot4.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 5
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz5
@@ -6616,7 +6579,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot5.HorizonList.Add(lHorizon2);
                     lDCALaPerdizPivot5.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 6
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz6
@@ -6643,7 +6605,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot6.HorizonList.Add(lHorizon2);
                     lDCALaPerdizPivot6.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 7
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz7
@@ -6666,7 +6627,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot7.HorizonList.Add(lHorizon1);
                     lDCALaPerdizPivot7.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 8
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz8
@@ -6689,7 +6649,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot8.HorizonList.Add(lHorizon1);
                     lDCALaPerdizPivot8.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 9
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz9
@@ -6712,7 +6671,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot9.HorizonList.Add(lHorizon1);
                     lDCALaPerdizPivot9.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 10a
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz10a
@@ -6739,7 +6697,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot10a.HorizonList.Add(lHorizon2);
                     lDCALaPerdizPivot10a.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 10b
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz10b
@@ -6762,7 +6719,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot10b.HorizonList.Add(lHorizon1);
                     lDCALaPerdizPivot10b.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 11
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz11
@@ -6785,7 +6741,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot11.HorizonList.Add(lHorizon1);
                     lDCALaPerdizPivot11.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 12
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz12
@@ -6808,7 +6763,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot12.HorizonList.Add(lHorizon1);
                     lDCALaPerdizPivot12.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 13
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz13
@@ -6831,7 +6785,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot13.HorizonList.Add(lHorizon1);
                     lDCALaPerdizPivot13.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 14
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz14
@@ -6854,7 +6807,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDCALaPerdizPivot14.HorizonList.Add(lHorizon1);
                     lDCALaPerdizPivot14.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 15
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz15

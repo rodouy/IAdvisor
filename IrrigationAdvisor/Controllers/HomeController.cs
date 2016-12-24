@@ -274,6 +274,10 @@ namespace IrrigationAdvisor.Controllers
                     {
                         lFarmViewModelList.Add(lFarmViewModel);
                     }
+                    else
+                    {
+                        //TODO: throw error No IrrigationUnit to the farm selected
+                    }
                 }
                 #endregion
 
