@@ -885,8 +885,8 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
 
             #region Pivots DCA El Paraiso
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -910,11 +910,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 69,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
-                        Show = false,
+                        Radius = 35,
+                        Show = true,
                         FarmId = lFarm.FarmId
                     };
                     #endregion
@@ -933,11 +933,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 137,
+                        Surface = 69,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
-                        Show = false,
+                        Radius = 35,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -956,10 +956,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 120,
+                        Surface = 69,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
+                        Radius = 35,
                         Show = false,
                         FarmId = lFarm.FarmId,
                     };
@@ -979,10 +979,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 154,
+                        Surface = 69,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
+                        Radius = 35,
                         Show = false,
                         FarmId = lFarm.FarmId,
                     };
@@ -1002,10 +1002,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 154,
+                        Surface = 69,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
+                        Radius = 35,
                         Show = false,
                         FarmId = lFarm.FarmId,
                     };
@@ -1048,10 +1048,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 91,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 50,
+                        Radius = 45,
                         Show = false,
                         FarmId = lFarm.FarmId,
                     };
@@ -1119,11 +1119,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 137,
+                        Surface = 64.4,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
-                        Show = false,
+                        Radius = 32.2,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1142,11 +1142,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 120,
+                        Surface = 64.4,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
-                        Show = false,
+                        Radius = 32.2,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1165,10 +1165,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 154,
+                        Surface = 136.27,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
+                        Radius = 68,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -1210,10 +1210,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 141,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
+                        Radius = 70,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -1236,8 +1236,8 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Surface = 137,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
-                        Show = false,
+                        Radius = 68,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1259,8 +1259,8 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Surface = 120,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
-                        Show = false,
+                        Radius = 60,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1282,7 +1282,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Surface = 154,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
+                        Radius = 77,
                         Show = false,
                         FarmId = lFarm.FarmId,
                     };
@@ -1305,8 +1305,8 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Surface = 154,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 120,
-                        Show = false,
+                        Radius = 77,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1325,10 +1325,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 128.3,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 50,
+                        Radius = 64,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -1348,11 +1348,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 90.3,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 50,
-                        Show = false,
+                        Radius = 45,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1417,10 +1417,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 82.4,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 50,
+                        Radius = 41,
                         Show = false,
                         FarmId = lFarm.FarmId,
                     };
@@ -1440,10 +1440,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 82.4,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 50,
+                        Radius = 41,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -1463,10 +1463,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 129,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        Radius = 50,
+                        Radius = 65,
                         Show = false,
                         FarmId = lFarm.FarmId,
                     };
@@ -1536,7 +1536,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         Radius = 37,
-                        Show = false,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -2770,7 +2770,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
             {
-                //UpdateSoilsBombsIrrigationUnitsUsersFarmDCAElParaiso();
+                LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDCAElParaiso();
             }
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
