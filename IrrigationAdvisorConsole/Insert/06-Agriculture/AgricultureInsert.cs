@@ -5331,6 +5331,201 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             }
             #endregion
 
+            #region Horizons Tres Marias
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+            {
+
+                #region Pivot 1
+                var lTresMariasPivot_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 15,
+                    Sand = 41.4,
+                    Limo = 33.5,
+                    Clay = 25.1,
+                    OrganicMatter = 2.71,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lTresMariasPivot_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 18,
+                    Sand = 29.7,
+                    Limo = 30.8,
+                    Clay = 39.5,
+                    OrganicMatter = 1.58,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lTresMariasPivot_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 9,
+                    Sand = 25,
+                    Limo = 29,
+                    Clay = 46,
+                    OrganicMatter = 1.15,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                #region Pivot 2
+                var lTresMariasPivot_2_1 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias2 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 15,
+                    Sand = 41.4,
+                    Limo = 33.5,
+                    Clay = 25.1,
+                    OrganicMatter = 2.71,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lTresMariasPivot_2_2 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias2 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 18,
+                    Sand = 29.7,
+                    Limo = 30.8,
+                    Clay = 39.5,
+                    OrganicMatter = 1.58,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lTresMariasPivot_2_3 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias2 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 9,
+                    Sand = 25,
+                    Limo = 29,
+                    Clay = 46,
+                    OrganicMatter = 1.15,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                #region Pivot 3
+                var lTresMariasPivot_3_1 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias3 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 15,
+                    Sand = 41.4,
+                    Limo = 33.5,
+                    Clay = 25.1,
+                    OrganicMatter = 2.71,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lTresMariasPivot_3_2 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias3 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 18,
+                    Sand = 29.7,
+                    Limo = 30.8,
+                    Clay = 39.5,
+                    OrganicMatter = 1.58,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lTresMariasPivot_3_3 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias3 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 9,
+                    Sand = 25,
+                    Limo = 29,
+                    Clay = 46,
+                    OrganicMatter = 1.15,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                #region Pivot 4
+                var lTresMariasPivot_4_1 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias4 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 15,
+                    Sand = 41.4,
+                    Limo = 33.5,
+                    Clay = 25.1,
+                    OrganicMatter = 2.71,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lTresMariasPivot_4_2 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias4 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 18,
+                    Sand = 29.7,
+                    Limo = 30.8,
+                    Clay = 39.5,
+                    OrganicMatter = 1.58,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lTresMariasPivot_4_3 = new Horizon
+                {
+                    Name = Utils.NamePivotTresMarias4 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 9,
+                    Sand = 25,
+                    Limo = 29,
+                    Clay = 46,
+                    OrganicMatter = 1.15,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons La Rinconada
+                    context.Horizons.Add(lTresMariasPivot_1_1);
+                    context.Horizons.Add(lTresMariasPivot_1_2);
+                    context.Horizons.Add(lTresMariasPivot_1_3);
+                    context.Horizons.Add(lTresMariasPivot_2_1);
+                    context.Horizons.Add(lTresMariasPivot_2_2);
+                    context.Horizons.Add(lTresMariasPivot_2_3);
+                    context.Horizons.Add(lTresMariasPivot_3_1);
+                    context.Horizons.Add(lTresMariasPivot_3_2);
+                    context.Horizons.Add(lTresMariasPivot_3_3);
+                    context.Horizons.Add(lTresMariasPivot_4_1);
+                    context.Horizons.Add(lTresMariasPivot_4_2);
+                    context.Horizons.Add(lTresMariasPivot_4_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
             #region Horizons La Rinconada
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -8065,6 +8260,131 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Soils.Add(lGMOElTacuruPivot8);
                     context.Soils.Add(lGMOElTacuruPivot9);
                     context.Soils.Add(lGMOElTacuruPivot10);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Tres Marias Soils
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    #region Pivot 1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotTresMarias1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias1 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lTresMariasPivot1 = new Soil
+                    {
+                        Name = Utils.NamePivotTresMarias1,
+                        Description = "Suelo del Pivot 1 en Tres Marias. ",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 12, 19),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lTresMariasPivot1.HorizonList.Add(lHorizon1);
+                    lTresMariasPivot1.HorizonList.Add(lHorizon2);
+                    lTresMariasPivot1.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 2
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotTresMarias2
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias2 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias2 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias2 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lTresMariasPivot2 = new Soil
+                    {
+                        Name = Utils.NamePivotTresMarias2,
+                        Description = "Suelo del Pivot 2 en Tres Marias. ",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 12, 19),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lTresMariasPivot2.HorizonList.Add(lHorizon1);
+                    lTresMariasPivot2.HorizonList.Add(lHorizon2);
+                    lTresMariasPivot2.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 3
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotTresMarias3
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias3 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias3 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias3 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lTresMariasPivot3 = new Soil
+                    {
+                        Name = Utils.NamePivotTresMarias3,
+                        Description = "Suelo del Pivot 3 en Tres Marias.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 12, 19),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lTresMariasPivot3.HorizonList.Add(lHorizon1);
+                    lTresMariasPivot3.HorizonList.Add(lHorizon2);
+                    lTresMariasPivot3.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    #region Pivot 4
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotTresMarias4
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias4 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias4+ " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotTresMarias4 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lTresMariasPivot4 = new Soil
+                    {
+                        Name = Utils.NamePivotTresMarias4,
+                        Description = "Suelo del Pivot 4 en Tres Marias.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 12, 19),
+                        DepthLimit = 40,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lTresMariasPivot4.HorizonList.Add(lHorizon1);
+                    lTresMariasPivot4.HorizonList.Add(lHorizon2);
+                    lTresMariasPivot4.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    context.Soils.Add(lTresMariasPivot1);
+                    context.Soils.Add(lTresMariasPivot2);
+                    context.Soils.Add(lTresMariasPivot3);
+                    context.Soils.Add(lTresMariasPivot4);
                     context.SaveChanges();
                 }
             }

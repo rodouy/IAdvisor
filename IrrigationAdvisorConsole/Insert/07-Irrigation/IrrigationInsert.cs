@@ -317,6 +317,31 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             }
             #endregion
 
+            #region Bomb Tres Marias
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionFarmTresMarias
+                                 select pos).FirstOrDefault();
+
+                    var lBombTresMarias = new Bomb
+                    {
+                        Name = Utils.NameBombTresMarias,
+                        SerialNumber = "111111111",
+                        PurchaseDate = Utils.MIN_DATETIME,
+                        ServiceDate = Utils.MIN_DATETIME,
+                        PositionId = lPosition.PositionId,
+                    };
+                    context.Bombs.Add(lBombTresMarias);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
             #region Bomb La Rinconada
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -2627,6 +2652,123 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             }
             #endregion
 
+            #region Pivots Tres Marias
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmTresMarias
+                             select f).FirstOrDefault();
+
+                    #region Pivot 1
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombTresMarias
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotTresMarias1
+                                 select pos).FirstOrDefault();
+
+                    var lTresMariasPivot1 = new Pivot
+                    {
+                        Name = Utils.NamePivotTresMarias1,
+                        ShortName = "Pivot 01",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 82,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 10,
+                        Radius = 41,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombTresMarias
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotTresMarias2
+                                 select pos).FirstOrDefault();
+
+                    var lTresMariasPivot2 = new Pivot
+                    {
+                        Name = Utils.NamePivotTresMarias2,
+                        ShortName = "Pivot 02",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 52,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 10,
+                        Radius = 26,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombTresMarias
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotTresMarias3
+                                 select pos).FirstOrDefault();
+
+                    var lTresMariasPivot3 = new Pivot
+                    {
+                        Name = Utils.NamePivotTresMarias3,
+                        ShortName = "Pivot 03",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 58,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 10,
+                        Radius = 29,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombTresMarias
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotTresMarias4
+                                 select pos).FirstOrDefault();
+
+                    var lTresMariasPivot4 = new Pivot
+                    {
+                        Name = Utils.NamePivotTresMarias4,
+                        ShortName = "Pivot 04",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 48,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 10,
+                        Radius = 24,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+
+                    context.Pivots.Add(lTresMariasPivot1);
+                    context.Pivots.Add(lTresMariasPivot2);
+                    context.Pivots.Add(lTresMariasPivot3);
+                    context.Pivots.Add(lTresMariasPivot4);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
             #region Pivots La Rinconada
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -2682,7 +2824,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 26,
-                        Show = false,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -2730,7 +2872,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 24,
-                        Show = false,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -2812,6 +2954,12 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmGMOElTacuru();
+            }
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+            {
+                LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmTresMarias();
             }
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production

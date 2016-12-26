@@ -7664,6 +7664,70 @@ namespace IrrigationAdvisorConsole.Data
 
         #endregion
 
+        #region TM - Tres Marias
+
+        #region 2016
+        
+        /// <summary>
+        /// Add IrrigationQuantity Data to Tres Marias Pivot 1 for 2016-17
+        /// </summary>
+        /// <param name="context"></param>
+        public static void AddIrrigationDataTresMariasPivot1_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
+        {
+            #region context
+            List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+            Farm lFarm;
+            Crop lCrop = null;
+            IrrigationUnit lIrrigationUnit;
+            DateTime lToday = pDateOfReference;
+            Pair<double, Utils.WaterInputType> lQuantityOfWaterToIrrigateAndTypeOfIrrigation;
+            bool lIsExtraIrrigation;
+            DateTime lIrrigationDate;
+            double lIrrigationQuantity = 0;
+            List<Irrigation> lIrrigationList;
+            List<Rain> lRainList;
+
+            lFarm = (from farm in context.Farms
+                     where farm.Name == Utils.NameFarmTresMarias
+                     select farm).FirstOrDefault();
+            lCrop = (from crop in context.Crops
+                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     select crop).FirstOrDefault();
+            lIrrigationUnit = (from iu in context.Pivots
+                               where iu.Name == Utils.NamePivotTresMarias1
+                               select iu).FirstOrDefault();
+            lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
+                                          where ciw.CropId == lCrop.CropId
+                                              && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
+                                          select ciw).ToList<CropIrrigationWeather>();
+            #endregion
+            
+            #region Irrigation 2016/12/13 10 mm - Calculated Irrigation
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Irrigation
+                lIrrigationDate = new DateTime(2016, 12, 13);
+                lIrrigationQuantity = 10;
+                lIsExtraIrrigation = false;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lIrrigationList = (from ilist in context.Irrigations
+                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                   select ilist).ToList<Irrigation>();
+                lRainList = (from rlist in context.Rains
+                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                             select rlist).ToList<Rain>();
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, Utils.WaterInputType.Irrigation);
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+            }
+            #endregion
+        }
+
+        #endregion
+
+        #endregion
+
         #region LR - La Rinconada
 
         #region 2016

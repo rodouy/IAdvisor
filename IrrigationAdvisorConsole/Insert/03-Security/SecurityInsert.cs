@@ -266,6 +266,20 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
             };
             #endregion
 
+            #region Albanell - Tres Marias
+            var lTresMariasCarlosE = new User()
+            {
+                Name = "Carlos",
+                Surname = "Etchegaray",
+                Phone = "+598 99 603 349",
+                Address = "Misiones 1481 P2",
+                Email = "cetchega@gmail.com",
+                UserName = Utils.NameUserTM1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "TM2017"),
+                RoleId = 3,
+            };
+            #endregion
+            
             using (var context = new IrrigationAdvisorContext())
             {
                 //context.Users.Add(lBase);
@@ -284,6 +298,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lGMOMauricio);
                 context.Users.Add(lLaRinconadaJuanB);
                 context.Users.Add(lLarinconadaJuanP);
+                context.Users.Add(lTresMariasCarlosE);
                 context.SaveChanges();
             }
 
@@ -627,6 +642,37 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmGMOElTacuru
+                             select farm).FirstOrDefault();
+                    lUserList = (from user in context.Users
+                                 where lUserNames.Contains(user.UserName)
+                                 select user).ToList();
+                    foreach (User lUser in lUserList)
+                    {
+                        var lUserFarm = new UserFarm()
+                        {
+                            UserId = lUser.UserId,
+                            FarmId = lFarm.FarmId,
+                            Name = lUser.Name + lFarm.Name,
+                            StartDate = DateTime.Now,
+                        };
+
+                        context.UserFarms.Add(lUserFarm);
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
+
+                #region Albanell - Tres Marias
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+                {
+                    lUserNames = new String[] { Utils.NameUserTM1, 
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmTresMarias
                              select farm).FirstOrDefault();
                     lUserList = (from user in context.Users
                                  where lUserNames.Contains(user.UserName)
