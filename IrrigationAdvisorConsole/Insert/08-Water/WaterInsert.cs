@@ -958,6 +958,20 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 }
                 #endregion
 
+                #region Tres Marias
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+                {
+
+                    RainData.AddRainDataTresMariasPivot1_2016(context, Program.DateOfReference);
+                    //RainData.AddRainDataTresMariasPivot2_2016(context, Program.DateOfReference);
+                    //RainData.AddRainDataTresMariasPivot3_2016(context, Program.DateOfReference);
+                    //RainData.AddRainDataTresMariasPivot4_2016(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
                 #region GMO - La Palma
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -1001,7 +1015,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 }
                 #endregion
 
-                #region GMO - La Rinconada
+                #region La Rinconada
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
@@ -1227,6 +1241,23 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             }
             #endregion
 
+            #region Tres Marias
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData.AddIrrigationDataTresMariasPivot1_2016(context, Program.DateOfReference);
+                    //IrrigationData.AddIrrigationDataTresMariasPivot2_2016(context, Program.DateOfReference);
+                    //IrrigationData.AddIrrigationDataTresMariasPivot3_2016(context, Program.DateOfReference);
+                    //IrrigationData.AddIrrigationDataTresMariasPivot4_2016(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
             #region GMO - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -1284,7 +1315,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //IrrigationData.AddIrrigationDataLaRinconadaPivot1_2016(context, DateTime pProgram.DateOfReference);
+                    //IrrigationData.AddIrrigationDataLaRinconadaPivot1_2016(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataLaRinconadaPivot2_2016(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataLaRinconadaPivot3_1_2016(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataLaRinconadaPivot13_1_2016(context, Program.DateOfReference);

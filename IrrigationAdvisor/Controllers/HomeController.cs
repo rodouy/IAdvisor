@@ -115,6 +115,7 @@ namespace IrrigationAdvisor.Controllers
             #endregion
 
             #region Local Variables
+            String lSomeData = "";
             DateTime lDateOfReference;
             DateTime lMinDateOfReference = Utils.MIN_DATETIME;
             DateTime lMaxDateOfReference = Utils.MAX_DATETIME;
@@ -177,6 +178,7 @@ namespace IrrigationAdvisor.Controllers
 
                 trace = 20;
                 lAuthentication = new Authentication(pLoginViewModel.UserName, pLoginViewModel.Password);
+                lSomeData = lSomeData + "Authentication: " + lAuthentication.UserName + "-";
 
                 if (!lAuthentication.IsAuthenticated())
                 {
@@ -217,6 +219,7 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lDateOfReference = ManageSession.GetNavigationDate();
                 }
+                lSomeData = lSomeData + "DateOfReference: " + lDateOfReference.Date + "-";
 
                 ViewBag.DateOfReference = lDateOfReference;
                 #endregion
@@ -284,6 +287,7 @@ namespace IrrigationAdvisor.Controllers
                 trace = 80;
                 #region Current Farm
                 lCurrentFarm = GetCurrenFarm(lFarmList);
+                lSomeData = lSomeData + "Farm: " + lCurrentFarm.Name + "-";
 
                 lCurrentFarmLatitude = fc.GetLatitudeBy(lCurrentFarm.PositionId).ToString().Replace(",", ".");
                 lCurrentFarmLongitude = fc.GetLongitudeBy(lCurrentFarm.PositionId).ToString().Replace(",", ".");
@@ -316,6 +320,7 @@ namespace IrrigationAdvisor.Controllers
                 trace = 100;
                 //TODO Change First CropIrrigationWeather
                 lFirstCropIrrigationWeather = lCropIrrigationWeatherList.FirstOrDefault();
+                lSomeData = lSomeData + "CropIrrigationWeather: " + lFirstCropIrrigationWeather.CropIrrigationWeatherName + "-";
                 //lDailyRecordList = lFirstCropIrrigationWeather.DailyRecordList;
 
                 lRainList = lFirstCropIrrigationWeather.RainList;
@@ -365,14 +370,16 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (NullReferenceException ex)
             {
-                logger.Error(ex, "Trace: " + trace + " - Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Trace: " + trace + " - Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace
+                            + "\n" + lSomeData);
                 ManageSession.CleanSession();
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.Home " + "\n" + ex.Message + "\n" + ex.StackTrace
+                            + "\n" + lSomeData);
                 ManageSession.CleanSession();
                 return RedirectToAction("Index");
             }
@@ -1395,8 +1402,8 @@ namespace IrrigationAdvisor.Controllers
         /// <returns></returns>
         public List<GridPivotHome> GetGridPivotHome()
         {
-
             #region Local Variables
+            String lSomeData = "";
             List<GridPivotHome> lGridIrrigationUnitList = new List<GridPivotHome>();
             GridPivotHome lGridIrrigationUnit;
             List<GridPivotDetailHome> lGridIrrigationUnitDetailRow;
@@ -1435,9 +1442,11 @@ namespace IrrigationAdvisor.Controllers
                 #endregion
 
                 lDateOfReference = ManageSession.GetNavigationDate();
+                lSomeData = lSomeData + "Date: " + lDateOfReference.Date + "-";
 
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
+                lSomeData = lSomeData + "User: " + lLoggedUser.Name + "-";
 
                 //Get list of Farms from User
                 lFarmList = fc.GetFarmListBy(lLoggedUser);
@@ -1446,6 +1455,7 @@ namespace IrrigationAdvisor.Controllers
                 lIrrigationUnitList = new List<IrrigationUnit>();
 
                 lCurrentFarm = GetCurrenFarm(lFarmList);
+                lSomeData = lSomeData + "Farm: " + lCurrentFarm.Name + "-";
                 lFarmViewModel = new FarmViewModel(lCurrentFarm);
                 lIrrigationUnitList = iuc.GetIrrigationUnitListBy(lCurrentFarm);
 
@@ -1459,6 +1469,8 @@ namespace IrrigationAdvisor.Controllers
                     lFirstPivotName = "";
                     foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
+                        lSomeData = lSomeData + "CropIrrigationWeather: " + lCropIrrigationWeather.CropIrrigationWeatherName + "-";
+
                         lDailyRecordList = ciwc.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lCropIrrigationWeather.Crop);
 
                         lRainList = lCropIrrigationWeather.RainList;
@@ -1502,7 +1514,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.GetGridPivotHome " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.GetGridPivotHome " + "\n" + ex.Message + "\n" + ex.StackTrace
+                                + "\n" + lSomeData);
                 throw ex;
             }
 
@@ -1555,6 +1568,8 @@ namespace IrrigationAdvisor.Controllers
         private GridPivotDetailHome AddGridIrrigationUnit(DateTime pDayOfReference, DateTime pDayOfData, List<Models.Water.Irrigation> pIrrigationList,
                                                         List<Rain> pRainList, List<DailyRecord> pDailyRecordList)
         {
+            #region local variables
+            String lSomeData = "";
             GridPivotDetailHome lReturn = null;
 
             Double lIrrigationQuantity = 0;
@@ -1569,11 +1584,14 @@ namespace IrrigationAdvisor.Controllers
 
             Rain lRain = null;
             DailyRecord lDailyRecord = null;
+            #endregion
+
             try
             {
-
                 lDateOfData = pDayOfData.Date;
                 lDayOfReference = pDayOfReference.Date;
+                lSomeData = lSomeData + "DayOfReference: " + lDayOfReference.Date + "-";
+                lSomeData = lSomeData + "DateOfData: " + lDateOfData.Date + "-";
 
                 //Find Daily Record of the Date of Data
                 lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData.Date).FirstOrDefault();
@@ -1593,6 +1611,7 @@ namespace IrrigationAdvisor.Controllers
                 #endregion
 
                 lWaterQuantity = lIrrigationQuantity;
+                lSomeData = lSomeData + "IrrigationQuantity: " + lIrrigationQuantity + "-";
 
                 #region Rain
                 //Find Rain of the Date of Data
@@ -1604,6 +1623,7 @@ namespace IrrigationAdvisor.Controllers
                 #endregion
 
                 lWaterQuantity += lRainQuantity;
+                lSomeData = lSomeData + "RainQuantity: " + lRainQuantity + "-";
 
                 #region Irrigation for today or in the future
                 //Find Daily Record of the Date of Data
@@ -1622,6 +1642,7 @@ namespace IrrigationAdvisor.Controllers
                 #endregion
 
                 lWaterQuantity += lForcastIrrigationQuantity;
+                lSomeData = lSomeData + "ForcastIrrigationQuantity: " + lForcastIrrigationQuantity + "-";
 
                 lIsToday = lDateOfData == lDayOfReference;
 
@@ -1630,6 +1651,7 @@ namespace IrrigationAdvisor.Controllers
                     lPhenology = lDailyRecord.PhenologicalStage.Stage.ShortName;
                 }
 
+                #region IrrigationStatus
                 if (lRainQuantity > 0 && lRainQuantity >= (lWaterQuantity - lRainQuantity))
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.Rain;
@@ -1646,6 +1668,9 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.Default;
                 }
+                #endregion
+
+                lSomeData = lSomeData + "IrrigationStatus: " + lIrrigationStatus.ToString() + "-";
 
                 lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
                                                                 lDateOfData, lIsToday, lIrrigationStatus,
@@ -1653,7 +1678,8 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in HomeController.AddGridIrrigationUnit " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in HomeController.AddGridIrrigationUnit " + "\n" + ex.Message + "\n" + ex.StackTrace
+                                + "\n" + lSomeData);
                 throw ex;
             }
 

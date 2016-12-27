@@ -10167,6 +10167,24 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             }
             #endregion
 
+            #region Tres Marias
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    DataEntry.AddInformationToIrrigationUnitsTresMariasPivot1_2016(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsTresMariasPivot2_2016(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsTresMariasPivot3_2016(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsTresMariasPivot4_2016(context, Program.DateOfReference);
+                    context.SaveChanges();
+                    Console.WriteLine("Tres Marias - Completed.");
+                }
+            }
+            #endregion
+
             #region GMO - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -10227,9 +10245,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
 
                     //DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot1_2016(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot2_2016(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot2_2016(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot3_1_2016(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot13_1_2016(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot13_1_2016(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("La Rinconada - Completed.");
                 }
