@@ -64,6 +64,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private long stageId;
         private double minDegree;
         private double maxDegree;
+        private Double coefficient;
         private double rootDepth;
         private double hydricBalanceDepth;
 
@@ -113,6 +114,12 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return maxDegree; }
             set { maxDegree = value; }
         }
+
+        public Double Coefficient
+        {
+            get { return coefficient; }
+            set { coefficient = value; }
+        }
         
         public double RootDepth
         {
@@ -140,6 +147,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.stageId = 0;
             this.MinDegree = 0;
             this.MaxDegree = 0;
+            this.Coefficient = 0;
             this.RootDepth = 0;
             this.HydricBalanceDepth = 0;
         }
@@ -149,14 +157,17 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// It is used for a range between the max and min degree.
         /// </summary>
         /// <param name="pPhenologicalStageId"></param>
-        /// <param name="pSpecieCycle"></param>
+        /// <param name="pSpecie"></param>
         /// <param name="pStage"></param>
         /// <param name="pMinDegree"></param>
         /// <param name="pMaxDegree"></param>
-        /// <param name="pDepth"></param>
+        /// <param name="pCoefficient"></param>
+        /// <param name="pRootDepth"></param>
+        /// <param name="pHydricBalanceDepth"></param>
         public PhenologicalStage(long pPhenologicalStageId, 
                                 Specie pSpecie, Stage pStage, 
                                 Double pMinDegree, Double pMaxDegree, 
+                                Double pCoefficient,
                                 Double pRootDepth, Double pHydricBalanceDepth)
         {
             this.phenologicalStageId = pPhenologicalStageId;
@@ -164,6 +175,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.StageId = pStage.StageId;
             this.MinDegree = pMinDegree;
             this.MaxDegree = pMaxDegree;
+            this.Coefficient = pCoefficient;
             this.RootDepth = pRootDepth;
             this.HydricBalanceDepth = pHydricBalanceDepth;
         }

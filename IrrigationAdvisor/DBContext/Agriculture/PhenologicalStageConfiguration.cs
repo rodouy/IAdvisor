@@ -24,6 +24,8 @@ namespace IrrigationAdvisor.DBContext.Agriculture
                 .IsRequired();
             Property(s => s.MaxDegree)
                 .IsRequired();
+            Property(s => s.Coefficient)
+                .IsRequired();
         }
     }
 }

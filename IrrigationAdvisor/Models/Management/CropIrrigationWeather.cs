@@ -3940,8 +3940,8 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                #region 6.- Get Crop Coefficient by Days After Sowing Modified
-                lCropCoefficient = this.Crop.CropCoefficient.GetCropCoefficient(lDaysAfterSowingModified);
+                #region 6.- Get Crop Coefficient by PhenologicalStage
+                lCropCoefficient = this.PhenologicalStage.Coefficient;
                 #endregion
 
                 #region 7.- Calculus of Evapotranspiration Crop
@@ -4462,8 +4462,8 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                #region 6.- Get Crop Coefficient by Days After Sowing Modified
-                lCropCoefficient = this.Crop.CropCoefficient.GetCropCoefficient(lDaysAfterSowingModified);
+                #region 6.- Get Crop Coefficient by PhenologicalStage
+                lCropCoefficient = this.PhenologicalStage.Coefficient;
                 #endregion
 
                 #region 7.- Calculus of Evapotranspiration Crop
