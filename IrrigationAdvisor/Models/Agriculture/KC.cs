@@ -32,7 +32,6 @@ namespace IrrigationAdvisor.Models.Agriculture
     /// </summary>
     public class KC
     {
-        
 
         #region Consts
         #endregion

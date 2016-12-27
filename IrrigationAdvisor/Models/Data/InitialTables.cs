@@ -2400,7 +2400,8 @@ namespace IrrigationAdvisor.Models.Data
         {
             List<PhenologicalStage> lReturn = null;
             List<PhenologicalStage> lPhenolStageList;
-            double lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth;
+            Double lMinDegree, lMaxDegree, lCoefficient;
+            Double lRootDepth, lHydricBalanceDepth;
             Specie lSpecie = null;
             Stage lStage = null;
 
@@ -2408,118 +2409,118 @@ namespace IrrigationAdvisor.Models.Data
             {                
                 lPhenolStageList = new List<PhenologicalStage>();
                 lSpecie = pSpecie;
-                lStage = new Stage(1, "Maiz v0", "v0", "Siembra", 1); lMinDegree = 0; lMaxDegree = 59.999; lRootDepth = 7; lHydricBalanceDepth = 17;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Maiz v0", "v0", "Siembra", 1); lMinDegree = 0; lMaxDegree = 59.999; lCoefficient = 0.35; lRootDepth = 7; lHydricBalanceDepth = 17;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(2, "Maiz ve", "ve", "Emergencia", 2); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 114; lRootDepth = 7; lHydricBalanceDepth = 17;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(2, "Maiz ve", "ve", "Emergencia", 2); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 114; lCoefficient = 0.35; lRootDepth = 7; lHydricBalanceDepth = 17;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(3, "Maiz v1", "v1", "1 nudo", 3); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 134; lRootDepth = 7; lHydricBalanceDepth = 17;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(3, "Maiz v1", "v1", "1 nudo", 3); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 134; lCoefficient = 0.35; lRootDepth = 7; lHydricBalanceDepth = 17;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(4, "Maiz v2", "v2", "2 nudo", 4); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 179; lRootDepth = 10; lHydricBalanceDepth = 20;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(4, "Maiz v2", "v2", "2 nudo", 4); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 179; lCoefficient = 0.35; lRootDepth = 10; lHydricBalanceDepth = 20;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(5, "Maiz v3", "v3", "3 nudo", 5); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 229; lRootDepth = 15; lHydricBalanceDepth = 25;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(5, "Maiz v3", "v3", "3 nudo", 5); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 229; lCoefficient = 0.38; lRootDepth = 15; lHydricBalanceDepth = 25;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(6, "Maiz v4", "v4", "4 nudo", 6); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 289; lRootDepth = 20; lHydricBalanceDepth = 30;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(6, "Maiz v4", "v4", "4 nudo", 6); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 289; lCoefficient = 0.40; lRootDepth = 20; lHydricBalanceDepth = 30;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(7, "Maiz v5", "v5", "5 nudo", 7); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 339; lRootDepth = 20; lHydricBalanceDepth = 30;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(7, "Maiz v5", "v5", "5 nudo", 7); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 339; lCoefficient = 0.45; lRootDepth = 20; lHydricBalanceDepth = 30;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(8, "Maiz v6", "v6", "6 nudo", 8); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 404; lRootDepth = 25; lHydricBalanceDepth = 35;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(8, "Maiz v6", "v6", "6 nudo", 8); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 404; lCoefficient = 0.50; lRootDepth = 25; lHydricBalanceDepth = 35;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(9, "Maiz v7", "v7", "7 nudo", 9); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 459; lRootDepth = 25; lHydricBalanceDepth = 35;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(9, "Maiz v7", "v7", "7 nudo", 9); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 459; lCoefficient = 0.60; lRootDepth = 25; lHydricBalanceDepth = 35;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(10, "Maiz v8", "v8", "8 nudo", 10); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 519; lRootDepth = 30; lHydricBalanceDepth = 40;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(10, "Maiz v8", "v8", "8 nudo", 10); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 519; lCoefficient = 0.70; lRootDepth = 30; lHydricBalanceDepth = 40;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(11, "Maiz v9", "v9", "9 nudo", 11); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 589; lRootDepth = 32; lHydricBalanceDepth = 40;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(11, "Maiz v9", "v9", "9 nudo", 11); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 589; lCoefficient = 0.80; lRootDepth = 32; lHydricBalanceDepth = 40;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(12, "Maiz v10", "v10", "10 nudo", 12); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 649; lRootDepth = 35; lHydricBalanceDepth = 40;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(12, "Maiz v10", "v10", "10 nudo", 12); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 649; lCoefficient = 0.90; lRootDepth = 35; lHydricBalanceDepth = 40;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(13, "Maiz v11", "v11", "11 nudo", 13); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 689; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(13, "Maiz v11", "v11", "11 nudo", 13); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 689; lCoefficient = 0.95; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(14, "Maiz v12", "v12", "12 nudo", 14); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 714; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(14, "Maiz v12", "v12", "12 nudo", 14); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 714; lCoefficient = 1.00; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(15, "Maiz v13", "v13", "13 nudo", 15); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 749; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(15, "Maiz v13", "v13", "13 nudo", 15); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 749; lCoefficient = 1.05; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(16, "Maiz v14", "v14", "14 nudo", 16); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 764; lRootDepth = 45; lHydricBalanceDepth = 50;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(16, "Maiz v14", "v14", "14 nudo", 16); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 764; lCoefficient = 1.10; lRootDepth = 45; lHydricBalanceDepth = 50;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(17, "Maiz vt", "vt", "Floracion", 17); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 954; lRootDepth = 45; lHydricBalanceDepth = 50;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(17, "Maiz vt", "vt", "Floracion", 17); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 954; lCoefficient = 1.15; lRootDepth = 45; lHydricBalanceDepth = 50;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(18, "Maiz R1", "R1", "Estambres 50%", 18); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1149; lRootDepth = 45; lHydricBalanceDepth = 50;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(18, "Maiz R1", "R1", "Estambres 50%", 18); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1149; lCoefficient = 1.15; lRootDepth = 45; lHydricBalanceDepth = 50;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(19, "Maiz R2", "R2", "Granos hinchados", 19); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1289; lRootDepth = 45; lHydricBalanceDepth = 50;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(19, "Maiz R2", "R2", "Granos hinchados", 19); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1289; lCoefficient = 1.05; lRootDepth = 45; lHydricBalanceDepth = 50;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(20, "Maiz R3", "R3", "Estado lechoso", 20); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1359; lRootDepth = 45; lHydricBalanceDepth = 50;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(20, "Maiz R3", "R3", "Estado lechoso", 20); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1359; lCoefficient = 0.90; lRootDepth = 45; lHydricBalanceDepth = 50;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(21, "Maiz R4", "R4", "Estado pastoso", 21); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1449; lRootDepth = 45; lHydricBalanceDepth = 50;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(21, "Maiz R4", "R4", "Estado pastoso", 21); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1449; lCoefficient = 0.80; lRootDepth = 45; lHydricBalanceDepth = 50;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(22, "Maiz R5", "R5", "Estado de diente", 22); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1649; lRootDepth = 45; lHydricBalanceDepth = 50;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(22, "Maiz R5", "R5", "Estado de diente", 22); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1649; lCoefficient = 0.70; lRootDepth = 45; lHydricBalanceDepth = 50;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(23, "Maiz R6", "R6", "Madurez fisiologica", 23); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 2000; lRootDepth = 45; lHydricBalanceDepth = 50;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(23, "Maiz R6", "R6", "Madurez fisiologica", 23); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 2000; lCoefficient = 0.65; lRootDepth = 45; lHydricBalanceDepth = 50;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
                 
@@ -2544,7 +2545,7 @@ namespace IrrigationAdvisor.Models.Data
         {
             List<PhenologicalStage> lReturn = null;
             List<PhenologicalStage> lPhenolStageList;
-            double lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth;
+            Double lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth;
             Stage lStage = null;
             Specie lSpecie = null;
 
@@ -2552,108 +2553,108 @@ namespace IrrigationAdvisor.Models.Data
             {
                 lPhenolStageList = new List<PhenologicalStage>();
                 lSpecie = pSpecie;
-                lStage = new Stage(1, "Soja v0", "v0", "Siembra", 1); lMinDegree = 0; lMaxDegree = 114.999; lRootDepth = 7; lHydricBalanceDepth = 17;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v0", "v0", "Siembra", 1); lMinDegree = 0; lMaxDegree = 114.999; lCoefficient = 0.30; lRootDepth = 7; lHydricBalanceDepth = 17;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient,  lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja ve", "ve", "Emergencia", 2); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 141; lRootDepth = 10; lHydricBalanceDepth = 20;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja ve", "ve", "Emergencia", 2); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 141; lCoefficient = 0.37; lRootDepth = 10; lHydricBalanceDepth = 20;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v1", "v1", "1 nudo", 3); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 191; lRootDepth = 10; lHydricBalanceDepth = 20;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v1", "v1", "1 nudo", 3); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 191; lCoefficient = 0.40; lRootDepth = 10; lHydricBalanceDepth = 20;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v2", "v2", "2 nudo", 4); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 242; lRootDepth = 12; lHydricBalanceDepth = 22;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v2", "v2", "2 nudo", 4); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 242; lCoefficient = 0.43; lRootDepth = 12; lHydricBalanceDepth = 22;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v3", "v3", "3 nudo", 5); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 313; lRootDepth = 15; lHydricBalanceDepth = 25;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v3", "v3", "3 nudo", 5); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 313; lCoefficient = 0.45; lRootDepth = 15; lHydricBalanceDepth = 25;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v4", "v4", "4 nudo", 6); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 348; lRootDepth = 20; lHydricBalanceDepth = 30;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v4", "v4", "4 nudo", 6); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 348; lCoefficient = 0.50; lRootDepth = 20; lHydricBalanceDepth = 30;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v5", "v5", "5 nudo", 7); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 397; lRootDepth = 20; lHydricBalanceDepth = 30;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v5", "v5", "5 nudo", 7); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 397; lCoefficient = 0.52; lRootDepth = 20; lHydricBalanceDepth = 30;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v6", "v6", "6 nudo", 8); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 445; lRootDepth = 25; lHydricBalanceDepth = 35;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v6", "v6", "6 nudo", 8); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 445; lCoefficient = 0.54; lRootDepth = 25; lHydricBalanceDepth = 35;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v7", "v7", "7 nudo", 9); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 471; lRootDepth = 25; lHydricBalanceDepth = 35;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v7", "v7", "7 nudo", 9); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 471; lCoefficient = 0.57; lRootDepth = 25; lHydricBalanceDepth = 35;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v8", "v8", "8 nudo", 10); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 515; lRootDepth = 30; lHydricBalanceDepth = 40;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v8", "v8", "8 nudo", 10); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 515; lCoefficient = 0.59; lRootDepth = 30; lHydricBalanceDepth = 40;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v9", "v9", "9 nudo", 11); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 565; lRootDepth = 32; lHydricBalanceDepth = 40;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v9", "v9", "9 nudo", 11); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 565; lCoefficient = 0.61; lRootDepth = 32; lHydricBalanceDepth = 40;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v10", "v10", "10 nudo", 12); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 653; lRootDepth = 35; lHydricBalanceDepth = 40;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v10", "v10", "10 nudo", 12); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 653; lCoefficient = 0.63; lRootDepth = 35; lHydricBalanceDepth = 40;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja v11", "v11", "11 nudo", 13); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 741; lRootDepth = 35; lHydricBalanceDepth = 40;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja v11", "v11", "11 nudo", 13); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 741; lCoefficient = 0.68; lRootDepth = 35; lHydricBalanceDepth = 40;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja R1", "R1", "Inicio Floracion", 14); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 843; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja R1", "R1", "Inicio Floracion", 14); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 843; lCoefficient = 0.72; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja R2", "R2", "Floracion Completa", 15); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 911; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja R2", "R2", "Floracion Completa", 15); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 911; lCoefficient = 0.75; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja R3", "R3", "Inicio Vainas", 16); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 979; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja R3", "R3", "Inicio Vainas", 16); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 979; lCoefficient = 0.78; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja R4", "R4", "Vainas Completas", 17); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1098; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja R4", "R4", "Vainas Completas", 17); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1098; lCoefficient = 0.83; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja R5", "R5", "Formacion de semillas", 18); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1217; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja R5", "R5", "Formacion de semillas", 18); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1217; lCoefficient = 0.88; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja R6", "R6", "Semillas Completas", 19); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1608; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja R6", "R6", "Semillas Completas", 19); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1608; lCoefficient = 1.15; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja R7", "R7", "Inicio Maduracion", 20); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1999; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja R7", "R7", "Inicio Maduracion", 20); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 1999; lCoefficient = 1.15; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
 
-                lStage = new Stage(1, "Soja R8", "R8", "Maduracion Completa", 21); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 4000; lRootDepth = 40; lHydricBalanceDepth = 45;
-                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lRootDepth, lHydricBalanceDepth));
+                lStage = new Stage(1, "Soja R8", "R8", "Maduracion Completa", 21); lMinDegree = lMaxDegree + 0.001; lMaxDegree = 4000; lCoefficient = 0.78; lRootDepth = 40; lHydricBalanceDepth = 45;
+                lPhenolStageList.Add(pCrop.AddPhenologicalStage(lSpecie, lStage, lMinDegree, lMaxDegree, lCoefficient, lRootDepth, lHydricBalanceDepth));
                 //Add Stage to Crop
                 pCrop.AddStage(lStage.Name, lStage.ShortName, lStage.Description, lStage.Order);
                 
