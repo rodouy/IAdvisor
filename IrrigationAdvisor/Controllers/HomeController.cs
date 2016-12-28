@@ -1321,7 +1321,6 @@ namespace IrrigationAdvisor.Controllers
             catch (Exception ex)
             {
                 logger.Error(ex, "Exception in HomeController.Login " + "\n" + ex.Message + "\n" + ex.StackTrace);
-                return Content("Exception in HomeController.Login " + "\n" + ex.Message);
             }
 
             return lResult;
