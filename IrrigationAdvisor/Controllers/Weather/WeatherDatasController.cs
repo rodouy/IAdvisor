@@ -15,23 +15,31 @@ namespace IrrigationAdvisor.Controllers.Weather
 {
     public class WeatherDatasController : Controller
     {
-        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+        private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
         
 
         [HttpGet()]
-        public ActionResult Index(string pStartDateTime, string pEndDateTime)
+        public ActionResult Index(string pStartDateTime, string pEndDateTime, int pWeatherStationId = 0)
         {
             DateTime from = Convert.ToDateTime(pStartDateTime);
             DateTime end = Convert.ToDateTime(pEndDateTime);
             DateTime now = DateTime.Now;
 
-            if (pStartDateTime == null && pEndDateTime == null)
+            if (pStartDateTime == null && pEndDateTime == null && pWeatherStationId == 0)
             {
                 return View(db.WeatherDatas.Where(w => w.Date.Year == now.Year && w.Date.Month == now.Month && w.Date.Day == now.Day).ToList());
             }
-            else
+            else if(pStartDateTime != null && pEndDateTime != null && pWeatherStationId != 0)
+            {
+                return View(db.WeatherDatas.Where(w => w.Date >= from && w.Date <= end && w.WeatherStationId == pWeatherStationId).ToList());
+            }
+            else if (pWeatherStationId == 0)
             {
                 return View(db.WeatherDatas.Where(w => w.Date >= from && w.Date <= end).ToList());
+            }
+            else
+            {
+                return View(db.WeatherDatas.ToList());
             }
         }
 
@@ -146,6 +154,11 @@ namespace IrrigationAdvisor.Controllers.Weather
             db.WeatherDatas.Remove(weatherData);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public JsonResult GetAllWeatherStations()
+        {
+            return Json(db.WeatherStations.ToList(), JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)
