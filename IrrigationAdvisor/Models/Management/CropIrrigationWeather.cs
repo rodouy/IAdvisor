@@ -1436,6 +1436,7 @@ namespace IrrigationAdvisor.Models.Management
             bool lIrrigationByHydricBalance;
             Double lPercentageAvailableWater;
             Water.Irrigation lHaveIrrigation = null;
+            Water.Irrigation lHaveIrrigationDayBefore = null;
             Water.Irrigation lIrrigationNextDay = null;
 
             lReturn = new Pair<Double, Utils.WaterInputType>();
@@ -1451,20 +1452,42 @@ namespace IrrigationAdvisor.Models.Management
 
             //Get the irrigation for the day
             lHaveIrrigation = this.GetIrrigation(pDateTime);
-            if (lHaveIrrigation == null || lHaveIrrigation.ExtraInput == 0)
+            //Get the irrigation of yesterday
+            lHaveIrrigationDayBefore = this.GetIrrigation(pDateTime.AddDays(-1));
+            if (lHaveIrrigationDayBefore == null && (lHaveIrrigation == null || lHaveIrrigation.ExtraInput == 0))
             {
-                //If we need to irrigate by Evapotranspiraton, then Available water has to be lower than 60% 
-                if (lIrrigationByEvapotranspiration
-                    && lPercentageAvailableWater < InitialTables.PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE)
-                {
-                    lReturn.First = this.PredeterminatedIrrigationQuantity;
-                    lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
-                }
-                else if (lIrrigationByHydricBalance)
+                if (lIrrigationByHydricBalance)
                 {
                     lReturn.First = this.PredeterminatedIrrigationQuantity;
                     lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
                 }
+
+                if (lIrrigationByEvapotranspiration)
+                {
+                    if (this.WeatherEventType == Utils.WeatherEventType.LaNinia)
+                    {
+                        lReturn.First = this.PredeterminatedIrrigationQuantity;
+                        lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
+                    }
+                    //If we need to irrigate by Evapotranspiraton, then Available water has to be lower than 60% 
+                    else if (this.WeatherEventType == Utils.WeatherEventType.ElNinio)
+                    {
+                        if (lPercentageAvailableWater < InitialTables.PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE)
+                        {
+                            lReturn.First = this.PredeterminatedIrrigationQuantity;
+                            lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
+                        }
+                    }
+                    else //By default The same as Ninio
+                    {
+                        if (lPercentageAvailableWater < InitialTables.PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE)
+                        {
+                            lReturn.First = this.PredeterminatedIrrigationQuantity;
+                            lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
+                        }
+                    }
+                }
+
             }
 
             lIrrigationNextDay = this.GetIrrigation(pDateTime.AddDays(1));
@@ -3710,6 +3733,7 @@ namespace IrrigationAdvisor.Models.Management
                 else
                 {
                     lGrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified;
+                    lGrowingDegreeDays = lDailyRecord.GrowingDegreeDays;
                     lDaysAfterSowingModified = this.DaysAfterSowingModified;
                 }
                 #endregion
@@ -3937,6 +3961,7 @@ namespace IrrigationAdvisor.Models.Management
                 else
                 {
                     lDaysAfterSowingModified = lDailyRecord.DaysAfterSowing;
+                    lGrowingDegreeDays = lDailyRecord.GrowingDegreeDays;
                 }
                 #endregion
 
@@ -4229,6 +4254,7 @@ namespace IrrigationAdvisor.Models.Management
                 else
                 {
                     lGrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified;
+                    lGrowingDegreeDays = lDailyRecord.GrowingDegreeDays;
                     lDaysAfterSowingModified = this.DaysAfterSowingModified;
                 }
                 #endregion
@@ -4459,6 +4485,7 @@ namespace IrrigationAdvisor.Models.Management
                 else
                 {
                     lDaysAfterSowingModified = lDailyRecord.DaysAfterSowing;
+                    lGrowingDegreeDays = lDailyRecord.GrowingDegreeDays;
                 }
                 #endregion
 

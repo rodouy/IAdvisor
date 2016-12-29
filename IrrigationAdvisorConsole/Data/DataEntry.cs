@@ -3877,7 +3877,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (i >= 87)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
