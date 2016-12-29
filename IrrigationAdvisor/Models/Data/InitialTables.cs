@@ -58,7 +58,7 @@ namespace IrrigationAdvisor.Models.Data
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public const double PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE = 60;
-        public const int DAYS_FOR_PREDICTION = 7;
+        public const int DAYS_FOR_PREDICTION = 9;
         public const int DAYS_FOR_WEATHER_PREDICTION = DAYS_FOR_PREDICTION + 2;
         public const int DAYS_TO_STOP_CROP_GROWS = 145;
         public const int DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE = 7;
