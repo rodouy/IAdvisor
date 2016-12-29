@@ -322,18 +322,18 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationMainName_TresMarias_2016 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_TresMarias_2016 = Utils.NameWeatherStationElRetiro;
 
-        public static DateTime SowingDate_CornSouth_TresMariasPivot1_2016 = new DateTime(2016, 10, 29);
+        public static DateTime SowingDate_CornSouth_TresMariasPivot1_2016 = new DateTime(2016, 12, 12);
         public static DateTime HarvestDate_CornSouth_TresMariasPivot1_2016 = new DateTime(2017, 02, 28);
-        public static Double PredeterminatedIrrigationQuantity_TresMariasPivot1_2016 = 14;
-        public static DateTime SowingDate_CornSouth_TresMariasPivot2_2016 = new DateTime(2016, 12, 10);
+        public static Double PredeterminatedIrrigationQuantity_TresMariasPivot1_2016 = 10;
+        public static DateTime SowingDate_CornSouth_TresMariasPivot2_2016 = new DateTime(2016, 12, 12);
         public static DateTime HarvestDate_CornSouth_TresMariasPivot2_2016 = new DateTime(2017, 02, 28);
-        public static Double PredeterminatedIrrigationQuantity_TresMariasPivot2_2016 = 14;
-        public static DateTime SowingDate_CornSouth_TresMariasPivot3_2016 = new DateTime(2016, 10, 29);
+        public static Double PredeterminatedIrrigationQuantity_TresMariasPivot2_2016 = 10;
+        public static DateTime SowingDate_CornSouth_TresMariasPivot3_2016 = new DateTime(2016, 12, 12);
         public static DateTime HarvestDate_CornSouth_TresMariasPivot3_2016 = new DateTime(2017, 02, 28);
-        public static Double PredeterminatedIrrigationQuantity_TresMariasPivot3_2016 = 14;
-        public static DateTime SowingDate_CornSouth_TresMariasPivot4_2016 = new DateTime(2016, 11, 25);
+        public static Double PredeterminatedIrrigationQuantity_TresMariasPivot3_2016 = 10;
+        public static DateTime SowingDate_CornSouth_TresMariasPivot4_2016 = new DateTime(2016, 12, 12);
         public static DateTime HarvestDate_CornSouth_TresMariasPivot4_2016 = new DateTime(2017, 02, 28);
-        public static Double PredeterminatedIrrigationQuantity_TresMariasPivot4_2016 = 14;
+        public static Double PredeterminatedIrrigationQuantity_TresMariasPivot4_2016 = 10;
 
         #endregion
 

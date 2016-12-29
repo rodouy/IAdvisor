@@ -1831,7 +1831,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                                  where pos.Name == Utils.NamePositionFarmTresMarias
                                  select pos).FirstOrDefault();
                     lCity = (from city in context.Cities
-                             where city.Name == Utils.NameCityTacuarembo
+                             where city.Name == Utils.NameCityDurazno
                              select city).FirstOrDefault();
 
                     var lTresMarias = new Farm
