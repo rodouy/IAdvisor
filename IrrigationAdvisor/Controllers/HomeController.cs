@@ -847,6 +847,43 @@ namespace IrrigationAdvisor.Controllers
             return lResult;
         }
 
+        /// <summary>
+        /// Get WeatherStation list, without repeating it.
+        /// One for all CropIrrigationWeather in list parameter.
+        /// </summary>
+        /// <param name="pCropIrrigationWeatherList"></param>
+        /// <returns></returns>
+        private List<WeatherStation> GetUniqueWeatherStationList(List<CropIrrigationWeather> pCropIrrigationWeatherList)
+        {
+            List<WeatherStation> lResult = null;
+            List<WeatherStation> lWeatherStationList = new List<WeatherStation>();
+
+            if (pCropIrrigationWeatherList != null && pCropIrrigationWeatherList.Any())
+            {
+                //Add all Weather Stations in use.
+                foreach (CropIrrigationWeather lCIW in pCropIrrigationWeatherList)
+                {
+                    if (lCIW.MainWeatherStation != null)
+                    {
+                        if (!lWeatherStationList.Contains(lCIW.MainWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCIW.MainWeatherStation);
+                        }
+                    }
+                    if (lCIW.AlternativeWeatherStation != null)
+                    {
+                        if (!lWeatherStationList.Contains(lCIW.AlternativeWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCIW.AlternativeWeatherStation);
+                        }
+                    }
+                }
+                lResult = lWeatherStationList;
+            }
+
+            return lResult;
+        }
+
         private bool PredictionWeatherData()
         {
             bool lResult = false;
@@ -868,41 +905,26 @@ namespace IrrigationAdvisor.Controllers
 
                 lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherListWithWeatherDataBy(lDateOfReference);
 
-                //Add all Weather Stations in use.
-                foreach (CropIrrigationWeather lCIW in lCropIrrigationWeatherList)
+                lWeatherStationList = this.GetUniqueWeatherStationList(lCropIrrigationWeatherList);
+
+                if (lWeatherStationList != null && lWeatherStationList.Any())
                 {
-                    if (lCIW.MainWeatherStation != null)
+                    foreach (WeatherStation lWS in lWeatherStationList)
                     {
-                        if (!lWeatherStationList.Contains(lCIW.MainWeatherStation))
+                        try
                         {
-                            lWeatherStationList.Add(lCIW.MainWeatherStation);
+                            if (lWS.WeatherDataList != null && lWS.WeatherDataList.Any())
+                            {
+                                lWS.GeneratePredictionWeatherData(lDateOfReference);
+                            }
                         }
-                    }
-                    if (lCIW.AlternativeWeatherStation != null)
-                    {
-                        if (!lWeatherStationList.Contains(lCIW.AlternativeWeatherStation))
+                        catch (Exception ex)
                         {
-                            lWeatherStationList.Add(lCIW.AlternativeWeatherStation);
+                            logger.Error(ex, "Exception in HomeController.PredictionWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                            continue;
                         }
                     }
                 }
-
-                foreach (WeatherStation lWS in lWeatherStationList)
-                {
-                    try
-                    {
-                        if (lWS.WeatherDataList != null && lWS.WeatherDataList.Any())
-                        {
-                            lWS.GeneratePredictionWeatherData(lDateOfReference);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        logger.Error(ex, "Exception in HomeController.PredictionWeatherData " + "\n" + ex.Message + "\n" + ex.StackTrace);
-                        continue;
-                    }
-                }
-
             }
             catch (Exception ex)
             {
