@@ -1441,7 +1441,12 @@ namespace IrrigationAdvisor.Models.Management
 
             lReturn = new Pair<Double, Utils.WaterInputType>();
 
-            if (pDateTime.Equals(new DateTime(2016, 11, 22)))
+            if (pDateTime.Date.Equals(DateTime.Now.Date))
+            {
+                //System.Diagnostics.Debugger.Break();
+            }
+
+            if (pDateTime.Date.Equals(new DateTime(2016, 11, 22)))
             {
                 //System.Diagnostics.Debugger.Break();
             }
@@ -2211,12 +2216,12 @@ namespace IrrigationAdvisor.Models.Management
                                                             this.HarvestDate);
                         lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
 
-                        for(int i = 0; i < lDiffDays; i++)
+                        for (int i = 0; i < lDiffDays; i++)
                         {
                             lObservation = "Día " + (lCropDays + i);
                             lDateOfRecord = lFromDate.AddDays(i);
                             this.HasAdviseOfIrrigation = false;
-                        
+
                             this.AddDailyRecordToList(lDateOfRecord, lObservation);
                             //Adjustment of Phenological Stage
                             foreach (PhenologicalStageAdjustment item in this.PhenologicalStageAdjustmentList)
@@ -2227,10 +2232,11 @@ namespace IrrigationAdvisor.Models.Management
                                     break;
                                 }
                             }
-                            //Stop when arrives to final Stage
+
+                            //when arrives to final Stage, do not add new irrigation
                             if (this.PhenologicalStage.Stage.StageId == this.Crop.StopIrrigationStageId)
                             {
-                                break;
+                                //System.Diagnostics.Debugger.Break();
                             }
                         }
                     }
@@ -2337,10 +2343,10 @@ namespace IrrigationAdvisor.Models.Management
                                     break;
                                 }
                             }
-                            //Stop when arrives to final Stage
+                            //when arrives to final Stage, do not add new irrigation
                             if (this.PhenologicalStage.Stage.StageId == this.Crop.StopIrrigationStageId)
                             {
-                                break;
+                                //System.Diagnostics.Debugger.Break();
                             }
                         }
                     }
@@ -2915,6 +2921,7 @@ namespace IrrigationAdvisor.Models.Management
                     this.IrrigationList.Add(lNewIrrigation);
                 }
                 #endregion
+
                 #region Condigion #3 IRRIGATION TO NEXT DAY: If there is an Irrigation Registry and new Irrigation Input is 0, Input goes for tomorrow
                 else if (lNewIrrigation != null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First == 0)
                 {
@@ -3606,9 +3613,13 @@ namespace IrrigationAdvisor.Models.Management
                             this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData);
                         }
 
-                        //Then that is added the DailyRecord, we must verify if we need to irrigate.
-                        //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
-                        this.VerifyNeedForIrrigation(pDateTime);
+                        //when arrives to final Stage, do not add new irrigation
+                        if (this.PhenologicalStage.Stage.StageId != this.Crop.StopIrrigationStageId)
+                        {
+                            //Then that is added the DailyRecord, we must verify if we need to irrigate.
+                            //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
+                            this.VerifyNeedForIrrigation(pDateTime);
+                        }
                     }
                     else
                     {
@@ -4115,9 +4126,13 @@ namespace IrrigationAdvisor.Models.Management
                             this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData, pIrrigationAdvisorContext);
                         }
 
-                        //Then that is added the DailyRecord, we must verify if we need to irrigate.
-                        //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
-                        this.VerifyNeedForIrrigation(pDateTime, pIrrigationAdvisorContext);
+                        //when arrives to final Stage, do not add new irrigation
+                        if (this.PhenologicalStage.Stage.StageId != this.Crop.StopIrrigationStageId)
+                        {
+                            //Then that is added the DailyRecord, we must verify if we need to irrigate.
+                            //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
+                            this.VerifyNeedForIrrigation(pDateTime, pIrrigationAdvisorContext);
+                        }
                     }
                     else
                     {
