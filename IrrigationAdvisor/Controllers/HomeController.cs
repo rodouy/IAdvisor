@@ -948,7 +948,7 @@ namespace IrrigationAdvisor.Controllers
 
         public void TestCalculate()
         {
-            CalculateAllActiveCropIrrigationWeather("Demo", "lluvia");
+            CalculateAllActiveCropIrrigationWeather("Admin", "Irrigation4dvis0r");
         }
 
         [HttpPost]
@@ -980,7 +980,15 @@ namespace IrrigationAdvisor.Controllers
             return Content("Error al calcular los Cultivos activos");
         }
 
-
+        /// <summary>
+        ///  Calculate for a Farm and from a Date
+        /// EX: ../Home/CalculateAllActiveCropIrrigationWeather?pUserName=Admin&pPassword=Irrigation4dvis0r
+        /// "http://iradvisor.pgwwater.com.uy:8080/Home/CalculateAllActiveCropIrrigationWeather"
+        /// http://localhost:1938/Home/CalculateAllActiveCropIrrigationWeather
+        /// </summary>
+        /// <param name="pUserName"></param>
+        /// <param name="pPassword"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CalculateAllActiveCropIrrigationWeather(string pUserName, string pPassword)
         {
