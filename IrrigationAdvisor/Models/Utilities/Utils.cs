@@ -670,10 +670,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameFarmDemo3 = "Palma (Demo)";
         public static String NameFarmSantaLucia = "Santa Lucia";
         public static String NameFarmDCAElParaiso = "DCA - El Paraiso";
-        public static String NameFarmDCASanJose = "DCA - San Jose";
         public static String NameFarmDCALaPerdiz = "DCA - La Perdiz";
-        public static String NameFarmDelLagoSanPedro = "Estancias Del Lago - San Pedro";
+        public static String NameFarmDCASanJose = "DCA - San Jose";
         public static String NameFarmDelLagoElMirador = "Estancias Del Lago - El Mirador";
+        public static String NameFarmDelLagoSanPedro = "Estancias Del Lago - San Pedro";
         public static String NameFarmGMOLaPalma = "GMO - La Palma";
         public static String NameFarmGMOElTacuru = "GMO - El Tacuru";
         public static String NameFarmTresMarias = "Tres Marias";
@@ -1100,8 +1100,8 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region DCA
         #region ElParaiso
-        public static String NameCropIrrigationWeatherDCAElParaisoPivot1 = NamePivotDCAElParaiso1 + " " + NameSpecieFescueForageSouthShort;
-        public static String NameCropIrrigationWeatherDCAElParaisoPivot2 = NamePivotDCAElParaiso2 + " " + NameSpecieFescueForageSouthShort;
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot1 = NamePivotDCAElParaiso1 + " " + NameSpecieSoyaSouthShort;
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot2 = NamePivotDCAElParaiso2 + " " + NameSpecieSoyaSouthShort;
         public static String NameCropIrrigationWeatherDCAElParaisoPivot3 = NamePivotDCAElParaiso3 + " " + NameSpecieFescueForageSouthShort;
         public static String NameCropIrrigationWeatherDCAElParaisoPivot4 = NamePivotDCAElParaiso4 + " " + NameSpecieFescueForageSouthShort;
         public static String NameCropIrrigationWeatherDCAElParaisoPivot5 = NamePivotDCAElParaiso5 + " " + NameSpecieFescueForageSouthShort;

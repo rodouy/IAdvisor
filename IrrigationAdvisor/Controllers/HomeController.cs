@@ -846,6 +846,43 @@ namespace IrrigationAdvisor.Controllers
             return lResult;
         }
 
+        /// <summary>
+        /// Get WeatherStation list, without repeating it.
+        /// One for all CropIrrigationWeather in list parameter.
+        /// </summary>
+        /// <param name="pCropIrrigationWeatherList"></param>
+        /// <returns></returns>
+        private List<WeatherStation> GetUniqueWeatherStationList(List<CropIrrigationWeather> pCropIrrigationWeatherList)
+        {
+            List<WeatherStation> lResult = null;
+            List<WeatherStation> lWeatherStationList = new List<WeatherStation>();
+
+            if (pCropIrrigationWeatherList != null && pCropIrrigationWeatherList.Any())
+            {
+                //Add all Weather Stations in use.
+                foreach (CropIrrigationWeather lCIW in pCropIrrigationWeatherList)
+                {
+                    if (lCIW.MainWeatherStation != null)
+                    {
+                        if (!lWeatherStationList.Contains(lCIW.MainWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCIW.MainWeatherStation);
+                        }
+                    }
+                    if (lCIW.AlternativeWeatherStation != null)
+                    {
+                        if (!lWeatherStationList.Contains(lCIW.AlternativeWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCIW.AlternativeWeatherStation);
+                        }
+                    }
+                }
+                lResult = lWeatherStationList;
+            }
+
+            return lResult;
+        }
+
         private bool PredictionWeatherData()
         {
             bool lResult = false;
@@ -867,41 +904,26 @@ namespace IrrigationAdvisor.Controllers
 
                 lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherListWithWeatherDataBy(lDateOfReference);
 
-                //Add all Weather Stations in use.
-                foreach (CropIrrigationWeather lCIW in lCropIrrigationWeatherList)
-                {
-                    if (lCIW.MainWeatherStation != null)
-                    {
-                        if (!lWeatherStationList.Contains(lCIW.MainWeatherStation))
-                        {
-                            lWeatherStationList.Add(lCIW.MainWeatherStation);
-                        }
-                    }
-                    if (lCIW.AlternativeWeatherStation != null)
-                    {
-                        if (!lWeatherStationList.Contains(lCIW.AlternativeWeatherStation))
-                        {
-                            lWeatherStationList.Add(lCIW.AlternativeWeatherStation);
-                        }
-                    }
-                }
+                lWeatherStationList = this.GetUniqueWeatherStationList(lCropIrrigationWeatherList);
 
-                foreach (WeatherStation lWS in lWeatherStationList)
+                if (lWeatherStationList != null && lWeatherStationList.Any())
                 {
-                    try
+                    foreach (WeatherStation lWS in lWeatherStationList)
                     {
-                        if (lWS.WeatherDataList != null && lWS.WeatherDataList.Any())
+                        try
                         {
-                            lWS.GeneratePredictionWeatherData(lDateOfReference);
+                            if (lWS.WeatherDataList != null && lWS.WeatherDataList.Any())
+                            {
+                                lWS.GeneratePredictionWeatherData(lDateOfReference);
+                            }
                         }
-                    }
-                    catch (Exception ex)
-                    {
+                        catch (Exception ex)
+                        {
                         Utils.LogError(ex, "Exception in HomeController.PredictionWeatherData ");
-                        continue;
+                            continue;
+                        }
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -925,7 +947,7 @@ namespace IrrigationAdvisor.Controllers
 
         public void TestCalculate()
         {
-            CalculateAllActiveCropIrrigationWeather("Demo", "lluvia");
+            CalculateAllActiveCropIrrigationWeather("Admin", "Irrigation4dvis0r");
         }
 
         [HttpPost]
@@ -957,7 +979,15 @@ namespace IrrigationAdvisor.Controllers
             return Content("Error al calcular los Cultivos activos");
         }
 
-
+        /// <summary>
+        ///  Calculate for a Farm and from a Date
+        /// EX: ../Home/CalculateAllActiveCropIrrigationWeather?pUserName=Admin&pPassword=Irrigation4dvis0r
+        /// "http://iradvisor.pgwwater.com.uy:8080/Home/CalculateAllActiveCropIrrigationWeather"
+        /// http://localhost:1938/Home/CalculateAllActiveCropIrrigationWeather
+        /// </summary>
+        /// <param name="pUserName"></param>
+        /// <param name="pPassword"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CalculateAllActiveCropIrrigationWeather(string pUserName, string pPassword)
         {
