@@ -1425,7 +1425,7 @@ namespace IrrigationAdvisor.Models.Management
         }
 
         /// <summary>
-        /// Calculate Growing Degree Days Modified 
+        /// Calculate Growing Degree Days 
         /// </summary>
         /// <param name="pWeatherData"></param>
         /// <param name="pDailyRecordDateTime"></param>
@@ -1558,7 +1558,11 @@ namespace IrrigationAdvisor.Models.Management
                 //System.Diagnostics.Debugger.Break();
             }
 
-            if (pDateTime.Date.Equals(new DateTime(2016, 11, 22)))
+            if (pDateTime.Date.Equals(new DateTime(2016, 12, 09)))
+            {
+                //System.Diagnostics.Debugger.Break();
+            }
+            if (pDateTime.Date.Equals(new DateTime(2016, 12, 20)))
             {
                 //System.Diagnostics.Debugger.Break();
             }
