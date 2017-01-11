@@ -322,6 +322,7 @@ namespace IrrigationAdvisor.Controllers
                 //TODO Change First CropIrrigationWeather
                 lFirstCropIrrigationWeather = lCropIrrigationWeatherList.FirstOrDefault();
                 lSomeData = lSomeData + "CropIrrigationWeather: " + lFirstCropIrrigationWeather.CropIrrigationWeatherName + "-";
+
                 //lDailyRecordList = lFirstCropIrrigationWeather.DailyRecordList;
 
                 lRainList = lFirstCropIrrigationWeather.RainList;
@@ -371,14 +372,14 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (NullReferenceException ex)
             {
-                Utils.LogError(ex, "Trace: {0} - Exception in HomeController.Home - {1}", trace, lSomeData);
+                Utils.LogError(ex, "Trace: " + trace + " - Exception in HomeController.Home", lSomeData);
                 ManageSession.CleanSession();
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                Utils.LogError(ex, "Trace: {0} - Exception in HomeController.Home - {1}", trace, lSomeData);
+                Utils.LogError(ex, "Trace: " + trace + " - Exception in HomeController.Home", lSomeData);
                 ManageSession.CleanSession();
                 return RedirectToAction("Index");
             }
