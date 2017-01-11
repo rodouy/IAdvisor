@@ -1897,12 +1897,24 @@ namespace IrrigationAdvisor.Models.Utilities
 
             if (userName == null)
             {
-                logger.Error(ex, lDescription, args);
+                logger.Error(ex, processArgs(lDescription, args), args);
             }
             else
             {
-                logger.Error(ex, "User: " + userName + " | " + lDescription, args);
+                logger.Error(ex, "User: " + userName + " | " + processArgs(lDescription, args), args);
             }
+        }
+
+        private static string processArgs(string pValue, params object[] args)
+        {
+            string result = string.Empty;
+
+            for (int i = 0; i < args.Length; i++)
+            {
+                result = result + "{" + i + "} \n ";
+            }
+
+            return pValue + "\n" + result;
         }
 
         #endregion
