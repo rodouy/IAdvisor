@@ -186,6 +186,10 @@ namespace IrrigationAdvisor.Models.Utilities
             /// Irrigation when HB is lower than x%
             /// </summary>
             IrrigationByHydricBalance,
+            /// <summary>
+            /// No irrigation.
+            /// </summary>
+            NoIrrigation
         }
 
         /// <summary>

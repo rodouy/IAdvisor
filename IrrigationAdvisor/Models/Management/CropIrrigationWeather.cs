@@ -2857,6 +2857,11 @@ namespace IrrigationAdvisor.Models.Management
 
         #region Weather
 
+        public void AddOrUpdateNoIrrigationDataToList(DateTime pIrrigationDate, double input)
+        {
+            
+        }
+
         /// <summary>
         /// Add or Update the Irrigation Data to List
         /// </summary
@@ -2876,7 +2881,7 @@ namespace IrrigationAdvisor.Models.Management
                 lNewIrrigation = this.GetIrrigation(pIrrigationDate);
                 lNewIrrigationNextDate = this.GetIrrigation(pIrrigationDate.AddDays(1));
 
-                #region Condigion #1 NEW IRRIGATION: If there is not a registry then it is created 
+                #region Condition #1 NEW IRRIGATION: If there is not a registry then it is created 
                 if (lNewIrrigation == null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First > 0)
                 {
                     lNewIrrigation = new Water.Irrigation();
@@ -2899,7 +2904,7 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                #region Condigion #2 NEW IRRIGATION NOT TO IRRIGATE: There is not registry then it is created (if they are Extra)
+                #region Condition #2 NEW IRRIGATION NOT TO IRRIGATE: There is not registry then it is created (if they are Extra)
                 else if (lNewIrrigation == null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First == 0 && pIsExtraIrrigation)
                 {
                     lNewIrrigation = new Water.Irrigation();
@@ -2915,7 +2920,7 @@ namespace IrrigationAdvisor.Models.Management
                     this.IrrigationList.Add(lNewIrrigation);
                 }
                 #endregion
-                #region Condigion #3 IRRIGATION TO NEXT DAY: If there is an Irrigation Registry and new Irrigation Input is 0, Input goes for tomorrow
+                #region Condition #3 IRRIGATION TO NEXT DAY: If there is an Irrigation Registry and new Irrigation Input is 0, Input goes for tomorrow
                 else if (lNewIrrigation != null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First == 0)
                 {
                     //If quentity of water is 0, the user want to move the irrigation on day
@@ -2950,7 +2955,7 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                #region Condigion #4 UPDATE IRRIGATION: If there is an Irrigation Registry it is updated
+                #region Condition #4 UPDATE IRRIGATION: If there is an Irrigation Registry it is updated
                 else if (lNewIrrigation != null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First > 0)
                 {
                     if (pIsExtraIrrigation)
@@ -3012,7 +3017,7 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                #region Condigion #5 NOT IRRIGATION FOR TODAY
+                #region Condition #5 NOT IRRIGATION FOR TODAY
                 else
                 {
                     //Do nothing. Because there was no Irrigation and the new Irrigation is 0 
