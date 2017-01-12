@@ -1203,6 +1203,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserTesting = "Testing";
         public static String NameUserTestAdm = "TestAdm";
         public static String NameUserAdmin = "Admin";
+        public static String NameUserCristian = "Cristian";
         public static String NameUserSeba = "scasanova";
         public static String NameUserGonza = "gmoreno";
         public static String NameUserDCA1 = "jplatero";
