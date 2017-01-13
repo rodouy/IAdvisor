@@ -2856,12 +2856,7 @@ namespace IrrigationAdvisor.Models.Management
         #endregion
 
         #region Weather
-
-        public void AddOrUpdateNoIrrigationDataToList(DateTime pIrrigationDate, double input)
-        {
-            
-        }
-
+        
         /// <summary>
         /// Add or Update the Irrigation Data to List
         /// </summary
