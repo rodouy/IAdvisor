@@ -19,8 +19,10 @@ $(document).ready(function () {
     var minDateOfReference = $('#minDateOfReference');
     var addIrrigationModal = $('#addIrrigationModal');
     var addIrrigationModalMobile = $('#addIrrigationModalMobile');
+    var addNoIrrigationMobile = $('#addNoIrrigationMobile');
     var addPhenoModal = $('#addPhenoModal');
     var addRainModal = $('#addRainModal');
+    var addNoIrrigationModal = $('#addNoIrrigationModal');
     var addRainModalMobile = $('#addRainModalMobile');
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
@@ -191,6 +193,8 @@ $(document).ready(function () {
         addIrrigationModalMobile.hide();
         addRainModalMobile.hide();
         addPhenoModal.hide();
+        addNoIrrigationModal.hide();
+        addNoIrrigationMobile.hide();
         lstFarms.hide();
         var initModal = { backdrop: false, show: false };
 
@@ -245,18 +249,21 @@ $(document).ready(function () {
         if (width <= 760) {
             addIrrigationModalMobile.show();
             addRainModalMobile.show();
+            addNoIrrigationMobile.show();
 
             addIrrigationModal.hide();
             addRainModal.hide();
+            addNoIrrigationModal.hide();
             removeClasses();
         }
         else {
             addIrrigationModalMobile.hide();
             addRainModalMobile.hide();
-
+            addNoIrrigationMobile.hide();
 
             addIrrigationModal.show();
             addRainModal.show();
+            addNoIrrigationModal.show()
             addClasses();
         }
 
@@ -271,19 +278,22 @@ $(document).ready(function () {
         var addIrrigationModalMobile = $('#addIrrigationModalMobile');
         var addRainModalMobile = $('#addRainModalMobile');
         var addPhenoModalMobile = $('#addPhenoModalMobile');
+        var addNoIrrigationMobile = $('#addNoIrrigationMobile');
+        var addNoIrrigationModal = $('#addNoIrrigationModal');
 
         var width = $(window).width();
         var height = $(window).height();
 
         addPhenoModal.show();
 
-        if (width <= 760)
-        {
+        if (width <= 760) {
             addIrrigationModalMobile.show();
             addRainModalMobile.show();
 
             addIrrigationModal.hide();
             addRainModal.hide();
+            addNoIrrigationModal.hide();
+
             removeClasses();
         }
         else
@@ -293,6 +303,7 @@ $(document).ready(function () {
 
             addIrrigationModal.show();
             addRainModal.show();
+            addNoIrrigationModal.show();
             addClasses();
         }
         
