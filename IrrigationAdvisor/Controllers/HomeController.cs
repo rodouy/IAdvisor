@@ -1091,8 +1091,14 @@ namespace IrrigationAdvisor.Controllers
         public ActionResult AddIrrigation(double pMilimeters, int pIrrigationUnitId,
                                             int pDay, int pMonth, int pYear)
         {
+            String lSomeData = "";
+
             try
             {
+                lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
+                lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
+                lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
+                #region local variables
                 HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
 
                 DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
@@ -1105,10 +1111,11 @@ namespace IrrigationAdvisor.Controllers
                 IrrigationUnit lIrrigationUnit = null;
                 List<CropIrrigationWeather> lCropIrrigationWeatherList;
 
-                ManageSession.SetFromDateTime(lDateResult);
-
                 int lSaveChanges = 0;
+                #endregion
 
+                ManageSession.SetFromDateTime(lDateResult);
+                
                 if (pIrrigationUnitId > -1)
                 {
                     lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
@@ -1156,13 +1163,11 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                Utils.LogError(ex, "Exception in HomeController.AddIrrigation ");
-                return Content("Exception in HomeController.AddIrrigation " + "\n" + ex.Message);
-
+                Utils.LogError(ex, "Exception in HomeController.AddIrrigation - {0} ", lSomeData);
+                return Content("Exception in HomeController.AddIrrigation " + "\n" + ex.Message + "\n" + lSomeData);
             }
 
             return Content("Ok");
-
         }
 
         /// <summary>
@@ -1178,9 +1183,14 @@ namespace IrrigationAdvisor.Controllers
         public ActionResult AddRain(double pMilimeters, long pIrrigationUnitId,
                                     int pDay, int pMonth, int pYear)
         {
-
+            String lSomeData = "";
             try
             {
+
+                lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
+                lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
+                lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
+                #region local variables
                 HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
 
                 DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
@@ -1194,6 +1204,7 @@ namespace IrrigationAdvisor.Controllers
                 List<CropIrrigationWeather> lCropIrrigationWeatherList;
 
                 int lSaveChanges = 0;
+                #endregion
 
                 ManageSession.SetFromDateTime(lDateResult);
 
@@ -1237,12 +1248,10 @@ namespace IrrigationAdvisor.Controllers
             }
             catch (Exception ex)
             {
-                Utils.LogError(ex, "Exception in HomeController.AddRain ");
-                return Content("Exception in HomeController.AddRain " + "\n" + ex.Message);
-
+                Utils.LogError(ex, "Exception in HomeController.AddRain - {0} ", lSomeData);
+                return Content("Exception in HomeController.AddRain " + "\n" + ex.Message + "\n" + lSomeData);
             }
-
-
+            
             return Content("Ok");
         }
 
