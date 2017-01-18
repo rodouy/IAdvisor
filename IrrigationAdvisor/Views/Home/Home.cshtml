@@ -483,8 +483,82 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end modal agregar fenologia --->
-                
+                    <!-- end modal agregar fenologia --->                 
+                    <!-- modal agregar no riego-->
+                    <div id="modal-no-irrigation" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="header">
+                                    <h2>Agregar intervalos de no riego</h2>
+                                </div>
+                                <div class="copy">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                Fecha desde:
+                                                <input type="date" id="dateFromNoIrrigation" class="form-control" />
+                                                <br />
+                                            </div>
+                                            <div class="col-md-6">
+                                                Fecha hasta:
+                                                <input type="date" id="dateToNoIrrigation" class="form-control" />
+                                                <br />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                <div class="dropdown">
+                                                    Seleccionar cultivo:
+                                                    @{ if (Model.CropIrrigationWeatherViewModelList != null)
+                                                        {
+                                                            <select id="CropIrriWeatherNoIrrigation" class="form-control">
+
+                                                                @foreach (var item in Model.CropIrrigationWeatherViewModelList)
+                                                                {
+                                                                    <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
+                                                                }
+                                                            </select>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="text-danger disable-save-button">La relación Cultivo Pivot y clima esta vacía</span>
+                                                        }
+                                                    }
+                                                    <br />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="dropdown">
+                                                    Motivo:
+                                                    <select class="form-control" id="noIrrigationReason">
+                                                        <option value="0">Problema eléctrico</option>
+                                                        <option value="1">Espera de lluvia</option>
+                                                        <option value="2">Otro</option>
+                                                    </select>
+                                                    <br />
+                                                </div>
+                                            </div>
+                                         </div>
+                                        <div class="col-md-12">
+                                            Observaciones:
+                                            <textarea type="text" id="noIrrigationObs"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cf footer">
+                                    <p>
+                                        <button class="btn  btn-style-2" id="CancelNoIrrigation">
+                                            Cancelar
+                                        </button>
+                                    </p>
+                                    <button id="SaveNoIrrigation" class="btn  btn-style-2" disabled>
+                                        Guardar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end modal agregar no riego-->    
             </div>
             
             

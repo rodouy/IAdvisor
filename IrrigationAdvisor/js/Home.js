@@ -7,6 +7,7 @@ $(document).ready(function () {
     var saveRainBtn = $('#SaveRain');
     var saveIrrigationBtn = $('#SaveIrrigation');
     var savePhenoBtn = $('#savePhenoBtn');
+    var saveNoIrrigation = $('#SaveNoIrrigation');
     var irrigationMilimeters = $('#irrigationMilimeters');
     var rainMilimeters = $('#rain');
     var dateOfReferenceBtn = $('#dateOfReferenceBtn');
@@ -27,9 +28,11 @@ $(document).ready(function () {
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
+    var modalNoIrrigation = $('#modal-no-irrigation');
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
     var cancelPheno = $('#CancelPheno');
+    var cancelNoIrrigation = $('#CancelNoIrrigation');
     var lstFarms = $('#lstFarms');
     var modalLoadStatus = $('.disable-save-button').length == 0;
     var farmInfo = $('#farm-info');
@@ -201,6 +204,7 @@ $(document).ready(function () {
         modalIrrigation.modal(initModal);
         modalRain.modal(initModal);
         modalPheno.modal(initModal);
+        modalNoIrrigation.modal(initModal);
         loadUserFarms();
 
         if (modalLoadStatus) {
@@ -330,6 +334,16 @@ $(document).ready(function () {
         $('.modal-content').draggable();
     });
 
+    addNoIrrigationModal.click(function () {
+        modalNoIrrigation.modal('show');
+        $('.modal-content').draggable();
+    });
+
+    addNoIrrigationMobile.click(function () {
+        modalNoIrrigation.modal('show');
+        $('.modal-content').draggable();
+    });
+
     addPhenoModal.click(function () {
         modalPheno.modal('show');
         $('.modal-content').draggable();
@@ -347,7 +361,9 @@ $(document).ready(function () {
         modalPheno.modal('hide');
     });
 
-    
+    cancelNoIrrigation.click(function () {
+        modalNoIrrigation.modal('hide');
+    });
 
     dateOfReferenceBtn2.click(function () {
 
@@ -619,6 +635,9 @@ $(document).ready(function () {
 
     });
    
+    saveNoIrrigation.click(function () {
+        alert("saveNoIrrigation click!");
+    });
 
     var addRain = function (pMilimiters, pIrrigationUnitId, pDate)
     {
