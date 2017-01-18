@@ -3841,11 +3841,13 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(359), 21.0, 254.0, 23.8, 18.1, 2.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-12-25
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(360), 23.1, 302.6, 25.6, 20.5, 2.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(361), 22.7, 615.8, 26.5, 18.9, 4.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(362), 22.8, 639.8, 30.0, 15.5, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(363), 25.6, 646.6, 31.4, 19.7, 5.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(364), 25.3, 434.3, 31.4, 19.2, 3.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-12-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(365), 27.0, 674.1, 32.3, 21.6, 5.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
 
             #endregion
 
-            //Generate Prediction of Weather Data after the last day
-            lWeatherStation.GeneratePredictionWeatherData();
         }
 
         public static void WeatherDataLasBrujas_2017(IrrigationAdvisorContext context)
@@ -3859,15 +3861,36 @@ namespace IrrigationAdvisorConsole.Data
 
 
             #region WeatherData 2017
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 25.8, 686.1, 30.5, 21.1, 6.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);  // Month - 2016-1-1
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 24.9, 483.8, 30.2, 19.5, 5.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 25.4, 580.7, 29.6, 21.2, 6.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 27.6, 721.8, 33.7, 21.5, 6.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 26.4, 415.1, 31.0, 21.7, 5.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);  // Month - 2016-1-5
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 20.4, 648.6, 24.9, 15.8, 5.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 26.9, 482.8, 30.8, 23.0, 4.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 23.6, 680.8, 28.5, 18.6, 5.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 21.8, 252.8, 25.0, 18.6, 2.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 23.3, 377.6, 27.6, 18.9, 3.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 22.0, 665.7, 27.8, 16.1, 5.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 20.3, 644.4, 28.0, 12.5, 4.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(006), 25.1, 685.5, 33.6, 16.6, 5.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(007), 25.8, 289.5, 31.4, 20.2, 3.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(008), 25.6, 587.4, 31.6, 19.5, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(009), 21.2, 545.4, 25.5, 16.8, 4.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(010), 22.0, 690.3, 30.2, 13.8, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(011), 23.7, 686.3, 32.0, 15.4, 5.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(012), 23.2, 394.9, 28.8, 17.5, 4.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(013), 20.3, 692.0, 27.6, 13.0, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(014), 21.7, 328.1, 27.4, 15.9, 3.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-15
 
             #endregion
 
+        }
+
+        public static void WeatherDataLasBrujas_Prediction(IrrigationAdvisorContext context)
+        {
+            WeatherStation lWeatherStation = null;
+            
+            lWeatherStation = (from ws in context.WeatherStations
+                               where ws.Name == Utils.NameWeatherStationLasBrujas
+                               select ws).FirstOrDefault();
+            
+            //Generate Prediction of Weather Data after the last day
+            lWeatherStation.GeneratePredictionWeatherData();
         }
 
         #endregion
@@ -4628,13 +4651,13 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(359), 21.1, 222.4, 23.6, 18.6, 2.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-12-25
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(360), 22.9, 303.9, 25.4, 20.4, 2.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(361), 22.9, 511.8, 25.8, 20.0, 4.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
-
-            //From Las Brujas - To Replace
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(362), 24.6, 731.7, 30.8, 18.4, 6.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(363), 25.4, 760.1, 30.3, 20.4, 7.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(364), 26.7, 670.3, 31.6, 21.8, 6.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-12-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(365), 28.5, 743.5, 34.0, 22.9, 7.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             
             #endregion
-
-            //Generate Prediction of Weather Data after the last day
-            lWeatherStation.GeneratePredictionWeatherData();
+            
         }
 
         public static void WeatherDataLaEstanzuela_2017(IrrigationAdvisorContext context)
@@ -4647,15 +4670,41 @@ namespace IrrigationAdvisorConsole.Data
                                select ws).FirstOrDefault();
 
             #region WeatherData 2017
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 24.5, 523.1, 28.4, 19.4, 4.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);  // Month - 2017-1-1
-            
+
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 28.8, 490.7, 32.4, 25.2, 6.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 25.2, 726.5, 29.7, 20.6, 7.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+
             //From Las Brujas - To Replace
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 21.8, 252.8, 25.0, 18.6, 2.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 23.3, 377.6, 27.6, 18.9, 3.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 22.0, 665.7, 27.8, 16.1, 5.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 20.3, 644.4, 28.0, 12.5, 4.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(006), 25.1, 685.5, 33.6, 16.6, 5.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(007), 25.8, 289.5, 31.4, 20.2, 3.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(008), 25.6, 587.4, 31.6, 19.5, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(009), 21.2, 545.4, 25.5, 16.8, 4.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(010), 22.0, 690.3, 30.2, 13.8, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(011), 23.7, 686.3, 32.0, 15.4, 5.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(012), 23.2, 394.9, 28.8, 17.5, 4.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(013), 20.3, 692.0, 27.6, 13.0, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(014), 21.7, 328.1, 27.4, 15.9, 3.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-15
 
             #endregion
 
+        }
+
+        public static void WeatherDataLaEstanzuela_Prediction(IrrigationAdvisorContext context)
+        {
+            WeatherStation lWeatherStation = null;
+            
+            lWeatherStation = (from ws in context.WeatherStations
+                               where ws.Name == Utils.NameWeatherStationLaEstanzuela
+                               select ws).FirstOrDefault();
+            
             //Generate Prediction of Weather Data after the last day
             lWeatherStation.GeneratePredictionWeatherData();
         }
+
 
         #endregion
 
@@ -5415,11 +5464,13 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(359), 30.1, 692.1, 36.2, 24.0, 7.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-12-25
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(360), 22.8, 242.0, 25.8, 19.7, 2.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(361), 24.7, 500.7, 29.8, 19.6, 4.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(362), 25.7, 414.3, 31.2, 20.2, 4.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(363), 26.5, 459.1, 30.9, 22.1, 4.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(364), 28.4, 657.8, 32.6, 24.1, 6.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2016-12-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(365), 30.3, 278.9, 35.0, 25.6, 4.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
 
             #endregion
 
-            //Generate Prediction of Weather Data after the last day
-            lWeatherStation.GeneratePredictionWeatherData();
         }
 
         public static void WeatherDataSaltoGrande_2017(IrrigationAdvisorContext context)
@@ -5432,14 +5483,34 @@ namespace IrrigationAdvisorConsole.Data
                                select ws).FirstOrDefault();
 
             #region WeatherData 2017
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 26.0, 501.6, 30.8, 21.2, 5.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);  // Month - 2016-1-1
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 26.3, 666.4, 31.9, 20.7, 6.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 27.7, 582.8, 33.8, 21.6, 6.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 25.7, 236.5, 29.2, 22.1, 2.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
-            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 26.1, 434.7, 30.8, 21.3, 4.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);  // Month - 2016-1-5
-            
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(000), 28.0, 278.9, 30.6, 25.4, 3.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(001), 26.2, 241.2, 29.1, 23.2, 2.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(002), 27.6, 271.0, 33.9, 21.3, 3.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(003), 23.3, 240.8, 26.9, 19.7, 2.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(004), 24.9, 397.9, 30.3, 19.4, 4.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(005), 25.0, 539.9, 31.0, 18.9, 5.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(006), 26.4, 693.3, 32.4, 20.4, 6.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(007), 25.4, 239.8, 27.2, 23.6, 2.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(008), 25.8, 336.8, 30.4, 21.2, 3.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(009), 24.3, 385.1, 27.9, 20.6, 4.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(010), 25.4, 687.8, 31.1, 19.7, 5.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(011), 26.2, 694.6, 32.8, 19.6, 6.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(012), 29.7, 533.5, 36.2, 23.2, 6.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(013), 26.0, 517.9, 31.0, 21.0, 5.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(014), 24.2, 241.1, 26.6, 21.7, 2.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-1-15
+
             #endregion
 
+        }
+
+        public static void WeatherDataSaltoGrande_Prediction(IrrigationAdvisorContext context)
+        {
+            WeatherStation lWeatherStation = null;
+            
+            lWeatherStation = (from ws in context.WeatherStations
+                               where ws.Name == Utils.NameWeatherStationSaltoGrande
+                               select ws).FirstOrDefault();
+            
             //Generate Prediction of Weather Data after the last day
             lWeatherStation.GeneratePredictionWeatherData();
         }

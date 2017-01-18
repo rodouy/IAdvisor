@@ -142,6 +142,18 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 RoleId = 1,
             };
 
+            var lCristian = new User()
+            {
+                Name = "Cristian",
+                Surname = "Gonzalez",
+                Phone = "099 127 950",
+                Address = "1958 Cuareim, Montevideo",
+                Email = "riegopgw@googlegroups.com",
+                UserName = Utils.NameUserCristian,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "Cr15t14n"),
+                RoleId = 1,
+            };
+
             var lAdmin = new User()
             {
                 Name = Utils.NameUserAdmin,
@@ -288,6 +300,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lTestAdmin);
                 context.Users.Add(lSCasanova);
                 context.Users.Add(lGMoreno);
+                context.Users.Add(lCristian);
                 context.Users.Add(lAdmin);
                 context.Users.Add(lDCAJuan);
                 context.Users.Add(lDCAFabian);
@@ -327,8 +340,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba,  Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTestAdm };
+                    lUserNames = new String[] { Utils.NameUserDemo, 
+                                                Utils.NameUserSeba,  Utils.NameUserGonza,
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDemo1
@@ -356,8 +371,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserGonza, 
-                                                Utils.NameUserAdmin, Utils.NameUserTestAdm };
+                    lUserNames = new String[] { Utils.NameUserDemo, 
+                                                Utils.NameUserSeba, Utils.NameUserGonza, 
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTestAdm};
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDemo2
@@ -385,8 +402,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    lUserNames = new String[] { Utils.NameUserDemo, Utils.NameUserSeba, Utils.NameUserGonza, 
-                                                Utils.NameUserAdmin, Utils.NameUserTestAdm };
+                    lUserNames = new String[] { Utils.NameUserDemo, 
+                                                Utils.NameUserSeba, Utils.NameUserGonza, 
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDemo3
@@ -414,8 +433,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
                 {
-                    lUserNames = new String[] { Utils.NameUserSantaLucia, Utils.NameUserSeba, Utils.NameUserGonza, 
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm};
+                    lUserNames = new String[] { Utils.NameUserSantaLucia, 
+                                                Utils.NameUserSeba, Utils.NameUserGonza, 
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm};
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmSantaLucia
@@ -447,7 +468,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA2,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDCAElParaiso
@@ -479,7 +501,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA2, 
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDCALaPerdiz
@@ -511,7 +534,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA2,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDCASanJose
@@ -542,7 +566,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserDelLago1, Utils.NameUserDelLago2, 
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoSanPedro
@@ -574,7 +599,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserDelLago1, Utils.NameUserDelLago2,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -606,7 +632,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmGMOLaPalma
@@ -638,7 +665,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmGMOElTacuru
@@ -669,7 +697,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserTM1, 
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmTresMarias
@@ -700,7 +729,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserLR1, Utils.NameUserLR2, 
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
-                                                Utils.NameUserAdmin, Utils.NameUserTesting, Utils.NameUserTestAdm };
+                                                Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmLaRinconada

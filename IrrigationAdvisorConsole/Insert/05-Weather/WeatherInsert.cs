@@ -512,6 +512,7 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 {
                     DataEntryDataTemperatures.DataTemperatures_South_2015(context, lRegion);
                 }
+
                 DataEntryDataTemperatures.DataTemperatures_South_2016(context, lRegion);
 
                 #endregion
@@ -666,26 +667,32 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 #endregion
             }
 
-            #region LasBrujas 2016
+            #region LasBrujas 2016-2017
             using (var context = new IrrigationAdvisorContext())
             {
                 DataEntryWeatherData.WeatherDataLasBrujas_2016(context);
+                DataEntryWeatherData.WeatherDataLasBrujas_2017(context);
+                DataEntryWeatherData.WeatherDataLasBrujas_Prediction(context);
                 context.SaveChanges();
             }
             #endregion
 
-            #region LaEstuanzuela 2016
+            #region LaEstuanzuela 2016-2017
             using (var context = new IrrigationAdvisorContext())
             {
                 DataEntryWeatherData.WeatherDataLaEstanzuela_2016(context);
+                DataEntryWeatherData.WeatherDataLaEstanzuela_2017(context);
+                DataEntryWeatherData.WeatherDataLaEstanzuela_Prediction(context);
                 context.SaveChanges();
             }
             #endregion
 
-            #region SaltoGrande 2016
+            #region SaltoGrande 2016-2017
             using (var context = new IrrigationAdvisorContext())
             {
                 DataEntryWeatherData.WeatherDataSaltoGrande_2016(context);
+                DataEntryWeatherData.WeatherDataSaltoGrande_2017(context);
+                DataEntryWeatherData.WeatherDataSaltoGrande_Prediction(context);
                 context.SaveChanges();
             }
             #endregion
