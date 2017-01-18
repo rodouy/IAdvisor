@@ -29,11 +29,24 @@
         var dateFrom = $('#dateFrom');
         var dateTo = $('#dateTo');
         var btnSearch = $('#btnSearch');
-        var today = moment().year() + '-' + (moment().month() + 1) + '-' + moment().date();
+        var monthValue;
+
+        if ((moment().month() + 1) < 10)
+        {
+            monthValue = '0' + (moment().month() + 1);
+        }
+        else
+        {
+            monthValue = (moment().month() + 1);
+        }
+        
+        var today = moment().year() + '-' + monthValue + '-' + moment().date();
         //yyyy-MM-dd
 
         var startDate = getUrlParameter('pStartDateTime');
+        
         var endDate = getUrlParameter('pEndDateTime');
+        
         var weatherStation = getUrlParameter('pWeatherStationId');
 
         if (startDate && endDate)
