@@ -43,6 +43,8 @@ $(document).ready(function () {
     var userName = $('#userName').val();
     var dvtxtDateOfReferencedateOfReferenceBtn2 = $('#dv-for-txtDateOfReference-dateOfReferenceBtn2');
     var barResp = $('.bar-resp');
+    var dateFromNoIrrigation = $('#dateFromNoIrrigation');
+    var dateToNoIrrigation = $('#dateToNoIrrigation');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -57,6 +59,22 @@ $(document).ready(function () {
                 return sParameterName[1] === undefined ? true : sParameterName[1];
             }
         }
+    };
+
+    var getDateToday = function () {
+
+        var monthValue;
+
+        if ((moment().month() + 1) < 10) {
+            monthValue = '0' + (moment().month() + 1);
+        }
+        else {
+            monthValue = (moment().month() + 1);
+        }
+
+        var today = moment().year() + '-' + monthValue + '-' + moment().date();
+
+        return today;
     };
 
     $('#loading').modal({
@@ -189,6 +207,15 @@ $(document).ready(function () {
 
     };
 
+    var loadDates = function () {
+
+        var date = getDateToday();
+
+        dateFromNoIrrigation.val(date);
+        dateToNoIrrigation.val(date);
+
+    };
+
     var init = function () {
 
         addIrrigationModal.hide();
@@ -199,6 +226,7 @@ $(document).ready(function () {
         addNoIrrigationModal.hide();
         addNoIrrigationMobile.hide();
         lstFarms.hide();
+        
         var initModal = { backdrop: false, show: false };
 
         modalIrrigation.modal(initModal);
@@ -206,7 +234,7 @@ $(document).ready(function () {
         modalPheno.modal(initModal);
         modalNoIrrigation.modal(initModal);
         loadUserFarms();
-
+        loadDates();
         if (modalLoadStatus) {
             loadStageForCropIrrigationWeather();
         }

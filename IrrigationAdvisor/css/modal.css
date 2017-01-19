@@ -217,6 +217,14 @@
 	/*float:left;*/
 }
 
+.no-irrigation-symbol{
+    font-size: xx-large;
+    position: relative;
+    left: 4%;
+    top: 4px;
+    color: #e60000;
+}
+
 /*   Responsive-----------------------------------------------*/
 
 @media screen and (max-width: 1199px) {
