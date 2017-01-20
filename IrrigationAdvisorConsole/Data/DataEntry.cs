@@ -688,7 +688,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -887,7 +887,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -1094,7 +1094,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -1293,7 +1293,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -1492,7 +1492,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -1691,7 +1691,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -1890,7 +1890,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -2089,7 +2089,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -2288,7 +2288,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -2487,7 +2487,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -2686,7 +2686,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -2885,7 +2885,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -3092,7 +3092,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -3291,7 +3291,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -3490,7 +3490,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -3689,7 +3689,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -3903,7 +3903,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -4102,7 +4102,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -4301,7 +4301,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -4498,7 +4498,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -4697,7 +4697,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -4895,7 +4895,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -5094,7 +5094,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -5293,7 +5293,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -5492,7 +5492,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -5691,7 +5691,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -5890,7 +5890,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -6089,7 +6089,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -6288,7 +6288,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -6487,7 +6487,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -6686,7 +6686,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -6885,7 +6885,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -7084,7 +7084,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -7291,7 +7291,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -7490,7 +7490,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -7689,7 +7689,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -7888,7 +7888,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -8095,7 +8095,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -8294,7 +8294,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -8493,7 +8493,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -8692,7 +8692,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -8891,7 +8891,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -9090,7 +9090,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -9289,7 +9289,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -9488,7 +9488,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -9687,7 +9687,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -9886,7 +9886,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -10085,7 +10085,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -10284,7 +10284,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -10483,7 +10483,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -10690,7 +10690,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -10888,7 +10888,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -11086,7 +11086,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -11284,7 +11284,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -11490,7 +11490,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -11688,7 +11688,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -11886,7 +11886,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();
@@ -12084,7 +12084,7 @@ namespace IrrigationAdvisorConsole
                 //Stop when arrives to final Stage
                 if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
                 {
-                    break;
+                    //System.Diagnostics.Debugger.Break();
                 }
             }
             context.SaveChanges();

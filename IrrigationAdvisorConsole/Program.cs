@@ -141,10 +141,10 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2017();
                 //AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium();
 
-                //AgricultureInsert.InsertPhenologicalStagesCornNorthShort();
-                AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2017();
-                //AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort();
-                AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesCornNorthShort();
+                //AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort();
+                //AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2017();
 
                 AgricultureInsert.InsertHorizons();
                 AgricultureInsert.InsertSoils();
