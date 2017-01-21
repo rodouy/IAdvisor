@@ -1255,6 +1255,74 @@ namespace IrrigationAdvisor.Controllers
             return Content("Ok");
         }
 
+        [HttpGet]
+        public ActionResult AddNoIrrigation(DateTime pDateFrom, DateTime pDateTo,
+                                            long pCIW, long pReason, string pObservations)
+        {
+            string lSomeData = string.Empty;
+            try
+            {
+                lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
+                lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
+                lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
+                #region local variables
+                HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
+
+                // DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
+                DateTime lReferenceDate = Utils.GetDateOfReference().Value;
+
+                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+                IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
+                CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
+
+                CropIrrigationWeather lCIW;
+                List<CropIrrigationWeather> lCropIrrigationWeatherList;
+
+                int lSaveChanges = 0;
+                #endregion
+
+                // ManageSession.SetFromDateTime(lDateResult);
+
+                if (pCIW > -1)
+                {
+                    lCIW = lContext.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCIW).Single();
+
+                    lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.NoIrrigation), true);
+                    lSaveChanges = lContext.SaveChanges();
+
+                    lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                    lSaveChanges = lContext.SaveChanges();
+                }
+                else
+                {
+                    foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
+                    {
+                        lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
+                        lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
+
+                        foreach (var lCIW in lCropIrrigationWeatherList)
+                        {
+                            lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                            lSaveChanges = lContext.SaveChanges();
+
+                            lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                            lSaveChanges = lContext.SaveChanges();
+                        }
+                        lSaveChanges = lContext.SaveChanges();
+                    }
+                }
+
+                // Change navigation date of reference
+                // When the user add an irrigation the navigation date changes by the date of reference from the database
+                ManageSession.SetNavigationDate(lReferenceDate);
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.AddNoIrrigation - {0} ", lSomeData);
+                return Content("Exception in HomeController.AddRain " + "\n" + ex.Message + "\n" + lSomeData);
+            }
+        }
+
         [ChildActionOnly]
         public PartialViewResult FrontPagePartial()
         {
