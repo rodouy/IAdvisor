@@ -1276,7 +1276,7 @@ namespace IrrigationAdvisor.Controllers
                 CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
 
                 CropIrrigationWeather lCIW;
-                List<CropIrrigationWeather> lCropIrrigationWeatherList;
+                
 
                 int lSaveChanges = 0;
                 #endregion
@@ -1287,29 +1287,42 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lCIW = lContext.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCIW).Single();
 
-                    lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.NoIrrigation), true);
+                    DateTime lDateIterator = pDateFrom;
+
+                    while (lDateIterator <= pDateTo)
+                    {
+                        lCIW.AddOrUpdateIrrigationDataToList(lDateIterator, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.NoIrrigation), true);
+                        lDateIterator = lDateIterator.AddDays(1);
+                    }
+                       
                     lSaveChanges = lContext.SaveChanges();
 
-                    lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                    lDateIterator = pDateFrom;
+
+                    while (lDateIterator <= pDateTo)
+                    {
+                        lCIW.AddInformationToIrrigationUnits(lDateIterator, lReferenceDate, lContext);
+                    }
+                    
                     lSaveChanges = lContext.SaveChanges();
                 }
                 else
                 {
-                    foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
-                    {
-                        lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
-                        lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
+                    //foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
+                    //{
+                    //    lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
+                    //    lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
 
-                        foreach (var lCIW in lCropIrrigationWeatherList)
-                        {
-                            lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
-                            lSaveChanges = lContext.SaveChanges();
+                    //    foreach (var lCIW in lCropIrrigationWeatherList)
+                    //    {
+                    //        lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                    //        lSaveChanges = lContext.SaveChanges();
 
-                            lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
-                            lSaveChanges = lContext.SaveChanges();
-                        }
-                        lSaveChanges = lContext.SaveChanges();
-                    }
+                    //        lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                    //        lSaveChanges = lContext.SaveChanges();
+                    //    }
+                    //    lSaveChanges = lContext.SaveChanges();
+                    //}
                 }
 
                 // Change navigation date of reference
@@ -1321,6 +1334,8 @@ namespace IrrigationAdvisor.Controllers
                 Utils.LogError(ex, "Exception in HomeController.AddNoIrrigation - {0} ", lSomeData);
                 return Content("Exception in HomeController.AddRain " + "\n" + ex.Message + "\n" + lSomeData);
             }
+
+            return Content("Ok");
         }
 
         [ChildActionOnly]
