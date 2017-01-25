@@ -12,7 +12,7 @@ namespace GetWeatherInfoService
         {
             get
             {
-                return MaxTemperature + MinTemperature / 2;
+                return (MaxTemperature + MinTemperature) / 2;
             }
             private set { }
         }
