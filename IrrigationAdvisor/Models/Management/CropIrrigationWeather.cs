@@ -3068,6 +3068,8 @@ namespace IrrigationAdvisor.Models.Management
                     }
                     //the irrigation update to 0 for today
                     lNewIrrigation.Input = 0;
+                    lNewIrrigation.ExtraInput = 0;
+                    lNewIrrigation.ExtraDate = lNewIrrigation.Date;
                     lDailyRecordIrrigationNextDate = this.DailyRecordList.Find(dr => dr.DailyRecordDateTime.Date == lNewIrrigation.Date.AddDays(1).Date);
                     if (lDailyRecordIrrigationNextDate != null)
                     {
@@ -3635,7 +3637,8 @@ namespace IrrigationAdvisor.Models.Management
                                         .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
                                         ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId))
                 {
-                    if(lIrrigation.ExtraInput > 0)
+                    if(lIrrigation.ExtraInput > 0 || 
+                        (lIrrigation.ExtraInput == 0 && lIrrigation.ExtraDate == lIrrigation.Date))
                     {
                         lIrrigation.Input = 0;
                         lIrrigation.Date = lIrrigation.ExtraDate;

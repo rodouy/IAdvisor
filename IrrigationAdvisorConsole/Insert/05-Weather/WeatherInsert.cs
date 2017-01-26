@@ -515,6 +515,8 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
 
                 DataEntryDataTemperatures.DataTemperatures_South_2016(context, lRegion);
 
+                DataEntryDataTemperatures.DataTemperatures_South_2017(context, lRegion);
+
                 #endregion
 
                 #region North
@@ -526,7 +528,10 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 {
                     DataEntryDataTemperatures.DataTemperatures_North_2015(context, lRegion);
                 }
+
                 DataEntryDataTemperatures.DataTemperatures_North_2016(context, lRegion);
+
+                DataEntryDataTemperatures.DataTemperatures_North_2017(context, lRegion);
 
                 #endregion
 
