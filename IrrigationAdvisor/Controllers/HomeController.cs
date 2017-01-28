@@ -1273,10 +1273,11 @@ namespace IrrigationAdvisor.Controllers
             while (lDateIterator <= pDateTo)
             {
                 pCIW.AddInformationToIrrigationUnits(lDateIterator, lReferenceDate, pContext);
+                pContext.SaveChanges();
                 lDateIterator = lDateIterator.AddDays(1);
             }
 
-            pContext.SaveChanges();
+            
         }
 
         [HttpGet]
