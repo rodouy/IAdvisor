@@ -2693,7 +2693,7 @@ namespace IrrigationAdvisor.Models.Management
                 {
                     lDepth = pPhenologicalStage.HydricBalanceDepth;
                 }
-                if(this.WeatherEventType == Utils.WeatherEventType.ElNinio)
+                else if(this.WeatherEventType == Utils.WeatherEventType.ElNinio)
                 {
                     lDepth = pPhenologicalStage.RootDepth;
                 }
