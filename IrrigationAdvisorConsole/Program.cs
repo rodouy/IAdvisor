@@ -40,7 +40,7 @@ namespace IrrigationAdvisorConsole
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Production;
+        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.DelLago;
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
