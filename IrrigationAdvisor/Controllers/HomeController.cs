@@ -29,6 +29,7 @@ using Newtonsoft.Json;
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -1317,7 +1318,10 @@ namespace IrrigationAdvisor.Controllers
 
                 if (pCIW > -1)
                 {
-                    lCIW = lContext.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCIW).Single();
+                    lCIW = lContext.CropIrrigationWeathers
+                            .Include(c => c.Soil.HorizonList)
+                            .Where(c => c.CropIrrigationWeatherId == pCIW)
+                            .Single();
 
                     //DateTime lDateIterator = pDateFrom;
 

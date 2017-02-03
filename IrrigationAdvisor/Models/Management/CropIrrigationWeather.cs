@@ -3146,9 +3146,9 @@ namespace IrrigationAdvisor.Models.Management
                     if(lNewIrrigation == null)
                     {
                         lNewIrrigation = new Water.Irrigation();
+                        lNewIrrigation.WaterInputId = this.GetNewIrrigationListId();
                     }
-                   
-                    lNewIrrigation.WaterInputId = this.GetNewIrrigationListId();
+
                     lNewIrrigation.Date = pIrrigationDate;
                     //if (pIsExtraIrrigation)
                     //{
