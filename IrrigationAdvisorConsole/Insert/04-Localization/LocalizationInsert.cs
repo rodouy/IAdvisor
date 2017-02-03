@@ -750,7 +750,31 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Latitude = -33.045291,
                 Longitude = -57.531845
             };
-
+            var lDelLagoElMiradorPivot1b = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoElMirador1b,
+                Latitude = -33.222236,
+                Longitude = -56.628953
+            };
+            var lDelLagoElMiradorPivot2b = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoElMirador2b,
+                Latitude = -33.227397,
+                Longitude = -56.633578
+            };
+            var lDelLagoElMiradorPivot3b = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoElMirador3b,
+                Latitude = -33.227925,
+                Longitude = -56.621703
+            };
+            var lDelLagoElMiradorPivot4b = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoElMirador4b,
+                Latitude = -33.045291,
+                Longitude = -57.531845
+            };
+            
             #endregion
             #endregion
 
@@ -1046,6 +1070,10 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lDelLagoElMiradorPivot15);
                 context.Positions.Add(lDelLagoElMiradorPivotChaja1);
                 context.Positions.Add(lDelLagoElMiradorPivotChaja2);
+                context.Positions.Add(lDelLagoElMiradorPivot1b);
+                context.Positions.Add(lDelLagoElMiradorPivot2b);
+                context.Positions.Add(lDelLagoElMiradorPivot3b);
+                context.Positions.Add(lDelLagoElMiradorPivot4b);
                 #endregion
                 #region Pivots - GMO
                 #region LaPalma

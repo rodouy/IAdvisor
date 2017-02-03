@@ -149,6 +149,7 @@ namespace IrrigationAdvisor.Controllers
             int trace = 0;
             try
             {
+                IrrigationAdvisorContext.Refresh();
 
                 #region Manage Session, Get Login from Session
                 
@@ -388,12 +389,12 @@ namespace IrrigationAdvisor.Controllers
 
         private List<CropIrrigationWeather> GetCropIrrigationWeatherListByFarmId(long farmId, DateTime dateOfReference)
         {
-            IrrigationAdvisorContext context = new IrrigationAdvisorContext();
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
             IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
 
             List<CropIrrigationWeather> lResult = null;
 
-           Farm lCurrentFarm = context.Farms.FirstOrDefault(f => f.FarmId == farmId);
+           Farm lCurrentFarm = lContext.Farms.FirstOrDefault(f => f.FarmId == farmId);
 
             if (lCurrentFarm != null)
             {
@@ -486,15 +487,15 @@ namespace IrrigationAdvisor.Controllers
             StageConfiguration st = new StageConfiguration();
             List<StageViewModel> lStageViewModelList = new List<StageViewModel>();
 
-            IrrigationAdvisorContext context = new IrrigationAdvisorContext();
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
             List<Stage> lStageResult = null;
 
             //irrigationUnit
             try
             {
-                CropIrrigationWeather ciw = context.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
+                CropIrrigationWeather ciw = lContext.CropIrrigationWeathers.Where(c => c.CropIrrigationWeatherId == pCropIrrigationWeatherId).FirstOrDefault();
 
-                Stage foundStage = context.Stages.Where(s => s.StageId == ciw.PhenologicalStage.StageId).FirstOrDefault();
+                Stage foundStage = lContext.Stages.Where(s => s.StageId == ciw.PhenologicalStage.StageId).FirstOrDefault();
 
                 if (ciw != null)
                 {
