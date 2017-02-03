@@ -3925,7 +3925,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 2
                 var lDelLagoElMiradorPivot_2_1 = new Horizon
                 {
@@ -3980,7 +3979,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 3
                 var lDelLagoElMiradorPivot_3_1 = new Horizon
                 {
@@ -4035,7 +4033,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 4
                 var lDelLagoElMiradorPivot_4_1 = new Horizon
                 {
@@ -4090,7 +4087,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 5
                 var lDelLagoElMiradorPivot_5_1 = new Horizon
                 {
@@ -4145,7 +4141,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 6
                 var lDelLagoElMiradorPivot_6_1 = new Horizon
                 {
@@ -4200,7 +4195,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 7
                 var lDelLagoElMiradorPivot_7_1 = new Horizon
                 {
@@ -4255,7 +4249,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 8
                 var lDelLagoElMiradorPivot_8_1 = new Horizon
                 {
@@ -4310,7 +4303,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 9
                 var lDelLagoElMiradorPivot_9_1 = new Horizon
                 {
@@ -4365,7 +4357,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 10
                 var lDelLagoElMiradorPivot_10_1 = new Horizon
                 {
@@ -4420,7 +4411,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 11
                 var lDelLagoElMiradorPivot_11_1 = new Horizon
                 {
@@ -4475,7 +4465,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 12
                 var lDelLagoElMiradorPivot_12_1 = new Horizon
                 {
@@ -4530,7 +4519,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 13
                 var lDelLagoElMiradorPivot_13_1 = new Horizon
                 {
@@ -4585,7 +4573,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 14
                 var lDelLagoElMiradorPivot_14_1 = new Horizon
                 {
@@ -4640,7 +4627,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot 15
                 var lDelLagoElMiradorPivot_15_1 = new Horizon
                 {
@@ -4695,7 +4681,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot Chaja 1
                 var lDelLagoElMiradorPivotChaja_1_1 = new Horizon
                 {
@@ -4750,7 +4735,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
-
                 #region Pivot Chaja 2
                 var lDelLagoElMiradorPivotChaja_2_1 = new Horizon
                 {
@@ -4805,6 +4789,224 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.48,
                 };
                 #endregion
+
+                #region Pivot 1b
+                var lDelLagoElMiradorPivot_1b_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador1b + " A",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 26,
+                    Sand = 22,
+                    Limo = 44,
+                    Clay = 34,
+                    OrganicMatter = 4.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.16,
+                };
+                var lDelLagoElMiradorPivot_1b_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador1b + " Bt",
+                    Order = 2,
+                    HorizonLayer = "Bt",
+                    HorizonLayerDepth = 58,
+                    Sand = 14,
+                    Limo = 29,
+                    Clay = 57,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDelLagoElMiradorPivot_1b_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador1b + " BCk",
+                    Order = 3,
+                    HorizonLayer = "BCk",
+                    HorizonLayerDepth = 80,
+                    Sand = 13,
+                    Limo = 28,
+                    Clay = 59,
+                    OrganicMatter = 1.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.44,
+                };
+                var lDelLagoElMiradorPivot_1b_4 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador1b + " Ck",
+                    Order = 4,
+                    HorizonLayer = "Ck",
+                    HorizonLayerDepth = 120,
+                    Sand = 19,
+                    Limo = 29,
+                    Clay = 52,
+                    OrganicMatter = 0.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.48,
+                };
+                #endregion
+                #region Pivot 2b
+                var lDelLagoElMiradorPivot_2b_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador2b + " A",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 26,
+                    Sand = 22,
+                    Limo = 44,
+                    Clay = 34,
+                    OrganicMatter = 4.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.16,
+                };
+                var lDelLagoElMiradorPivot_2b_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador2b + " Bt",
+                    Order = 2,
+                    HorizonLayer = "Bt",
+                    HorizonLayerDepth = 58,
+                    Sand = 14,
+                    Limo = 29,
+                    Clay = 57,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDelLagoElMiradorPivot_2b_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador2b + " BCk",
+                    Order = 3,
+                    HorizonLayer = "BCk",
+                    HorizonLayerDepth = 80,
+                    Sand = 13,
+                    Limo = 28,
+                    Clay = 59,
+                    OrganicMatter = 1.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.44,
+                };
+                var lDelLagoElMiradorPivot_2b_4 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador2b + " Ck",
+                    Order = 4,
+                    HorizonLayer = "Ck",
+                    HorizonLayerDepth = 120,
+                    Sand = 19,
+                    Limo = 29,
+                    Clay = 52,
+                    OrganicMatter = 0.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.48,
+                };
+                #endregion
+                #region Pivot 3b
+                var lDelLagoElMiradorPivot_3b_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador3b + " A",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 26,
+                    Sand = 22,
+                    Limo = 44,
+                    Clay = 34,
+                    OrganicMatter = 4.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.16,
+                };
+                var lDelLagoElMiradorPivot_3b_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador3b + " Bt",
+                    Order = 2,
+                    HorizonLayer = "Bt",
+                    HorizonLayerDepth = 58,
+                    Sand = 14,
+                    Limo = 29,
+                    Clay = 57,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDelLagoElMiradorPivot_3b_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador3b + " BCk",
+                    Order = 3,
+                    HorizonLayer = "BCk",
+                    HorizonLayerDepth = 80,
+                    Sand = 13,
+                    Limo = 28,
+                    Clay = 59,
+                    OrganicMatter = 1.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.44,
+                };
+                var lDelLagoElMiradorPivot_3b_4 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador3b + " Ck",
+                    Order = 4,
+                    HorizonLayer = "Ck",
+                    HorizonLayerDepth = 120,
+                    Sand = 19,
+                    Limo = 29,
+                    Clay = 52,
+                    OrganicMatter = 0.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.48,
+                };
+                #endregion
+                #region Pivot 4b
+                var lDelLagoElMiradorPivot_4b_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador4b + " A",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 26,
+                    Sand = 22,
+                    Limo = 44,
+                    Clay = 34,
+                    OrganicMatter = 4.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.16,
+                };
+                var lDelLagoElMiradorPivot_4b_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador4b + " Bt",
+                    Order = 2,
+                    HorizonLayer = "Bt",
+                    HorizonLayerDepth = 58,
+                    Sand = 14,
+                    Limo = 29,
+                    Clay = 57,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                var lDelLagoElMiradorPivot_4b_3 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador4b + " BCk",
+                    Order = 3,
+                    HorizonLayer = "BCk",
+                    HorizonLayerDepth = 80,
+                    Sand = 13,
+                    Limo = 28,
+                    Clay = 59,
+                    OrganicMatter = 1.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.44,
+                };
+                var lDelLagoElMiradorPivot_4b_4 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoElMirador4b + " Ck",
+                    Order = 4,
+                    HorizonLayer = "Ck",
+                    HorizonLayerDepth = 120,
+                    Sand = 19,
+                    Limo = 29,
+                    Clay = 52,
+                    OrganicMatter = 0.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.48,
+                };
+                #endregion
+
 
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -4877,6 +5079,23 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Horizons.Add(lDelLagoElMiradorPivotChaja_2_2);
                     context.Horizons.Add(lDelLagoElMiradorPivotChaja_2_3);
                     context.Horizons.Add(lDelLagoElMiradorPivotChaja_2_4);
+
+                    context.Horizons.Add(lDelLagoElMiradorPivot_1b_1);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_1b_2);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_1b_3);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_1b_4);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_2b_1);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_2b_2);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_2b_3);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_2b_4);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_3b_1);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_3b_2);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_3b_3);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_3b_4);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_4b_1);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_4b_2);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_4b_3);
+                    context.Horizons.Add(lDelLagoElMiradorPivot_4b_4);
                     #endregion
                     context.SaveChanges();
                 }

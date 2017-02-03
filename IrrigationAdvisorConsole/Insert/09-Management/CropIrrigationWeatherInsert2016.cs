@@ -10809,10 +10809,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2016(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(context, Program.DateOfReference);
 
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1_2016b(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2_2016b(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2016b(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4_2016b(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1b_2016(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2b_2016(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3b_2016(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4b_2016(context, Program.DateOfReference);
 
                     context.SaveChanges();
                     Console.WriteLine("Del Lago - El Mirador - Completed.");

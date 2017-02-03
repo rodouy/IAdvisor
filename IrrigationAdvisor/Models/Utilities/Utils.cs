@@ -866,6 +866,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilDelLagoElMirador15 = NameFarmDelLagoElMirador + " Pivot 15";
         public static String NameSoilDelLagoElMiradorChaja1 = NameFarmDelLagoElMirador + " Pivot Chaja 01";
         public static String NameSoilDelLagoElMiradorChaja2 = NameFarmDelLagoElMirador + " Pivot Chaja 02";
+
         public static String NameSoilDelLagoElMirador1b = NameFarmDelLagoElMirador + " Pivot 01b";
         public static String NameSoilDelLagoElMirador2b = NameFarmDelLagoElMirador + " Pivot 02b";
         public static String NameSoilDelLagoElMirador3b = NameFarmDelLagoElMirador + " Pivot 03b";
