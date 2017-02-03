@@ -3750,7 +3750,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region Update Messages Ids
                     foreach (var item in lCIWDelLagoElMiradorPivot2_2016.Messages)
                     {
-                        item.TitleId = lTitleIdDelLagoElMiradorPivot1_2016;
+                        item.TitleId = lTitleIdDelLagoElMiradorPivot2_2016;
                         lTitleIdDelLagoElMiradorPivot2_2016 += 1;
                         item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot2_2016.CropIrrigationWeatherId;
                         if ((lTitleIdDelLagoElMiradorPivot2_2016 - lFirstTitleIdDelLagoElMiradorPivot2_2016) % (lTotalTitlesDelLagoElMiradorPivot2_2016) == 0)
@@ -6180,7 +6180,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoElMirador_2016b;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2016b;
 
-                    #region Del Lago - El Mirador Pivot 1 2016b
+                    #region Del Lago - El Mirador Pivot 1b 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -6219,25 +6219,25 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotDelLagoElMirador1
+                                       where iu.Name == Utils.NamePivotDelLagoElMirador1b
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilDelLagoElMirador1
+                             where soil.Name == Utils.NameSoilDelLagoElMirador1b
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador1)
+                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador1b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot1_2016b;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot1_2016b;
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot1b_2016;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot1b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1_2016b == 0)
+                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1b_2016 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1_2016b;
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -6256,10 +6256,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW DelLago ElMirador Pivot1 2016b
-                    var lCIWDelLagoElMiradorPivot1_2016b = new CropIrrigationWeather
+                    #region New CIW DelLago ElMirador Pivot1b 2016
+                    var lCIWDelLagoElMiradorPivot1b_2016 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot1b,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -6295,53 +6295,53 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot1_2016b.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot1b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWDelLagoElMiradorPivot1_2016b.HydricBalance = lCIWDelLagoElMiradorPivot1_2016b.GetInitialHydricBalance();
+                    lCIWDelLagoElMiradorPivot1b_2016.HydricBalance = lCIWDelLagoElMiradorPivot1b_2016.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoElMiradorPivot1_2016b.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoElMiradorPivot1b_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot1_2016b);
+                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot1b_2016);
                     context.SaveChanges();
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWDelLagoElMiradorPivot1_2016b.Titles)
+                    foreach (var item in lCIWDelLagoElMiradorPivot1b_2016.Titles)
                     {
-                        var lTitlesDelLagoElMiradorPivot1_2016b = new Title
+                        var lTitlesDelLagoElMiradorPivot1b_2016 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot1_2016b.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot1_2016b,
+                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot1b_2016.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot1b_2016,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesDelLagoElMiradorPivot1_2016b);
+                        context.Titles.Add(lTitlesDelLagoElMiradorPivot1b_2016);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdDelLagoElMiradorPivot1_2016b = (from title in context.Titles
+                    long lFirstTitleIdDelLagoElMiradorPivot1b_2016 = (from title in context.Titles
                                                                      where title.Name == "DDS"
                                                                         && title.Daily == false
-                                                                        && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot1_2016b.CropIrrigationWeatherId
+                                                                        && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot1b_2016.CropIrrigationWeatherId
                                                                      select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesDelLagoElMiradorPivot1_2016b = lCIWDelLagoElMiradorPivot1_2016b.Titles.Count();
-                    long lTitleIdDelLagoElMiradorPivot1_2016b = lFirstTitleIdDelLagoElMiradorPivot1_2016b;
+                    long lTotalTitlesDelLagoElMiradorPivot1b_2016 = lCIWDelLagoElMiradorPivot1b_2016.Titles.Count();
+                    long lTitleIdDelLagoElMiradorPivot1b_2016 = lFirstTitleIdDelLagoElMiradorPivot1b_2016;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWDelLagoElMiradorPivot1_2016b.Messages)
+                    foreach (var item in lCIWDelLagoElMiradorPivot1b_2016.Messages)
                     {
-                        item.TitleId = lTitleIdDelLagoElMiradorPivot1_2016b;
-                        lTitleIdDelLagoElMiradorPivot1_2016b += 1;
-                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot1_2016b.CropIrrigationWeatherId;
-                        if ((lTitleIdDelLagoElMiradorPivot1_2016b - lFirstTitleIdDelLagoElMiradorPivot1_2016b) % (lTotalTitlesDelLagoElMiradorPivot1_2016b) == 0)
+                        item.TitleId = lTitleIdDelLagoElMiradorPivot1b_2016;
+                        lTitleIdDelLagoElMiradorPivot1b_2016 += 1;
+                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot1b_2016.CropIrrigationWeatherId;
+                        if ((lTitleIdDelLagoElMiradorPivot1b_2016 - lFirstTitleIdDelLagoElMiradorPivot1b_2016) % (lTotalTitlesDelLagoElMiradorPivot1b_2016) == 0)
                         {
-                            lTitleIdDelLagoElMiradorPivot1_2016b = lFirstTitleIdDelLagoElMiradorPivot1_2016b;
+                            lTitleIdDelLagoElMiradorPivot1b_2016 = lFirstTitleIdDelLagoElMiradorPivot1b_2016;
                         }
                     }
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #region Del Lago - El Mirador Pivot 2 2016b
+                    #region Del Lago - El Mirador Pivot 2b 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -6380,25 +6380,25 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotDelLagoElMirador2
+                                       where iu.Name == Utils.NamePivotDelLagoElMirador2b
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilDelLagoElMirador2
+                             where soil.Name == Utils.NameSoilDelLagoElMirador2b
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador2)
+                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador2b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot2_2016b;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot2_2016b;
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot2b_2016;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot2b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2_2016b == 0)
+                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2b_2016 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2_2016b;
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -6417,10 +6417,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW DelLago ElMirador Pivot2 2016b
-                    var lCIWDelLagoElMiradorPivot2_2016b = new CropIrrigationWeather
+                    #region New CIW DelLago ElMirador Pivot2b 2016
+                    var lCIWDelLagoElMiradorPivot2b_2016 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot2,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot2b,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -6456,53 +6456,53 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot2_2016b.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot2b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWDelLagoElMiradorPivot2_2016b.HydricBalance = lCIWDelLagoElMiradorPivot2_2016b.GetInitialHydricBalance();
+                    lCIWDelLagoElMiradorPivot2b_2016.HydricBalance = lCIWDelLagoElMiradorPivot2b_2016.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoElMiradorPivot2_2016b.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoElMiradorPivot2b_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot2_2016b);
+                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot2b_2016);
                     context.SaveChanges();
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWDelLagoElMiradorPivot2_2016b.Titles)
+                    foreach (var item in lCIWDelLagoElMiradorPivot2b_2016.Titles)
                     {
-                        var lTitlesDelLagoElMiradorPivot2_2016b = new Title
+                        var lTitlesDelLagoElMiradorPivot2b_2016 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot2_2016b.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot2_2016b,
+                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot2b_2016.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot2b_2016,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesDelLagoElMiradorPivot2_2016b);
+                        context.Titles.Add(lTitlesDelLagoElMiradorPivot2b_2016);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdDelLagoElMiradorPivot2_2016b = (from title in context.Titles
+                    long lFirstTitleIdDelLagoElMiradorPivot2b_2016 = (from title in context.Titles
                                                                      where title.Name == "DDS"
                                                                         && title.Daily == false
-                                                                        && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot2_2016b.CropIrrigationWeatherId
+                                                                        && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot2b_2016.CropIrrigationWeatherId
                                                                      select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesDelLagoElMiradorPivot2_2016b = lCIWDelLagoElMiradorPivot2_2016b.Titles.Count();
-                    long lTitleIdDelLagoElMiradorPivot2_2016b = lFirstTitleIdDelLagoElMiradorPivot2_2016b;
+                    long lTotalTitlesDelLagoElMiradorPivot2b_2016 = lCIWDelLagoElMiradorPivot2b_2016.Titles.Count();
+                    long lTitleIdDelLagoElMiradorPivot2b_2016 = lFirstTitleIdDelLagoElMiradorPivot2b_2016;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWDelLagoElMiradorPivot2_2016b.Messages)
+                    foreach (var item in lCIWDelLagoElMiradorPivot2b_2016.Messages)
                     {
-                        item.TitleId = lTitleIdDelLagoElMiradorPivot1_2016b;
-                        lTitleIdDelLagoElMiradorPivot2_2016b += 1;
-                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot2_2016b.CropIrrigationWeatherId;
-                        if ((lTitleIdDelLagoElMiradorPivot2_2016b - lFirstTitleIdDelLagoElMiradorPivot2_2016b) % (lTotalTitlesDelLagoElMiradorPivot2_2016b) == 0)
+                        item.TitleId = lTitleIdDelLagoElMiradorPivot2b_2016;
+                        lTitleIdDelLagoElMiradorPivot2b_2016 += 1;
+                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot2b_2016.CropIrrigationWeatherId;
+                        if ((lTitleIdDelLagoElMiradorPivot2b_2016 - lFirstTitleIdDelLagoElMiradorPivot2b_2016) % (lTotalTitlesDelLagoElMiradorPivot2b_2016) == 0)
                         {
-                            lTitleIdDelLagoElMiradorPivot2_2016b = lFirstTitleIdDelLagoElMiradorPivot2_2016b;
+                            lTitleIdDelLagoElMiradorPivot2b_2016 = lFirstTitleIdDelLagoElMiradorPivot2b_2016;
                         }
                     }
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #region Del Lago - El Mirador Pivot 3 2016b
+                    #region Del Lago - El Mirador Pivot 3b 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -6541,25 +6541,25 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotDelLagoElMirador3
+                                       where iu.Name == Utils.NamePivotDelLagoElMirador3b
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilDelLagoElMirador3
+                             where soil.Name == Utils.NameSoilDelLagoElMirador3b
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador3)
+                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador3b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot3_2016b;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot3_2016b;
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot3b_2016;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot3b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3_2016b == 0)
+                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3b_2016 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3_2016b;
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -6578,10 +6578,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW DelLago ElMirador Pivot3 2016b
-                    var lCIWDelLagoElMiradorPivot3_2016b = new CropIrrigationWeather
+                    #region New CIW DelLago ElMirador Pivot3b 2016
+                    var lCIWDelLagoElMiradorPivot3b_2016 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot3,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot3b,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -6617,53 +6617,53 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot3_2016b.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot3b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWDelLagoElMiradorPivot3_2016b.HydricBalance = lCIWDelLagoElMiradorPivot3_2016b.GetInitialHydricBalance();
+                    lCIWDelLagoElMiradorPivot3b_2016.HydricBalance = lCIWDelLagoElMiradorPivot3b_2016.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoElMiradorPivot3_2016b.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoElMiradorPivot3b_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot3_2016b);
+                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot3b_2016);
                     context.SaveChanges();
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWDelLagoElMiradorPivot3_2016b.Titles)
+                    foreach (var item in lCIWDelLagoElMiradorPivot3b_2016.Titles)
                     {
-                        var lTitlesDelLagoElMiradorPivot3_2016b = new Title
+                        var lTitlesDelLagoElMiradorPivot3b_2016 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot3_2016b.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot3_2016b,
+                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot3b_2016.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot3b_2016,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesDelLagoElMiradorPivot3_2016b);
+                        context.Titles.Add(lTitlesDelLagoElMiradorPivot3b_2016);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdDelLagoElMiradorPivot3_2016b = (from title in context.Titles
+                    long lFirstTitleIdDelLagoElMiradorPivot3b_2016 = (from title in context.Titles
                                                                      where title.Name == "DDS"
                                                                         && title.Daily == false
-                                                                        && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot3_2016b.CropIrrigationWeatherId
+                                                                        && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot3b_2016.CropIrrigationWeatherId
                                                                      select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesDelLagoElMiradorPivot3_2016b = lCIWDelLagoElMiradorPivot3_2016b.Titles.Count();
-                    long lTitleIdDelLagoElMiradorPivot3_2016b = lFirstTitleIdDelLagoElMiradorPivot3_2016b;
+                    long lTotalTitlesDelLagoElMiradorPivot3b_2016 = lCIWDelLagoElMiradorPivot3b_2016.Titles.Count();
+                    long lTitleIdDelLagoElMiradorPivot3b_2016 = lFirstTitleIdDelLagoElMiradorPivot3b_2016;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWDelLagoElMiradorPivot3_2016b.Messages)
+                    foreach (var item in lCIWDelLagoElMiradorPivot3b_2016.Messages)
                     {
-                        item.TitleId = lTitleIdDelLagoElMiradorPivot3_2016b;
-                        lTitleIdDelLagoElMiradorPivot3_2016b += 1;
-                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot3_2016b.CropIrrigationWeatherId;
-                        if ((lTitleIdDelLagoElMiradorPivot3_2016b - lFirstTitleIdDelLagoElMiradorPivot3_2016b) % (lTotalTitlesDelLagoElMiradorPivot3_2016b) == 0)
+                        item.TitleId = lTitleIdDelLagoElMiradorPivot3b_2016;
+                        lTitleIdDelLagoElMiradorPivot3b_2016 += 1;
+                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot3b_2016.CropIrrigationWeatherId;
+                        if ((lTitleIdDelLagoElMiradorPivot3b_2016 - lFirstTitleIdDelLagoElMiradorPivot3b_2016) % (lTotalTitlesDelLagoElMiradorPivot3b_2016) == 0)
                         {
-                            lTitleIdDelLagoElMiradorPivot3_2016b = lFirstTitleIdDelLagoElMiradorPivot3_2016b;
+                            lTitleIdDelLagoElMiradorPivot3b_2016 = lFirstTitleIdDelLagoElMiradorPivot3b_2016;
                         }
                     }
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #region Del Lago - El Mirador Pivot 4 2016b
+                    #region Del Lago - El Mirador Pivot 4b 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -6702,25 +6702,25 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotDelLagoElMirador4
+                                       where iu.Name == Utils.NamePivotDelLagoElMirador4b
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilDelLagoElMirador4
+                             where soil.Name == Utils.NameSoilDelLagoElMirador4b
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador4)
+                                    where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador4b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot4_2016b;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot4_2016b;
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot4b_2016;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot4b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4_2016b == 0)
+                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4b_2016 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4_2016b;
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -6739,10 +6739,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW DelLago ElMirador Pivot4 2016b
-                    var lCIWDelLagoElMiradorPivot4_2016b = new CropIrrigationWeather
+                    #region New CIW DelLago ElMirador Pivot4b 2016
+                    var lCIWDelLagoElMiradorPivot4b_2016 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot4,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot4b,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -6778,47 +6778,47 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot4_2016b.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot4b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWDelLagoElMiradorPivot4_2016b.HydricBalance = lCIWDelLagoElMiradorPivot4_2016b.GetInitialHydricBalance();
+                    lCIWDelLagoElMiradorPivot4b_2016.HydricBalance = lCIWDelLagoElMiradorPivot4b_2016.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoElMiradorPivot4_2016b.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoElMiradorPivot4b_2016.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot4_2016b);
+                    context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot4b_2016);
                     context.SaveChanges();
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWDelLagoElMiradorPivot4_2016b.Titles)
+                    foreach (var item in lCIWDelLagoElMiradorPivot4b_2016.Titles)
                     {
-                        var lTitlesDelLagoElMiradorPivot4_2016b = new Title
+                        var lTitlesDelLagoElMiradorPivot4b_2016 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot4_2016b.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot4_2016b,
+                            CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot4b_2016.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWDelLagoElMiradorPivot4b_2016,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesDelLagoElMiradorPivot4_2016b);
+                        context.Titles.Add(lTitlesDelLagoElMiradorPivot4b_2016);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdDelLagoElMiradorPivot4_2016b = (from title in context.Titles
+                    long lFirstTitleIdDelLagoElMiradorPivot4b_2016 = (from title in context.Titles
                                                                      where title.Name == "DDS"
                                                                         && title.Daily == false
-                                                                        && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot4_2016b.CropIrrigationWeatherId
+                                                                        && title.CropIrrigationWeatherId == lCIWDelLagoElMiradorPivot4b_2016.CropIrrigationWeatherId
                                                                      select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesDelLagoElMiradorPivot4_2016b = lCIWDelLagoElMiradorPivot4_2016b.Titles.Count();
-                    long lTitleIdDelLagoElMiradorPivot4_2016b = lFirstTitleIdDelLagoElMiradorPivot4_2016b;
+                    long lTotalTitlesDelLagoElMiradorPivot4b_2016 = lCIWDelLagoElMiradorPivot4b_2016.Titles.Count();
+                    long lTitleIdDelLagoElMiradorPivot4b_2016 = lFirstTitleIdDelLagoElMiradorPivot4b_2016;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWDelLagoElMiradorPivot4_2016b.Messages)
+                    foreach (var item in lCIWDelLagoElMiradorPivot4b_2016.Messages)
                     {
-                        item.TitleId = lTitleIdDelLagoElMiradorPivot4_2016b;
-                        lTitleIdDelLagoElMiradorPivot4_2016b += 1;
-                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot4_2016b.CropIrrigationWeatherId;
-                        if ((lTitleIdDelLagoElMiradorPivot4_2016b - lFirstTitleIdDelLagoElMiradorPivot4_2016b) % (lTotalTitlesDelLagoElMiradorPivot4_2016b) == 0)
+                        item.TitleId = lTitleIdDelLagoElMiradorPivot4b_2016;
+                        lTitleIdDelLagoElMiradorPivot4b_2016 += 1;
+                        item.CropIrrigationWeatherId = lCIWDelLagoElMiradorPivot4b_2016.CropIrrigationWeatherId;
+                        if ((lTitleIdDelLagoElMiradorPivot4b_2016 - lFirstTitleIdDelLagoElMiradorPivot4b_2016) % (lTotalTitlesDelLagoElMiradorPivot4b_2016) == 0)
                         {
-                            lTitleIdDelLagoElMiradorPivot4_2016b = lFirstTitleIdDelLagoElMiradorPivot4_2016b;
+                            lTitleIdDelLagoElMiradorPivot4b_2016 = lFirstTitleIdDelLagoElMiradorPivot4b_2016;
                         }
                     }
                     context.SaveChanges();

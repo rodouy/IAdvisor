@@ -7623,7 +7623,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot1.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot1.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 2
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador2
@@ -7654,7 +7653,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot2.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot2.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 3
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador3
@@ -7685,7 +7683,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot3.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot3.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 4
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador4
@@ -7716,7 +7713,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot4.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot4.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 5
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador5
@@ -7747,7 +7743,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot5.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot5.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 6
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador6
@@ -7778,7 +7773,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot6.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot6.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 7
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador7
@@ -7809,7 +7803,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot7.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot7.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 8
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador8
@@ -7840,7 +7833,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot8.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot8.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 9
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador9
@@ -7871,7 +7863,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot9.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot9.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 10
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador10
@@ -7902,7 +7893,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot10.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot10.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 11
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador11
@@ -7933,7 +7923,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot11.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot11.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 12
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador12
@@ -7964,7 +7953,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot12.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot12.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 13
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador13
@@ -7995,7 +7983,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot13.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot13.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 14
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador14
@@ -8026,7 +8013,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot14.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot14.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 15
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMirador15
@@ -8057,7 +8043,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivot15.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivot15.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot Chaja 01
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMiradorChaja1
@@ -8088,7 +8073,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivotChaja1.HorizonList.Add(lHorizon3);
                     lDelLagoElMiradorPivotChaja1.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot Chaja 02
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoElMiradorChaja2
@@ -8120,6 +8104,127 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoElMiradorPivotChaja2.HorizonList.Add(lHorizon4);
                     #endregion
 
+                    #region Pivot 1b
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoElMirador1b
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador1b + " A"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador1b + " Bt"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador1b + " BCk"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador1b + " Ck"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoElMiradorPivot1b = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1b,
+                        Description = "Suelo del Pivot 1 en Del Lago - El Mirador. Suelos profundos, Vertisoles de alto potencial productivo.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 23),
+                        DepthLimit = 50,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoElMiradorPivot1b.HorizonList.Add(lHorizon1);
+                    lDelLagoElMiradorPivot1b.HorizonList.Add(lHorizon2);
+                    lDelLagoElMiradorPivot1b.HorizonList.Add(lHorizon3);
+                    lDelLagoElMiradorPivot1b.HorizonList.Add(lHorizon4);
+                    #endregion
+                    #region Pivot 2b
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoElMirador2b
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador2b + " A"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador2b + " Bt"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador2b + " BCk"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador2b + " Ck"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoElMiradorPivot2b = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2b,
+                        Description = "Suelo del Pivot 2 en Del Lago - El Mirador. Suelos profundos, Vertisoles de alto potencial productivo.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 23),
+                        DepthLimit = 50,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoElMiradorPivot2b.HorizonList.Add(lHorizon1);
+                    lDelLagoElMiradorPivot2b.HorizonList.Add(lHorizon2);
+                    lDelLagoElMiradorPivot2b.HorizonList.Add(lHorizon3);
+                    lDelLagoElMiradorPivot2b.HorizonList.Add(lHorizon4);
+                    #endregion
+                    #region Pivot 3b
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoElMirador3b
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador3b + " A"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador3b + " Bt"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador3b + " BCk"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador3b + " Ck"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoElMiradorPivot3b = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3b,
+                        Description = "Suelo del Pivot 3 en Del Lago - El Mirador. Suelos profundos, Vertisoles de alto potencial productivo.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 23),
+                        DepthLimit = 50,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoElMiradorPivot3b.HorizonList.Add(lHorizon1);
+                    lDelLagoElMiradorPivot3b.HorizonList.Add(lHorizon2);
+                    lDelLagoElMiradorPivot3b.HorizonList.Add(lHorizon3);
+                    lDelLagoElMiradorPivot3b.HorizonList.Add(lHorizon4);
+                    #endregion
+                    #region Pivot 4b
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoElMirador4b
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador4b + " A"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador4b + " Bt"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador4b + " BCk"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoElMirador4b + " Ck"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoElMiradorPivot4b = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4b,
+                        Description = "Suelo del Pivot 4 en Del Lago - El Mirador. Suelos profundos, Vertisoles de alto potencial productivo.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 23),
+                        DepthLimit = 50,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoElMiradorPivot4b.HorizonList.Add(lHorizon1);
+                    lDelLagoElMiradorPivot4b.HorizonList.Add(lHorizon2);
+                    lDelLagoElMiradorPivot4b.HorizonList.Add(lHorizon3);
+                    lDelLagoElMiradorPivot4b.HorizonList.Add(lHorizon4);
+                    #endregion
+
 
                     context.Soils.Add(lDelLagoElMiradorPivot1);
                     context.Soils.Add(lDelLagoElMiradorPivot2);
@@ -8138,6 +8243,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Soils.Add(lDelLagoElMiradorPivot15);
                     context.Soils.Add(lDelLagoElMiradorPivotChaja1);
                     context.Soils.Add(lDelLagoElMiradorPivotChaja2);
+                    context.Soils.Add(lDelLagoElMiradorPivot1b);
+                    context.Soils.Add(lDelLagoElMiradorPivot2b);
+                    context.Soils.Add(lDelLagoElMiradorPivot3b);
+                    context.Soils.Add(lDelLagoElMiradorPivot4b);
                     context.SaveChanges();
                 }
             }
