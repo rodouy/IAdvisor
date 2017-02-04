@@ -232,7 +232,7 @@ namespace IrrigationAdvisor.Controllers
                 #region Get list of Farms from User
                 if(lLoggedUser != null)
                 {
-                    lFarmList = fc.GetFarmListBy(lLoggedUser);
+                    lFarmList = fc.GetFarmWithActiveCropIrrigationWeathersListBy(lLoggedUser);
                 }
                 else
                 {
@@ -443,7 +443,7 @@ namespace IrrigationAdvisor.Controllers
 
                     if (lUser != null)
                     {
-                        List<Farm> lFarmList = lFc.GetFarmListBy(lUser);
+                        List<Farm> lFarmList = lFc.GetFarmWithActiveCropIrrigationWeathersListBy(lUser);
 
                         foreach (var item in lFarmList)
                         {
@@ -1489,7 +1489,7 @@ namespace IrrigationAdvisor.Controllers
                 lSomeData = lSomeData + "User: " + lLoggedUser.Name + "-";
 
                 //Get list of Farms from User
-                lFarmList = fc.GetFarmListBy(lLoggedUser);
+                lFarmList = fc.GetFarmWithActiveCropIrrigationWeathersListBy(lLoggedUser);
 
                 //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
@@ -1808,7 +1808,7 @@ namespace IrrigationAdvisor.Controllers
                 if (lLoggedUser != null)
                 {
                     //Get list of Farms from User
-                    lFarmList = fc.GetFarmListBy(lLoggedUser);
+                    lFarmList = fc.GetFarmWithActiveCropIrrigationWeathersListBy(lLoggedUser);
 
                     lCurrentFarm = GetCurrentFarm(lFarmList);
                     lPositionId = lCurrentFarm.PositionId;
@@ -2093,7 +2093,7 @@ namespace IrrigationAdvisor.Controllers
                 if (lLoggedUser != null)
                 {
                     //Get list of Farms from User
-                    lFarmList = fc.GetFarmListBy(lLoggedUser);
+                    lFarmList = fc.GetFarmWithActiveCropIrrigationWeathersListBy(lLoggedUser);
 
                     lCurrentFarm = GetCurrentFarm(lFarmList);
                     lPositionId = lCurrentFarm.PositionId;

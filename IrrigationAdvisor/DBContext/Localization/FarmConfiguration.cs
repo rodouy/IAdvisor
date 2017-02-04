@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.Models.Security;
 using System.Data.Entity;
+using IrrigationAdvisor.Models.Utilities;
 
 namespace IrrigationAdvisor.DBContext.Localization
 {
@@ -85,6 +86,32 @@ namespace IrrigationAdvisor.DBContext.Localization
                                         .Include(f => f.City).ToList();
             }
             
+            return lReturn;
+        }
+
+        public List<Farm> GetFarmWithActiveCropIrrigationWeathersListBy(User pUser)
+        {
+            List<Farm> lReturn = null;
+
+            DateTime lDate = Utils.GetDateOfReference().Value;
+            if (pUser != null)
+            {
+                lReturn = (from ul in db.UserFarms
+                           join f in db.Farms
+                           on ul.FarmId equals f.FarmId
+                           join i in db.IrrigationUnits
+                           on f.FarmId equals i.FarmId
+                           join ciw in db.CropIrrigationWeathers
+                           on i.IrrigationUnitId equals ciw.IrrigationUnitId
+                           where ul.UserId == pUser.UserId && 
+                           ciw.SowingDate <= lDate && 
+                           ciw.HarvestDate >= lDate
+                           select f).Include(f => f.BombList)
+                                        .Include(f => f.IrrigationUnitList)
+                                        .Include(f => f.WeatherStation)
+                                        .Include(f => f.City).Distinct().ToList();
+            }
+
             return lReturn;
         }
 
