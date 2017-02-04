@@ -1284,7 +1284,7 @@ namespace IrrigationAdvisor.Controllers
         [HttpGet]
         public ActionResult NoIrri()
         {
-            AddNoIrrigation(new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), 1, 1, "Test Observations", 1);
+            AddNoIrrigation(new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), -1, 1, "Test Observations", 1);
             return Content("Ok");
         }
 
@@ -1323,26 +1323,6 @@ namespace IrrigationAdvisor.Controllers
                             .Where(c => c.CropIrrigationWeatherId == pCIW)
                             .Single();
 
-                    //DateTime lDateIterator = pDateFrom;
-
-                    //while (lDateIterator <= pDateTo)
-                    //{
-                    //    lCIW.AddOrUpdateIrrigationDataToList(lDateIterator, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.NoIrrigation), true);
-                    //    lDateIterator = lDateIterator.AddDays(1);
-                    //}
-                       
-                    //lSaveChanges = lContext.SaveChanges();
-
-                    //lDateIterator = pDateFrom;
-
-                    //while (lDateIterator <= pDateTo)
-                    //{
-                    //    lCIW.AddInformationToIrrigationUnits(lDateIterator, lReferenceDate, lContext);
-                    //    lDateIterator = lDateIterator.AddDays(1);
-                    //}
-                    
-                    //lSaveChanges = lContext.SaveChanges();
-
                     AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, lCIW, lContext);
                 }
                 else
@@ -1351,12 +1331,6 @@ namespace IrrigationAdvisor.Controllers
                     
                     foreach (var bCIW in ciwByFarm)
                     {
-                        //bCIW.AddOrUpdateIrrigationDataToList(pDateFrom, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.NoIrrigation), true);
-                        //lSaveChanges = lContext.SaveChanges();
-
-                        //bCIW.AddInformationToIrrigationUnits(pDateFrom, lReferenceDate, lContext);
-                        //lSaveChanges = lContext.SaveChanges();
-
                         AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext);
                     }
                     lSaveChanges = lContext.SaveChanges();

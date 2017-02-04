@@ -664,7 +664,19 @@ $(document).ready(function () {
     });
    
     saveNoIrrigation.click(function () {
-        alert("saveNoIrrigation click!");
+
+        var milimeters = parseFloat(irrigationMilimeters.val());
+
+        var irrigationDate = moment($('#irrigationDate :selected').val(), 'MM/DD/YYYY');
+        $('#irrigationDate').removeClass('.input-red-border');
+        saveIrrigationBtn.attr('disabled', true);
+        irrigationMilimeters.attr('disabled', true);
+        showLoading();
+        modalIrrigation.modal('hide');
+        addIrrigation(irrigationMilimeters.val(),
+                        $('#IrrigationUnitIrrigation :selected').val(),
+                        irrigationDate);
+
     });
 
     var addRain = function (pMilimiters, pIrrigationUnitId, pDate)
@@ -772,6 +784,57 @@ $(document).ready(function () {
                 }
                 
 
+            },
+            error: function (data) {
+                hideLoading();
+                sendMail("Error al cargar Riego", data);
+                console.log(data);
+                //$('#myModal').modal('hide');
+            }
+        });
+
+    }
+
+    var addNoIrrigation = function (pDateFrom, pDateTo, pCIW, pReason, pObservations, pFarmId) {
+
+
+        var pUrl = './AddNoIrrigation?pDateFrom=' + pDateFrom +
+                '&pDateTo=' + pDateTo +
+                '&pCIW=' + pCIW +
+                '&pReason=' + pReason +
+                '&pObservations=' + pObservations +
+                '&pFarmId=' + pFarmId;
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+                if (data == "Ok") {
+
+                    //if (pIrrigationUnitId == "-1") {
+                    //    pIrrigationUnitId = "Todos";
+                    //}
+
+                    //var selected = $('#IrrigationUnitIrrigation option:selected').text();
+                    //var irrigationMailText = "";
+
+                    //if (selected == "Todos") {
+                    //    irrigationMailText = irrigationUnitIrrigationMail.val().replace("Todos", "");
+                    //}
+                    //else {
+                    //    irrigationMailText = selected;
+                    //}
+
+                    //$.when(sendMail("Usuario: " + userName + " ha agregado intervalo de No Riego para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Milimetros: " + pMilimiters + "[br] Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year() + "[br] IrrigationUnitId: " + pIrrigationUnitId + " - " + irrigationMailText)).done(function () {
+                    //    location.href = "./home?farm=" + lstFarms.val();
+                    //});
+
+                }
+                else {
+                    sendMail("Error al cargar No Riego", data);
+                    console.log(data);
+                    hideLoading();
+                }
             },
             error: function (data) {
                 hideLoading();
