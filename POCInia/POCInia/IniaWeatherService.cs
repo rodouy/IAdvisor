@@ -381,7 +381,7 @@ namespace POCInia
                 logger.Error("No se pudo encontrar la WeatherStation = {0}", currentWeatherStationId);
             }
 
-            WeatherData existingWeatherData = context.WeatherDatas.SingleOrDefault(w => w.Date == dto.Date && w.WeatherStationId == currentWeatherStationId);
+            WeatherData existingWeatherData = context.WeatherDatas.SingleOrDefault(w => w.Date == dto.Date && w.WeatherStationId == currentWeatherStationId && w.WeatherDataInputType == (int)Enums.WeatherDataInputType.IniaWeatherService);
 
             if(existingWeatherData == null)
             {
