@@ -176,7 +176,7 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationAlternativeName_DCASanJose_2016 = Utils.NameWeatherStationViveroSanFrancisco;
 
         public static DateTime SowingDate_CornSouth_DCASanJosePivot1_2016 = new DateTime(2016, 9, 19);
-        public static DateTime HarvestDate_CornSouth_DCASanJosePivot1_2016 = new DateTime(2017, 2, 20);
+        public static DateTime HarvestDate_CornSouth_DCASanJosePivot1_2016 = new DateTime(2017, 2, 5);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot1_2016 = 14;
         public static DateTime SowingDate_SoyaSouth_DCASanJosePivot2_2016 = new DateTime(2016, 11, 2);
         public static DateTime HarvestDate_SoyaSouth_DCASanJosePivot2_2016 = new DateTime(2017, 2, 20);
@@ -185,7 +185,7 @@ namespace IrrigationAdvisorConsole
         public static DateTime HarvestDate_SoyaSouth_DCASanJosePivot3_2016 = new DateTime(2017, 2, 20);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot3_2016 = 14;
         public static DateTime SowingDate_CornSouth_DCASanJosePivot4_2016 = new DateTime(2016, 9, 19);
-        public static DateTime HarvestDate_CornSouth_DCASanJosePivot4_2016 = new DateTime(2017, 2, 20);
+        public static DateTime HarvestDate_CornSouth_DCASanJosePivot4_2016 = new DateTime(2017, 2, 5);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot4_2016 = 14;
         #endregion
 
