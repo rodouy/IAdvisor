@@ -501,9 +501,29 @@ namespace IrrigationAdvisor.Models.Weather
             WeatherData lReturn;
             WeatherData lWeatherData = null;
 
-            if(pDateHour != null)
+            if (pDateHour != null)
             {
-                lWeatherData = this.WeatherDataList.Find(wd => wd.Date.Date == pDateHour.Date);
+                lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.IniaWeatherService);
+
+                if (lWeatherData == null)
+                {
+                    lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.GetWeatherInfoService);
+                }
+
+                if (lWeatherData == null)
+                {
+                    lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.Prediction);
+                }
+
+                if (lWeatherData == null)
+                {
+                    lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.WebInsert);
+                }
+
+                if (lWeatherData == null)
+                {
+                    lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.CodeInsert);
+                }
             }
 
             lReturn = lWeatherData;
