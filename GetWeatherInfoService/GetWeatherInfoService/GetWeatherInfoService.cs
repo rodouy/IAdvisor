@@ -317,7 +317,7 @@ namespace GetWeatherInfoService
 
                             UpdateAllWeatherDataRecord(existingWeatherData, weatherDataDTO, currentConditionsAsDate, weatherStation.WeatherStationId, emailLog);
                         }
-                        else if (existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate && Validations(currentConditionsAsDate))
+                        else if (existingWeatherData != null && existingWeatherData.Date < currentConditionsAsDate && Validations(currentConditionsAsDate) && existingWeatherData.WeatherDataInputType != (int)Enums.WeatherDataInputType.IniaWeatherService)
                         {
                             
                             existingWeatherData.Date = DateTime.Now;
@@ -403,6 +403,7 @@ namespace GetWeatherInfoService
                             }
 
                             existingWeatherData.Observations = weatherDataDTO.Observations;
+                            existingWeatherData.WeatherDataInputType = (int)Enums.WeatherDataInputType.GetWeatherInfoService;
                             emailLog.Add(LogFormat("Last-Update:", weatherDataDTO.Observations));
                             emailLog.Add("════════════Fin═══════════════\n\n");
                         }
