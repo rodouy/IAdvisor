@@ -45,6 +45,11 @@ namespace GetWeatherInfoService
             /// Input for Calculate
             /// </summary>
             Prediction,
+
+            /// <summary>
+            /// Input for IniaWeather Service
+            /// </summary>
+            IniaWeatherService
         }
     }
 }
