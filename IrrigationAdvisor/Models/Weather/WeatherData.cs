@@ -601,6 +601,7 @@ namespace IrrigationAdvisor.Models.Weather
         /// <summary>
         /// Overrides equals:
         /// Year, Month, Day and Hour
+        /// WeatherStationId
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
