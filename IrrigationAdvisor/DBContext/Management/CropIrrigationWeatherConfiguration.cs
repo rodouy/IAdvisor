@@ -167,7 +167,6 @@ namespace IrrigationAdvisor.DBContext.Management
             return lReturn;
         }
 
-
         /// <summary>
         /// Get a MIN date of reference in CropIrrigationWeather list 
         /// Where CropIrrigationWeather is the IrrigationUnit instance
@@ -218,6 +217,11 @@ namespace IrrigationAdvisor.DBContext.Management
             return lReturn;
         }
 
+        /// <summary>
+        /// Get Last Day with WeatherData in all Weather Station used in a specific Date
+        /// </summary>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
         public DateTime GetLastDateWeatherDataBy(DateTime pDateOfReference)
         {
             DateTime lReturn = Utils.MIN_DATETIME;
@@ -266,6 +270,12 @@ namespace IrrigationAdvisor.DBContext.Management
             return lReturn;
         }
 
+        /// <summary>
+        /// Get Last Day with WeatherData in all Weather Station used by Farm in a specific Date
+        /// </summary>
+        /// <param name="pDateOfReference"></param>
+        /// <param name="pFarmId"></param>
+        /// <returns></returns>
         public DateTime GetLastDateWeatherDataBy(DateTime pDateOfReference, long pFarmId)
         {
             DateTime lReturn = Utils.MIN_DATETIME;
