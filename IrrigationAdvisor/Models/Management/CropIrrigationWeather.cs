@@ -2432,8 +2432,8 @@ namespace IrrigationAdvisor.Models.Management
                     /* We limit to enter the new future daily record with the next condition 
                     lFromDate <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION)
                     */
-                    if (pToDate != null && pToDate <= this.HarvestDate 
-                        && lFromDate <= pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION))
+                    if (pToDate != null && pToDate.Date <= this.HarvestDate.Date 
+                        && lFromDate.Date <= pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION))
                     {
                         lToDate = Utils.MinDateTimeBetween(pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION),
                                                             this.HarvestDate);
