@@ -320,6 +320,10 @@
     <Compile Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.Designer.cs">
       <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.cs" />
+    <Compile Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.Designer.cs">
+      <DependentUpon>201702212334312_AddObservationAndReasonForIrrigation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -905,6 +909,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.resx">
       <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.resx">
+      <DependentUpon>201702212334312_AddObservationAndReasonForIrrigation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

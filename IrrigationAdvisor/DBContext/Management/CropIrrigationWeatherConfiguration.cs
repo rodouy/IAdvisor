@@ -11,6 +11,7 @@ using IrrigationAdvisor.Models.Irrigation;
 using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Data;
 using NLog;
+using IrrigationAdvisor.Models.Weather;
 
 namespace IrrigationAdvisor.DBContext.Management
 {
@@ -166,7 +167,6 @@ namespace IrrigationAdvisor.DBContext.Management
             return lReturn;
         }
 
-
         /// <summary>
         /// Get a MIN date of reference in CropIrrigationWeather list 
         /// Where CropIrrigationWeather is the IrrigationUnit instance
@@ -196,16 +196,16 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId
                             && ciw.SowingDate <= pDateOfReference
                             && ciw.HarvestDate >= pDateOfReference).ToList();
-                foreach (CropIrrigationWeather item in lCropIrrigationWeaterList)
+                foreach (CropIrrigationWeather lCIW in lCropIrrigationWeaterList)
                 {
-                    lSowingDate = item.SowingDate;
-                    lHarvestDate = item.HarvestDate;
+                    lSowingDate = lCIW.SowingDate;
+                    lHarvestDate = lCIW.HarvestDate;
 
                     //TODO: Could be more than one CropIrrigationWeather, when the IrrigationUnit is used for more than one Crop
                     if ((lSowingDate <= pDateOfReference)
                         && (lHarvestDate >= pDateOfReference))
                     {
-                        lCropIrrigationWeather = item;
+                        lCropIrrigationWeather = lCIW;
                         lDateFirstDailyRecord = lCropIrrigationWeather.DailyRecordList.OrderBy(dr => dr.DailyRecordDateTime).FirstOrDefault().DailyRecordDateTime;
                         lMINDate = Utils.MaxDateTimeBetween(lDateFirstDailyRecord, lMINDate);
                     }
@@ -217,7 +217,112 @@ namespace IrrigationAdvisor.DBContext.Management
             return lReturn;
         }
 
+        /// <summary>
+        /// Get Last Day with WeatherData in all Weather Station used in a specific Date
+        /// </summary>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public DateTime GetLastDateWeatherDataBy(DateTime pDateOfReference)
+        {
+            DateTime lReturn = Utils.MIN_DATETIME;
+            DateTime lLastDate = Utils.MIN_DATETIME;
+            DateTime lWeatherDataLastDate = Utils.MIN_DATETIME;
+            List<CropIrrigationWeather> lCropIrrigationWeaterList = new List<CropIrrigationWeather>();
+            List<WeatherStation> lWeatherStationList = new List<WeatherStation>();
 
+            if (pDateOfReference != null)
+            {
+                lLastDate = pDateOfReference;
+
+                //Get all active CIW by Date of Reference with weather data included
+                lCropIrrigationWeaterList = GetCropIrrigationWeatherListWithWeatherDataBy(pDateOfReference);
+                foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeaterList)
+                {
+
+                    //Find last date by Main Weather Station
+                    if (lCropIrrigationWeather.MainWeatherStation != null
+                        && lCropIrrigationWeather.MainWeatherStation.WeatherDataList.Any())
+                    {
+                        if (!lWeatherStationList.Contains(lCropIrrigationWeather.MainWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCropIrrigationWeather.MainWeatherStation);
+                        }
+
+                    }
+                    //Find last date by Alternative Weather Station
+                    if (lCropIrrigationWeather.AlternativeWeatherStation != null
+                             && lCropIrrigationWeather.AlternativeWeatherStation.WeatherDataList.Any())
+                    {
+                        if (!lWeatherStationList.Contains(lCropIrrigationWeather.AlternativeWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCropIrrigationWeather.AlternativeWeatherStation);
+                        }
+                    }
+                }
+
+                foreach (WeatherStation lWeatherStation in lWeatherStationList)
+                {
+                    //Last date the Weather Station has Weather Data
+                    lWeatherDataLastDate = lWeatherStation.WeatherDataList.OrderByDescending(wd => wd.Date).FirstOrDefault().Date;
+                    lLastDate = Utils.MinDateTimeBetween(lLastDate, lWeatherDataLastDate);
+                }
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get Last Day with WeatherData in all Weather Station used by Farm in a specific Date
+        /// </summary>
+        /// <param name="pDateOfReference"></param>
+        /// <param name="pFarmId"></param>
+        /// <returns></returns>
+        public DateTime GetLastDateWeatherDataBy(DateTime pDateOfReference, long pFarmId)
+        {
+            DateTime lReturn = Utils.MIN_DATETIME;
+            DateTime lLastDate = Utils.MIN_DATETIME;
+            DateTime lWeatherDataLastDate = Utils.MIN_DATETIME;
+            List<CropIrrigationWeather> lCropIrrigationWeaterList = new List<CropIrrigationWeather>();
+            List<WeatherStation> lWeatherStationList = new List<WeatherStation>();
+
+            if (pDateOfReference != null)
+            {
+                lLastDate = pDateOfReference;
+
+                //Get all active CIW by Date of Reference with weather data included
+                lCropIrrigationWeaterList = GetCropIrrigationWeatherListWithWeatherDataBy(pFarmId, pDateOfReference);
+                foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeaterList)
+                {
+                    
+                    //Find last date by Main Weather Station
+                    if (lCropIrrigationWeather.MainWeatherStation != null
+                        && lCropIrrigationWeather.MainWeatherStation.WeatherDataList.Any())
+                    {
+                        if (!lWeatherStationList.Contains(lCropIrrigationWeather.MainWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCropIrrigationWeather.MainWeatherStation);
+                        }
+                        
+                    }
+                    //Find last date by Alternative Weather Station
+                    if (lCropIrrigationWeather.AlternativeWeatherStation != null
+                             && lCropIrrigationWeather.AlternativeWeatherStation.WeatherDataList.Any())
+                    {
+                        if (!lWeatherStationList.Contains(lCropIrrigationWeather.AlternativeWeatherStation))
+                        {
+                            lWeatherStationList.Add(lCropIrrigationWeather.AlternativeWeatherStation);
+                        }
+                    }
+                }
+
+                foreach (WeatherStation lWeatherStation in lWeatherStationList)
+                {
+                    //Last date the Weather Station has Weather Data
+                    lWeatherDataLastDate = lWeatherStation.WeatherDataList.OrderByDescending(wd => wd.Date).FirstOrDefault().Date;
+                    lLastDate = Utils.MinDateTimeBetween(lLastDate, lWeatherDataLastDate);
+                }
+            }
+            return lReturn;
+        }
 
         /// <summary>
         /// Get a DailyRecord in CropIrrigationWeather list 
@@ -427,10 +532,8 @@ namespace IrrigationAdvisor.DBContext.Management
 
         /// <summary>
         /// Get a CropIrrigationWeather list 
-        /// Where CropIrrigationWeather is the IrrigationUnit instance
-        ///     And Date of Reference between SowingDate and HarvestDate
+        /// Where Date of Reference between SowingDate and HarvestDate
         /// </summary>
-        /// <param name="pIrrigationUnit"></param>
         /// <param name="pDateOfReference"></param>
         /// <returns></returns>
         public List<CropIrrigationWeather> GetCropIrrigationWeatherListWithWeatherDataBy(DateTime pDateOfReference)
@@ -459,6 +562,49 @@ namespace IrrigationAdvisor.DBContext.Management
 
             return lReturn;
         }
+
+
+        /// <summary>
+        /// Get a CropIrrigationWeather list 
+        /// Where Date of Reference between SowingDate and HarvestDate
+        ///     And FarmId
+        /// </summary>
+        /// <param name="farmId"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherListWithWeatherDataBy(long farmId, DateTime pDateOfReference)
+        {
+            List<CropIrrigationWeather> lReturn = null;
+            List<CropIrrigationWeather> lCropIrrigationWeaterList = new List<CropIrrigationWeather>();
+
+            try
+            {
+                if (pDateOfReference != null)
+                {
+                    lCropIrrigationWeaterList = (from ciw in db.CropIrrigationWeathers
+                                                 join iu in db.IrrigationUnits
+                                                    on ciw.IrrigationUnitId equals iu.IrrigationUnitId
+                                                 join f in db.Farms
+                                                    on iu.FarmId equals f.FarmId
+                                                 where f.FarmId == farmId &&
+                                                    ciw.SowingDate <= pDateOfReference &&
+                                                    ciw.HarvestDate >= pDateOfReference
+                                                 select ciw)
+                                                .Include(ciw => ciw.MainWeatherStation)
+                                                .Include(ciw => ciw.MainWeatherStation.WeatherDataList)
+                                                .Include(ciw => ciw.AlternativeWeatherStation)
+                                                .Include(ciw => ciw.AlternativeWeatherStation.WeatherDataList).ToList();
+                    lReturn = lCropIrrigationWeaterList;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in CropIrrigationWeatherConfiguration.GetCropIrrigationWeatherListWithWeatherDataBy " + "\n" + ex.Message + "\n" + ex.StackTrace);
+            }
+
+            return lReturn;
+        }
+
 
         /// <summary>
         /// Get Crop by CropId
@@ -505,6 +651,14 @@ namespace IrrigationAdvisor.DBContext.Management
             return lReturn;
         }
 
+        /// <summary>
+        /// Get a CropIrrigationWeather list 
+        /// Where Date of Reference between SowingDate and HarvestDate
+        ///     And FarmId
+        /// </summary>
+        /// <param name="farmId"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
         public List<CropIrrigationWeather> GetCropIrrigationWeatherByFarm(long farmId, DateTime pDateOfReference)
         {
             var q = (from ciw in db.CropIrrigationWeathers

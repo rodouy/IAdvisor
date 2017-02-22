@@ -2144,6 +2144,103 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     };
                     #endregion
 
+                    #region Pivot 01b
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoElMirador
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoElMirador1b
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot1b = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1b,
+                        ShortName = "Pivot 01",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 38.36,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 30,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 02b
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoElMirador
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoElMirador2b
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot2b = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2b,
+                        ShortName = "Pivot 02",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 54.31,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 30,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 03b
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoElMirador
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoElMirador3b
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot3b = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3b,
+                        ShortName = "Pivot 03",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 47.69,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 30,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 04b
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoElMirador
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoElMirador4b
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot4b = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4b,
+                        ShortName = "Pivot 04",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 62.07,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 30,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+
                     context.Pivots.Add(lDelLagoElMiradorPivot1);
                     context.Pivots.Add(lDelLagoElMiradorPivot2);
                     context.Pivots.Add(lDelLagoElMiradorPivot3);
@@ -2161,6 +2258,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     context.Pivots.Add(lDelLagoElMiradorPivot15);
                     context.Pivots.Add(lDelLagoElMiradorPivotChaja1);
                     context.Pivots.Add(lDelLagoElMiradorPivotChaja2);
+
+                    context.Pivots.Add(lDelLagoElMiradorPivot1b);
+                    context.Pivots.Add(lDelLagoElMiradorPivot2b);
+                    context.Pivots.Add(lDelLagoElMiradorPivot3b);
+                    context.Pivots.Add(lDelLagoElMiradorPivot4b);
                     context.SaveChanges();
                 }
             }

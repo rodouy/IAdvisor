@@ -122,7 +122,7 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationAlternativeName_DCALaPerdiz_2016 = Utils.NameWeatherStationViveroSanFrancisco;
 
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot1_2016 = new DateTime(2016, 9, 23);
-        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot1_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot1_2016 = new DateTime(2017, 02, 5);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot1_2016 = 14;
         public static DateTime SowingDate_SoyaSouth_DCALaPerdizPivot2_2016 = new DateTime(2016, 11, 15);
         public static DateTime HarvestDate_SoyaSouth_DCALaPerdizPivot2_2016 = new DateTime(2017, 02, 20);
@@ -137,7 +137,7 @@ namespace IrrigationAdvisorConsole
         public static DateTime HarvestDate_SoyaSouth_DCALaPerdizPivot5_2016 = new DateTime(2017, 02, 20);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot5_2016 = 14;
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot6_2016 = new DateTime(2016, 9, 23);
-        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot6_2016 = new DateTime(2017, 04, 5);
+        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot6_2016 = new DateTime(2017, 02, 5);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot6_2016 = 14;
         public static DateTime SowingDate_SoyaSouth_DCALaPerdizPivot7_2016 = new DateTime(2016, 12, 10);
         public static DateTime HarvestDate_SoyaSouth_DCALaPerdizPivot7_2016 = new DateTime(2017, 02, 20);
@@ -167,7 +167,7 @@ namespace IrrigationAdvisorConsole
         public static DateTime HarvestDate_SoyaSouth_DCALaPerdizPivot14_2016 = new DateTime(2017, 02, 20);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot14_2016 = 14;
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot15_2016 = new DateTime(2016, 9, 23);
-        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot15_2016 = new DateTime(2017, 04, 05);
+        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot15_2016 = new DateTime(2017, 02, 05);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot15_2016 = 14;
         #endregion
 
@@ -176,7 +176,7 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationAlternativeName_DCASanJose_2016 = Utils.NameWeatherStationViveroSanFrancisco;
 
         public static DateTime SowingDate_CornSouth_DCASanJosePivot1_2016 = new DateTime(2016, 9, 19);
-        public static DateTime HarvestDate_CornSouth_DCASanJosePivot1_2016 = new DateTime(2017, 2, 20);
+        public static DateTime HarvestDate_CornSouth_DCASanJosePivot1_2016 = new DateTime(2017, 2, 5);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot1_2016 = 14;
         public static DateTime SowingDate_SoyaSouth_DCASanJosePivot2_2016 = new DateTime(2016, 11, 2);
         public static DateTime HarvestDate_SoyaSouth_DCASanJosePivot2_2016 = new DateTime(2017, 2, 20);
@@ -185,7 +185,7 @@ namespace IrrigationAdvisorConsole
         public static DateTime HarvestDate_SoyaSouth_DCASanJosePivot3_2016 = new DateTime(2017, 2, 20);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot3_2016 = 14;
         public static DateTime SowingDate_CornSouth_DCASanJosePivot4_2016 = new DateTime(2016, 9, 19);
-        public static DateTime HarvestDate_CornSouth_DCASanJosePivot4_2016 = new DateTime(2017, 2, 20);
+        public static DateTime HarvestDate_CornSouth_DCASanJosePivot4_2016 = new DateTime(2017, 2, 5);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot4_2016 = 14;
         #endregion
 
@@ -200,56 +200,73 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationAlternativeName_DelLagoElMirador_2016 = Utils.NameWeatherStationLaTribu;
 
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot1_2016 = new DateTime(2016, 09, 20); //1
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot1_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot1_2016 = new DateTime(2017, 01, 25);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot2_2016 = new DateTime(2016, 09, 20); //2
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot2_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot2_2016 = new DateTime(2017, 01, 25);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot3_2016 = new DateTime(2016, 09, 20); //3
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot3_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot3_2016 = new DateTime(2017, 01, 25);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot4_2016 = new DateTime(2016, 09, 20); //4
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot4_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot4_2016 = new DateTime(2017, 01, 25);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4_2016 = 14;
+
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot5_2016 = new DateTime(2016, 10, 23); //5
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot5_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot5_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot5_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot6_2016 = new DateTime(2016, 10, 18); //6
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot6_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot6_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot6_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot7_2016 = new DateTime(2016, 10, 15); //7
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot7_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot7_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot7_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot8_2016 = new DateTime(2016, 10, 18); //8
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot8_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot8_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot8_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot9_2016 = new DateTime(2016, 10, 16); //9
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot9_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot9_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot9_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot10_2016 = new DateTime(2016, 11, 14); //10
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot10_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot10_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot10_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot11_2016 = new DateTime(2016, 11, 11); //11
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot11_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot11_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot11_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot12_2016 = new DateTime(2016, 10, 23); //12
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot12_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot12_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot12_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot13_2016 = new DateTime(2016, 11, 09); //13
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot13_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot13_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot14_2016 = new DateTime(2016, 10, 24); //14
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot14_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot14_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot14_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot15_2016 = new DateTime(2016, 11, 09); //15
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot15_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot15_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivotChaja1_2016 = new DateTime(2016, 12, 11); //Chaja 1
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivotChaja1_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivotChaja1_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja1_2016 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivotChaja2_2016 = new DateTime(2016, 11, 07); //Chaja 2
-        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivotChaja2_2016 = new DateTime(2017, 02, 10);
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivotChaja2_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja2_2016 = 14;
+
+        public static String WeatherStationMainName_DelLagoElMirador_2016b = Utils.NameWeatherStationLasBrujas;
+        public static String WeatherStationAlternativeName_DelLagoElMirador_2016b = Utils.NameWeatherStationLaTribu;
+
+        public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot1b_2016 = new DateTime(2017, 01, 27); //1
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot1b_2016 = new DateTime(2017, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1b_2016 = 14;
+        public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot2b_2016 = new DateTime(2017, 01, 27); //2
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot2b_2016 = new DateTime(2017, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2b_2016 = 14;
+        public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot3b_2016 = new DateTime(2017, 01, 27); //3
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot3b_2016 = new DateTime(2017, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3b_2016 = 14;
+        public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot4b_2016 = new DateTime(2017, 01, 27); //4
+        public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot4b_2016 = new DateTime(2017, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4b_2016 = 14;
         #endregion
 
         #region GMO - La Palma
@@ -260,16 +277,16 @@ namespace IrrigationAdvisorConsole
         public static DateTime HarvestDate_CornSouth_GMOLaPalmaPivot1_2016 = new DateTime(2017, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2016 = 14;
         public static DateTime SowingDate_CornSouth_GMOLaPalmaPivot2_2016 = new DateTime(2016, 09, 26);
-        public static DateTime HarvestDate_CornSouth_GMOLaPalmaPivot2_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_CornSouth_GMOLaPalmaPivot2_2016 = new DateTime(2017, 01, 26);
         public static Double PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2016 = 14;
         public static DateTime SowingDate_CornSouth_GMOLaPalmaPivot3_2016 = new DateTime(2016, 09, 25);
-        public static DateTime HarvestDate_CornSouth_GMOLaPalmaPivot3_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_CornSouth_GMOLaPalmaPivot3_2016 = new DateTime(2017, 01, 26);
         public static Double PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_2016 = 14;
         public static DateTime SowingDate_CornSouth_GMOLaPalmaPivot4_2016 = new DateTime(2016, 09, 24);
-        public static DateTime HarvestDate_CornSouth_GMOLaPalmaPivot4_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_CornSouth_GMOLaPalmaPivot4_2016 = new DateTime(2017, 01, 26);
         public static Double PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_2016 = 14;
         public static DateTime SowingDate_CornSouth_GMOLaPalmaPivot5_2016 = new DateTime(2016, 09, 24);
-        public static DateTime HarvestDate_CornSouth_GMOLaPalmaPivot5_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_CornSouth_GMOLaPalmaPivot5_2016 = new DateTime(2017, 01, 26);
         public static Double PredeterminatedIrrigationQuantity_GMOLaPalmaPivot5_2016 = 14;
         #endregion
 
@@ -278,28 +295,28 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationAlternativeName_GMOElTacuru_2016 = Utils.NameWeatherStationElRetiro;
 
         public static DateTime SowingDate_AlfalfaNorth_GMOElTacuruPivot1a_2016 = new DateTime(2016, 06, 23);
-        public static DateTime HarvestDate_AlfalfaNorth_GMOElTacuruPivot1a_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_AlfalfaNorth_GMOElTacuruPivot1a_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot1a_2016 = 12;
         public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot1b_2016 = new DateTime(2016, 10, 29);
-        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot1b_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot1b_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot1b_2016 = 12;
         public static DateTime SowingDate_CornNorth_GMOElTacuruPivot2a_2016 = new DateTime(2016, 09, 21);
-        public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot2a_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot2a_2016 = new DateTime(2017, 01, 18);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot2a_2016 = 12;
         public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot2b_2016 = new DateTime(2016, 11, 07);
-        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot2b_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot2b_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot2b_2016 = 12;
         public static DateTime SowingDate_CornNorth_GMOElTacuruPivot3a_2016 = new DateTime(2016, 09, 19);
-        public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot3a_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot3a_2016 = new DateTime(2017, 01, 18);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3a_2016 = 12;
         public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot3b_2016 = new DateTime(2016, 11, 11);
-        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot3b_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot3b_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3b_2016 = 12;
         public static DateTime SowingDate_CornNorth_GMOElTacuruPivot4_2016 = new DateTime(2016, 09, 17);
-        public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot4_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot4_2016 = new DateTime(2017, 01, 18);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot4_2016 = 12;
         public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot5_2016 = new DateTime(2016, 10, 28);
-        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot5_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot5_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot5_2016 = 10;
         //public static DateTime SowingDate_CornNorth_GMOElTacuruPivot6_2016 = new DateTime(2016, 10, 15);
         //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot6_2016 = new DateTime(2017, 02, 20);
@@ -308,13 +325,13 @@ namespace IrrigationAdvisorConsole
         //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot7_2016 = new DateTime(2017, 02, 20);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot7_2016 = 10;
         public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot8_2016 = new DateTime(2016, 10, 31);
-        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot8_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot8_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot8_2016 = 10;
         public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot9_2016 = new DateTime(2016, 11, 06);
-        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot9_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot9_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot9_2016 = 10;
         public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot10_2016 = new DateTime(2016, 11, 11);
-        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot10_2016 = new DateTime(2017, 02, 20);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot10_2016 = new DateTime(2017, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot10_2016 = 10;
         #endregion
 
@@ -388,6 +405,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz2
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -396,6 +414,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             #endregion
 
             //First Change
@@ -440,6 +459,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz3
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -448,6 +468,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             #endregion
 
             //First Change
@@ -491,6 +512,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz5
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -499,6 +521,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.MainWeatherStationId == lWeatherStationMain.WeatherStationId
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
 
 
             //First Change
@@ -571,6 +594,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -592,6 +616,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCAElParaiso1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCAElParaiso_2016
                                    select ws).FirstOrDefault();
@@ -604,6 +629,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaSouthShort
                                       select cid).FirstOrDefault();
@@ -770,6 +796,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -791,6 +818,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCAElParaiso2
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCAElParaiso_2016
                                    select ws).FirstOrDefault();
@@ -803,6 +831,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaSouthShort
                                       select cid).FirstOrDefault();
@@ -977,6 +1006,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -998,6 +1028,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -1010,6 +1041,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -1176,6 +1208,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -1197,6 +1230,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz2
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -1209,6 +1243,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaSouthShort
                                       select cid).FirstOrDefault();
@@ -1375,6 +1410,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -1396,6 +1432,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz3
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -1408,6 +1445,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaSouthShort
                                       select cid).FirstOrDefault();
@@ -1574,6 +1612,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -1595,6 +1634,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz5
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -1607,6 +1647,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaSouthShort
                                       select cid).FirstOrDefault();
@@ -1773,6 +1814,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -1794,6 +1836,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz6
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -1806,6 +1849,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -1972,6 +2016,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -1993,6 +2038,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz7
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -2005,6 +2051,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaSouthShort
                                       select cid).FirstOrDefault();
@@ -2171,6 +2218,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieFescueForageSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesFescueForage)
                        select st).ToList<Stage>();
@@ -2192,6 +2240,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz10a
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -2204,6 +2253,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieFescueForageSouthShort
                                       select cid).FirstOrDefault();
@@ -2370,6 +2420,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -2391,6 +2442,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz10b
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -2403,6 +2455,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -2569,6 +2622,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -2590,6 +2644,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz14
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -2602,6 +2657,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaSouthShort
                                       select cid).FirstOrDefault();
@@ -2768,6 +2824,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -2789,6 +2846,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz15
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
                                    select ws).FirstOrDefault();
@@ -2801,6 +2859,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -2975,6 +3034,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -2996,6 +3056,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCASanJose1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCASanJose_2016
                                    select ws).FirstOrDefault();
@@ -3008,6 +3069,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -3174,6 +3236,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -3195,6 +3258,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCASanJose2
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCASanJose_2016
                                    select ws).FirstOrDefault();
@@ -3207,6 +3271,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaSouthShort
                                       select cid).FirstOrDefault();
@@ -3373,6 +3438,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -3394,6 +3460,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCASanJose3
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCASanJose_2016
                                    select ws).FirstOrDefault();
@@ -3406,6 +3473,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaSouthShort
                                       select cid).FirstOrDefault();
@@ -3572,6 +3640,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -3593,6 +3662,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCASanJose4
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DCASanJose_2016
                                    select ws).FirstOrDefault();
@@ -3605,6 +3675,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -3786,6 +3857,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -3807,6 +3879,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -3819,6 +3892,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -3985,6 +4059,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -4006,6 +4081,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador2
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -4018,6 +4094,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -4184,6 +4261,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -4205,6 +4283,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador3
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -4217,6 +4296,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -4381,6 +4461,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -4402,6 +4483,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador4
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -4414,6 +4496,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -4580,6 +4663,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -4601,6 +4685,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador5
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -4613,6 +4698,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -4779,6 +4865,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -4800,6 +4887,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador6
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -4812,6 +4900,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -4977,6 +5066,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -4998,6 +5088,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador7
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -5010,6 +5101,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -5176,6 +5268,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -5197,6 +5290,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador8
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -5209,6 +5303,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -5375,6 +5470,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -5396,6 +5492,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador9
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -5408,6 +5505,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -5574,6 +5672,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -5595,6 +5694,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador10
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -5607,6 +5707,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -5773,6 +5874,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -5794,6 +5896,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador11
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -5806,6 +5909,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -5972,6 +6076,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -5993,6 +6098,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador12
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -6005,6 +6111,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -6171,6 +6278,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -6192,6 +6300,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador13
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -6204,6 +6313,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -6370,6 +6480,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -6391,6 +6502,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador14
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -6403,6 +6515,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -6569,6 +6682,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -6590,6 +6704,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMirador15
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -6602,6 +6717,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -6768,6 +6884,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -6789,6 +6906,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMiradorChaja1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -6801,6 +6919,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -6967,6 +7086,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -6988,6 +7108,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDelLagoElMiradorChaja2
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
                                    select ws).FirstOrDefault();
@@ -7000,6 +7121,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.SowingDate <= pDateOfReference
                                           && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -7038,6 +7160,816 @@ namespace IrrigationAdvisorConsole
                      select soil).FirstOrDefault();
             lHorizonList = (from horizon in context.Horizons
                             where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMiradorChaja2)
+                            select horizon).ToList<Horizon>();
+            #endregion
+            #region Calculate for each day
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
+            lFromDate = lSowingDate.AddDays(1);
+            if (lHarvestDate > pDateOfReference)
+            {
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+            }
+            else
+            {
+                lToDate = lHarvestDate;
+            }
+            lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+
+            for (int i = 0; i < lDiffDays; i++)
+            {
+                #region Erase - only for debug - do nothing
+                //TODO: Erase To debug
+                if (i == 15)
+                {
+                    //System.Diagnostics.Debugger.Break();
+                }
+                #endregion
+
+                lObservation = "Dia " + (i + 1);
+                lDateOfRecord = lFromDate.AddDays(i);
+
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
+
+                //Adjustment of Phenological Stage
+                foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
+                {
+                    if (item.DateOfChange.Equals(lDateOfRecord))
+                    {
+                        lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
+                        break;
+                    }
+                }
+                //Stop when arrives to final Stage
+                if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
+                {
+                    //System.Diagnostics.Debugger.Break();
+                }
+            }
+            context.SaveChanges();
+            #endregion
+            #region Print - Messages
+            if (Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.All
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.Production
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLago
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLagoElMirador)
+            {
+                long lFirstTitleId = (from title in context.Titles
+                                      where title.Name == "DDS"
+                                          && title.Daily == false
+                                          && title.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                      select title.TitleId).FirstOrDefault();
+                long lTotalTitles = lCropIrrigationWeather.Titles.Count();
+                long lTitleId = lFirstTitleId;
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
+                long lLineId = 0;
+                foreach (var item in lCropIrrigationWeather.Messages)
+                {
+                    if ((lTitleId - lFirstTitleId) % (lTotalTitles) == 0)
+                    {
+                        lTitleId = lFirstTitleId;
+                        lLineId += 1;
+                        context.SaveChanges();
+                    }
+                    item.MessageId = lMessageId;
+                    item.LineId = lLineId;
+                    item.CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId;
+                    item.TitleId = lTitleId;
+                    context.Messages.Add(item);
+                    lTitleId += 1;
+                    lMessageId += 1;
+                }
+                context.SaveChanges();
+                lObservation = "";
+            }
+            #endregion
+        }
+
+        #endregion
+
+        #region 2016b
+
+        /// <summary>
+        /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 1 2016b-17
+        /// </summary>
+        /// <param name="context"></param>
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot1b_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
+        {
+            #region Local Variables
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
+            Farm lFarm = null;
+            Crop lCrop = null;
+            IrrigationUnit lIrrigationUnit = null;
+            CropIrrigationWeather lCropIrrigationWeather = null;
+
+            WeatherStation lWeatherStationMain = null;
+            List<WeatherData> lMainWeatherDataList = null;
+            WeatherStation lWeatherStationAlternative = null;
+            List<WeatherData> lAlternativeWeatherDataList = null;
+            Soil lSoil = null;
+            List<Horizon> lHorizonList = null;
+            CropInformationByDate lCropInformationByDate = null;
+            List<EffectiveRain> lEffectiveRainList = null;
+            CropCoefficient lCropCoefficient = null;
+            List<KC> lKCList = null;
+            DateTime lSowingDate;
+            DateTime lHarvestDate;
+            List<Irrigation> lIrrigationList;
+            List<Rain> lRainList;
+
+            Double lDiffDays = 0;
+            DateTime lFromDate;
+            DateTime lToDate;
+            DateTime lDateOfRecord;
+            String lObservation;
+            #endregion
+            #region Crop
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            if (lSpecie == null) return;
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
+            lFarm = (from farm in context.Farms
+                     where farm.Name == Utils.NameFarmDelLagoElMirador
+                     select farm).FirstOrDefault();
+            lCrop = (from crop in context.Crops
+                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     select crop).FirstOrDefault();
+            #endregion
+            #region Weather
+            lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  select effectiverain)
+                                     .ToList<EffectiveRain>();
+            lIrrigationUnit = (from iu in context.Pivots
+                               where iu.Name == Utils.NamePivotDelLagoElMirador1b
+                               select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
+            lWeatherStationMain = (from ws in context.WeatherStations
+                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016b
+                                   select ws).FirstOrDefault();
+            lWeatherStationAlternative = (from ws in context.WeatherStations
+                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2016b
+                                          select ws).FirstOrDefault();
+            lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
+                                      where ciw.CropId == lCrop.CropId
+                                          && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
+                                      select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
+            lCropInformationByDate = (from cid in context.CropInformationByDates
+                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      select cid).FirstOrDefault();
+            lIrrigationList = (from ilist in context.Irrigations
+                               where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                               select ilist).ToList<Irrigation>();
+            lRainList = (from rlist in context.Rains
+                         where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                         select rlist).ToList<Rain>();
+            #endregion
+            #region Data to Calculate
+            lSowingDate = lCropIrrigationWeather.SowingDate;
+            lHarvestDate = lCropIrrigationWeather.HarvestDate;
+            lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                                    join weatherstation in context.WeatherStations
+                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                    where (weatherdata.Date >= lSowingDate ||
+                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                                    select weatherdata).ToList<WeatherData>();
+            lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                                           join weatherstation in context.WeatherStations
+                                           on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                                weatherdata.Date.Year <= lHarvestDate.Year) &&
+                                                weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                                           select weatherdata).ToList<WeatherData>();
+            lCropCoefficient = (from cc in context.CropCoefficients
+                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                select cc).FirstOrDefault();
+            lKCList = (from cc in context.CropCoefficients
+                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       select cc.KCList).FirstOrDefault();
+            lSoil = (from soil in context.Soils
+                     where soil.Name == Utils.NameSoilDelLagoElMirador1b
+                     select soil).FirstOrDefault();
+            lHorizonList = (from horizon in context.Horizons
+                            where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador1b)
+                            select horizon).ToList<Horizon>();
+            #endregion
+            #region Calculate for each day
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
+            lFromDate = lSowingDate.AddDays(1);
+            if (lHarvestDate > pDateOfReference)
+            {
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+            }
+            else
+            {
+                lToDate = lHarvestDate;
+            }
+            lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+
+            for (int i = 0; i < lDiffDays; i++)
+            {
+                #region Erase - only for debug - do nothing
+                //TODO: Erase To debug
+                if (i >= 87)
+                {
+                    //System.Diagnostics.Debugger.Break();
+                }
+                #endregion
+
+                lObservation = "Dia " + (i + 1);
+                lDateOfRecord = lFromDate.AddDays(i);
+
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
+
+                //Adjustment of Phenological Stage
+                foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
+                {
+                    if (item.DateOfChange.Equals(lDateOfRecord))
+                    {
+                        lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
+                        break;
+                    }
+                }
+                //Stop when arrives to final Stage
+                if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
+                {
+                    //System.Diagnostics.Debugger.Break();
+                }
+            }
+            context.SaveChanges();
+            #endregion
+            #region Print - Messages
+            if (Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.All
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.Production
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLago
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLagoElMirador)
+            {
+                long lFirstTitleId = (from title in context.Titles
+                                      where title.Name == "DDS"
+                                          && title.Daily == false
+                                          && title.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                      select title.TitleId).FirstOrDefault();
+                long lTotalTitles = lCropIrrigationWeather.Titles.Count();
+                long lTitleId = lFirstTitleId;
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
+                long lLineId = 0;
+                foreach (var item in lCropIrrigationWeather.Messages)
+                {
+                    if ((lTitleId - lFirstTitleId) % (lTotalTitles) == 0)
+                    {
+                        lTitleId = lFirstTitleId;
+                        lLineId += 1;
+                        context.SaveChanges();
+                    }
+                    item.MessageId = lMessageId;
+                    item.LineId = lLineId;
+                    item.CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId;
+                    item.TitleId = lTitleId;
+                    context.Messages.Add(item);
+                    lTitleId += 1;
+                    lMessageId += 1;
+                }
+                context.SaveChanges();
+                lObservation = "";
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 2 2016b-17
+        /// </summary>
+        /// <param name="context"></param>
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot2b_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
+        {
+            #region Local Variables
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
+            Farm lFarm = null;
+            Crop lCrop = null;
+            IrrigationUnit lIrrigationUnit = null;
+            CropIrrigationWeather lCropIrrigationWeather = null;
+
+            WeatherStation lWeatherStationMain = null;
+            List<WeatherData> lMainWeatherDataList = null;
+            WeatherStation lWeatherStationAlternative = null;
+            List<WeatherData> lAlternativeWeatherDataList = null;
+            Soil lSoil = null;
+            List<Horizon> lHorizonList = null;
+            CropInformationByDate lCropInformationByDate = null;
+            List<EffectiveRain> lEffectiveRainList = null;
+            CropCoefficient lCropCoefficient = null;
+            List<KC> lKCList = null;
+            DateTime lSowingDate;
+            DateTime lHarvestDate;
+            List<Irrigation> lIrrigationList;
+            List<Rain> lRainList;
+
+            Double lDiffDays = 0;
+            DateTime lFromDate;
+            DateTime lToDate;
+            DateTime lDateOfRecord;
+            String lObservation;
+            #endregion
+            #region Crop
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            if (lSpecie == null) return;
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
+            lFarm = (from farm in context.Farms
+                     where farm.Name == Utils.NameFarmDelLagoElMirador
+                     select farm).FirstOrDefault();
+            lCrop = (from crop in context.Crops
+                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     select crop).FirstOrDefault();
+            #endregion
+            #region Weather
+            lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  select effectiverain)
+                                     .ToList<EffectiveRain>();
+            lIrrigationUnit = (from iu in context.Pivots
+                               where iu.Name == Utils.NamePivotDelLagoElMirador2b
+                               select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
+            lWeatherStationMain = (from ws in context.WeatherStations
+                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016b
+                                   select ws).FirstOrDefault();
+            lWeatherStationAlternative = (from ws in context.WeatherStations
+                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2016b
+                                          select ws).FirstOrDefault();
+            lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
+                                      where ciw.CropId == lCrop.CropId
+                                          && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
+                                      select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
+            lCropInformationByDate = (from cid in context.CropInformationByDates
+                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      select cid).FirstOrDefault();
+            lIrrigationList = (from ilist in context.Irrigations
+                               where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                               select ilist).ToList<Irrigation>();
+            lRainList = (from rlist in context.Rains
+                         where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                         select rlist).ToList<Rain>();
+            #endregion
+            #region Data to Calculate
+            lSowingDate = lCropIrrigationWeather.SowingDate;
+            lHarvestDate = lCropIrrigationWeather.HarvestDate;
+            lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                                    join weatherstation in context.WeatherStations
+                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                    where (weatherdata.Date >= lSowingDate ||
+                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                                    select weatherdata).ToList<WeatherData>();
+            lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                                           join weatherstation in context.WeatherStations
+                                           on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                                weatherdata.Date.Year <= lHarvestDate.Year) &&
+                                                weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                                           select weatherdata).ToList<WeatherData>();
+            lCropCoefficient = (from cc in context.CropCoefficients
+                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                select cc).FirstOrDefault();
+            lKCList = (from cc in context.CropCoefficients
+                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       select cc.KCList).FirstOrDefault();
+            lSoil = (from soil in context.Soils
+                     where soil.Name == Utils.NameSoilDelLagoElMirador2b
+                     select soil).FirstOrDefault();
+            lHorizonList = (from horizon in context.Horizons
+                            where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador2b)
+                            select horizon).ToList<Horizon>();
+            #endregion
+            #region Calculate for each day
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
+            lFromDate = lSowingDate.AddDays(1);
+            if (lHarvestDate > pDateOfReference)
+            {
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+            }
+            else
+            {
+                lToDate = lHarvestDate;
+            }
+            lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+
+            for (int i = 0; i < lDiffDays; i++)
+            {
+                #region Erase - only for debug - do nothing
+                //TODO: Erase To debug
+                if (i == 15)
+                {
+                    //System.Diagnostics.Debugger.Break();
+                }
+                #endregion
+
+                lObservation = "Dia " + (i + 1);
+                lDateOfRecord = lFromDate.AddDays(i);
+
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
+
+                //Adjustment of Phenological Stage
+                foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
+                {
+                    if (item.DateOfChange.Equals(lDateOfRecord))
+                    {
+                        lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
+                        break;
+                    }
+                }
+                //Stop when arrives to final Stage
+                if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
+                {
+                    //System.Diagnostics.Debugger.Break();
+                }
+            }
+            context.SaveChanges();
+            #endregion
+            #region Print - Messages
+            if (Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.All
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.Production
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLago
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLagoElMirador)
+            {
+                long lFirstTitleId = (from title in context.Titles
+                                      where title.Name == "DDS"
+                                          && title.Daily == false
+                                          && title.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                      select title.TitleId).FirstOrDefault();
+                long lTotalTitles = lCropIrrigationWeather.Titles.Count();
+                long lTitleId = lFirstTitleId;
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
+                long lLineId = 0;
+                foreach (var item in lCropIrrigationWeather.Messages)
+                {
+                    if ((lTitleId - lFirstTitleId) % (lTotalTitles) == 0)
+                    {
+                        lTitleId = lFirstTitleId;
+                        lLineId += 1;
+                        context.SaveChanges();
+                    }
+                    item.MessageId = lMessageId;
+                    item.LineId = lLineId;
+                    item.CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId;
+                    item.TitleId = lTitleId;
+                    context.Messages.Add(item);
+                    lTitleId += 1;
+                    lMessageId += 1;
+                }
+                context.SaveChanges();
+                lObservation = "";
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 3 2016b-17
+        /// </summary>
+        /// <param name="context"></param>
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot3b_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
+        {
+            #region Local Variables
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
+            Farm lFarm = null;
+            Crop lCrop = null;
+            IrrigationUnit lIrrigationUnit = null;
+            CropIrrigationWeather lCropIrrigationWeather = null;
+
+            WeatherStation lWeatherStationMain = null;
+            List<WeatherData> lMainWeatherDataList = null;
+            WeatherStation lWeatherStationAlternative = null;
+            List<WeatherData> lAlternativeWeatherDataList = null;
+            Soil lSoil = null;
+            List<Horizon> lHorizonList = null;
+            CropInformationByDate lCropInformationByDate = null;
+            List<EffectiveRain> lEffectiveRainList = null;
+            CropCoefficient lCropCoefficient = null;
+            List<KC> lKCList = null;
+            DateTime lSowingDate;
+            DateTime lHarvestDate;
+            List<Irrigation> lIrrigationList;
+            List<Rain> lRainList;
+
+            Double lDiffDays = 0;
+            DateTime lFromDate;
+            DateTime lToDate;
+            DateTime lDateOfRecord;
+            String lObservation;
+            #endregion
+            #region Crop
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            if (lSpecie == null) return;
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
+            lFarm = (from farm in context.Farms
+                     where farm.Name == Utils.NameFarmDelLagoElMirador
+                     select farm).FirstOrDefault();
+            lCrop = (from crop in context.Crops
+                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     select crop).FirstOrDefault();
+            #endregion
+            #region Weather
+            lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  select effectiverain)
+                                     .ToList<EffectiveRain>();
+            lIrrigationUnit = (from iu in context.Pivots
+                               where iu.Name == Utils.NamePivotDelLagoElMirador3b
+                               select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
+            lWeatherStationMain = (from ws in context.WeatherStations
+                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016b
+                                   select ws).FirstOrDefault();
+            lWeatherStationAlternative = (from ws in context.WeatherStations
+                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2016b
+                                          select ws).FirstOrDefault();
+            lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
+                                      where ciw.CropId == lCrop.CropId
+                                          && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
+                                      select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
+            lCropInformationByDate = (from cid in context.CropInformationByDates
+                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      select cid).FirstOrDefault();
+            lIrrigationList = (from ilist in context.Irrigations
+                               where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                               select ilist).ToList<Irrigation>();
+            lRainList = (from rlist in context.Rains
+                         where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                         select rlist).ToList<Rain>();
+            #endregion
+            #region Data to Calculate
+            lSowingDate = lCropIrrigationWeather.SowingDate;
+            lHarvestDate = lCropIrrigationWeather.HarvestDate;
+            lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                                    join weatherstation in context.WeatherStations
+                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                    where (weatherdata.Date >= lSowingDate ||
+                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                                    select weatherdata).ToList<WeatherData>();
+            lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                                           join weatherstation in context.WeatherStations
+                                           on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                                weatherdata.Date.Year <= lHarvestDate.Year) &&
+                                                weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                                           select weatherdata).ToList<WeatherData>();
+            lCropCoefficient = (from cc in context.CropCoefficients
+                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                select cc).FirstOrDefault();
+            lKCList = (from cc in context.CropCoefficients
+                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       select cc.KCList).FirstOrDefault();
+            lSoil = (from soil in context.Soils
+                     where soil.Name == Utils.NameSoilDelLagoElMirador3b
+                     select soil).FirstOrDefault();
+            lHorizonList = (from horizon in context.Horizons
+                            where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador3b)
+                            select horizon).ToList<Horizon>();
+            #endregion
+            #region Calculate for each day
+            //The start Day is one Day after sowing 
+            //because the first Day is created when the testCrop is created
+            lFromDate = lSowingDate.AddDays(1);
+            if (lHarvestDate > pDateOfReference)
+            {
+                lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
+            }
+            else
+            {
+                lToDate = lHarvestDate;
+            }
+            lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+
+            for (int i = 0; i < lDiffDays; i++)
+            {
+                #region Erase - only for debug - do nothing
+                //TODO: Erase To debug
+                if (i == 15)
+                {
+                    //System.Diagnostics.Debugger.Break();
+                }
+                #endregion
+
+                lObservation = "Dia " + (i + 1);
+                lDateOfRecord = lFromDate.AddDays(i);
+
+                lCropIrrigationWeather.HasAdviseOfIrrigation = false;
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                context.SaveChanges();
+
+                //Adjustment of Phenological Stage
+                foreach (PhenologicalStageAdjustment item in lCropIrrigationWeather.PhenologicalStageAdjustmentList)
+                {
+                    if (item.DateOfChange.Equals(lDateOfRecord))
+                    {
+                        lCropIrrigationWeather.AdjustmentPhenology(item.Stage, item.DateOfChange);
+                        context.SaveChanges();
+                        break;
+                    }
+                }
+                //Stop when arrives to final Stage
+                if (lCropIrrigationWeather.PhenologicalStage.Stage.StageId == lCrop.StopIrrigationStageId)
+                {
+                    //System.Diagnostics.Debugger.Break();
+                }
+            }
+            context.SaveChanges();
+            #endregion
+            #region Print - Messages
+            if (Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.All
+                || Program.PrintFarm == Utils.IrrigationAdvisorOutputFiles.DelLagoElMirador)
+            {
+                long lFirstTitleId = (from title in context.Titles
+                                      where title.Name == "DDS"
+                                          && title.Daily == false
+                                          && title.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                      select title.TitleId).FirstOrDefault();
+                long lTotalTitles = lCropIrrigationWeather.Titles.Count();
+                long lTitleId = lFirstTitleId;
+                long lMessageId = lCropIrrigationWeather.GetNewMessagesId();
+                long lLineId = 0;
+                foreach (var item in lCropIrrigationWeather.Messages)
+                {
+                    if ((lTitleId - lFirstTitleId) % (lTotalTitles) == 0)
+                    {
+                        lTitleId = lFirstTitleId;
+                        lLineId += 1;
+                        context.SaveChanges();
+                    }
+                    item.MessageId = lMessageId;
+                    item.LineId = lLineId;
+                    item.CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId;
+                    item.TitleId = lTitleId;
+                    context.Messages.Add(item);
+                    lTitleId += 1;
+                    lMessageId += 1;
+                }
+                context.SaveChanges();
+                lObservation = "";
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// Add Information To IrrigationUnits - Del Lago - El Mirador Pivot 4 2016b-17
+        /// </summary>
+        /// <param name="context"></param>
+        public static void AddInformationToIrrigationUnitsDelLagoElMiradorPivot4b_2016(IrrigationAdvisorContext context, DateTime pDateOfReference)
+        {
+            #region Local Variables
+            Specie lSpecie = null;
+            List<Stage> lStages = null;
+            List<PhenologicalStage> lPhenologicalStages = null;
+            Farm lFarm = null;
+            Crop lCrop = null;
+            IrrigationUnit lIrrigationUnit = null;
+            CropIrrigationWeather lCropIrrigationWeather = null;
+
+            WeatherStation lWeatherStationMain = null;
+            List<WeatherData> lMainWeatherDataList = null;
+            WeatherStation lWeatherStationAlternative = null;
+            List<WeatherData> lAlternativeWeatherDataList = null;
+            Soil lSoil = null;
+            List<Horizon> lHorizonList = null;
+            CropInformationByDate lCropInformationByDate = null;
+            List<EffectiveRain> lEffectiveRainList = null;
+            CropCoefficient lCropCoefficient = null;
+            List<KC> lKCList = null;
+            DateTime lSowingDate;
+            DateTime lHarvestDate;
+            List<Irrigation> lIrrigationList;
+            List<Rain> lRainList;
+
+            Double lDiffDays = 0;
+            DateTime lFromDate;
+            DateTime lToDate;
+            DateTime lDateOfRecord;
+            String lObservation;
+            #endregion
+            #region Crop
+            lSpecie = (from sp in context.Species
+                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       select sp).FirstOrDefault();
+            if (lSpecie == null) return;
+            lStages = (from st in context.Stages
+                       where st.Name.Contains(Utils.NameStagesCorn)
+                       select st).ToList<Stage>();
+            lPhenologicalStages = (from ps in context.PhenologicalStages
+                                   where ps.SpecieId == lSpecie.SpecieId
+                                   select ps).ToList<PhenologicalStage>();
+            lFarm = (from farm in context.Farms
+                     where farm.Name == Utils.NameFarmDelLagoElMirador
+                     select farm).FirstOrDefault();
+            lCrop = (from crop in context.Crops
+                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     select crop).FirstOrDefault();
+            #endregion
+            #region Weather
+            lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  select effectiverain)
+                                     .ToList<EffectiveRain>();
+            lIrrigationUnit = (from iu in context.Pivots
+                               where iu.Name == Utils.NamePivotDelLagoElMirador4b
+                               select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
+            lWeatherStationMain = (from ws in context.WeatherStations
+                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016b
+                                   select ws).FirstOrDefault();
+            lWeatherStationAlternative = (from ws in context.WeatherStations
+                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2016b
+                                          select ws).FirstOrDefault();
+            lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
+                                      where ciw.CropId == lCrop.CropId
+                                          && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
+                                              && ciw.SowingDate <= pDateOfReference
+                                              && ciw.HarvestDate >= pDateOfReference
+                                      select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
+            lCropInformationByDate = (from cid in context.CropInformationByDates
+                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      select cid).FirstOrDefault();
+            lIrrigationList = (from ilist in context.Irrigations
+                               where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                               select ilist).ToList<Irrigation>();
+            lRainList = (from rlist in context.Rains
+                         where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                         select rlist).ToList<Rain>();
+            #endregion
+            #region Data to Calculate
+            lSowingDate = lCropIrrigationWeather.SowingDate;
+            lHarvestDate = lCropIrrigationWeather.HarvestDate;
+            lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                                    join weatherstation in context.WeatherStations
+                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                    where (weatherdata.Date >= lSowingDate ||
+                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                                    select weatherdata).ToList<WeatherData>();
+            lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                                           join weatherstation in context.WeatherStations
+                                           on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                                weatherdata.Date.Year <= lHarvestDate.Year) &&
+                                                weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                                           select weatherdata).ToList<WeatherData>();
+            lCropCoefficient = (from cc in context.CropCoefficients
+                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                select cc).FirstOrDefault();
+            lKCList = (from cc in context.CropCoefficients
+                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       select cc.KCList).FirstOrDefault();
+            lSoil = (from soil in context.Soils
+                     where soil.Name == Utils.NameSoilDelLagoElMirador4b
+                     select soil).FirstOrDefault();
+            lHorizonList = (from horizon in context.Horizons
+                            where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador4b)
                             select horizon).ToList<Horizon>();
             #endregion
             #region Calculate for each day
@@ -7174,6 +8106,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieAlfalfaSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesAlfalfa)
                        select st).ToList<Stage>();
@@ -7195,6 +8128,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOLaPalma1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2016
                                    select ws).FirstOrDefault();
@@ -7207,6 +8141,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.SowingDate <= pDateOfReference
                                           && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -7373,6 +8308,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -7394,6 +8330,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOLaPalma2
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2016
                                    select ws).FirstOrDefault();
@@ -7406,6 +8343,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.SowingDate <= pDateOfReference
                                           && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -7572,6 +8510,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -7593,6 +8532,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOLaPalma3
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2016
                                    select ws).FirstOrDefault();
@@ -7605,6 +8545,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -7771,6 +8712,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -7792,6 +8734,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOLaPalma4
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2016
                                    select ws).FirstOrDefault();
@@ -7804,6 +8747,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -7978,6 +8922,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieAlfalfaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesAlfalfa)
                        select st).ToList<Stage>();
@@ -7999,6 +8944,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru1a
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -8011,6 +8957,7 @@ namespace IrrigationAdvisorConsole
                                             && ciw.SowingDate <= pDateOfReference
                                             && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieAlfalfaNorthShort
                                       select cid).FirstOrDefault();
@@ -8177,6 +9124,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -8198,6 +9146,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru1b
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -8210,6 +9159,7 @@ namespace IrrigationAdvisorConsole
                                             && ciw.SowingDate <= pDateOfReference
                                             && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -8376,6 +9326,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -8397,6 +9348,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru2a
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -8409,6 +9361,7 @@ namespace IrrigationAdvisorConsole
                                             && ciw.SowingDate <= pDateOfReference
                                             && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
@@ -8575,6 +9528,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -8596,6 +9550,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru2b
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -8608,6 +9563,7 @@ namespace IrrigationAdvisorConsole
                                             && ciw.SowingDate <= pDateOfReference
                                             && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -8774,6 +9730,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -8795,6 +9752,8 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru3a
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -8807,6 +9766,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
@@ -8973,6 +9933,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -8994,6 +9955,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru3b
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -9006,6 +9968,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -9172,6 +10135,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -9193,6 +10157,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru4
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -9205,6 +10170,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
@@ -9371,6 +10337,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -9392,6 +10359,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru5
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -9404,6 +10372,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -9570,6 +10539,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -9591,6 +10561,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru6
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -9603,6 +10574,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
@@ -9769,6 +10741,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -9790,6 +10763,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru7
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -9802,6 +10776,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
@@ -9968,6 +10943,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -9989,6 +10965,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru8
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -10001,6 +10978,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -10167,6 +11145,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -10188,6 +11167,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru9
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -10200,6 +11180,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -10366,6 +11347,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -10387,6 +11369,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru10
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2016
                                    select ws).FirstOrDefault();
@@ -10399,6 +11382,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -10573,6 +11557,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -10594,6 +11579,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotTresMarias1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_TresMarias_2016
                                    select ws).FirstOrDefault();
@@ -10606,6 +11592,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.SowingDate <= pDateOfReference
                                           && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -10771,6 +11758,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -10792,6 +11780,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotTresMarias2
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_TresMarias_2016
                                    select ws).FirstOrDefault();
@@ -10804,6 +11793,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.SowingDate <= pDateOfReference
                                           && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -10969,6 +11959,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -10990,6 +11981,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotTresMarias3
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_TresMarias_2016
                                    select ws).FirstOrDefault();
@@ -11002,6 +11994,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -11167,6 +12160,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
@@ -11188,6 +12182,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotTresMarias4
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_TresMarias_2016
                                    select ws).FirstOrDefault();
@@ -11200,6 +12195,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
@@ -11373,6 +12369,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -11394,6 +12391,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotLaRinconada1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_LaRinconada_2016
                                    select ws).FirstOrDefault();
@@ -11406,6 +12404,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.SowingDate <= pDateOfReference
                                           && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -11571,6 +12570,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -11592,6 +12592,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotLaRinconada2
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_LaRinconada_2016
                                    select ws).FirstOrDefault();
@@ -11604,6 +12605,7 @@ namespace IrrigationAdvisorConsole
                                           && ciw.SowingDate <= pDateOfReference
                                           && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -11769,6 +12771,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -11790,6 +12793,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotLaRinconada3_1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_LaRinconada_2016
                                    select ws).FirstOrDefault();
@@ -11802,6 +12806,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
@@ -11967,6 +12972,7 @@ namespace IrrigationAdvisorConsole
             lSpecie = (from sp in context.Species
                        where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
+            if (lSpecie == null) return;
             lStages = (from st in context.Stages
                        where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
@@ -11988,6 +12994,7 @@ namespace IrrigationAdvisorConsole
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotLaRinconada13_1
                                select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
                                    where ws.Name == DataEntry.WeatherStationMainName_LaRinconada_2016
                                    select ws).FirstOrDefault();
@@ -12000,6 +13007,7 @@ namespace IrrigationAdvisorConsole
                                               && ciw.SowingDate <= pDateOfReference
                                               && ciw.HarvestDate >= pDateOfReference
                                       select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
                                       where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
