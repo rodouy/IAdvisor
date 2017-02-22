@@ -680,18 +680,27 @@ $(document).ready(function () {
 
         // var dateFromNoIrrigationValue = moment(dateFromNoIrrigation.val(), 'MM/DD/YYYY');
         // var dateToNoIrrigationValue = moment(dateToNoIrrigation.val(), 'MM/DD/YYYY');
+
         debugger;
-        /*var irrigationDate = moment($('#irrigationDate :selected').val(), 'MM/DD/YYYY');
-        $('#irrigationDate').removeClass('.input-red-border');
-        saveIrrigationBtn.attr('disabled', true);
-        irrigationMilimeters.attr('disabled', true);*/
-        showLoading();
-        modalIrrigation.modal('hide');
-        addNoIrrigation(dateFromNoIrrigation.val(),
-                        dateToNoIrrigation.val(),
-                        cropIrriWeatherNoIrrigation.val(),
-                        noIrrigationReason.val(),
-                        noIrrigationObs.val());
+        if (moment(dateToNoIrrigation.val()).isBefore(dateFromNoIrrigation.val()))
+        {
+            alert("La fecha hasta no puede ser mayor que la fecha desde");
+        }
+        else
+        {
+            /*var irrigationDate = moment($('#irrigationDate :selected').val(), 'MM/DD/YYYY');
+            $('#irrigationDate').removeClass('.input-red-border');
+            saveIrrigationBtn.attr('disabled', true);
+            irrigationMilimeters.attr('disabled', true);*/
+            showLoading();
+            modalIrrigation.modal('hide');
+            addNoIrrigation(dateFromNoIrrigation.val(),
+                            dateToNoIrrigation.val(),
+                            cropIrriWeatherNoIrrigation.val(),
+                            noIrrigationReason.val(),
+                            noIrrigationObs.val());
+        }
+
 
     });
 
@@ -825,13 +834,11 @@ $(document).ready(function () {
             url: pUrl,
             success: function (data) {
                 if (data == "Ok") {
-
-                    debugger;
-                    if (pCIW == "-1") {
+                    /*if (pCIW == "-1") {
                         pCIW = "Todos";
                     }
 
-                    /*var selected = pCIW.text();
+                    var selected = pCIW.text();
                     var irrigationMailText = "";
 
                     if (selected == "Todos") {
