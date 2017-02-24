@@ -4196,7 +4196,7 @@ namespace IrrigationAdvisor.Models.Management
                     lRainWaterInputId = lRain.WaterInputId;
                 }
                 lIrrigation = this.GetIrrigation(lDailyRecordDateTime);
-                if(lIrrigation == null)
+                if(lIrrigation == null || lIrrigation?.Type == Utils.WaterInputType.NoIrrigation)
                 {
                     lIrrigationWaterInputId = 0;
                 }
@@ -4742,7 +4742,7 @@ namespace IrrigationAdvisor.Models.Management
                     lRainWaterInputId = lRain.WaterInputId;
                 }
                 lIrrigation = this.GetIrrigation(lDailyRecordDateTime);
-                if (lIrrigation == null)
+                if (lIrrigation == null || lIrrigation?.Type == Utils.WaterInputType.NoIrrigation)
                 {
                     lIrrigationWaterInputId = 0;
                 }
