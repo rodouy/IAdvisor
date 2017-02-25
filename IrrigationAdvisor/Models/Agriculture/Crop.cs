@@ -184,6 +184,11 @@ namespace IrrigationAdvisor.Models.Agriculture
             set;
         }
 
+        public int StopIrrigationStageOrder
+        {
+            get { return this.FindStageOrder(this.StopIrrigationStageId); }
+        }
+
         #endregion
 
         #region Construction
@@ -528,7 +533,6 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <summary>
         /// Find A PhenologicalStage by Stage
         /// </summary>
-        /// <param name="pSpecieCycle"></param>
         /// <param name="pStage"></param>
         /// <returns></returns>
         public PhenologicalStage FindPhenologicalStage(Stage pStage)
@@ -547,6 +551,46 @@ namespace IrrigationAdvisor.Models.Agriculture
                 }
             }
 
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Find A PhenologicalStage by StageId
+        /// </summary>
+        /// <param name="pStageId"></param>
+        /// <returns></returns>
+        public PhenologicalStage FindPhenologicalStage(long pStageId)
+        {
+            PhenologicalStage lReturn = null;
+
+            foreach (PhenologicalStage item in this.PhenologicalStageList)
+            {
+                if (item.Stage.StageId == pStageId)
+                {
+                    lReturn = item;
+                    break;
+                }
+            }
+            
+            return lReturn;
+        }
+
+
+        /// <summary>
+        /// Find A Stage Order by StageId
+        /// </summary>
+        /// <param name="pStageId"></param>
+        /// <returns></returns>
+        public int FindStageOrder(long pStageId)
+        {
+            int lReturn = 0;
+
+            PhenologicalStage lPhenologicalStage = this.FindPhenologicalStage(pStageId);
+            
+            if (lPhenologicalStage != null)
+            {
+                lReturn = lPhenologicalStage.Stage.Order;
+            }
             return lReturn;
         }
 

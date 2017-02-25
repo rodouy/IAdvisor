@@ -781,7 +781,9 @@ namespace IrrigationAdvisor.Models.Weather
             #endregion
 
             //Last record order by Date
-            lLastDay = this.WeatherDataList.OrderByDescending(wd => wd.Date).FirstOrDefault().Date;
+            lLastDay = this.WeatherDataList
+                                .Where(wd => wd.WeatherDataInputType != Utils.WeatherDataInputType.Prediction)
+                                .OrderByDescending(wd => wd.Date).FirstOrDefault().Date;
             lLastPredictionDay = lLastDay.AddDays(InitialTables.DAYS_FOR_WEATHER_PREDICTION);
             if (pDateOfReference != null && this.FindWeatherData(pDateOfReference) != null)
             {
