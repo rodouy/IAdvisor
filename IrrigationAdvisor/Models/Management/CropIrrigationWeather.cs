@@ -1543,6 +1543,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <returns></returns>
         private Pair<Double, Utils.WaterInputType> HowMuchToIrrigate(DateTime pDateTime)
         {
+            #region local variables
             Pair<Double, Utils.WaterInputType> lReturn;
             bool lIrrigationByEvapotranspiration;
             bool lIrrigationByHydricBalance;
@@ -1552,7 +1553,9 @@ namespace IrrigationAdvisor.Models.Management
             Water.Irrigation lIrrigationNextDay = null;
 
             lReturn = new Pair<Double, Utils.WaterInputType>();
+            #endregion
 
+            #region Debug by Date
             if (pDateTime.Date.Equals(DateTime.Now.Date))
             {
                 //System.Diagnostics.Debugger.Break();
@@ -1566,6 +1569,7 @@ namespace IrrigationAdvisor.Models.Management
             {
                 //System.Diagnostics.Debugger.Break();
             }
+            #endregion
 
             lIrrigationByEvapotranspiration = this.IrrigateByEvapotranspiration();
             lIrrigationByHydricBalance = this.IrrigateByHydricBalance();
@@ -3733,11 +3737,15 @@ namespace IrrigationAdvisor.Models.Management
                         }
 
                         //when arrives to final Stage, do not add new irrigation
-                        if (this.PhenologicalStage.Stage.StageId != this.Crop.StopIrrigationStageId)
+                        if (this.PhenologicalStage.Stage.Order < this.Crop.StopIrrigationStageOrder)
                         {
                             //Then that is added the DailyRecord, we must verify if we need to irrigate.
                             //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
                             this.VerifyNeedForIrrigation(pDateTime);
+                        }
+                        else
+                        {
+                            //System.Diagnostics.Debugger.Break();
                         }
                     }
                     else
@@ -4286,7 +4294,7 @@ namespace IrrigationAdvisor.Models.Management
                         }
 
                         //when arrives to final Stage, do not add new irrigation
-                        if (this.PhenologicalStage.Stage.StageId != this.Crop.StopIrrigationStageId)
+                        if (this.PhenologicalStage.Stage.Order < this.Crop.StopIrrigationStageOrder)
                         {
                             //Then that is added the DailyRecord, we must verify if we need to irrigate.
                             //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
