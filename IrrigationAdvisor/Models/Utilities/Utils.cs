@@ -350,6 +350,10 @@ namespace IrrigationAdvisor.Models.Utilities
             ///  Error
             /// </summary>
             Error,
+            /// <summary>
+            /// No Irrigation
+            /// </summary>
+            NoIrrigation
         }
         
         /// <summary>
