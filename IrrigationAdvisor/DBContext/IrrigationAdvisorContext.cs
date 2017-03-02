@@ -35,6 +35,10 @@ namespace IrrigationAdvisor.DBContext
     {
         private static IrrigationAdvisorContext _instance;
 
+        /// <summary>
+        /// New instance if needed
+        /// </summary>
+        /// <returns></returns>
         public static IrrigationAdvisorContext Instance()
         {
             if (_instance == null)
@@ -43,6 +47,15 @@ namespace IrrigationAdvisor.DBContext
             }
 
             return _instance;
+        }
+
+        /// <summary>
+        /// New instance, so new context to refresh from database.
+        /// </summary>
+        /// <returns></returns>
+        public static IrrigationAdvisorContext Refresh()
+        {
+            return _instance = new IrrigationAdvisorContext();
         }
 
         public IrrigationAdvisorContext()
@@ -245,7 +258,7 @@ namespace IrrigationAdvisor.DBContext
 
             modelBuilder.Configurations.Add(new BombConfiguration());
             modelBuilder.Configurations.Add(new DripConfiguration());
-            modelBuilder.Configurations.Add(new IrrigationUnitConfigurarion());
+            modelBuilder.Configurations.Add(new IrrigationUnitConfiguration());
             modelBuilder.Configurations.Add(new PivotConfiguration());
             modelBuilder.Configurations.Add(new SprinklerConfiguration());
 

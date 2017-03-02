@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,7 +36,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -299,6 +300,26 @@
     <Compile Include="Migrations\201610281554174_DailyRecordCorrection.Designer.cs">
       <DependentUpon>201610281554174_DailyRecordCorrection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.cs" />
+    <Compile Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.Designer.cs">
+      <DependentUpon>201611121537073_AddFarmIdInIrrigationUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611290128005_HasAdviseOfIrrigation.cs" />
+    <Compile Include="Migrations\201611290128005_HasAdviseOfIrrigation.Designer.cs">
+      <DependentUpon>201611290128005_HasAdviseOfIrrigation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612052045273_StageToUseETinHBCalculation.cs" />
+    <Compile Include="Migrations\201612052045273_StageToUseETinHBCalculation.Designer.cs">
+      <DependentUpon>201612052045273_StageToUseETinHBCalculation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612200710390_AddColumnLastDayOfGrowingDegreeDays.cs" />
+    <Compile Include="Migrations\201612200710390_AddColumnLastDayOfGrowingDegreeDays.Designer.cs">
+      <DependentUpon>201612200710390_AddColumnLastDayOfGrowingDegreeDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.cs" />
+    <Compile Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.Designer.cs">
+      <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -337,7 +358,6 @@
     <Compile Include="Models\Management\CalculusAvailableWater.cs" />
     <Compile Include="Models\Management\CalculusEvapotranspiration.cs" />
     <Compile Include="Models\Management\CropIrrigationWeather.cs" />
-    <Compile Include="Models\Management\CropIrrigationWeatherRecord.cs" />
     <Compile Include="Models\Management\DailyRecord.cs" />
     <Compile Include="Models\Management\IrrigationCalculus.cs" />
     <Compile Include="Models\Management\Message.cs" />
@@ -413,6 +433,23 @@
     <Compile Include="ViewModels\Weather\WUndergroundGeolookupResultToCSharp.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\metro-icons.css" />
+    <Content Include="Content\metro-icons.min.css" />
+    <Content Include="Content\metro-responsive.css" />
+    <Content Include="Content\metro-responsive.min.css" />
+    <Content Include="Content\metro-rtl.css" />
+    <Content Include="Content\metro-rtl.min.css" />
+    <Content Include="Content\metro-schemes.css" />
+    <Content Include="Content\metro-schemes.min.css" />
+    <Content Include="Content\metro.css" />
+    <Content Include="Content\metro.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
     <Content Include="DataQueries\All Bombs - Query.sql" />
     <Content Include="DataQueries\All CropCoefficients - Query.sql" />
     <Content Include="DataQueries\All CropInformationByDates - Query.sql" />
@@ -433,30 +470,13 @@
     <Content Include="DataQueries\All WeatherStations - Query.sql" />
     <Content Include="DataQueries\CIW-DR Queries Test.sql" />
     <Content Include="DataQueries\CIW-DR Queries.sql" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Gridmvc.css" />
     <Content Include="Content\Image\Farm.jpg" />
     <Content Include="Content\Image\logo.svg" />
     <Content Include="Content\jquery-ui.css" />
-    <Content Include="Content\metro-icons.css" />
-    <Content Include="Content\metro-icons.min.css" />
-    <Content Include="Content\metro-responsive.css" />
-    <Content Include="Content\metro-responsive.min.css" />
-    <Content Include="Content\metro-rtl.css" />
-    <Content Include="Content\metro-rtl.min.css" />
-    <Content Include="Content\metro-schemes.css" />
-    <Content Include="Content\metro-schemes.min.css" />
-    <Content Include="Content\metro.css" />
-    <Content Include="Content\metro.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\weather.css" />
     <Content Include="css\flatWeather-index.css" />
     <Content Include="css\flatWeatherPlugin.css" />
-    <Content Include="css\font-awesome.css" />
-    <Content Include="css\font-awesome.min.css" />
     <Content Include="css\fonts\fontawesome-webfont.svg" />
     <Content Include="css\library\bootstrap.min.css" />
     <Content Include="css\library\font-awesome.min.css" />
@@ -475,27 +495,27 @@
     <Content Include="fonts\metro.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="fonts\metro.eot" />
-    <Content Include="fonts\metro.ttf" />
-    <Content Include="fonts\metro.woff" />
-    <Content Include="fonts\selection.json" />
     <Content Include="js\geolocation.js" />
     <Content Include="js\Home.js" />
     <Content Include="Migrations.txt" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Grid.mvc.readme" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="css\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Grid.mvc.readme" />
+    <Content Include="fonts\selection.json" />
+    <Content Include="fonts\metro.woff" />
+    <Content Include="fonts\metro.ttf" />
+    <Content Include="fonts\metro.eot" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -504,27 +524,7 @@
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
     <Content Include="images\company\img-1.jpg" />
-    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="Scripts\gridmvc.js" />
-    <Content Include="Scripts\gridmvc.lang.ru.js" />
-    <Content Include="Scripts\gridmvc.min.js" />
-    <Content Include="Scripts\jquery-2.1.4.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="respond.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\metro.js" />
-    <Content Include="Scripts\metro.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\moment-with-locales.js" />
-    <Content Include="Scripts\moment-with-locales.min.js" />
-    <Content Include="Scripts\moment.js" />
-    <Content Include="Scripts\moment.min.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="images\homeslider\img-1.jpg" />
     <Content Include="images\homeslider\img-2.jpg" />
@@ -578,7 +578,27 @@
     <Content Include="css\mdfonts\md-font.ttf" />
     <Content Include="css\mdfonts\md-font.woff" />
     <None Include="Properties\PublishProfiles\IAdvisor.pubxml" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jssor.slider.mini.js" />
+    <Content Include="Scripts\metro.js" />
+    <Content Include="Scripts\metro.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -824,8 +844,6 @@
     <Content Include="Views\Weather\TemperatureDatas\Details.cshtml" />
     <Content Include="Views\Weather\TemperatureDatas\Edit.cshtml" />
     <Content Include="Views\Weather\TemperatureDatas\Index.cshtml" />
-    <Content Include="Views\Shared\_GridPager.cshtml" />
-    <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Home\_GenerateMenu.cshtml" />
     <Content Include="Views\Errors\_Error.cshtml" />
     <Content Include="Views\Security\UserFarms\Create.cshtml" />
@@ -838,6 +856,8 @@
     <Content Include="Views\Data\Status\Details.cshtml" />
     <Content Include="Views\Data\Status\Edit.cshtml" />
     <Content Include="Views\Data\Status\Index.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -871,6 +891,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610281554174_DailyRecordCorrection.resx">
       <DependentUpon>201610281554174_DailyRecordCorrection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.resx">
+      <DependentUpon>201611121537073_AddFarmIdInIrrigationUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611290128005_HasAdviseOfIrrigation.resx">
+      <DependentUpon>201611290128005_HasAdviseOfIrrigation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612052045273_StageToUseETinHBCalculation.resx">
+      <DependentUpon>201612052045273_StageToUseETinHBCalculation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612200710390_AddColumnLastDayOfGrowingDegreeDays.resx">
+      <DependentUpon>201612200710390_AddColumnLastDayOfGrowingDegreeDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.resx">
+      <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

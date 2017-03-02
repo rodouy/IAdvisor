@@ -36,21 +36,18 @@ namespace IrrigationAdvisor.DBContext.Agriculture
         public List<Stage> GetStageBy(long pSpecieId, int pStageOrder)
         {
             List<Stage> lResult = new List<Stage>();
-            List<PhenologicalStage> lPhenologicalStage = db.PhenologicalStages.Where(p => p.SpecieId == pSpecieId).ToList();
 
             int lMaxOrder = pStageOrder + InitialTables.MAX_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE;
             int lMinOrder = pStageOrder - InitialTables.MIN_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE;
+            
+            var q = (from p in db.PhenologicalStages
+                    where p.SpecieId == pSpecieId &&
+                    p.Stage.Order >= lMinOrder &&
+                    p.Stage.Order <= lMaxOrder
+                    select p.Stage).OrderBy(s => s.Order).ToList();
+                    
 
-            foreach (PhenologicalStage phenologicalStageItem in lPhenologicalStage)
-            {
-                if(phenologicalStageItem.Stage.Order >= lMinOrder && phenologicalStageItem.Stage.Order <= lMaxOrder)
-                {
-                    lResult.Add(phenologicalStageItem.Stage);
-                }
-                
-            }
-
-            return lResult.OrderBy(s => s.Order).ToList();
+            return q;
 
         }
     }

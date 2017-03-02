@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity.ModelConfiguration;
 using IrrigationAdvisor.Models.Data;
+using IrrigationAdvisor.Models.Utilities;
 using NLog;
 
 namespace IrrigationAdvisor.DBContext.Data
@@ -33,24 +34,45 @@ namespace IrrigationAdvisor.DBContext.Data
 
         public Status GetStatus(string pName)
         {
+            db = new IrrigationAdvisorContext(); // Refresh the context.
             return (from s in db.Status
                     where s.Name.Equals(pName)
                     select s).FirstOrDefault();
         }
-
-        public bool SetStatus(DateTime pDateOfReference, string pName)
+        
+        public bool SetDateOfReferenceStatus(DateTime pDateOfReference, string pName)
         {
             bool lResult = false;
             try
             {
-                Status status = GetStatus(pName);
-                status.DateOfReference = pDateOfReference;
+                Status lStatus = GetStatus(pName);
+                lStatus.DateOfReference = pDateOfReference;
                 db.SaveChanges();
                 lResult = true;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Exception in StatusConfiguration.GetDateOfReference " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                logger.Error(ex, "Exception in StatusConfiguration.SetDateOfReferenceStatus " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                lResult = false;
+            }
+
+            return lResult;
+        }
+
+        public bool SetWebStatus(Utils.IrrigationAdvisorWebStatus pWebStatus, string pName)
+        {
+            bool lResult = false;
+
+            try
+            {
+                Status lWebStatus = GetStatus(pName);
+                lWebStatus.WebStatus = pWebStatus;
+                db.SaveChanges();
+                lResult = true;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in StatusConfiguration.SetWebStatus " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 lResult = false;
             }
 
@@ -63,11 +85,11 @@ namespace IrrigationAdvisor.DBContext.Data
 
             try
             {
-                Status status = GetStatus(pStatusName);
+                Status lStatus = GetStatus(pStatusName);
 
-                if(status != null)
+                if(lStatus != null)
                 {
-                    lResult = status.DateOfReference;
+                    lResult = lStatus.DateOfReference;
                 }
             }
             catch (Exception ex)
@@ -77,5 +99,6 @@ namespace IrrigationAdvisor.DBContext.Data
 
             return lResult;
         }
+
     }
 }

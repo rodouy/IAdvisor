@@ -11,7 +11,6 @@ $(document).ready(function () {
     var rainMilimeters = $('#rain');
     var dateOfReferenceBtn = $('#dateOfReferenceBtn');
     var cropIrriWeatherPheno = $('#CropIrriWeatherPheno');
-    var specieIdInput = $('#specieId');
     var phenoDate = $('#phenoDate');
     var stagePheno = $('#StagePheno'); 
     var dateOfReferenceBtn2 = $('#dateOfReferenceBtn2');
@@ -19,8 +18,10 @@ $(document).ready(function () {
     var maxDateOfReference = $('#maxDateOfReference');
     var minDateOfReference = $('#minDateOfReference');
     var addIrrigationModal = $('#addIrrigationModal');
+    var addIrrigationModalMobile = $('#addIrrigationModalMobile');
     var addPhenoModal = $('#addPhenoModal');
     var addRainModal = $('#addRainModal');
+    var addRainModalMobile = $('#addRainModalMobile');
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
@@ -29,8 +30,14 @@ $(document).ready(function () {
     var cancelPheno = $('#CancelPheno');
     var lstFarms = $('#lstFarms');
     var modalLoadStatus = $('.disable-save-button').length == 0;
-
-    
+    var farmInfo = $('#farm-info');
+    var irrigationUnitIrrigation = $('#IrrigationUnitIrrigation');
+    var irrigationUnit = $('#IrrigationUnit');
+    var irrigationUnitRainMail = $('#irrigationUnitRainMail');
+    var irrigationUnitIrrigationMail = $('#irrigationUnitIrrigationMail');
+    var userName = $('#userName').val();
+    var dvtxtDateOfReferencedateOfReferenceBtn2 = $('#dv-for-txtDateOfReference-dateOfReferenceBtn2');
+    var barResp = $('.bar-resp');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -73,13 +80,63 @@ $(document).ready(function () {
                 if (jQuery.type(data) == "array" && data.length > 0)
                 {
                     var values = JSON.stringify(data);
+                    var farmParam = getUrlParameter('farm');
 
                     lstFarms.empty();
+                    var i = 0;
                     $.each($.parseJSON(values), function (key, value) {
-                        lstFarms.append('<option value="' + value.FarmId + '">' + value.FarmDescription + '</option>');
+                       
+                        if (farmParam == value.FarmId) {
+                            farmInfo.val(value.FarmId + " - " + value.FarmDescription);
+                        }
+                        else
+                        {
+                            // If not take the first.
+                            if (i == 0)
+                            {
+                                farmInfo.val(value.FarmId + " - " + value.FarmDescription);
+                            }
+                        }
+
+                        lstFarms.append('<option value="' + value.FarmId + '">' + value.FarmDescription + '.</option>');
+                        i++;
                     });
 
-                    var farmParam = getUrlParameter('farm');
+                    $('#IrrigationUnit > option').each(function (index) {
+
+                        var formattedString = $(this).val() + " - " + $(this).text() + "[br]";
+
+                        if ($(this).val() == "-1")
+                        {
+                            irrigationUnitRainMail.val($(this).text() + "[br]");
+                        }
+
+                        if (irrigationUnitRainMail.val() == "")
+                        {
+                            irrigationUnitRainMail.val(formattedString);
+                        }
+                        else
+                        {
+                            irrigationUnitRainMail.val(irrigationUnitRainMail.val() + formattedString);
+                        }                       
+                    });
+
+                    $('#IrrigationUnitIrrigation > option').each(function (index) {
+
+                        var formattedString = $(this).val() + " - " + $(this).text() + "[br]";
+
+                        if ($(this).val() == "-1") {
+                            irrigationUnitIrrigationMail.val($(this).text() + "[br]");
+                        }
+
+                        if (irrigationUnitIrrigationMail.val() == "") {
+                            irrigationUnitIrrigationMail.val(formattedString);
+                        }
+                        else {
+                            irrigationUnitIrrigationMail.val(irrigationUnitIrrigationMail.val() + formattedString);
+                        }
+                    });
+                    
                     if (lstFarms.children().length > 0 && farmParam) {
                         lstFarms.val(farmParam);
                     }
@@ -101,15 +158,13 @@ $(document).ready(function () {
     };
 
     var loadStageForCropIrrigationWeather = function () {
-
         var selectedCropIrriWeatherPheno = cropIrriWeatherPheno.val();
-        var specieId = specieIdInput.val();
-
+        
         var comboStages = $('#StagePheno');
 
         $.ajax({
             type: 'GET',
-            url: './GetStagesBy?pSpecieId=' + specieId + '&pCropIrrigationWeatherId=' + selectedCropIrriWeatherPheno,
+            url: './GetStagesBy?pCropIrrigationWeatherId=' + selectedCropIrriWeatherPheno,
             success: function (data) {
 
                 var values = JSON.stringify(data);
@@ -133,6 +188,8 @@ $(document).ready(function () {
 
         addIrrigationModal.hide();
         addRainModal.hide();
+        addIrrigationModalMobile.hide();
+        addRainModalMobile.hide();
         addPhenoModal.hide();
         lstFarms.hide();
         var initModal = { backdrop: false, show: false };
@@ -151,14 +208,94 @@ $(document).ready(function () {
 
     init();
 
+    var removeClasses = function()
+    {
+        dvtxtDateOfReferencedateOfReferenceBtn2.removeClass('col-xs-8');
+        dvtxtDateOfReferencedateOfReferenceBtn2.removeClass('col-md-5');
+        dvtxtDateOfReferencedateOfReferenceBtn2.removeClass('col-lg-5');
+        //lstFarms
+        lstFarms.css("width", "100%");
+        txtDateOfReference.css("bottom", "0");
+        txtDateOfReference.css("width", "100%");
+        addIrrigationModalMobile.css("background-color", "#4aca83");
+        addPhenoModal.css("background-color", "#4169E1");
+        dateOfReferenceBtn2.css("background-color", "#5A91FA");
+        barResp.css('width', 'inherit');
+    }
+
+    var addClasses = function()
+    {
+        dvtxtDateOfReferencedateOfReferenceBtn2.addClass('col-xs-8');
+        dvtxtDateOfReferencedateOfReferenceBtn2.addClass('col-md-5');
+        dvtxtDateOfReferencedateOfReferenceBtn2.addClass('col-lg-5');
+        lstFarms.css("width", "50%");
+        txtDateOfReference.css("bottom", "8px");
+        txtDateOfReference.css("width", "50%");
+        addIrrigationModalMobile.css("background-color", "#00a1d3");
+        addPhenoModal.css("background-color", "#00a1d3");
+        dateOfReferenceBtn2.css("background-color", "#00a1d3");
+        barResp.css('width', '842px');
+    }
+
+    $(window).resize(function () {
+
+        var width = $(window).width();
+        var height = $(window).height();
+
+        if (width <= 760) {
+            addIrrigationModalMobile.show();
+            addRainModalMobile.show();
+
+            addIrrigationModal.hide();
+            addRainModal.hide();
+            removeClasses();
+        }
+        else {
+            addIrrigationModalMobile.hide();
+            addRainModalMobile.hide();
+
+
+            addIrrigationModal.show();
+            addRainModal.show();
+            addClasses();
+        }
+
+    });
+
 
     $.getScript("https://code.jquery.com/ui/1.12.0/jquery-ui.js", function () {
         var addIrrigationModal = $('#addIrrigationModal');
         var addRainModal = $('#addRainModal');
         var addPhenoModal = $('#addPhenoModal');
-        addIrrigationModal.show();
-        addRainModal.show();
+
+        var addIrrigationModalMobile = $('#addIrrigationModalMobile');
+        var addRainModalMobile = $('#addRainModalMobile');
+        var addPhenoModalMobile = $('#addPhenoModalMobile');
+
+        var width = $(window).width();
+        var height = $(window).height();
+
         addPhenoModal.show();
+
+        if (width <= 760)
+        {
+            addIrrigationModalMobile.show();
+            addRainModalMobile.show();
+
+            addIrrigationModal.hide();
+            addRainModal.hide();
+            removeClasses();
+        }
+        else
+        {
+            addIrrigationModalMobile.hide();
+            addRainModalMobile.hide();
+
+            addIrrigationModal.show();
+            addRainModal.show();
+            addClasses();
+        }
+        
     });
 
     
@@ -167,7 +304,17 @@ $(document).ready(function () {
         $('.modal-content').draggable();
     });
 
+    addIrrigationModalMobile.click(function () {
+        modalIrrigation.modal('show');
+        $('.modal-content').draggable();
+    });
+
     addRainModal.click(function () {
+        modalRain.modal('show');
+        $('.modal-content').draggable();
+    });
+
+    addRainModalMobile.click(function () {
         modalRain.modal('show');
         $('.modal-content').draggable();
     });
@@ -349,7 +496,6 @@ $(document).ready(function () {
     savePhenoBtn.click(function () {
 
         var selectedCropIrriWeatherPheno = cropIrriWeatherPheno.val();
-        var specieId = specieIdInput.val();
         var phenoDateVal = phenoDate.val();
         var stagePhenoVal = stagePheno.val();
 
@@ -481,11 +627,22 @@ $(document).ready(function () {
             {
                 if (data == "Ok") {
                     
+                    //TO-DO: Buscar las descripciones de los establecimientos. En caso de todos todas las descripciones de todos.
                     if (pIrrigationUnitId == "-1") {
                         pIrrigationUnitId = "Todos";
                     }
+
+                    var selected = $('#IrrigationUnit option:selected').text();
+                    var irrigationMailText = "";
+
+                    if (selected == "Todos") {
+                        irrigationMailText = irrigationUnitRainMail.val().replace("Todos", "");         
+                    }
+                    else {
+                        irrigationMailText = selected;
+                    }
                     
-                    $.when(sendMail("Se ha agregado Lluvia para el establecimiento " + lstFarms.val() + ".", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
+                    $.when(sendMail("Usuario: " + userName + " ha agregado Lluvia para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Milimetros: " + pMilimiters + "[br] Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year() + "[br] IrrigationUnitId: " + pIrrigationUnitId + " - " + irrigationMailText)).done(function () {
                         location.href = "./home?farm=" + lstFarms.val();
                     });
                    
@@ -532,7 +689,19 @@ $(document).ready(function () {
                         pIrrigationUnitId = "Todos";
                     }
                     
-                    $.when(sendMail("Se ha agregado Riego para el establecimiento " + lstFarms.val() + ".", "Milimetros: " + pMilimiters + ", IrrigationUnitId: " + pIrrigationUnitId + ", Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year())).done(function () {
+                    var selected = $('#IrrigationUnitIrrigation option:selected').text();
+                    var irrigationMailText = "";
+
+                    if (selected == "Todos")
+                    {
+                        irrigationMailText = irrigationUnitIrrigationMail.val().replace("Todos", "");
+                    }
+                    else
+                    {
+                        irrigationMailText = selected;
+                    }
+
+                    $.when(sendMail("Usuario: " + userName + " ha agregado Riego para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Milimetros: " + pMilimiters +  "[br] Fecha: " + pDate.date() + "/" + (pDate.month() + 1) + "/" + pDate.year() + "[br] IrrigationUnitId: " + pIrrigationUnitId + " - " + irrigationMailText)).done(function () {
                         location.href = "./home?farm=" + lstFarms.val();
                     });
                     

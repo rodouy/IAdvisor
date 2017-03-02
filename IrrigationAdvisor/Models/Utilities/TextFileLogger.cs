@@ -213,9 +213,8 @@ namespace IrrigationAdvisor.Models.Utilities
                 }
                 catch (Exception ex)
                 {
-                    logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                    Console.WriteLine("Exception in TextFileLogger.ReadLogFile " + ex.Message);
-                    throw ;
+                    logger.Error(ex, "Exception in TextFileLogger.ReadLogFile " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                    throw ex;
                 }
             }
             return lReadLog;              

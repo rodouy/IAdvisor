@@ -52,6 +52,8 @@ namespace IrrigationAdvisor.Models.Irrigation
         private long positionId;
         private Double predeterminatedIrrigationQuantity;
         private bool show;
+        private long farmId;
+
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -109,6 +111,18 @@ namespace IrrigationAdvisor.Models.Irrigation
         }
 
         public virtual Bomb Bomb
+        {
+            get;
+            set;
+        }
+
+        public long FarmId
+        {
+            get { return farmId; }
+            set { farmId = value; }
+        }
+
+        public virtual Farm Farm
         {
             get;
             set;

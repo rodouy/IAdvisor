@@ -11,13 +11,13 @@ using IrrigationAdvisor.Models.Management;
 
 namespace IrrigationAdvisor.DBContext.Irrigation
 {
-    public class IrrigationUnitConfigurarion:
+    public class IrrigationUnitConfiguration:
         EntityTypeConfiguration<IrrigationUnit>
     {
 
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
-        public IrrigationUnitConfigurarion()
+        public IrrigationUnitConfiguration()
         {
             ToTable("IrrigationUnit");
             HasKey(c => c.IrrigationUnitId);
@@ -202,16 +202,16 @@ namespace IrrigationAdvisor.DBContext.Irrigation
                 lIrrigationUnitList = lFarm.IrrigationUnitList.ToList();
                 if(lIrrigationUnitList != null && lIrrigationUnitList.Count > 0)
                 {
-                    foreach (IrrigationUnit item in lIrrigationUnitList)
+                    foreach (IrrigationUnit lIrrigationUnit in lIrrigationUnitList)
                     {
-                        if(item.Show)
+                        if(lIrrigationUnit.Show)
                         {
                             lIrrigationUnitToShow += 1;
                             if(lIrrigationUnitToShow == 1)
                             {
                                 lReturn = new List<IrrigationUnit>();
                             }
-                            lReturn.Add(item);
+                            lReturn.Add(lIrrigationUnit);
                         }
                     }
                 }
