@@ -1828,7 +1828,7 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.NextIrrigation;
                 }
-                else if (lDailyRecord.Irrigation.Type == Utils.WaterInputType.NoIrrigation)
+                else if (lDailyRecord?.Irrigation?.Type == Utils.WaterInputType.NoIrrigation)
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.NoIrrigation;
                 }
