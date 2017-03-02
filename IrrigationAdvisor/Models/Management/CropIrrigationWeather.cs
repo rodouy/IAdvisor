@@ -1543,6 +1543,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <returns></returns>
         private Pair<Double, Utils.WaterInputType> HowMuchToIrrigate(DateTime pDateTime)
         {
+            #region local variables
             Pair<Double, Utils.WaterInputType> lReturn;
             bool lIrrigationByEvapotranspiration;
             bool lIrrigationByHydricBalance;
@@ -1552,7 +1553,9 @@ namespace IrrigationAdvisor.Models.Management
             Water.Irrigation lIrrigationNextDay = null;
 
             lReturn = new Pair<Double, Utils.WaterInputType>();
+            #endregion
 
+            #region Debug by Date
             if (pDateTime.Date.Equals(DateTime.Now.Date))
             {
                 //System.Diagnostics.Debugger.Break();
@@ -1566,6 +1569,7 @@ namespace IrrigationAdvisor.Models.Management
             {
                 //System.Diagnostics.Debugger.Break();
             }
+            #endregion
 
             lIrrigationByEvapotranspiration = this.IrrigateByEvapotranspiration();
             lIrrigationByHydricBalance = this.IrrigateByHydricBalance();
@@ -2432,8 +2436,8 @@ namespace IrrigationAdvisor.Models.Management
                     /* We limit to enter the new future daily record with the next condition 
                     lFromDate <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION)
                     */
-                    if (pToDate != null && pToDate <= this.HarvestDate 
-                        && lFromDate <= pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION))
+                    if (pToDate != null && pToDate.Date <= this.HarvestDate.Date 
+                        && lFromDate.Date <= pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION))
                     {
                         lToDate = Utils.MinDateTimeBetween(pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION),
                                                             this.HarvestDate);
@@ -3766,11 +3770,15 @@ namespace IrrigationAdvisor.Models.Management
                         }
 
                         //when arrives to final Stage, do not add new irrigation
-                        if (this.PhenologicalStage.Stage.StageId != this.Crop.StopIrrigationStageId)
+                        if (this.PhenologicalStage.Stage.Order < this.Crop.StopIrrigationStageOrder)
                         {
                             //Then that is added the DailyRecord, we must verify if we need to irrigate.
                             //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
                             this.VerifyNeedForIrrigation(pDateTime);
+                        }
+                        else
+                        {
+                            //System.Diagnostics.Debugger.Break();
                         }
                     }
                     else
@@ -4084,28 +4092,50 @@ namespace IrrigationAdvisor.Models.Management
                 lLastDayOfGrowingDegreeDays = this.LastDayOfGrowingDegreeDays;
                 if (lWeatherData != null)
                 {
+                    lAverageTemperature = lWeatherData.GetAverageTemperature(lStressTemperature, -lBaseTemperature);
+                    lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                     //Add DegreeDays ones a day
                     if (lLastDayOfGrowingDegreeDays.Date < lDailyRecordDateTime.Date)
                     {
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
-                        lAverageTemperature = lWeatherData.GetAverageTemperature(lStressTemperature, -lBaseTemperature);
-                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                         this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
+                    else if (lLastDayOfGrowingDegreeDays.Date > lDailyRecordDateTime.Date)
+                    {
+                        //Get Daily Record of the day before.
+                        lDailyRecord = this.GetDailyRecordByDate(lDailyRecordDateTime.Date.AddDays(-1));
+                        if (lDailyRecord != null)
+                        {
+                            this.GrowingDegreeDaysAccumulated = lDailyRecord.GrowingDegreeDaysAccumulated + lGrowingDegreeDays;
+                            this.GrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified + lGrowingDegreeDays;
+                            this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
+                        }
+                    }
                 }
                 else
                 {
+                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime,
+                                                                                        lBaseTemperature, lStressTemperature);
                     //Add DegreeDays ones a day
                     if (lLastDayOfGrowingDegreeDays.Date < lDailyRecordDateTime.Date)
                     {
-                        lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime,
-                                                                                            lBaseTemperature, lStressTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                         this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
+                    }
+                    else if (lLastDayOfGrowingDegreeDays.Date > lDailyRecordDateTime.Date)
+                    {
+                        //Get Daily Record of the day before.
+                        lDailyRecord = this.GetDailyRecordByDate(lDailyRecordDateTime.Date.AddDays(-1));
+                        if (lDailyRecord != null)
+                        {
+                            this.GrowingDegreeDaysAccumulated = lDailyRecord.GrowingDegreeDaysAccumulated + lGrowingDegreeDays;
+                            this.GrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified + lGrowingDegreeDays;
+                            this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
+                        }
                     }
                 }
                 lGrowingDegreeDaysModified = this.GrowingDegreeDaysModified;
@@ -4297,7 +4327,7 @@ namespace IrrigationAdvisor.Models.Management
                         }
 
                         //when arrives to final Stage, do not add new irrigation
-                        if (this.PhenologicalStage.Stage.StageId != this.Crop.StopIrrigationStageId)
+                        if (this.PhenologicalStage.Stage.Order < this.Crop.StopIrrigationStageOrder)
                         {
                             //Then that is added the DailyRecord, we must verify if we need to irrigate.
                             //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
@@ -4630,28 +4660,50 @@ namespace IrrigationAdvisor.Models.Management
                 lLastDayOfGrowingDegreeDays = this.LastDayOfGrowingDegreeDays;
                 if (lWeatherData != null)
                 {
+                    lAverageTemperature = lWeatherData.GetAverageTemperature(lStressTemperature, -lBaseTemperature);
+                    lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                     //Add DegreeDays ones a day
                     if (lLastDayOfGrowingDegreeDays.Date < lDailyRecordDateTime.Date)
                     {
                         //GrowingDegreeDaysAccumulated & GrowingDegreeDaysModified 
                         //is updated by calculateGrowingDegreeDaysForOneDay
-                        lAverageTemperature = lWeatherData.GetAverageTemperature(lStressTemperature, -lBaseTemperature);
-                        lGrowingDegreeDays = this.calculateGrowingDegreeDaysForOneDay(lBaseTemperature, lAverageTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                         this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
                     }
+                    else if (lLastDayOfGrowingDegreeDays.Date > lDailyRecordDateTime.Date)
+                    {
+                        //Get Daily Record of the day before.
+                        lDailyRecord = this.GetDailyRecordByDate(lDailyRecordDateTime.Date.AddDays(-1));
+                        if(lDailyRecord != null)
+                        {
+                            this.GrowingDegreeDaysAccumulated = lDailyRecord.GrowingDegreeDaysAccumulated + lGrowingDegreeDays;
+                            this.GrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified + lGrowingDegreeDays;
+                            this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
+                        }
+                    }
                 }
                 else
                 {
+                    lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime,
+                                                                                        lBaseTemperature, lStressTemperature);
                     //Add DegreeDays ones a day
                     if (lLastDayOfGrowingDegreeDays.Date < lDailyRecordDateTime.Date)
                     {
-                        lGrowingDegreeDays = this.CropInformationByDate.GetGrowingDegreeDays(lDailyRecordDateTime,
-                                                                                            lBaseTemperature, lStressTemperature);
                         this.GrowingDegreeDaysAccumulated += lGrowingDegreeDays;
                         this.GrowingDegreeDaysModified += lGrowingDegreeDays;
                         this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
+                    }
+                    else if (lLastDayOfGrowingDegreeDays.Date > lDailyRecordDateTime.Date)
+                    {
+                        //Get Daily Record of the day before.
+                        lDailyRecord = this.GetDailyRecordByDate(lDailyRecordDateTime.Date.AddDays(-1));
+                        if (lDailyRecord != null)
+                        {
+                            this.GrowingDegreeDaysAccumulated = lDailyRecord.GrowingDegreeDaysAccumulated + lGrowingDegreeDays;
+                            this.GrowingDegreeDaysModified = lDailyRecord.GrowingDegreeDaysModified + lGrowingDegreeDays;
+                            this.LastDayOfGrowingDegreeDays = lDailyRecordDateTime.Date;
+                        }
                     }
                 }
                 lGrowingDegreeDaysModified = this.GrowingDegreeDaysModified;

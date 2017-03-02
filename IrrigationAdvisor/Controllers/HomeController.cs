@@ -707,7 +707,13 @@ namespace IrrigationAdvisor.Controllers
                 logger.Error("Exception in HomeController.ProcessInformationToIrrigationUnits pCropIrrigationWeatherList is null");
             }
         }
-      
+
+        /// <summary>
+        /// TODO: define function
+        /// </summary>
+        /// <param name="pCropIrrigationWeatherList"></param>
+        /// <param name="pDateFrom"></param>
+        /// <returns></returns>
         private bool InternalCalculateAllActiveCropIrrigationWeather(List<CropIrrigationWeather> pCropIrrigationWeatherList, DateTime? pDateFrom = null)
         {
             bool lResult = false;
@@ -811,6 +817,14 @@ namespace IrrigationAdvisor.Controllers
             return lResult;
         }
 
+        /// <summary>
+        /// Calculate All Active CropIrrigationWeather by Farm from a Date
+        /// A CropIrrigationWeather is Active when Date of Reference is between Date of Sowing and Date of Harvest
+        /// </summary>
+        /// <param name="farmId"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <param name="pDateFrom"></param>
+        /// <returns></returns>
         private bool CalculateAllActiveCropIrrigationWeather(long farmId, DateTime pDateOfReference, DateTime pDateFrom)
         {
             bool lResult = false;
@@ -833,6 +847,7 @@ namespace IrrigationAdvisor.Controllers
         /// <summary>
         /// Calculate All CropIrrigationWeather by Date Of Reference to Now (System Date)
         /// </summary>
+        /// <param name="pDateOfReference"></param>
         /// <returns></returns>
         private bool CalculateAllActiveCropIrrigationWeather(DateTime pDateOfReference)
         {

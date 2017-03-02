@@ -3181,15 +3181,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     Name = Utils.NameSpecieSoyaSouthShort,
                     ShortName = "Soja",
                     RegionId = lRegion.RegionId,
+                    Region = lRegion,
                     SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
                     MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
                     MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
                     MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Soya,
                     MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Soya,
                     CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
                     StageList = lStages,
                     PhenologicalStageList = lPhenologicalStages,
                     StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
                 };
 
                 #endregion
@@ -3273,15 +3277,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     Name = Utils.NameSpecieSoyaNorthShort,
                     ShortName = "Soja",
                     RegionId = lRegion.RegionId,
+                    Region = lRegion,
                     SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
                     MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
                     MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
                     MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Soya,
                     MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Soya,
                     CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
                     StageList = lStages,
                     PhenologicalStageList = lPhenologicalStages,
                     StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
                 };
 
                 #endregion
