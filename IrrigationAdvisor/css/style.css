@@ -2053,6 +2053,11 @@ padding-right: 10px;
 	height:10px;
 	background:#4aca83;
 	}
+.ref-no-irrigation{
+	width:100%;
+	height:10px;
+	background-color:crimson;
+	}
 
 
 .table-wrap .replied {
@@ -2484,6 +2489,11 @@ width: -moz-available;
 	width:100%;
 	height:10px;
 	background:#4aca83;
+	}
+.ref-no-irrigation{
+	width:100%;
+	height:10px;
+	background:crimson;
 	}
 
 
