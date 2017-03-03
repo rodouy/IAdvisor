@@ -111,15 +111,29 @@
                         
                         <div style="color:black" class="btn-md">
                             <div class="col-xs-8 col-md-5 col-lg-5" id="dv-for-txtDateOfReference-dateOfReferenceBtn2">
-                                @*<span class="form-control col-md-4">@(dateValue.ToShortDateString())</span>*@
+                               
                                 
-                                @*<a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn" style="display:inline-block">+</a>*@
-                                @{if (Model.IsUserAdministrator)
+                                @{ if (Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["PlusButton"]))
+                                    {
+                                        <span class="form-control col-md-4">@(Model.DateOfReference.ToShortDateString())</span>
+
+                                        <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn" style="display:inline-block; padding-bottom:0"><span class="glyphicon glyphicon-plus" style="top:-5px"></span></a>
+                                    }
+                                    else
+                                    {
+                                        if (Model.IsUserAdministrator)
+                                        {
+                                            <input type="date" id="txtDateOfReference" class="form-control" value="@Model.DateOfReferenceAsLocal()" style="display:inline-block" />
+                                            <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
+                                        }
+                                    }
+                                }
+                                @*@{if (Model.IsUserAdministrator)
                                     {
                                         <input type="date" id="txtDateOfReference" class="form-control" value="@Model.DateOfReferenceAsLocal()" style="display:inline-block" />
                                         <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
                                     }
-                                }
+                                }*@
                                 <select class="form-control margin-bottom-10" id="lstFarms" style="width: 59%">
                                    
                                 </select>
