@@ -628,7 +628,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -648,13 +648,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -850,13 +850,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -1040,7 +1040,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -1060,13 +1060,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -1242,7 +1242,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -1262,13 +1262,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -1444,7 +1444,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -1464,13 +1464,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -1646,7 +1646,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -1666,13 +1666,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -1848,7 +1848,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -1868,13 +1868,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -2050,7 +2050,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -2070,13 +2070,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -2252,7 +2252,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -2272,13 +2272,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -2454,7 +2454,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -2474,13 +2474,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -2656,7 +2656,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -2676,13 +2676,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -2858,7 +2858,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -2878,13 +2878,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -3068,7 +3068,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -3088,13 +3088,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -3270,7 +3270,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -3290,13 +3290,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -3472,7 +3472,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -3492,13 +3492,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -3674,7 +3674,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -3694,13 +3694,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -3891,7 +3891,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -3911,13 +3911,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -4093,7 +4093,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -4113,13 +4113,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -4295,7 +4295,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -4315,13 +4315,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -4495,7 +4495,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -4515,13 +4515,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -4697,7 +4697,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -4717,13 +4717,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -4899,7 +4899,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -4919,13 +4919,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -5100,7 +5100,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -5120,13 +5120,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -5302,7 +5302,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -5322,13 +5322,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -5504,7 +5504,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -5524,13 +5524,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -5706,7 +5706,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -5726,13 +5726,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -5908,7 +5908,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -5928,13 +5928,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -6110,7 +6110,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -6130,13 +6130,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -6312,7 +6312,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -6332,13 +6332,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -6514,7 +6514,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -6534,13 +6534,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -6716,7 +6716,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -6736,13 +6736,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -6918,7 +6918,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -6938,13 +6938,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -7120,7 +7120,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.SowingDate <= pDateOfReference
-                                          && ciw.HarvestDate >= pDateOfReference
+                                          && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -7140,13 +7140,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -7326,7 +7326,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -7346,13 +7346,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -7528,7 +7528,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -7548,13 +7548,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -7730,7 +7730,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -7750,13 +7750,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -7930,7 +7930,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -7950,13 +7950,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -8140,7 +8140,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.SowingDate <= pDateOfReference
-                                          && ciw.HarvestDate >= pDateOfReference
+                                          && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -8160,13 +8160,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -8342,7 +8342,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.SowingDate <= pDateOfReference
-                                          && ciw.HarvestDate >= pDateOfReference
+                                          && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -8362,13 +8362,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -8544,7 +8544,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -8564,13 +8564,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate &&
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year &&
+                                           where (weatherdata.Date >= lSowingDate &&
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -8746,7 +8746,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -8766,13 +8766,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate &&
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year &&
+                                           where (weatherdata.Date >= lSowingDate &&
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -8956,7 +8956,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                             && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                             && ciw.SowingDate <= pDateOfReference
-                                            && ciw.HarvestDate >= pDateOfReference
+                                            && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -8976,13 +8976,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -9158,7 +9158,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                             && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                             && ciw.SowingDate <= pDateOfReference
-                                            && ciw.HarvestDate >= pDateOfReference
+                                            && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -9178,13 +9178,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -9360,7 +9360,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                             && ciw.SowingDate <= pDateOfReference
-                                            && ciw.HarvestDate >= pDateOfReference
+                                            && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -9380,13 +9380,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -9562,7 +9562,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                             && ciw.SowingDate <= pDateOfReference
-                                            && ciw.HarvestDate >= pDateOfReference
+                                            && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -9582,13 +9582,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -9765,7 +9765,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -9785,13 +9785,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -9967,7 +9967,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -9987,13 +9987,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -10169,7 +10169,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -10189,13 +10189,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -10371,7 +10371,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -10391,13 +10391,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -10573,7 +10573,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -10593,13 +10593,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -10775,7 +10775,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -10795,13 +10795,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -10977,7 +10977,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -10997,13 +10997,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -11179,7 +11179,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -11199,13 +11199,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -11381,7 +11381,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -11401,13 +11401,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -11591,7 +11591,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.SowingDate <= pDateOfReference
-                                          && ciw.HarvestDate >= pDateOfReference
+                                          && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -11611,13 +11611,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -11792,7 +11792,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.SowingDate <= pDateOfReference
-                                          && ciw.HarvestDate >= pDateOfReference
+                                          && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -11812,13 +11812,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -11993,7 +11993,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -12013,13 +12013,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate &&
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year &&
+                                           where (weatherdata.Date >= lSowingDate &&
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -12194,7 +12194,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -12214,13 +12214,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate &&
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year &&
+                                           where (weatherdata.Date >= lSowingDate &&
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -12403,7 +12403,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.SowingDate <= pDateOfReference
-                                          && ciw.HarvestDate >= pDateOfReference
+                                          && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -12423,13 +12423,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -12604,7 +12604,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                           && ciw.SowingDate <= pDateOfReference
-                                          && ciw.HarvestDate >= pDateOfReference
+                                          && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -12624,13 +12624,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate ||
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year ||
+                                           where (weatherdata.Date >= lSowingDate ||
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -12805,7 +12805,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -12825,13 +12825,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate &&
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year &&
+                                           where (weatherdata.Date >= lSowingDate &&
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
@@ -13006,7 +13006,7 @@ namespace IrrigationAdvisorConsole
                                       where ciw.CropId == lCrop.CropId
                                           && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
                                               && ciw.SowingDate <= pDateOfReference
-                                              && ciw.HarvestDate >= pDateOfReference
+                                              && ciw.HarvestDate.Year >= pDateOfReference.Year
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
@@ -13026,13 +13026,13 @@ namespace IrrigationAdvisorConsole
                                     join weatherstation in context.WeatherStations
                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
                                     where (weatherdata.Date >= lSowingDate &&
-                                            weatherdata.Date <= lHarvestDate) &&
+                                            weatherdata.Date.Year <= lHarvestDate.Year) &&
                                             weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                     select weatherdata).ToList<WeatherData>();
             lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                            join weatherstation in context.WeatherStations
                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                           where (weatherdata.Date.Year >= lSowingDate.Year &&
+                                           where (weatherdata.Date >= lSowingDate &&
                                                 weatherdata.Date.Year <= lHarvestDate.Year) &&
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
