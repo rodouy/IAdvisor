@@ -1627,7 +1627,7 @@ namespace IrrigationAdvisor.Models.Management
         }
 
         /// <summary>
-        /// If the evapotranspiration Acumulated from last water output is bigger than max evapotranspiration to irrigatte
+        /// If the Evapotranspiration Acumulated from last water input, is bigger than MaxEvapotranspirationToIrrigate (Crop Data),
         /// we need to irrigate
         /// </summary>
         /// <param name="pCropIrrigationWeather"></param>
@@ -1635,35 +1635,35 @@ namespace IrrigationAdvisor.Models.Management
         private bool IrrigateByEvapotranspiration()
         {
             bool lReturn = false;
-            Double lMaxEvapotrToIrr;
-            Double lEvapotrAcum;
+            Double lMaxEvapotrranspirationToIrrigate;
+            Double lEvapotranspirationAcumulated;
 
             if (this.WeatherEventType == Utils.WeatherEventType.LaNinia)
             {
                 if(this.PhenologicalStage.StageId >= this.Crop.MinStageToConsiderETinHBCalculationId)
                 {
-                    lMaxEvapotrToIrr = Math.Round(this.Crop.MaxEvapotranspirationToIrrigate * 
+                    lMaxEvapotrranspirationToIrrigate = Math.Round(this.Crop.MaxEvapotranspirationToIrrigate * 
                         InitialTables.PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE / 100, 2);
                 }
                 else
                 {
-                    lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+                    lMaxEvapotrranspirationToIrrigate = this.Crop.MaxEvapotranspirationToIrrigate;
                 }
             }
             else if (this.WeatherEventType == Utils.WeatherEventType.ElNinio)
             {
-                lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+                lMaxEvapotrranspirationToIrrigate = this.Crop.MaxEvapotranspirationToIrrigate;
             }
             else //By default The same as Ninio
             {
-                lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+                lMaxEvapotrranspirationToIrrigate = this.Crop.MaxEvapotranspirationToIrrigate;
             }
 
-            lEvapotrAcum = this.GetTotalEvapotranspirationCropFromLastWaterInput();
+            lEvapotranspirationAcumulated = this.GetTotalEvapotranspirationCropFromLastWaterInput();
 
             //If the evapotranspiration Acumulated from last water output is bigger than max evapotranspiration to irrigatte
             //we need to irrigate
-            if (lEvapotrAcum >= lMaxEvapotrToIrr)
+            if (lEvapotranspirationAcumulated >= lMaxEvapotrranspirationToIrrigate)
             {
                 lReturn = true;
             }
@@ -1706,7 +1706,7 @@ namespace IrrigationAdvisor.Models.Management
             //**************************************************************************************
 
             //**************************************************************************************
-            //2012-12-04 This is Disabled
+            //2016-12-04 This is Disabled
             //2016-10-17 Not to consider ETc for HydricBalance Irrigation
             //lMinEvapotrasnpirationToIrrigate = 0;
             //**************************************************************************************
