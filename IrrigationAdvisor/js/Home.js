@@ -488,7 +488,29 @@ $(document).ready(function () {
 
     dateOfReferenceBtn.click(function () {
 
+        var formattedDateOfReference = moment(txtDateOfReference.val());
+
         showLoading();
+
+        var farmId = -1;
+
+        if (getUrlParameter('farm')) {
+            farmId = getUrlParameter('farm');
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: './ChangeDateOfReference?pDay=' + formattedDateOfReference.date() + '&pMonth=' + (formattedDateOfReference.month() + 1) + '&pYear=' + formattedDateOfReference.year() + '&pFarmId=' + farmId,
+            success: function (data) {
+                location.href = data;
+
+            },
+            error: function (data) {
+
+                console.log(data);
+
+            }
+        });
 
     });
 

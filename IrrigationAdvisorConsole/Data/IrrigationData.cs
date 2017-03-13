@@ -2373,12 +2373,12 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
             }
             #endregion
-            #region Irrigation 2017/03/08 14 mm
+            #region Irrigation 2017/03/08 0 mm - Not done because of rain 2017/03/09
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 03, 08);
-                lIrrigationQuantity = 14;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
@@ -3140,12 +3140,12 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
             }
             #endregion
-            #region Irrigation 2017/03/08 14 mm
+            #region Irrigation 2017/03/08 0 mm - Not done because of rain 2017/03/09
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 03, 08);
-                lIrrigationQuantity = 14;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
