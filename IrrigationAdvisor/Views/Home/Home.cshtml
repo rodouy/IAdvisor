@@ -525,17 +525,29 @@
                                                     Seleccionar cultivo:
                                                     @{ if (Model.CropIrrigationWeatherViewModelList != null)
                                                         {
-                                                            <select id="CropIrriWeatherNoIrrigation" class="form-control">
+                                                            @*<select id="CropIrriWeatherNoIrrigation" class="form-control" multiple="multiple">
 
                                                                 <option value="-1">Todos</option>
                                                                 @foreach (var item in Model.CropIrrigationWeatherViewModelList)
                                                                 {
+
                                                                     <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
                                                                 }
-                                                            </select>
-                                                        }
-                                                        else
-                                                        {
+                                                            </select>*@
+                                                            <br />
+                                                            
+                                                           <div style="height:100px;overflow-y:auto;">
+                                                               <input type="checkbox" name="ciw_all" value="-1" id="selectedAllCiwNoIrrigation"/>Todos<br />
+                                                               @foreach (var item in Model.CropIrrigationWeatherViewModelList)
+                                                               {
+                                                                    <input type="checkbox" name="ciw_@item.CropIrrigationWeatherId" value="@item.CropIrrigationWeatherId" class="no-irrigation-check"/> @item.CropIrrigationWeatherName <br/>
+                                                               }
+                                                           </div>     
+                                                                
+                                                            
+    }
+    else
+    {
                                                             <span class="text-danger disable-save-button">La relación Cultivo Pivot y clima esta vacía</span>
                                                         }
                                                     }
@@ -548,7 +560,10 @@
                                                     <select class="form-control" id="noIrrigationReason">
                                                         <option value="0">Problema eléctrico</option>
                                                         <option value="1">Espera de lluvia</option>
-                                                        <option value="2">Otro</option>
+                                                        <option value="2">Perdida de agua</option>
+                                                        <option value="3">La bomba no funciona</option>
+                                                        <option value="4">Período sin riego</option>
+                                                        <option value="5">Otro</option>
                                                     </select>
                                                     <br />
                                                 </div>

@@ -1304,13 +1304,13 @@ namespace IrrigationAdvisor.Controllers
         [HttpGet]
         public ActionResult NoIrri()
         {
-            AddNoIrrigation(new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), -1, 1, "Test Observations");
+            AddNoIrrigation(new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), "1", 1, "Test Observations");
             return Content("Ok");
         }
 
         [HttpGet]
         public ActionResult AddNoIrrigation(DateTime pDateFrom, DateTime pDateTo,
-                                            long pCIW, int pReason, string pObservations)
+                                            string pCIW, int pReason, string pObservations)
         {
             string lSomeData = string.Empty;
             try
@@ -1334,39 +1334,46 @@ namespace IrrigationAdvisor.Controllers
                 int lSaveChanges = 0;
                 #endregion
 
+                List<string> selectedCiw = pCIW.Split(',').ToList();
+
                 // ManageSession.SetFromDateTime(lDateResult);
 
-                if (pCIW > -1)
+                //if (pCIW > -1)
+                //{
+                var filteredCiw = lContext.CropIrrigationWeathers
+                                    .Include(c => c.Soil.HorizonList)
+                                    .Where(c => selectedCiw.Contains(c.CropIrrigationWeatherId.ToString()))
+                                    .ToList();
+
+                foreach (var bCIW in filteredCiw)
                 {
-                    lCIW = lContext.CropIrrigationWeathers
-                            .Include(c => c.Soil.HorizonList)
-                            .Where(c => c.CropIrrigationWeatherId == pCIW)
-                            .Single();
-
-                    AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, lCIW, lContext, pReason, pObservations);
+                    AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations); 
                 }
-                else
-                {
-                    string farmParameter = Utils.GetUrlParameter("farm");
-                    long lFarmId = 0;
 
-                    if(farmParameter == null)
-                    {
-                        lFarmId = lContext.Farms.First().FarmId;
-                    }
-                    else
-                    {
-                        lFarmId = int.Parse(farmParameter);
-                    }
+                lSaveChanges = lContext.SaveChanges();
+                //}
+                //else
+                //{
+                //    string farmParameter = Utils.GetUrlParameter("farm");
+                //    long lFarmId = 0;
 
-                    List<CropIrrigationWeather> ciwByFarm = this.GetCropIrrigationWeatherListByFarmId(lFarmId, Utils.GetDateOfReference().Value);
-                    
-                    foreach (var bCIW in ciwByFarm)
-                    {
-                        AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations);
-                    }
-                    lSaveChanges = lContext.SaveChanges();
-                }
+                //    if(farmParameter == null)
+                //    {
+                //        lFarmId = lContext.Farms.First().FarmId;
+                //    }
+                //    else
+                //    {
+                //        lFarmId = int.Parse(farmParameter);
+                //    }
+
+                //    List<CropIrrigationWeather> ciwByFarm = this.GetCropIrrigationWeatherListByFarmId(lFarmId, Utils.GetDateOfReference().Value);
+
+                //    foreach (var bCIW in ciwByFarm)
+                //    {
+                //        AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations);
+                //    }
+                //    lSaveChanges = lContext.SaveChanges();
+                //}
 
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
