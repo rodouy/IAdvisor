@@ -684,7 +684,7 @@ $(document).ready(function () {
         else
         {
             showLoading();
-            modalIrrigation.modal('hide');
+            modalNoIrrigation.modal('hide');
 
             var selectedCiws = "";
 
@@ -845,21 +845,19 @@ $(document).ready(function () {
             url: pUrl,
             success: function (data) {
                 if (data == "Ok") {
-                    /*if (pCIW == "-1") {
-                        pCIW = "Todos";
-                    }
 
-                    var selected = pCIW.text();
-                    var irrigationMailText = "";
+                    var ciwSelectedNoIrrigation = "";
 
-                    if (selected == "Todos") {
-                        irrigationMailText = irrigationUnitIrrigationMail.val().replace("Todos", "");
-                    }
-                    else {
-                        irrigationMailText = selected;
-                    }*/
-
-                    $.when(sendMail("Usuario: " + userName + " ha agregado intervalo de No Riego para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Fecha Desde: " + pDateFrom + "[br] Fecha Hasta: " + pDateTo + '[br] Razón: ' + pReason + '[br] Observaciones: ' + pObservations)).done(function () {
+                    $('.dropdown :checkbox:checked').each(function (index, value) {
+                        if (index > 0)
+                        {
+                            ciwSelectedNoIrrigation = value.value + "- " + $(this).next('span').text() + "[br]" + ciwSelectedNoIrrigation;
+                        }                                           
+                    });
+                                
+                    var reasonString = $('#noIrrigationReason :selected').text();
+                    
+                    $.when(sendMail("Usuario: " + userName + " ha agregado intervalo de No Riego para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Fecha Desde: " + pDateFrom + "[br] Fecha Hasta: " + pDateTo + '[br] Razón: ' + pReason + '- ' + reasonString + "[br] Cultivo: " + ciwSelectedNoIrrigation + '[br] Observaciones: ' + pObservations)).done(function () {
                         location.href = "./home?farm=" + lstFarms.val();
                     });
 
@@ -874,7 +872,6 @@ $(document).ready(function () {
                 hideLoading();
                 sendMail("Error al cargar No Riego", data);
                 console.log(data);
-                //$('#myModal').modal('hide');
             }
         });
 

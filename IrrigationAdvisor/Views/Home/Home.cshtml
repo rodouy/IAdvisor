@@ -5,6 +5,7 @@
     ViewBag.Title = "Home Page";
     Logger logger = LogManager.GetCurrentClassLogger();
 }
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../css/flatWeatherPlugin.css">
 <link rel="stylesheet" type="text/css" href="../css/modal.css">
 <link rel="stylesheet" type="text/css" href="../css/style-1.css">
@@ -222,6 +223,7 @@
                                 <div class="regado col-md-3"><h5>Campo regado</h5></div>
                                 <div class="proximo-riego col-md-3"><h5>Próximo riego</h5></div>
                                 <div class="lluvia-registrada col-md-3"><h5>Lluvia</h5></div>
+                                <div class="no-riego col-md-3"><h5>No riego</h5></div>
                                 <div class="por-defecto col-md-3"><h5>Sin Riego</h5></div>
                             </div>
                         </div>
@@ -537,10 +539,13 @@
                                                             <br />
                                                             
                                                            <div style="height:100px;overflow-y:auto;">
-                                                               <input type="checkbox" name="ciw_all" value="-1" id="selectedAllCiwNoIrrigation"/>Todos<br />
+                                                               <input type="checkbox" name="ciw_all" value="-1" id="selectedAllCiwNoIrrigation"/><span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i>Todos</span><br />
                                                                @foreach (var item in Model.CropIrrigationWeatherViewModelList)
                                                                {
-                                                                    <input type="checkbox" name="ciw_@item.CropIrrigationWeatherId" value="@item.CropIrrigationWeatherId" class="no-irrigation-check"/> @item.CropIrrigationWeatherName <br/>
+                                                                <label>
+                                                                    <input type="checkbox" name="ciw_@item.CropIrrigationWeatherId" value="@item.CropIrrigationWeatherId" class="no-irrigation-check" />
+                                                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i>@item.CropIrrigationWeatherName</span> <br />
+                                                                </label>
                                                                }
                                                            </div>     
                                                                 

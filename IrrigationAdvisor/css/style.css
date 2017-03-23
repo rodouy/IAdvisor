@@ -1566,6 +1566,18 @@ padding-left: 10px;
 padding-right: 10px;
 }
 
+.no-riego{
+	/*width:15%;*/
+background: crimson none repeat scroll 0% 0%;
+margin-left: 20px;
+padding: 5px;
+text-align: center;
+margin-top: 30px;
+float:left;
+padding-left: 10px;
+padding-right: 10px;
+}
+
 .regado h5{
 	font-size:17px;
 	color: #F7F3F3;
