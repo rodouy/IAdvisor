@@ -1817,7 +1817,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lIsToday = lDateOfData == lDayOfReference;
 
-                if (lIsToday)
+                if (lIsToday && lDailyRecord != null)
                 {
                     lPhenology = lDailyRecord.PhenologicalStage.Stage.ShortName;
                 }

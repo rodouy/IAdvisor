@@ -175,7 +175,8 @@ namespace IrrigationAdvisor.DBContext.Irrigation
                     .Include(ciw => ciw.Soil.HorizonList)
                     .Where(ciw => ciw.IrrigationUnitId == lIrrigationUnitId
                         && ciw.SowingDate <= pDateOfReference
-                        && ciw.HarvestDate >= pDateOfReference).ToList();
+                        && ciw.HarvestDate >= pDateOfReference
+                        && ciw.IrrigationUnit.Show == true).ToList();
             }
 
             return lReturn;
