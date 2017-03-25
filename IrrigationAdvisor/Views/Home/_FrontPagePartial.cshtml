@@ -18,6 +18,10 @@
 {
     <td><span class="description-mobile-left">@date</span><div class="ref-next-irrigation"> <span class="value-mobile-position">@value</span> </div></td>
 }
+@helper NoIrrigation(Double value, string date)
+{
+    <td><span class="description-mobile-left">@date</span><div class="ref-no-irrigation"> <span class="value-mobile-position"></span> </div></td>
+}
 
 @foreach (var item in Model)
 {   
@@ -45,6 +49,10 @@
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NextIrrigation)
             {
                 @ForecastIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day)
+            }
+            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NoIrrigation)
+            {
+                @NoIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day)
             }
             else
             {

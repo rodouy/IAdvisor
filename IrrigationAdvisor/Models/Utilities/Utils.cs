@@ -186,6 +186,10 @@ namespace IrrigationAdvisor.Models.Utilities
             /// Irrigation when HB is lower than x%
             /// </summary>
             IrrigationByHydricBalance,
+            /// <summary>
+            /// No irrigation.
+            /// </summary>
+            NoIrrigation
         }
 
         /// <summary>
@@ -346,6 +350,10 @@ namespace IrrigationAdvisor.Models.Utilities
             ///  Error
             /// </summary>
             Error,
+            /// <summary>
+            /// No Irrigation
+            /// </summary>
+            NoIrrigation
         }
         
         /// <summary>
@@ -1912,6 +1920,15 @@ namespace IrrigationAdvisor.Models.Utilities
             return sc.GetStatus(pName).WebStatus == IrrigationAdvisorWebStatus.Online;
         }
         #endregion
+
+        public static string GetUrlParameter(string pKey)
+        {
+            string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+            Uri lMyUri = new Uri(lURL);
+            string lcurrentFarmViaUrl = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get(pKey);
+
+            return lcurrentFarmViaUrl;
+        }
 
         public static void LogError(Exception ex, string pDescription, params object[] args)
         {

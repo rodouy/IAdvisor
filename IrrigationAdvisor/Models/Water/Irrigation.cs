@@ -59,6 +59,9 @@ namespace IrrigationAdvisor.Models.Water
                 }
             }
 
+            public string Observations { get; set; }
+            public int? ReasonId { get; set; } 
+
             #endregion
 
             #region Construction
