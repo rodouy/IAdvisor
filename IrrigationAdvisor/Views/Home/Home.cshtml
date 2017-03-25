@@ -539,13 +539,27 @@
                                                             <br />
                                                             
                                                            <div style="height:100px;overflow-y:auto;">
-                                                               <input type="checkbox" name="ciw_all" value="-1" id="selectedAllCiwNoIrrigation"/><span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i>Todos</span><br />
+                                                               <div class="checkbox" style="margin-bottom: 15px;">
+                                                                   <label style="padding-left: 0;">
+                                                                       <input type="checkbox" name="ciw_all" value="-1" id="selectedAllCiwNoIrrigation" />
+                                                                       <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                       <span>Todos</span><br />
+                                                                   </label>
+                                                               </div>
+                                                               
                                                                @foreach (var item in Model.CropIrrigationWeatherViewModelList)
                                                                {
-                                                                <label>
-                                                                    <input type="checkbox" name="ciw_@item.CropIrrigationWeatherId" value="@item.CropIrrigationWeatherId" class="no-irrigation-check" />
-                                                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i>@item.CropIrrigationWeatherName</span> <br />
-                                                                </label>
+                                                                    <div class="checkbox" style="margin-bottom: 15px;">
+                                                                        <label style="padding-left: 0;">
+                                                                            <input type="checkbox" name="ciw_@item.CropIrrigationWeatherId" value="@item.CropIrrigationWeatherId" class="no-irrigation-check" />
+                                                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                            <span>@item.CropIrrigationWeatherName</span> <br />
+                                                                        </label>
+                                                                        
+
+                                                                    </div>
+                                                                    
+                                                                
                                                                }
                                                            </div>     
                                                                 

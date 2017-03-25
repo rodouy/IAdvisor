@@ -848,13 +848,12 @@ $(document).ready(function () {
 
                     var ciwSelectedNoIrrigation = "";
 
-                    $('.dropdown :checkbox:checked').each(function (index, value) {
-                        if (index > 0)
-                        {
-                            ciwSelectedNoIrrigation = value.value + "- " + $(this).next('span').text() + "[br]" + ciwSelectedNoIrrigation;
-                        }                                           
+                    $('.dropdown :checkbox:checked').each(function (index, value) {                     
+                            ciwSelectedNoIrrigation = value.value + "- " + $(this).next('span').next('span').text() + "[br]" + ciwSelectedNoIrrigation;                                                             
                     });
-                                
+                               
+                    ciwSelectedNoIrrigation = ciwSelectedNoIrrigation.replace("-1- Todos", "");
+
                     var reasonString = $('#noIrrigationReason :selected').text();
                     
                     $.when(sendMail("Usuario: " + userName + " ha agregado intervalo de No Riego para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Fecha Desde: " + pDateFrom + "[br] Fecha Hasta: " + pDateTo + '[br] Razón: ' + pReason + '- ' + reasonString + "[br] Cultivo: " + ciwSelectedNoIrrigation + '[br] Observaciones: ' + pObservations)).done(function () {
