@@ -137,6 +137,21 @@ namespace IrrigationAdvisor
             return result;
         }
 
+        public static long GetUserAccess()
+        {
+            long result = 0;
+
+            if (HttpContext.Current.Session["UserAccess"] != null)
+                result = Convert.ToInt64(HttpContext.Current.Session["UserAccess"]);
+
+            return result;
+        }
+
+        public static void SetUserAccess(long pUserAccessId)
+        {
+            HttpContext.Current.Session["UserAccess"] = pUserAccessId;
+        }
+
         public static void CleanSession()
         {
             HttpContext.Current.Session.Clear();

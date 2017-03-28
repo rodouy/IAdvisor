@@ -72,6 +72,54 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Register log in
+        /// </summary>
+        /// <param name="userName">user Name</param>
+        /// <returns>Count of records added</returns>
+        public int RegisterLogIn(string userName)
+        {
+            int result = 0;
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+
+            User user = lContext.Users.Single(u => u.UserName.ToLower() == userName.ToLower());
+
+            UserAccess userAccess = new UserAccess()
+            {
+                User = user,
+                LogInDate = DateTime.Now
+            };
+
+            lContext.UserAccesses.Add(userAccess);
+            result = lContext.SaveChanges();
+
+            ManageSession.SetUserAccess(userAccess.UserAccessId);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Register log ou
+        /// </summary>
+        /// <param name="userName">user Name</param>
+        /// <returns>Count of records added</returns>
+        public int RegisterLogOut(long userAccessId)
+        {
+            int result = 0;
+
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+
+            UserAccess userAccess = lContext.UserAccesses.SingleOrDefault(u => u.UserAccessId == userAccessId);
+
+            if(userAccess != null)
+            {
+                userAccess.LogOutDate = DateTime.Now;
+                result = lContext.SaveChanges();
+            }
+
+            return result;
+        }
+
         private Farm GetCurrentFarm(List<Farm> pFarmList)
         {
             string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
@@ -187,6 +235,8 @@ namespace IrrigationAdvisor.Controllers
                     var routes = new RouteValueDictionary { { "msg", AUTHENTICATION_ERROR }};
                     return RedirectToAction("Index", routes);
                 }
+
+                RegisterLogIn(lAuthentication.UserName);
 
                 bool lIsOnline = Utils.IsOnline(System.Configuration.ConfigurationManager.AppSettings["Status"]);
 
@@ -657,10 +707,14 @@ namespace IrrigationAdvisor.Controllers
 
         public ActionResult LogOut()
         {
+            long userAccessId = ManageSession.GetUserAccess();
+            RegisterLogOut(userAccessId);
+
             ManageSession.CleanSession();
+
             return View("Index", new LoginViewModel());
         }
-
+        
         /// <summary>
         /// Add a day to the Date of Reference
         /// </summary>
