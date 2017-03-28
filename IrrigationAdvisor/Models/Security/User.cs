@@ -69,7 +69,7 @@ namespace IrrigationAdvisor.Models.Security
         private String email;
         private long roleId;
         private String userName;
-        private String password;
+        private String password;       
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
@@ -143,6 +143,8 @@ namespace IrrigationAdvisor.Models.Security
             set { password = value; }
         }
 
+        public List<UserAccess> UserAccesses { get; set; }
+
         #endregion
 
         #region Construction
@@ -160,6 +162,7 @@ namespace IrrigationAdvisor.Models.Security
             this.RoleId = 3;
             this.UserName = "";
             this.Password = "";
+            this.UserAccesses = new List<UserAccess>();
         }
 
         /// <summary>
@@ -186,6 +189,7 @@ namespace IrrigationAdvisor.Models.Security
             this.RoleId = pRoleId;
             this.UserName = pUserName;
             this.Password = pPassword;
+            this.UserAccesses = new List<UserAccess>();
         }
 
         #endregion

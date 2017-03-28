@@ -177,6 +177,8 @@ namespace IrrigationAdvisor.DBContext
 
         public virtual DbSet<UserFarm> UserFarms { get; set; }
 
+        public virtual DbSet<UserAccess> UserAccesses { get; set; }
+
         #endif
         #endregion
 
