@@ -43,7 +43,6 @@ namespace IrrigationAdvisor.Models.Security
     public class User
     {
         
-        
         #region Consts
         #endregion
 
@@ -69,7 +68,8 @@ namespace IrrigationAdvisor.Models.Security
         private String email;
         private long roleId;
         private String userName;
-        private String password;       
+        private String password;
+        private List<UserAccess> userAccesses;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
@@ -143,7 +143,11 @@ namespace IrrigationAdvisor.Models.Security
             set { password = value; }
         }
 
-        public List<UserAccess> UserAccesses { get; set; }
+        public List<UserAccess> UserAccesses
+        {
+            get { return userAccesses; }
+            set { userAccesses = value; }
+        }
 
         #endregion
 
@@ -190,6 +194,35 @@ namespace IrrigationAdvisor.Models.Security
             this.UserName = pUserName;
             this.Password = pPassword;
             this.UserAccesses = new List<UserAccess>();
+        }
+
+        /// <summary>
+        /// Constructor of User with all parameters
+        /// </summary>
+        /// <param name="pUserId"></param>
+        /// <param name="pName"></param>
+        /// <param name="pSurname"></param>
+        /// <param name="pPhone"></param>
+        /// <param name="pAddress"></param>
+        /// <param name="pEmail"></param>
+        /// <param name="pRoleId"></param>
+        /// <param name="pUserName"></param>
+        /// <param name="pPassword"></param>
+        /// <param name="pUserAccesses"></param>
+        public User(long pUserId, String pName, String pSurname, String pPhone,
+                    String pAddress, String pEmail, long pRoleId, String pUserName,
+                    String pPassword, List<UserAccess> pUserAccesses)
+        {
+            this.UserId = pUserId;
+            this.Name = pName;
+            this.Surname = pSurname;
+            this.Phone = pPhone;
+            this.Address = pAddress;
+            this.Email = pEmail;
+            this.RoleId = pRoleId;
+            this.UserName = pUserName;
+            this.Password = pPassword;
+            this.UserAccesses = pUserAccesses;
         }
 
         #endregion
