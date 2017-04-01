@@ -11551,7 +11551,7 @@ namespace IrrigationAdvisorConsole.Data
                      where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotDelLagoElMirador1
+                               where iu.Name == Utils.NamePivotDelLagoElMirador1b
                                select iu).FirstOrDefault();
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
@@ -11681,7 +11681,7 @@ namespace IrrigationAdvisorConsole.Data
                      where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotDelLagoElMirador2
+                               where iu.Name == Utils.NamePivotDelLagoElMirador2b
                                select iu).FirstOrDefault();
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
@@ -11811,7 +11811,7 @@ namespace IrrigationAdvisorConsole.Data
                      where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotDelLagoElMirador3
+                               where iu.Name == Utils.NamePivotDelLagoElMirador3b
                                select iu).FirstOrDefault();
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
@@ -11941,7 +11941,7 @@ namespace IrrigationAdvisorConsole.Data
                      where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotDelLagoElMirador4
+                               where iu.Name == Utils.NamePivotDelLagoElMirador4b
                                select iu).FirstOrDefault();
             lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
                                           where ciw.CropId == lCrop.CropId
