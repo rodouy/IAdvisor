@@ -28,6 +28,7 @@ $(document).ready(function () {
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
+    var modalMoveIrrigation = $('#modal-move-irrigation')
     var modalNoIrrigation = $('#modal-no-irrigation');
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
@@ -50,6 +51,9 @@ $(document).ready(function () {
     var noIrrigationObs = $('#noIrrigationObs');
     var noIrrigationChecks = $('.no-irrigation-check');
     var selectedAllCiwNoIrrigation = $('#selectedAllCiwNoIrrigation');
+    var moveIrrigation = $('.move-irrigation');
+    var saveMoveIrrigation = $('#SaveMoveIrrigation');
+    var dateToMove = $('#dateToMove')
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -236,6 +240,7 @@ $(document).ready(function () {
         modalRain.modal(initModal);
         modalPheno.modal(initModal);
         modalNoIrrigation.modal(initModal);
+        modalMoveIrrigation.modal(initModal);
         loadUserFarms();
         loadDates();
         if (modalLoadStatus) {
@@ -377,6 +382,11 @@ $(document).ready(function () {
 
     addPhenoModal.click(function () {
         modalPheno.modal('show');
+        $('.modal-content').draggable();
+    });
+
+    moveIrrigation.click(function () {
+        modalMoveIrrigation.modal('show');
         $('.modal-content').draggable();
     });
 
@@ -736,6 +746,30 @@ $(document).ready(function () {
 
 
     });
+
+    saveMoveIrrigation.click(function () {
+
+        var dateMove = dateToMove.val();
+
+        if (!moment.isValid(dateMove))
+        {
+            alert("La fecha ingresada no es válida");
+        }
+        else
+        {
+            showLoading();
+            modalMoveIrrigation.modal('hide');
+
+            moveIrrigation();
+        }
+    });
+
+    var moveIrrigation = function (pDateToMove, pWaterInputId) {
+
+        var pUrl = './MoveIrrigation?pDateToMove=' + pDateToMove +
+                    '&pWaterInputId=' 
+
+    };
 
     var addRain = function (pMilimiters, pIrrigationUnitId, pDate)
     {

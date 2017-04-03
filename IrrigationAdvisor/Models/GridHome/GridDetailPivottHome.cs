@@ -7,7 +7,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
-
+using IrrigationAdvisor.Models.Management;
 
 namespace IrrigationAdvisor.Models.GridHome
 {
@@ -35,6 +35,7 @@ namespace IrrigationAdvisor.Models.GridHome
         private bool isToday;
         private Utils.IrrigationStatus irrigationStatus;
         private String phenology;
+        private DailyRecord dailyRecord;
 
         #endregion
 
@@ -94,12 +95,22 @@ namespace IrrigationAdvisor.Models.GridHome
             set { phenology = value; }
         }
 
+        public DailyRecord DailyRecord
+        {
+            get
+            {
+                return dailyRecord;
+            }
+            set { dailyRecord = value; }
+        }
+
         #endregion
 
         public GridPivotDetailHome(Double pIrrigationQuantity, Double pRainQuantity,
                                     Double pForecastIrrigationQuantity, DateTime pDateOfData, 
                                     bool pIsToday, Utils.IrrigationStatus pIrrigationStatus,
-                                    String pPhenology)
+                                    String pPhenology,
+                                    DailyRecord pDailyRecord = null)
         {
             this.IrrigationQuantity = pIrrigationQuantity;
             this.RainQuantity = pRainQuantity;
@@ -108,6 +119,7 @@ namespace IrrigationAdvisor.Models.GridHome
             this.IsToday = pIsToday;
             this.IrrigationStatus = pIrrigationStatus;
             this.Phenology = pPhenology;
+            this.DailyRecord = pDailyRecord;
         }
     }
 }

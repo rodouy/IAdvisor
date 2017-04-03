@@ -528,6 +528,43 @@ namespace IrrigationAdvisor.Controllers
         }
 
         /// <summary>
+        /// Move irrigations
+        /// </summary>
+        /// <param name="pDateToMove">Date to move</param>
+        /// <returns></returns>
+        public ActionResult MoveIrrigation(DateTime pDateToMove, long pWaterInputId)
+        {
+            try
+            {
+                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+
+                WaterInput waterInput = lContext.Irrigations.Single(w => w.WaterInputId == pWaterInputId);
+
+                string observation = "Move Irrigation from " + waterInput.Date.ToShortDateString() + " to " + pDateToMove.ToShortDateString();
+
+                if (waterInput.Date < pDateToMove)
+                {
+                    AddNoIrrigation(waterInput.Date, pDateToMove,
+                                waterInput.CropIrrigationWeatherId.ToString(),
+                                (int)Utils.NoIrrigationReason.MoveIrrigation,
+                                observation);
+                }
+                else
+                {
+                    // Not implemented yet.
+                }
+
+                return Content("Ok");
+
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.MoveIrrigation ");
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        /// <summary>
         /// TODO: Description of GetStagesBy
         /// </summary>
         /// <param name="pCropIrrigationWeatherId"></param>
@@ -1903,7 +1940,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
                                                                 lDateOfData, lIsToday, lIrrigationStatus,
-                                                                lPhenology);
+                                                                lPhenology, lDailyRecord);
             }
             catch (Exception ex)
             {
