@@ -3102,7 +3102,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             using (var context = new IrrigationAdvisorContext())
             {
 
-                #region Corn South
+                #region Corn South Short
 
                 lRegion = (from reg in context.Regions
                            where reg.Name == Utils.NameRegionSouth
@@ -3128,7 +3128,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                            && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN)
                                         select st).FirstOrDefault();
 
-                var lCropCornSouth = new Crop
+                var lCropCornSouthShort = new Crop
                 {
                     Name = Utils.NameSpecieCornSouthShort,
                     ShortName = "Maíz",
@@ -3149,8 +3149,55 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 };
 
                 #endregion
+                #region Corn South Medium
 
-                #region Soya South
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpecieCornSouthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpecieCornSouthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesCorn)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesCorn)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_CORN)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesCorn)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN)
+                                        select st).FirstOrDefault();
+
+                var lCropCornSouthMedium = new Crop
+                {
+                    Name = Utils.NameSpecieCornSouthMedium,
+                    ShortName = "Maíz",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Corn,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Corn,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+
+                #region Soya South Short
 
                 lRegion = (from reg in context.Regions
                            where reg.Name == Utils.NameRegionSouth
@@ -3176,7 +3223,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                            && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA)
                                         select st).FirstOrDefault();
 
-                var lCropSoyaSouth = new Crop
+                var lCropSoyaSouthShort = new Crop
                 {
                     Name = Utils.NameSpecieSoyaSouthShort,
                     ShortName = "Soja",
@@ -3197,8 +3244,55 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 };
 
                 #endregion
+                #region Soya South Medium
 
-                #region Corn North
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpecieSoyaSouthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpecieSoyaSouthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesSoya)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesSoya)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SOYA)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesSoya)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA)
+                                        select st).FirstOrDefault();
+
+                var lCropSoyaSouthMedium = new Crop
+                {
+                    Name = Utils.NameSpecieSoyaSouthMedium,
+                    ShortName = "Soja",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Soya,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Soya,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+
+                #region Corn North Short
 
                 lRegion = (from reg in context.Regions
                            where reg.Name == Utils.NameRegionNorth
@@ -3224,7 +3318,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                            && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN)
                                         select st).FirstOrDefault();
 
-                var lCropCornNorth = new Crop
+                var lCropCornNorthShort = new Crop
                 {
                     Name = Utils.NameSpecieCornNorthShort,
                     ShortName = "Maíz",
@@ -3245,8 +3339,55 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 };
 
                 #endregion
+                #region Corn North Medium
 
-                #region Soya North
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpecieCornNorthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpecieCornNorthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesCorn)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesCorn)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_CORN)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesCorn)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN)
+                                        select st).FirstOrDefault();
+
+                var lCropCornNorthMedium = new Crop
+                {
+                    Name = Utils.NameSpecieCornNorthMedium,
+                    ShortName = "Maíz",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Corn,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Corn,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+
+                #region Soya North Short
 
                 lRegion = (from reg in context.Regions
                            where reg.Name == Utils.NameRegionNorth
@@ -3272,7 +3413,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                            && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA)
                                         select st).FirstOrDefault();
 
-                var lCropSoyaNorth = new Crop
+                var lCropSoyaNorthShort = new Crop
                 {
                     Name = Utils.NameSpecieSoyaNorthShort,
                     ShortName = "Soja",
@@ -3293,12 +3434,63 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 };
 
                 #endregion
+                #region Soya North Medium
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpecieSoyaNorthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpecieSoyaNorthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesSoya)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesSoya)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SOYA)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesSoya)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA)
+                                        select st).FirstOrDefault();
+
+                var lCropSoyaNorthMedium = new Crop
+                {
+                    Name = Utils.NameSpecieSoyaNorthMedium,
+                    ShortName = "Soja",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Soya,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Soya,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
 
                 //context.Crops.Add(lBase);
-                context.Crops.Add(lCropCornSouth);
-                context.Crops.Add(lCropSoyaSouth);
-                context.Crops.Add(lCropCornNorth);
-                context.Crops.Add(lCropSoyaNorth);
+                context.Crops.Add(lCropCornSouthShort);
+                context.Crops.Add(lCropCornSouthMedium);
+                context.Crops.Add(lCropSoyaSouthShort);
+                context.Crops.Add(lCropSoyaSouthMedium);
+                context.Crops.Add(lCropCornNorthShort);
+                context.Crops.Add(lCropCornNorthMedium);
+                context.Crops.Add(lCropSoyaNorthShort);
+                context.Crops.Add(lCropSoyaNorthMedium);
                 context.SaveChanges();
             }
 
@@ -3337,7 +3529,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                            where region.Name == Utils.NameRegionSouth
                            select region).FirstOrDefault();
 
-                #region Corn South
+                #region Corn South Short
                 lCrop = (from crop in context.Crops
                          where crop.Name == Utils.NameSpecieCornSouthShort
                          select crop).FirstOrDefault();
@@ -3346,7 +3538,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                        select ps).ToList<PhenologicalStage>();
                 lStage = lPhenologicalStages.FirstOrDefault().Stage;
 
-                var lCornSouth = new CropInformationByDate
+                var lCornSouthShort = new CropInformationByDate
                 {
                     Name = Utils.NameSpecieCornSouthShort,
                     SowingDate = Utils.MIN_DATETIME,
@@ -3362,8 +3554,32 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     RootDepth = 0,
                 };
                 #endregion
+                #region Corn South Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieCornSouthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
 
-                #region Soya South
+                var lCornSouthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieCornSouthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Soya South Short
                 lCrop = (from crop in context.Crops
                          where crop.Name == Utils.NameSpecieSoyaSouthShort
                          select crop).FirstOrDefault();
@@ -3372,7 +3588,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                        select ps).ToList<PhenologicalStage>();
                 lStage = lPhenologicalStages.FirstOrDefault().Stage;
 
-                var lSoyaSouth = new CropInformationByDate
+                var lSoyaSouthShort = new CropInformationByDate
                 {
                     Name = Utils.NameSpecieSoyaSouthShort,
                     SowingDate = Utils.MIN_DATETIME,
@@ -3388,9 +3604,36 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     RootDepth = 0,
                 };
                 #endregion
+                #region Soya South Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieSoyaSouthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
 
-                context.CropInformationByDates.Add(lCornSouth);
-                context.CropInformationByDates.Add(lSoyaSouth);
+                var lSoyaSouthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieSoyaSouthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+
+                context.CropInformationByDates.Add(lCornSouthShort);
+                context.CropInformationByDates.Add(lCornSouthMedium);
+                context.CropInformationByDates.Add(lSoyaSouthShort);
+                context.CropInformationByDates.Add(lSoyaSouthMedium);
                 context.SaveChanges();
 
                 #endregion
@@ -3400,7 +3643,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                            where region.Name == Utils.NameRegionNorth
                            select region).FirstOrDefault();
 
-                #region Corn North
+                #region Corn North Short
                 lCrop = (from crop in context.Crops
                          where crop.Name == Utils.NameSpecieCornNorthShort
                          select crop).FirstOrDefault();
@@ -3409,7 +3652,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                        select ps).ToList<PhenologicalStage>();
                 lStage = lPhenologicalStages.FirstOrDefault().Stage;
 
-                var lCornNorth = new CropInformationByDate
+                var lCornNorthShort = new CropInformationByDate
                 {
                     Name = Utils.NameSpecieCornNorthShort,
                     SowingDate = Utils.MIN_DATETIME,
@@ -3425,8 +3668,32 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     RootDepth = 0,
                 };
                 #endregion
+                #region Corn North Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieCornNorthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
 
-                #region Soya North
+                var lCornNorthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieCornNorthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Soya North Short
                 lCrop = (from crop in context.Crops
                          where crop.Name == Utils.NameSpecieSoyaNorthShort
                          select crop).FirstOrDefault();
@@ -3435,7 +3702,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                        select ps).ToList<PhenologicalStage>();
                 lStage = lPhenologicalStages.FirstOrDefault().Stage;
 
-                var lSoyaNorth = new CropInformationByDate
+                var lSoyaNorthShort = new CropInformationByDate
                 {
                     Name = Utils.NameSpecieSoyaNorthShort,
                     SowingDate = Utils.MIN_DATETIME,
@@ -3451,9 +3718,36 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     RootDepth = 0,
                 };
                 #endregion
+                #region Soya North Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieSoyaNorthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
 
-                context.CropInformationByDates.Add(lCornNorth);
-                context.CropInformationByDates.Add(lSoyaNorth);
+                var lSoyaNorthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieSoyaNorthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+
+                context.CropInformationByDates.Add(lCornNorthShort);
+                context.CropInformationByDates.Add(lCornNorthMedium);
+                context.CropInformationByDates.Add(lSoyaNorthShort);
+                context.CropInformationByDates.Add(lSoyaNorthMedium);
                 context.SaveChanges();
 
                 #endregion

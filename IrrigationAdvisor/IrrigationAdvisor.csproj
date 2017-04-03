@@ -328,6 +328,10 @@
     <Compile Include="Migrations\201703272304551_AddUserAccess.Designer.cs">
       <DependentUpon>201703272304551_AddUserAccess.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703292024308_UserAccessNewColumn.cs" />
+    <Compile Include="Migrations\201703292024308_UserAccessNewColumn.Designer.cs">
+      <DependentUpon>201703292024308_UserAccessNewColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -921,6 +925,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703272304551_AddUserAccess.resx">
       <DependentUpon>201703272304551_AddUserAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703292024308_UserAccessNewColumn.resx">
+      <DependentUpon>201703292024308_UserAccessNewColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
