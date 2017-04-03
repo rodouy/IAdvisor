@@ -1,0 +1,143 @@
+﻿@model IrrigationAdvisor ViewModels.Security.CreateUserViewModel
+
+<script>
+    
+    $('.next').click(function () {
+
+        var nextId = $(this).parents('.tab-pane').next().attr("id");
+        $('[href=#' + nextId + ']').tab('show');
+        return false;
+
+    })
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+
+        //update progress
+        var step = $(e.target).data('step');
+        var percent = (parseInt(step) / 5) * 100;
+
+        $('.progress-bar').css({ width: percent + '%' });
+        $('.progress-bar').text("Paso " + step + " de 3");
+
+        //e.relatedTarget // previous tab
+
+    })
+
+    $('.first').click(function () {
+
+        $('#myWizard a:first').tab('show')
+
+    })
+   
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>User</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        ¡<!-- Wizard    -->
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 20%;">
+                Paso 1 de 3
+            </div>
+        </div>
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="nav nav-pills">
+                    <li class="active"><a href="#step1" data-toggle="tab" data-step="1">Paso 1</a></li>
+                    <li><a href="#step2" data-toggle="tab" data-step="2">Paso 2</a></li>
+                    <li><a href="#step3" data-toggle="tab" data-step="3">Paso 3</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="step1">
+                <div class="well"> <h2>Datos personales</h2></div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Surname, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Surname)
+                        @Html.ValidationMessageFor(model => model.Surname)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Phone, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Phone)
+                        @Html.ValidationMessageFor(model => model.Phone)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Address)
+                        @Html.ValidationMessageFor(model => model.Address)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+
+                <a class="btn btn-default btn-lg next" href="#">Siguiente</a>
+            </div>
+            <div class="tab-pane fade" id="step2">
+                <div class="well"> <h2>Datos de la cuenta</h2></div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoleId, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RoleId)
+                        @Html.ValidationMessageFor(model => model.RoleId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName)
+                        @Html.ValidationMessageFor(model => model.UserName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+                </div>
+                <a class="btn btn-default next" href="#">Siguiente</a>
+            </div>
+
+            <div class="tab-pane fade" id="step3">
+                <div class="well"> <h2>Confirmar datos</h2></div>
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <!--fin wizard-->
