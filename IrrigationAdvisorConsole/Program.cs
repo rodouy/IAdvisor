@@ -135,16 +135,19 @@ namespace IrrigationAdvisorConsole
                 WaterInsert.InsertEffectiveRainsNorth();
                 WaterInsert.UpdateRegionSetEffectiveRainList();
 
+                AgricultureInsert.InsertPhenologicalStagesCornSouthMedium();
                 //AgricultureInsert.InsertPhenologicalStagesCornSouthShort();
                 AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2017();
                 //AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort();
                 AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2017();
-                //AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium();
+                AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium();
 
                 AgricultureInsert.InsertPhenologicalStagesCornNorthShort();
                 //AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesCornNorthMedium();
                 AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort();
                 //AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium();
 
                 AgricultureInsert.InsertHorizons();
                 AgricultureInsert.InsertSoils();
