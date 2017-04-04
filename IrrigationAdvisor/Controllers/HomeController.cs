@@ -80,20 +80,28 @@ namespace IrrigationAdvisor.Controllers
         public int RegisterLogIn(string userName)
         {
             int result = 0;
-            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
 
-            User user = lContext.Users.Single(u => u.UserName.ToLower() == userName.ToLower());
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Refresh();
 
-            UserAccess userAccess = new UserAccess()
+            try
             {
-                User = user,
-                LogInDate = DateTime.Now
-            };
+                User user = lContext.Users.Single(u => u.UserName.ToLower() == userName.ToLower());
 
-            lContext.UserAccesses.Add(userAccess);
-            result = lContext.SaveChanges();
+                UserAccess userAccess = new UserAccess()
+                {
+                    UserId = user.UserId,
+                    LogInDate = DateTime.Now
+                };
 
-            ManageSession.SetUserAccess(userAccess.UserAccessId);
+                lContext.UserAccesses.Add(userAccess);
+                result = lContext.SaveChanges();
+
+                ManageSession.SetUserAccess(userAccess.UserAccessId);
+            }
+            catch (Exception)
+            {
+                IrrigationAdvisorContext.Refresh();
+            }
 
             return result;
         }
@@ -107,14 +115,21 @@ namespace IrrigationAdvisor.Controllers
         {
             int result = 0;
 
-            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Refresh();
 
-            UserAccess userAccess = lContext.UserAccesses.SingleOrDefault(u => u.UserAccessId == userAccessId);
-
-            if(userAccess != null)
+            try
             {
-                userAccess.LogOutDate = DateTime.Now;
-                result = lContext.SaveChanges();
+                UserAccess userAccess = lContext.UserAccesses.SingleOrDefault(u => u.UserAccessId == userAccessId);
+
+                if (userAccess != null)
+                {
+                    userAccess.LogOutDate = DateTime.Now;
+                    result = lContext.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                IrrigationAdvisorContext.Refresh();
             }
 
             return result;
@@ -748,6 +763,9 @@ namespace IrrigationAdvisor.Controllers
             RegisterLogOut(userAccessId);
 
             ManageSession.CleanSession();
+
+            // discard changes
+            IrrigationAdvisorContext.Refresh();
 
             return View("Index", new LoginViewModel());
         }
@@ -1926,7 +1944,7 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.NextIrrigation;
                 }
-                else if (lDailyRecord?.Irrigation?.Type == Utils.WaterInputType.NoIrrigation)
+                else if (lDailyRecord != null && (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Type == Utils.WaterInputType.NoIrrigation))
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.NoIrrigation;
                 }
