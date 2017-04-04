@@ -1657,7 +1657,8 @@ namespace IrrigationAdvisor.Models.Management
             lHaveIrrigation = this.GetIrrigation(pDateTime);
             //Get the irrigation of yesterday
             lHaveIrrigationDayBefore = this.GetIrrigation(pDateTime.AddDays(-1));
-            if (lHaveIrrigationDayBefore == null && (lHaveIrrigation == null || lHaveIrrigation.ExtraInput == 0))
+            if ((lHaveIrrigationDayBefore == null || lHaveIrrigationDayBefore?.Type == Utils.WaterInputType.NoIrrigation) && 
+                (lHaveIrrigation == null || lHaveIrrigation.ExtraInput == 0))
             {
                 if (lIrrigationByHydricBalance)
                 {
@@ -1694,18 +1695,29 @@ namespace IrrigationAdvisor.Models.Management
             }
 
             lIrrigationNextDay = this.GetIrrigation(pDateTime.AddDays(1));
+
+            bool? noIrrigationFlag = this.irrigationList?.Any(i => i.Type == Utils.WaterInputType.NoIrrigation && i.Date == pDateTime);
+
             if (lHaveIrrigation != null && lHaveIrrigation.ExtraInput == 0
-                && lIrrigationNextDay != null && lIrrigationNextDay.ExtraInput > 0)
+                && lIrrigationNextDay != null && lIrrigationNextDay.ExtraInput > 0 && lHaveIrrigation.Type != Utils.WaterInputType.NoIrrigation)
             {
                 //We have to move the irrigation to tomorrow
                 lReturn.First = 0;
             }
 
+            // The date refers an explicit No irrigation date
+            if(noIrrigationFlag.HasValue && noIrrigationFlag.Value)
+            {
+                lReturn.First = 0;
+                lReturn.Second = Utils.WaterInputType.NoIrrigation;
+            }
+            
+
             return lReturn;
         }
 
         /// <summary>
-        /// If the evapotranspiration Acumulated from last water output is bigger than max evapotranspiration to irrigatte
+        /// If the Evapotranspiration Acumulated from last water input, is bigger than MaxEvapotranspirationToIrrigate (Crop Data),
         /// we need to irrigate
         /// </summary>
         /// <param name="pCropIrrigationWeather"></param>
@@ -1713,35 +1725,35 @@ namespace IrrigationAdvisor.Models.Management
         private bool IrrigateByEvapotranspiration()
         {
             bool lReturn = false;
-            Double lMaxEvapotrToIrr;
-            Double lEvapotrAcum;
+            Double lMaxEvapotrranspirationToIrrigate;
+            Double lEvapotranspirationAcumulated;
 
             if (this.WeatherEventType == Utils.WeatherEventType.LaNinia)
             {
                 if(this.PhenologicalStage.StageId >= this.Crop.MinStageToConsiderETinHBCalculationId)
                 {
-                    lMaxEvapotrToIrr = Math.Round(this.Crop.MaxEvapotranspirationToIrrigate * 
+                    lMaxEvapotrranspirationToIrrigate = Math.Round(this.Crop.MaxEvapotranspirationToIrrigate * 
                         InitialTables.PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE / 100, 2);
                 }
                 else
                 {
-                    lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+                    lMaxEvapotrranspirationToIrrigate = this.Crop.MaxEvapotranspirationToIrrigate;
                 }
             }
             else if (this.WeatherEventType == Utils.WeatherEventType.ElNinio)
             {
-                lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+                lMaxEvapotrranspirationToIrrigate = this.Crop.MaxEvapotranspirationToIrrigate;
             }
             else //By default The same as Ninio
             {
-                lMaxEvapotrToIrr = this.Crop.MaxEvapotranspirationToIrrigate;
+                lMaxEvapotrranspirationToIrrigate = this.Crop.MaxEvapotranspirationToIrrigate;
             }
 
-            lEvapotrAcum = this.GetTotalEvapotranspirationCropFromLastWaterInput();
+            lEvapotranspirationAcumulated = this.GetTotalEvapotranspirationCropFromLastWaterInput();
 
             //If the evapotranspiration Acumulated from last water output is bigger than max evapotranspiration to irrigatte
             //we need to irrigate
-            if (lEvapotrAcum >= lMaxEvapotrToIrr)
+            if (lEvapotranspirationAcumulated >= lMaxEvapotrranspirationToIrrigate)
             {
                 lReturn = true;
             }
@@ -1784,7 +1796,7 @@ namespace IrrigationAdvisor.Models.Management
             //**************************************************************************************
 
             //**************************************************************************************
-            //2012-12-04 This is Disabled
+            //2016-12-04 This is Disabled
             //2016-10-17 Not to consider ETc for HydricBalance Irrigation
             //lMinEvapotrasnpirationToIrrigate = 0;
             //**************************************************************************************
@@ -2376,7 +2388,9 @@ namespace IrrigationAdvisor.Models.Management
             }
             else if(lQuantityOfWaterToIrrigate == 0 
                 && (lTypeOfIrrigation == Utils.WaterInputType.IrrigationByETCAcumulated 
-                || lTypeOfIrrigation == Utils.WaterInputType.IrrigationByHydricBalance))
+                || lTypeOfIrrigation == Utils.WaterInputType.IrrigationByHydricBalance
+                || lTypeOfIrrigation == Utils.WaterInputType.NoIrrigation))
+                /* Esta condición para que el riego pase para el otro. Agregar el tipo no-irrigation*/
             {
                 this.HasAdviseOfIrrigation = true;
                 lIsExtraIrrigation = true;
@@ -2476,7 +2490,8 @@ namespace IrrigationAdvisor.Models.Management
             }
             else if (lQuantityOfWaterToIrrigate == 0
                 && (lTypeOfIrrigation == Utils.WaterInputType.IrrigationByETCAcumulated
-                || lTypeOfIrrigation == Utils.WaterInputType.IrrigationByHydricBalance))
+                || lTypeOfIrrigation == Utils.WaterInputType.IrrigationByHydricBalance
+                || lTypeOfIrrigation == Utils.WaterInputType.NoIrrigation))
             {
                 this.HasAdviseOfIrrigation = true;
                 lIsExtraIrrigation = true;
@@ -3060,7 +3075,7 @@ namespace IrrigationAdvisor.Models.Management
         #endregion
 
         #region Weather
-
+        
         /// <summary>
         /// Add or Update the Irrigation Data to List
         /// </summary
@@ -3069,7 +3084,9 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pIsExtraIrrigation"></param>
         public void AddOrUpdateIrrigationDataToList(DateTime pIrrigationDate,
                                                     Pair<Double, Utils.WaterInputType> pQuantityOfWaterToIrrigateAndTypeOfIrrigation,
-                                                    bool pIsExtraIrrigation)
+                                                    bool pIsExtraIrrigation,
+                                                    int? pReasonId = null,
+                                                    string pObservations = null)
         {
             Water.Irrigation lNewIrrigation = null;
             Water.Irrigation lNewIrrigationNextDate = null;
@@ -3080,7 +3097,7 @@ namespace IrrigationAdvisor.Models.Management
                 lNewIrrigation = this.GetIrrigation(pIrrigationDate);
                 lNewIrrigationNextDate = this.GetIrrigation(pIrrigationDate.AddDays(1));
 
-                #region Condigion #1 NEW IRRIGATION: If there is not a registry then it is created 
+                #region Condition #1 NEW IRRIGATION: If there is not a registry then it is created 
                 if (lNewIrrigation == null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First > 0)
                 {
                     lNewIrrigation = new Water.Irrigation();
@@ -3103,15 +3120,18 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                #region Condigion #2 NEW IRRIGATION NOT TO IRRIGATE: There is not registry then it is created (if they are Extra)
-                else if (lNewIrrigation == null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First == 0 && pIsExtraIrrigation)
+                #region Condition #2 NEW IRRIGATION NOT TO IRRIGATE: There is not registry then it is created (if they are Extra)
+                else if (lNewIrrigation == null &&
+                        pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First == 0 &&
+                        pIsExtraIrrigation &&
+                        pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second != Utils.WaterInputType.NoIrrigation)
                 {
                     lNewIrrigation = new Water.Irrigation();
                     lNewIrrigation.WaterInputId = this.GetNewIrrigationListId();
                     lNewIrrigation.Date = pIrrigationDate;
                     lNewIrrigation.ExtraInput = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
                     lNewIrrigation.ExtraDate = pIrrigationDate;
-                    
+
                     // Set the type of lIrrigationItem. 
                     lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
@@ -3119,9 +3139,10 @@ namespace IrrigationAdvisor.Models.Management
                     this.IrrigationList.Add(lNewIrrigation);
                 }
                 #endregion
-
-                #region Condigion #3 IRRIGATION TO NEXT DAY: If there is an Irrigation Registry and new Irrigation Input is 0, Input goes for tomorrow
-                else if (lNewIrrigation != null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First == 0)
+                #region Condition #3 IRRIGATION TO NEXT DAY: If there is an Irrigation Registry and new Irrigation Input is 0, Input goes for tomorrow
+                else if (lNewIrrigation != null &&
+                        pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First == 0 &&
+                        pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second != Utils.WaterInputType.NoIrrigation)
                 {
                     //If quentity of water is 0, the user want to move the irrigation on day
                     if (lNewIrrigationNextDate != null)
@@ -3149,7 +3170,7 @@ namespace IrrigationAdvisor.Models.Management
                     lNewIrrigation.ExtraInput = 0;
                     lNewIrrigation.ExtraDate = lNewIrrigation.Date;
                     lDailyRecordIrrigationNextDate = this.DailyRecordList.Find(dr => dr.DailyRecordDateTime.Date == lNewIrrigation.Date.AddDays(1).Date);
-                    if(lDailyRecordIrrigationNextDate != null)
+                    if (lDailyRecordIrrigationNextDate != null)
                     {
                         lDailyRecordIrrigationNextDate.IrrigationId = lNewIrrigationNextDate.WaterInputId;
                         lDailyRecordIrrigationNextDate.Irrigation = lNewIrrigationNextDate;
@@ -3157,7 +3178,7 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                #region Condigion #4 UPDATE IRRIGATION: If there is an Irrigation Registry it is updated
+                #region Condition #4 UPDATE IRRIGATION: If there is an Irrigation Registry it is updated
                 else if (lNewIrrigation != null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First > 0)
                 {
                     if (pIsExtraIrrigation)
@@ -3218,8 +3239,35 @@ namespace IrrigationAdvisor.Models.Management
                     lNewIrrigation.CropIrrigationWeather = this;
                 }
                 #endregion
+                #region Condition #5 No Irrigation
+                else if (pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second == Utils.WaterInputType.NoIrrigation)
+                {
+                    if(lNewIrrigation == null)
+                    {
+                        lNewIrrigation = new Water.Irrigation();
+                        lNewIrrigation.WaterInputId = this.GetNewIrrigationListId();
+                    }
 
-                #region Condigion #5 NOT IRRIGATION FOR TODAY
+                    lNewIrrigation.Date = pIrrigationDate;
+                    //if (pIsExtraIrrigation)
+                    //{
+                    lNewIrrigation.ExtraInput = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
+                    lNewIrrigation.ExtraDate = pIrrigationDate;
+                    //}
+                    //else
+                    //{
+                    //    lNewIrrigation.Input = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
+                    //}
+                    // Set the type of lIrrigationItem. 
+                    lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
+                    lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                    lNewIrrigation.CropIrrigationWeather = this;
+                    lNewIrrigation.ReasonId = pReasonId;
+                    lNewIrrigation.Observations = pObservations;
+                    this.IrrigationList.Add(lNewIrrigation);
+                }
+                #endregion
+                #region Condition #6 NOT IRRIGATION FOR TODAY
                 else
                 {
                     //Do nothing. Because there was no Irrigation and the new Irrigation is 0 
@@ -3621,32 +3669,41 @@ namespace IrrigationAdvisor.Models.Management
         {
             DailyRecord lReturn = null;
             DailyRecord lDailyRecordToDelete = null;
-            IEnumerable<DailyRecord> lDailyRecordOrderByDate = null;
-            int i = 0;
-            int lIndexToRemove = -1;
-            int lTotalDailyRecords = 0;
-
+            
             if (pDailyRecordDateTime != null)
             {
-                lDailyRecordOrderByDate = this.DailyRecordList.OrderBy(lDailyRecord => lDailyRecord.DailyRecordDateTime);
-
-                foreach (DailyRecord lDailyRecordItem in lDailyRecordOrderByDate)
-                {
-                    if (Utils.IsTheSameDay(lDailyRecordItem.DailyRecordDateTime, pDailyRecordDateTime))
-                    {
-                        lDailyRecordToDelete = lDailyRecordItem;
-                        lIndexToRemove = i;
-                        break;
-                    }
-                    i++;
-                }
+                lDailyRecordToDelete = this.dailyRecordList
+                                        .Where(dr => dr.DailyRecordDateTime >= pDailyRecordDateTime &&
+                                        dr.CropIrrigationWeatherId == this.CropIrrigationWeatherId).FirstOrDefault();
             }
             //We have a unique record by day
-            if (lIndexToRemove != -1)
+            if (lDailyRecordToDelete != null)
             {
-                lTotalDailyRecords = this.DailyRecordList.Count();
+
                 UpdateCropIrrigationWeatherByOneDayBeforeDailyRecordData(lDailyRecordToDelete);
-                this.DailyRecordList.RemoveRange(lIndexToRemove, lTotalDailyRecords - lIndexToRemove);
+
+                //Delete Database List of DATA
+                //Delete DailyRecords from database after date of record to delete.
+                this.dailyRecordList.RemoveAll(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime &&
+                                        dr.CropIrrigationWeatherId == this.CropIrrigationWeatherId);
+
+                //Delete Irrigations input from database after date of record to delete. 
+                //Extra input will not be deleted
+                foreach (Water.Irrigation lIrrigation in this.IrrigationList
+                                        .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
+                                        ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId && ir.Type != Utils.WaterInputType.NoIrrigation))
+                {
+                    if (lIrrigation.ExtraInput > 0 ||
+                        (lIrrigation.ExtraInput == 0 && lIrrigation.ExtraDate == lIrrigation.Date))
+                    {
+                        lIrrigation.Input = 0;
+                        lIrrigation.Date = lIrrigation.ExtraDate;
+                    }
+                    else
+                    {
+                        this.IrrigationList.Remove(lIrrigation);
+                    }
+                }
             }
 
             lReturn = lDailyRecordToDelete;
@@ -3688,7 +3745,7 @@ namespace IrrigationAdvisor.Models.Management
                 //Extra input will not be deleted
                 foreach (Water.Irrigation lIrrigation in pIrrigationAdvisorContext.Irrigations
                                         .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
-                                        ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId))
+                                        ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId && ir.Type != Utils.WaterInputType.NoIrrigation))
                 {
                     if(lIrrigation.ExtraInput > 0 || 
                         (lIrrigation.ExtraInput == 0 && lIrrigation.ExtraDate == lIrrigation.Date))
@@ -4271,7 +4328,7 @@ namespace IrrigationAdvisor.Models.Management
                     lRainWaterInputId = lRain.WaterInputId;
                 }
                 lIrrigation = this.GetIrrigation(lDailyRecordDateTime);
-                if(lIrrigation == null)
+                if(lIrrigation == null /*|| lIrrigation?.Type == Utils.WaterInputType.NoIrrigation*/)
                 {
                     lIrrigationWaterInputId = 0;
                 }
@@ -4789,7 +4846,7 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                #region 6.- Get Crop Coefficient by PhenologicalStage
+                #region 6.- Get Crop Coefficient by PhenologicalStage 
                 lCropCoefficient = this.PhenologicalStage.Coefficient;
                 #endregion
 
@@ -4839,7 +4896,7 @@ namespace IrrigationAdvisor.Models.Management
                     lRainWaterInputId = lRain.WaterInputId;
                 }
                 lIrrigation = this.GetIrrigation(lDailyRecordDateTime);
-                if (lIrrigation == null)
+                if (lIrrigation == null /*|| lIrrigation?.Type == Utils.WaterInputType.NoIrrigation*/)
                 {
                     lIrrigationWaterInputId = 0;
                 }

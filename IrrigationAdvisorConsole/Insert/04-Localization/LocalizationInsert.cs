@@ -1939,7 +1939,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = {Utils.NameUserDemo, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm};
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2022,7 +2023,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserDemo, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2105,7 +2107,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserDemo, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2188,7 +2191,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserSantaLucia, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2271,7 +2275,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserDCA1, Utils.NameUserDCA2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2354,7 +2359,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserDCA1, Utils.NameUserDCA2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2437,7 +2443,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserDCA1, Utils.NameUserDCA2,
                                       Utils.NameUserSeba, Utils.NameUserGonza,
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2520,7 +2527,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserDelLago1, Utils.NameUserDelLago2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2603,7 +2611,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserDelLago1, Utils.NameUserDelLago2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2686,7 +2695,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2769,7 +2779,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2852,7 +2863,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserTM1,
                                       Utils.NameUserSeba, Utils.NameUserGonza,
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2935,7 +2947,8 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserLR1, Utils.NameUserLR2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
-                                      Utils.NameUserAdmin, Utils.NameUserCristian, 
+                                      Utils.NameUserAdmin, Utils.NameUserCristian,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;

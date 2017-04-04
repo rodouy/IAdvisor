@@ -59,14 +59,17 @@ namespace IrrigationAdvisor.Models.Water
                 }
             }
 
-            #endregion
+        public string Observations { get; set; }
+        public int? ReasonId { get; set; }
 
-            #region Construction
+        #endregion
 
-            /// <summary>
-            /// Constructor of Irrigation
-            /// </summary>
-            public Irrigation(): base()
+        #region Construction
+
+        /// <summary>
+        /// Constructor of Irrigation
+        /// </summary>
+        public Irrigation(): base()
             {
                 this.Type = Utils.WaterInputType.Irrigation;
             }

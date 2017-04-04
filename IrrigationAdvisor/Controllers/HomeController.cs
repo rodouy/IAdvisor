@@ -29,6 +29,7 @@ using Newtonsoft.Json;
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -69,6 +70,54 @@ namespace IrrigationAdvisor.Controllers
         public ActionResult Contact()
         {
             return View();
+        }
+
+        /// <summary>
+        /// Register log in
+        /// </summary>
+        /// <param name="userName">user Name</param>
+        /// <returns>Count of records added</returns>
+        public int RegisterLogIn(string userName)
+        {
+            int result = 0;
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+
+            User user = lContext.Users.Single(u => u.UserName.ToLower() == userName.ToLower());
+
+            UserAccess userAccess = new UserAccess()
+            {
+                User = user,
+                LogInDate = DateTime.Now
+            };
+
+            lContext.UserAccesses.Add(userAccess);
+            result = lContext.SaveChanges();
+
+            ManageSession.SetUserAccess(userAccess.UserAccessId);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Register log ou
+        /// </summary>
+        /// <param name="userName">user Name</param>
+        /// <returns>Count of records added</returns>
+        public int RegisterLogOut(long userAccessId)
+        {
+            int result = 0;
+
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+
+            UserAccess userAccess = lContext.UserAccesses.SingleOrDefault(u => u.UserAccessId == userAccessId);
+
+            if(userAccess != null)
+            {
+                userAccess.LogOutDate = DateTime.Now;
+                result = lContext.SaveChanges();
+            }
+
+            return result;
         }
 
         private Farm GetCurrentFarm(List<Farm> pFarmList)
@@ -186,6 +235,8 @@ namespace IrrigationAdvisor.Controllers
                     var routes = new RouteValueDictionary { { "msg", AUTHENTICATION_ERROR }};
                     return RedirectToAction("Index", routes);
                 }
+
+                RegisterLogIn(lAuthentication.UserName);
 
                 bool lIsOnline = Utils.IsOnline(System.Configuration.ConfigurationManager.AppSettings["Status"]);
 
@@ -656,10 +707,14 @@ namespace IrrigationAdvisor.Controllers
 
         public ActionResult LogOut()
         {
+            long userAccessId = ManageSession.GetUserAccess();
+            RegisterLogOut(userAccessId);
+
             ManageSession.CleanSession();
+
             return View("Index", new LoginViewModel());
         }
-
+        
         /// <summary>
         /// Add a day to the Date of Reference
         /// </summary>
@@ -1275,6 +1330,118 @@ namespace IrrigationAdvisor.Controllers
             return Content("Ok");
         }
 
+        private void AddOrUpdateIrrigationDataToListForNoIrrigation(DateTime pDateFrom, DateTime pDateTo, CropIrrigationWeather pCIW, IrrigationAdvisorContext pContext, int? pReasonId = null, string pObservations = null)
+        {
+            DateTime lDateIterator = pDateFrom;
+            DateTime lReferenceDate = Utils.GetDateOfReference().Value;
+
+            while (lDateIterator <= pDateTo)
+            {
+                pCIW.AddOrUpdateIrrigationDataToList(lDateIterator, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.NoIrrigation), true, pReasonId, pObservations);
+                lDateIterator = lDateIterator.AddDays(1);
+            }
+
+            pContext.SaveChanges();
+
+            lDateIterator = pDateFrom;
+
+            while (lDateIterator <= pDateTo)
+            {
+                pCIW.AddInformationToIrrigationUnits(lDateIterator, lReferenceDate, pContext);
+                pContext.SaveChanges();
+                lDateIterator = lDateIterator.AddDays(1);
+            }
+
+            
+        }
+
+        [HttpGet]
+        public ActionResult NoIrri()
+        {
+            AddNoIrrigation(new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), "1", 1, "Test Observations");
+            return Content("Ok");
+        }
+
+        [HttpGet]
+        public ActionResult AddNoIrrigation(DateTime pDateFrom, DateTime pDateTo,
+                                            string pCIW, int pReason, string pObservations)
+        {
+            string lSomeData = string.Empty;
+            try
+            {
+                lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
+                lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
+                lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
+                #region local variables
+                HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
+
+                // DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
+                DateTime lReferenceDate = Utils.GetDateOfReference().Value;
+
+                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+                IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
+                CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
+
+                CropIrrigationWeather lCIW;
+               
+
+                int lSaveChanges = 0;
+                #endregion
+
+                List<string> selectedCiw = pCIW.Split(',').ToList();
+
+                // ManageSession.SetFromDateTime(lDateResult);
+
+                //if (pCIW > -1)
+                //{
+                var filteredCiw = lContext.CropIrrigationWeathers
+                                    .Include(c => c.Soil.HorizonList)
+                                    .Where(c => selectedCiw.Contains(c.CropIrrigationWeatherId.ToString()))
+                                    .ToList();
+
+                foreach (var bCIW in filteredCiw)
+                {
+                    AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations); 
+                }
+
+                lSaveChanges = lContext.SaveChanges();
+                //}
+                //else
+                //{
+                //    string farmParameter = Utils.GetUrlParameter("farm");
+                //    long lFarmId = 0;
+
+                //    if(farmParameter == null)
+                //    {
+                //        lFarmId = lContext.Farms.First().FarmId;
+                //    }
+                //    else
+                //    {
+                //        lFarmId = int.Parse(farmParameter);
+                //    }
+
+                //    List<CropIrrigationWeather> ciwByFarm = this.GetCropIrrigationWeatherListByFarmId(lFarmId, Utils.GetDateOfReference().Value);
+
+                //    foreach (var bCIW in ciwByFarm)
+                //    {
+                //        AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations);
+                //    }
+                //    lSaveChanges = lContext.SaveChanges();
+                //}
+
+                // Change navigation date of reference
+                // When the user add an irrigation the navigation date changes by the date of reference from the database
+                ManageSession.SetNavigationDate(lReferenceDate);
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.AddNoIrrigation - {0} ", lSomeData);
+                return Content("Exception in HomeController.AddNoIrrigation " + "\n" + ex.Message + "\n" + lSomeData);
+            }
+
+            return Content("Ok");
+        }
+
         [ChildActionOnly]
         public PartialViewResult FrontPagePartial()
         {
@@ -1704,7 +1871,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lIsToday = lDateOfData == lDayOfReference;
 
-                if (lIsToday)
+                if (lIsToday && lDailyRecord != null)
                 {
                     lPhenology = lDailyRecord.PhenologicalStage.Stage.ShortName;
                 }
@@ -1721,6 +1888,10 @@ namespace IrrigationAdvisor.Controllers
                 else if (lForcastIrrigationQuantity > 0 && lForcastIrrigationQuantity > lRainQuantity)
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.NextIrrigation;
+                }
+                else if (lDailyRecord?.Irrigation?.Type == Utils.WaterInputType.NoIrrigation)
+                {
+                    lIrrigationStatus = Utils.IrrigationStatus.NoIrrigation;
                 }
                 else
                 {

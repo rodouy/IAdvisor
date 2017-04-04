@@ -5,6 +5,7 @@
     ViewBag.Title = "Home Page";
     Logger logger = LogManager.GetCurrentClassLogger();
 }
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../css/flatWeatherPlugin.css">
 <link rel="stylesheet" type="text/css" href="../css/modal.css">
 <link rel="stylesheet" type="text/css" href="../css/style-1.css">
@@ -111,15 +112,32 @@
                         
                         <div style="color:black" class="btn-md">
                             <div class="col-xs-8 col-md-5 col-lg-5" id="dv-for-txtDateOfReference-dateOfReferenceBtn2">
-                                @*<span class="form-control col-md-4">@(dateValue.ToShortDateString())</span>*@
+
+                                @{ if (Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["PlusButton"]))
+                                    {
+                                        @*<span class="form-control col-md-4">@(Model.DateOfReference.ToShortDateString())</span>*@
+
+                                        <a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn" style="display:inline-block; padding-bottom:0"><span class="glyphicon glyphicon-plus" style="top:-5px"></span></a>
+                                        <input type="date" id="txtDateOfReference" class="form-control" value="@Model.DateOfReferenceAsLocal()" style="display:inline-block" />
+                                        <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
+                                    }
+                                    else
+                                    {
+                                        if (Model.IsUserAdministrator)
+                                        {
+                                            <input type="date" id="txtDateOfReference" class="form-control" value="@Model.DateOfReferenceAsLocal()" style="display:inline-block" />
+                                            <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
+                                        }
+                                    }
+                                }
+                              
                                 
-                                @*<a class="btn go btn-pivots btn-md btn-md 5" href="./AddDateOfReference" id="dateOfReferenceBtn" style="display:inline-block">+</a>*@
-                                @{if (Model.IsUserAdministrator)
+                                @*@{if (Model.IsUserAdministrator)
                                     {
                                         <input type="date" id="txtDateOfReference" class="form-control" value="@Model.DateOfReferenceAsLocal()" style="display:inline-block" />
                                         <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
                                     }
-                                }
+                                }*@
                                 <select class="form-control margin-bottom-10" id="lstFarms" style="width: 59%">
                                    
                                 </select>
@@ -136,6 +154,12 @@
                                 </button>
                                 
                             </div>
+                            <div style="float:right">
+                                <button class="btn go btn-pivots btn-md" id="addNoIrrigationModal">
+                                    <span class="glyphicon glyphicon-plus"></span>Intervalos sin riego
+                                </button>
+
+                            </div>
                         </div>
                         <div>
                             <button class="btn go btn-pivots btn-md" id="addRainModalMobile">
@@ -144,7 +168,9 @@
                             <button class="btn go btn-pivots btn-md" id="addIrrigationModalMobile">
                                 <span class="glyphicon glyphicon-plus"></span>Agregar riego
                             </button>
-
+                            <button class="btn go btn-pivots btn-md" id="addNoIrrigationMobile">
+                                <span class="glyphicon glyphicon-plus"></span>Intervalos sin riego
+                            </button>
                         </div>
                         
                         @{ if (Model.IsUserAdministrator)
@@ -200,6 +226,7 @@
                                 <div class="regado col-md-3"><h5>Campo regado</h5></div>
                                 <div class="proximo-riego col-md-3"><h5>Próximo riego</h5></div>
                                 <div class="lluvia-registrada col-md-3"><h5>Lluvia</h5></div>
+                                <div class="no-riego col-md-3"><h5>No riego</h5></div>
                                 <div class="por-defecto col-md-3"><h5>Sin Riego</h5></div>
                             </div>
                         </div>
@@ -475,8 +502,115 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end modal agregar fenologia --->
-                
+                    <!-- end modal agregar fenologia --->                 
+                    <!-- modal agregar no riego-->
+                    <div id="modal-no-irrigation" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="header no-irrigation-orange">
+                                    <h2><span class="glyphicon glyphicon-warning-sign no-irrigation-symbol" >&nbsp;</span>Agregar intervalos de no riego</h2>
+                                </div>
+                                <div class="copy col-md-12">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                Fecha desde:
+                                                <input type="date" id="dateFromNoIrrigation" class="form-control" />
+                                                <br />
+                                            </div>
+                                            <div class="col-md-6">
+                                                Fecha hasta:
+                                                <input type="date" id="dateToNoIrrigation" class="form-control" />
+                                                <br />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                <div class="dropdown">
+                                                    Seleccionar cultivo:
+                                                    @{ if (Model.CropIrrigationWeatherViewModelList != null)
+                                                        {
+                                                            @*<select id="CropIrriWeatherNoIrrigation" class="form-control" multiple="multiple">
+
+                                                                <option value="-1">Todos</option>
+                                                                @foreach (var item in Model.CropIrrigationWeatherViewModelList)
+                                                                {
+
+                                                                    <option value="@item.CropIrrigationWeatherId">@item.CropIrrigationWeatherName</option>
+                                                                }
+                                                            </select>*@
+                                                            <br />
+                                                            
+                                                           <div style="height:100px;overflow-y:auto;">
+                                                               <div class="checkbox" style="margin-bottom: 15px;">
+                                                                   <label style="padding-left: 0;">
+                                                                       <input type="checkbox" name="ciw_all" value="-1" id="selectedAllCiwNoIrrigation" />
+                                                                       <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                       <span>Todos</span><br />
+                                                                   </label>
+                                                               </div>
+                                                               
+                                                               @foreach (var item in Model.CropIrrigationWeatherViewModelList)
+                                                               {
+                                                                    <div class="checkbox" style="margin-bottom: 15px;">
+                                                                        <label style="padding-left: 0;">
+                                                                            <input type="checkbox" name="ciw_@item.CropIrrigationWeatherId" value="@item.CropIrrigationWeatherId" class="no-irrigation-check" />
+                                                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                                            <span>@item.CropIrrigationWeatherName</span> <br />
+                                                                        </label>
+                                                                        
+
+                                                                    </div>
+                                                                    
+                                                                
+                                                               }
+                                                           </div>     
+                                                                
+                                                            
+    }
+    else
+    {
+                                                            <span class="text-danger disable-save-button">La relación Cultivo Pivot y clima esta vacía</span>
+                                                        }
+                                                    }
+                                                    <br />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="dropdown">
+                                                    Motivo:
+                                                    <select class="form-control" id="noIrrigationReason">
+                                                        <option value="0">Problema eléctrico</option>
+                                                        <option value="1">Espera de lluvia</option>
+                                                        <option value="2">Perdida de agua</option>
+                                                        <option value="3">La bomba no funciona</option>
+                                                        <option value="4">Período sin riego</option>
+                                                        <option value="5">Otro</option>
+                                                    </select>
+                                                    <br />
+                                                </div>
+                                            </div>
+                                         </div>
+                                        <div class="col-md-12">
+                                            Observaciones:
+                                            <textarea type="text" id="noIrrigationObs"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cf footer">
+                                    <p>
+                                        <button class="btn  btn-style-2" id="CancelNoIrrigation">
+                                            Cancelar
+                                        </button>
+                                    </p>
+                                    <button id="SaveNoIrrigation" class="btn  btn-style-2">
+                                        Guardar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end modal agregar no riego-->    
             </div>
             
             

@@ -186,6 +186,10 @@ namespace IrrigationAdvisor.Models.Utilities
             /// Irrigation when HB is lower than x%
             /// </summary>
             IrrigationByHydricBalance,
+            /// <summary>
+            /// No irrigation.
+            /// </summary>
+            NoIrrigation
         }
 
         /// <summary>
@@ -373,6 +377,10 @@ namespace IrrigationAdvisor.Models.Utilities
             ///  Error
             /// </summary>
             Error,
+            /// <summary>
+            /// No Irrigation
+            /// </summary>
+            NoIrrigation
         }
         
         /// <summary>
@@ -1246,10 +1254,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivotChaja1 = NamePivotDelLagoElMiradorChaja1 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivotChaja2 = NamePivotDelLagoElMiradorChaja2 + " " + NameSpecieCornSouthShort;
 
-        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot1b = NamePivotDelLagoElMirador1b + " " + NameSpecieCornSouthShort;
-        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot2b = NamePivotDelLagoElMirador2b + " " + NameSpecieCornSouthShort;
-        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot3b = NamePivotDelLagoElMirador3b + " " + NameSpecieCornSouthShort;
-        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot4b = NamePivotDelLagoElMirador4b + " " + NameSpecieCornSouthShort;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot1b = NamePivotDelLagoElMirador1b + " " + NameSpecieCornSouthMedium;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot2b = NamePivotDelLagoElMirador2b + " " + NameSpecieCornSouthMedium;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot3b = NamePivotDelLagoElMirador3b + " " + NameSpecieCornSouthMedium;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot4b = NamePivotDelLagoElMirador4b + " " + NameSpecieCornSouthMedium;
         #endregion
         #endregion
         #region GMO
@@ -1300,7 +1308,9 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserTesting = "Testing";
         public static String NameUserTestAdm = "TestAdm";
         public static String NameUserAdmin = "Admin";
+        public static String NameUserROlivera = "ROlivera";
         public static String NameUserCristian = "Cristian";
+        public static String NameUserCPalo = "CPalo";
         public static String NameUserSeba = "scasanova";
         public static String NameUserGonza = "gmoreno";
         public static String NameUserDCA1 = "jplatero";
@@ -1990,6 +2000,15 @@ namespace IrrigationAdvisor.Models.Utilities
             return sc.GetStatus(pName).WebStatus == IrrigationAdvisorWebStatus.Online;
         }
         #endregion
+
+        public static string GetUrlParameter(string pKey)
+        {
+            string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+            Uri lMyUri = new Uri(lURL);
+            string lcurrentFarmViaUrl = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get(pKey);
+
+            return lcurrentFarmViaUrl;
+        }
 
         public static void LogError(Exception ex, string pDescription, params object[] args)
         {

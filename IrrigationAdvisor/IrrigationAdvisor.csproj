@@ -320,6 +320,18 @@
     <Compile Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.Designer.cs">
       <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.cs" />
+    <Compile Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.Designer.cs">
+      <DependentUpon>201702212334312_AddObservationAndReasonForIrrigation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703272304551_AddUserAccess.cs" />
+    <Compile Include="Migrations\201703272304551_AddUserAccess.Designer.cs">
+      <DependentUpon>201703272304551_AddUserAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703292024308_UserAccessNewColumn.cs" />
+    <Compile Include="Migrations\201703292024308_UserAccessNewColumn.Designer.cs">
+      <DependentUpon>201703292024308_UserAccessNewColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -362,6 +374,7 @@
     <Compile Include="Models\Management\IrrigationCalculus.cs" />
     <Compile Include="Models\Management\Message.cs" />
     <Compile Include="Models\Management\Title.cs" />
+    <Compile Include="Models\Security\UserAccess.cs" />
     <Compile Include="Models\Security\UserFarm.cs" />
     <Compile Include="Models\Utilities\OutputFileCSV.cs" />
     <Compile Include="Models\Water\EffectiveRain.cs" />
@@ -448,6 +461,7 @@
     <Content Include="Content\metro-schemes.min.css" />
     <Content Include="Content\metro.css" />
     <Content Include="Content\metro.min.css" />
+    <Content Include="css\checkbox.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="DataQueries\All Bombs - Query.sql" />
@@ -906,6 +920,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.resx">
       <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.resx">
+      <DependentUpon>201702212334312_AddObservationAndReasonForIrrigation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272304551_AddUserAccess.resx">
+      <DependentUpon>201703272304551_AddUserAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703292024308_UserAccessNewColumn.resx">
+      <DependentUpon>201703292024308_UserAccessNewColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
