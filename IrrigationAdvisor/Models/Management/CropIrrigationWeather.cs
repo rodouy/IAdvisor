@@ -1579,7 +1579,7 @@ namespace IrrigationAdvisor.Models.Management
             lHaveIrrigation = this.GetIrrigation(pDateTime);
             //Get the irrigation of yesterday
             lHaveIrrigationDayBefore = this.GetIrrigation(pDateTime.AddDays(-1));
-            if ((lHaveIrrigationDayBefore == null || lHaveIrrigationDayBefore?.Type == Utils.WaterInputType.NoIrrigation) && 
+            if ((lHaveIrrigationDayBefore == null || (lHaveIrrigationDayBefore != null && lHaveIrrigationDayBefore.Type == Utils.WaterInputType.NoIrrigation)) && 
                 (lHaveIrrigation == null || lHaveIrrigation.ExtraInput == 0))
             {
                 if (lIrrigationByHydricBalance)
@@ -1618,8 +1618,13 @@ namespace IrrigationAdvisor.Models.Management
 
             lIrrigationNextDay = this.GetIrrigation(pDateTime.AddDays(1));
 
-            bool? noIrrigationFlag = this.irrigationList?.Any(i => i.Type == Utils.WaterInputType.NoIrrigation && i.Date == pDateTime);
+            bool? noIrrigationFlag = null;
 
+            if (this.irrigationList != null)
+            {
+                noIrrigationFlag = this.irrigationList.Any(i => i.Type == Utils.WaterInputType.NoIrrigation && i.Date == pDateTime);
+            }
+            
             if (lHaveIrrigation != null && lHaveIrrigation.ExtraInput == 0
                 && lIrrigationNextDay != null && lIrrigationNextDay.ExtraInput > 0 && lHaveIrrigation.Type != Utils.WaterInputType.NoIrrigation)
             {
@@ -4250,7 +4255,7 @@ namespace IrrigationAdvisor.Models.Management
                     lRainWaterInputId = lRain.WaterInputId;
                 }
                 lIrrigation = this.GetIrrigation(lDailyRecordDateTime);
-                if(lIrrigation == null /*|| lIrrigation?.Type == Utils.WaterInputType.NoIrrigation*/)
+                if(lIrrigation == null)
                 {
                     lIrrigationWaterInputId = 0;
                 }
@@ -4818,7 +4823,7 @@ namespace IrrigationAdvisor.Models.Management
                     lRainWaterInputId = lRain.WaterInputId;
                 }
                 lIrrigation = this.GetIrrigation(lDailyRecordDateTime);
-                if (lIrrigation == null /*|| lIrrigation?.Type == Utils.WaterInputType.NoIrrigation*/)
+                if (lIrrigation == null)
                 {
                     lIrrigationWaterInputId = 0;
                 }
