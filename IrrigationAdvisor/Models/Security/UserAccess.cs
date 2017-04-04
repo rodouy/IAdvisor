@@ -101,9 +101,6 @@ namespace IrrigationAdvisor.Models.Security
         /// </summary>
         public UserAccess()
         {
-            this.UserAccessId = 0;
-            this.UserId = 0;
-            this.User = new User();
             this.LogInDate = Utils.MIN_DATETIME;
             this.LogOutDate = Utils.MAX_DATETIME;
         }
