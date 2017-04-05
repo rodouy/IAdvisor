@@ -53,7 +53,8 @@ $(document).ready(function () {
     var selectedAllCiwNoIrrigation = $('#selectedAllCiwNoIrrigation');
     var moveIrrigation = $('.move-irrigation');
     var saveMoveIrrigation = $('#SaveMoveIrrigation');
-    var dateToMove = $('#dateToMove')
+    var dateToMove = $('#dateToMove');
+    var selectedWaterInput = $('#selectedWaterInput');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -385,7 +386,11 @@ $(document).ready(function () {
         $('.modal-content').draggable();
     });
 
-    moveIrrigation.click(function () {
+    moveIrrigation.click(function (e, v) {
+
+        var inputElement = $(this).find('.waterInputValue').val();
+        selectedWaterInput.val(inputElement);
+
         modalMoveIrrigation.modal('show');
         $('.modal-content').draggable();
     });
@@ -748,10 +753,10 @@ $(document).ready(function () {
     });
 
     saveMoveIrrigation.click(function () {
-
-        var dateMove = dateToMove.val();
-
-        if (!moment.isValid(dateMove))
+        debugger;
+        var dateMove = moment(dateToMove.val());
+        
+        if (!dateMove.isValid())
         {
             alert("La fecha ingresada no es válida");
         }
@@ -759,15 +764,48 @@ $(document).ready(function () {
         {
             showLoading();
             modalMoveIrrigation.modal('hide');
+            
+            var arrayElements = selectedWaterInput.val().split(',');
 
-            moveIrrigation();
+            moveIrrigation(dateMove._i, arrayElements[0], arrayElements[1], arrayElements[2], arrayElements[3]);
         }
     });
 
-    var moveIrrigation = function (pDateToMove, pWaterInputId) {
+    var moveIrrigation = function (pDateToMove, pWaterInputId, pWaterInputOldDate, pCIWId, pCIWName) {
 
         var pUrl = './MoveIrrigation?pDateToMove=' + pDateToMove +
-                    '&pWaterInputId=' 
+                    '&pWaterInputId=' + pWaterInputId;
+
+        $('#floatingCirclesG').show();
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+                if (data == "Ok") {
+
+                    var formatedDate = moment(pDateToMove).format('DD/MM/YYYY');
+
+                    $.when(sendMail("Usuario: " + userName + " ha movido riego " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Fecha anterior: " + pWaterInputOldDate + "[br] Fecha actualizada: " + formatedDate + "[br] Water Input Id: " + pWaterInputId + "[br] Cultivo: " + pCIWId + " - " + pCIWName)).done(function () {
+                        location.href = "./home?farm=" + lstFarms.val();
+                    });
+
+                }
+                else {
+                    sendMail("Error al mover riego", data);
+                    console.log(data);
+                    hideLoading();
+                }
+
+
+            },
+            error: function (data) {
+                hideLoading();
+                sendMail("Error al mover riego", data);
+                console.log(data);
+                //$('#myModal').modal('hide');
+            }
+        });
 
     };
 

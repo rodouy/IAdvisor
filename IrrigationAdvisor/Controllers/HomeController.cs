@@ -553,13 +553,13 @@ namespace IrrigationAdvisor.Controllers
             {
                 IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
 
-                WaterInput waterInput = lContext.Irrigations.Single(w => w.WaterInputId == pWaterInputId);
+                var waterInput = lContext.Irrigations.Single(w => w.WaterInputId == pWaterInputId);
 
                 string observation = "Move Irrigation from " + waterInput.Date.ToShortDateString() + " to " + pDateToMove.ToShortDateString();
 
                 if (waterInput.Date < pDateToMove)
                 {
-                    AddNoIrrigation(waterInput.Date, pDateToMove,
+                    AddNoIrrigation(waterInput.Date, pDateToMove.AddDays(-1),
                                 waterInput.CropIrrigationWeatherId.ToString(),
                                 (int)Utils.NoIrrigationReason.MoveIrrigation,
                                 observation);

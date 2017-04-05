@@ -31,6 +31,7 @@
         <span class="description-mobile-left">@date</span>
         <div class="ref-next-irrigation"> 
             <span class="value-mobile-position">@value</span> 
+            <input type="hidden" value="@dailyRecord.Irrigation.WaterInputId, @dailyRecord.Irrigation.Date.ToShortDateString() ,@dailyRecord.CropIrrigationWeatherId, @dailyRecord.CropIrrigationWeather.CropIrrigationWeatherName" class="waterInputValue"/>
         </div>
     </td>
 }
