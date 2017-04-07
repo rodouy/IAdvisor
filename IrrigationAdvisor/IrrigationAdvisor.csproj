@@ -338,6 +338,7 @@
     <Compile Include="Models\Agriculture\CropCoefficient.cs" />
     <Compile Include="Models\Agriculture\CropCoefficientGraph.cs" />
     <Compile Include="Models\Agriculture\CropInformationByDate.cs" />
+    <Compile Include="Models\Agriculture\DryMassRate.cs" />
     <Compile Include="Models\Agriculture\Horizon.cs" />
     <Compile Include="Models\Agriculture\KC.cs" />
     <Compile Include="Models\Agriculture\PhenologicalStage.cs" />

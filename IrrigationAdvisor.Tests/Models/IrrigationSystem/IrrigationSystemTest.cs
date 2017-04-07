@@ -262,7 +262,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             #endregion
 
             #region 5. Initial Tables, Effective Rain List of Region
-            testEffectiveRainsList = InitialTables.CreateEffectiveRainListToSystem();
+            testEffectiveRainsList = InitialTables.CreateEffectiveRainListToSystem(testRegion);
             testRegion.EffectiveRainList = testEffectiveRainsList;
             #endregion
 

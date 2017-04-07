@@ -2815,82 +2815,82 @@ namespace IrrigationAdvisor.Models.Data
         /// <summary>
         /// TODO Explain AddEffectiveRainListToSystem
         /// </summary>
-        /// <param name="lRegion"></param>
+        /// <param name="pRegion"></param>
         /// <returns></returns>
-        public static List<EffectiveRain> CreateEffectiveRainListToSystem()
+        public static List<EffectiveRain> CreateEffectiveRainListToSystem(Region pRegion)
         {
             List<EffectiveRain> lEffectiveRainList = new List<EffectiveRain>();
-            lEffectiveRainList.Add(new EffectiveRain("Sur1000", 10, 0, 10, 90));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1011", 10, 11, 20, 85));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1021", 10, 21, 30, 80));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1031", 10, 31, 40, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1041", 10, 41, 40, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1051", 10, 51, 60, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1061", 10, 61, 70, 65));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1071", 10, 71, 80, 60));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1081", 10, 81, 90, 60));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1091", 10, 91, 100, 55));
-            lEffectiveRainList.Add(new EffectiveRain("Sur10101", 10, 101, 1000, 50));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1000", pRegion, 10, 0, 10, 90));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1011", pRegion, 10, 11, 20, 85));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1021", pRegion, 10, 21, 30, 80));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1031", pRegion, 10, 31, 40, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1041", pRegion, 10, 41, 40, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1051", pRegion, 10, 51, 60, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1061", pRegion, 10, 61, 70, 65));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1071", pRegion, 10, 71, 80, 60));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1081", pRegion, 10, 81, 90, 60));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1091", pRegion, 10, 91, 100, 55));
+            lEffectiveRainList.Add(new EffectiveRain("Sur10101", pRegion, 10, 101, 1000, 50));
 
-            lEffectiveRainList.Add(new EffectiveRain("Sur1100", 11, 0, 10, 90));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1111", 11, 11, 20, 85));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1121", 11, 21, 30, 80));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1131", 11, 31, 40, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1141", 11, 41, 40, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1151", 11, 51, 60, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1161", 11, 61, 70, 65));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1171", 11, 71, 80, 60));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1181", 11, 81, 90, 60));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1191", 11, 91, 100, 55));
-            lEffectiveRainList.Add(new EffectiveRain("Sur11101", 11, 101, 1000, 50));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1100", pRegion, 11, 0, 10, 90));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1111", pRegion, 11, 11, 20, 85));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1121", pRegion, 11, 21, 30, 80));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1131", pRegion, 11, 31, 40, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1141", pRegion, 11, 41, 40, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1151", pRegion, 11, 51, 60, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1161", pRegion, 11, 61, 70, 65));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1171", pRegion, 11, 71, 80, 60));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1181", pRegion, 11, 81, 90, 60));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1191", pRegion, 11, 91, 100, 55));
+            lEffectiveRainList.Add(new EffectiveRain("Sur11101", pRegion, 11, 101, 1000, 50));
 
-            lEffectiveRainList.Add(new EffectiveRain("Sur1200", 12, 0, 10, 90));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1211", 12, 11, 20, 85));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1221", 12, 21, 30, 85));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1231", 12, 31, 40, 80));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1241", 12, 41, 40, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1251", 12, 51, 60, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1261", 12, 61, 70, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1271", 12, 71, 80, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1281", 12, 81, 90, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur1291", 12, 91, 100, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur12101", 12, 101, 1000, 60));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1200", pRegion, 12, 0, 10, 90));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1211", pRegion, 12, 11, 20, 85));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1221", pRegion, 12, 21, 30, 85));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1231", pRegion, 12, 31, 40, 80));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1241", pRegion, 12, 41, 40, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1251", pRegion, 12, 51, 60, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1261", pRegion, 12, 61, 70, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1271", pRegion, 12, 71, 80, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1281", pRegion, 12, 81, 90, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur1291", pRegion, 12, 91, 100, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur12101", pRegion, 12, 101, 1000, 60));
 
-            lEffectiveRainList.Add(new EffectiveRain("Sur0100", 1, 0, 10, 90));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0111", 1, 11, 20, 85));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0121", 1, 21, 30, 85));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0131", 1, 31, 40, 80));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0141", 1, 41, 50, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0151", 1, 51, 60, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0161", 1, 61, 70, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0171", 1, 71, 80, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0181", 1, 81, 90, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0191", 1, 91, 100, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur01101", 1, 101, 1000, 60));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0100", pRegion, 1, 0, 10, 90));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0111", pRegion, 1, 11, 20, 85));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0121", pRegion, 1, 21, 30, 85));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0131", pRegion, 1, 31, 40, 80));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0141", pRegion, 1, 41, 50, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0151", pRegion, 1, 51, 60, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0161", pRegion, 1, 61, 70, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0171", pRegion, 1, 71, 80, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0181", pRegion, 1, 81, 90, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0191", pRegion, 1, 91, 100, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur01101", pRegion, 1, 101, 1000, 60));
 
-            lEffectiveRainList.Add(new EffectiveRain("Sur0200", 2, 0, 10, 90));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0211", 2, 11, 20, 85));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0221", 2, 21, 30, 85));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0231", 2, 31, 40, 80));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0241", 2, 41, 40, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0251", 2, 51, 60, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0261", 2, 61, 70, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0271", 2, 71, 80, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0281", 2, 81, 90, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0291", 2, 91, 100, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur02101", 2, 101, 1000, 60));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0200", pRegion, 2, 0, 10, 90));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0211", pRegion, 2, 11, 20, 85));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0221", pRegion, 2, 21, 30, 85));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0231", pRegion, 2, 31, 40, 80));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0241", pRegion, 2, 41, 40, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0251", pRegion, 2, 51, 60, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0261", pRegion, 2, 61, 70, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0271", pRegion, 2, 71, 80, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0281", pRegion, 2, 81, 90, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0291", pRegion, 2, 91, 100, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur02101", pRegion, 2, 101, 1000, 60));
 
-            lEffectiveRainList.Add(new EffectiveRain("Sur0300", 3, 0, 10, 90));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0311", 3, 11, 20, 80));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0321", 3, 21, 30, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0331", 3, 31, 40, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0341", 3, 41, 40, 75));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0351", 3, 51, 60, 70));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0361", 3, 61, 70, 65));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0371", 3, 71, 80, 60));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0381", 3, 81, 90, 60));
-            lEffectiveRainList.Add(new EffectiveRain("Sur0391", 3, 91, 100, 55));
-            lEffectiveRainList.Add(new EffectiveRain("Sur03101", 3, 101, 1000, 50));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0300", pRegion, 3, 0, 10, 90));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0311", pRegion, 3, 11, 20, 80));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0321", pRegion, 3, 21, 30, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0331", pRegion, 3, 31, 40, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0341", pRegion, 3, 41, 40, 75));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0351", pRegion, 3, 51, 60, 70));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0361", pRegion, 3, 61, 70, 65));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0371", pRegion, 3, 71, 80, 60));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0381", pRegion, 3, 81, 90, 60));
+            lEffectiveRainList.Add(new EffectiveRain("Sur0391", pRegion, 3, 91, 100, 55));
+            lEffectiveRainList.Add(new EffectiveRain("Sur03101", pRegion, 3, 101, 1000, 50));
 
 
             return lEffectiveRainList;

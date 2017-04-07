@@ -60,6 +60,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private String name;
         private String shortName;
         private long specieCycleId;
+        private long regionId;
         private Double baseTemperature;
         private Double stressTemperature;
         private Utils.SpecieType specieType;
@@ -67,8 +68,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         #endregion
 
         #region Properties
-
-        
+                
         public long SpecieId
         {
             get { return specieId; }
@@ -92,7 +92,25 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return specieCycleId; }
             set { specieCycleId = value; }
         }
-        
+
+        public virtual SpecieCycle SpecieCycle
+        {
+            get;
+            set;
+        }
+
+        public long RegionId
+        {
+            get { return regionId; }
+            set { regionId = value; }
+        }
+
+        public virtual Region Region
+        {
+            get;
+            set;
+        }
+
         public Double BaseTemperature
         {
             get { return baseTemperature; }
@@ -103,12 +121,6 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             get { return stressTemperature; }
             set { stressTemperature = value; }
-        }
-
-        public virtual SpecieCycle SpecieCycle
-        {
-            get;
-            set;
         }
 
         public Utils.SpecieType SpecieType
@@ -126,10 +138,10 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         public Specie() 
         {
-            this.specieId = 0;
             this.Name = "noName";
             this.ShortName = "";
             this.SpecieCycleId = 0;
+            this.RegionId = 0;
             this.BaseTemperature = 0;
             this.StressTemperature = 0;
             this.SpecieType = Utils.SpecieType.Default;
@@ -145,13 +157,16 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pBaseTemperature"></param>
         /// <param name="pStressTemperature"></param>
         public Specie(long pSpecieId, String pName, String pShortName,
-                    long pSpecieCycleId, Double pBaseTemperature,
+                    SpecieCycle pSpecieCycle, Region pRegion, Double pBaseTemperature,
                     Double pStressTemperature, Utils.SpecieType pSpecieType)
         {
             this.specieId = pSpecieId;
             this.Name = pName;
             this.ShortName = pShortName;
-            this.SpecieCycleId = pSpecieCycleId;
+            this.SpecieCycleId = pSpecieCycle.SpecieCycleId;
+            this.SpecieCycle = pSpecieCycle;
+            this.RegionId = pRegion.RegionId;
+            this.Region = pRegion;
             this.BaseTemperature = pBaseTemperature;
             this.StressTemperature = pStressTemperature;
             this.SpecieType = pSpecieType;
@@ -174,7 +189,7 @@ namespace IrrigationAdvisor.Models.Agriculture
 
         /// <summary>
         /// Overrides equals:
-        /// name, speciecycle
+        /// name, speciecycle, region
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -186,8 +201,9 @@ namespace IrrigationAdvisor.Models.Agriculture
                 return lReturn;
             }
             Specie lSpecie = obj as Specie;
-            lReturn = this.Name.Equals(lSpecie.Name)
-                && this.SpecieCycle.Equals(lSpecie.SpecieCycle);
+            lReturn = (this.Name.Equals(lSpecie.Name)
+                && this.SpecieCycle.Equals(lSpecie.SpecieCycle)
+                && this.Region.Equals(lSpecie.Region));
             return lReturn;
         }
 

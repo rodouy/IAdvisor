@@ -24,194 +24,188 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
 
         public static void InsertEffectiveRainsSouth()
         {
-
-            #region Base
-            var lBase = new EffectiveRain
-            {
-                Name = Utils.NameBase,
-                Month = 0,
-                MinRain = 0,
-                MaxRain = 0,
-                Percentage = 0,
-            };
-            #endregion
-
-            #region Region South
-            //January, February, March, April, May, June, July, August, September, October, November and December
-
-            #region September
-            var l0900 = new EffectiveRain { Name = Utils.NameRegionSouth + "0900", Month = 09, MinRain = 0, MaxRain = 10, Percentage = 95 };
-            var l0911 = new EffectiveRain { Name = Utils.NameRegionSouth + "0911", Month = 09, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0921 = new EffectiveRain { Name = Utils.NameRegionSouth + "0921", Month = 09, MinRain = 21, MaxRain = 30, Percentage = 80 };
-            var l0931 = new EffectiveRain { Name = Utils.NameRegionSouth + "0931", Month = 09, MinRain = 31, MaxRain = 40, Percentage = 75 };
-            var l0941 = new EffectiveRain { Name = Utils.NameRegionSouth + "0941", Month = 09, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0951 = new EffectiveRain { Name = Utils.NameRegionSouth + "0951", Month = 09, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0961 = new EffectiveRain { Name = Utils.NameRegionSouth + "0961", Month = 09, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0971 = new EffectiveRain { Name = Utils.NameRegionSouth + "0971", Month = 09, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0981 = new EffectiveRain { Name = Utils.NameRegionSouth + "0981", Month = 09, MinRain = 81, MaxRain = 90, Percentage = 60 };
-            var l0991 = new EffectiveRain { Name = Utils.NameRegionSouth + "0991", Month = 09, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l09101 = new EffectiveRain { Name = Utils.NameRegionSouth + "09101", Month = 09, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region October
-            var l1000 = new EffectiveRain { Name = Utils.NameRegionSouth + "1000", Month = 10, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l1011 = new EffectiveRain { Name = Utils.NameRegionSouth + "1011", Month = 10, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l1021 = new EffectiveRain { Name = Utils.NameRegionSouth + "1021", Month = 10, MinRain = 21, MaxRain = 30, Percentage = 80 };
-            var l1031 = new EffectiveRain { Name = Utils.NameRegionSouth + "1031", Month = 10, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l1041 = new EffectiveRain { Name = Utils.NameRegionSouth + "1041", Month = 10, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l1051 = new EffectiveRain { Name = Utils.NameRegionSouth + "1051", Month = 10, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l1061 = new EffectiveRain { Name = Utils.NameRegionSouth + "1061", Month = 10, MinRain = 61, MaxRain = 70, Percentage = 70 };
-            var l1071 = new EffectiveRain { Name = Utils.NameRegionSouth + "1071", Month = 10, MinRain = 71, MaxRain = 80, Percentage = 65 };
-            var l1081 = new EffectiveRain { Name = Utils.NameRegionSouth + "1081", Month = 10, MinRain = 81, MaxRain = 90, Percentage = 65 };
-            var l1091 = new EffectiveRain { Name = Utils.NameRegionSouth + "1091", Month = 10, MinRain = 91, MaxRain = 100, Percentage = 65 };
-            var l10101 = new EffectiveRain { Name = Utils.NameRegionSouth + "10101", Month = 10, MinRain = 101, MaxRain = 1000, Percentage = 60 };
-            #endregion
-
-            #region November
-            var l1100 = new EffectiveRain { Name = Utils.NameRegionSouth + "1100", Month = 10, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l1111 = new EffectiveRain { Name = Utils.NameRegionSouth + "1111", Month = 11, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l1121 = new EffectiveRain { Name = Utils.NameRegionSouth + "1121", Month = 11, MinRain = 21, MaxRain = 30, Percentage = 85 };
-            var l1131 = new EffectiveRain { Name = Utils.NameRegionSouth + "1131", Month = 11, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l1141 = new EffectiveRain { Name = Utils.NameRegionSouth + "1141", Month = 11, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l1151 = new EffectiveRain { Name = Utils.NameRegionSouth + "1151", Month = 11, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l1161 = new EffectiveRain { Name = Utils.NameRegionSouth + "1161", Month = 11, MinRain = 61, MaxRain = 70, Percentage = 70 };
-            var l1171 = new EffectiveRain { Name = Utils.NameRegionSouth + "1171", Month = 11, MinRain = 71, MaxRain = 80, Percentage = 65 };
-            var l1181 = new EffectiveRain { Name = Utils.NameRegionSouth + "1181", Month = 11, MinRain = 81, MaxRain = 90, Percentage = 65 };
-            var l1191 = new EffectiveRain { Name = Utils.NameRegionSouth + "1191", Month = 11, MinRain = 91, MaxRain = 100, Percentage = 65 };
-            var l11101 = new EffectiveRain { Name = Utils.NameRegionSouth + "11101", Month = 11, MinRain = 101, MaxRain = 1000, Percentage = 60 };
-            #endregion
-
-            #region December
-            var l1200 = new EffectiveRain { Name = Utils.NameRegionSouth + "1200", Month = 12, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l1211 = new EffectiveRain { Name = Utils.NameRegionSouth + "1211", Month = 12, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l1221 = new EffectiveRain { Name = Utils.NameRegionSouth + "1221", Month = 12, MinRain = 21, MaxRain = 30, Percentage = 85 };
-            var l1231 = new EffectiveRain { Name = Utils.NameRegionSouth + "1231", Month = 12, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l1241 = new EffectiveRain { Name = Utils.NameRegionSouth + "1241", Month = 12, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l1251 = new EffectiveRain { Name = Utils.NameRegionSouth + "1251", Month = 12, MinRain = 51, MaxRain = 60, Percentage = 75 };
-            var l1261 = new EffectiveRain { Name = Utils.NameRegionSouth + "1261", Month = 12, MinRain = 61, MaxRain = 70, Percentage = 75 };
-            var l1271 = new EffectiveRain { Name = Utils.NameRegionSouth + "1271", Month = 12, MinRain = 71, MaxRain = 80, Percentage = 75 };
-            var l1281 = new EffectiveRain { Name = Utils.NameRegionSouth + "1281", Month = 12, MinRain = 81, MaxRain = 90, Percentage = 70 };
-            var l1291 = new EffectiveRain { Name = Utils.NameRegionSouth + "1291", Month = 12, MinRain = 91, MaxRain = 100, Percentage = 70 };
-            var l12101 = new EffectiveRain { Name = Utils.NameRegionSouth + "12101", Month = 12, MinRain = 101, MaxRain = 1000, Percentage = 65 };
-            #endregion
-
-            #region January
-            var l0100 = new EffectiveRain { Name = Utils.NameRegionSouth + "0100", Month = 01, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0111 = new EffectiveRain { Name = Utils.NameRegionSouth + "0111", Month = 01, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l0121 = new EffectiveRain { Name = Utils.NameRegionSouth + "0121", Month = 01, MinRain = 21, MaxRain = 30, Percentage = 85 };
-            var l0131 = new EffectiveRain { Name = Utils.NameRegionSouth + "0131", Month = 01, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l0141 = new EffectiveRain { Name = Utils.NameRegionSouth + "0141", Month = 01, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0151 = new EffectiveRain { Name = Utils.NameRegionSouth + "0151", Month = 01, MinRain = 51, MaxRain = 60, Percentage = 75 };
-            var l0161 = new EffectiveRain { Name = Utils.NameRegionSouth + "0161", Month = 01, MinRain = 61, MaxRain = 70, Percentage = 75 };
-            var l0171 = new EffectiveRain { Name = Utils.NameRegionSouth + "0171", Month = 01, MinRain = 71, MaxRain = 80, Percentage = 75 };
-            var l0181 = new EffectiveRain { Name = Utils.NameRegionSouth + "0181", Month = 01, MinRain = 81, MaxRain = 90, Percentage = 70 };
-            var l0191 = new EffectiveRain { Name = Utils.NameRegionSouth + "0191", Month = 01, MinRain = 91, MaxRain = 100, Percentage = 70 };
-            var l01101 = new EffectiveRain { Name = Utils.NameRegionSouth + "01101", Month = 01, MinRain = 101, MaxRain = 1000, Percentage = 65 };
-            #endregion
-
-            #region February
-            var l0200 = new EffectiveRain { Name = Utils.NameRegionSouth + "0200", Month = 02, MinRain = 00, MaxRain = 10, Percentage = 100 };
-            var l0211 = new EffectiveRain { Name = Utils.NameRegionSouth + "0211", Month = 02, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l0221 = new EffectiveRain { Name = Utils.NameRegionSouth + "0221", Month = 02, MinRain = 21, MaxRain = 30, Percentage = 85 };
-            var l0231 = new EffectiveRain { Name = Utils.NameRegionSouth + "0231", Month = 02, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l0241 = new EffectiveRain { Name = Utils.NameRegionSouth + "0241", Month = 02, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0251 = new EffectiveRain { Name = Utils.NameRegionSouth + "0251", Month = 02, MinRain = 51, MaxRain = 60, Percentage = 75 };
-            var l0261 = new EffectiveRain { Name = Utils.NameRegionSouth + "0261", Month = 02, MinRain = 61, MaxRain = 70, Percentage = 70 };
-            var l0271 = new EffectiveRain { Name = Utils.NameRegionSouth + "0271", Month = 02, MinRain = 71, MaxRain = 80, Percentage = 65 };
-            var l0281 = new EffectiveRain { Name = Utils.NameRegionSouth + "0281", Month = 02, MinRain = 81, MaxRain = 90, Percentage = 65 };
-            var l0291 = new EffectiveRain { Name = Utils.NameRegionSouth + "0291", Month = 02, MinRain = 91, MaxRain = 100, Percentage = 65 };
-            var l02101 = new EffectiveRain { Name = Utils.NameRegionSouth + "02101", Month = 02, MinRain = 101, MaxRain = 1000, Percentage = 60 };
-            #endregion
-
-            #region March
-            var l0300 = new EffectiveRain { Name = Utils.NameRegionSouth + "0300", Month = 03, MinRain = 00, MaxRain = 10, Percentage = 100 };
-            var l0311 = new EffectiveRain { Name = Utils.NameRegionSouth + "0311", Month = 03, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l0321 = new EffectiveRain { Name = Utils.NameRegionSouth + "0321", Month = 03, MinRain = 21, MaxRain = 30, Percentage = 80 };
-            var l0331 = new EffectiveRain { Name = Utils.NameRegionSouth + "0331", Month = 03, MinRain = 31, MaxRain = 40, Percentage = 75 };
-            var l0341 = new EffectiveRain { Name = Utils.NameRegionSouth + "0341", Month = 03, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0351 = new EffectiveRain { Name = Utils.NameRegionSouth + "0351", Month = 03, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0361 = new EffectiveRain { Name = Utils.NameRegionSouth + "0361", Month = 03, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0371 = new EffectiveRain { Name = Utils.NameRegionSouth + "0371", Month = 03, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0381 = new EffectiveRain { Name = Utils.NameRegionSouth + "0381", Month = 03, MinRain = 81, MaxRain = 90, Percentage = 60 };
-            var l0391 = new EffectiveRain { Name = Utils.NameRegionSouth + "0391", Month = 03, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l03101 = new EffectiveRain { Name = Utils.NameRegionSouth + "03101", Month = 03, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region April
-            var l0400 = new EffectiveRain { Name = Utils.NameRegionSouth + "0400", Month = 04, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0411 = new EffectiveRain { Name = Utils.NameRegionSouth + "0411", Month = 04, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l0421 = new EffectiveRain { Name = Utils.NameRegionSouth + "0421", Month = 04, MinRain = 21, MaxRain = 30, Percentage = 75 };
-            var l0431 = new EffectiveRain { Name = Utils.NameRegionSouth + "0431", Month = 04, MinRain = 31, MaxRain = 40, Percentage = 75 };
-            var l0441 = new EffectiveRain { Name = Utils.NameRegionSouth + "0441", Month = 04, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0451 = new EffectiveRain { Name = Utils.NameRegionSouth + "0451", Month = 04, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0461 = new EffectiveRain { Name = Utils.NameRegionSouth + "0461", Month = 04, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0471 = new EffectiveRain { Name = Utils.NameRegionSouth + "0471", Month = 04, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0481 = new EffectiveRain { Name = Utils.NameRegionSouth + "0481", Month = 04, MinRain = 81, MaxRain = 90, Percentage = 60 };
-            var l0491 = new EffectiveRain { Name = Utils.NameRegionSouth + "0491", Month = 04, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l04101 = new EffectiveRain { Name = Utils.NameRegionSouth + "04101", Month = 04, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region May
-            var l0500 = new EffectiveRain { Name = Utils.NameRegionSouth + "0500", Month = 05, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0511 = new EffectiveRain { Name = Utils.NameRegionSouth + "0511", Month = 05, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0521 = new EffectiveRain { Name = Utils.NameRegionSouth + "0521", Month = 05, MinRain = 21, MaxRain = 30, Percentage = 70 };
-            var l0531 = new EffectiveRain { Name = Utils.NameRegionSouth + "0531", Month = 05, MinRain = 31, MaxRain = 40, Percentage = 70 };
-            var l0541 = new EffectiveRain { Name = Utils.NameRegionSouth + "0541", Month = 05, MinRain = 41, MaxRain = 50, Percentage = 70 };
-            var l0551 = new EffectiveRain { Name = Utils.NameRegionSouth + "0551", Month = 05, MinRain = 51, MaxRain = 60, Percentage = 65 };
-            var l0561 = new EffectiveRain { Name = Utils.NameRegionSouth + "0561", Month = 05, MinRain = 61, MaxRain = 70, Percentage = 60 };
-            var l0571 = new EffectiveRain { Name = Utils.NameRegionSouth + "0571", Month = 05, MinRain = 71, MaxRain = 80, Percentage = 55 };
-            var l0581 = new EffectiveRain { Name = Utils.NameRegionSouth + "0581", Month = 05, MinRain = 81, MaxRain = 90, Percentage = 50 };
-            var l0591 = new EffectiveRain { Name = Utils.NameRegionSouth + "0591", Month = 05, MinRain = 91, MaxRain = 100, Percentage = 50 };
-            var l05101 = new EffectiveRain { Name = Utils.NameRegionSouth + "05101", Month = 05, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region June
-            var l0600 = new EffectiveRain { Name = Utils.NameRegionSouth + "0600", Month = 06, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0611 = new EffectiveRain { Name = Utils.NameRegionSouth + "0611", Month = 06, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0621 = new EffectiveRain { Name = Utils.NameRegionSouth + "0621", Month = 06, MinRain = 21, MaxRain = 30, Percentage = 70 };
-            var l0631 = new EffectiveRain { Name = Utils.NameRegionSouth + "0631", Month = 06, MinRain = 31, MaxRain = 40, Percentage = 70 };
-            var l0641 = new EffectiveRain { Name = Utils.NameRegionSouth + "0641", Month = 06, MinRain = 41, MaxRain = 50, Percentage = 70 };
-            var l0651 = new EffectiveRain { Name = Utils.NameRegionSouth + "0651", Month = 06, MinRain = 51, MaxRain = 60, Percentage = 65 };
-            var l0661 = new EffectiveRain { Name = Utils.NameRegionSouth + "0661", Month = 06, MinRain = 61, MaxRain = 70, Percentage = 60 };
-            var l0671 = new EffectiveRain { Name = Utils.NameRegionSouth + "0671", Month = 06, MinRain = 71, MaxRain = 80, Percentage = 55 };
-            var l0681 = new EffectiveRain { Name = Utils.NameRegionSouth + "0681", Month = 06, MinRain = 81, MaxRain = 90, Percentage = 50 };
-            var l0691 = new EffectiveRain { Name = Utils.NameRegionSouth + "0691", Month = 06, MinRain = 91, MaxRain = 100, Percentage = 50 };
-            var l06101 = new EffectiveRain { Name = Utils.NameRegionSouth + "06101", Month = 06, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region July
-            var l0700 = new EffectiveRain { Name = Utils.NameRegionSouth + "0700", Month = 07, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0711 = new EffectiveRain { Name = Utils.NameRegionSouth + "0711", Month = 07, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0721 = new EffectiveRain { Name = Utils.NameRegionSouth + "0721", Month = 07, MinRain = 21, MaxRain = 30, Percentage = 70 };
-            var l0731 = new EffectiveRain { Name = Utils.NameRegionSouth + "0731", Month = 07, MinRain = 31, MaxRain = 40, Percentage = 70 };
-            var l0741 = new EffectiveRain { Name = Utils.NameRegionSouth + "0741", Month = 07, MinRain = 41, MaxRain = 50, Percentage = 70 };
-            var l0751 = new EffectiveRain { Name = Utils.NameRegionSouth + "0751", Month = 07, MinRain = 51, MaxRain = 60, Percentage = 65 };
-            var l0761 = new EffectiveRain { Name = Utils.NameRegionSouth + "0761", Month = 07, MinRain = 61, MaxRain = 70, Percentage = 60 };
-            var l0771 = new EffectiveRain { Name = Utils.NameRegionSouth + "0771", Month = 07, MinRain = 71, MaxRain = 80, Percentage = 55 };
-            var l0781 = new EffectiveRain { Name = Utils.NameRegionSouth + "0781", Month = 07, MinRain = 81, MaxRain = 90, Percentage = 50 };
-            var l0791 = new EffectiveRain { Name = Utils.NameRegionSouth + "0791", Month = 07, MinRain = 91, MaxRain = 100, Percentage = 50 };
-            var l07101 = new EffectiveRain { Name = Utils.NameRegionSouth + "07101", Month = 07, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region August
-            var l0800 = new EffectiveRain { Name = Utils.NameRegionSouth + "0800", Month = 08, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0811 = new EffectiveRain { Name = Utils.NameRegionSouth + "0811", Month = 08, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0821 = new EffectiveRain { Name = Utils.NameRegionSouth + "0821", Month = 08, MinRain = 21, MaxRain = 30, Percentage = 70 };
-            var l0831 = new EffectiveRain { Name = Utils.NameRegionSouth + "0831", Month = 08, MinRain = 31, MaxRain = 40, Percentage = 70 };
-            var l0841 = new EffectiveRain { Name = Utils.NameRegionSouth + "0841", Month = 08, MinRain = 41, MaxRain = 50, Percentage = 70 };
-            var l0851 = new EffectiveRain { Name = Utils.NameRegionSouth + "0851", Month = 08, MinRain = 51, MaxRain = 60, Percentage = 65 };
-            var l0861 = new EffectiveRain { Name = Utils.NameRegionSouth + "0861", Month = 08, MinRain = 61, MaxRain = 70, Percentage = 60 };
-            var l0871 = new EffectiveRain { Name = Utils.NameRegionSouth + "0871", Month = 08, MinRain = 71, MaxRain = 80, Percentage = 55 };
-            var l0881 = new EffectiveRain { Name = Utils.NameRegionSouth + "0881", Month = 08, MinRain = 81, MaxRain = 90, Percentage = 50 };
-            var l0891 = new EffectiveRain { Name = Utils.NameRegionSouth + "0891", Month = 08, MinRain = 91, MaxRain = 100, Percentage = 50 };
-            var l08101 = new EffectiveRain { Name = Utils.NameRegionSouth + "08101", Month = 08, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #endregion
+            Region lRegion = null;
+            List<EffectiveRain> lEffectiveRainList = null;
 
             using (var context = new IrrigationAdvisorContext())
             {
-                //context.EffectiveRain.Add(lBase);
+                lRegion = context.Regions.SingleOrDefault(
+                                            region => region.Name == Utils.NameRegionSouth);
+
+                #region Base
+                var lBase = new EffectiveRain
+                {
+                    Name = Utils.NameBase,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    Month = 0,
+                    MinRain = 0,
+                    MaxRain = 0,
+                    Percentage = 0,
+                };
+                #endregion
+
+                #region Region South
+                //January, February, March, April, May, June, July, August, September, October, November and December
+
+                #region September
+                var l0900 = new EffectiveRain { Name = Utils.NameRegionSouth + "0900", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 0, MaxRain = 10, Percentage = 95 };
+                var l0911 = new EffectiveRain { Name = Utils.NameRegionSouth + "0911", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0921 = new EffectiveRain { Name = Utils.NameRegionSouth + "0921", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 21, MaxRain = 30, Percentage = 80 };
+                var l0931 = new EffectiveRain { Name = Utils.NameRegionSouth + "0931", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 31, MaxRain = 40, Percentage = 75 };
+                var l0941 = new EffectiveRain { Name = Utils.NameRegionSouth + "0941", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0951 = new EffectiveRain { Name = Utils.NameRegionSouth + "0951", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0961 = new EffectiveRain { Name = Utils.NameRegionSouth + "0961", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0971 = new EffectiveRain { Name = Utils.NameRegionSouth + "0971", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0981 = new EffectiveRain { Name = Utils.NameRegionSouth + "0981", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 81, MaxRain = 90, Percentage = 60 };
+                var l0991 = new EffectiveRain { Name = Utils.NameRegionSouth + "0991", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l09101 = new EffectiveRain { Name = Utils.NameRegionSouth + "09101", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region October
+                var l1000 = new EffectiveRain { Name = Utils.NameRegionSouth + "1000", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l1011 = new EffectiveRain { Name = Utils.NameRegionSouth + "1011", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l1021 = new EffectiveRain { Name = Utils.NameRegionSouth + "1021", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 21, MaxRain = 30, Percentage = 80 };
+                var l1031 = new EffectiveRain { Name = Utils.NameRegionSouth + "1031", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l1041 = new EffectiveRain { Name = Utils.NameRegionSouth + "1041", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l1051 = new EffectiveRain { Name = Utils.NameRegionSouth + "1051", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l1061 = new EffectiveRain { Name = Utils.NameRegionSouth + "1061", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 61, MaxRain = 70, Percentage = 70 };
+                var l1071 = new EffectiveRain { Name = Utils.NameRegionSouth + "1071", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 71, MaxRain = 80, Percentage = 65 };
+                var l1081 = new EffectiveRain { Name = Utils.NameRegionSouth + "1081", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 81, MaxRain = 90, Percentage = 65 };
+                var l1091 = new EffectiveRain { Name = Utils.NameRegionSouth + "1091", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 91, MaxRain = 100, Percentage = 65 };
+                var l10101 = new EffectiveRain { Name = Utils.NameRegionSouth + "10101", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 101, MaxRain = 1000, Percentage = 60 };
+                #endregion
+                #region November
+                var l1100 = new EffectiveRain { Name = Utils.NameRegionSouth + "1100", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l1111 = new EffectiveRain { Name = Utils.NameRegionSouth + "1111", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l1121 = new EffectiveRain { Name = Utils.NameRegionSouth + "1121", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 21, MaxRain = 30, Percentage = 85 };
+                var l1131 = new EffectiveRain { Name = Utils.NameRegionSouth + "1131", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l1141 = new EffectiveRain { Name = Utils.NameRegionSouth + "1141", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l1151 = new EffectiveRain { Name = Utils.NameRegionSouth + "1151", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l1161 = new EffectiveRain { Name = Utils.NameRegionSouth + "1161", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 61, MaxRain = 70, Percentage = 70 };
+                var l1171 = new EffectiveRain { Name = Utils.NameRegionSouth + "1171", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 71, MaxRain = 80, Percentage = 65 };
+                var l1181 = new EffectiveRain { Name = Utils.NameRegionSouth + "1181", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 81, MaxRain = 90, Percentage = 65 };
+                var l1191 = new EffectiveRain { Name = Utils.NameRegionSouth + "1191", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 91, MaxRain = 100, Percentage = 65 };
+                var l11101 = new EffectiveRain { Name = Utils.NameRegionSouth + "11101", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 101, MaxRain = 1000, Percentage = 60 };
+                #endregion
+                #region December
+                var l1200 = new EffectiveRain { Name = Utils.NameRegionSouth + "1200", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l1211 = new EffectiveRain { Name = Utils.NameRegionSouth + "1211", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l1221 = new EffectiveRain { Name = Utils.NameRegionSouth + "1221", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 21, MaxRain = 30, Percentage = 85 };
+                var l1231 = new EffectiveRain { Name = Utils.NameRegionSouth + "1231", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l1241 = new EffectiveRain { Name = Utils.NameRegionSouth + "1241", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l1251 = new EffectiveRain { Name = Utils.NameRegionSouth + "1251", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 51, MaxRain = 60, Percentage = 75 };
+                var l1261 = new EffectiveRain { Name = Utils.NameRegionSouth + "1261", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 61, MaxRain = 70, Percentage = 75 };
+                var l1271 = new EffectiveRain { Name = Utils.NameRegionSouth + "1271", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 71, MaxRain = 80, Percentage = 75 };
+                var l1281 = new EffectiveRain { Name = Utils.NameRegionSouth + "1281", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 81, MaxRain = 90, Percentage = 70 };
+                var l1291 = new EffectiveRain { Name = Utils.NameRegionSouth + "1291", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 91, MaxRain = 100, Percentage = 70 };
+                var l12101 = new EffectiveRain { Name = Utils.NameRegionSouth + "12101", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 101, MaxRain = 1000, Percentage = 65 };
+                #endregion
+                #region January
+                var l0100 = new EffectiveRain { Name = Utils.NameRegionSouth + "0100", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0111 = new EffectiveRain { Name = Utils.NameRegionSouth + "0111", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l0121 = new EffectiveRain { Name = Utils.NameRegionSouth + "0121", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 21, MaxRain = 30, Percentage = 85 };
+                var l0131 = new EffectiveRain { Name = Utils.NameRegionSouth + "0131", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l0141 = new EffectiveRain { Name = Utils.NameRegionSouth + "0141", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0151 = new EffectiveRain { Name = Utils.NameRegionSouth + "0151", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 51, MaxRain = 60, Percentage = 75 };
+                var l0161 = new EffectiveRain { Name = Utils.NameRegionSouth + "0161", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 61, MaxRain = 70, Percentage = 75 };
+                var l0171 = new EffectiveRain { Name = Utils.NameRegionSouth + "0171", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 71, MaxRain = 80, Percentage = 75 };
+                var l0181 = new EffectiveRain { Name = Utils.NameRegionSouth + "0181", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 81, MaxRain = 90, Percentage = 70 };
+                var l0191 = new EffectiveRain { Name = Utils.NameRegionSouth + "0191", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 91, MaxRain = 100, Percentage = 70 };
+                var l01101 = new EffectiveRain { Name = Utils.NameRegionSouth + "01101", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 101, MaxRain = 1000, Percentage = 65 };
+                #endregion
+                #region February
+                var l0200 = new EffectiveRain { Name = Utils.NameRegionSouth + "0200", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 00, MaxRain = 10, Percentage = 100 };
+                var l0211 = new EffectiveRain { Name = Utils.NameRegionSouth + "0211", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l0221 = new EffectiveRain { Name = Utils.NameRegionSouth + "0221", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 21, MaxRain = 30, Percentage = 85 };
+                var l0231 = new EffectiveRain { Name = Utils.NameRegionSouth + "0231", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l0241 = new EffectiveRain { Name = Utils.NameRegionSouth + "0241", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0251 = new EffectiveRain { Name = Utils.NameRegionSouth + "0251", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 51, MaxRain = 60, Percentage = 75 };
+                var l0261 = new EffectiveRain { Name = Utils.NameRegionSouth + "0261", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 61, MaxRain = 70, Percentage = 70 };
+                var l0271 = new EffectiveRain { Name = Utils.NameRegionSouth + "0271", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 71, MaxRain = 80, Percentage = 65 };
+                var l0281 = new EffectiveRain { Name = Utils.NameRegionSouth + "0281", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 81, MaxRain = 90, Percentage = 65 };
+                var l0291 = new EffectiveRain { Name = Utils.NameRegionSouth + "0291", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 91, MaxRain = 100, Percentage = 65 };
+                var l02101 = new EffectiveRain { Name = Utils.NameRegionSouth + "02101", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 101, MaxRain = 1000, Percentage = 60 };
+                #endregion
+                #region March
+                var l0300 = new EffectiveRain { Name = Utils.NameRegionSouth + "0300", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 00, MaxRain = 10, Percentage = 100 };
+                var l0311 = new EffectiveRain { Name = Utils.NameRegionSouth + "0311", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l0321 = new EffectiveRain { Name = Utils.NameRegionSouth + "0321", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 21, MaxRain = 30, Percentage = 80 };
+                var l0331 = new EffectiveRain { Name = Utils.NameRegionSouth + "0331", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 31, MaxRain = 40, Percentage = 75 };
+                var l0341 = new EffectiveRain { Name = Utils.NameRegionSouth + "0341", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0351 = new EffectiveRain { Name = Utils.NameRegionSouth + "0351", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0361 = new EffectiveRain { Name = Utils.NameRegionSouth + "0361", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0371 = new EffectiveRain { Name = Utils.NameRegionSouth + "0371", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0381 = new EffectiveRain { Name = Utils.NameRegionSouth + "0381", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 81, MaxRain = 90, Percentage = 60 };
+                var l0391 = new EffectiveRain { Name = Utils.NameRegionSouth + "0391", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l03101 = new EffectiveRain { Name = Utils.NameRegionSouth + "03101", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region April
+                var l0400 = new EffectiveRain { Name = Utils.NameRegionSouth + "0400", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0411 = new EffectiveRain { Name = Utils.NameRegionSouth + "0411", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l0421 = new EffectiveRain { Name = Utils.NameRegionSouth + "0421", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 21, MaxRain = 30, Percentage = 75 };
+                var l0431 = new EffectiveRain { Name = Utils.NameRegionSouth + "0431", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 31, MaxRain = 40, Percentage = 75 };
+                var l0441 = new EffectiveRain { Name = Utils.NameRegionSouth + "0441", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0451 = new EffectiveRain { Name = Utils.NameRegionSouth + "0451", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0461 = new EffectiveRain { Name = Utils.NameRegionSouth + "0461", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0471 = new EffectiveRain { Name = Utils.NameRegionSouth + "0471", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0481 = new EffectiveRain { Name = Utils.NameRegionSouth + "0481", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 81, MaxRain = 90, Percentage = 60 };
+                var l0491 = new EffectiveRain { Name = Utils.NameRegionSouth + "0491", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l04101 = new EffectiveRain { Name = Utils.NameRegionSouth + "04101", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region May
+                var l0500 = new EffectiveRain { Name = Utils.NameRegionSouth + "0500", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0511 = new EffectiveRain { Name = Utils.NameRegionSouth + "0511", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0521 = new EffectiveRain { Name = Utils.NameRegionSouth + "0521", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 21, MaxRain = 30, Percentage = 70 };
+                var l0531 = new EffectiveRain { Name = Utils.NameRegionSouth + "0531", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 31, MaxRain = 40, Percentage = 70 };
+                var l0541 = new EffectiveRain { Name = Utils.NameRegionSouth + "0541", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 41, MaxRain = 50, Percentage = 70 };
+                var l0551 = new EffectiveRain { Name = Utils.NameRegionSouth + "0551", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 51, MaxRain = 60, Percentage = 65 };
+                var l0561 = new EffectiveRain { Name = Utils.NameRegionSouth + "0561", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 61, MaxRain = 70, Percentage = 60 };
+                var l0571 = new EffectiveRain { Name = Utils.NameRegionSouth + "0571", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 71, MaxRain = 80, Percentage = 55 };
+                var l0581 = new EffectiveRain { Name = Utils.NameRegionSouth + "0581", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 81, MaxRain = 90, Percentage = 50 };
+                var l0591 = new EffectiveRain { Name = Utils.NameRegionSouth + "0591", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 91, MaxRain = 100, Percentage = 50 };
+                var l05101 = new EffectiveRain { Name = Utils.NameRegionSouth + "05101", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region June
+                var l0600 = new EffectiveRain { Name = Utils.NameRegionSouth + "0600", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0611 = new EffectiveRain { Name = Utils.NameRegionSouth + "0611", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0621 = new EffectiveRain { Name = Utils.NameRegionSouth + "0621", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 21, MaxRain = 30, Percentage = 70 };
+                var l0631 = new EffectiveRain { Name = Utils.NameRegionSouth + "0631", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 31, MaxRain = 40, Percentage = 70 };
+                var l0641 = new EffectiveRain { Name = Utils.NameRegionSouth + "0641", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 41, MaxRain = 50, Percentage = 70 };
+                var l0651 = new EffectiveRain { Name = Utils.NameRegionSouth + "0651", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 51, MaxRain = 60, Percentage = 65 };
+                var l0661 = new EffectiveRain { Name = Utils.NameRegionSouth + "0661", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 61, MaxRain = 70, Percentage = 60 };
+                var l0671 = new EffectiveRain { Name = Utils.NameRegionSouth + "0671", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 71, MaxRain = 80, Percentage = 55 };
+                var l0681 = new EffectiveRain { Name = Utils.NameRegionSouth + "0681", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 81, MaxRain = 90, Percentage = 50 };
+                var l0691 = new EffectiveRain { Name = Utils.NameRegionSouth + "0691", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 91, MaxRain = 100, Percentage = 50 };
+                var l06101 = new EffectiveRain { Name = Utils.NameRegionSouth + "06101", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region July
+                var l0700 = new EffectiveRain { Name = Utils.NameRegionSouth + "0700", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0711 = new EffectiveRain { Name = Utils.NameRegionSouth + "0711", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0721 = new EffectiveRain { Name = Utils.NameRegionSouth + "0721", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 21, MaxRain = 30, Percentage = 70 };
+                var l0731 = new EffectiveRain { Name = Utils.NameRegionSouth + "0731", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 31, MaxRain = 40, Percentage = 70 };
+                var l0741 = new EffectiveRain { Name = Utils.NameRegionSouth + "0741", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 41, MaxRain = 50, Percentage = 70 };
+                var l0751 = new EffectiveRain { Name = Utils.NameRegionSouth + "0751", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 51, MaxRain = 60, Percentage = 65 };
+                var l0761 = new EffectiveRain { Name = Utils.NameRegionSouth + "0761", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 61, MaxRain = 70, Percentage = 60 };
+                var l0771 = new EffectiveRain { Name = Utils.NameRegionSouth + "0771", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 71, MaxRain = 80, Percentage = 55 };
+                var l0781 = new EffectiveRain { Name = Utils.NameRegionSouth + "0781", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 81, MaxRain = 90, Percentage = 50 };
+                var l0791 = new EffectiveRain { Name = Utils.NameRegionSouth + "0791", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 91, MaxRain = 100, Percentage = 50 };
+                var l07101 = new EffectiveRain { Name = Utils.NameRegionSouth + "07101", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region August
+                var l0800 = new EffectiveRain { Name = Utils.NameRegionSouth + "0800", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0811 = new EffectiveRain { Name = Utils.NameRegionSouth + "0811", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0821 = new EffectiveRain { Name = Utils.NameRegionSouth + "0821", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 21, MaxRain = 30, Percentage = 70 };
+                var l0831 = new EffectiveRain { Name = Utils.NameRegionSouth + "0831", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 31, MaxRain = 40, Percentage = 70 };
+                var l0841 = new EffectiveRain { Name = Utils.NameRegionSouth + "0841", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 41, MaxRain = 50, Percentage = 70 };
+                var l0851 = new EffectiveRain { Name = Utils.NameRegionSouth + "0851", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 51, MaxRain = 60, Percentage = 65 };
+                var l0861 = new EffectiveRain { Name = Utils.NameRegionSouth + "0861", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 61, MaxRain = 70, Percentage = 60 };
+                var l0871 = new EffectiveRain { Name = Utils.NameRegionSouth + "0871", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 71, MaxRain = 80, Percentage = 55 };
+                var l0881 = new EffectiveRain { Name = Utils.NameRegionSouth + "0881", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 81, MaxRain = 90, Percentage = 50 };
+                var l0891 = new EffectiveRain { Name = Utils.NameRegionSouth + "0891", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 91, MaxRain = 100, Percentage = 50 };
+                var l08101 = new EffectiveRain { Name = Utils.NameRegionSouth + "08101", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+
+                #endregion
 
                 #region September
                 context.EffectiveRains.Add(l0900);
@@ -226,7 +220,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0991);
                 context.EffectiveRains.Add(l09101);
                 #endregion
-
                 #region October
                 context.EffectiveRains.Add(l1000);
                 context.EffectiveRains.Add(l1011);
@@ -240,7 +233,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l1091);
                 context.EffectiveRains.Add(l10101);
                 #endregion
-
                 #region November
                 context.EffectiveRains.Add(l1100);
                 context.EffectiveRains.Add(l1111);
@@ -254,7 +246,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l1191);
                 context.EffectiveRains.Add(l11101);
                 #endregion
-
                 #region December
                 context.EffectiveRains.Add(l1200);
                 context.EffectiveRains.Add(l1211);
@@ -268,7 +259,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l1291);
                 context.EffectiveRains.Add(l12101);
                 #endregion
-
                 #region January
                 context.EffectiveRains.Add(l0100);
                 context.EffectiveRains.Add(l0111);
@@ -282,7 +272,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0191);
                 context.EffectiveRains.Add(l01101);
                 #endregion
-
                 #region February
                 context.EffectiveRains.Add(l0200);
                 context.EffectiveRains.Add(l0211);
@@ -296,7 +285,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0291);
                 context.EffectiveRains.Add(l02101);
                 #endregion
-
                 #region March
                 context.EffectiveRains.Add(l0300);
                 context.EffectiveRains.Add(l0311);
@@ -310,7 +298,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0391);
                 context.EffectiveRains.Add(l03101);
                 #endregion
-
                 #region April
                 context.EffectiveRains.Add(l0400);
                 context.EffectiveRains.Add(l0411);
@@ -324,7 +311,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0491);
                 context.EffectiveRains.Add(l04101);
                 #endregion
-
                 #region May
                 context.EffectiveRains.Add(l0500);
                 context.EffectiveRains.Add(l0511);
@@ -338,7 +324,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0591);
                 context.EffectiveRains.Add(l05101);
                 #endregion
-
                 #region June
                 context.EffectiveRains.Add(l0600);
                 context.EffectiveRains.Add(l0611);
@@ -352,7 +337,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0691);
                 context.EffectiveRains.Add(l06101);
                 #endregion
-
                 #region July
                 context.EffectiveRains.Add(l0700);
                 context.EffectiveRains.Add(l0711);
@@ -366,7 +350,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0791);
                 context.EffectiveRains.Add(l07101);
                 #endregion
-
                 #region August
                 context.EffectiveRains.Add(l0800);
                 context.EffectiveRains.Add(l0811);
@@ -380,6 +363,13 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0891);
                 context.EffectiveRains.Add(l08101);
                 #endregion
+
+                lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                      where effectiverain.Region.Name.Equals(Utils.NameRegionSouth)
+                                      select effectiverain)
+                                     .ToList<EffectiveRain>();
+
+                lRegion.EffectiveRainList = lEffectiveRainList;
 
                 context.SaveChanges();
             };
@@ -387,194 +377,186 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
 
         public static void InsertEffectiveRainsNorth()
         {
-
-            #region Base
-            var lBase = new EffectiveRain
-            {
-                Name = Utils.NameBase,
-                Month = 0,
-                MinRain = 0,
-                MaxRain = 0,
-                Percentage = 0,
-            };
-            #endregion
-
-            #region Region South
-            //January, February, March, April, May, June, July, August, September, October, November and December
-
-            #region September
-            var l0900 = new EffectiveRain { Name = Utils.NameRegionNorth + "0900", Month = 09, MinRain = 0, MaxRain = 10, Percentage = 95 };
-            var l0911 = new EffectiveRain { Name = Utils.NameRegionNorth + "0911", Month = 09, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0921 = new EffectiveRain { Name = Utils.NameRegionNorth + "0921", Month = 09, MinRain = 21, MaxRain = 30, Percentage = 80 };
-            var l0931 = new EffectiveRain { Name = Utils.NameRegionNorth + "0931", Month = 09, MinRain = 31, MaxRain = 40, Percentage = 75 };
-            var l0941 = new EffectiveRain { Name = Utils.NameRegionNorth + "0941", Month = 09, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0951 = new EffectiveRain { Name = Utils.NameRegionNorth + "0951", Month = 09, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0961 = new EffectiveRain { Name = Utils.NameRegionNorth + "0961", Month = 09, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0971 = new EffectiveRain { Name = Utils.NameRegionNorth + "0971", Month = 09, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0981 = new EffectiveRain { Name = Utils.NameRegionNorth + "0981", Month = 09, MinRain = 81, MaxRain = 90, Percentage = 60 };
-            var l0991 = new EffectiveRain { Name = Utils.NameRegionNorth + "0991", Month = 09, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l09101 = new EffectiveRain { Name = Utils.NameRegionNorth + "09101", Month = 09, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region October
-            var l1000 = new EffectiveRain { Name = Utils.NameRegionNorth + "1000", Month = 10, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l1011 = new EffectiveRain { Name = Utils.NameRegionNorth + "1011", Month = 10, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l1021 = new EffectiveRain { Name = Utils.NameRegionNorth + "1021", Month = 10, MinRain = 21, MaxRain = 30, Percentage = 80 };
-            var l1031 = new EffectiveRain { Name = Utils.NameRegionNorth + "1031", Month = 10, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l1041 = new EffectiveRain { Name = Utils.NameRegionNorth + "1041", Month = 10, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l1051 = new EffectiveRain { Name = Utils.NameRegionNorth + "1051", Month = 10, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l1061 = new EffectiveRain { Name = Utils.NameRegionNorth + "1061", Month = 10, MinRain = 61, MaxRain = 70, Percentage = 70 };
-            var l1071 = new EffectiveRain { Name = Utils.NameRegionNorth + "1071", Month = 10, MinRain = 71, MaxRain = 80, Percentage = 65 };
-            var l1081 = new EffectiveRain { Name = Utils.NameRegionNorth + "1081", Month = 10, MinRain = 81, MaxRain = 90, Percentage = 65 };
-            var l1091 = new EffectiveRain { Name = Utils.NameRegionNorth + "1091", Month = 10, MinRain = 91, MaxRain = 100, Percentage = 65 };
-            var l10101 = new EffectiveRain { Name = Utils.NameRegionNorth + "10101", Month = 10, MinRain = 101, MaxRain = 1000, Percentage = 60 };
-            #endregion
-
-            #region November
-            var l1100 = new EffectiveRain { Name = Utils.NameRegionNorth + "1100", Month = 10, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l1111 = new EffectiveRain { Name = Utils.NameRegionNorth + "1111", Month = 11, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l1121 = new EffectiveRain { Name = Utils.NameRegionNorth + "1121", Month = 11, MinRain = 21, MaxRain = 30, Percentage = 85 };
-            var l1131 = new EffectiveRain { Name = Utils.NameRegionNorth + "1131", Month = 11, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l1141 = new EffectiveRain { Name = Utils.NameRegionNorth + "1141", Month = 11, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l1151 = new EffectiveRain { Name = Utils.NameRegionNorth + "1151", Month = 11, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l1161 = new EffectiveRain { Name = Utils.NameRegionNorth + "1161", Month = 11, MinRain = 61, MaxRain = 70, Percentage = 70 };
-            var l1171 = new EffectiveRain { Name = Utils.NameRegionNorth + "1171", Month = 11, MinRain = 71, MaxRain = 80, Percentage = 65 };
-            var l1181 = new EffectiveRain { Name = Utils.NameRegionNorth + "1181", Month = 11, MinRain = 81, MaxRain = 90, Percentage = 65 };
-            var l1191 = new EffectiveRain { Name = Utils.NameRegionNorth + "1191", Month = 11, MinRain = 91, MaxRain = 100, Percentage = 65 };
-            var l11101 = new EffectiveRain { Name = Utils.NameRegionNorth + "11101", Month = 11, MinRain = 101, MaxRain = 1000, Percentage = 60 };
-            #endregion
-
-            #region December
-            var l1200 = new EffectiveRain { Name = Utils.NameRegionNorth + "1200", Month = 12, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l1211 = new EffectiveRain { Name = Utils.NameRegionNorth + "1211", Month = 12, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l1221 = new EffectiveRain { Name = Utils.NameRegionNorth + "1221", Month = 12, MinRain = 21, MaxRain = 30, Percentage = 85 };
-            var l1231 = new EffectiveRain { Name = Utils.NameRegionNorth + "1231", Month = 12, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l1241 = new EffectiveRain { Name = Utils.NameRegionNorth + "1241", Month = 12, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l1251 = new EffectiveRain { Name = Utils.NameRegionNorth + "1251", Month = 12, MinRain = 51, MaxRain = 60, Percentage = 75 };
-            var l1261 = new EffectiveRain { Name = Utils.NameRegionNorth + "1261", Month = 12, MinRain = 61, MaxRain = 70, Percentage = 75 };
-            var l1271 = new EffectiveRain { Name = Utils.NameRegionNorth + "1271", Month = 12, MinRain = 71, MaxRain = 80, Percentage = 75 };
-            var l1281 = new EffectiveRain { Name = Utils.NameRegionNorth + "1281", Month = 12, MinRain = 81, MaxRain = 90, Percentage = 70 };
-            var l1291 = new EffectiveRain { Name = Utils.NameRegionNorth + "1291", Month = 12, MinRain = 91, MaxRain = 100, Percentage = 70 };
-            var l12101 = new EffectiveRain { Name = Utils.NameRegionNorth + "12101", Month = 12, MinRain = 101, MaxRain = 1000, Percentage = 65 };
-            #endregion
-
-            #region January
-            var l0100 = new EffectiveRain { Name = Utils.NameRegionNorth + "0100", Month = 01, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0111 = new EffectiveRain { Name = Utils.NameRegionNorth + "0111", Month = 01, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l0121 = new EffectiveRain { Name = Utils.NameRegionNorth + "0121", Month = 01, MinRain = 21, MaxRain = 30, Percentage = 85 };
-            var l0131 = new EffectiveRain { Name = Utils.NameRegionNorth + "0131", Month = 01, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l0141 = new EffectiveRain { Name = Utils.NameRegionNorth + "0141", Month = 01, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0151 = new EffectiveRain { Name = Utils.NameRegionNorth + "0151", Month = 01, MinRain = 51, MaxRain = 60, Percentage = 75 };
-            var l0161 = new EffectiveRain { Name = Utils.NameRegionNorth + "0161", Month = 01, MinRain = 61, MaxRain = 70, Percentage = 75 };
-            var l0171 = new EffectiveRain { Name = Utils.NameRegionNorth + "0171", Month = 01, MinRain = 71, MaxRain = 80, Percentage = 75 };
-            var l0181 = new EffectiveRain { Name = Utils.NameRegionNorth + "0181", Month = 01, MinRain = 81, MaxRain = 90, Percentage = 70 };
-            var l0191 = new EffectiveRain { Name = Utils.NameRegionNorth + "0191", Month = 01, MinRain = 91, MaxRain = 100, Percentage = 70 };
-            var l01101 = new EffectiveRain { Name = Utils.NameRegionNorth + "01101", Month = 01, MinRain = 101, MaxRain = 1000, Percentage = 65 };
-            #endregion
-
-            #region February
-            var l0200 = new EffectiveRain { Name = Utils.NameRegionNorth + "0200", Month = 02, MinRain = 00, MaxRain = 10, Percentage = 100 };
-            var l0211 = new EffectiveRain { Name = Utils.NameRegionNorth + "0211", Month = 02, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l0221 = new EffectiveRain { Name = Utils.NameRegionNorth + "0221", Month = 02, MinRain = 21, MaxRain = 30, Percentage = 85 };
-            var l0231 = new EffectiveRain { Name = Utils.NameRegionNorth + "0231", Month = 02, MinRain = 31, MaxRain = 40, Percentage = 80 };
-            var l0241 = new EffectiveRain { Name = Utils.NameRegionNorth + "0241", Month = 02, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0251 = new EffectiveRain { Name = Utils.NameRegionNorth + "0251", Month = 02, MinRain = 51, MaxRain = 60, Percentage = 75 };
-            var l0261 = new EffectiveRain { Name = Utils.NameRegionNorth + "0261", Month = 02, MinRain = 61, MaxRain = 70, Percentage = 70 };
-            var l0271 = new EffectiveRain { Name = Utils.NameRegionNorth + "0271", Month = 02, MinRain = 71, MaxRain = 80, Percentage = 65 };
-            var l0281 = new EffectiveRain { Name = Utils.NameRegionNorth + "0281", Month = 02, MinRain = 81, MaxRain = 90, Percentage = 65 };
-            var l0291 = new EffectiveRain { Name = Utils.NameRegionNorth + "0291", Month = 02, MinRain = 91, MaxRain = 100, Percentage = 65 };
-            var l02101 = new EffectiveRain { Name = Utils.NameRegionNorth + "02101", Month = 02, MinRain = 101, MaxRain = 1000, Percentage = 60 };
-            #endregion
-
-            #region March
-            var l0300 = new EffectiveRain { Name = Utils.NameRegionNorth + "0300", Month = 03, MinRain = 00, MaxRain = 10, Percentage = 100 };
-            var l0311 = new EffectiveRain { Name = Utils.NameRegionNorth + "0311", Month = 03, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l0321 = new EffectiveRain { Name = Utils.NameRegionNorth + "0321", Month = 03, MinRain = 21, MaxRain = 30, Percentage = 80 };
-            var l0331 = new EffectiveRain { Name = Utils.NameRegionNorth + "0331", Month = 03, MinRain = 31, MaxRain = 40, Percentage = 75 };
-            var l0341 = new EffectiveRain { Name = Utils.NameRegionNorth + "0341", Month = 03, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0351 = new EffectiveRain { Name = Utils.NameRegionNorth + "0351", Month = 03, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0361 = new EffectiveRain { Name = Utils.NameRegionNorth + "0361", Month = 03, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0371 = new EffectiveRain { Name = Utils.NameRegionNorth + "0371", Month = 03, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0381 = new EffectiveRain { Name = Utils.NameRegionNorth + "0381", Month = 03, MinRain = 81, MaxRain = 90, Percentage = 60 };
-            var l0391 = new EffectiveRain { Name = Utils.NameRegionNorth + "0391", Month = 03, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l03101 = new EffectiveRain { Name = Utils.NameRegionNorth + "03101", Month = 03, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region April
-            var l0400 = new EffectiveRain { Name = Utils.NameRegionNorth + "0400", Month = 04, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0411 = new EffectiveRain { Name = Utils.NameRegionNorth + "0411", Month = 04, MinRain = 11, MaxRain = 20, Percentage = 95 };
-            var l0421 = new EffectiveRain { Name = Utils.NameRegionNorth + "0421", Month = 04, MinRain = 21, MaxRain = 30, Percentage = 75 };
-            var l0431 = new EffectiveRain { Name = Utils.NameRegionNorth + "0431", Month = 04, MinRain = 31, MaxRain = 40, Percentage = 75 };
-            var l0441 = new EffectiveRain { Name = Utils.NameRegionNorth + "0441", Month = 04, MinRain = 41, MaxRain = 50, Percentage = 75 };
-            var l0451 = new EffectiveRain { Name = Utils.NameRegionNorth + "0451", Month = 04, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0461 = new EffectiveRain { Name = Utils.NameRegionNorth + "0461", Month = 04, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0471 = new EffectiveRain { Name = Utils.NameRegionNorth + "0471", Month = 04, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0481 = new EffectiveRain { Name = Utils.NameRegionNorth + "0481", Month = 04, MinRain = 81, MaxRain = 90, Percentage = 60 };
-            var l0491 = new EffectiveRain { Name = Utils.NameRegionNorth + "0491", Month = 04, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l04101 = new EffectiveRain { Name = Utils.NameRegionNorth + "04101", Month = 04, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region May
-            var l0500 = new EffectiveRain { Name = Utils.NameRegionSouth + "0500", Month = 05, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0511 = new EffectiveRain { Name = Utils.NameRegionSouth + "0511", Month = 05, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0521 = new EffectiveRain { Name = Utils.NameRegionSouth + "0521", Month = 05, MinRain = 21, MaxRain = 30, Percentage = 70 };
-            var l0531 = new EffectiveRain { Name = Utils.NameRegionSouth + "0531", Month = 05, MinRain = 31, MaxRain = 40, Percentage = 70 };
-            var l0541 = new EffectiveRain { Name = Utils.NameRegionSouth + "0541", Month = 05, MinRain = 41, MaxRain = 50, Percentage = 70 };
-            var l0551 = new EffectiveRain { Name = Utils.NameRegionSouth + "0551", Month = 05, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0561 = new EffectiveRain { Name = Utils.NameRegionSouth + "0561", Month = 05, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0571 = new EffectiveRain { Name = Utils.NameRegionSouth + "0571", Month = 05, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0581 = new EffectiveRain { Name = Utils.NameRegionSouth + "0581", Month = 05, MinRain = 81, MaxRain = 90, Percentage = 55 };
-            var l0591 = new EffectiveRain { Name = Utils.NameRegionSouth + "0591", Month = 05, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l05101 = new EffectiveRain { Name = Utils.NameRegionSouth + "05101", Month = 05, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region June
-            var l0600 = new EffectiveRain { Name = Utils.NameRegionSouth + "0600", Month = 06, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0611 = new EffectiveRain { Name = Utils.NameRegionSouth + "0611", Month = 06, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0621 = new EffectiveRain { Name = Utils.NameRegionSouth + "0621", Month = 06, MinRain = 21, MaxRain = 30, Percentage = 70 };
-            var l0631 = new EffectiveRain { Name = Utils.NameRegionSouth + "0631", Month = 06, MinRain = 31, MaxRain = 40, Percentage = 70 };
-            var l0641 = new EffectiveRain { Name = Utils.NameRegionSouth + "0641", Month = 06, MinRain = 41, MaxRain = 50, Percentage = 70 };
-            var l0651 = new EffectiveRain { Name = Utils.NameRegionSouth + "0651", Month = 06, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0661 = new EffectiveRain { Name = Utils.NameRegionSouth + "0661", Month = 06, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0671 = new EffectiveRain { Name = Utils.NameRegionSouth + "0671", Month = 06, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0681 = new EffectiveRain { Name = Utils.NameRegionSouth + "0681", Month = 06, MinRain = 81, MaxRain = 90, Percentage = 55 };
-            var l0691 = new EffectiveRain { Name = Utils.NameRegionSouth + "0691", Month = 06, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l06101 = new EffectiveRain { Name = Utils.NameRegionSouth + "06101", Month = 06, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region July
-            var l0700 = new EffectiveRain { Name = Utils.NameRegionSouth + "0700", Month = 07, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0711 = new EffectiveRain { Name = Utils.NameRegionSouth + "0711", Month = 07, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0721 = new EffectiveRain { Name = Utils.NameRegionSouth + "0721", Month = 07, MinRain = 21, MaxRain = 30, Percentage = 70 };
-            var l0731 = new EffectiveRain { Name = Utils.NameRegionSouth + "0731", Month = 07, MinRain = 31, MaxRain = 40, Percentage = 70 };
-            var l0741 = new EffectiveRain { Name = Utils.NameRegionSouth + "0741", Month = 07, MinRain = 41, MaxRain = 50, Percentage = 70 };
-            var l0751 = new EffectiveRain { Name = Utils.NameRegionSouth + "0751", Month = 07, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0761 = new EffectiveRain { Name = Utils.NameRegionSouth + "0761", Month = 07, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0771 = new EffectiveRain { Name = Utils.NameRegionSouth + "0771", Month = 07, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0781 = new EffectiveRain { Name = Utils.NameRegionSouth + "0781", Month = 07, MinRain = 81, MaxRain = 90, Percentage = 55 };
-            var l0791 = new EffectiveRain { Name = Utils.NameRegionSouth + "0791", Month = 07, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l07101 = new EffectiveRain { Name = Utils.NameRegionSouth + "07101", Month = 07, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #region August
-            var l0800 = new EffectiveRain { Name = Utils.NameRegionSouth + "0800", Month = 08, MinRain = 0, MaxRain = 10, Percentage = 100 };
-            var l0811 = new EffectiveRain { Name = Utils.NameRegionSouth + "0811", Month = 08, MinRain = 11, MaxRain = 20, Percentage = 90 };
-            var l0821 = new EffectiveRain { Name = Utils.NameRegionSouth + "0821", Month = 08, MinRain = 21, MaxRain = 30, Percentage = 70 };
-            var l0831 = new EffectiveRain { Name = Utils.NameRegionSouth + "0831", Month = 08, MinRain = 31, MaxRain = 40, Percentage = 70 };
-            var l0841 = new EffectiveRain { Name = Utils.NameRegionSouth + "0841", Month = 08, MinRain = 41, MaxRain = 50, Percentage = 70 };
-            var l0851 = new EffectiveRain { Name = Utils.NameRegionSouth + "0851", Month = 08, MinRain = 51, MaxRain = 60, Percentage = 70 };
-            var l0861 = new EffectiveRain { Name = Utils.NameRegionSouth + "0861", Month = 08, MinRain = 61, MaxRain = 70, Percentage = 65 };
-            var l0871 = new EffectiveRain { Name = Utils.NameRegionSouth + "0871", Month = 08, MinRain = 71, MaxRain = 80, Percentage = 60 };
-            var l0881 = new EffectiveRain { Name = Utils.NameRegionSouth + "0881", Month = 08, MinRain = 81, MaxRain = 90, Percentage = 55 };
-            var l0891 = new EffectiveRain { Name = Utils.NameRegionSouth + "0891", Month = 08, MinRain = 91, MaxRain = 100, Percentage = 55 };
-            var l08101 = new EffectiveRain { Name = Utils.NameRegionSouth + "08101", Month = 08, MinRain = 101, MaxRain = 1000, Percentage = 50 };
-            #endregion
-
-            #endregion
+            Region lRegion = null;
+            List<EffectiveRain> lEffectiveRainList = null;
 
             using (var context = new IrrigationAdvisorContext())
             {
-                //context.EffectiveRain.Add(lBase);
+                lRegion = context.Regions.SingleOrDefault(
+                            region => region.Name == Utils.NameRegionNorth);
+
+                #region Base
+                var lBase = new EffectiveRain
+                {
+                    Name = Utils.NameBase,
+                    Month = 0,
+                    MinRain = 0,
+                    MaxRain = 0,
+                    Percentage = 0,
+                };
+                #endregion
+
+                #region Region South
+                //January, February, March, April, May, June, July, August, September, October, November and December
+
+                #region September
+                var l0900 = new EffectiveRain { Name = Utils.NameRegionNorth + "0900", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 0, MaxRain = 10, Percentage = 95 };
+                var l0911 = new EffectiveRain { Name = Utils.NameRegionNorth + "0911", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0921 = new EffectiveRain { Name = Utils.NameRegionNorth + "0921", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 21, MaxRain = 30, Percentage = 80 };
+                var l0931 = new EffectiveRain { Name = Utils.NameRegionNorth + "0931", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 31, MaxRain = 40, Percentage = 75 };
+                var l0941 = new EffectiveRain { Name = Utils.NameRegionNorth + "0941", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0951 = new EffectiveRain { Name = Utils.NameRegionNorth + "0951", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0961 = new EffectiveRain { Name = Utils.NameRegionNorth + "0961", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0971 = new EffectiveRain { Name = Utils.NameRegionNorth + "0971", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0981 = new EffectiveRain { Name = Utils.NameRegionNorth + "0981", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 81, MaxRain = 90, Percentage = 60 };
+                var l0991 = new EffectiveRain { Name = Utils.NameRegionNorth + "0991", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l09101 = new EffectiveRain { Name = Utils.NameRegionNorth + "09101", RegionId = lRegion.RegionId, Region = lRegion, Month =  09, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region October
+                var l1000 = new EffectiveRain { Name = Utils.NameRegionNorth + "1000", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l1011 = new EffectiveRain { Name = Utils.NameRegionNorth + "1011", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l1021 = new EffectiveRain { Name = Utils.NameRegionNorth + "1021", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 21, MaxRain = 30, Percentage = 80 };
+                var l1031 = new EffectiveRain { Name = Utils.NameRegionNorth + "1031", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l1041 = new EffectiveRain { Name = Utils.NameRegionNorth + "1041", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l1051 = new EffectiveRain { Name = Utils.NameRegionNorth + "1051", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l1061 = new EffectiveRain { Name = Utils.NameRegionNorth + "1061", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 61, MaxRain = 70, Percentage = 70 };
+                var l1071 = new EffectiveRain { Name = Utils.NameRegionNorth + "1071", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 71, MaxRain = 80, Percentage = 65 };
+                var l1081 = new EffectiveRain { Name = Utils.NameRegionNorth + "1081", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 81, MaxRain = 90, Percentage = 65 };
+                var l1091 = new EffectiveRain { Name = Utils.NameRegionNorth + "1091", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 91, MaxRain = 100, Percentage = 65 };
+                var l10101 = new EffectiveRain { Name = Utils.NameRegionNorth + "10101", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 101, MaxRain = 1000, Percentage = 60 };
+                #endregion
+                #region November
+                var l1100 = new EffectiveRain { Name = Utils.NameRegionNorth + "1100", RegionId = lRegion.RegionId, Region = lRegion, Month =  10, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l1111 = new EffectiveRain { Name = Utils.NameRegionNorth + "1111", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l1121 = new EffectiveRain { Name = Utils.NameRegionNorth + "1121", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 21, MaxRain = 30, Percentage = 85 };
+                var l1131 = new EffectiveRain { Name = Utils.NameRegionNorth + "1131", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l1141 = new EffectiveRain { Name = Utils.NameRegionNorth + "1141", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l1151 = new EffectiveRain { Name = Utils.NameRegionNorth + "1151", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l1161 = new EffectiveRain { Name = Utils.NameRegionNorth + "1161", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 61, MaxRain = 70, Percentage = 70 };
+                var l1171 = new EffectiveRain { Name = Utils.NameRegionNorth + "1171", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 71, MaxRain = 80, Percentage = 65 };
+                var l1181 = new EffectiveRain { Name = Utils.NameRegionNorth + "1181", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 81, MaxRain = 90, Percentage = 65 };
+                var l1191 = new EffectiveRain { Name = Utils.NameRegionNorth + "1191", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 91, MaxRain = 100, Percentage = 65 };
+                var l11101 = new EffectiveRain { Name = Utils.NameRegionNorth + "11101", RegionId = lRegion.RegionId, Region = lRegion, Month =  11, MinRain = 101, MaxRain = 1000, Percentage = 60 };
+                #endregion
+                #region December
+                var l1200 = new EffectiveRain { Name = Utils.NameRegionNorth + "1200", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l1211 = new EffectiveRain { Name = Utils.NameRegionNorth + "1211", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l1221 = new EffectiveRain { Name = Utils.NameRegionNorth + "1221", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 21, MaxRain = 30, Percentage = 85 };
+                var l1231 = new EffectiveRain { Name = Utils.NameRegionNorth + "1231", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l1241 = new EffectiveRain { Name = Utils.NameRegionNorth + "1241", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l1251 = new EffectiveRain { Name = Utils.NameRegionNorth + "1251", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 51, MaxRain = 60, Percentage = 75 };
+                var l1261 = new EffectiveRain { Name = Utils.NameRegionNorth + "1261", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 61, MaxRain = 70, Percentage = 75 };
+                var l1271 = new EffectiveRain { Name = Utils.NameRegionNorth + "1271", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 71, MaxRain = 80, Percentage = 75 };
+                var l1281 = new EffectiveRain { Name = Utils.NameRegionNorth + "1281", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 81, MaxRain = 90, Percentage = 70 };
+                var l1291 = new EffectiveRain { Name = Utils.NameRegionNorth + "1291", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 91, MaxRain = 100, Percentage = 70 };
+                var l12101 = new EffectiveRain { Name = Utils.NameRegionNorth + "12101", RegionId = lRegion.RegionId, Region = lRegion, Month =  12, MinRain = 101, MaxRain = 1000, Percentage = 65 };
+                #endregion
+                #region January
+                var l0100 = new EffectiveRain { Name = Utils.NameRegionNorth + "0100", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0111 = new EffectiveRain { Name = Utils.NameRegionNorth + "0111", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l0121 = new EffectiveRain { Name = Utils.NameRegionNorth + "0121", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 21, MaxRain = 30, Percentage = 85 };
+                var l0131 = new EffectiveRain { Name = Utils.NameRegionNorth + "0131", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l0141 = new EffectiveRain { Name = Utils.NameRegionNorth + "0141", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0151 = new EffectiveRain { Name = Utils.NameRegionNorth + "0151", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 51, MaxRain = 60, Percentage = 75 };
+                var l0161 = new EffectiveRain { Name = Utils.NameRegionNorth + "0161", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 61, MaxRain = 70, Percentage = 75 };
+                var l0171 = new EffectiveRain { Name = Utils.NameRegionNorth + "0171", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 71, MaxRain = 80, Percentage = 75 };
+                var l0181 = new EffectiveRain { Name = Utils.NameRegionNorth + "0181", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 81, MaxRain = 90, Percentage = 70 };
+                var l0191 = new EffectiveRain { Name = Utils.NameRegionNorth + "0191", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 91, MaxRain = 100, Percentage = 70 };
+                var l01101 = new EffectiveRain { Name = Utils.NameRegionNorth + "01101", RegionId = lRegion.RegionId, Region = lRegion, Month =  01, MinRain = 101, MaxRain = 1000, Percentage = 65 };
+                #endregion
+                #region February
+                var l0200 = new EffectiveRain { Name = Utils.NameRegionNorth + "0200", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 00, MaxRain = 10, Percentage = 100 };
+                var l0211 = new EffectiveRain { Name = Utils.NameRegionNorth + "0211", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l0221 = new EffectiveRain { Name = Utils.NameRegionNorth + "0221", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 21, MaxRain = 30, Percentage = 85 };
+                var l0231 = new EffectiveRain { Name = Utils.NameRegionNorth + "0231", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 31, MaxRain = 40, Percentage = 80 };
+                var l0241 = new EffectiveRain { Name = Utils.NameRegionNorth + "0241", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0251 = new EffectiveRain { Name = Utils.NameRegionNorth + "0251", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 51, MaxRain = 60, Percentage = 75 };
+                var l0261 = new EffectiveRain { Name = Utils.NameRegionNorth + "0261", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 61, MaxRain = 70, Percentage = 70 };
+                var l0271 = new EffectiveRain { Name = Utils.NameRegionNorth + "0271", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 71, MaxRain = 80, Percentage = 65 };
+                var l0281 = new EffectiveRain { Name = Utils.NameRegionNorth + "0281", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 81, MaxRain = 90, Percentage = 65 };
+                var l0291 = new EffectiveRain { Name = Utils.NameRegionNorth + "0291", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 91, MaxRain = 100, Percentage = 65 };
+                var l02101 = new EffectiveRain { Name = Utils.NameRegionNorth + "02101", RegionId = lRegion.RegionId, Region = lRegion, Month =  02, MinRain = 101, MaxRain = 1000, Percentage = 60 };
+                #endregion
+                #region March
+                var l0300 = new EffectiveRain { Name = Utils.NameRegionNorth + "0300", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 00, MaxRain = 10, Percentage = 100 };
+                var l0311 = new EffectiveRain { Name = Utils.NameRegionNorth + "0311", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l0321 = new EffectiveRain { Name = Utils.NameRegionNorth + "0321", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 21, MaxRain = 30, Percentage = 80 };
+                var l0331 = new EffectiveRain { Name = Utils.NameRegionNorth + "0331", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 31, MaxRain = 40, Percentage = 75 };
+                var l0341 = new EffectiveRain { Name = Utils.NameRegionNorth + "0341", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0351 = new EffectiveRain { Name = Utils.NameRegionNorth + "0351", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0361 = new EffectiveRain { Name = Utils.NameRegionNorth + "0361", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0371 = new EffectiveRain { Name = Utils.NameRegionNorth + "0371", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0381 = new EffectiveRain { Name = Utils.NameRegionNorth + "0381", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 81, MaxRain = 90, Percentage = 60 };
+                var l0391 = new EffectiveRain { Name = Utils.NameRegionNorth + "0391", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l03101 = new EffectiveRain { Name = Utils.NameRegionNorth + "03101", RegionId = lRegion.RegionId, Region = lRegion, Month =  03, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region April
+                var l0400 = new EffectiveRain { Name = Utils.NameRegionNorth + "0400", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0411 = new EffectiveRain { Name = Utils.NameRegionNorth + "0411", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 11, MaxRain = 20, Percentage = 95 };
+                var l0421 = new EffectiveRain { Name = Utils.NameRegionNorth + "0421", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 21, MaxRain = 30, Percentage = 75 };
+                var l0431 = new EffectiveRain { Name = Utils.NameRegionNorth + "0431", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 31, MaxRain = 40, Percentage = 75 };
+                var l0441 = new EffectiveRain { Name = Utils.NameRegionNorth + "0441", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 41, MaxRain = 50, Percentage = 75 };
+                var l0451 = new EffectiveRain { Name = Utils.NameRegionNorth + "0451", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0461 = new EffectiveRain { Name = Utils.NameRegionNorth + "0461", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0471 = new EffectiveRain { Name = Utils.NameRegionNorth + "0471", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0481 = new EffectiveRain { Name = Utils.NameRegionNorth + "0481", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 81, MaxRain = 90, Percentage = 60 };
+                var l0491 = new EffectiveRain { Name = Utils.NameRegionNorth + "0491", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l04101 = new EffectiveRain { Name = Utils.NameRegionNorth + "04101", RegionId = lRegion.RegionId, Region = lRegion, Month =  04, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region May
+                var l0500 = new EffectiveRain { Name = Utils.NameRegionSouth + "0500", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0511 = new EffectiveRain { Name = Utils.NameRegionSouth + "0511", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0521 = new EffectiveRain { Name = Utils.NameRegionSouth + "0521", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 21, MaxRain = 30, Percentage = 70 };
+                var l0531 = new EffectiveRain { Name = Utils.NameRegionSouth + "0531", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 31, MaxRain = 40, Percentage = 70 };
+                var l0541 = new EffectiveRain { Name = Utils.NameRegionSouth + "0541", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 41, MaxRain = 50, Percentage = 70 };
+                var l0551 = new EffectiveRain { Name = Utils.NameRegionSouth + "0551", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0561 = new EffectiveRain { Name = Utils.NameRegionSouth + "0561", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0571 = new EffectiveRain { Name = Utils.NameRegionSouth + "0571", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0581 = new EffectiveRain { Name = Utils.NameRegionSouth + "0581", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 81, MaxRain = 90, Percentage = 55 };
+                var l0591 = new EffectiveRain { Name = Utils.NameRegionSouth + "0591", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l05101 = new EffectiveRain { Name = Utils.NameRegionSouth + "05101", RegionId = lRegion.RegionId, Region = lRegion, Month =  05, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region June
+                var l0600 = new EffectiveRain { Name = Utils.NameRegionSouth + "0600", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0611 = new EffectiveRain { Name = Utils.NameRegionSouth + "0611", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0621 = new EffectiveRain { Name = Utils.NameRegionSouth + "0621", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 21, MaxRain = 30, Percentage = 70 };
+                var l0631 = new EffectiveRain { Name = Utils.NameRegionSouth + "0631", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 31, MaxRain = 40, Percentage = 70 };
+                var l0641 = new EffectiveRain { Name = Utils.NameRegionSouth + "0641", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 41, MaxRain = 50, Percentage = 70 };
+                var l0651 = new EffectiveRain { Name = Utils.NameRegionSouth + "0651", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0661 = new EffectiveRain { Name = Utils.NameRegionSouth + "0661", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0671 = new EffectiveRain { Name = Utils.NameRegionSouth + "0671", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0681 = new EffectiveRain { Name = Utils.NameRegionSouth + "0681", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 81, MaxRain = 90, Percentage = 55 };
+                var l0691 = new EffectiveRain { Name = Utils.NameRegionSouth + "0691", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l06101 = new EffectiveRain { Name = Utils.NameRegionSouth + "06101", RegionId = lRegion.RegionId, Region = lRegion, Month =  06, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region July
+                var l0700 = new EffectiveRain { Name = Utils.NameRegionSouth + "0700", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0711 = new EffectiveRain { Name = Utils.NameRegionSouth + "0711", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0721 = new EffectiveRain { Name = Utils.NameRegionSouth + "0721", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 21, MaxRain = 30, Percentage = 70 };
+                var l0731 = new EffectiveRain { Name = Utils.NameRegionSouth + "0731", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 31, MaxRain = 40, Percentage = 70 };
+                var l0741 = new EffectiveRain { Name = Utils.NameRegionSouth + "0741", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 41, MaxRain = 50, Percentage = 70 };
+                var l0751 = new EffectiveRain { Name = Utils.NameRegionSouth + "0751", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0761 = new EffectiveRain { Name = Utils.NameRegionSouth + "0761", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0771 = new EffectiveRain { Name = Utils.NameRegionSouth + "0771", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0781 = new EffectiveRain { Name = Utils.NameRegionSouth + "0781", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 81, MaxRain = 90, Percentage = 55 };
+                var l0791 = new EffectiveRain { Name = Utils.NameRegionSouth + "0791", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l07101 = new EffectiveRain { Name = Utils.NameRegionSouth + "07101", RegionId = lRegion.RegionId, Region = lRegion, Month =  07, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+                #region August
+                var l0800 = new EffectiveRain { Name = Utils.NameRegionSouth + "0800", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 0, MaxRain = 10, Percentage = 100 };
+                var l0811 = new EffectiveRain { Name = Utils.NameRegionSouth + "0811", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 11, MaxRain = 20, Percentage = 90 };
+                var l0821 = new EffectiveRain { Name = Utils.NameRegionSouth + "0821", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 21, MaxRain = 30, Percentage = 70 };
+                var l0831 = new EffectiveRain { Name = Utils.NameRegionSouth + "0831", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 31, MaxRain = 40, Percentage = 70 };
+                var l0841 = new EffectiveRain { Name = Utils.NameRegionSouth + "0841", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 41, MaxRain = 50, Percentage = 70 };
+                var l0851 = new EffectiveRain { Name = Utils.NameRegionSouth + "0851", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 51, MaxRain = 60, Percentage = 70 };
+                var l0861 = new EffectiveRain { Name = Utils.NameRegionSouth + "0861", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 61, MaxRain = 70, Percentage = 65 };
+                var l0871 = new EffectiveRain { Name = Utils.NameRegionSouth + "0871", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 71, MaxRain = 80, Percentage = 60 };
+                var l0881 = new EffectiveRain { Name = Utils.NameRegionSouth + "0881", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 81, MaxRain = 90, Percentage = 55 };
+                var l0891 = new EffectiveRain { Name = Utils.NameRegionSouth + "0891", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 91, MaxRain = 100, Percentage = 55 };
+                var l08101 = new EffectiveRain { Name = Utils.NameRegionSouth + "08101", RegionId = lRegion.RegionId, Region = lRegion, Month =  08, MinRain = 101, MaxRain = 1000, Percentage = 50 };
+                #endregion
+
+                #endregion
 
                 #region September
                 context.EffectiveRains.Add(l0900);
@@ -589,7 +571,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0991);
                 context.EffectiveRains.Add(l09101);
                 #endregion
-
                 #region October
                 context.EffectiveRains.Add(l1000);
                 context.EffectiveRains.Add(l1011);
@@ -603,7 +584,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l1091);
                 context.EffectiveRains.Add(l10101);
                 #endregion
-
                 #region November
                 context.EffectiveRains.Add(l1100);
                 context.EffectiveRains.Add(l1111);
@@ -617,7 +597,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l1191);
                 context.EffectiveRains.Add(l11101);
                 #endregion
-
                 #region December
                 context.EffectiveRains.Add(l1200);
                 context.EffectiveRains.Add(l1211);
@@ -631,7 +610,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l1291);
                 context.EffectiveRains.Add(l12101);
                 #endregion
-
                 #region January
                 context.EffectiveRains.Add(l0100);
                 context.EffectiveRains.Add(l0111);
@@ -645,7 +623,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0191);
                 context.EffectiveRains.Add(l01101);
                 #endregion
-
                 #region February
                 context.EffectiveRains.Add(l0200);
                 context.EffectiveRains.Add(l0211);
@@ -659,7 +636,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0291);
                 context.EffectiveRains.Add(l02101);
                 #endregion
-
                 #region March
                 context.EffectiveRains.Add(l0300);
                 context.EffectiveRains.Add(l0311);
@@ -673,7 +649,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0391);
                 context.EffectiveRains.Add(l03101);
                 #endregion
-
                 #region April
                 context.EffectiveRains.Add(l0400);
                 context.EffectiveRains.Add(l0411);
@@ -687,7 +662,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0491);
                 context.EffectiveRains.Add(l04101);
                 #endregion
-
                 #region May
                 context.EffectiveRains.Add(l0500);
                 context.EffectiveRains.Add(l0511);
@@ -701,7 +675,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0591);
                 context.EffectiveRains.Add(l05101);
                 #endregion
-
                 #region June
                 context.EffectiveRains.Add(l0600);
                 context.EffectiveRains.Add(l0611);
@@ -715,7 +688,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0691);
                 context.EffectiveRains.Add(l06101);
                 #endregion
-
                 #region July
                 context.EffectiveRains.Add(l0700);
                 context.EffectiveRains.Add(l0711);
@@ -729,7 +701,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0791);
                 context.EffectiveRains.Add(l07101);
                 #endregion
-
                 #region August
                 context.EffectiveRains.Add(l0800);
                 context.EffectiveRains.Add(l0811);
@@ -744,47 +715,15 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l08101);
                 #endregion
 
+                lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                      where effectiverain.Region.Name.Equals(Utils.NameRegionNorth)
+                                      select effectiverain)
+                                     .ToList<EffectiveRain>();
+
+                lRegion.EffectiveRainList = lEffectiveRainList;
+
                 context.SaveChanges();
             };
-        }
-
-        public static void UpdateRegionSetEffectiveRainList()
-        {
-            List<EffectiveRain> lEffectiveRainList = null;
-            Region lRegion = null;
-            using (var context = new IrrigationAdvisorContext())
-            {
-                lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
-                                      select effectiverain)
-                                     .ToList<EffectiveRain>();
-
-                lRegion = (from region in context.Regions
-                           where region.Name == Utils.NameRegionSouth
-                           select region).FirstOrDefault();
-
-                lRegion = context.Regions.SingleOrDefault(
-                                    region => region.Name == Utils.NameRegionSouth);
-                lRegion.EffectiveRainList = lEffectiveRainList;
-
-                context.SaveChanges();
-
-                lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                      where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
-                                      select effectiverain)
-                                     .ToList<EffectiveRain>();
-
-                lRegion = (from region in context.Regions
-                           where region.Name == Utils.NameRegionNorth
-                           select region).FirstOrDefault();
-
-                lRegion = context.Regions.SingleOrDefault(
-                                    region => region.Name == Utils.NameRegionNorth);
-                lRegion.EffectiveRainList = lEffectiveRainList;
-
-                context.SaveChanges();
-            }
-
         }
 
         /// <summary>
@@ -860,7 +799,6 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.SaveChanges();
             }
             #endregion
-
 
         }
 

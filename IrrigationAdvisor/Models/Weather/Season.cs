@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using NLog;
 using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.Models.Localization;
 
 namespace IrrigationAdvisor.Models.Weather
 {
@@ -51,6 +52,7 @@ namespace IrrigationAdvisor.Models.Weather
         private String name;
         private int year;
         private Utils.WeatherSeason weatherSeason;
+        private long regionId;
         private DateTime fromDate;
         private DateTime toDate;
 
@@ -83,6 +85,18 @@ namespace IrrigationAdvisor.Models.Weather
             get { return weatherSeason; }
             set { weatherSeason = value; }
         }
+
+        public long RegionId
+        {
+            get { return regionId; }
+            set { regionId = value; }
+        }
+
+        public virtual Region Region
+        {
+            get;
+            set;
+        }
         
         public DateTime FromDate
         {
@@ -105,22 +119,35 @@ namespace IrrigationAdvisor.Models.Weather
         /// </summary>
         public Season()
         {
-            this.SeasonId = 0;
-            this.Name = "";
+            this.Name = "No Name";
             this.Year = Utils.MIN_DATETIME.Year;
             this.WeatherSeason = Utils.WeatherSeason.Spring;
+            this.RegionId = 0;
             this.FromDate = Utils.MIN_DATETIME;
             this.ToDate = Utils.MIN_DATETIME.AddDays(90);
         }
 
+        /// <summary>
+        /// Constructor with all parameters
+        /// </summary>
+        /// <param name="pSeasonId"></param>
+        /// <param name="pName"></param>
+        /// <param name="pYear"></param>
+        /// <param name="pWeatherSeason"></param>
+        /// <param name="pRegion"></param>
+        /// <param name="pFromDate"></param>
+        /// <param name="pToDate"></param>
         public Season(long pSeasonId, String pName, int pYear,
-                        Utils.WeatherSeason pWeatherSeason,
+                        Utils.WeatherSeason pWeatherSeason, 
+                        Region pRegion,
                         DateTime pFromDate, DateTime pToDate)
         {
             this.SeasonId = pSeasonId;
             this.Name = pName;
             this.Year = pYear;
             this.WeatherSeason = pWeatherSeason;
+            this.RegionId = pRegion.RegionId;
+            this.Region = pRegion;
             this.FromDate = pFromDate;
             this.ToDate = pToDate;
         }

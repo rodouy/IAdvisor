@@ -437,7 +437,7 @@ namespace IrrigationAdvisor.Models.Localization
                                             Double pMaxRain, Double pPercentage)
         {
             EffectiveRain lReturn = null;
-            EffectiveRain lEffectiveRain = new EffectiveRain(pName, pMonth, 
+            EffectiveRain lEffectiveRain = new EffectiveRain(pName, this, pMonth, 
                                                             pMinRain, pMaxRain, pPercentage);
             if (ExistEffectiveRain(lEffectiveRain) == null)
             {
@@ -460,12 +460,14 @@ namespace IrrigationAdvisor.Models.Localization
                                             Double pMaxRain, Double pPercentage)
         {
             EffectiveRain lReturn = null;
-            EffectiveRain lEffectiveRain = new EffectiveRain(pName, pMonth, pMinRain, 
+            EffectiveRain lEffectiveRain = new EffectiveRain(pName, this, pMonth, pMinRain, 
                                                             pMaxRain, pPercentage);
             lReturn = ExistEffectiveRain(lEffectiveRain);
             if (lReturn != null)
             {
                 lReturn.Name = pName;
+                lReturn.RegionId = this.RegionId;
+                lReturn.Region = this;
                 lReturn.Month = pMonth;
                 lReturn.MinRain = pMinRain;
                 lReturn.MaxRain = pMaxRain;
@@ -730,7 +732,7 @@ namespace IrrigationAdvisor.Models.Localization
             {
                 lSpecieCycle = this.AddSpecieCycle(pSpecieCycleName);
             }
-            lSpecie = new Specie(lSpecieId, pName, pShortName, lSpecieCycle.SpecieCycleId, 
+            lSpecie = new Specie(lSpecieId, pName, pShortName, lSpecieCycle, this, 
                                         pBaseTemperature, pStressTemperarute, pSpecieType);
             lSpecie.SpecieCycle = lSpecieCycle;
             lReturn = this.ExistSpecie(lSpecie);
@@ -776,6 +778,7 @@ namespace IrrigationAdvisor.Models.Localization
         /// <summary>
         /// Return the Specie updated in the list.
         /// If not exists, it return null.
+        /// The updated Specie is in this region
         /// </summary>
         /// <param name="pName"></param>
         /// <param name="pSpecieCycleName"></param>
@@ -798,15 +801,17 @@ namespace IrrigationAdvisor.Models.Localization
             }
             //If not exists SpecieCycle, its create a new SpecieCycle.
             //In both cases, lSpecieCycle isnt null
-            lSpecieCycleId = lSpecieCycle.SpecieCycleId;
-            lSpecie = new Specie(lSpecieId, pName, pShortName, lSpecieCycleId,
+            lSpecie = new Specie(lSpecieId, pName, pShortName, lSpecieCycle, this,
                                  pBaseTemperature, pStressTemperature, pSpecieType);
             lReturn = ExistSpecie(lSpecie);
             if (lReturn != null)
             {
                 lReturn.Name = pName;
                 lReturn.ShortName = pShortName;
-                lReturn.SpecieCycleId = lSpecieCycleId;
+                lReturn.SpecieCycleId = lSpecieCycle.SpecieCycleId;
+                lReturn.SpecieCycle = lSpecieCycle;
+                lReturn.RegionId = this.RegionId;
+                lReturn.Region = this;
                 lReturn.BaseTemperature = pBaseTemperature;
                 lReturn.StressTemperature = pStressTemperature;
                 lReturn.SpecieType = pSpecieType;

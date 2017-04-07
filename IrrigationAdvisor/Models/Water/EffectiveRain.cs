@@ -52,6 +52,7 @@ namespace IrrigationAdvisor.Models.Water
 
         private long effectiveRainId;
         private String name;
+        private long regionId;
         private int month;
         private Double minRain;
         private Double maxRain;
@@ -73,7 +74,19 @@ namespace IrrigationAdvisor.Models.Water
             get { return name; }
             set { name = value; }
         }
-        
+
+        public long RegionId
+        {
+            get { return regionId; }
+            set { regionId = value; }
+        }
+
+        public virtual Region Region
+        {
+            get;
+            set;
+        }
+
         public int Month
         {
             get { return month; }
@@ -109,6 +122,7 @@ namespace IrrigationAdvisor.Models.Water
         public EffectiveRain()
         {
             this.Name = "NoName";
+            this.RegionId = 0;
             this.Month = 0;
             this.MinRain = 0;
             this.MaxRain = 0;
@@ -118,15 +132,18 @@ namespace IrrigationAdvisor.Models.Water
         /// <summary>
         /// Constructor with parameters
         /// </summary>
+        /// <param name="pName"></param>
+        /// <param name="pRegion"></param>
         /// <param name="pMonth"></param>
         /// <param name="pMinRain"></param>
         /// <param name="pMaxRain"></param>
         /// <param name="pPercentage"></param>
-        public EffectiveRain(String pName, int pMonth, 
-                        Double pMinRain, Double pMaxRain, 
-                        Double pPercentage)
+        public EffectiveRain(String pName, Region pRegion, int pMonth, 
+                        Double pMinRain, Double pMaxRain, Double pPercentage)
         {
             this.Name = pName;
+            this.RegionId = pRegion.RegionId;
+            this.Region = pRegion;
             this.Month = pMonth;
             this.MinRain = pMinRain;
             this.MaxRain = pMaxRain;
@@ -136,16 +153,18 @@ namespace IrrigationAdvisor.Models.Water
         #endregion
 
         #region Private Helpers
+
         #endregion
 
         #region Public Methods
 
-
-        public EffectiveRain UpdateEffectiveRain(String pName, 
+        public EffectiveRain UpdateEffectiveRain(String pName, Region pRegion,
                                                 int pMonth, Double pMinRain, 
                                                 Double pMaxRain, Double pPercentage)
         {
             this.Name = pName;
+            this.RegionId = pRegion.RegionId;
+            this.Region = pRegion;
             this.Month = pMonth;
             this.MinRain = pMinRain;
             this.MaxRain = pMaxRain;
@@ -158,7 +177,8 @@ namespace IrrigationAdvisor.Models.Water
         #region Overrides
         // Different region for each class override
         /// <summary>
-        /// Overrides equals
+        /// Overrides equals:
+        /// name, region
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -169,7 +189,8 @@ namespace IrrigationAdvisor.Models.Water
                 return false;
             }
             EffectiveRain lEffectiveRain = obj as EffectiveRain;
-            return (this.Name.Equals(lEffectiveRain.Name));
+            return (this.Name.Equals(lEffectiveRain.Name)
+                && this.Region.Equals(lEffectiveRain.Region));
         }
 
         public override int GetHashCode()
