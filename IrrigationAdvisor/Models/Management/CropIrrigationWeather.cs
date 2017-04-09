@@ -156,14 +156,14 @@ namespace IrrigationAdvisor.Models.Management
 
         #endregion
 
-        #region Calculus of Dry Matter per Hectare
+        #region Calculus of Dry Mass per Hectare
 
         private int ageOfCrop;
         private Utils.Season seasonOfCrop;
         private int dayAfterSeasonStart; //date of reference
-        private Double rateOfDryMatterPerHectareByDay;
-        private Double dryMatterPerHectare;
-        private Double dryMatterPerHectareModified;
+        private Double dryMassRatePerHectareByDay;
+        private Double dryMassWeightPerHectare;
+        private Double dryMassWeightPerHectareModified;
 
         #endregion
 
@@ -434,7 +434,7 @@ namespace IrrigationAdvisor.Models.Management
         
         #endregion
 
-        #region Calculus of Dry Matter per Hectare
+        #region Calculus of Dry Mass per Hectare
 
         public int AgeOfCrop
         {
@@ -454,23 +454,23 @@ namespace IrrigationAdvisor.Models.Management
             set { dayAfterSeasonStart = value; }
         }
 
-        public Double RateOfDryMatterPerHectareByDay
+        public Double DryMassRatePerHectareByDay
         {
-            get { return rateOfDryMatterPerHectareByDay; }
-            set { rateOfDryMatterPerHectareByDay = value; }
+            get { return dryMassRatePerHectareByDay; }
+            set { dryMassRatePerHectareByDay = value; }
         }
 
 
-        public Double DryMatterPerHectare
+        public Double DryMassWeightPerHectare
         {
-            get { return dryMatterPerHectare; }
-            set { dryMatterPerHectare = value; }
+            get { return dryMassWeightPerHectare; }
+            set { dryMassWeightPerHectare = value; }
         }
 
-        public Double DryMatterPerHectareModified
+        public Double DryMassWeightPerHectareModified
         {
-            get { return dryMatterPerHectareModified; }
-            set { dryMatterPerHectareModified = value; }
+            get { return dryMassWeightPerHectareModified; }
+            set { dryMassWeightPerHectareModified = value; }
         }
 
         #endregion
