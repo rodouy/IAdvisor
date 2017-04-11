@@ -463,6 +463,7 @@
     <Content Include="css\checkbox.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\wizard.css" />
     <Content Include="DataQueries\All Bombs - Query.sql" />
     <Content Include="DataQueries\All CropCoefficients - Query.sql" />
     <Content Include="DataQueries\All CropInformationByDates - Query.sql" />
@@ -943,9 +944,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1939</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1938/</IISUrl>
+          <IISUrl>http://localhost:2119/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://localhost:1938/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

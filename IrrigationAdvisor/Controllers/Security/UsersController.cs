@@ -14,6 +14,7 @@ using IrrigationAdvisor.DBContext;
 using IrrigationAdvisor.ViewModels.Security;
 using AutoMapper;
 using IrrigationAdvisor.DBContext.Security;
+//using System.Net.Mail;
 
 namespace IrrigationAdvisor.Controllers.Security
 {
@@ -22,6 +23,7 @@ namespace IrrigationAdvisor.Controllers.Security
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         private const string USERNAME_EXISTS_ERROR = "El nombre de usuario ya existe";
+
 
         // GET: Users
         public ActionResult Index()
@@ -54,6 +56,115 @@ namespace IrrigationAdvisor.Controllers.Security
 
             return View("~/Views/Security/Users/Create.cshtml", userVM);
         }
+
+        // GET: Users/Wizard
+        public ActionResult Wizard()
+        {
+            CreateUserViewModel userVM = new CreateUserViewModel();
+
+            userVM.Roles = this.LoadRoles();
+
+            return View("~/Views/Security/Users/Wizard.cshtml", userVM);
+        }
+
+        // POST: Users/Wizard;
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Wizard([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,ConfirmPassword,RoleId")] CreateUserViewModel user)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                MD5 md5Hash = MD5.Create();
+
+                var userMapped = new User
+                {
+                    Address = user.Address,
+                    Email = user.Email,
+                    Name = user.Name,
+                    Password = user.Password,
+                    Phone = user.Phone,
+                    RoleId = user.RoleId,
+                    Surname = user.Surname,
+                    UserName = user.UserName
+                };
+
+
+                userMapped.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
+
+                db.Users.Add(userMapped);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View("~/Views/Security/Users/Wizard.cshtml", user);
+        }
+
+
+        //private MailMessage GetMailMessage(string subject, string body)
+        //{
+        //    MailMessage mail = new MailMessage();
+        //    string emailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]);
+        //    string emailTo = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]);
+
+        //    mail.From = new MailAddress(emailFrom);
+        //    mail.To.Add(emailTo);
+        //    mail.Subject = subject;
+        //    body = body.Replace("[br]", "<br>");
+        //    mail.Body = body;
+        //    mail.IsBodyHtml = true;
+
+        //    return mail;
+        //}
+
+        //private SmtpClient GetSmtpClient()
+        //{
+        //    string smtpAddress = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["smtpAddress"]);
+        //    int portNumber = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["smtpPort"]);
+        //    bool enableSSL = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["ssl"]);
+        //    string emailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]);
+        //    string password = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["password"]);
+
+        //    SmtpClient smtp = new SmtpClient(smtpAddress, portNumber);
+
+        //    smtp.Credentials = new NetworkCredential(emailFrom, password);
+        //    smtp.EnableSsl = enableSSL;
+
+        //    return smtp;
+        //}
+
+
+        ///// <summary>
+        ///// TODO: Description of SendEmails
+        ///// </summary>
+        ///// <param name="subject"></param>
+        ///// <param name="body"></param>
+        ///// <returns></returns>
+        //public ActionResult SendEmails(string subject, string body)
+        //{
+        //    try
+        //    {
+
+        //        SmtpClient smtp = GetSmtpClient();
+        //        MailMessage mail = GetMailMessage(subject, body);
+
+        //        smtp.Send(mail);
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Utils.LogError(ex, "Exception in HomeController.SendEmails ");
+        //        return Content(ex.Message);
+        //    }
+
+
+        //    return Content("Ok");
+        //}
+
 
         // POST: Users/Create;
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
