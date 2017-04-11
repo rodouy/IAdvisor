@@ -46,6 +46,11 @@ namespace IrrigationAdvisor.Models.Agriculture
         private int day;
         private Double ratePerHectareByDay;
         private Double weightPerHectareInKG;
+        private Double exponent;
+        private Double multiplier;
+        private Double cropCoefficient;
+        private Double rootDepth;
+
 
         #endregion
 
@@ -103,6 +108,30 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             get { return weightPerHectareInKG; }
             set { weightPerHectareInKG = value; }
+        }
+
+        public Double Exponent
+        {
+            get { return exponent; }
+            set { exponent = value; }
+        }
+
+        public Double Multiplier
+        {
+            get { return multiplier; }
+            set { multiplier = value; }
+        }
+
+        public Double CropCoefficient
+        {
+            get { return cropCoefficient; }
+            set { cropCoefficient = value; }
+        }
+
+        public Double RootDepth
+        {
+            get { return rootDepth; }
+            set { rootDepth = value; }
         }
 
 
