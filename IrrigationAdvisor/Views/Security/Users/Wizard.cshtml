@@ -203,10 +203,10 @@
             triggerEnd = false;
 
             checkStep = checkStep === false ? false : true;
+
             /////////////////////////////////////////////
-
             canMove = customValidation(that.currentStep, direction);
-
+            /////////////////////////////////////////////
 
             // check we can move
             if (checkStep && typeof that.options.checkStep == 'function') {
@@ -383,6 +383,16 @@
             }
         }
 
+        function emailValidation() {
+            if ($("#Email").val().trim() === "") {
+                $("#EmailMessage").html("<span class=text-danger>Ingrese el email</span>");
+                return false;
+            }
+            else {
+                $("#EmailMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
         function userNameValidation() {
             if ($("#UserName").val().trim() === "") {
                 $("#UserNameMessage").html("<span class=text-danger>Ingrese el usuario</span>");
@@ -431,7 +441,12 @@
                 move = nameValidation();
                 move = surnameValidation();
                 move = phoneValidation();
+                move = emailValidation();
+                    
+                if (move) {
 
+                    $("#UserName").val($("#Name").val().trim().substring(0, 1) + '' + $("#Surname").val().trim());
+                }
             }
 
             if (direction) {//se mueve hacia adelante               
@@ -564,7 +579,8 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">Email</label>
-                        <input maxlength="50" id="Email" name="Email" type="text" class="form-control text-box single-line">
+                        <input maxlength="50" id="Email" name="Email" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese email">
+                        <span id="EmailMessage"></span>
                     </div>
 
 
@@ -577,13 +593,11 @@
                         <label class="control-label">Rol</label>
                         <select id="RoleId" name="RoleId" class="form-control">
                             <option value="">-- Seleccione Rol --</option>
-
                             @foreach (var item in Model.Roles)
-                                {
+                            {
                                 <option value=@item.Value>@item.Text</option>
-                                    }
-
-
+                            }
+                            
                         </select>
                         <span id="RoleIdMessage"></span>
                     </div>
