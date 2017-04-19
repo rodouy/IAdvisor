@@ -55,6 +55,7 @@ $(document).ready(function () {
     var saveMoveIrrigation = $('#SaveMoveIrrigation');
     var dateToMove = $('#dateToMove');
     var selectedWaterInput = $('#selectedWaterInput');
+    var cancelMoveIrrigation = $('#CancelMoveIrrigation');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -411,6 +412,10 @@ $(document).ready(function () {
         modalNoIrrigation.modal('hide');
     });
 
+    cancelMoveIrrigation.click(function () {
+        modalMoveIrrigation.modal('hide');
+    });
+
     dateOfReferenceBtn2.click(function () {
 
         txtDateOfReference.removeClass('input-red-border');
@@ -422,7 +427,6 @@ $(document).ready(function () {
 
         if (formattedDateOfReference.isValid() && formattedDateOfReference >= minDate && formattedDateOfReference <= maxDate)
         {
-
             showLoading();
 
             var farmId = -1;
@@ -767,11 +771,11 @@ $(document).ready(function () {
             
             var arrayElements = selectedWaterInput.val().split(',');
 
-            moveIrrigation(dateMove._i, arrayElements[0], arrayElements[1], arrayElements[2], arrayElements[3]);
+            moveIrrigation(dateMove._i, arrayElements[0], arrayElements[1], arrayElements[2], arrayElements[3], arrayElements[4]);
         }
     });
 
-    var moveIrrigation = function (pDateToMove, pWaterInputId, pWaterInputOldDate, pCIWId, pCIWName) {
+    var moveIrrigation = function (pDateToMove, pWaterInputId, pWaterInputOldDate, pCIWId, pCIWName, pMilimiters) {
 
         var pUrl = './MoveIrrigation?pDateToMove=' + pDateToMove +
                     '&pWaterInputId=' + pWaterInputId;
@@ -786,7 +790,7 @@ $(document).ready(function () {
 
                     var formatedDate = moment(pDateToMove).format('DD/MM/YYYY');
 
-                    $.when(sendMail("Usuario: " + userName + " ha movido riego " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Fecha anterior: " + pWaterInputOldDate + "[br] Fecha actualizada: " + formatedDate + "[br] Water Input Id: " + pWaterInputId + "[br] Cultivo: " + pCIWId + " - " + pCIWName)).done(function () {
+                    $.when(sendMail("Usuario: " + userName + " ha movido riego " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Fecha anterior: " + pWaterInputOldDate + "[br] Fecha actualizada: " + formatedDate + "[br] Water Input Id: " + pWaterInputId + "[br] Cultivo: " + pCIWId + " - " + pCIWName + "[br] Milímetros: " + pMilimiters)).done(function () {
                         location.href = "./home?farm=" + lstFarms.val();
                     });
 
