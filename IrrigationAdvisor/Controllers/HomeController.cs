@@ -555,6 +555,11 @@ namespace IrrigationAdvisor.Controllers
 
                 var waterInput = lContext.Irrigations.Single(w => w.WaterInputId == pWaterInputId);
 
+                if (waterInput.ExtraInput > 0)
+                {
+                    waterInput.ExtraDate = pDateToMove;
+                }
+
                 string observation = "Move Irrigation from " + waterInput.Date.ToShortDateString() + " to " + pDateToMove.ToShortDateString();
 
                 if (waterInput.Date < pDateToMove)
@@ -563,11 +568,14 @@ namespace IrrigationAdvisor.Controllers
                                 waterInput.CropIrrigationWeatherId.ToString(),
                                 (int)Utils.NoIrrigationReason.MoveIrrigation,
                                 observation);
+
+                    lContext.SaveChanges();
                 }
                 else
                 {
                     // Not implemented yet.
                 }
+
 
                 return Content("Ok");
 
