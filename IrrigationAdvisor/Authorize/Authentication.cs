@@ -42,7 +42,7 @@ namespace IrrigationAdvisor.Authorize
 
             string passwordHash = CryptoUtils.GetMd5Hash(md5Hash, userPassword);
 
-            if (!String.IsNullOrEmpty(dbPassword) && CryptoUtils.VerifyMd5Hash(md5Hash, userPassword, passwordHash))
+            if (!String.IsNullOrEmpty(dbPassword) && CryptoUtils.VerifyMd5Hash(md5Hash, userPassword, dbPassword))
                 return true;
 
             return false;
