@@ -226,6 +226,7 @@
     <Compile Include="Controllers\Weather\WeatherDatasController.cs" />
     <Compile Include="Controllers\Weather\WeatherInformationsController.cs" />
     <Compile Include="Controllers\Weather\WeatherStationsController.cs" />
+    <Compile Include="Controllers\Wizard\WizardFarmBombController.cs" />
     <Compile Include="DBContext\Agriculture\CropCoefficientConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropInformationByDateConfiguration.cs" />
@@ -443,6 +444,7 @@
     <Compile Include="ViewModels\Water\WaterOutputViewModel.cs" />
     <Compile Include="ViewModels\Weather\WeatherStationViewModel.cs" />
     <Compile Include="ViewModels\Weather\WUndergroundGeolookupResultToCSharp.cs" />
+    <Compile Include="ViewModels\Wizard\WizardFarmBombViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -871,6 +873,7 @@
     <Content Include="Views\Data\Status\Index.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Wizard\FarmBomb\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -880,6 +883,7 @@
     <Folder Include="ViewModels\Data\" />
     <Folder Include="Views\Authenticate\" />
     <Folder Include="Views\Company\" />
+    <Folder Include="Views\Default\" />
     <Folder Include="Views\TemperatureDatas\" />
     <Folder Include="Views\Utilities\" />
   </ItemGroup>
