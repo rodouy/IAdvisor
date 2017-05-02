@@ -10,7 +10,9 @@ using IrrigationAdvisor.ViewModels.Wizard;
 
 
 using IrrigationAdvisor.Models.Localization;
-
+using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.DBContext.Weather;
+using IrrigationAdvisor.Models.Weather;
 //using IrrigationAdvisor.Models.Utilities;
 
 
@@ -23,44 +25,84 @@ namespace IrrigationAdvisor.Controllers.Wizard
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
 
+        //public ActionResult Index()
+        //{
+        //    //return View("~/Views/Wizard/FarmBomb/Index.cshtml");
+
+        //}
+
+        // GET: Users/Create
         public ActionResult Index()
         {
+            WizardFarmBombViewModel vm = new WizardFarmBombViewModel();
+
+            vm.wizardFarmViewModel.City = this.LoadCities();
+            vm.wizardFarmViewModel.WeatherStation = this.LoadWeatherStations();
+
             return View("~/Views/Wizard/FarmBomb/Index.cshtml");
-
-            //CreateUserViewModel userVM = new CreateUserViewModel();
-
-            //userVM.Roles = this.LoadRoles();
-
-            //return View("~/Views/Security/Users/Create.cshtml", userVM);
         }
 
 
-        //// POST: UserFarms/Create
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "Name")] WizardFarmBombViewModel wizardFarmBombViewModel)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
+        private List<System.Web.Mvc.SelectListItem> LoadCities(long? cityId = null, City city = null)
+        {
 
-        //        var userMapped = new Farm
-        //        {
-        //            Name = wizardFarmBombViewModel.Name,
-        //           // Phone = wizardFarmBombViewModel.Phone
-        //        };
-               
+            CityConfiguration cc  = new CityConfiguration();
+            
+            List<City> cities = cc.GetAllCities();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in cities)
+            {
+
+                bool isSelected = false;
+                if (city != null && cityId.HasValue)
+                {
+                    isSelected = (city.CityId == cityId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.CityId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
+            }
+
+            return result;
+        }
+
+        private List<System.Web.Mvc.SelectListItem> LoadWeatherStations(long? weatherStationId = null, WeatherStation weatherStation = null)
+        {
+            WeatherStationConfiguration  wsc = new WeatherStationConfiguration();
+
+            List<WeatherStation> weatherStations = wsc.GetAllWeatherStations();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in weatherStations)
+            {
+
+                bool isSelected = false;
+                if (weatherStation != null && weatherStationId.HasValue)
+                {
+                    isSelected = (weatherStation.WeatherStationId == weatherStationId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.WeatherStationId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
+            }
+
+            return result;
+        }
 
 
-        //        //db.Bombs.Add(userMapped);
-        //        db.SaveChanges();
-        //        return View("~/Views/Wizard/Create.cshtml");
-        //    }
-
-        //    return View(wizardFarmBombViewModel);
-        //}
-
-
+        public IEnumerable<object> weatherStations { get; set; }
     }
 }

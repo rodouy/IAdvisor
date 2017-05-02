@@ -11,8 +11,8 @@ namespace IrrigationAdvisor.ViewModels.Wizard
 
          public WizardFarmViewModel()
         {
-            //this.WeatherStation = new List<System.Web.Mvc.SelectListItem>();
-            //this.City = new List<System.Web.Mvc.SelectListItem>();
+            this.WeatherStation = new List<System.Web.Mvc.SelectListItem>();
+            this.City = new List<System.Web.Mvc.SelectListItem>();
          }
 
 
@@ -37,10 +37,10 @@ namespace IrrigationAdvisor.ViewModels.Wizard
         public int Has { get; set; }        
 
         [Required]
-        public List<System.Web.Mvc.SelectListItem> WeatherStation { get; set; }
+        public List<System.Web.Mvc.SelectListItem> City { get; set; }
         
-     //   [Required]
-       // public List<System.Web.Mvc.SelectListItem> Bo { get; set; }
+        [Required]
+        public List<System.Web.Mvc.SelectListItem> WeatherStation { get; set; }
     }
 
 }

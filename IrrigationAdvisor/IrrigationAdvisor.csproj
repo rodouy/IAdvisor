@@ -396,6 +396,7 @@
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />
     <Compile Include="ViewModels\Weather\GridWeather.cs" />
     <Compile Include="Models\Weather\TemperatureData.cs" />
     <Compile Include="Models\Weather\WeatherData.cs" />
