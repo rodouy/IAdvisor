@@ -13,7 +13,8 @@ namespace IrrigationAdvisor.ViewModels.Wizard
         {
             this.WeatherStation = new List<System.Web.Mvc.SelectListItem>();
             this.City = new List<System.Web.Mvc.SelectListItem>();
-         }
+            
+        }
 
 
          
@@ -34,9 +35,14 @@ namespace IrrigationAdvisor.ViewModels.Wizard
         public String Longitude { get; set; }
         
         [Required]
-        public int Has { get; set; }        
+        public int Has { get; set; }
 
-        [Required]
+         [Required]
+        public long CityId { get; set; }
+
+         [Required]
+         public long WeatherStationId { get; set; }
+       
         public List<System.Web.Mvc.SelectListItem> City { get; set; }
         
         [Required]

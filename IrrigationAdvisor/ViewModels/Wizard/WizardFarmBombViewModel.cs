@@ -9,14 +9,17 @@ namespace IrrigationAdvisor.ViewModels.Wizard
     public class WizardFarmBombViewModel
     {
 
-        public WizardFarmViewModel wizardFarmViewModel { get; set; }
-         public WizardFarmBombViewModel()
+        public WizardFarmViewModel WizardFarmViewModel { get; set; }
+        public WizardBombViewModel WizardBombViewModel { get; set; }
+        
+        
+        public WizardFarmBombViewModel()
         {
-            //this.WeatherStation = new List<System.Web.Mvc.SelectListItem>();
-            //this.City = new List<System.Web.Mvc.SelectListItem>();
+            this.WizardFarmViewModel = new WizardFarmViewModel();
+            this.WizardBombViewModel = new WizardBombViewModel();
          }
 
-
+        
          
    
 

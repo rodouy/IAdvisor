@@ -1,0 +1,809 @@
+﻿@model IrrigationAdvisor.ViewModels.Wizard.WizardFarmBombViewModel
+
+<link href="~/css/wizard.css" rel="stylesheet" />
+
+<link href="~/css/library/bootstrap.min.css" rel="stylesheet" />
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+
+
+<script js>
+    var bg = bg || false;
+    if (!bg) {
+        if (typeof jQuery != 'undefined') {
+            bg = jQuery;
+        } else if (typeof angular != 'undefined') {
+            bg = angular.element;
+
+            (function () {
+                bg.extend = angular.extend;
+                bg.isFunction = angular.isFunction;
+
+                bg.prototype.is = function (selector) {
+                    for (var i = 0; i < this.length; i++) {
+                        var el = this[i];
+                        if ((el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector || el.webkitMatchesSelector || el.oMatchesSelector).call(el, selector)) return true;
+                    }
+                    return false;
+                }
+
+                bg.prototype.find = function (selector) {
+                    var context = this[0], matches = [];
+                    // Early return if context is not an element or document
+                    if (!context || (context.nodeType !== 1 && context.nodeType !== 9) || typeof selector != 'string') {
+                        return [];
+                    }
+
+                    for (var i = 0; i < this.length; i++) {
+                        var elm = this[i],
+                        nodes = bg(elm.querySelectorAll(selector));
+                        matches.push.apply(matches, nodes.slice());
+                    }
+
+                    return bg(matches);
+                };
+
+                bg.prototype.outerWidth = function () {
+                    var el = this[0];
+                    if (typeof el == 'undefined') return null;
+                    return el.offsetWidth;
+                };
+
+                bg.prototype.width = function () {
+                    var el = this[0];
+                    if (typeof el == 'undefined') return null;
+                    var computedStyle = getComputedStyle(el);
+                    var width = el.offsetWidth;
+                    if (computedStyle)
+                        width -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
+                    return width;
+                };
+
+            })();
+        }
+    }
+
+    ; (function ($, document, window) {
+
+        "use strict";
+
+        var pluginName = "wizardByGiro",
+        // the name of using in .data()
+        dataPlugin = "plugin_" + pluginName,
+        defaults = {
+            currentStep: 0,
+            checkStep: false,
+            onCompleted: false,
+            bottomButtons: true,
+            topButtons: true,
+            autoSubmit: false,
+            keyboard: false,
+            btnClass: 'btn',
+            btnClassDefault: 'btn-default',
+            btnClassCompleted: 'btn-success',
+            text: {
+                finished: 'Enviar',
+                next: 'Siguiente',
+                previous: 'Anterior'
+            }
+        },
+
+        attachEventsHandler = function () {
+            var that = this,
+            opts = this.options;
+
+            that.$element.find('.btn-next, .btn-prev').on('click', function (e) {
+                if ($(this).attr('disabled') || $(this).hasClass('disabled') || !$(this).is(':visible')) return;
+
+                var type = $(this).hasClass('btn-next') ? 'next' : 'previous';
+                e.stopPropagation();
+                that[type].call(that, true, e);
+            });
+
+            that.$element.find('.steps > li').on('click', function (e) {
+                e.stopPropagation();
+                var step = $(this).attr('data-step'),
+                isCompleted = $(this).hasClass('completed');
+                if (!isCompleted) return true;
+
+                that.setStep.call(that, step, e);
+            });
+
+            $(document).on('keydown', function (e) {
+                if (!that.$element.is(':visible')) return;
+
+                // arrow left
+                if (e.ctrlKey && e.keyCode == 37) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    that.previous.call(that, true, e);
+                }
+
+                // arrow right
+                if (e.ctrlKey && e.keyCode == 39) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    that.next.call(that, true, e);
+                }
+            });
+
+        },
+
+        checkStatus = function () {
+            var that = this,
+                currentWidth,
+                stepsWidth = 0,
+                stepPosition = false,
+                steps = that.$element.find('.steps'),
+                stepsItems = that.$element.find('.steps > li'),
+                opts = that.options;
+
+            if (!this.currentStep) this.currentStep = 1;
+
+            stepsItems.removeClass('active');
+            that.$element
+                .find('.steps > li[data-step="' + that.currentStep + '"]')
+                .addClass('active');
+
+            that.$element.find('.steps-content .step-pane').removeClass('active');
+            var current = that.$element.find('.steps-content .step-pane[data-step="' + that.currentStep + '"]');
+            current.addClass('active');
+
+            for (var i = 0; i < stepsItems.length; i++) {
+                var stepLi = $(stepsItems[i]);
+                if (that.currentStep > (i + 1)) {
+                    stepLi.addClass('completed');
+                } else {
+                    stepLi.removeClass('completed');
+                }
+
+                currentWidth = stepLi.outerWidth();
+                if (!stepPosition && stepLi.hasClass('active')) {
+                    stepPosition = stepsWidth + (currentWidth / 2);
+                }
+
+                stepsWidth += currentWidth;
+            }
+
+
+
+            // set buttons based on current step
+            that.$element.find('.btn-next').removeClass('final-step ' + opts.btnClassCompleted).addClass(opts.btnClassDefault);
+            that.$element.find('.btn-prev').removeClass('disabled hidden');
+            if (that.currentStep == stepsItems.length) {
+                // we are in the last step
+                that.$element.find('.btn-next').removeClass(opts.btnClassDefault).addClass('final-step ' + opts.btnClassCompleted);
+            } else if (that.currentStep == 1) {
+                that.$element.find('.btn-prev').addClass('disabled hidden');
+            }
+
+            // move steps view if needed
+            var totalWidth = that.$element.width() - that.$element.find('.actions').outerWidth();
+
+            if (stepsWidth < totalWidth) return;
+
+            var offsetDiff = stepPosition - (totalWidth / 2);
+            if (offsetDiff > 0) {
+                // move it forward
+                steps.css('left', -offsetDiff);
+            } else {
+                // move it backward
+                steps.css('left', 0);
+            }
+        },
+
+
+
+            moveStep = function (step, direction, event, checkStep) {
+            var that = this, canMove = true,
+            steps = that.$element.find('.steps > li'),
+            triggerEnd = false;
+
+            checkStep = checkStep === false ? false : true;
+
+            /////////////////////////////////////////////
+            canMove = customValidation(that.currentStep, direction);
+   
+            /////////////////////////////////////////////
+
+            // check we can move
+            if (checkStep && typeof that.options.checkStep == 'function') {
+                canMove = that.options.checkStep(that, direction, event);
+            }
+
+            if (!canMove) return;
+
+            if (step) {
+                that.currentStep = parseInt(step);
+            } else {
+                if (direction) {
+                    that.currentStep++;
+                } else {
+                    that.currentStep--;
+                }
+            }
+
+            that.$element.triggerHandler('step_changed.wizardByGiro');
+
+            if (that.currentStep < 0) that.currentStep = 0;
+            if (that.currentStep > steps.length) {
+                that.currentStep = steps.length;
+                triggerEnd = true;
+            }
+
+            checkStatus.call(that);
+
+            if (triggerEnd) {
+
+                var form = that.$element.closest('form');
+
+               
+                if (form.length) form.submit();
+
+                //if (typeof that.options.onCompleted == 'function') {
+                //    alert("1")
+                //    that.options.onCompleted(that);
+                //} else if (that.options.autoSubmit) {
+                //    // search if wizard is inside a form and submit it.
+                //    alert("2")
+                //    var form = that.$element.closest('form');
+                //    if (form.length) form.submit();
+                //}
+                //else
+                //alert("3")
+            }
+        },
+
+        methods = {
+            init: function (element, options) {
+                var that = this;
+                this.$element = $(element);
+                this.options = $.extend({}, defaults, options);
+
+                var opts = this.options;
+
+                this.$element.addClass('wizard');
+
+                // add the buttons
+                var stepsBar = this.$element.find('.steps'),
+                topActions = this.$element.find('.top-actions'),
+                bottomActions = this.$element.find('.bottom-actions'),
+                progressBar = this.$element.find('.progress-bar'),
+                html = '';
+
+                // wrap steps in a container with hidden overflow, if it doesn't have a container
+                if (stepsBar.parent().hasClass('wizard')) {
+                    // let's add a container
+                    stepsBar.wrap('<div class="steps-index-container"></div>');
+                } else {
+                    stepsBar.parent().addClass('steps-index-container');
+                }
+
+                if (opts.topButtons && stepsBar.length && !topActions.length) {
+                    html += '<div class="top-actions"><div class="btn-group">';
+                    html += '<span class="' + opts.btnClass + ' ' + opts.btnClassDefault + ' btn-prev"><span class="previous-text">' + opts.text.previous + '</span></span>';
+                    html += '<span class="' + opts.btnClass + ' ' + opts.btnClassDefault + ' btn-next"><span class="next-text">' + opts.text.next + '</span><span class="finished-text">' + opts.text.finished + '</span></span>';
+                    html += '</div></div>';
+
+                    stepsBar.after(html);
+                }
+
+                html = '';
+                if (opts.bottomButtons && !bottomActions.length) {
+                    html += '<div class="bottom-actions">';
+                    html += '<div class="left-actions"><span class="' + opts.btnClass + ' ' + opts.btnClassDefault + ' btn-prev"><span class="previous-text">' + opts.text.previous + '</span></span></div>';
+                    html += '<div class="right-actions"><span class="' + opts.btnClass + ' ' + opts.btnClassDefault + ' btn-next"><span class="next-text">' + opts.text.next + '</span><span class="finished-text">' + opts.text.finished + '</span></span></div>';
+                    html += '</div>';
+
+                    that.$element.find('.steps-content').append(html);
+                }
+
+                // add arrows to btn
+                this.$element.find('.btn-prev').prepend('<i class="wiz-icon-arrow-left"></i>');
+                this.$element.find('.btn-next').append('<i class="wiz-icon-arrow-right"></i>');
+
+                // get steps and prepare them
+                var stepsLi = this.$element.find('.steps > li');
+                for (var i = 0; i < stepsLi.length; i++) {
+                    var step = $(stepsLi[i]),
+                    target = step.attr('data-step'),
+                    content = '<span class="step-text">' + step.html() + '</span>';
+
+                    step.empty().html('<span class="step-index"><span class="label">' + (i + 1) + '</span></span>' + content + '<span class="wiz-icon-chevron-right colorA"></span><span class="wiz-icon-chevron-right colorB"></span>');
+
+                    that.$element.find('.steps-content [data-step="' + target + '"]').addClass('step-pane');
+
+                    // detect currentStep
+                    if (step.hasClass('active') && !that.currentStep) {
+                        that.currentStep = i + 1;
+                    }
+                }
+
+                this.$element.find('.steps > li:last-child').addClass('final');
+
+                attachEventsHandler.call(this);
+
+                var callbacks = ['checkStep', 'onCompleted'], cb;
+                for (var i = 0; i < callbacks.length; i++) {
+                    cb = callbacks[i];
+                    if (typeof this.options[cb] == 'string' && typeof window[this.options[cb]] == 'function') {
+                        this.options[cb] = window[this.options[cb]];
+                    }
+                }
+
+                checkStatus.call(this);
+            },
+
+            next: function (checkStep, event) {
+                moveStep.call(this, false, true, event, checkStep);
+            },
+
+            previous: function (checkStep, event) {
+                moveStep.call(this, false, false, event, checkStep);
+            },
+
+            setStep: function (step, checkStep, event) {
+                moveStep.call(this, step, null, event, checkStep);
+            }
+
+
+        };
+
+        function getData(table, format) {
+            var rows = table.tBodies[0].rows,
+                header_row = rows[0],
+                result = [],
+                header = [],
+                format = format || function (val) { return val; },
+                i, j, cell, row, row_data;
+
+            // extract header
+            for (i = 0, l = header_row.cells.length; i < l; i++) {
+                cell = header_row.cells[i];
+                header.push((cell.textContent || cell.innerText));
+            }
+
+            // extract values
+            for (i = 1, l = rows.length; i < l; i++) {
+                row = rows[i];
+                row_data = {};
+                for (j = 0, l = row.cells.length; j < l; j++) {
+                    cell = row.cells[j];
+                    row_data[header[j]] = format(i, j, cell.textContent || cell.innerText);
+                }
+                result.push(row_data);
+            }
+            return result;
+        }
+
+        function nameValidation() {
+            if ($("#Name").val().trim() === "") {
+                $("#NameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
+                return false;
+            }
+            else {
+                $("#NameMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function companyValidation() {
+
+            if ($("#Company").val().trim() === "") {
+                $("#CompanyMessage").html("<span class=text-danger>Ingrese la compania</span>");
+                return false;
+            }
+            else {
+                $("#CompanyMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function phoneValidation() {
+            if ($("#Phone").val().trim() === "") {
+                $("#PhoneMessage").html("<span class=text-danger>Ingrese el teléfono</span>");
+                return false;
+            }
+            else {
+                $("#PhoneMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function latitudeValidation() {
+            if ($("#Latitude").val().trim() === "") {
+                $("#LatitudeMessage").html("<span class=text-danger>Ingrese latitud</span>");
+                return false;
+            }
+            else {
+                $("#LatitudeMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+        function longitudeValidation() {
+            if ($("#Longitude").val().trim() === "") {
+                $("#LongitudeMessage").html("<span class=text-danger>Ingrese longitud</span>");
+                return false;
+            }
+            else {
+                $("#LongitudeMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function hasValidation() {
+            if ($("#Has").val().trim() === "") {
+                $("#HasMessage").html("<span class=text-danger>Ingrese las hectareas</span>");
+                return false;
+            }
+            else {
+                $("#HasMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function cityIdValidation() {
+            if ($("#CityId").val() === "") {
+                $("#CityIdMessage").html("<span class=text-danger>Seleccione la ciudad</span>");
+                return false;
+            }
+            else {
+                $("#CityIdMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function weatherStationIdValidation() {
+            if ($("#WeatherStationId").val() === "") {
+                $("#WeatherStationIdMessage").html("<span class=text-danger>Seleccione la estación</span>");
+                return false;
+            }
+            else {
+                $("#WeatherStationIdMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function bombNameValidation() {
+            if ($("#BombName").val().trim() === "") {
+                $("#BombNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
+                return false;
+            }
+            else {
+                $("#BombNameMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function bombLatitudeValidation() {
+            if ($("#BombLatitude").val().trim() === "") {
+                $("#BombLatitudeMessage").html("<span class=text-danger>Ingrese latitud</span>");
+                return false;
+            }
+            else {
+                $("#BombLatitudeMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+        function bombLongitudeValidation() {
+            if ($("#BombLongitude").val().trim() === "") {
+                $("#BombLongitudeMessage").html("<span class=text-danger>Ingrese longitud</span>");
+                return false;
+            }
+            else {
+                $("#BombLatitudeMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function customValidation(currentStep, direction) {
+            var move = true;
+            if (currentStep == "1") {
+
+                move = nameValidation();
+                move = companyValidation();
+                move = phoneValidation();
+                move = latitudeValidation();
+                move = longitudeValidation();
+                move = hasValidation();
+                move = cityIdValidation();
+                move = weatherStationIdValidation();
+
+                if (move) {
+
+                    $("#BombLatitude").val($("#Latitude").val().trim());
+                    $("#BombLongitude").val($("#Longitude").val().trim());
+                }
+            }
+
+            if (direction) {//se mueve hacia adelante
+                if (currentStep == "2") {
+                    move = bombNameValidation();
+                    move = bombLatitudeValidation();
+                    move = bombLongitudeValidation();
+                    if (move) {
+                        /*
+                        $("#NameConfirmation").html($("#Name").val());
+                        $("#SurnameConfirmation").html($("#Surname").val());
+                        $("#PhoneConfirmation").html($("#Phone").val());
+                        $("#AddressConfirmation").html($("#Address").val());
+                        $("#EmailConfirmation").html($("#Email").val());
+                        $("#RoleIdConfirmation").html($("#RoleId").find('option:selected').text());
+                        $("#UserNameConfirmation").html($("#UserName").val());
+                        */
+                    }
+                }
+            }
+            return move;
+        }
+        ////////////////////////////////////////////////////////////////
+
+        var main = function (method) {
+            var thisPlugin = this.data(dataPlugin);
+            if (thisPlugin) {
+                if (typeof method === 'string' && thisPlugin[method]) {
+                    return thisPlugin[method].apply(thisPlugin, Array.prototype.slice.call(arguments, 1));
+                }
+                return console.log('Method ' + arg + ' does not exist on jQuery / jqLite' + pluginName);
+            } else {
+                if (!method || typeof method === 'object') {
+                    thisPlugin = $.extend({}, methods);
+                    thisPlugin.init(this, method);
+                    this.data(dataPlugin, thisPlugin);
+
+                    return this;
+                }
+                return console.log(pluginName + ' is not instantiated. Please call $("selector").' + pluginName + '({options})');
+            }
+        };
+
+        // plugin integration
+        if ($.fn) {
+            $.fn[pluginName] = main;
+        } else {
+            $.prototype[pluginName] = main;
+        }
+
+        $(document).ready(function () {
+            var mySelector = document.querySelector('[data-wizard-init]');
+            $(mySelector)[pluginName]({});
+
+            $("#Name").focusout(function () {
+                nameValidation()
+            });
+
+            $("#Company").focusout(function () {
+                companyValidation()
+            });
+
+            $("#Phone").focusout(function () {
+                phoneValidation()
+            });
+           
+            $("#Latitude").focusout(function () {
+                latitudeValidation()
+            });
+
+            $("#Longitude").focusout(function () {
+                longitudeValidation()
+            });
+
+            $("#Has").focusout(function () {
+               hasValidation()
+            });
+
+            $("#CityId").change(function () {
+                cityIdValidation()
+            });
+
+            $("#WeatherStationId").change(function () {
+                weatherStationIdValidation()
+            });
+
+
+            $("#BombName").focusout(function () {
+                bombNameValidation()
+            });
+
+            $("#BombLatitude").focusout(function () {
+                bombLatitudeValidation()
+            });
+
+            $("#BombLongitude").focusout(function () {
+                bombLongitudeValidation()
+            });
+        });
+
+
+
+    }(bg, document, window));
+</script>
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        var jsonData = { "items": [] };
+        var cont = 0;
+
+        $(".add-row").click(function () {
+            var bombName = $("#BombName").val();
+            var serialNumber = $("#SerialNumber").val();
+            var serviceDate = $("#ServiceDate").val();
+            var purchaseDate = $("#PurchaseDate").val();
+            var bombLatitude = $("#BombLatitude").val();
+            var bombLongitude = $("#BombLongitude").val();
+
+            debugger;
+            jsonData.items.push({ "id": cont, "bombName": bombName, "serialNumber": serialNumber, "serviceDate": serviceDate, "purchaseDate": purchaseDate, "bombLatitude": bombLatitude, "bombLongitude": bombLongitude });
+            cont++;
+
+            var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td></tr>";
+            $("table tbody").append(markup);
+        });
+
+        // Find and remove selected table rows
+        $(".delete-row").click(function () {
+            $("table tbody").find('input[type="checkbox"]').each(function () {
+ 
+                if ($(this).is(":checked")) {
+
+                    var res = $(this).attr('id').split("|");
+                    var aa = res[1];
+                    var a = aa - 1;
+                   delete jsonData.items[a];
+                 
+
+                   $(this).parents("tr").remove();
+                 //  cont--;  
+                }
+                debugger;
+
+            });
+        });
+    });
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="container-fluid">
+        <div data-wizard-init>
+            <ul class="steps">
+                <li data-step="1">Establecimiento</li>
+                <li data-step="2">Bombas</li>
+                <li data-step="3">Confirmar</li>
+            </ul>
+            @*Html.ValidationSummary(true, "Error", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.wizardFarmViewModel., "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                *@
+            <div class="steps-content">
+                <div data-step="1">
+                    <h4>Establecimiento</h4>
+                    <p>
+                        <div class="form-group">
+                            <label class="control-label">Nombre</label>
+                            <input maxlength="50" id="Name" name="Name" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="NameMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Compañia</label>
+                            <input maxlength="50" id="Company" name="Company" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese apellido">
+                            <span id="CompanyMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Teléfono</label>
+                            <input maxlength="50" id="Phone" name="Phone" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese teléfono">
+                            <span id="PhoneMessage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Dirección</label>
+                            <input maxlength="50" id="Address" name="Address" type="text" class="form-control text-box single-line">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Latitud</label>
+                            <input maxlength="50" id="Latitude" name="Latitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese latitud">
+                            <span id="LatitudeMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Longitud</label>
+                            <input maxlength="50" id="Longitude" name="Longitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese longitud">
+                            <span id="LongitudeMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Hectareas</label>
+                            <input maxlength="50" id="Has" name="Has" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese las hectareas">
+                            <span id="HasMessage"></span>
+                        </div>                    
+                        <div class="form-group">
+                            <label class="control-label">Estación</label>
+                            <select id="WeatherStationId" name="WeatherStationId" class="form-control">
+                                <option value="">-- Seleccione Estación --</option>
+                                
+                                @foreach (var item in Model.WizardFarmViewModel.WeatherStation)
+                                        {
+                                            <option value=@item.Value>@item.Text</option>
+                                }
+                            </select>
+                            <span id="WeatherStationIdMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Ciudad</label>
+                            <select id="CityId" name="CityId" class="form-control">
+                                <option value="">-- Seleccione Estación --</option>
+                                @foreach (var item in Model.WizardFarmViewModel.City)
+                                {
+                                    <option value=@item.Value>@item.Text</option>
+                               } 
+                            </select>
+                            <span id="CityIdMessage"></span>
+                        </div>
+                           
+                    </p>
+                </div>
+                <div data-step="2">
+                    <h4>Bombas</h4>
+                    <p>
+ 
+                        <div class="form-group">
+                            <label class="control-label">Nombre</label>
+                            <input maxlength="50" id="BombName" name="BombName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="NameMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Número de serie</label>
+                            <input maxlength="50" id="SerialNumber" name="SerialNumber" type="text"  class="form-control text-box single-line">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Fecha de servicio</label>
+                            <input maxlength="50" id="ServiceDate" name="ServiceDate" class="form-control text-box single-line">
+                            <span id="PhoneMessage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Fecha de compra</label>
+                            <input maxlength="50" id="PurchaseDate" name="PurchaseDate" type="text" class="form-control text-box single-line">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Latitud</label>
+                            <input maxlength="50" id="BombLatitude" name="BombLatitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese latitud">
+                            <span id="BombLatitudeMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Longitud</label>
+                            <input maxlength="50" id="BombLongitude" name="BombLongitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese longitud">
+                            <span id="BombLongitudeMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="add-row" value="Agragar bomba"><input type="button" class="delete-row" value="Quitar bomba">
+                        </div> 
+                        <table id="BombTable">
+                            <thead>
+                                <tr>
+                                    <th width="10%">Seleccionar</th>
+                                    <th>Bomba</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                        </table>                   
+                    </p>
+                </div>
+                <div data-step="3">
+                    <h4>Confirmar</h4>
+                    <p>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}

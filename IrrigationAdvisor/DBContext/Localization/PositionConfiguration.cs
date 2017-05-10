@@ -11,6 +11,8 @@ namespace IrrigationAdvisor.DBContext.Localization
     public class PositionConfiguration:
         EntityTypeConfiguration<Position>
     {
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
         public PositionConfiguration()
         {
             ToTable("Position");
@@ -23,6 +25,22 @@ namespace IrrigationAdvisor.DBContext.Localization
             Property(l => l.Longitude)
                 .IsRequired();
             Ignore(l => l.ThePosition);
+        }
+
+        /// <summary>
+        /// Get Latitude by Position Id
+        /// </summary>
+        /// <param name="pPositionId"></param>
+        /// <returns></returns>
+        public long GetPositionIdByLatitudLongitud(double pLatitude, double pLongitude)
+        {
+            long lReturn = 0;
+            
+            lReturn = db.Positions
+                            .Where(p => p.Latitude == pLatitude && p.Longitude == pLongitude)
+                            .FirstOrDefault().PositionId;
+
+            return lReturn;
         }
     }
 }
