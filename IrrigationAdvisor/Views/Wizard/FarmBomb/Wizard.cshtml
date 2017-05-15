@@ -237,7 +237,7 @@
 
                 var form = that.$element.closest('form');
 
-               
+                
                 if (form.length) form.submit();
 
                 //if (typeof that.options.onCompleted == 'function') {
@@ -522,15 +522,17 @@
                     move = bombLatitudeValidation();
                     move = bombLongitudeValidation();
                     if (move) {
-                        /*
+                        //cargo los datos para el paso de confiramcion
                         $("#NameConfirmation").html($("#Name").val());
-                        $("#SurnameConfirmation").html($("#Surname").val());
+                        $("#CompanyConfirmation").html($("#Company").val());
                         $("#PhoneConfirmation").html($("#Phone").val());
                         $("#AddressConfirmation").html($("#Address").val());
-                        $("#EmailConfirmation").html($("#Email").val());
-                        $("#RoleIdConfirmation").html($("#RoleId").find('option:selected').text());
-                        $("#UserNameConfirmation").html($("#UserName").val());
-                        */
+                        $("#LatitudeConfirmation").html($("#Latitude").val());
+                        $("#LongitudeConfirmation").html($("#Longitude").val());
+                        $("#HasConfirmation").html($("#Has").val());
+                        $("#WeatherStationIdConfirmation").html($("#WeatherStationId").find('option:selected').text());
+                        $("#CityIdConfirmation").html($("#CityId").find('option:selected').text());
+                       // jsonData.items.push({ "id": "", "bombName": "", "serialNumber": "", "serviceDate": "", "purchaseDate": "", "bombLatitude": "", "bombLongitude": "" });
                     }
                 }
             }
@@ -627,7 +629,7 @@
         var jsonData = { "items": [] };
         var cont = 0;
 
-        $(".add-row").click(function () {
+        $("#add-row").click(function () {
             var bombName = $("#BombName").val();
             var serialNumber = $("#SerialNumber").val();
             var serviceDate = $("#ServiceDate").val();
@@ -639,12 +641,15 @@
             jsonData.items.push({ "id": cont, "bombName": bombName, "serialNumber": serialNumber, "serviceDate": serviceDate, "purchaseDate": purchaseDate, "bombLatitude": bombLatitude, "bombLongitude": bombLongitude });
             cont++;
 
-            var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td></tr>";
-            $("table tbody").append(markup);
+            var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>";
+           // $("table tbody").append(markup);
+            $("#BombsTable").append("<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
+            $("#BombsTableConfirmation").append("<tr><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
+            $("#BombsHidden").val(JSON.stringify(jsonData));
         });
 
         // Find and remove selected table rows
-        $(".delete-row").click(function () {
+        $("#delete-row").click(function () {
             $("table tbody").find('input[type="checkbox"]').each(function () {
  
                 if ($(this).is(":checked")) {
@@ -659,16 +664,19 @@
                  //  cont--;  
                 }
                 debugger;
+                $("#BombsHidden").val(JSON.stringify(jsonData));
 
             });
         });
+
+
     });
 </script>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create","WizardFarmBomb"))
 {
     @Html.AntiForgeryToken()
 
-
+<input id="BombsHidden" name="BombsHidden" type="hidden">
     <div class="container-fluid">
         <div data-wizard-init>
             <ul class="steps">
@@ -759,15 +767,16 @@
                             <input maxlength="50" id="SerialNumber" name="SerialNumber" type="text"  class="form-control text-box single-line">
                         </div>
                         <div class="form-group">
+                            <label class="control-label">Fecha de compra</label>
+                            <input maxlength="50" id="PurchaseDate" name="PurchaseDate" type="date" class="form-control text-box single-line">
+                        </div>                       
+                         <div class="form-group">
                             <label class="control-label">Fecha de servicio</label>
-                            <input maxlength="50" id="ServiceDate" name="ServiceDate" class="form-control text-box single-line">
+                             <input maxlength="50" id="ServiceDate" name="ServiceDate" type="date" class="form-control text-box single-line">
                             <span id="PhoneMessage"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label">Fecha de compra</label>
-                            <input maxlength="50" id="PurchaseDate" name="PurchaseDate" type="text" class="form-control text-box single-line">
-                        </div>
+
                         <div class="form-group">
                             <label class="control-label">Latitud</label>
                             <input maxlength="50" id="BombLatitude" name="BombLatitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese latitud">
@@ -779,26 +788,86 @@
                             <span id="BombLongitudeMessage"></span>
                         </div>
                         <div class="form-group">
-                            <input type="button" class="add-row" value="Agragar bomba"><input type="button" class="delete-row" value="Quitar bomba">
+                         <!--  <input type="button" class="add-row" value="Agragar bomba"><input type="button" class="delete-row" value="Quitar bomba">--> 
+                            <input type="button" class="btn btn-success" id="add-row" value="Agregar bomba"> 
                         </div> 
-                        <table id="BombTable">
+                        <table id="BombsTable" class="main-table-advisor" cellpadding="10">
                             <thead>
-                                <tr>
-                                    <th width="10%">Seleccionar</th>
-                                    <th>Bomba</th>
+                                <tr style="height:40px">
+                                    <th width="5%" align="center">Seleccionar</th>
+                                    <th>Nombre</th>
+                                    <th>Número de serie</th>
+                                    <th>Fecha de compra</th>
+                                    <th>Fecha de servicio</th>
+                                    <th>Latitud</th>
+                                    <th>Longitud</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                        </table>  
+                        <br>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-success" id="delete-row" value="Quitar bomba">
+                        </div> 
+</p>
+                </div>
+                <div data-step="3">
+                    <h4>Confirmar</h4>
+                    <p>
+                        <div class="form-group">
+                            <label class="control-label">Nombre: </label>
+                            <span class="control-label" id="NameConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Compañia: </label>
+                            <span class="control-label" id="CompanyConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Teléfono: </label>
+                            <span class="control-label" id="PhoneConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Dirección: </label>
+                            <span class="control-label" id="AddressConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Latitud: </label>
+                            <span class="control-label" id="LatitudeConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Longitude: </label>
+                            <span class="control-label" id="LongitudeConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Hectareas: </label>
+                            <span class="control-label" id="HasConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Estación: </label>
+                            <span class="control-label" id="WeatherStationIdConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Ciudad: </label>
+                            <span class="control-label" id="CityIdConfirmation"></span>
+                        </div>
+                        <table id="BombsTableConfirmation" class="main-table-advisor">
+                            <thead>
+                                <tr style="height:40px">
+                                    <th>Nombre</th>
+                                    <th>Número de serie</th>
+                                    <th>Fecha de compra</th>
+                                    <th>Fecha de servicio</th>
+                                    <th>Latitud</th>
+                                    <th>Longitud</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr></tr>
                             </tbody>
-                        </table>                   
-                    </p>
-                </div>
-                <div data-step="3">
-                    <h4>Confirmar</h4>
-                    <p>
-
+                        </table>   
                     </p>
                 </div>
 

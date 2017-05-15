@@ -28,17 +28,21 @@ namespace IrrigationAdvisor.DBContext.Localization
         }
 
         /// <summary>
-        /// Get Latitude by Position Id
+        /// Get PositionId by Position latitude and longitude
         /// </summary>
-        /// <param name="pPositionId"></param>
+        /// <param name="pLatitude"></param>
+        /// <param name="pLongitude"></param>
         /// <returns></returns>
         public long GetPositionIdByLatitudLongitud(double pLatitude, double pLongitude)
         {
             long lReturn = 0;
-            
-            lReturn = db.Positions
-                            .Where(p => p.Latitude == pLatitude && p.Longitude == pLongitude)
-                            .FirstOrDefault().PositionId;
+
+            if (db.Positions.Where(p => p.Latitude == pLatitude && p.Longitude == pLongitude).Count() > 0)
+            {
+                lReturn = db.Positions
+                                .Where(p => p.Latitude == pLatitude && p.Longitude == pLongitude)
+                                .FirstOrDefault().PositionId;
+            }
 
             return lReturn;
         }

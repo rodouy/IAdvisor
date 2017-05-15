@@ -29,10 +29,10 @@ namespace IrrigationAdvisor.ViewModels.Wizard
         public String Phone { get; set; }
  
         [Required]
-        public String Latitude { get; set; }   
+        public long Latitude { get; set; }   
      
         [Required]
-        public String Longitude { get; set; }
+        public long Longitude { get; set; }
         
         [Required]
         public int Has { get; set; }

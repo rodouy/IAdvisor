@@ -889,7 +889,6 @@
     <Folder Include="Views\Default\" />
     <Folder Include="Views\TemperatureDatas\" />
     <Folder Include="Views\Utilities\" />
-    <Folder Include="Views\WizardFarm\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Project_Readme.html" />
