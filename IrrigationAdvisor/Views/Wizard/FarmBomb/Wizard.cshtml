@@ -1,4 +1,4 @@
-﻿@model IrrigationAdvisor.ViewModels.Wizard.WizardFarmBombViewModel
+﻿@model IrrigationAdvisor.ViewModels.Wizard.WizardFarmViewModel
 
 <link href="~/css/wizard.css" rel="stylesheet" />
 
@@ -390,7 +390,7 @@
         function companyValidation() {
 
             if ($("#Company").val().trim() === "") {
-                $("#CompanyMessage").html("<span class=text-danger>Ingrese la compania</span>");
+                $("#CompanyMessage").html("<span class=text-danger>Ingrese la compañia</span>");
                 return false;
             }
             else {
@@ -433,12 +433,18 @@
 
         function hasValidation() {
             if ($("#Has").val().trim() === "") {
-                $("#HasMessage").html("<span class=text-danger>Ingrese las hectareas</span>");
-                return false;
-            }
+                    $("#HasMessage").html("<span class=text-danger>Ingrese las hectareas</span>");
+                    return false;
+                }
             else {
-                $("#HasMessage").html("<span class=text-danger></span>");
-                return true;
+                if (!isNaN($("#Has").val())) {
+                    $("#HasMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#HasMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
             }
         }
 
@@ -465,11 +471,13 @@
         }
 
         function bombNameValidation() {
+           
             if ($("#BombName").val().trim() === "") {
                 $("#BombNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
                 return false;
             }
             else {
+              
                 $("#BombNameMessage").html("<span class=text-danger></span>");
                 return true;
             }
@@ -500,17 +508,10 @@
             var move = true;
             if (currentStep == "1") {
 
-                move = nameValidation();
-                move = companyValidation();
-                move = phoneValidation();
-                move = latitudeValidation();
-                move = longitudeValidation();
-                move = hasValidation();
-                move = cityIdValidation();
-                move = weatherStationIdValidation();
+                move = nameValidation() && companyValidation() && phoneValidation() && latitudeValidation() && longitudeValidation() && hasValidation() && cityIdValidation() && weatherStationIdValidation()
 
                 if (move) {
-
+                   
                     $("#BombLatitude").val($("#Latitude").val().trim());
                     $("#BombLongitude").val($("#Longitude").val().trim());
                 }
@@ -518,10 +519,13 @@
 
             if (direction) {//se mueve hacia adelante
                 if (currentStep == "2") {
-                    move = bombNameValidation();
-                    move = bombLatitudeValidation();
-                    move = bombLongitudeValidation();
+                   //la validacione del nombre nomber de bomba y campos requeridos se hace al agregar un item en la tabla...
+                    move = parseInt($("#BombsQuantity").val()) > 0;
+
+
                     if (move) {
+
+                        $('#BombsTableConfirmation').html($('#BombsTable').html());
                         //cargo los datos para el paso de confiramcion
                         $("#NameConfirmation").html($("#Name").val());
                         $("#CompanyConfirmation").html($("#Company").val());
@@ -532,8 +536,14 @@
                         $("#HasConfirmation").html($("#Has").val());
                         $("#WeatherStationIdConfirmation").html($("#WeatherStationId").find('option:selected').text());
                         $("#CityIdConfirmation").html($("#CityId").find('option:selected').text());
+
+                        $("#NotBombMessage").html("<span class=text-danger></span>");
                        // jsonData.items.push({ "id": "", "bombName": "", "serialNumber": "", "serviceDate": "", "purchaseDate": "", "bombLatitude": "", "bombLongitude": "" });
                     }
+                    {
+                        $("#NotBombMessage").html("<span class=text-danger>Debe agregar por lo menos una bomba</span>");
+                    }
+    
                 }
             }
             return move;
@@ -569,7 +579,7 @@
         $(document).ready(function () {
             var mySelector = document.querySelector('[data-wizard-init]');
             $(mySelector)[pluginName]({});
-
+            ///CP: ACTIV VALIDATION
             $("#Name").focusout(function () {
                 nameValidation()
             });
@@ -602,7 +612,6 @@
                 weatherStationIdValidation()
             });
 
-
             $("#BombName").focusout(function () {
                 bombNameValidation()
             });
@@ -614,6 +623,60 @@
             $("#BombLongitude").focusout(function () {
                 bombLongitudeValidation()
             });
+            ////END ACTIV VALIDATION///////////////////
+
+            ///CP: ACTIV BOMBS TABLE
+            
+            var jsonData = { "items": [] };
+            var cont = 0;
+
+            $("#add-row").click(function () {
+                if (bombNameValidation() && bombNameValidation() && bombNameValidation())
+                {
+                    var bombName = $("#BombName").val();
+                    var serialNumber = $("#SerialNumber").val();
+                    var serviceDate = $("#ServiceDate").val();
+                    var purchaseDate = $("#PurchaseDate").val();
+                    var bombLatitude = $("#BombLatitude").val();
+                    var bombLongitude = $("#BombLongitude").val();
+
+                    debugger;
+                    jsonData.items.push({ "id": cont, "bombName": bombName, "serialNumber": serialNumber, "serviceDate": serviceDate, "purchaseDate": purchaseDate, "bombLatitude": bombLatitude, "bombLongitude": bombLongitude });
+                    cont++;
+
+                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>";
+                    $("#BombsTable").append("<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
+       //             $("#BombsTableConfirmation").append("<tr><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
+                    $("#BombsHidden").val(JSON.stringify(jsonData));
+
+                    $("#BombsQuantity").val(parseInt($("#BombsQuantity").val()) + 1);
+                    $("#NotBombMessage").html("<span class=text-danger></span>");
+                }
+            });
+
+            // Find and remove selected table rows
+            $("#delete-row").click(function () {
+                $("table tbody").find('input[type="checkbox"]').each(function () {
+
+                    if ($(this).is(":checked")) {
+
+                        var res = $(this).attr('id').split("|");
+                        var aa = res[1];
+                        var a = aa - 1;
+                        delete jsonData.items[a];
+
+
+                        $(this).parents("tr").remove();
+                        var a = $("#BombsQuantity").val();
+                        $("#BombsQuantity").val(parseInt($("#BombsQuantity").val()) - 1);
+                    }
+                   
+                    $("#BombsHidden").val(JSON.stringify(jsonData));
+
+                });
+            });
+
+
         });
 
 
@@ -626,48 +689,7 @@
 
     $(document).ready(function () {
 
-        var jsonData = { "items": [] };
-        var cont = 0;
 
-        $("#add-row").click(function () {
-            var bombName = $("#BombName").val();
-            var serialNumber = $("#SerialNumber").val();
-            var serviceDate = $("#ServiceDate").val();
-            var purchaseDate = $("#PurchaseDate").val();
-            var bombLatitude = $("#BombLatitude").val();
-            var bombLongitude = $("#BombLongitude").val();
-
-            debugger;
-            jsonData.items.push({ "id": cont, "bombName": bombName, "serialNumber": serialNumber, "serviceDate": serviceDate, "purchaseDate": purchaseDate, "bombLatitude": bombLatitude, "bombLongitude": bombLongitude });
-            cont++;
-
-            var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>";
-           // $("table tbody").append(markup);
-            $("#BombsTable").append("<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
-            $("#BombsTableConfirmation").append("<tr><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
-            $("#BombsHidden").val(JSON.stringify(jsonData));
-        });
-
-        // Find and remove selected table rows
-        $("#delete-row").click(function () {
-            $("table tbody").find('input[type="checkbox"]').each(function () {
- 
-                if ($(this).is(":checked")) {
-
-                    var res = $(this).attr('id').split("|");
-                    var aa = res[1];
-                    var a = aa - 1;
-                   delete jsonData.items[a];
-                 
-
-                   $(this).parents("tr").remove();
-                 //  cont--;  
-                }
-                debugger;
-                $("#BombsHidden").val(JSON.stringify(jsonData));
-
-            });
-        });
 
 
     });
@@ -677,6 +699,7 @@
     @Html.AntiForgeryToken()
 
 <input id="BombsHidden" name="BombsHidden" type="hidden">
+<input id="BombsQuantity" name="BombsQuantity" type="hidden" value="0">
     <div class="container-fluid">
         <div data-wizard-init>
             <ul class="steps">
@@ -684,8 +707,8 @@
                 <li data-step="2">Bombas</li>
                 <li data-step="3">Confirmar</li>
             </ul>
-            @*Html.ValidationSummary(true, "Error", new { @class = "text-danger" })
-            @Html.ValidationMessageFor(model => model.wizardFarmViewModel., "", new { @class = "text-danger" })
+            @Html.ValidationSummary(true, "Error", new { @class = "text-danger" })
+            @*@Html.ValidationMessageFor(model => model.wizardFarmViewModel., "", new { @class = "text-danger" })
             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                 *@
             <div class="steps-content">
@@ -716,6 +739,7 @@
                             <label class="control-label">Latitud</label>
                             <input maxlength="50" id="Latitude" name="Latitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese latitud">
                             <span id="LatitudeMessage"></span>
+                            @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label class="control-label">Longitud</label>
@@ -732,7 +756,7 @@
                             <select id="WeatherStationId" name="WeatherStationId" class="form-control">
                                 <option value="">-- Seleccione Estación --</option>
                                 
-                                @foreach (var item in Model.WizardFarmViewModel.WeatherStation)
+                                @foreach (var item in Model.WeatherStation)
                                         {
                                             <option value=@item.Value>@item.Text</option>
                                 }
@@ -743,7 +767,7 @@
                             <label class="control-label">Ciudad</label>
                             <select id="CityId" name="CityId" class="form-control">
                                 <option value="">-- Seleccione Estación --</option>
-                                @foreach (var item in Model.WizardFarmViewModel.City)
+                                @foreach (var item in Model.City)
                                 {
                                     <option value=@item.Value>@item.Text</option>
                                } 
@@ -760,7 +784,7 @@
                         <div class="form-group">
                             <label class="control-label">Nombre</label>
                             <input maxlength="50" id="BombName" name="BombName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
-                            <span id="NameMessage"></span>
+                            <span id="BombNameMessage"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Número de serie</label>
@@ -788,8 +812,8 @@
                             <span id="BombLongitudeMessage"></span>
                         </div>
                         <div class="form-group">
-                         <!--  <input type="button" class="add-row" value="Agragar bomba"><input type="button" class="delete-row" value="Quitar bomba">--> 
-                            <input type="button" class="btn btn-success" id="add-row" value="Agregar bomba"> 
+                         
+                            <input type="button" class="btn btn-success" id="add-row" value="Agregar bomba"> <span id="NotBombMessage"></span>
                         </div> 
                         <table id="BombsTable" class="main-table-advisor" cellpadding="10">
                             <thead>

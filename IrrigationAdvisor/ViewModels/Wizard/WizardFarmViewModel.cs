@@ -8,16 +8,6 @@ namespace IrrigationAdvisor.ViewModels.Wizard
 {
     public class WizardFarmViewModel
     {
-
-         public WizardFarmViewModel()
-        {
-            this.WeatherStation = new List<System.Web.Mvc.SelectListItem>();
-            this.City = new List<System.Web.Mvc.SelectListItem>();
-            
-        }
-
-
-         
         [Required]
         public String Name { get; set; }
 
@@ -26,27 +16,42 @@ namespace IrrigationAdvisor.ViewModels.Wizard
 
         public String Address { get; set; }
 
+        [Required]
         public String Phone { get; set; }
- 
+
         [Required]
-        public long Latitude { get; set; }   
-     
+        [Range(0, double.MaxValue, ErrorMessage = "Ingrese latitud válida")]
+        public double Latitude { get; set; }
+
         [Required]
-        public long Longitude { get; set; }
-        
+        [Range(0, double.MaxValue, ErrorMessage = "Ingrese longitud válida")]
+        public double Longitude { get; set; }
+
         [Required]
+        [Range(0, int.MaxValue, ErrorMessage = "Ingrese cantidad de hectareas válidas")]
         public int Has { get; set; }
 
-         [Required]
+        [Required]
         public long CityId { get; set; }
 
-         [Required]
-         public long WeatherStationId { get; set; }
-       
-        public List<System.Web.Mvc.SelectListItem> City { get; set; }
-        
         [Required]
+        public long WeatherStationId { get; set; }
+
+        public List<System.Web.Mvc.SelectListItem> City { get; set; }
+
+        
         public List<System.Web.Mvc.SelectListItem> WeatherStation { get; set; }
+     
+        public string BombsHidden { get; set; }
+
+        public WizardFarmViewModel()
+        {
+            this.WeatherStation = new List<System.Web.Mvc.SelectListItem>();
+            this.City = new List<System.Web.Mvc.SelectListItem>();
+            
+        }
+      
+
     }
 
 }

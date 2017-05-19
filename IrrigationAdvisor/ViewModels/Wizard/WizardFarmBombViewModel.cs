@@ -19,6 +19,11 @@ namespace IrrigationAdvisor.ViewModels.Wizard
             this.WizardBombViewModel = new WizardBombViewModel();
          }
 
+        public WizardFarmBombViewModel(WizardFarmViewModel f, WizardBombViewModel b )
+        {
+            WizardFarmViewModel = f;
+            WizardBombViewModel = b;
+        }
         
          
    

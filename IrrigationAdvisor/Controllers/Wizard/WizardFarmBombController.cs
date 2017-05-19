@@ -14,6 +14,7 @@ using IrrigationAdvisor.Models;
 
 using IrrigationAdvisor.Models.Irrigation;
 using Newtonsoft.Json;
+using IrrigationAdvisor.Models.Utilities;
 
 
 
@@ -29,10 +30,13 @@ namespace IrrigationAdvisor.Controllers.Wizard
         // GET: Users/Create
         public ActionResult Index()
         {
-            WizardFarmBombViewModel vm = new WizardFarmBombViewModel();
+            //WizardFarmBombViewModel vm = new WizardFarmBombViewModel();
 
-            vm.WizardFarmViewModel.City = this.LoadCities();
-            vm.WizardFarmViewModel.WeatherStation = this.LoadWeatherStations();
+            WizardFarmViewModel vm = new WizardFarmViewModel();
+
+
+            vm.City = this.LoadCities();
+            vm.WeatherStation = this.LoadWeatherStations();
 
             return View("~/Views/Wizard/FarmBomb/Wizard.cshtml", vm);
         }
@@ -40,53 +44,80 @@ namespace IrrigationAdvisor.Controllers.Wizard
 
         // POST: Users/Create;
         [HttpPost]
-        public ActionResult Create([Bind(Include = "Name,Company, Phone, Address, Latitude, Longitude, Has, WeatherStationId, CityId, BombsHidden")] WizardFarmBombViewModel vm)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Name,Company, Phone, Address, Latitude, Longitude, Has, WeatherStationId, CityId, BombsHidden")] WizardFarmViewModel vm)
+        
         {
-   
-            string BombsHidden = @"{""items"":[{""id"":""0"",""bombName"":""d"",""serialNumber"":""d"",""serviceDate"":"""",""purchaseDate"":"""",""bombLatitude"":""a"",""bombLongitude"":""a""}]}";
-            double Latitude = -2232; //vm.WizardFarmViewModel.Latitude;
-            double Longitude = -3232323; //vm.WizardFarmViewModel.Longitude;
-
+  
             if (ModelState.IsValid)
             {
 
                 Farm farmMapped = new Farm();
-                long lFarmPositionId = GetPositionId(Latitude, Longitude);
+                long lFarmPositionId = GetPositionId(vm.Latitude, vm.Longitude);
+                long lBombPositionId;
 
-                //Not exist farm position, create, and get id
-                if (lFarmPositionId == 0)
-                {
-                    // FALTA CREAR POSICION NUEVA 
-                    // OBTENER EL ID
-                    // db.Positions.Add()
-                    //lFarmPositionId= db.Positions.ma
-                }
+                 Position positionFarm = new Position();              
+                //Not exist position to farm
+                 if (lFarmPositionId == 0)
+                 {
+                     positionFarm.Latitude = vm.Latitude;
+                     positionFarm.Longitude = vm.Longitude;
+                     positionFarm.Name = "DEFINIR El NOMBRE DE LA POS";
+                     farmMapped.Position = positionFarm;
+                 }
+                 else
+                 {
+                     farmMapped.PositionId = lFarmPositionId;
+                 }
 
-                
-                dynamic items = JsonConvert.DeserializeObject(BombsHidden);
+                // working whit bombs
+                dynamic items = JsonConvert.DeserializeObject(vm.BombsHidden);
                 foreach (var item in items.items)
                 {
+                    double bombLatitud = Convert.ToDouble((String)(item.bombLatitude));
+                    double bombLongitude =  Convert.ToDouble((String)item.bombLongitude);
+
                     Bomb b = new Bomb();
                     b.Name = item.bombName;
                     b.SerialNumber = item.serialNumber;
-                    b.ServiceDate = item.serviceDate;
-                    b.PurchaseDate = item.purchaseDate;
 
+                    b.ServiceDate = ((String)item.serviceDate == "") ? Utils.MIN_DATETIME : item.serviceDate  ;
+                    b.PurchaseDate = ((String)item.purchaseDate == "") ? Utils.MIN_DATETIME : item.purchaseDate;
+                    
                     //position bomb is diferent to position farm
-                    if (vm.WizardFarmViewModel.Latitude != item.bombLatitude || vm.WizardFarmViewModel.Longitude != item.bombLongitude)
-                        b.PositionId = GetPositionId(item.bombLatitude, item.bombLongitude);
+                    if (vm.Latitude != bombLatitud || vm.Longitude != bombLongitude)
+                    {
+                        lBombPositionId = GetPositionId((double)item.bombLatitude, (double)item.bombLongitude);
 
-                    farmMapped.AddBomb(b);
+                        //Not exist position to bomb
+                        if (lBombPositionId == 0)
+                        {
+                            Position positionBomb = new Position();
+                            positionBomb.Latitude = item.bombLatitude;
+                            positionBomb.Longitude = item.bombLongitude;
+                            positionBomb.Name = "DEFINIR El NOMBRE DE LA POS";
+                            b.Position = positionBomb;
+                        }
+                        else
+                        {
+                            b.PositionId = lBombPositionId;
+                        }
+                    }
+                    else
+                    {
+                        b.PositionId = lFarmPositionId;
+                    }
+
+                    farmMapped.AddBomb(b); 
                 }
-                
-                farmMapped.Name = vm.WizardFarmViewModel.Name;
-                farmMapped.Company = vm.WizardFarmViewModel.Company;
-                farmMapped.Address = vm.WizardFarmViewModel.Address;
-                farmMapped.Phone = vm.WizardFarmViewModel.Phone;
-                farmMapped.PositionId = lFarmPositionId;
-                farmMapped.Has = vm.WizardFarmViewModel.Has;
-                farmMapped.WeatherStationId = vm.WizardFarmViewModel.WeatherStationId;
-                farmMapped.CityId = vm.WizardFarmViewModel.CityId;
+
+                farmMapped.Name = vm.Name;
+                farmMapped.Company = vm.Company;
+                farmMapped.Address = vm.Address;
+                farmMapped.Phone = vm.Phone;
+                farmMapped.Has = vm.Has;
+                farmMapped.WeatherStationId = vm.WeatherStationId;
+                farmMapped.CityId = vm.CityId;
  
                 db.SaveChanges();
 
