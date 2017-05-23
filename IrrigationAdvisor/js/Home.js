@@ -778,7 +778,8 @@ $(document).ready(function () {
     var moveIrrigation = function (pDateToMove, pWaterInputId, pWaterInputOldDate, pCIWId, pCIWName, pMilimiters) {
 
         var pUrl = './MoveIrrigation?pDateToMove=' + pDateToMove +
-                    '&pWaterInputId=' + pWaterInputId;
+                    '&pWaterInputId=' + pWaterInputId +
+                     '&farm=' + lstFarms.val();
 
         $('#floatingCirclesG').show();
 
@@ -936,7 +937,8 @@ $(document).ready(function () {
                 '&pDateTo=' + pDateTo +
                 '&pCIW=' + pCIW +
                 '&pReason=' + pReason +
-                '&pObservations=' + pObservations;
+                '&pObservations=' + pObservations +
+                '&farm=' + lstFarms.val();
 
         $.ajax({
             type: 'GET',

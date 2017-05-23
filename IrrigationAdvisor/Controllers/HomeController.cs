@@ -487,15 +487,10 @@ namespace IrrigationAdvisor.Controllers
             return lResult;
         }
 
-        /// <summary>
-        /// Get Farms for the current user
-        /// </summary>
-        /// <returns>Json with the Farms</returns>
-        public JsonResult GetFarmsByUser()
+        private List<Farm> GetFarmsByUserAsList()
         {
-            FarmConfiguration lFc = new FarmConfiguration();
             UserConfiguration lUc = new UserConfiguration();
-            List<FarmShortView> lFarmShortViews = new List<FarmShortView>();
+            FarmConfiguration lFc = new FarmConfiguration();
 
             try
             {
@@ -509,8 +504,37 @@ namespace IrrigationAdvisor.Controllers
 
                     if (lUser != null)
                     {
-                        List<Farm> lFarmList = lFc.GetFarmWithActiveCropIrrigationWeathersListBy(lUser);
+                        return lFc.GetFarmWithActiveCropIrrigationWeathersListBy(lUser);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.GetFarmsByUserAsList ");
+            }
 
+            return null;
+        }
+        /// <summary>
+        /// Get Farms for the current user
+        /// </summary>
+        /// <returns>Json with the Farms</returns>
+        public JsonResult GetFarmsByUser()
+        {       
+            List<FarmShortView> lFarmShortViews = new List<FarmShortView>();
+
+            try
+            {
+                LoginViewModel lLoginViewModel = ManageSession.GetLoginViewModel();
+
+                if (lLoginViewModel != null)
+                {
+                    string lUserName = lLoginViewModel.UserName;
+      
+                    List<Farm> lFarmList = GetFarmsByUserAsList();
+
+                    if (lFarmList != null)
+                    {
                         foreach (var item in lFarmList)
                         {
                             FarmShortView lFarmShortView = new FarmShortView()
@@ -520,15 +544,15 @@ namespace IrrigationAdvisor.Controllers
                             };
 
                             lFarmShortViews.Add(lFarmShortView);
-                        }
-
-                        return Json(lFarmShortViews, JsonRequestBehavior.AllowGet);
+                        } 
                     }
                     else
                     {
                         // Que pasa cuando no encuentro en User ?
                         return Json("The user not exists", JsonRequestBehavior.AllowGet);
                     }
+
+                    return Json(lFarmShortViews, JsonRequestBehavior.AllowGet);                              
                 }
                 else
                 {
@@ -1468,32 +1492,34 @@ namespace IrrigationAdvisor.Controllers
                 }
 
                 lSaveChanges = lContext.SaveChanges();
-                //}
-                //else
-                //{
-                //    string farmParameter = Utils.GetUrlParameter("farm");
-                //    long lFarmId = 0;
-
-                //    if(farmParameter == null)
-                //    {
-                //        lFarmId = lContext.Farms.First().FarmId;
-                //    }
-                //    else
-                //    {
-                //        lFarmId = int.Parse(farmParameter);
-                //    }
-
-                //    List<CropIrrigationWeather> ciwByFarm = this.GetCropIrrigationWeatherListByFarmId(lFarmId, Utils.GetDateOfReference().Value);
-
-                //    foreach (var bCIW in ciwByFarm)
-                //    {
-                //        AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations);
-                //    }
-                //    lSaveChanges = lContext.SaveChanges();
-                //}
 
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
+
+                string farm = Utils.GetUrlParameter("farm");
+
+                long farmId = 0;
+
+                if (farm != null)
+                {
+                    farmId = Convert.ToInt32(farm);
+                }
+                else
+                {
+                    farmId = GetFarmsByUserAsList().First().FarmId;
+                }
+
+                DateTime calculateFrom = DateTime.Now;
+                if(pDateFrom < lReferenceDate)
+                {
+                    calculateFrom = pDateFrom;
+                }
+                else
+                {
+                    calculateFrom = lReferenceDate;
+                }
+
+                this.CalculateAllActiveCropIrrigationWeather(farmId, calculateFrom, DateTime.Now);
                 ManageSession.SetNavigationDate(lReferenceDate);
             }
             catch (Exception ex)
