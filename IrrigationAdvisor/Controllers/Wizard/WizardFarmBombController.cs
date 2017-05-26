@@ -84,7 +84,7 @@ namespace IrrigationAdvisor.Controllers.Wizard
                     b.ServiceDate = ((String)item.serviceDate == "") ? Utils.MIN_DATETIME : item.serviceDate  ;
                     b.PurchaseDate = ((String)item.purchaseDate == "") ? Utils.MIN_DATETIME : item.purchaseDate;
                     
-                    //position bomb is diferent to position farm
+                    //position bomb is diferent to position farm, find position to bomb
                     if (vm.Latitude != bombLatitud || vm.Longitude != bombLongitude)
                     {
                         lBombPositionId = GetPositionId((double)item.bombLatitude, (double)item.bombLongitude);

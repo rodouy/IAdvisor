@@ -20,11 +20,11 @@ namespace IrrigationAdvisor.ViewModels.Wizard
         public String Phone { get; set; }
 
         [Required]
-        [Range(0, double.MaxValue, ErrorMessage = "Ingrese latitud válida")]
+        [Range(double.MinValue, double.MaxValue, ErrorMessage = "Ingrese latitud válida")]
         public double Latitude { get; set; }
 
         [Required]
-        [Range(0, double.MaxValue, ErrorMessage = "Ingrese longitud válida")]
+        [Range(double.MinValue, double.MaxValue, ErrorMessage = "Ingrese longitud válida")]
         public double Longitude { get; set; }
 
         [Required]
