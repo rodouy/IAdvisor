@@ -45,13 +45,10 @@ namespace IrrigationAdvisor.Controllers.Wizard
         // POST: Users/Create;
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,Company, Phone, Address, Latitude, Longitude, Has, WeatherStationId, CityId, BombsHidden")] WizardFarmViewModel vm)
-        
+        public ActionResult Create([Bind(Include = "Name,Company, Phone, Address, Latitude, Longitude, Has, WeatherStationId, CityId, BombsHidden")] WizardFarmViewModel vm)    
         {
-  
             if (ModelState.IsValid)
             {
-
                 Farm farmMapped = new Farm();
                 long lFarmPositionId = GetPositionId(vm.Latitude, vm.Longitude);
                 long lBombPositionId;
@@ -118,7 +115,8 @@ namespace IrrigationAdvisor.Controllers.Wizard
                 farmMapped.Has = vm.Has;
                 farmMapped.WeatherStationId = vm.WeatherStationId;
                 farmMapped.CityId = vm.CityId;
- 
+
+                db.Farms.Add(farmMapped);
                 db.SaveChanges();
 
                 //return RedirectToAction("Index");
