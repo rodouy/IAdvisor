@@ -3024,6 +3024,14 @@ namespace IrrigationAdvisor.Models.Management
                 lNewIrrigation = this.GetIrrigation(pIrrigationDate);
                 lNewIrrigationNextDate = this.GetIrrigation(pIrrigationDate.AddDays(1));
 
+                if (lNewIrrigation?.WaterInputId == 1627 || lNewIrrigationNextDate?.WaterInputId == 1627)
+                {
+                    //if (lNewIrrigation != null)
+                    //    lNewIrrigation.Input = 14;
+                    //if (lNewIrrigationNextDate != null)
+                    //    lNewIrrigationNextDate.Input = 14;
+                }
+
                 #region Condition #1 NEW IRRIGATION: If there is not a registry then it is created 
                 if (lNewIrrigation == null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First > 0)
                 {
@@ -3178,13 +3186,14 @@ namespace IrrigationAdvisor.Models.Management
                     lNewIrrigation.Date = pIrrigationDate;
                     //if (pIsExtraIrrigation)
                     //{
-                    lNewIrrigation.ExtraInput = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
-                    lNewIrrigation.ExtraDate = pIrrigationDate;
+                        lNewIrrigation.ExtraInput = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
+                        lNewIrrigation.ExtraDate = pIrrigationDate;
                     //}
                     //else
                     //{
                     //    lNewIrrigation.Input = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
                     //}
+
                     // Set the type of lIrrigationItem. 
                     lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
                     lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
@@ -3192,6 +3201,17 @@ namespace IrrigationAdvisor.Models.Management
                     lNewIrrigation.ReasonId = pReasonId;
                     lNewIrrigation.Observations = pObservations;
                     this.IrrigationList.Add(lNewIrrigation);
+
+                    if (lNewIrrigationNextDate != null)
+                    {
+                        //lNewIrrigationNextDate.ExtraInput = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First;
+                        //lNewIrrigationNextDate.ExtraDate = pIrrigationDate.AddDays(1);
+                        //lNewIrrigationNextDate.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
+                        //lNewIrrigationNextDate.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                        //lNewIrrigationNextDate.CropIrrigationWeather = this;
+                        // La segunda que vez que entra por acá viene el input en 0
+                        this.IrrigationList.Add(lNewIrrigationNextDate);
+                    }
                 }
                 #endregion
                 #region Condition #6 NOT IRRIGATION FOR TODAY

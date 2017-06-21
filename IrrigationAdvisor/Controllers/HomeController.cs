@@ -1453,6 +1453,7 @@ namespace IrrigationAdvisor.Controllers
         public ActionResult AddNoIrrigation(DateTime pDateFrom, DateTime pDateTo,
                                             string pCIW, int pReason, string pObservations)
         {
+            // TODO: Cuando es otro es obligatoria las observaciones
             string lSomeData = string.Empty;
             try
             {
@@ -1476,15 +1477,29 @@ namespace IrrigationAdvisor.Controllers
                 #endregion
 
                 List<string> selectedCiw = pCIW.Split(',').ToList();
-
-                // ManageSession.SetFromDateTime(lDateResult);
-
-                //if (pCIW > -1)
-                //{
+                
                 var filteredCiw = lContext.CropIrrigationWeathers
                                     .Include(c => c.Soil.HorizonList)
                                     .Where(c => selectedCiw.Contains(c.CropIrrigationWeatherId.ToString()))
                                     .ToList();
+
+                //List<long> cropForFilter = filteredCiw.Select(n => n.CropIrrigationWeatherId).ToList();
+                //var dailyMemory = lContext.DailyRecords.Where(dr => cropForFilter.Contains(dr.CropIrrigationWeatherId)).ToList();
+                //var irrigationMemory = lContext.Irrigations.Where(w => w.Date >= pDateFrom && w.Date <= pDateTo).ToList();
+
+
+                //var daily = (from dr in dailyMemory
+                //            join w in irrigationMemory
+                //            on dr.IrrigationId equals w.WaterInputId
+                //            select w.WaterInputId).ToList();
+
+                //foreach (int item in daily)
+                //{
+
+                //    var waterInput = lContext.Irrigations.First(n => n.WaterInputId == item);
+                //    waterInput.Date = pDateTo.AddDays(1);
+                //    waterInput.ExtraDate = pDateTo.AddDays(1);
+                //}
 
                 foreach (var bCIW in filteredCiw)
                 {
