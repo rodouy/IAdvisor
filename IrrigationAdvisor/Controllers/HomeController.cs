@@ -1746,13 +1746,15 @@ namespace IrrigationAdvisor.Controllers
 
                         decimal hydricBalanceWithTwoDigits = decimal.Round(Convert.ToDecimal(lCropIrrigationWeather.HydricBalance), 2);
 
+                        var cropCoefficient = lDailyRecordList.Where(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId && n.DailyRecordDateTime == ManageSession.GetNavigationDate()).FirstOrDefault();
+
                         //Add all the days for the IrrigationUnit
                         lGridIrrigationUnit = new GridPivotHome(lFirstPivotName,
                                                                 lCropIrrigationWeather.Crop.ShortName,
                                                                 lSowingDate,
                                                                 lPhenologicalStageToday,
                                                                 hydricBalanceWithTwoDigits.ToString(),
-                                                                lCropIrrigationWeather.TotalEvapotranspirationCrop.ToString(),
+                                                                cropCoefficient != null ? cropCoefficient.CropCoefficient.ToString() : string.Empty,
                                                                 lGridIrrigationUnitDetailRow);
 
                         lGridIrrigationUnitList.Add(lGridIrrigationUnit);
