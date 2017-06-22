@@ -1625,7 +1625,7 @@ namespace IrrigationAdvisor.Controllers
                 }
 
                 //Add all the days for the IrrigationUnit
-                lGridIrrigationUnit = new GridPivotHome("Nombre", "Cultivo", "Siembra", "Fen.", lGridIrrigationUnitDetailRow);
+                lGridIrrigationUnit = new GridPivotHome("Nombre", "Cultivo", "Siembra", "Fen.", "Balance H.", "KC", lGridIrrigationUnitDetailRow);
 
                 lGridIrrigationUnitList.Add(lGridIrrigationUnit);
 
@@ -1744,11 +1744,15 @@ namespace IrrigationAdvisor.Controllers
                             lFirstPivotName = "";
                         }
 
+                        decimal hydricBalanceWithTwoDigits = decimal.Round(Convert.ToDecimal(lCropIrrigationWeather.HydricBalance), 2);
+
                         //Add all the days for the IrrigationUnit
                         lGridIrrigationUnit = new GridPivotHome(lFirstPivotName,
                                                                 lCropIrrigationWeather.Crop.ShortName,
                                                                 lSowingDate,
                                                                 lPhenologicalStageToday,
+                                                                hydricBalanceWithTwoDigits.ToString(),
+                                                                lCropIrrigationWeather.TotalEvapotranspirationCrop.ToString(),
                                                                 lGridIrrigationUnitDetailRow);
 
                         lGridIrrigationUnitList.Add(lGridIrrigationUnit);

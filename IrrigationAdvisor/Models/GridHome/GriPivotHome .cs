@@ -26,6 +26,8 @@ namespace IrrigationAdvisor.Models.GridHome
         private String cropName;
         private String sowingDate;
         private String phenologyName;
+        private String hydricBalance;
+        private String cropCoefficient;
         private List<GridPivotDetailHome> listGridPivotDetailHome;
 
         #endregion
@@ -68,6 +70,24 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
+        public String HydricBalance
+        {
+            get { return hydricBalance; }
+            set
+            {
+                hydricBalance = value;
+            }
+        }
+
+        public String TotalEvapotranspirationCrop
+        {
+            get { return cropCoefficient; }
+            set
+            {
+                cropCoefficient = value;
+            }
+        }
+
         public List<GridPivotDetailHome> ListGridPivotDetailHome
         {
             get { return listGridPivotDetailHome; }
@@ -80,13 +100,15 @@ namespace IrrigationAdvisor.Models.GridHome
         #endregion
 
 
-        public GridPivotHome(String pIrrigationUnitName, String pCropName, String pSowingDate, String pPhenologyName, 
+        public GridPivotHome(String pIrrigationUnitName, String pCropName, String pSowingDate, String pPhenologyName, String pHydricBalance, String pTotalEvapotranspirationCrop,
                             List<GridPivotDetailHome> plistGridPivotDetailHome)
         {
             this.IrrigationUnitName = pIrrigationUnitName;
             this.CropName = pCropName;
             this.SowingDate = pSowingDate;
             this.PhenologyName = pPhenologyName;
+            this.hydricBalance = pHydricBalance;
+            this.TotalEvapotranspirationCrop = pTotalEvapotranspirationCrop;
             this.ListGridPivotDetailHome = plistGridPivotDetailHome;
         }
 
