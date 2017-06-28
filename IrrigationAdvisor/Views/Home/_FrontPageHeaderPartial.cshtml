@@ -15,11 +15,13 @@
     <th>@gridPivotItem.CropName</th>
     <th>@gridPivotItem.SowingDate</th>
     <th>@gridPivotItem.PhenologyName</th>
-    <th>@gridPivotItem.CropCoefficient</th>
-    <th>@gridPivotItem.HydricBalance</th>
+    if (gridPivotItem.IsAdministrator)
+    {
+        <th>@gridPivotItem.CropCoefficient</th>
+        <th>@gridPivotItem.HydricBalance</th>
+    }
+
 }
-
-
 
 
 @foreach (var item in Model)

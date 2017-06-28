@@ -28,7 +28,9 @@ namespace IrrigationAdvisor.Models.GridHome
         private String phenologyName;
         private String hydricBalance;
         private String cropCoefficient;
+        private bool isAdministrator;
         private List<GridPivotDetailHome> listGridPivotDetailHome;
+        private List<double> listEtc;
 
         #endregion
 
@@ -88,6 +90,15 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
+        public bool IsAdministrator
+        {
+            get { return isAdministrator; }
+            set
+            {
+                isAdministrator = value;
+            }
+        }
+
         public List<GridPivotDetailHome> ListGridPivotDetailHome
         {
             get { return listGridPivotDetailHome; }
@@ -97,10 +108,26 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
+        public List<double> ListEtc
+        {
+            get { return listEtc; }
+            set
+            {
+                listEtc = value;
+            }
+        }
+
         #endregion
 
 
-        public GridPivotHome(String pIrrigationUnitName, String pCropName, String pSowingDate, String pPhenologyName, String pHydricBalance, String pCropCoefficient,
+        public GridPivotHome(String pIrrigationUnitName, 
+                            String pCropName, 
+                            String pSowingDate, 
+                            String pPhenologyName, 
+                            String pHydricBalance, 
+                            String pCropCoefficient,
+                            bool pIsAdministratror,
+                            List<double> pEtcs,
                             List<GridPivotDetailHome> plistGridPivotDetailHome)
         {
             this.IrrigationUnitName = pIrrigationUnitName;
@@ -109,6 +136,8 @@ namespace IrrigationAdvisor.Models.GridHome
             this.PhenologyName = pPhenologyName;
             this.hydricBalance = pHydricBalance;
             this.CropCoefficient = pCropCoefficient;
+            this.IsAdministrator = pIsAdministratror;
+            this.ListEtc = pEtcs;
             this.ListGridPivotDetailHome = plistGridPivotDetailHome;
         }
 

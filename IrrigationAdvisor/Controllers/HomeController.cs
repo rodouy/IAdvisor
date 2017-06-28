@@ -429,7 +429,6 @@ namespace IrrigationAdvisor.Controllers
                 lHVM.DateOfReference = lDateOfReference;
                 
                 lHVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
-                
                 trace = 140;
                 ManageSession.SetHomeViewModel(lHVM);
 
@@ -1624,8 +1623,17 @@ namespace IrrigationAdvisor.Controllers
                     lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
                 }
 
+                var homeViewModel = ManageSession.GetHomeViewModel();
                 //Add all the days for the IrrigationUnit
-                lGridIrrigationUnit = new GridPivotHome("Nombre", "Cultivo", "Siembra", "Fen.", "Balance H.", "KC", lGridIrrigationUnitDetailRow);
+                lGridIrrigationUnit = new GridPivotHome("Nombre", 
+                                                        "Cultivo", 
+                                                        "Siembra", 
+                                                        "Fen.", 
+                                                        "Balance H.", 
+                                                        "KC", 
+                                                        homeViewModel.IsUserAdministrator,
+                                                        new List<double>(),
+                                                        lGridIrrigationUnitDetailRow);
 
                 lGridIrrigationUnitList.Add(lGridIrrigationUnit);
 
@@ -1673,6 +1681,7 @@ namespace IrrigationAdvisor.Controllers
             FarmConfiguration fc;
             IrrigationUnitConfiguration iuc;
             CropIrrigationWeatherConfiguration ciwc;
+            IrrigationAdvisorContext db;
             #endregion
 
             try
@@ -1683,6 +1692,7 @@ namespace IrrigationAdvisor.Controllers
                 fc = new FarmConfiguration();
                 iuc = new IrrigationUnitConfiguration();
                 ciwc = new CropIrrigationWeatherConfiguration();
+                db = IrrigationAdvisorContext.Refresh();
                 #endregion
 
                 lDateOfReference = ManageSession.GetNavigationDate();
@@ -1748,6 +1758,15 @@ namespace IrrigationAdvisor.Controllers
 
                         var cropCoefficient = lDailyRecordList.Where(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId && n.DailyRecordDateTime == ManageSession.GetNavigationDate()).FirstOrDefault();
 
+                        var homeViewModel = ManageSession.GetHomeViewModel();
+
+                        List<double> etcList = new List<double>();
+                        foreach (var item in lGridIrrigationUnitDetailRow)
+                        {
+                            double etcItem = db.WeatherDatas.Where(n => n.Date == item.DateOfData.Date && n.WeatherStationId == lCropIrrigationWeather.MainWeatherStationId).Select(n => n.Evapotranspiration).FirstOrDefault();
+                            etcList.Add(etcItem);
+                        }
+
                         //Add all the days for the IrrigationUnit
                         lGridIrrigationUnit = new GridPivotHome(lFirstPivotName,
                                                                 lCropIrrigationWeather.Crop.ShortName,
@@ -1755,6 +1774,8 @@ namespace IrrigationAdvisor.Controllers
                                                                 lPhenologicalStageToday,
                                                                 hydricBalanceWithTwoDigits.ToString(),
                                                                 cropCoefficient != null ? cropCoefficient.CropCoefficient.ToString() : string.Empty,
+                                                                homeViewModel.IsUserAdministrator,
+                                                                etcList,
                                                                 lGridIrrigationUnitDetailRow);
 
                         lGridIrrigationUnitList.Add(lGridIrrigationUnit);
