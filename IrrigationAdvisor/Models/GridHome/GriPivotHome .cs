@@ -26,7 +26,11 @@ namespace IrrigationAdvisor.Models.GridHome
         private String cropName;
         private String sowingDate;
         private String phenologyName;
+        private String hydricBalance;
+        private String cropCoefficient;
+        private bool isAdministrator;
         private List<GridPivotDetailHome> listGridPivotDetailHome;
+        private List<double> listEtc;
 
         #endregion
 
@@ -68,6 +72,33 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
+        public String HydricBalance
+        {
+            get { return hydricBalance; }
+            set
+            {
+                hydricBalance = value;
+            }
+        }
+
+        public String CropCoefficient
+        {
+            get { return cropCoefficient; }
+            set
+            {
+                cropCoefficient = value;
+            }
+        }
+
+        public bool IsAdministrator
+        {
+            get { return isAdministrator; }
+            set
+            {
+                isAdministrator = value;
+            }
+        }
+
         public List<GridPivotDetailHome> ListGridPivotDetailHome
         {
             get { return listGridPivotDetailHome; }
@@ -77,16 +108,36 @@ namespace IrrigationAdvisor.Models.GridHome
             }
         }
 
+        public List<double> ListEtc
+        {
+            get { return listEtc; }
+            set
+            {
+                listEtc = value;
+            }
+        }
+
         #endregion
 
 
-        public GridPivotHome(String pIrrigationUnitName, String pCropName, String pSowingDate, String pPhenologyName, 
+        public GridPivotHome(String pIrrigationUnitName, 
+                            String pCropName, 
+                            String pSowingDate, 
+                            String pPhenologyName, 
+                            String pHydricBalance, 
+                            String pCropCoefficient,
+                            bool pIsAdministratror,
+                            List<double> pEtcs,
                             List<GridPivotDetailHome> plistGridPivotDetailHome)
         {
             this.IrrigationUnitName = pIrrigationUnitName;
             this.CropName = pCropName;
             this.SowingDate = pSowingDate;
             this.PhenologyName = pPhenologyName;
+            this.hydricBalance = pHydricBalance;
+            this.CropCoefficient = pCropCoefficient;
+            this.IsAdministrator = pIsAdministratror;
+            this.ListEtc = pEtcs;
             this.ListGridPivotDetailHome = plistGridPivotDetailHome;
         }
 
