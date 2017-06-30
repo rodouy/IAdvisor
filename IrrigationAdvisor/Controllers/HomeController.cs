@@ -1,4 +1,5 @@
 ﻿using IrrigationAdvisor.Authorize;
+using IrrigationAdvisor.ComplementedUtils;
 using IrrigationAdvisor.Controllers.Helpers;
 using IrrigationAdvisor.DBContext;
 using IrrigationAdvisor.DBContext.Agriculture;
@@ -35,6 +36,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -541,8 +543,70 @@ namespace IrrigationAdvisor.Controllers
             }
         }
 
+        public ActionResult ForgetPassword(string userName, string email)
+        {
+            try
+            {
+                UserConfiguration uc = new UserConfiguration();
+                IrrigationAdvisorContext db = IrrigationAdvisorContext.Refresh();
+
+                User user = uc.GetUserByName(userName.Trim());
+
+                string subject = "Recuperación de contraseña PGG Wrightson";
+                string wrongBody = string.Format("Han intentado restablecer una constraseña sin éxito el User: {0}. El mail no coincidió {1} debería haber sido {2}",
+                                                user.UserName, email, user.Email);
+
+                string randomPassword = RandomPassword();
+                string body = string.Format("Ingrese con la siguiente contraseña temporal para acceder {0}", randomPassword);
+
+                if (user.Email.ToLower().Trim().Equals(email.ToLower().Trim()))
+                {
+
+                    MD5 md5Hash = MD5.Create();
+
+                    User toModify = db.Users.Single(n => n.UserName == user.UserName);
+
+                    toModify.Password = CryptoUtils.GetMd5Hash(md5Hash, randomPassword);
+
+                    db.SaveChanges();
+
+                    SendEmails(subject,
+                            body,
+                            user.Email);
+
+                    return Json("Ok", JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    SendEmails(subject,
+                               wrongBody);
+
+                    return Json("No se ha podido recuperar su contraseña contacte a su administrador", JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.ForgetPassword.");
+
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        private string RandomPassword()
+        {
+            RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider();
+
+            byte[] data = new byte[64];
+            rngCsp.GetBytes(data);
+
+            string dataAsString = Convert.ToBase64String(data);
+
+            return dataAsString.Substring(0, 10);
+            
+        }
+
         /// <summary>
-        /// TODO: Description of GetStagesBy
+        /// Get stabes by Crop Irrigation weather
         /// </summary>
         /// <param name="pCropIrrigationWeatherId"></param>
         /// <returns></returns>
@@ -659,11 +723,11 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
-        private MailMessage GetMailMessage(string subject, string body)
+        private MailMessage GetMailMessage(string subject, string body, string pEmailTo = null)
         {
             MailMessage mail = new MailMessage();
             string emailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]);
-            string emailTo = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]);
+            string emailTo = pEmailTo == null ? Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]) : pEmailTo;
 
             mail.From = new MailAddress(emailFrom);
             mail.To.Add(emailTo);
@@ -698,13 +762,13 @@ namespace IrrigationAdvisor.Controllers
         /// <param name="subject"></param>
         /// <param name="body"></param>
         /// <returns></returns>
-        public ActionResult SendEmails(string subject, string body)
+        public ActionResult SendEmails(string subject, string body, string pEmail = null)
         {
             try
             {
 
                 SmtpClient smtp = GetSmtpClient();
-                MailMessage mail = GetMailMessage(subject, body);
+                MailMessage mail = GetMailMessage(subject, body, pEmail);
 
                 smtp.Send(mail);
 

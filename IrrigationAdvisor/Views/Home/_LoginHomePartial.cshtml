@@ -27,6 +27,9 @@
     $(document).ready(function () {
         var msg = $('#msg');
         var msg2 = $('#msg2');
+        var modalPassword = $('#modal-password');
+        var linkForgotPassword = $('#password-forgot');
+        var cancelForgotPassword = $('#CancelForgotPassword');
 
         var getUrlParameter = function getUrlParameter(sParam) {
             var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -66,10 +69,22 @@
             if (getUrlParameter('msg2')) {
                 msg2.html(getUrlParameter('msg2'));
             }
+
+            var initModal = { backdrop: false, show: false };
+
+            modalPassword.modal(initModal);
         }
 
         init();
         hideLoading();
+
+        linkForgotPassword.click(function () {
+            modalPassword.modal('show');
+        });
+
+        cancelForgotPassword.click(function () {
+            modalPassword.modal('hide');
+        });
 
         var signInBtn = $('#signInBtn');
         
@@ -117,7 +132,7 @@
                             </label>*@
                             
                         </div>
-                        <a href="#">Olvidó su contraseña?</a>
+                        <a href="#" id="password-forgot">Olvidó su contraseña?</a>
                         <div class="form-submit-1">
                             <input type="submit" value="Ingresar" class="mc-btn btn-style-1" id="signInBtn">  @*@Html.ActionLink("Register as a new user", "Register")*@
                         </div>
@@ -131,6 +146,54 @@
                 </div>
             </div>
 
+        </div>
+        <div class="row">
+            <!-- modal reestablecer contrasenia--->
+            <div id="modal-password" class="modal fade" role="dialog">
+                <div class="modal-dialog" style="width:36%">
+                    <div class="modal-content">
+                        <div class="header">
+                            <h2>Restablecer contraseña</h2>
+                        </div>
+                        <div class="copy">
+                            <p>  </p>
+                            
+                                <div class="form-group col-md-12">
+                                    <br />
+                                    <div>
+
+                                    </div>
+                                    <div class="col-md-10" style="display:block;">
+                                        Nombre de usuario (UserName)
+                                        <input type="text" id="txtUserNameForgotPassword" class="form-control"/>
+                                        <br />
+                                    </div>
+                                    <br />
+                                    <div>
+
+                                    </div>
+                                    <div class="col-md-10" style="display:block;">
+                                        Email
+                                        <input type="text" id="txtEmailForgotPassword" class="form-control"/>
+
+                                        <br />
+                                    </div>
+
+                                </div>
+                            
+                        </div>
+                        <div class="cf footer">
+                            <div style="">
+                                <div class="col-md-8"></div>
+                                <button class="btn btn-style-2" id="CancelForgotPassword">Cancelar</button>
+                                <button class="btn btn-success" id="SaveForgotPassword" disabled>Guardar</button>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end modal modal reestablecer contrasenia --->
         </div>
     </div>
 </section>
