@@ -30,6 +30,9 @@
         var modalPassword = $('#modal-password');
         var linkForgotPassword = $('#password-forgot');
         var cancelForgotPassword = $('#CancelForgotPassword');
+        var saveForgotPassword = $('#SaveForgotPassword');
+        var txtUserNameForgotPassword = $('#txtUserNameForgotPassword');
+        var txtEmailForgotPassword = $('#txtEmailForgotPassword');
 
         var getUrlParameter = function getUrlParameter(sParam) {
             var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -93,6 +96,57 @@
             showLoading();
 
         });
+
+        var cleanFields = function () {
+            //hideLoading();
+            modalPassword.modal('hide');
+            txtEmailForgotPassword.val('');
+            txtUserNameForgotPassword.val('');
+        };
+
+        saveForgotPassword.click(function ()
+        {
+            var userName = txtUserNameForgotPassword.val();
+            var userEmail = txtEmailForgotPassword.val();
+
+            showLoading();
+            
+            if (userName == "" || userEmail == "")
+            {
+                alert("El nombre de usuario y/o mail no pueden ser nulos.");
+                hideLoading();
+            }
+            else
+            {
+                $.ajax({
+                    type: 'GET',
+                    url: './Home/ForgetPassword?userName=' + userName + '&email=' + userEmail,
+                    success: function (data) {
+                        
+                        if (data == "Ok")
+                        {
+                            alert("Contraseña modificada. Revise su correo.");
+                        }
+                        else
+                        {
+                            alert(data);
+                        }
+
+                        hideLoading();
+                        //cleanFields();
+                        
+                    },
+                    error: function (data) {
+
+                        hideLoading();
+                        alert(data);
+                        //cleanFields();
+                    }
+                });
+
+                cleanFields();
+            }
+        })
     });
 
 </script>
@@ -186,7 +240,7 @@
                             <div style="">
                                 <div class="col-md-8"></div>
                                 <button class="btn btn-style-2" id="CancelForgotPassword">Cancelar</button>
-                                <button class="btn btn-success" id="SaveForgotPassword" disabled>Guardar</button>
+                                <button class="btn btn-success" id="SaveForgotPassword">Guardar</button>
                             </div>
                           
                         </div>
