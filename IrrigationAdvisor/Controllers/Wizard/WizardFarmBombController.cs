@@ -92,7 +92,7 @@ namespace IrrigationAdvisor.Controllers.Wizard
                             Position positionBomb = new Position();
                             positionBomb.Latitude = item.bombLatitude;
                             positionBomb.Longitude = item.bombLongitude;
-                            positionBomb.Name = "DEFINIR El NOMBRE DE LA POS";
+                            positionBomb.Name = Convert.ToString(item.bombLatitude) + " - " + Convert.ToString(item.bombLatitude);
                             b.Position = positionBomb;
                         }
                         else
