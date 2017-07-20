@@ -1011,6 +1011,25 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilLaRinconada14 = NameFarmLaRinconada + " Pivot 14";
         #endregion
         #endregion
+        #region SpecieSeasons
+        public static String NameStagesCorn = "Maiz";
+        public static String NameStagesSoya = "Soja";
+        public static String NameStagesSorghumForage = "Sorgo Forrajero";
+        public static String NameStagesSorghumGrain = "Sorgo Granifero";
+        public static String NameStagesAlfalfa = "Alfalfa";
+        public static String NameStagesRedCloverForage = "Trebol Rojo Forraje";
+        public static String NameStagesRedCloverSeed = "Trebol Rojo Semilla";
+        #region FescueForage
+        public static String NameFescueForageAutumn = "Festuca Forraje " + Season.Autumn;
+        public static String NameFescueSeedAutumn = "Festuca Semilla " + Season.Autumn;
+        public static String NameFescueForageWinter = "Festuca Forraje " + Season.Winter;
+        public static String NameFescueSeedWinter = "Festuca Semilla " + Season.Winter;
+        public static String NameFescueForageWinter = "Festuca Forraje " + Season.Spring;
+        public static String NameFescueSeedWinter = "Festuca Semilla " + Season.Spring;
+        public static String NameFescueForageWinter = "Festuca Forraje " + Season.Summer;
+        public static String NameFescueSeedWinter = "Festuca Semilla " + Season.Summer;
+        #endregion
+        #endregion
         #endregion
         #region Data
         #endregion

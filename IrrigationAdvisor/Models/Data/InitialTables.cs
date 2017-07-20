@@ -2,6 +2,7 @@
 using IrrigationAdvisor.Models.Management;
 using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.Models.Water;
+using IrrigationAdvisor.Models.Weather;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -3351,6 +3352,80 @@ namespace IrrigationAdvisor.Models.Data
         }
 
 
+
+        #endregion
+
+        #region DryMassList
+
+        public static List<DryMass> CreateDryMassListForFescueForage(Crop pCrop, int pAgeOfCrop, Season pSeason)
+        {
+            List<DryMass> lReturn =null;
+            DryMass lDryMass = null;
+
+            Crop lCrop = pCrop;
+            int lAgeOfCrop = pAgeOfCrop;
+            Season lSeason = pSeason;
+            int lDay;
+            Double lRatePerHectareByDay;
+            Double lWeightPerHectareInKG;
+            Double lExponent;
+            Double lMultiplier;
+            Double lMaxCoefficient;
+            Double lRootDepth;
+            try
+            {
+
+                List<DryMass> lDryMassList = new List<DryMass>();
+                //Initial Data or Data do not change
+                lDay = 0; lRatePerHectareByDay = 20; lWeightPerHectareInKG = 400; 
+                lExponent = 0.0251; lMultiplier = 0.4896; lMaxCoefficient = 1.2; lRootDepth = 10;
+
+                //Day 0
+                lDryMass = new DryMass(Utils.NameFescueForageAutumn, lCrop, lAgeOfCrop, lSeason, 
+                                        lDay, lRatePerHectareByDay, lWeightPerHectareInKG, 
+                                        lMultiplier, lExponent, lMaxCoefficient, lRootDepth);
+                lDryMassList.Add(lDryMass);
+                //Day 1
+                lDay++; lWeightPerHectareInKG += lRatePerHectareByDay;
+                lDryMass = new DryMass(Utils.NameFescueForageAutumn, lCrop, lAgeOfCrop, lSeason,
+                                        lDay, lRatePerHectareByDay, lWeightPerHectareInKG,
+                                        lMultiplier, lExponent, lMaxCoefficient, lRootDepth);
+                lDryMassList.Add(lDryMass);
+                //Day 2
+                lDay++; lWeightPerHectareInKG += lRatePerHectareByDay;
+                lDryMass = new DryMass(Utils.NameFescueForageAutumn, lCrop, lAgeOfCrop, lSeason,
+                                        lDay, lRatePerHectareByDay, lWeightPerHectareInKG,
+                                        lMultiplier, lExponent, lMaxCoefficient, lRootDepth);
+                lDryMassList.Add(lDryMass);
+                //Day 3
+                lDay++; lWeightPerHectareInKG += lRatePerHectareByDay;
+                lDryMass = new DryMass(Utils.NameFescueForageAutumn, lCrop, lAgeOfCrop, lSeason,
+                                        lDay, lRatePerHectareByDay, lWeightPerHectareInKG,
+                                        lMultiplier, lExponent, lMaxCoefficient, lRootDepth);
+                lDryMassList.Add(lDryMass);
+                //Day 4
+                lDay++; lWeightPerHectareInKG += lRatePerHectareByDay;
+                lDryMass = new DryMass(Utils.NameFescueForageAutumn, lCrop, lAgeOfCrop, lSeason,
+                                        lDay, lRatePerHectareByDay, lWeightPerHectareInKG,
+                                        lMultiplier, lExponent, lMaxCoefficient, lRootDepth);
+                lDryMassList.Add(lDryMass);
+                lExponent = 0.0251; lMultiplier = 0.4896; lMaxCoefficient = 1.2; lRootDepth = 10;
+                lDryMass = new DryMass(Utils.NameFescueForageAutumn, lCrop, lAgeOfCrop, lSeason,
+                                        lDay, lRatePerHectareByDay, lWeightPerHectareInKG,
+                                        lMultiplier, lExponent, lMaxCoefficient, lRootDepth);
+                lDryMassList.Add(lDryMass);
+
+
+                lReturn = lDryMassList;
+
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in InitialTables.CreateDryMassListForFestuca " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+            return lReturn;
+        }
 
         #endregion
 
