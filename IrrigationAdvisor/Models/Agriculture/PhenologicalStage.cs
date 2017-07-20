@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using System.Linq;
 using System.Web;
+using NLog;
 
 namespace IrrigationAdvisor.Models.Agriculture
 {
@@ -46,6 +47,8 @@ namespace IrrigationAdvisor.Models.Agriculture
     {
 
         #region Consts
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Fields
@@ -213,13 +216,21 @@ namespace IrrigationAdvisor.Models.Agriculture
                                 int pOrder)
         {
             Stage lReturn = null;
-            if (!String.IsNullOrEmpty(pName) && !String.IsNullOrEmpty(pShortName) && !String.IsNullOrEmpty(pDescripcion))
+            try
             {
-                this.Stage.Name = pName;
-                this.Stage.ShortName = pShortName;
-                this.Stage.Description = pDescripcion;
-                this.Stage.Order = pOrder;
-                lReturn = this.Stage;
+                if (!String.IsNullOrEmpty(pName) && !String.IsNullOrEmpty(pShortName) && !String.IsNullOrEmpty(pDescripcion))
+                {
+                    this.Stage.Name = pName;
+                    this.Stage.ShortName = pShortName;
+                    this.Stage.Description = pDescripcion;
+                    this.Stage.Order = pOrder;
+                    lReturn = this.Stage;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in PhenologicalStage.UpdateStage " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
             }
             return lReturn;
         }

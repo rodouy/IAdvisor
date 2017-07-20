@@ -38,8 +38,23 @@ namespace IrrigationAdvisor.Models.Agriculture
         #endregion
 
         #region Fields
-
+        /// <summary>
+        /// The fields are:
+        ///     - id: long
+        ///     - crop: Crop
+        ///     - ageOfCrop: int
+        ///     - season: Season
+        ///     - day: int
+        ///     - ratePerHectareByDay: Double
+        ///     - weightPerHectareInKg: Double
+        ///     - exponent: Double
+        ///     - multiplier: Double
+        ///     - coefficient: Double
+        ///     - rootDepth: Double
+        ///     
+        /// </summary>
         private long dryMassId;
+        private String name;
         private long cropId;
         private int ageOfCrop;
         private long seasonId;
@@ -48,7 +63,8 @@ namespace IrrigationAdvisor.Models.Agriculture
         private Double weightPerHectareInKG;
         private Double exponent;
         private Double multiplier;
-        private Double cropCoefficient;
+        private Double coefficient;
+        private Double maxCoefficient;
         private Double rootDepth;
 
 
@@ -60,6 +76,12 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             get { return dryMassId; }
             set { dryMassId = value; }
+        }
+
+        public String Name
+        {
+            get { return name; }
+            set { name = value; }
         }
 
         public long CropId
@@ -122,10 +144,27 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { multiplier = value; }
         }
 
-        public Double CropCoefficient
+        public Double Coefficient
         {
-            get { return cropCoefficient; }
-            set { cropCoefficient = value; }
+            get {
+                Double lReturn = 0;
+
+                lReturn = (Math.Pow(this.WeightPerHectareInKG, this.Exponent) * Multiplier);
+
+                if(lReturn > maxCoefficient)
+                {
+                    lReturn = maxCoefficient;
+                }
+
+                return lReturn; 
+                }
+
+        }
+
+        public Double MaxCoefficient
+        {
+            get { return maxCoefficient; }
+            set { maxCoefficient = value; }
         }
 
         public Double RootDepth
@@ -140,16 +179,22 @@ namespace IrrigationAdvisor.Models.Agriculture
         #region Construction
 
         /// <summary>
-        /// Constructor
+        /// Constructor without parameters
         /// </summary>
         public DryMass()
         {
+            this.Name = "noname";
             this.CropId = 0;
             this.AgeOfCrop = 0;
             this.SeasonId = 0;
             this.Day = 0;
             this.RatePerHectareByDay = 0;
             this.WeightPerHectareInKG = 0;
+            this.Exponent = 0;
+            this.Multiplier = 0;
+            this.MaxCoefficient = 0;
+            this.coefficient = 0;
+            this.RootDepth = 0;
         }
 
         /// <summary>
@@ -161,9 +206,16 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pDay"></param>
         /// <param name="pRatePerHectareByDay"></param>
         /// <param name="pWeightPerHectareInKG"></param>
-        public DryMass(Crop pCrop, int pAgeOfCrop, Season pSeason, int pDay, 
-                    Double pRatePerHectareByDay, Double pWeightPerHectareInKG)
+        /// <param name="pExponent"></param>
+        /// <param name="pMultiplier"></param>
+        /// <param name="pCoefficient"></param>
+        /// <param name="pRootDepth"></param>
+        public DryMass(String pName, Crop pCrop, int pAgeOfCrop, Season pSeason, 
+                    int pDay, Double pRatePerHectareByDay, Double pWeightPerHectareInKG,
+                    Double pExponent, Double pMultiplier, Double pMaxCoefficient,
+                    Double pRootDepth)
         {
+            this.Name = pName;
             this.CropId = pCrop.CropId;
             this.Crop = pCrop;
             this.AgeOfCrop = pAgeOfCrop;
@@ -172,6 +224,11 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.Day = pDay;
             this.RatePerHectareByDay = pRatePerHectareByDay;
             this.WeightPerHectareInKG = pWeightPerHectareInKG;
+            this.Exponent = pExponent;
+            this.Multiplier = pMultiplier;
+            this.MaxCoefficient = pMaxCoefficient;
+            this.coefficient = GetCoefficient();
+            this.RootDepth = pRootDepth;
         }
 
         #endregion
@@ -180,6 +237,29 @@ namespace IrrigationAdvisor.Models.Agriculture
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Return the Root Depth
+        /// </summary>
+        /// <returns></returns>
+        public double GetRootDepth()
+        {
+            double lRootDepth;
+            lRootDepth = this.rootDepth;
+            return lRootDepth;
+        }
+
+        /// <summary>
+        /// Return the Coefficient of the Crop
+        /// </summary>
+        /// <returns></returns>
+        public double GetCoefficient()
+        {
+            double lReturn;
+            lReturn = this.Coefficient;
+            return lReturn;
+        }
+
         #endregion
 
         #region Overrides
