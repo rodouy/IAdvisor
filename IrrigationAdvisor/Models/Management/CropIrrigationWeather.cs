@@ -159,7 +159,7 @@ namespace IrrigationAdvisor.Models.Management
         #region Calculus of Dry Mass per Hectare
 
         private int ageOfCrop;
-        private Utils.Season seasonOfCrop;
+        private long seasonId;
         private int dayAfterSeasonStart; //date of reference
         private Double dryMassRatePerHectareByDay;
         private Double dryMassWeightPerHectare;
@@ -442,10 +442,16 @@ namespace IrrigationAdvisor.Models.Management
             set { ageOfCrop = value; }
         }
 
-        public Utils.Season SeasonOfCrop
+        public long SeasonId
         {
-            get { return seasonOfCrop; }
-            set { seasonOfCrop = value; }
+            get { return seasonId; }
+            set { seasonId = value; }
+        }
+
+        public virtual Season Season
+        {
+            get;
+            set;
         }
 
         public int DayAfterSeasonStart
