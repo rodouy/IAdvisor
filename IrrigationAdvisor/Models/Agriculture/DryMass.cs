@@ -1,4 +1,6 @@
-﻿using IrrigationAdvisor.Models.Weather;
+﻿using IrrigationAdvisor.Models.Data;
+using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.Models.Weather;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,11 +62,12 @@ namespace IrrigationAdvisor.Models.Agriculture
         private long seasonId;
         private int day;
         private Double ratePerHectareByDay;
+        private Double initialWeightPerHectareInKG;
         private Double weightPerHectareInKG;
         private Double exponent;
         private Double multiplier;
-        private Double coefficient;
         private Double maxCoefficient;
+        private Double coefficient;
         private Double rootDepth;
 
 
@@ -126,10 +129,20 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { ratePerHectareByDay = value; }
         }
 
+        public Double InitialWeightPerHectareInKG
+        {
+            get { return initialWeightPerHectareInKG; }
+            set { initialWeightPerHectareInKG = value; }
+        }
+
+        /// <summary>
+        /// Depends on: InitialWeightPerHectareInKG, Day, RatePerHectareByDay
+        /// </summary>
         public Double WeightPerHectareInKG
         {
             get { return weightPerHectareInKG; }
             set { weightPerHectareInKG = value; }
+
         }
 
         public Double Exponent
@@ -144,33 +157,28 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { multiplier = value; }
         }
 
-        public Double Coefficient
-        {
-            get {
-                Double lReturn = 0;
-
-                lReturn = (Math.Pow(this.WeightPerHectareInKG, this.Exponent) * Multiplier);
-
-                if(lReturn > maxCoefficient)
-                {
-                    lReturn = maxCoefficient;
-                }
-
-                return lReturn; 
-                }
-
-        }
-
         public Double MaxCoefficient
         {
             get { return maxCoefficient; }
             set { maxCoefficient = value; }
         }
 
+        /// <summary>
+        /// Depends on WeightPerHectareInKG, Exponent, Multiplier, MaxCoefficient
+        /// </summary>
+        public Double Coefficient
+        {
+            get { return coefficient; }
+            set { coefficient = value; }
+        }
+
+        /// <summary>
+        /// Depends on: WeatherSeason, Day
+        /// </summary>
         public Double RootDepth
         {
-            get { return rootDepth; }
-            set { rootDepth = value; }
+            get{ return rootDepth;}
+            set{ rootDepth = value;}
         }
 
 
@@ -189,31 +197,32 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.SeasonId = 0;
             this.Day = 0;
             this.RatePerHectareByDay = 0;
+            this.InitialWeightPerHectareInKG = 0;
             this.WeightPerHectareInKG = 0;
             this.Exponent = 0;
             this.Multiplier = 0;
             this.MaxCoefficient = 0;
-            this.coefficient = 0;
+            this.Coefficient = 0;
             this.RootDepth = 0;
         }
 
         /// <summary>
         /// Constructor with all parameters
         /// </summary>
+        /// <param name="pName"></param>
         /// <param name="pCrop"></param>
         /// <param name="pAgeOfCrop"></param>
         /// <param name="pSeason"></param>
         /// <param name="pDay"></param>
         /// <param name="pRatePerHectareByDay"></param>
-        /// <param name="pWeightPerHectareInKG"></param>
+        /// <param name="pInitialWeightPerHectareInKG"></param>
         /// <param name="pExponent"></param>
         /// <param name="pMultiplier"></param>
-        /// <param name="pCoefficient"></param>
-        /// <param name="pRootDepth"></param>
+        /// <param name="pMaxCoefficient"></param>
         public DryMass(String pName, Crop pCrop, int pAgeOfCrop, Season pSeason, 
-                    int pDay, Double pRatePerHectareByDay, Double pWeightPerHectareInKG,
-                    Double pExponent, Double pMultiplier, Double pMaxCoefficient,
-                    Double pRootDepth)
+                    int pDay, Double pRatePerHectareByDay, Double pInitialWeightPerHectareInKG,
+                    Double pWeightPerHectareInKG, Double pExponent, Double pMultiplier, 
+                    Double pMaxCoefficient, Double pCoefficient, Double pRootDepth)
         {
             this.Name = pName;
             this.CropId = pCrop.CropId;
@@ -223,11 +232,12 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.Season = pSeason;
             this.Day = pDay;
             this.RatePerHectareByDay = pRatePerHectareByDay;
+            this.InitialWeightPerHectareInKG = pInitialWeightPerHectareInKG;
             this.WeightPerHectareInKG = pWeightPerHectareInKG;
             this.Exponent = pExponent;
             this.Multiplier = pMultiplier;
             this.MaxCoefficient = pMaxCoefficient;
-            this.coefficient = GetCoefficient();
+            this.Coefficient = pCoefficient;
             this.RootDepth = pRootDepth;
         }
 
@@ -239,18 +249,31 @@ namespace IrrigationAdvisor.Models.Agriculture
         #region Public Methods
 
         /// <summary>
-        /// Return the Root Depth
+        /// Return the Weather Season
         /// </summary>
         /// <returns></returns>
-        public double GetRootDepth()
+        public Utils.WeatherSeason GetWeatherSeason()
         {
-            double lRootDepth;
-            lRootDepth = this.rootDepth;
-            return lRootDepth;
+            Utils.WeatherSeason lReturn;
+            lReturn = this.Season.WeatherSeason;
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Return Weigth per Hectare in KG
+        /// Depends on: InitialWeightPerHectareInKG, Day, RatePerHectareByDay
+        /// </summary>
+        /// <returns></returns>
+        public Double GetWeightPerHectareInKG()
+        {
+            Double lReturn;
+            lReturn = this.WeightPerHectareInKG;
+            return lReturn;
         }
 
         /// <summary>
         /// Return the Coefficient of the Crop
+        /// Depends on WeightPerHectareInKG, Exponent, Multiplier, MaxCoefficient
         /// </summary>
         /// <returns></returns>
         public double GetCoefficient()
@@ -258,6 +281,18 @@ namespace IrrigationAdvisor.Models.Agriculture
             double lReturn;
             lReturn = this.Coefficient;
             return lReturn;
+        }
+
+        /// <summary>
+        /// Return the Root Depth
+        /// Depends on: WeatherSeason, Day
+        /// </summary>
+        /// <returns></returns>
+        public double GetRootDepth()
+        {
+            double lRootDepth;
+            lRootDepth = this.rootDepth;
+            return lRootDepth;
         }
 
         #endregion
