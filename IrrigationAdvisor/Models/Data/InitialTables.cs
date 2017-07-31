@@ -3379,15 +3379,17 @@ namespace IrrigationAdvisor.Models.Data
         /// Create DryMass List for FescueForage in Fall
         /// </summary>
         /// <param name="pCrop"></param>
+        /// <param name="pSpecie"></param>
         /// <param name="pSeason"></param>
         /// <returns></returns>
-        public static List<DryMass> CreateDryMassListForFescueForageFall(Crop pCrop, Season pSeason)
+        public static List<DryMass> CreateDryMassListForFescueForageFall(Crop pCrop, Specie pSpecie, Season pSeason)
         {
             List<DryMass> lReturn =null;
             DryMass lDryMass = null;
 
             String lDryMassName;
             Crop lCrop = pCrop;
+            Specie lSpecie = pSpecie;
             int lAgeOfCrop;
             Season lSeason = pSeason;
             int lDayEnd;
@@ -3429,7 +3431,7 @@ namespace IrrigationAdvisor.Models.Data
                     {
                         lRootDepth = 15;
                     }
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason, 
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, 
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3447,7 +3449,7 @@ namespace IrrigationAdvisor.Models.Data
                     lWeightPerHectareInKG = lInitialWeightPerHectareInKG + (lDay * lRatePerHectareByDay);
                     lCoefficient = (Math.Pow(lWeightPerHectareInKG, lExponent) * lMultiplier);
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3465,7 +3467,7 @@ namespace IrrigationAdvisor.Models.Data
                     lWeightPerHectareInKG = lInitialWeightPerHectareInKG + (lDay * lRatePerHectareByDay);
                     lCoefficient = (Math.Pow(lWeightPerHectareInKG, lExponent) * lMultiplier);
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3485,15 +3487,17 @@ namespace IrrigationAdvisor.Models.Data
         /// Create DryMass List for FescueForage in Winter
         /// </summary>
         /// <param name="pCrop"></param>
+        /// <param name="pSpecie"></param>
         /// <param name="pSeason"></param>
         /// <returns></returns>
-        public static List<DryMass> CreateDryMassListForFescueForageWinter(Crop pCrop, Season pSeason)
+        public static List<DryMass> CreateDryMassListForFescueForageWinter(Crop pCrop, Specie pSpecie, Season pSeason)
         {
             List<DryMass> lReturn = null;
             DryMass lDryMass = null;
 
             String lDryMassName;
             Crop lCrop = pCrop;
+            Specie lSpecie = pSpecie;
             int lAgeOfCrop;
             Season lSeason = pSeason;
             int lDayEnd;
@@ -3543,7 +3547,7 @@ namespace IrrigationAdvisor.Models.Data
                     {
                         lRootDepth = 15;
                     }
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3573,7 +3577,7 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3595,7 +3599,7 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3615,15 +3619,17 @@ namespace IrrigationAdvisor.Models.Data
         /// Create DryMass List for FescueForage in Spring
         /// </summary>
         /// <param name="pCrop"></param>
+        /// <param name="pSpecie"></param>
         /// <param name="pSeason"></param>
         /// <returns></returns>
-        public static List<DryMass> CreateDryMassListForFescueForageSpring(Crop pCrop, Season pSeason)
+        public static List<DryMass> CreateDryMassListForFescueForageSpring(Crop pCrop, Specie pSpecie, Season pSeason)
         {
             List<DryMass> lReturn = null;
             DryMass lDryMass = null;
 
             String lDryMassName;
             Crop lCrop = pCrop;
+            Specie lSpecie = pSpecie;
             int lAgeOfCrop;
             Season lSeason = pSeason;
             int lDayEnd;
@@ -3670,7 +3676,7 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 25;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3704,7 +3710,7 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3738,7 +3744,7 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3758,15 +3764,17 @@ namespace IrrigationAdvisor.Models.Data
         /// Create DryMass List for FescueForage in Summer
         /// </summary>
         /// <param name="pCrop"></param>
+        /// <param name="pSpecie"></param>
         /// <param name="pSeason"></param>
         /// <returns></returns>
-        public static List<DryMass> CreateDryMassListForFescueForageSummer(Crop pCrop, Season pSeason)
+        public static List<DryMass> CreateDryMassListForFescueForageSummer(Crop pCrop, Specie pSpecie, Season pSeason)
         {
             List<DryMass> lReturn = null;
             DryMass lDryMass = null;
 
             String lDryMassName;
             Crop lCrop = pCrop;
+            Specie lSpecie = pSpecie;
             int lAgeOfCrop;
             Season lSeason = pSeason;
             int lDayEnd;
@@ -3813,7 +3821,7 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 35;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3847,7 +3855,7 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
@@ -3881,7 +3889,7 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lCrop, lAgeOfCrop, lSeason,
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
                                             lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
                                             lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);

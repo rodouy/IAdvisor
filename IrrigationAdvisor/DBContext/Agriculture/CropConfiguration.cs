@@ -34,12 +34,6 @@ namespace IrrigationAdvisor.DBContext.Agriculture
                 .WithRequiredDependent();
             HasRequired(a => a.Specie)
                 .WithRequiredDependent();
-            HasRequired(a => a.CropCoefficient)
-                .WithRequiredDependent();
-            HasMany(a => a.StageList)
-                .WithOptional();
-            HasMany(a => a.PhenologicalStageList)
-                .WithOptional();
             #endif
             #endregion
         }

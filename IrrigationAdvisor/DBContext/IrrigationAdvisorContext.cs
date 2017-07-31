@@ -79,6 +79,8 @@ namespace IrrigationAdvisor.DBContext
 
         public virtual DbSet<CropInformationByDate> CropInformationByDates { get; set; }
 
+        public virtual DbSet<DryMass> DryMasses { get; set; }
+
         public virtual DbSet<Horizon> Horizons { get; set; }
 
         public virtual DbSet<PhenologicalStage> PhenologicalStages { get; set; }
@@ -209,6 +211,8 @@ namespace IrrigationAdvisor.DBContext
         #region Weather
         #if true
 
+        public virtual DbSet<Season> Seasons { get; set; }
+
         public virtual DbSet<TemperatureData> TemperatureDatas { get; set; }
 
         public virtual DbSet<WeatherData> WeatherDatas { get; set; }
@@ -235,6 +239,7 @@ namespace IrrigationAdvisor.DBContext
             modelBuilder.Configurations.Add(new CropConfiguration());
             modelBuilder.Configurations.Add(new CropCoefficientConfiguration());
             modelBuilder.Configurations.Add(new CropInformationByDateConfiguration());
+            modelBuilder.Configurations.Add(new DryMassConfiguration());
             modelBuilder.Configurations.Add(new HorizonConfiguration());
             modelBuilder.Configurations.Add(new KCConfiguration());
             modelBuilder.Configurations.Add(new PhenologicalStageConfiguration());
@@ -334,6 +339,7 @@ namespace IrrigationAdvisor.DBContext
             #region Weather
             #if true
 
+            modelBuilder.Configurations.Add(new SeasonConfiguration());
             modelBuilder.Configurations.Add(new TemperatureDataConfiguration());
             modelBuilder.Configurations.Add(new WeatherDataConfiguration());
             modelBuilder.Configurations.Add(new WeatherInformationConfiguration());

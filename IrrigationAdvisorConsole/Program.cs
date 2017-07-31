@@ -114,6 +114,15 @@ namespace IrrigationAdvisorConsole
                 #endif
                 #endregion
 
+                #region Weather.Season
+                #if true
+                Console.WriteLine("Add Information of Weather.Season");
+
+                WeatherInsert.InsertSeasons();
+
+                #endif
+                #endregion
+
                 #region Agriculture
                 #if true
                 Console.WriteLine("Add Information of Agriculture.");

@@ -5,6 +5,8 @@ using System.Web;
 using IrrigationAdvisor.Models.Localization;
 
 using NLog;
+using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.Models.Weather;
 
 namespace IrrigationAdvisor.Models.Agriculture
 {
@@ -68,6 +70,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private long cropCoefficientId;
         private List<Stage> stageList;
         private List<PhenologicalStage> phenologicalStageList;
+        private List<DryMass> dryMassList;
 
         private long minStageToConsiderETinHBCalculationId;
 
@@ -148,6 +151,12 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { phenologicalStageList = value; }
         }
 
+        public List<DryMass> DryMassList
+        {
+            get { return dryMassList; }
+            set { dryMassList = value; }
+        }
+
         public long MinStageToConsiderETinHBCalculationId
         {
             get { return minStageToConsiderETinHBCalculationId; }
@@ -206,6 +215,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.CropCoefficientId = 0;
             this.StageList = new List<Stage>();
             this.PhenologicalStageList = new List<PhenologicalStage>();
+            this.DryMassList = new List<DryMass>();
             this.MinStageToConsiderETinHBCalculationId = 0;
             this.MaxEvapotranspirationToIrrigate = 0;
             this.MinEvapotranspirationToIrrigate = 0;
@@ -226,7 +236,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pMinEvapotranspirationToIrrigate"></param>
         /// <param name="pStopIrrigationStageId"></param>
         public Crop(long pCropId, String pName, String pShortName,
-                    long pRegionId, long pSpecieId,long pCropCoefficientId,
+                    long pRegionId, long pSpecieId, long pCropCoefficientId,
                     long pMinStageToConsiderETinHBCalculationId,
                     Double pMaxEvapotranspirationToIrrigate, 
                     Double pMinEvapotranspirationToIrrigate, long pStopIrrigationStageId)
@@ -239,6 +249,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.CropCoefficientId = pCropCoefficientId;
             this.StageList = new List<Stage>();
             this.PhenologicalStageList = new List<PhenologicalStage>();
+            this.DryMassList = new List<DryMass>();
             this.MinStageToConsiderETinHBCalculationId = pMinStageToConsiderETinHBCalculationId;
             this.MaxEvapotranspirationToIrrigate = pMaxEvapotranspirationToIrrigate;
             this.MinEvapotranspirationToIrrigate = pMinEvapotranspirationToIrrigate;
@@ -647,6 +658,10 @@ namespace IrrigationAdvisor.Models.Agriculture
                 this.PhenologicalStageList.Add(lPhenologicalStage);
                 lReturn = lPhenologicalStage;
             }
+            else
+            {
+                lReturn = null;
+            }
 
             return lReturn;
         }
@@ -759,6 +774,219 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
             return lReturn;
         }
+
+        #endregion
+
+        #region DryMass
+
+        /// <summary>
+        ///  New ID for DryMassList, MAX + 1
+        /// </summary>
+        /// <returns></returns>
+        public long GetNewDryMassListId()
+        {
+            long lReturn = 1;
+
+            if (this.DryMassList != null && this.DryMassList.Count > 0)
+            {
+                lReturn += this.DryMassList.Max(dm => dm.DryMassId);
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        ///  Get the initial DryMass item
+        /// </summary>
+        /// <returns></returns>
+        public DryMass GetInitialDryMass()
+        {
+            DryMass lReturn = null;
+
+            if (this.DryMassList.Count() > 0)
+            {
+                lReturn = this.DryMassList[0];
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get DryMass list by Age of Crop
+        /// </summary>
+        /// <param name="pAgeOfCrop"></param>
+        /// <returns></returns>
+        public List<DryMass> GetDryMassList(int pAgeOfCrop)
+        {
+            List<DryMass> lReturn = null;
+
+            lReturn = this.DryMassList.Where(dm => dm.AgeOfCrop == pAgeOfCrop).ToList();
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get DryMass list by Weather Season
+        /// </summary>
+        /// <param name="pWeatherSeason"></param>
+        /// <returns></returns>
+        public List<DryMass> GetDryMassList(Utils.WeatherSeason pWeatherSeason)
+        {
+            List<DryMass> lReturn = null;
+
+            lReturn = this.DryMassList.Where(dm => dm.GetWeatherSeason() == pWeatherSeason).ToList();
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Find A DryMass by Age of Crop, Weather Season, and Day
+        /// </summary>
+        /// <param name="pAgeOfCrop"></param>
+        /// <param name="pWeatherSeason"></param>
+        /// <param name="pDay"></param>
+        /// <returns></returns>
+        public DryMass FindDryMass(int pAgeOfCrop, Utils.WeatherSeason pWeatherSeason, int pDay)
+        {
+            DryMass lReturn = null;
+
+            foreach (DryMass item in this.DryMassList.Where(dm => dm.AgeOfCrop == pAgeOfCrop)
+                                                     .Where(dm => dm.GetWeatherSeason() == pWeatherSeason))
+            {
+                if (item.Day.Equals(pDay))
+                {
+                    lReturn = item;
+                    break;
+                }
+            }
+            
+            return lReturn;
+        }
+
+        /// <summary>
+        /// If DryMass exist in List, return the DryMass item, 
+        /// else return null
+        /// </summary>
+        /// <param name="pDrayMass"></param>
+        /// <returns></returns>
+        public DryMass ExistDryMass(DryMass pDrayMass)
+        {
+            DryMass lReturn = null;
+
+            if (pDrayMass != null)
+            {
+                foreach (DryMass item in this.DryMassList)
+                {
+                    if (item.Equals(pDrayMass))
+                    {
+                        lReturn = item;
+                        break;
+                    }
+                }
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Add a new DryMass, if exists, return null
+        /// </summary>
+        /// <param name="pName"></param>
+        /// <param name="pSpecie"></param>
+        /// <param name="pAgeOfCrop"></param>
+        /// <param name="pSeason"></param>
+        /// <param name="pDay"></param>
+        /// <param name="pRatePerHectareByDay"></param>
+        /// <param name="pInitialWeightPerHectareInKG"></param>
+        /// <param name="pWeightPerHectareInKG"></param>
+        /// <param name="pExponent"></param>
+        /// <param name="pMultiplier"></param>
+        /// <param name="pMaxCoefficient"></param>
+        /// <param name="pCoefficient"></param>
+        /// <param name="pRootDepth"></param>
+        /// <returns></returns>
+        public DryMass AddDryMass(String pName, Specie pSpecie, int pAgeOfCrop, Season pSeason,
+                    int pDay, Double pRatePerHectareByDay, Double pInitialWeightPerHectareInKG,
+                    Double pWeightPerHectareInKG, Double pExponent, Double pMultiplier,
+                    Double pMaxCoefficient, Double pCoefficient, Double pRootDepth)
+        {
+            DryMass lReturn = null;
+
+            DryMass lDryMass = new DryMass(pName, pSpecie, pAgeOfCrop, pSeason, pDay, pRatePerHectareByDay,
+                                            pInitialWeightPerHectareInKG, pWeightPerHectareInKG, pExponent,
+                                            pMultiplier, pMaxCoefficient, pCoefficient, pRootDepth);
+
+            lReturn = ExistDryMass(lDryMass);
+            if (lReturn == null)
+            {
+                this.DryMassList.Add(lDryMass);
+                lReturn = lDryMass;
+            }
+            else
+            {
+                lReturn = null;
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Update DryMass
+        /// </summary>
+        /// <param name="pName"></param>
+        /// <param name="pSpecie"></param>
+        /// <param name="pAgeOfCrop"></param>
+        /// <param name="pSeason"></param>
+        /// <param name="pDay"></param>
+        /// <param name="pRatePerHectareByDay"></param>
+        /// <param name="pInitialWeightPerHectareInKG"></param>
+        /// <param name="pWeightPerHectareInKG"></param>
+        /// <param name="pExponent"></param>
+        /// <param name="pMultiplier"></param>
+        /// <param name="pMaxCoefficient"></param>
+        /// <param name="pCoefficient"></param>
+        /// <param name="pRootDepth"></param>
+        /// <returns></returns>
+        public DryMass UpdateDryMass(String pName, Specie pSpecie, int pAgeOfCrop, Season pSeason,
+                    int pDay, Double pRatePerHectareByDay, Double pInitialWeightPerHectareInKG,
+                    Double pWeightPerHectareInKG, Double pExponent, Double pMultiplier,
+                    Double pMaxCoefficient, Double pCoefficient, Double pRootDepth)
+        {
+            DryMass lReturn = null;
+
+            try
+            {
+                DryMass lDryMass = new DryMass(pName, pSpecie, pAgeOfCrop, pSeason, pDay, pRatePerHectareByDay,
+                                            pInitialWeightPerHectareInKG, pWeightPerHectareInKG, pExponent,
+                                            pMultiplier, pMaxCoefficient, pCoefficient, pRootDepth);
+                lReturn = ExistDryMass(lDryMass);
+                if (lReturn != null)
+                {
+                    lReturn.Name = pName;
+                    lReturn.SpecieId = pSpecie.SpecieId;
+                    lReturn.AgeOfCrop = pAgeOfCrop;
+                    lReturn.Season = pSeason;
+                    lReturn.SeasonId = pSeason.SeasonId;
+                    lReturn.Day = pDay;
+                    lReturn.RatePerHectareByDay = pRatePerHectareByDay;
+                    lReturn.InitialWeightPerHectareInKG = pInitialWeightPerHectareInKG;
+                    lReturn.WeightPerHectareInKG = pWeightPerHectareInKG;
+                    lReturn.Exponent = pExponent;
+                    lReturn.Multiplier = pMultiplier;
+                    lReturn.MaxCoefficient = pMaxCoefficient;
+                    lReturn.Coefficient = pCoefficient;
+                    lReturn.RootDepth = pRootDepth;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in CropIrrigationWeather.UpdateDryMass " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+            return lReturn;
+        }
+
+
 
         #endregion
 

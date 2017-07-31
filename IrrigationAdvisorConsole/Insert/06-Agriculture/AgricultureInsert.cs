@@ -12,6 +12,7 @@ using IrrigationAdvisor.Models.Utilities;
 
 using IrrigationAdvisor.DBContext;
 using NLog;
+using IrrigationAdvisor.Models.Weather;
 
 namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 {
@@ -2324,6 +2325,48 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
                 #endregion
             };
+        }
+
+        #endregion
+
+        #region DryMass
+        
+        public static void InsertDryMassFescueForageFall()
+        {
+
+            #region Base
+            var lBase = new DryMass
+            {
+                Name = "noname",
+                SpecieId = 0,
+                AgeOfCrop = 0,
+                SeasonId = 0,
+                Day = 0,
+                RatePerHectareByDay = 0,
+                InitialWeightPerHectareInKG = 0,
+                WeightPerHectareInKG = 0,
+                Exponent = 0,
+                Multiplier = 0,
+                MaxCoefficient = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                #region FescueForage
+                Specie lSpecie = null;
+                Season lSeason = null;
+                String lDryMassName;
+
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameFescueForageFall) select specie).FirstOrDefault();
+                lDryMassName = Utils.NameFescueForageFall + "001";
+                var lDryMass001 = new DryMass { Name = lDryMassName, SpecieId = lSpecie.SpecieId };
+
+                #endregion
+            }
+
         }
 
         #endregion

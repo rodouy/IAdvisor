@@ -57,7 +57,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         private long dryMassId;
         private String name;
-        private long cropId;
+        private long specieId;
         private int ageOfCrop;
         private long seasonId;
         private int day;
@@ -87,13 +87,13 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { name = value; }
         }
 
-        public long CropId
+        public long SpecieId
         {
-            get { return cropId; }
-            set { cropId = value; }
+            get { return specieId; }
+            set { specieId = value; }
         }
 
-        public virtual Crop Crop
+        public virtual Specie Specie
         {
             get;
             set;
@@ -192,7 +192,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         public DryMass()
         {
             this.Name = "noname";
-            this.CropId = 0;
+            this.SpecieId = 0;
             this.AgeOfCrop = 0;
             this.SeasonId = 0;
             this.Day = 0;
@@ -210,23 +210,26 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// Constructor with all parameters
         /// </summary>
         /// <param name="pName"></param>
-        /// <param name="pCrop"></param>
+        /// <param name="pSpecie"></param>
         /// <param name="pAgeOfCrop"></param>
         /// <param name="pSeason"></param>
         /// <param name="pDay"></param>
         /// <param name="pRatePerHectareByDay"></param>
         /// <param name="pInitialWeightPerHectareInKG"></param>
+        /// <param name="pWeightPerHectareInKG"></param>
         /// <param name="pExponent"></param>
         /// <param name="pMultiplier"></param>
         /// <param name="pMaxCoefficient"></param>
-        public DryMass(String pName, Crop pCrop, int pAgeOfCrop, Season pSeason, 
+        /// <param name="pCoefficient"></param>
+        /// <param name="pRootDepth"></param>
+        public DryMass(String pName, Specie pSpecie, int pAgeOfCrop, Season pSeason, 
                     int pDay, Double pRatePerHectareByDay, Double pInitialWeightPerHectareInKG,
                     Double pWeightPerHectareInKG, Double pExponent, Double pMultiplier, 
                     Double pMaxCoefficient, Double pCoefficient, Double pRootDepth)
         {
             this.Name = pName;
-            this.CropId = pCrop.CropId;
-            this.Crop = pCrop;
+            this.SpecieId = pSpecie.SpecieId;
+            this.Specie = pSpecie;
             this.AgeOfCrop = pAgeOfCrop;
             this.SeasonId = pSeason.SeasonId;
             this.Season = pSeason;
@@ -314,7 +317,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             }
 
             DryMass lDryMass = obj as DryMass;
-            lReturn = this.Crop.Equals(lDryMass.Crop)
+            lReturn = this.Specie.Equals(lDryMass.Specie)
                 && this.Season.Equals(lDryMass.Season)
                 && this.AgeOfCrop.Equals(lDryMass.AgeOfCrop)
                 && this.Day.Equals(lDryMass.Day);
@@ -324,7 +327,7 @@ namespace IrrigationAdvisor.Models.Agriculture
 
         public override int GetHashCode()
         {
-            return this.Crop.GetHashCode();
+            return this.Specie.GetHashCode();
         }
         #endregion
     }

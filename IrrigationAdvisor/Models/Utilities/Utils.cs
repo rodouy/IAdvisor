@@ -767,6 +767,14 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameFarm = "";
         #endregion
         #region Weather
+        #region Season
+        public static String NameSeasonSummer = "Verano";
+        public static String NameSeasonFall = "Otoño";
+        public static String NameSeasonWinter = "Invierno";
+        public static String NameSeasonSpring = "Primavera";
+        public static String NameSeason = "";
+        #endregion
+
         public static String NameWeatherStationLasBrujas = "Las Brujas";
         public static String NameWeatherStationSantaLucia = "Santa Lucia";
         public static String NameWeatherStationLaEstanzuela = "La Estanzuela";
@@ -1017,24 +1025,24 @@ namespace IrrigationAdvisor.Models.Utilities
         //public static String NameStagesSorghumGrain = "Sorgo Granifero";
         #endregion
         #region Alfalfa
-        public static String NameStagesAlfalfaFall = "Alfalfa " + WeatherSeason.Fall;
-        public static String NameStagesAlfalfaWinter = "Alfalfa " + WeatherSeason.Winter;
-        public static String NameStagesAlfalfaSpring = "Alfalfa " + WeatherSeason.Spring;
-        public static String NameStagesAlfalfaSummer = "Alfalfa " + WeatherSeason.Summer;
+        public static String NameStagesAlfalfaFall = "Alfalfa " + NameSeasonFall;
+        public static String NameStagesAlfalfaWinter = "Alfalfa " + NameSeasonWinter;
+        public static String NameStagesAlfalfaSpring = "Alfalfa " + NameSeasonSpring;
+        public static String NameStagesAlfalfaSummer = "Alfalfa " + NameSeasonSummer;
         #endregion
         #region RedClover
         //public static String NameStagesRedCloverForage = "Trebol Rojo Forraje";
         //public static String NameStagesRedCloverSeed = "Trebol Rojo Semilla";
         #endregion
         #region Fescue
-        public static String NameFescueForageFall = "Festuca Forraje " + WeatherSeason.Fall;
-        public static String NameFescueSeedFall = "Festuca Semilla " + WeatherSeason.Fall;
-        public static String NameFescueForageWinter = "Festuca Forraje " + WeatherSeason.Winter;
-        public static String NameFescueSeedWinter = "Festuca Semilla " + WeatherSeason.Winter;
-        public static String NameFescueForageSpring = "Festuca Forraje " + WeatherSeason.Spring;
-        public static String NameFescueSeedSpring = "Festuca Semilla " + WeatherSeason.Spring;
-        public static String NameFescueForageSummer = "Festuca Forraje " + WeatherSeason.Summer;
-        public static String NameFescueSeedSummer = "Festuca Semilla " + WeatherSeason.Summer;
+        public static String NameFescueForageFall = "Festuca Forraje " + NameSeasonFall;
+        public static String NameFescueSeedFall = "Festuca Semilla " + NameSeasonFall;
+        public static String NameFescueForageWinter = "Festuca Forraje " + NameSeasonWinter;
+        public static String NameFescueSeedWinter = "Festuca Semilla " + NameSeasonWinter;
+        public static String NameFescueForageSpring = "Festuca Forraje " + NameSeasonSpring;
+        public static String NameFescueSeedSpring = "Festuca Semilla " + NameSeasonSpring;
+        public static String NameFescueForageSummer = "Festuca Forraje " + NameSeasonSummer;
+        public static String NameFescueSeedSummer = "Festuca Semilla " + NameSeasonSummer;
         #endregion
         #endregion
         #endregion
