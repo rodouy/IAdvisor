@@ -185,6 +185,7 @@
     <Compile Include="Controllers\Agriculture\CropCoefficientsController.cs" />
     <Compile Include="Controllers\Agriculture\CropInformationByDatesController.cs" />
     <Compile Include="Controllers\Agriculture\CropsController.cs" />
+    <Compile Include="Controllers\Agriculture\DryMassesController.cs" />
     <Compile Include="Controllers\Agriculture\HorizonsController.cs" />
     <Compile Include="Controllers\Agriculture\KCsController.cs" />
     <Compile Include="Controllers\Agriculture\PhenologicalStageAdjustmentsController.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Controllers\Water\EvapotranspirationCropsController.cs" />
     <Compile Include="Controllers\Water\IrrigationsController.cs" />
     <Compile Include="Controllers\Water\RainsController.cs" />
+    <Compile Include="Controllers\Weather\SeasonsController.cs" />
     <Compile Include="Controllers\Weather\TemperatureDatasController.cs" />
     <Compile Include="Controllers\Weather\WeatherDatasController.cs" />
     <Compile Include="Controllers\Weather\WeatherInformationsController.cs" />
@@ -875,6 +877,16 @@
     <Content Include="Views\Data\Status\Index.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Weather\Seasons\Create.cshtml" />
+    <Content Include="Views\Weather\Seasons\Delete.cshtml" />
+    <Content Include="Views\Weather\Seasons\Details.cshtml" />
+    <Content Include="Views\Weather\Seasons\Edit.cshtml" />
+    <Content Include="Views\Weather\Seasons\Index.cshtml" />
+    <Content Include="Views\Agriculture\DryMasses\Create.cshtml" />
+    <Content Include="Views\Agriculture\DryMasses\Delete.cshtml" />
+    <Content Include="Views\Agriculture\DryMasses\Details.cshtml" />
+    <Content Include="Views\Agriculture\DryMasses\Edit.cshtml" />
+    <Content Include="Views\Agriculture\DryMasses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />

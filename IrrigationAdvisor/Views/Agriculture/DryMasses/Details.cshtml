@@ -1,0 +1,123 @@
+﻿@model IrrigationAdvisor.Models.Agriculture.DryMass
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_ViewStart.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DryMass</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Season.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Season.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specie.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specie.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeOfCrop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeOfCrop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Day)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Day)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatePerHectareByDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatePerHectareByDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InitialWeightPerHectareInKG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InitialWeightPerHectareInKG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeightPerHectareInKG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeightPerHectareInKG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exponent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exponent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Multiplier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Multiplier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxCoefficient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxCoefficient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coefficient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coefficient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RootDepth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RootDepth)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DryMassId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

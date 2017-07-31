@@ -97,6 +97,10 @@ namespace IrrigationAdvisor.Models
 
         public System.Data.Entity.DbSet<IrrigationAdvisor.Models.Data.Status> Status { get; set; }
 
+        public System.Data.Entity.DbSet<IrrigationAdvisor.Models.Weather.Season> Seasons { get; set; }
+
+        public System.Data.Entity.DbSet<IrrigationAdvisor.Models.Agriculture.DryMass> DryMasses { get; set; }
+
 
     }
 }
