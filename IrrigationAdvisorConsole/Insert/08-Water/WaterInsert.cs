@@ -364,8 +364,10 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l08101);
                 #endregion
 
+                context.SaveChanges();
+
                 lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                      where effectiverain.Region.Name.Equals(Utils.NameRegionSouth)
+                                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
                                       select effectiverain)
                                      .ToList<EffectiveRain>();
 
@@ -396,7 +398,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 };
                 #endregion
 
-                #region Region South
+                #region Region North
                 //January, February, March, April, May, June, July, August, September, October, November and December
 
                 #region September
@@ -714,6 +716,8 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 context.EffectiveRains.Add(l0891);
                 context.EffectiveRains.Add(l08101);
                 #endregion
+
+                context.SaveChanges();
 
                 lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                       where effectiverain.Region.Name.Equals(Utils.NameRegionNorth)

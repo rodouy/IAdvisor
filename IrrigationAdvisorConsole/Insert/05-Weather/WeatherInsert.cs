@@ -35,7 +35,7 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
             using(var context = new IrrigationAdvisorContext())
             {
                 #region Base
-                var lBase = new Season
+                var lBaseSouth  = new Season
                 {
                     Name = Utils.NameBase,
                     Year = Utils.MIN_DATETIME.Year,
@@ -52,9 +52,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 #region 2014
                 lYear = 2014;
                 #region Summer
-                var lSeason2014Summer = new Season
+                var lSeason2014SummerSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSummer,
+                    Name = Utils.NameSeasonSummer + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Summer,
                     RegionId = lRegion.RegionId,
@@ -64,9 +64,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Fall
-                var lSeason2014Fall = new Season
+                var lSeason2014FallSouth  = new Season
                 {
-                    Name = Utils.NameSeasonFall,
+                    Name = Utils.NameSeasonFall + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Fall,
                     RegionId = lRegion.RegionId,
@@ -76,9 +76,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Winter
-                var lSeason2014Winter = new Season
+                var lSeason2014WinterSouth  = new Season
                 {
-                    Name = Utils.NameSeasonWinter,
+                    Name = Utils.NameSeasonWinter + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Winter,
                     RegionId = lRegion.RegionId,
@@ -88,9 +88,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Spring
-                var lSeason2014Spring = new Season
+                var lSeason2014SpringSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSpring,
+                    Name = Utils.NameSeasonSpring + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Spring,
                     RegionId = lRegion.RegionId,
@@ -100,13 +100,12 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #endregion
-
                 #region 2015
                 lYear = 2015;
                 #region Summer
-                var lSeason2015Summer = new Season
+                var lSeason2015SummerSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSummer,
+                    Name = Utils.NameSeasonSummer + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Summer,
                     RegionId = lRegion.RegionId,
@@ -116,9 +115,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Fall
-                var lSeason2015Fall = new Season
+                var lSeason2015FallSouth  = new Season
                 {
-                    Name = Utils.NameSeasonFall,
+                    Name = Utils.NameSeasonFall + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Fall,
                     RegionId = lRegion.RegionId,
@@ -128,9 +127,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Winter
-                var lSeason2015Winter = new Season
+                var lSeason2015WinterSouth  = new Season
                 {
-                    Name = Utils.NameSeasonWinter,
+                    Name = Utils.NameSeasonWinter + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Winter,
                     RegionId = lRegion.RegionId,
@@ -140,9 +139,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Spring
-                var lSeason2015Spring = new Season
+                var lSeason2015SpringSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSpring,
+                    Name = Utils.NameSeasonSpring + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Spring,
                     RegionId = lRegion.RegionId,
@@ -152,13 +151,12 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #endregion
-
                 #region 2016
                 lYear = 2016;
                 #region Summer
-                var lSeason2016Summer = new Season
+                var lSeason2016SummerSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSummer,
+                    Name = Utils.NameSeasonSummer + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Summer,
                     RegionId = lRegion.RegionId,
@@ -168,9 +166,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Fall
-                var lSeason2016Fall = new Season
+                var lSeason2016FallSouth  = new Season
                 {
-                    Name = Utils.NameSeasonFall,
+                    Name = Utils.NameSeasonFall + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Fall,
                     RegionId = lRegion.RegionId,
@@ -180,9 +178,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Winter
-                var lSeason2016Winter = new Season
+                var lSeason2016WinterSouth  = new Season
                 {
-                    Name = Utils.NameSeasonWinter,
+                    Name = Utils.NameSeasonWinter + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Winter,
                     RegionId = lRegion.RegionId,
@@ -192,9 +190,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Spring
-                var lSeason2016Spring = new Season
+                var lSeason2016SpringSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSpring,
+                    Name = Utils.NameSeasonSpring + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Spring,
                     RegionId = lRegion.RegionId,
@@ -204,13 +202,12 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #endregion
-
                 #region 2017
                 lYear = 2017;
                 #region Summer
-                var lSeason2017Summer = new Season
+                var lSeason2017SummerSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSummer,
+                    Name = Utils.NameSeasonSummer + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Summer,
                     RegionId = lRegion.RegionId,
@@ -220,9 +217,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Fall
-                var lSeason2017Fall = new Season
+                var lSeason2017FallSouth  = new Season
                 {
-                    Name = Utils.NameSeasonFall,
+                    Name = Utils.NameSeasonFall + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Fall,
                     RegionId = lRegion.RegionId,
@@ -232,9 +229,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Winter
-                var lSeason2017Winter = new Season
+                var lSeason2017WinterSouth  = new Season
                 {
-                    Name = Utils.NameSeasonWinter,
+                    Name = Utils.NameSeasonWinter + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Winter,
                     RegionId = lRegion.RegionId,
@@ -244,9 +241,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Spring
-                var lSeason2017Spring = new Season
+                var lSeason2017SpringSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSpring,
+                    Name = Utils.NameSeasonSpring + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Spring,
                     RegionId = lRegion.RegionId,
@@ -256,13 +253,12 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #endregion
-
                 #region 2018
                 lYear = 2018;
                 #region Summer
-                var lSeason2018Summer = new Season
+                var lSeason2018SummerSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSummer,
+                    Name = Utils.NameSeasonSummer + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Summer,
                     RegionId = lRegion.RegionId,
@@ -272,9 +268,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Fall
-                var lSeason2018Fall = new Season
+                var lSeason2018FallSouth  = new Season
                 {
-                    Name = Utils.NameSeasonFall,
+                    Name = Utils.NameSeasonFall + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Fall,
                     RegionId = lRegion.RegionId,
@@ -284,9 +280,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Winter
-                var lSeason2018Winter = new Season
+                var lSeason2018WinterSouth  = new Season
                 {
-                    Name = Utils.NameSeasonWinter,
+                    Name = Utils.NameSeasonWinter + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Winter,
                     RegionId = lRegion.RegionId,
@@ -296,9 +292,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Spring
-                var lSeason2018Spring = new Season
+                var lSeason2018SpringSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSpring,
+                    Name = Utils.NameSeasonSpring + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Spring,
                     RegionId = lRegion.RegionId,
@@ -308,13 +304,12 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #endregion
-
                 #region 2019
                 lYear = 2019;
                 #region Summer
-                var lSeason2019Summer = new Season
+                var lSeason2019SummerSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSummer,
+                    Name = Utils.NameSeasonSummer + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Summer,
                     RegionId = lRegion.RegionId,
@@ -324,9 +319,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Fall
-                var lSeason2019Fall = new Season
+                var lSeason2019FallSouth  = new Season
                 {
-                    Name = Utils.NameSeasonFall,
+                    Name = Utils.NameSeasonFall + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Fall,
                     RegionId = lRegion.RegionId,
@@ -336,9 +331,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Winter
-                var lSeason2019Winter = new Season
+                var lSeason2019WinterSouth  = new Season
                 {
-                    Name = Utils.NameSeasonWinter,
+                    Name = Utils.NameSeasonWinter + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Winter,
                     RegionId = lRegion.RegionId,
@@ -348,9 +343,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Spring
-                var lSeason2019Spring = new Season
+                var lSeason2019SpringSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSpring,
+                    Name = Utils.NameSeasonSpring + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Spring,
                     RegionId = lRegion.RegionId,
@@ -360,13 +355,12 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #endregion
-
                 #region 2020
                 lYear = 2020;
                 #region Summer
-                var lSeason2020Summer = new Season
+                var lSeason2020SummerSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSummer,
+                    Name = Utils.NameSeasonSummer + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Summer,
                     RegionId = lRegion.RegionId,
@@ -376,9 +370,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Fall
-                var lSeason2020Fall = new Season
+                var lSeason2020FallSouth  = new Season
                 {
-                    Name = Utils.NameSeasonFall,
+                    Name = Utils.NameSeasonFall + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Fall,
                     RegionId = lRegion.RegionId,
@@ -388,9 +382,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Winter
-                var lSeason2020Winter = new Season
+                var lSeason2020WinterSouth  = new Season
                 {
-                    Name = Utils.NameSeasonWinter,
+                    Name = Utils.NameSeasonWinter + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Winter,
                     RegionId = lRegion.RegionId,
@@ -400,9 +394,9 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 };
                 #endregion
                 #region Spring
-                var lSeason2020Spring = new Season
+                var lSeason2020SpringSouth  = new Season
                 {
-                    Name = Utils.NameSeasonSpring,
+                    Name = Utils.NameSeasonSpring + lYear,
                     Year = lYear,
                     WeatherSeason = Utils.WeatherSeason.Spring,
                     RegionId = lRegion.RegionId,
@@ -413,11 +407,430 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 #endregion
                 #endregion
 
+                context.Seasons.Add(lSeason2014SummerSouth);
+                context.Seasons.Add(lSeason2014FallSouth);
+                context.Seasons.Add(lSeason2014WinterSouth);
+                context.Seasons.Add(lSeason2014SpringSouth);
+                context.Seasons.Add(lSeason2015SummerSouth);
+                context.Seasons.Add(lSeason2015FallSouth);
+                context.Seasons.Add(lSeason2015WinterSouth);
+                context.Seasons.Add(lSeason2015SpringSouth); 
+                context.Seasons.Add(lSeason2016SummerSouth);
+                context.Seasons.Add(lSeason2016FallSouth);
+                context.Seasons.Add(lSeason2016WinterSouth);
+                context.Seasons.Add(lSeason2016SpringSouth);
+                context.Seasons.Add(lSeason2017SummerSouth);
+                context.Seasons.Add(lSeason2017FallSouth);
+                context.Seasons.Add(lSeason2017WinterSouth);
+                context.Seasons.Add(lSeason2017SpringSouth);
+                context.Seasons.Add(lSeason2018SummerSouth);
+                context.Seasons.Add(lSeason2018FallSouth);
+                context.Seasons.Add(lSeason2018WinterSouth);
+                context.Seasons.Add(lSeason2018SpringSouth);
+                context.Seasons.Add(lSeason2019SummerSouth);
+                context.Seasons.Add(lSeason2019FallSouth);
+                context.Seasons.Add(lSeason2019WinterSouth);
+                context.Seasons.Add(lSeason2019SpringSouth);
+                context.Seasons.Add(lSeason2020SummerSouth);
+                context.Seasons.Add(lSeason2020FallSouth);
+                context.Seasons.Add(lSeason2020WinterSouth);
+                context.Seasons.Add(lSeason2020SpringSouth);
+
                 #endregion
 
+                #region North
+                lRegion = context.Regions.SingleOrDefault(region => region.Name == Utils.NameRegionNorth);
 
-                //context.Seasons.Add(lSeason2014Summer);
+                #region 2014
+                lYear = 2014;
+                #region Summer
+                var lSeason2014SummerNorth = new Season
+                {
+                    Name = Utils.NameSeasonSummer + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Summer,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear - 1, 12, 22),
+                    ToDate = new DateTime(lYear, 3, 20),
+                };
+                #endregion
+                #region Fall
+                var lSeason2014FallNorth = new Season
+                {
+                    Name = Utils.NameSeasonFall + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Fall,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 3, 21),
+                    ToDate = new DateTime(lYear, 6, 21),
+                };
+                #endregion
+                #region Winter
+                var lSeason2014WinterNorth = new Season
+                {
+                    Name = Utils.NameSeasonWinter + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Winter,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 6, 22),
+                    ToDate = new DateTime(lYear, 9, 20),
+                };
+                #endregion
+                #region Spring
+                var lSeason2014SpringNorth = new Season
+                {
+                    Name = Utils.NameSeasonSpring + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Spring,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 9, 21),
+                    ToDate = new DateTime(lYear, 12, 21),
+                };
+                #endregion
+                #endregion
+                #region 2015
+                lYear = 2015;
+                #region Summer
+                var lSeason2015SummerNorth = new Season
+                {
+                    Name = Utils.NameSeasonSummer + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Summer,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear - 1, 12, 22),
+                    ToDate = new DateTime(lYear, 3, 20),
+                };
+                #endregion
+                #region Fall
+                var lSeason2015FallNorth = new Season
+                {
+                    Name = Utils.NameSeasonFall + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Fall,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 3, 21),
+                    ToDate = new DateTime(lYear, 6, 21),
+                };
+                #endregion
+                #region Winter
+                var lSeason2015WinterNorth = new Season
+                {
+                    Name = Utils.NameSeasonWinter + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Winter,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 6, 22),
+                    ToDate = new DateTime(lYear, 9, 20),
+                };
+                #endregion
+                #region Spring
+                var lSeason2015SpringNorth = new Season
+                {
+                    Name = Utils.NameSeasonSpring + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Spring,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 9, 21),
+                    ToDate = new DateTime(lYear, 12, 21),
+                };
+                #endregion
+                #endregion
+                #region 2016
+                lYear = 2016;
+                #region Summer
+                var lSeason2016SummerNorth = new Season
+                {
+                    Name = Utils.NameSeasonSummer + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Summer,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear - 1, 12, 22),
+                    ToDate = new DateTime(lYear, 3, 20),
+                };
+                #endregion
+                #region Fall
+                var lSeason2016FallNorth = new Season
+                {
+                    Name = Utils.NameSeasonFall + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Fall,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 3, 21),
+                    ToDate = new DateTime(lYear, 6, 21),
+                };
+                #endregion
+                #region Winter
+                var lSeason2016WinterNorth = new Season
+                {
+                    Name = Utils.NameSeasonWinter + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Winter,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 6, 22),
+                    ToDate = new DateTime(lYear, 9, 20),
+                };
+                #endregion
+                #region Spring
+                var lSeason2016SpringNorth = new Season
+                {
+                    Name = Utils.NameSeasonSpring + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Spring,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 9, 21),
+                    ToDate = new DateTime(lYear, 12, 21),
+                };
+                #endregion
+                #endregion
+                #region 2017
+                lYear = 2017;
+                #region Summer
+                var lSeason2017SummerNorth = new Season
+                {
+                    Name = Utils.NameSeasonSummer + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Summer,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear - 1, 12, 22),
+                    ToDate = new DateTime(lYear, 3, 20),
+                };
+                #endregion
+                #region Fall
+                var lSeason2017FallNorth = new Season
+                {
+                    Name = Utils.NameSeasonFall + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Fall,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 3, 21),
+                    ToDate = new DateTime(lYear, 6, 21),
+                };
+                #endregion
+                #region Winter
+                var lSeason2017WinterNorth = new Season
+                {
+                    Name = Utils.NameSeasonWinter + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Winter,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 6, 22),
+                    ToDate = new DateTime(lYear, 9, 20),
+                };
+                #endregion
+                #region Spring
+                var lSeason2017SpringNorth = new Season
+                {
+                    Name = Utils.NameSeasonSpring + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Spring,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 9, 21),
+                    ToDate = new DateTime(lYear, 12, 21),
+                };
+                #endregion
+                #endregion
+                #region 2018
+                lYear = 2018;
+                #region Summer
+                var lSeason2018SummerNorth = new Season
+                {
+                    Name = Utils.NameSeasonSummer + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Summer,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear - 1, 12, 22),
+                    ToDate = new DateTime(lYear, 3, 20),
+                };
+                #endregion
+                #region Fall
+                var lSeason2018FallNorth = new Season
+                {
+                    Name = Utils.NameSeasonFall + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Fall,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 3, 21),
+                    ToDate = new DateTime(lYear, 6, 21),
+                };
+                #endregion
+                #region Winter
+                var lSeason2018WinterNorth = new Season
+                {
+                    Name = Utils.NameSeasonWinter + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Winter,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 6, 22),
+                    ToDate = new DateTime(lYear, 9, 20),
+                };
+                #endregion
+                #region Spring
+                var lSeason2018SpringNorth = new Season
+                {
+                    Name = Utils.NameSeasonSpring + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Spring,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 9, 21),
+                    ToDate = new DateTime(lYear, 12, 21),
+                };
+                #endregion
+                #endregion
+                #region 2019
+                lYear = 2019;
+                #region Summer
+                var lSeason2019SummerNorth = new Season
+                {
+                    Name = Utils.NameSeasonSummer + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Summer,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear - 1, 12, 22),
+                    ToDate = new DateTime(lYear, 3, 20),
+                };
+                #endregion
+                #region Fall
+                var lSeason2019FallNorth = new Season
+                {
+                    Name = Utils.NameSeasonFall + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Fall,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 3, 21),
+                    ToDate = new DateTime(lYear, 6, 21),
+                };
+                #endregion
+                #region Winter
+                var lSeason2019WinterNorth = new Season
+                {
+                    Name = Utils.NameSeasonWinter + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Winter,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 6, 22),
+                    ToDate = new DateTime(lYear, 9, 20),
+                };
+                #endregion
+                #region Spring
+                var lSeason2019SpringNorth = new Season
+                {
+                    Name = Utils.NameSeasonSpring + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Spring,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 9, 21),
+                    ToDate = new DateTime(lYear, 12, 21),
+                };
+                #endregion
+                #endregion
+                #region 2020
+                lYear = 2020;
+                #region Summer
+                var lSeason2020SummerNorth = new Season
+                {
+                    Name = Utils.NameSeasonSummer + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Summer,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear - 1, 12, 22),
+                    ToDate = new DateTime(lYear, 3, 20),
+                };
+                #endregion
+                #region Fall
+                var lSeason2020FallNorth = new Season
+                {
+                    Name = Utils.NameSeasonFall + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Fall,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 3, 21),
+                    ToDate = new DateTime(lYear, 6, 21),
+                };
+                #endregion
+                #region Winter
+                var lSeason2020WinterNorth = new Season
+                {
+                    Name = Utils.NameSeasonWinter + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Winter,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 6, 22),
+                    ToDate = new DateTime(lYear, 9, 20),
+                };
+                #endregion
+                #region Spring
+                var lSeason2020SpringNorth = new Season
+                {
+                    Name = Utils.NameSeasonSpring + lYear,
+                    Year = lYear,
+                    WeatherSeason = Utils.WeatherSeason.Spring,
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    FromDate = new DateTime(lYear, 9, 21),
+                    ToDate = new DateTime(lYear, 12, 21),
+                };
+                #endregion
+                #endregion
 
+                context.Seasons.Add(lSeason2014SummerNorth);
+                context.Seasons.Add(lSeason2014FallNorth);
+                context.Seasons.Add(lSeason2014WinterNorth);
+                context.Seasons.Add(lSeason2014SpringNorth);
+                context.Seasons.Add(lSeason2015SummerNorth);
+                context.Seasons.Add(lSeason2015FallNorth);
+                context.Seasons.Add(lSeason2015WinterNorth);
+                context.Seasons.Add(lSeason2015SpringNorth);
+                context.Seasons.Add(lSeason2016SummerNorth);
+                context.Seasons.Add(lSeason2016FallNorth);
+                context.Seasons.Add(lSeason2016WinterNorth);
+                context.Seasons.Add(lSeason2016SpringNorth);
+                context.Seasons.Add(lSeason2017SummerNorth);
+                context.Seasons.Add(lSeason2017FallNorth);
+                context.Seasons.Add(lSeason2017WinterNorth);
+                context.Seasons.Add(lSeason2017SpringNorth);
+                context.Seasons.Add(lSeason2018SummerNorth);
+                context.Seasons.Add(lSeason2018FallNorth);
+                context.Seasons.Add(lSeason2018WinterNorth);
+                context.Seasons.Add(lSeason2018SpringNorth);
+                context.Seasons.Add(lSeason2019SummerNorth);
+                context.Seasons.Add(lSeason2019FallNorth);
+                context.Seasons.Add(lSeason2019WinterNorth);
+                context.Seasons.Add(lSeason2019SpringNorth);
+                context.Seasons.Add(lSeason2020SummerNorth);
+                context.Seasons.Add(lSeason2020FallNorth);
+                context.Seasons.Add(lSeason2020WinterNorth);
+                context.Seasons.Add(lSeason2020SpringNorth);
+
+                #endregion
+
+                context.SaveChanges();
             }
         }
 
