@@ -812,6 +812,15 @@ namespace IrrigationAdvisor.Models.Management
             this.LastDayOfGrowingDegreeDays = Utils.MIN_DATETIME;
             #endregion
 
+            #region Calculus of Dry Mass per Hectare
+            this.AgeOfCrop = 0;
+            this.SeasonId = 0;
+            this.DayAfterSeasonStart = 0;
+            this.DryMassRatePerHectareByDay = 0;
+            this.DryMassWeightPerHectare = 0;
+            this.DryMassWeightPerHectareModified = 0;
+            #endregion
+
             #region Irrigation
             this.IrrigationUnitId = 0;
             this.PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
@@ -859,7 +868,6 @@ namespace IrrigationAdvisor.Models.Management
             
             #endregion
 
-
             #region Extra Print Data
             this.Titles = new List<Title>();
             this.Messages = new List<Message>();
@@ -885,6 +893,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pHarvestDate"></param>
         /// <param name="pCropDate"></param>
         /// <param name="pStartAdvisorDate"></param>
+        /// <param name="pDaysForHydricBalanceUnchangableAfterSowing"></param>
         /// <param name="pPhenologicalStageId"></param>
         /// <param name="pHydricBalance"></param>
         /// <param name="pSoilHydricVolume"></param>
@@ -896,6 +905,13 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pDayAfterSowingModified"></param>
         /// <param name="pGrowingDegreeDaysAcumulated"></param>
         /// <param name="pGrowingDegreeDaysModified"></param>
+        /// <param name="pLastDayOfGrowingDegreeDays"></param>
+        /// <param name="pAgeOfCrop"></param>
+        /// <param name="pSeasonId"></param>
+        /// <param name="pDayAfterSeasonStart"></param>
+        /// <param name="pDryMassRatePerHectareByDay"></param>
+        /// <param name="pDryMassWeightPerHectare"></param>
+        /// <param name="pDryMassWeightPerHectareModified"></param>
         /// <param name="pIrrigationUnitId"></param>
         /// <param name="pPredeterminatedIrrigationQuantity"></param>
         /// <param name="pPositionId"></param>
@@ -921,6 +937,8 @@ namespace IrrigationAdvisor.Models.Management
                                 Utils.CalculusOfPhenologicalStage pCalculusMethodForPhenologicalAdjustment,
                                 long pCropInformationByDateId, int pDayAfterSowing, int pDayAfterSowingModified, 
                                 Double pGrowingDegreeDaysAcumulated, Double pGrowingDegreeDaysModified, DateTime pLastDayOfGrowingDegreeDays,
+                                int pAgeOfCrop, long pSeasonId, int pDayAfterSeasonStart, Double pDryMassRatePerHectareByDay,
+                                Double pDryMassWeightPerHectare, Double pDryMassWeightPerHectareModified,
                                 long pIrrigationUnitId, Double pPredeterminatedIrrigationQuantity, long pPositionId,
                                 List<Rain> pRainList, List<Water.Irrigation> pIrrigationList, 
                                 List<EvapotranspirationCrop> pEvapotranspirationCropList,
@@ -962,7 +980,14 @@ namespace IrrigationAdvisor.Models.Management
             this.GrowingDegreeDaysAccumulated = pGrowingDegreeDaysAcumulated;
             this.GrowingDegreeDaysModified = pGrowingDegreeDaysModified;
             this.LastDayOfGrowingDegreeDays = pLastDayOfGrowingDegreeDays;
-            
+
+            this.AgeOfCrop = pAgeOfCrop;
+            this.SeasonId = 0;
+            this.DayAfterSeasonStart = 0;
+            this.DryMassRatePerHectareByDay = 0;
+            this.DryMassWeightPerHectare = 0;
+            this.DryMassWeightPerHectareModified = 0;
+
             this.IrrigationUnitId = pIrrigationUnitId;
             this.PredeterminatedIrrigationQuantity = pPredeterminatedIrrigationQuantity;
             this.HasAdviseOfIrrigation = false;
