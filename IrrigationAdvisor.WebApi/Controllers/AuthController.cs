@@ -8,10 +8,11 @@ using System.Web.Http;
 
 namespace IrrigationAdvisor.WebApi.Controllers
 {
+    [RoutePrefix("api/Auth")]
     public class AuthController : ApiController
     {
-        // GET api/<controller>
-        public OperationResult<AuthViewModel> Get()
+        [Route("userName/{userName}/password/{password}")]
+        public OperationResult<AuthViewModel> Get(string userName, string password)
         {
             OperationResult<AuthViewModel> result = new OperationResult<AuthViewModel>();
 
