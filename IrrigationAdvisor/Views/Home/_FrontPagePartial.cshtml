@@ -49,6 +49,18 @@
 {   
         @CustomRenderingOfColumn(item)
 }
+<tr>
+    @if (Model.First().IsAdministrator)
+    {
+        <td colspan="6">ETC</td>
+        foreach (var etc in Model.First().ListEtc)
+        {
+            <td>@etc</td>
+        }
+    }
+</tr>
+
+
 
 @helper CustomRenderingOfColumn(IrrigationAdvisor.Models.GridHome.GridPivotHome gridPivotItem)
 {
@@ -57,6 +69,12 @@
         <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.SowingDate</td>
         <td>@gridPivotItem.PhenologyName</td>
+        @if (gridPivotItem.IsAdministrator)
+        {
+            <td>@gridPivotItem.CropCoefficient</td>
+            <td>@gridPivotItem.HydricBalance</td>
+        }
+        
         @foreach (var detail in @gridPivotItem.ListGridPivotDetailHome)
         {
             if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Rain)
