@@ -1955,32 +1955,37 @@ namespace IrrigationAdvisor.Models.Management
 
             this.CropDate = lDateOfDayAfterSowing;
 
-            this.PhenologicalStageId = lDailyRecordBeforeRecordToDelete.PhenologicalStageId;
-            this.HydricBalance = lDailyRecordBeforeRecordToDelete.HydricBalance;
+            if (lDailyRecordBeforeRecordToDelete != null)
+            {
+                this.DaysAfterSowingModified = lDailyRecordBeforeRecordToDelete.DaysAfterSowingModified;
+                this.GrowingDegreeDaysAccumulated = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysAccumulated;
+                this.GrowingDegreeDaysModified = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysModified;
+                this.LastDayOfGrowingDegreeDays = lDailyRecordBeforeRecordToDelete.LastDayOfGrowingDegreeDays;
+
+                this.LastWaterInputDate = lDailyRecordBeforeRecordToDelete.LastWaterInputDate;
+                this.LastBigWaterInputDate = lDailyRecordBeforeRecordToDelete.LastBigWaterInputDate;
+                this.LastPartialWaterInputDate = lDailyRecordBeforeRecordToDelete.LastPartialWaterInputDate;
+                this.LastPartialWaterInput = lDailyRecordBeforeRecordToDelete.LastPartialWaterInput;
+                this.SoilHydricVolume = lDailyRecordBeforeRecordToDelete.SoilHydricVolume;
+
+                this.TotalEvapotranspirationCropFromLastWaterInput = lDailyRecordBeforeRecordToDelete.TotalEvapotranspirationCropFromLastWaterInput;
+                this.TotalEvapotranspirationCrop = lDailyRecordBeforeRecordToDelete.TotalEvapotranspirationCrop;
+
+                this.TotalEffectiveRain = lDailyRecordBeforeRecordToDelete.TotalEffectiveRain;
+                this.TotalRealRain = lDailyRecordBeforeRecordToDelete.TotalRealRain;
+
+                this.TotalIrrigation = lDailyRecordBeforeRecordToDelete.TotalIrrigation;
+                this.TotalIrrigationInHydricBalance = lDailyRecordBeforeRecordToDelete.TotalIrrigationInHydricBalance;
+
+                this.TotalExtraIrrigation = lDailyRecordBeforeRecordToDelete.TotalExtraIrrigation;
+                this.TotalExtraIrrigationInHydricBalance = lDailyRecordBeforeRecordToDelete.TotalExtraIrrigationInHydricBalance;
+                this.PhenologicalStageId = lDailyRecordBeforeRecordToDelete.PhenologicalStageId;
+                this.HydricBalance = lDailyRecordBeforeRecordToDelete.HydricBalance;
+            }
+            
 
             this.DaysAfterSowing = lDayAfterSowing;
-            this.DaysAfterSowingModified = lDailyRecordBeforeRecordToDelete.DaysAfterSowingModified;
-            this.GrowingDegreeDaysAccumulated = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysAccumulated;
-            this.GrowingDegreeDaysModified = lDailyRecordBeforeRecordToDelete.GrowingDegreeDaysModified;
-            this.LastDayOfGrowingDegreeDays = lDailyRecordBeforeRecordToDelete.LastDayOfGrowingDegreeDays;
-
-            this.LastWaterInputDate = lDailyRecordBeforeRecordToDelete.LastWaterInputDate;
-            this.LastBigWaterInputDate = lDailyRecordBeforeRecordToDelete.LastBigWaterInputDate;
-            this.LastPartialWaterInputDate = lDailyRecordBeforeRecordToDelete.LastPartialWaterInputDate;
-            this.LastPartialWaterInput = lDailyRecordBeforeRecordToDelete.LastPartialWaterInput;
-            this.SoilHydricVolume = lDailyRecordBeforeRecordToDelete.SoilHydricVolume;
-
-            this.TotalEvapotranspirationCropFromLastWaterInput = lDailyRecordBeforeRecordToDelete.TotalEvapotranspirationCropFromLastWaterInput;
-            this.TotalEvapotranspirationCrop = lDailyRecordBeforeRecordToDelete.TotalEvapotranspirationCrop;
-
-            this.TotalEffectiveRain = lDailyRecordBeforeRecordToDelete.TotalEffectiveRain;
-            this.TotalRealRain = lDailyRecordBeforeRecordToDelete.TotalRealRain;
-
-            this.TotalIrrigation = lDailyRecordBeforeRecordToDelete.TotalIrrigation;
-            this.TotalIrrigationInHydricBalance = lDailyRecordBeforeRecordToDelete.TotalIrrigationInHydricBalance;
-
-            this.TotalExtraIrrigation = lDailyRecordBeforeRecordToDelete.TotalExtraIrrigation;
-            this.TotalExtraIrrigationInHydricBalance = lDailyRecordBeforeRecordToDelete.TotalExtraIrrigationInHydricBalance;
+           
 
             pIrrigationAdvisorContext.SaveChanges();
         }
