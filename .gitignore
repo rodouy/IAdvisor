@@ -159,3 +159,5 @@ packages/
 *.orig
 IrrigationAdvisor/images/logo - Original.png
 IrrigationAdvisor/images/logo-old.png
+*.mdf
+*.ldf
