@@ -688,8 +688,8 @@ namespace IrrigationAdvisorConsole
             for (int i = 0; i < lDiffDays; i++)
             {
                 #region Erase - only for debug - do nothing
-                //TODO: Erase To debug
-                if (i == 15)
+                //TODO: uncomment To debug
+                if (i == 43)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }

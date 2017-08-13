@@ -1547,6 +1547,7 @@ namespace IrrigationAdvisor.Models.Management
             Pair<Double, Utils.WaterInputType> lReturn;
             bool lIrrigationByEvapotranspiration;
             bool lIrrigationByHydricBalance;
+            bool lNoIrrigationFlag;
             Double lPercentageAvailableWater;
             Water.Irrigation lHaveIrrigation = null;
             Water.Irrigation lHaveIrrigationDayBefore = null;
@@ -1617,12 +1618,14 @@ namespace IrrigationAdvisor.Models.Management
             }
 
             lIrrigationNextDay = this.GetIrrigation(pDateTime.AddDays(1));
-
-            bool? noIrrigationFlag = null;
-
-            if (this.irrigationList != null)
+            
+            if (this.IrrigationList != null)
             {
-                noIrrigationFlag = this.irrigationList.Any(i => i.Type == Utils.WaterInputType.NoIrrigation && i.Date == pDateTime);
+                lNoIrrigationFlag = this.IrrigationList.Any(i => i.Type == Utils.WaterInputType.NoIrrigation && i.Date == pDateTime);
+            }
+            else
+            {
+                lNoIrrigationFlag = false;
             }
             
             if (lHaveIrrigation != null && lHaveIrrigation.ExtraInput == 0
@@ -1633,7 +1636,7 @@ namespace IrrigationAdvisor.Models.Management
             }
 
             // The date refers an explicit No irrigation date
-            if(noIrrigationFlag.HasValue && noIrrigationFlag.Value)
+            if(lNoIrrigationFlag == true)
             {
                 lReturn.First = 0;
                 lReturn.Second = Utils.WaterInputType.NoIrrigation;
@@ -2307,17 +2310,19 @@ namespace IrrigationAdvisor.Models.Management
             lTypeOfIrrigation = lNeedForIrrigationPair.Second;
             lIsExtraIrrigation = false;
 
+            //If it has not advise of Irrigation is a new irrigation
             if(lQuantityOfWaterToIrrigate > 0 && !this.HasAdviseOfIrrigation)
             {
                 this.HasAdviseOfIrrigation = true;
                 this.AddOrUpdateIrrigationDataToList(pDateTime, lNeedForIrrigationPair, lIsExtraIrrigation);
+                //If we insert more water, we have to recalculate.
                 this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString());
             }
+            //If Quantity is 0 and has Type of Irrigation, it insert an Extra Irrigation in 0.
             else if(lQuantityOfWaterToIrrigate == 0 
                 && (lTypeOfIrrigation == Utils.WaterInputType.IrrigationByETCAcumulated 
                 || lTypeOfIrrigation == Utils.WaterInputType.IrrigationByHydricBalance
                 || lTypeOfIrrigation == Utils.WaterInputType.NoIrrigation))
-                /* Esta condición para que el riego pase para el otro. Agregar el tipo no-irrigation*/
             {
                 this.HasAdviseOfIrrigation = true;
                 lIsExtraIrrigation = true;
@@ -3615,10 +3620,11 @@ namespace IrrigationAdvisor.Models.Management
                                         dr.CropIrrigationWeatherId == this.CropIrrigationWeatherId);
 
                 //Delete Irrigations input from database after date of record to delete. 
-                //Extra input will not be deleted
+                //Extra input or NoIrrigation input, will not be deleted
                 foreach (Water.Irrigation lIrrigation in this.IrrigationList
-                                        .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
-                                        ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId && ir.Type != Utils.WaterInputType.NoIrrigation))
+                                                        .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
+                                                        ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId && 
+                                                        ir.Type != Utils.WaterInputType.NoIrrigation).ToList())
                 {
                     if (lIrrigation.ExtraInput > 0 ||
                         (lIrrigation.ExtraInput == 0 && lIrrigation.ExtraDate == lIrrigation.Date))
