@@ -642,10 +642,10 @@ namespace IrrigationAdvisor.Controllers
 
                 var waterInput = lContext.Irrigations.Single(w => w.WaterInputId == pWaterInputId);
 
-                if (waterInput.ExtraInput > 0)
-                {
-                    waterInput.ExtraDate = pDateToMove;
-                }
+                //if (waterInput.ExtraInput > 0)
+                //{
+                //    waterInput.ExtraDate = pDateToMove;
+                //}
 
                 string observation = "Move Irrigation from " + waterInput.Date.ToShortDateString() + " to " + pDateToMove.ToShortDateString();
 
@@ -1539,12 +1539,10 @@ namespace IrrigationAdvisor.Controllers
                 int lSaveChanges = 0;
                 #endregion
 
-                List<string> selectedCiw = pCIW.Split(',').ToList();
-                
-                var filteredCiw = lContext.CropIrrigationWeathers
-                                    .Include(c => c.Soil.HorizonList)
-                                    .Where(c => selectedCiw.Contains(c.CropIrrigationWeatherId.ToString()))
-                                    .ToList();
+                var selectedCiw = (from p in pCIW.Split(',').ToList()
+                                   select Convert.ToInt64(p)).ToList();
+
+                var filteredCiw = ciwc.GetCropIrrigationWeatherByIds(selectedCiw);
 
                 //List<long> cropForFilter = filteredCiw.Select(n => n.CropIrrigationWeatherId).ToList();
                 //var dailyMemory = lContext.DailyRecords.Where(dr => cropForFilter.Contains(dr.CropIrrigationWeatherId)).ToList();
