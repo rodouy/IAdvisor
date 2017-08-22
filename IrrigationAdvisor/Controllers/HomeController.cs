@@ -488,15 +488,10 @@ namespace IrrigationAdvisor.Controllers
             return lResult;
         }
 
-        /// <summary>
-        /// Get Farms for the current user
-        /// </summary>
-        /// <returns>Json with the Farms</returns>
-        public JsonResult GetFarmsByUser()
+        private List<Farm> GetFarmsByUserAsList()
         {
-            FarmConfiguration lFc = new FarmConfiguration();
             UserConfiguration lUc = new UserConfiguration();
-            List<FarmShortView> lFarmShortViews = new List<FarmShortView>();
+            FarmConfiguration lFc = new FarmConfiguration();
 
             try
             {
@@ -510,8 +505,37 @@ namespace IrrigationAdvisor.Controllers
 
                     if (lUser != null)
                     {
-                        List<Farm> lFarmList = lFc.GetFarmWithActiveCropIrrigationWeathersListBy(lUser);
+                        return lFc.GetFarmWithActiveCropIrrigationWeathersListBy(lUser);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.GetFarmsByUserAsList ");
+            }
 
+            return null;
+        }
+        /// <summary>
+        /// Get Farms for the current user
+        /// </summary>
+        /// <returns>Json with the Farms</returns>
+        public JsonResult GetFarmsByUser()
+        {       
+            List<FarmShortView> lFarmShortViews = new List<FarmShortView>();
+
+            try
+            {
+                LoginViewModel lLoginViewModel = ManageSession.GetLoginViewModel();
+
+                if (lLoginViewModel != null)
+                {
+                    string lUserName = lLoginViewModel.UserName;
+      
+                    List<Farm> lFarmList = GetFarmsByUserAsList();
+
+                    if (lFarmList != null)
+                    {
                         foreach (var item in lFarmList)
                         {
                             FarmShortView lFarmShortView = new FarmShortView()
@@ -521,15 +545,15 @@ namespace IrrigationAdvisor.Controllers
                             };
 
                             lFarmShortViews.Add(lFarmShortView);
-                        }
-
-                        return Json(lFarmShortViews, JsonRequestBehavior.AllowGet);
+                        } 
                     }
                     else
                     {
                         // Que pasa cuando no encuentro en User ?
                         return Json("The user not exists", JsonRequestBehavior.AllowGet);
                     }
+
+                    return Json(lFarmShortViews, JsonRequestBehavior.AllowGet);                              
                 }
                 else
                 {
@@ -606,7 +630,52 @@ namespace IrrigationAdvisor.Controllers
         }
 
         /// <summary>
-        /// Get stabes by Crop Irrigation weather
+        /// Move irrigations
+        /// </summary>
+        /// <param name="pDateToMove">Date to move</param>
+        /// <returns></returns>
+        public ActionResult MoveIrrigation(DateTime pDateToMove, long pWaterInputId)
+        {
+            try
+            {
+                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+
+                var waterInput = lContext.Irrigations.Single(w => w.WaterInputId == pWaterInputId);
+
+                //if (waterInput.ExtraInput > 0)
+                //{
+                //    waterInput.ExtraDate = pDateToMove;
+                //}
+
+                string observation = "Move Irrigation from " + waterInput.Date.ToShortDateString() + " to " + pDateToMove.ToShortDateString();
+
+                if (waterInput.Date < pDateToMove)
+                {
+                    AddNoIrrigation(waterInput.Date, pDateToMove.AddDays(-1),
+                                waterInput.CropIrrigationWeatherId.ToString(),
+                                (int)Utils.NoIrrigationReason.MoveIrrigation,
+                                observation);
+
+                    lContext.SaveChanges();
+                }
+                else
+                {
+                    // Not implemented yet.
+                }
+
+
+                return Content("Ok");
+
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.MoveIrrigation ");
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        /// <summary>
+        /// TODO: Description of GetStagesBy
         /// </summary>
         /// <param name="pCropIrrigationWeatherId"></param>
         /// <returns></returns>
@@ -1447,6 +1516,7 @@ namespace IrrigationAdvisor.Controllers
         public ActionResult AddNoIrrigation(DateTime pDateFrom, DateTime pDateTo,
                                             string pCIW, int pReason, string pObservations)
         {
+            // TODO: Cuando es otro es obligatoria las observaciones
             string lSomeData = string.Empty;
             try
             {
@@ -1469,16 +1539,28 @@ namespace IrrigationAdvisor.Controllers
                 int lSaveChanges = 0;
                 #endregion
 
-                List<string> selectedCiw = pCIW.Split(',').ToList();
+                var selectedCiw = (from p in pCIW.Split(',').ToList()
+                                   select Convert.ToInt64(p)).ToList();
 
-                // ManageSession.SetFromDateTime(lDateResult);
+                var filteredCiw = ciwc.GetCropIrrigationWeatherByIds(selectedCiw);
 
-                //if (pCIW > -1)
+                //List<long> cropForFilter = filteredCiw.Select(n => n.CropIrrigationWeatherId).ToList();
+                //var dailyMemory = lContext.DailyRecords.Where(dr => cropForFilter.Contains(dr.CropIrrigationWeatherId)).ToList();
+                //var irrigationMemory = lContext.Irrigations.Where(w => w.Date >= pDateFrom && w.Date <= pDateTo).ToList();
+
+
+                //var daily = (from dr in dailyMemory
+                //            join w in irrigationMemory
+                //            on dr.IrrigationId equals w.WaterInputId
+                //            select w.WaterInputId).ToList();
+
+                //foreach (int item in daily)
                 //{
-                var filteredCiw = lContext.CropIrrigationWeathers
-                                    .Include(c => c.Soil.HorizonList)
-                                    .Where(c => selectedCiw.Contains(c.CropIrrigationWeatherId.ToString()))
-                                    .ToList();
+
+                //    var waterInput = lContext.Irrigations.First(n => n.WaterInputId == item);
+                //    waterInput.Date = pDateTo.AddDays(1);
+                //    waterInput.ExtraDate = pDateTo.AddDays(1);
+                //}
 
                 foreach (var bCIW in filteredCiw)
                 {
@@ -1486,32 +1568,34 @@ namespace IrrigationAdvisor.Controllers
                 }
 
                 lSaveChanges = lContext.SaveChanges();
-                //}
-                //else
-                //{
-                //    string farmParameter = Utils.GetUrlParameter("farm");
-                //    long lFarmId = 0;
-
-                //    if(farmParameter == null)
-                //    {
-                //        lFarmId = lContext.Farms.First().FarmId;
-                //    }
-                //    else
-                //    {
-                //        lFarmId = int.Parse(farmParameter);
-                //    }
-
-                //    List<CropIrrigationWeather> ciwByFarm = this.GetCropIrrigationWeatherListByFarmId(lFarmId, Utils.GetDateOfReference().Value);
-
-                //    foreach (var bCIW in ciwByFarm)
-                //    {
-                //        AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations);
-                //    }
-                //    lSaveChanges = lContext.SaveChanges();
-                //}
 
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
+
+                string farm = Utils.GetUrlParameter("farm");
+
+                long farmId = 0;
+
+                if (farm != null)
+                {
+                    farmId = Convert.ToInt32(farm);
+                }
+                else
+                {
+                    farmId = GetFarmsByUserAsList().First().FarmId;
+                }
+
+                DateTime calculateFrom = DateTime.Now;
+                if(pDateFrom < lReferenceDate)
+                {
+                    calculateFrom = pDateFrom;
+                }
+                else
+                {
+                    calculateFrom = lReferenceDate;
+                }
+
+                this.CalculateAllActiveCropIrrigationWeather(farmId, calculateFrom, DateTime.Now);
                 ManageSession.SetNavigationDate(lReferenceDate);
             }
             catch (Exception ex)
@@ -2012,7 +2096,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
                                                                 lDateOfData, lIsToday, lIrrigationStatus,
-                                                                lPhenology);
+                                                                lPhenology, lDailyRecord);
             }
             catch (Exception ex)
             {

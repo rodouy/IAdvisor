@@ -166,7 +166,7 @@ namespace IrrigationAdvisor.Models.Utilities
 
         /// <summary>
         /// Types of Water Input
-        /// Rain, Irrigation, IrrigationByETCAccumulated, IrrigationByHydricBalance
+        /// Rain, Irrigation, IrrigationByETCAccumulated, IrrigationByHydricBalance, NoIrrigation
         /// </summary>
         public enum WaterInputType
         {
@@ -640,6 +640,38 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             TresMarias,
 
+        }
+
+        /// <summary>
+        /// No Irrigation Reason
+        /// CropDontNeedIrrigation, RainForecast, IrrigationSystemFail, Other
+        /// </summary>
+        public enum NoIrrigationReason
+        {
+            /// <summary>
+            /// Crop Dont Need Irrigation
+            /// </summary>
+            CropDontNeedIrrigation,
+
+            /// <summary>
+            /// Within the next days will rain.
+            /// </summary>
+            RainForecast,
+
+            /// <summary>
+            /// When the system is broke.
+            /// </summary>
+            IrrigationSystemFail,
+
+            /// <summary>
+            /// Other
+            /// </summary>
+            Other,
+
+            /// <summary>
+            /// No irrigation because the irrigation was moved.
+            /// </summary>
+            MoveIrrigation
         }
 
 

@@ -45,6 +45,7 @@
 <input type="hidden" value="" id="irrigationUnitRainMail"/>
 <input type="hidden" value="" id="irrigationUnitIrrigationMail" />
 <input type="hidden" id="userName" value="@ViewBag.UserName"/>
+<input type="hidden" id="selectedWaterInput" />
 <section class="content-bar ps-container">
     <div class="container">
         <div class="col-md-11">
@@ -580,12 +581,10 @@
                                                 <div class="dropdown">
                                                     Motivo:
                                                     <select class="form-control" id="noIrrigationReason">
-                                                        <option value="0">Problema eléctrico</option>
-                                                        <option value="1">Espera de lluvia</option>
-                                                        <option value="2">Perdida de agua</option>
-                                                        <option value="3">La bomba no funciona</option>
-                                                        <option value="4">Período sin riego</option>
-                                                        <option value="5">Otro</option>
+                                                        <option value="0">Cultivo no requiere riego</option>
+                                                        <option value="1">Pronóstico de lluvia</option>
+                                                        <option value="2">Falla en sistema de riego</option>
+                                                        <option value="3">Otro</option>
                                                     </select>
                                                     <br />
                                                 </div>
@@ -611,6 +610,39 @@
                         </div>
                     </div>
                     <!-- end modal agregar no riego-->    
+
+                    <!-- Modal mover riego-->
+                <div id="modal-move-irrigation" class="modal fade copy" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="header">
+                                <h2><span class="glyphicon"></span>&nbsp;Mover riego</h2>
+                            </div>
+                            <div class="copy col-md-12">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            Mover a la fecha:
+                                            <input type="date" id="dateToMove" class="form-control" value='@Utils.GetDateTimeForClientScripts(DateTime.Now)'/>
+                                            <br />
+                                        </div>                                      
+                                    </div>                                   
+                            </div>
+                            <div class="cf footer" style="display:-webkit-inline-box;float:right">
+                                <p>
+                                    <button class="btn  btn-style-2" id="CancelMoveIrrigation">
+                                        Cancelar
+                                    </button>
+                                </p>
+                                <button id="SaveMoveIrrigation" class="btn  btn-style-2" style="margin-left: 10px;">
+                                    Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- end modal mover riego-->
             </div>
             
             
