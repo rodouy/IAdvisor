@@ -239,13 +239,18 @@ namespace IrrigationAdvisorConsole
             catch(System.Data.SqlClient.SqlException ex)
             {
                 logger.Info(ex, "Exception in Program.SqlException " + "\n" + ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("DB is OPEN, close all connections. OR the model changes ");
+                Console.WriteLine("DB is OPEN, close all connections. OR the model changes (Add or Update Migration) ");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
                 //IF the Model changes:
                 //go to nuget console, select IrrigationAdvisor Project
                 //add-migration Description
                 //ex add-migration AddColumnToWeatherData
+
+                //PM > Update - Database - TargetMigration AnyMigrationName
+                // It updates database to a migration named "AnyMigrationName"
+                // This will apply migrations if the target hasn't been applied 
+                //   or roll back migrations if it has
             }
             catch (Exception ex)
             {
@@ -259,7 +264,7 @@ namespace IrrigationAdvisorConsole
 
         /////////////////////////////////******************************/////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////
-        #region Steps for a New Client
+#region Steps for a New Client
 
         /* 1.- Position
          *   Cities
@@ -335,11 +340,11 @@ namespace IrrigationAdvisorConsole
          * InsertCropIrrigationWeather()
          */
 
-        #endregion
+#endregion
         /////////////////////////////////******************************/////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////
 
-        #region Print
+#region Print
 
         /// <summary>
         /// Print Weather Data List
@@ -356,7 +361,7 @@ namespace IrrigationAdvisorConsole
             return lReturn;
         }
 
-        #endregion
+#endregion
 
     }
 
