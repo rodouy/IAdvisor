@@ -23,8 +23,7 @@ namespace IrrigationAdvisor.DBContext.Localization
             Property(l => l.Name)
                 .IsRequired()
                 .HasMaxLength(50);
-            
-            
+           
         }
 
 
@@ -56,6 +55,13 @@ namespace IrrigationAdvisor.DBContext.Localization
             return lReturn;
         }
 
-
+        /// <summary>
+        /// Get all cities
+        /// </summary>
+        /// <returns></returns>
+        public List<City> GetAllCities()
+        {
+            return db.Cities.ToList();
+        }
     }
 }

@@ -90,7 +90,13 @@ namespace IrrigationAdvisor.Models.Irrigation
             get { return positionId; }
             set { positionId = value; }
         }
-        
+
+
+        public virtual Position Position
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Construction

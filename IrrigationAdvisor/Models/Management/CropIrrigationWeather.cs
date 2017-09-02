@@ -3029,14 +3029,6 @@ namespace IrrigationAdvisor.Models.Management
                 lNewIrrigation = this.GetIrrigation(pIrrigationDate);
                 lNewIrrigationNextDate = this.GetIrrigation(pIrrigationDate.AddDays(1));
 
-                if (lNewIrrigation?.WaterInputId == 1627 || lNewIrrigationNextDate?.WaterInputId == 1627)
-                {
-                    //if (lNewIrrigation != null)
-                    //    lNewIrrigation.Input = 14;
-                    //if (lNewIrrigationNextDate != null)
-                    //    lNewIrrigationNextDate.Input = 14;
-                }
-
                 #region Condition #1 NEW IRRIGATION: If there is not a registry then it is created 
                 if (lNewIrrigation == null && pQuantityOfWaterToIrrigateAndTypeOfIrrigation.First > 0)
                 {
