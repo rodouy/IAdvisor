@@ -144,6 +144,8 @@ namespace IrrigationAdvisor.Models.Management
         private int dayAfterSowingModified;
         private Double growingDegreeDaysAccumulated;
         private Double growingDegreeDaysModified;
+        //Refactroing 2017/09/14 Changes in Phenological Table: Add GrowingDegreeDaysExtraGap
+        private Double growingDegreeDaysExtraGap;
         private DateTime lastDayOfGrowingDegreeDays;
 
         #endregion
@@ -388,6 +390,13 @@ namespace IrrigationAdvisor.Models.Management
             get { return growingDegreeDaysModified; }
             set { growingDegreeDaysModified = value; }
         }
+
+        public double GrowingDegreeDaysExtraGap
+        {
+            get { return growingDegreeDaysExtraGap; }
+            set { growingDegreeDaysExtraGap = value; }
+        }
+        
 
         public DateTime LastDayOfGrowingDegreeDays
         {
@@ -725,6 +734,7 @@ namespace IrrigationAdvisor.Models.Management
             this.DaysAfterSowingModified = 1;
             this.GrowingDegreeDaysAccumulated = 0;
             this.GrowingDegreeDaysModified = 0;
+            this.GrowingDegreeDaysExtraGap = 0;
             this.LastDayOfGrowingDegreeDays = Utils.MIN_DATETIME;
             #endregion
 
@@ -812,6 +822,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pDayAfterSowingModified"></param>
         /// <param name="pGrowingDegreeDaysAcumulated"></param>
         /// <param name="pGrowingDegreeDaysModified"></param>
+        /// <param name="pGrowingDegreeDaysExtraGap"></param>
         /// <param name="pIrrigationUnitId"></param>
         /// <param name="pPredeterminatedIrrigationQuantity"></param>
         /// <param name="pPositionId"></param>
@@ -836,7 +847,8 @@ namespace IrrigationAdvisor.Models.Management
                                 List<PhenologicalStageAdjustment> pPhenologicalStageAdjustmentList,
                                 Utils.CalculusOfPhenologicalStage pCalculusMethodForPhenologicalAdjustment,
                                 long pCropInformationByDateId, int pDayAfterSowing, int pDayAfterSowingModified, 
-                                Double pGrowingDegreeDaysAcumulated, Double pGrowingDegreeDaysModified, DateTime pLastDayOfGrowingDegreeDays,
+                                Double pGrowingDegreeDaysAcumulated, Double pGrowingDegreeDaysModified, 
+                                Double pGrowingDegreeDaysExtraGap, DateTime pLastDayOfGrowingDegreeDays,
                                 long pIrrigationUnitId, Double pPredeterminatedIrrigationQuantity, long pPositionId,
                                 List<Rain> pRainList, List<Water.Irrigation> pIrrigationList, 
                                 List<EvapotranspirationCrop> pEvapotranspirationCropList,
@@ -877,6 +889,7 @@ namespace IrrigationAdvisor.Models.Management
             this.DaysAfterSowingModified = pDayAfterSowingModified;
             this.GrowingDegreeDaysAccumulated = pGrowingDegreeDaysAcumulated;
             this.GrowingDegreeDaysModified = pGrowingDegreeDaysModified;
+            this.GrowingDegreeDaysExtraGap = pGrowingDegreeDaysExtraGap;
             this.LastDayOfGrowingDegreeDays = pLastDayOfGrowingDegreeDays;
             
             this.IrrigationUnitId = pIrrigationUnitId;
