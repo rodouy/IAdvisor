@@ -228,6 +228,7 @@
     <Compile Include="Controllers\Weather\WeatherInformationsController.cs" />
     <Compile Include="Controllers\Weather\WeatherStationsController.cs" />
     <Compile Include="Controllers\Wizard\WizardFarmBombController.cs" />
+    <Compile Include="Controllers\Wizard\WizardSoilHorizonController.cs" />
     <Compile Include="DBContext\Agriculture\CropCoefficientConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropInformationByDateConfiguration.cs" />
@@ -403,6 +404,7 @@
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
+    <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />
     <Compile Include="ViewModels\Weather\GridWeather.cs" />
     <Compile Include="Models\Weather\TemperatureData.cs" />
@@ -882,6 +884,7 @@
     <Content Include="Views\ReportPivotState\_ReportPivotStatePartial.cshtml" />
     <Content Include="Views\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
+    <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -893,6 +896,7 @@
     <Folder Include="Views\Company\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\TemperatureDatas\" />
+    <Folder Include="Views\Users\" />
     <Folder Include="Views\Utilities\" />
   </ItemGroup>
   <ItemGroup>
