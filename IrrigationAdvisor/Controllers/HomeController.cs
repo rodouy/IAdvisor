@@ -1487,7 +1487,7 @@ namespace IrrigationAdvisor.Controllers
 
             while (lDateIterator <= pDateTo)
             {
-                pCIW.AddOrUpdateIrrigationDataToList(lDateIterator, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.NoIrrigation), true, pReasonId, pObservations);
+                pCIW.AddOrUpdateIrrigationDataToList(lDateIterator, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.CantIrrigate), true, pReasonId, pObservations);
                 lDateIterator = lDateIterator.AddDays(1);
             }
 
@@ -2082,7 +2082,7 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.NextIrrigation;
                 }
-                else if (lDailyRecord != null && (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Type == Utils.WaterInputType.NoIrrigation))
+                else if (lDailyRecord != null && (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Type == Utils.WaterInputType.CantIrrigate))
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.NoIrrigation;
                 }
