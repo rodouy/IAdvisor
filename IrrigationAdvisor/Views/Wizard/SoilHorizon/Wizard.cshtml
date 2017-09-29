@@ -364,6 +364,17 @@
             return result;
         }
 
+        function farmIdValidation() {
+            if ($("#FarmId").val() === "") {
+                $("#FarmIdMessage").html("<span class=text-danger>Seleccione el establecimiento</span>");
+                return false;
+            }
+            else {
+                $("#FarmIdMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
         function nameValidation() {
             if ($("#Name").val().trim() === "") {
                 $("#NameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
@@ -418,13 +429,25 @@
             }
         }
 
+        function isNumber(n) {
+            'use strict';
+            n = n.replace(/\./g, '').replace(',', '.');
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        function validDecimal(n) {
+            
+            return n.replace(".", ",");
+        }
+
         function depthLimitValidation() {
             if ($("#DepthLimit").val().trim() === "") {
                 $("#DepthLimitMessage").html("<span class=text-danger>Ingrese la profundidad</span>");
                     return false;
                 }
             else {
-                if (!isNaN($("#DepthLimit").val())) {
+                if (isNumber($("#DepthLimit").val())) {
+                    $("#DepthLimit").val(validDecimal($("#DepthLimit").val()));
                     $("#DepthLimitMessage").html("<span class=text-danger></span>");
                     return true;
                 }
@@ -434,19 +457,7 @@
                 }
             }
         }
-
-        function farmIdValidation() {
-            if ($("#FarmId").val() === "") {
-                $("#FarmIdMessage").html("<span class=text-danger>Seleccione el establecimiento</span>");
-                return false;
-            }
-            else {
-                $("#FarmIdMessage").html("<span class=text-danger></span>");
-                return true;
-            }
-        }
-
-       
+      
         function horizonNameValidation() {
            
             if ($("#HorizonName").val().trim() === "") {
@@ -466,12 +477,16 @@
                 return false;
             }
             else {
-                if (!isNaN($("#Order").val())) {
+
+                if ($("#Order").val() == Math.floor($("#Order").val())) 
+                //if (isNumber($("#Order").val())) 
+                    //    $("#Order").val(validDecimal($("#Order").val()));
+                {
                     $("#OrderMessage").html("<span class=text-danger></span>");
                     return true;
                 }
                 else {
-                    $("#OrderMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    $("#OrderMessage").html("<span class=text-danger>Ingrese solo números enteros</span>");
                     return false;
                 }
             }
@@ -483,7 +498,8 @@
                 return false;
             }
             else {
-                if (!isNaN($("#HorizonLayerDepth").val())) {
+                if (isNumber($("#HorizonLayerDepth").val())) {
+                    $("#HorizonLayerDepth").val(validDecimal($("#HorizonLayerDepth").val()));
                     $("#HorizonLayerDepthMessage").html("<span class=text-danger></span>");
                     return true;
                 }
@@ -499,7 +515,8 @@
                 return false;
             }
             else {
-                if (!isNaN($("#SandDepth").val())) {
+                if (isNumber($("#Sand").val())) {
+                    $("#Sand").val(validDecimal($("#Sand").val()));
                     $("#SandMessage").html("<span class=text-danger></span>");
                     return true;
                 }
@@ -515,7 +532,8 @@
                 return false;
             }
             else {
-                if (!isNaN($("#Limo").val())) {
+                if (isNumber($("#Limo").val())) {
+                    $("#Limo").val(validDecimal($("#Limo").val()));
                     $("#LimoMessage").html("<span class=text-danger></span>");
                     return true;
                 }
@@ -532,7 +550,8 @@
                 return false;
             }
             else {
-                if (!isNaN($("#Clay").val())) {
+                if (isNumber($("#Clay").val())) {
+                    $("#Clay").val(validDecimal($("#Clay").val()));
                     $("#ClayMessage").html("<span class=text-danger></span>");
                     return true;
                 }
@@ -543,13 +562,14 @@
             }
         }
 
-        function organicMatter() {
+        function organicMatterValidation() {
             if ($("#OrganicMatter").val().trim() === "") {
                 $("#OrganicMatterMessage").html("<span class=text-danger>Ingrese la capa de materia orgánica</span>");
                 return false;
             }
             else {
-                if (!isNaN($("#OrganicMatter").val())) {
+                if (isNumber($("#OrganicMatter").val())) {
+                    $("#OrganicMatter").val(validDecimal($("#OrganicMatter").val()));
                     $("#OrganicMatterMessage").html("<span class=text-danger></span>");
                     return true;
                 }
@@ -566,7 +586,8 @@
                 return false;
             }
             else {
-                if (!isNaN($("#NitrogenAnalysis").val())) {
+                if (isNumber($("#NitrogenAnalysis").val())) {
+                    $("#NitrogenAnalysis").val(validDecimal($("#NitrogenAnalysis").val()));
                     $("#NitrogenAnalysisMessage").html("<span class=text-danger></span>");
                     return true;
                 }
@@ -576,13 +597,14 @@
                 }
             }
         }
-        function bulkDensitySoil() {
+        function bulkDensitySoilValidation() {
             if ($("#BulkDensitySoil").val().trim() === "") {
                 $("#BulkDensitySoilMessage").html("<span class=text-danger>Ingrese la densidad</span>");
                 return false;
             }
             else {
-                if (!isNaN($("#BulkDensitySoil").val())) {
+                if (isNumber($("#BulkDensitySoil").val())) {
+                    $("#BulkDensitySoil").val(validDecimal($("#BulkDensitySoil").val()));
                     $("#BulkDensitySoilMessage").html("<span class=text-danger></span>");
                     return true;
                 }
@@ -592,14 +614,39 @@
                 }
             }
         }
+
+        function depthControlValidation() {
+            if (parseInt($("#DepthLimit").val()) > parseInt($("#HorizonLayerDepthSum").val())) {
+                $("#DepthControlMessage").html("<span class=text-danger>La profundidad del suelo (" + $("#DepthLimit").val() + ") debe ser menor o igual a la suma de las profundidades del los horizontes (" + $("#HorizonLayerDepthSum").val() + ") </span>");
+                $("#DepthControlMessage1").html("<span class=text-danger>La profundidad del suelo (" + $("#DepthLimit").val() + ") debe ser menor o igual a la suma de las profundidades del los horizontes (" + $("#HorizonLayerDepthSum").val() + ") </span>");
+
+                return false;
+            }
+            else {
+                $("#DepthControlMessage").html("<span class=text-danger></span>");
+                $("#DepthControlMessage1").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function horizonsQuantity() {
+            if (parseInt($("#HorizonsQuantity").val()) <= 0) {
+                $("#NotHorizonMessage").html("<span class=text-danger>Debe agregar por lo menos una capa</span>");
+                return false;
+            }
+            else {
+                $("#NotHorizonMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
         function customValidation(currentStep, direction) {
             var move = true;
             if (currentStep == "1") {
 
-                move = nameValidation() && descriptionValidation() && testDateValidation() && latitudeValidation() && longitudeValidation() && depthLimitValidation() && farmIdValidation()
+                move = farmIdValidation() && nameValidation() && descriptionValidation() && testDateValidation() && latitudeValidation() && longitudeValidation() && depthLimitValidation()
 
                 if (move) {
-                   
                     $("#HorizonName").val($("#Name").val().trim());
                    
                 }
@@ -607,12 +654,11 @@
 
             if (direction) {//se mueve hacia adelante
                 if (currentStep == "2") {
-                   //la validacione del nombre de  y campos requeridos se hace al agregar un item en la tabla...
-                    move = parseInt($("#HorizonsQuantity").val()) > 0;
-
+                    //la validacione del nombre de  y campos requeridos se hace al agregar un item en la tabla...
+                        
+                    move = horizonsQuantity() && depthControlValidation();
 
                     if (move) {
-
                         $('#HorizonsTableConfirmation').html($('#HorizonsTable').html());
                         //cargo los datos para el paso de confiramcion
                         $("#FarmIdConfirmation").html($("#FarmId").find('option:selected').text());
@@ -621,19 +667,17 @@
                         $("#TestDateConfirmation").html($("#TestDate").val());
                         $("#LatitudeConfirmation").html($("#Latitude").val());
                         $("#LongitudeConfirmation").html($("#Longitude").val());
-                        $("#DepthLimitConfirmation").html($("#DepthLimit").val());
-                        
-
+                        var s = $("#DepthLimit").val();
+                        $("#DepthLimitConfirmation").html(s);
                         $("#NotHorizonMessage").html("<span class=text-danger></span>");
-                    }
-                    {
-                        $("#NotHorizonMessage").html("<span class=text-danger>Debe agregar por lo menos una capa</span>");
                     }
     
                 }
             }
             return move;
         }
+
+
         ////////////////////////////////////////////////////////////////
 
         var main = function (method) {
@@ -666,6 +710,11 @@
             var mySelector = document.querySelector('[data-wizard-init]');
             $(mySelector)[pluginName]({});
             ///CP: ACTIV VALIDATION
+
+            $("#FarmId").change(function () {
+                farmIdValidation()
+            });
+
             $("#Name").focusout(function () {
                 nameValidation()
             });
@@ -690,9 +739,6 @@
                 depthLimitValidation()
             });
 
-            $("#FarmId").change(function () {
-                farmIdValidation()
-            });
 
             $("#HorizonName").focusout(function () {
                 horizonNameValidation()
@@ -715,11 +761,11 @@
             });
 
             $("#Clay").focusout(function () {
-                limoValidation()
+                clayValidation()
             });
 
             $("#OrganicMatter").focusout(function () {
-                organicMatter()
+                organicMatterValidation()
             });
 
             $("#NitrogenAnalysis").focusout(function () {
@@ -727,17 +773,18 @@
             });
 
             $("#BulkDensitySoil").focusout(function () {
-                bulkDensitySoil()
+                bulkDensitySoilValidation()
             });
+
+
             ////END ACTIV VALIDATION///////////////////
 
             ///CP: ACTIV  TABLE
             
             var jsonData = { "items": [] };
             var cont = 0;
-
             $("#add-row").click(function () {
-                if (horizonNameValidation() && orderValidation() && horizonLayerDepthValidation() && sandValidation() && limoValidation() && clayValidation() && organicMatter() && nitrogenAnalysisValidation() && bulkDensitySoil())
+                if (horizonNameValidation() && orderValidation() && horizonLayerDepthValidation() && sandValidation() && limoValidation() && clayValidation() && organicMatterValidation() && nitrogenAnalysisValidation() && bulkDensitySoilValidation())
                 {
                     var horizonName = $("#HorizonName").val();
                     var order = $("#Order").val();
@@ -750,37 +797,44 @@
                     var nitrogenAnalysis = $("#NitrogenAnalysis").val();
                     var bulkDensitySoil = $("#BulkDensitySoil").val();
 
-
-                    debugger;
                     jsonData.items.push({ "id": cont, "horizonName": horizonName, "order": order, "horizonLayer": horizonLayer, "horizonLayerDepth": horizonLayerDepth, "sand": sand, "limo": limo, "clay": clay, "organicMatter": organicMatter, "nitrogenAnalysis": nitrogenAnalysis, "bulkDensitySoil": bulkDensitySoil });
                     cont++;
 
-                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + horizonName + "</td><td>" + order + "</td><td>" + horizonLayer + "</td><td>" + horizonLayerDepth + "</td><td>" + sand + "</td><td>" + limo + "</td><td>" + clay + "</td><td>" + organicMatter + "</td><td>" + nitrogenAnalysis + "</td><td>" + bulkDensitySoil + "</td></tr>";
+
+                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "|" + horizonLayerDepth + "' name='record|" + cont + "'></td><td>" + horizonName + "</td><td>" + order + "</td><td>" + horizonLayer + "</td><td>" + horizonLayerDepth + "</td><td>" + sand + "</td><td>" + limo + "</td><td>" + clay + "</td><td>" + organicMatter + "</td><td>" + nitrogenAnalysis + "</td><td>" + bulkDensitySoil + "</td></tr>";
                     $("#HorizonsTable").append(markup)
                     $("#HorizonsHidden").val(JSON.stringify(jsonData));
 
                     $("#HorizonsQuantity").val(parseInt($("#HorizonsQuantity").val()) + 1);
                     $("#NotHorizonMessage").html("<span class=text-danger></span>");
+
+                    var horizonLayerDepthSumValue = $("#HorizonLayerDepthSum").val();
+
+                    $("#HorizonLayerDepthSum").val(parseInt(horizonLayerDepthSumValue) + parseInt(horizonLayerDepth))
                 }
             });
 
             // Find and remove selected table rows
             $("#delete-row").click(function () {
+                debugger;
+                
                 $("table tbody").find('input[type="checkbox"]').each(function () {
-
                     if ($(this).is(":checked")) {
-
                         var res = $(this).attr('id').split("|");
                         var aa = res[1];
                         var a = aa - 1;
+                        var prof = res[2];
+                        
                         delete jsonData.items[a];
-
 
                         $(this).parents("tr").remove();
                         var a = $("#HorizonsQuantity").val();
+
+                        var horizonLayerDepthSumValue = $("#HorizonLayerDepthSum").val();
+                        $("#HorizonLayerDepthSum").val(parseInt(horizonLayerDepthSumValue) - parseInt(prof));
                         $("#HorizonsQuantity").val(parseInt($("#HorizonsQuantity").val()) - 1);
+
                     }
-                   
                     $("#HorizonsHidden").val(JSON.stringify(jsonData));
 
                 });
@@ -804,15 +858,16 @@
 {
     @Html.AntiForgeryToken()
 
-<input id="HorizonsHidden" name="HorizonsHidden" type="hidden">
-<input id="HorizonsQuantity" name="HorizonsQuantity" type="hidden" value="0">
+<input id="HorizonsHidden" name="HorizonsHidden" >
+<input id="HorizonsQuantity" name="HorizonsQuantity" value="0" type="hidden">
+<input id="HorizonLayerDepthSum" name="HorizonLayerDepthSum" value="0" type="hidden">
     <div class="container-fluid">
         <div data-wizard-init>
             <ul class="steps">
                 <li data-step="1">Piso</li>
                 <li data-step="2">Horizontes</li>
                 <li data-step="3">Confirmar</li>
-            </ul>
+            </ul><span id="DepthControlMessage"> </span>
             @Html.ValidationSummary(true, "Error", new { @class = "text-danger" })
             @*@Html.ValidationMessageFor(model => model.wizardFarmViewModel., "", new { @class = "text-danger" })
             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
@@ -848,7 +903,7 @@
                         <div class="form-group">
                             <label class="control-label">Fecha de visita</label>
                             <input maxlength="50" id="TestDate" name="TestDate" type="date" class="form-control text-box single-line">
-                            <span id="TestDateMessage"></span>
+                           <span id="TestDateMessage"></span>
                         </div>   
 
                         <div class="form-group">
@@ -897,38 +952,38 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Arena</label>
-                            <input maxlength="50" id="Sand" name="Sand" type="text" value="0" class="form-control text-box single-line">
+                            <input maxlength="50" id="Sand" name="Sand" type="text" class="form-control text-box single-line">
                             <span id="SandMessage"></span>
                         </div> 
                         <div class="form-group">
                             <label class="control-label">Barro (limo)</label>
-                            <input maxlength="50" id="Limo" name="Limo" type="text" value="0" class="form-control text-box single-line">
+                            <input maxlength="50" id="Limo" name="Limo" type="text" class="form-control text-box single-line">
                             <span id="LimoMessage"></span>
                         </div>  
                         <div class="form-group">
                             <label class="control-label">Arcilla</label>
-                            <input maxlength="50" id="Clay" name="Clay" type="text" value="0" class="form-control text-box single-line">
+                            <input maxlength="50" id="Clay" name="Clay" type="text" class="form-control text-box single-line">
                             <span id="ClayMessage"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Materia orgánica</label>
-                            <input maxlength="50" id="OrganicMatter" name="OrganicMatter" type="text" value="0" class="form-control text-box single-line">
+                            <input maxlength="50" id="OrganicMatter" name="OrganicMatter" type="text" class="form-control text-box single-line">
                             <span id="OrganicMatterMessage"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Análisis de nitrógeno</label>
-                            <input maxlength="50" id="NitrogenAnalysis" name="NitrogenAnalysis" type="text" value="0" class="form-control text-box single-line">
+                            <input maxlength="50" id="NitrogenAnalysis" name="NitrogenAnalysis" type="text" class="form-control text-box single-line">
                             <span id="NitrogenAnalysisMessage"></span>
                         </div>                   
                         <div class="form-group">
                             <label class="control-label">Densidad</label>
-                            <input maxlength="50" id="BulkDensitySoil" name="BulkDensitySoil" type="text" value="0" class="form-control text-box single-line">
+                            <input maxlength="50" id="BulkDensitySoil" name="BulkDensitySoil" type="text" class="form-control text-box single-line">
                             <span id="BulkDensitySoilMessage"></span>
                         </div>     
 
                         <div class="form-group">
                          
-                            <input type="button" class="btn btn-success" id="add-row" value="Agregar capa"> <span id="NotHorizonMessage"></span>
+                            <input type="button" class="btn btn-success" id="add-row" value="Agregar capa"> <span id="NotHorizonMessage"> </span><span id="DepthControlMessage1">  </span>
                         </div> 
                         <table id="HorizonsTable" class="main-table-advisor" cellpadding="10">
                             <thead>

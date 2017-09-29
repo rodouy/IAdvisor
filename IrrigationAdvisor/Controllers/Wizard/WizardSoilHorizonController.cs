@@ -45,51 +45,54 @@ namespace IrrigationAdvisor.Controllers.Wizard
             if (ModelState.IsValid)
             {
                 Soil soilMapped = new Soil();
-                long lsoilPositionId = GetPositionId(vm.Latitude, vm.Longitude);
-                
+                long lsoilPositionId = GetPositionId(vm.Latitude, vm.Longitude);              
 
-                Position positionFarm = new Position();
-                //Not exist position to farm
+                Position positionAux = new Position();
+                //Not exist position to Soil
                 if (lsoilPositionId == 0)
                 {
-                    positionFarm.Latitude = vm.Latitude;
-                    positionFarm.Longitude = vm.Longitude;
-                    positionFarm.Name = "DEFINIR El NOMBRE DE LA POS";
-                   // soilMapped.Position = positionFarm;
+                    positionAux.Latitude = vm.Latitude;
+                    positionAux.Longitude = vm.Longitude;
+                    positionAux.Name = "Piso - " + vm.Name;
+                    soilMapped.Position = positionAux;
                 }
                 else
                 {
                     soilMapped.PositionId = lsoilPositionId;
                 }
 
-                // working whit bombs
+                // working whit Horizont
                 dynamic items = JsonConvert.DeserializeObject(vm.HorizonsHidden);
                 foreach (var item in items.items)
                 {
-                    Horizon horizon = new Horizon();
-                    horizon.Name = item.bombName;
-                    //horizon.SerialNumber = item.serialNumber;
-
-                    //horizon.ServiceDate = ((String)item.serviceDate == "") ? Utils.MIN_DATETIME : item.serviceDate;
-                    //horizon.PurchaseDate = ((String)item.purchaseDate == "") ? Utils.MIN_DATETIME : item.purchaseDate;                 
-                    //soilMapped.AddBomb(horizon);
+                    //Horizon horizon = new Horizon();
+                    string lhorizonName = item.horizonName;
+                    int lorder = item.order;
+                    string lhorizonLayer = item.horizonLayer;
+                    double lhorizonLayerDepth = item.horizonLayerDepth;
+                    double lsand = item.sand;
+                    double llimo = item.limo;
+                    double lclay = item.clay;
+                    double lorganicMatter = item.organicMatter;
+                    double lnitrogenAnalysis = item.nitrogenAnalysis;
+                    double lbulkDensitySoil = item.bulkDensitySoil;
+                    
+        
+                    soilMapped.AddHorizon(lhorizonName, lorder, lhorizonLayer, lhorizonLayerDepth, lsand, llimo, lclay, lorganicMatter, lnitrogenAnalysis, lbulkDensitySoil);
                 }
 
                 soilMapped.Name = vm.Name;
-                //soilMapped.Company = vm.Company;
-                //soilMapped.Address = vm.Address;
-                //soilMapped.Phone = vm.Phone;
-                //soilMapped.Has = vm.Has;
-                //soilMapped.WeatherStationId = vm.WeatherStationId;
-                //soilMapped.CityId = vm.CityId;
-
+                soilMapped.Description= vm.Description;
+                soilMapped.TestDate = vm.TestDate;
+                soilMapped.DepthLimit = vm.DepthLimit;
+//                soilMapped.FarmId = vm.FarmId;
                 db.Soils.Add(soilMapped);
                 db.SaveChanges();
 
                 ////return RedirectToAction("Index");
             }
 
-            return View("~/Views/Wizard/FarmBomb/Wizard.cshtml",vm);
+            return View("~/Views/Wizard/SoilHorizon/Wizard.cshtml", vm);
         }
 
         #region private methondaux

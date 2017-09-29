@@ -25,7 +25,7 @@ namespace IrrigationAdvisor.ViewModels.Wizard
         public DateTime TestDate { get; set; }
 
         [Required]
-        public float DepthLimit { get; set; }
+        public double DepthLimit { get; set; }
        
 
         [Required]

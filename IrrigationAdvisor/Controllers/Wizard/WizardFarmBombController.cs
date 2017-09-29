@@ -59,7 +59,7 @@ namespace IrrigationAdvisor.Controllers.Wizard
                  {
                      positionFarm.Latitude = vm.Latitude;
                      positionFarm.Longitude = vm.Longitude;
-                     positionFarm.Name = "DEFINIR El NOMBRE DE LA POS";
+                     positionFarm.Name = "Establecimiento - " + vm.Name;
                      farmMapped.Position = positionFarm;
                  }
                  else

@@ -119,6 +119,12 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { depthLimit = value; }
         }
 
+        public virtual Position Position
+        {
+            get;
+            set;
+        }
+        
         #endregion
 
         #region Construction
@@ -298,7 +304,11 @@ namespace IrrigationAdvisor.Models.Agriculture
             long lReturn = 1;
             if (this.HorizonList != null)
             {
-                lReturn += this.HorizonList.Max(ho => ho.HorizonId);
+                if (this.HorizonList.Count > 0) 
+                { 
+                    lReturn += this.HorizonList.Max(ho => ho.HorizonId);
+                }
+
             }
             return lReturn;
         }
