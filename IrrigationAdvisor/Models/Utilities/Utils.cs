@@ -216,10 +216,15 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             ByDaysAfterSowing,
             /// <summary>
-            /// Use Growing Degree Days for the calculus of Phenological Stage
+            /// Use Growing Degree Days for the calculus of Phenological Stage: each stage has minimun and maximum grade
             /// Phenological Stage, Deep of Root and Crop Coefficient depend on this calculus
             /// </summary>
             ByGrowingDegreeDays,
+            /// <summary>
+            /// Use Growing Degree Days for the calculus of Phenological Stage: each stage has an interval ej.: vo-15 / v1-35 / v2-60 / v3-45
+            /// Phenological Stage, Deep of Root and Crop Coefficient depend on this calculus
+            /// </summary>
+            ByIntervalGrowingDegreeDays,
         }
 
         /// <summary>

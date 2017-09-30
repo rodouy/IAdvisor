@@ -427,7 +427,12 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
+
                     lCIWDCAElParaisoPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    if (lCIWDCAElParaisoPivot1_2016.Crop.Name.Contains("Maiz"))
+                    {
+                        lCIWDCAElParaisoPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
+                    }
                     //Get Initial Hydric Balance
                     lCIWDCAElParaisoPivot1_2016.HydricBalance = lCIWDCAElParaisoPivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -590,6 +595,12 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                     //Set Calculus Method for Phenological Adjustment
                     lCIWDCAElParaisoPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+
+                    if (lCIWDCAElParaisoPivot2_2016.Crop.Name.Contains("Corn"))
+                    {
+                        lCIWDCAElParaisoPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
+                    }
+
                     //Get Initial Hydric Balance
                     lCIWDCAElParaisoPivot2_2016.HydricBalance = lCIWDCAElParaisoPivot2_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -764,6 +775,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                     //Set Calculus Method for Phenological Adjustment
                     lCIWDCALaPerdizPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+
+                    if (lCIWDCALaPerdizPivot1_2016.Crop.Name.Contains("Maiz"))
+                    {
+                        lCIWDCALaPerdizPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
+                    }
+
+
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot1_2016.HydricBalance = lCIWDCALaPerdizPivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -2234,6 +2252,12 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                     //Set Calculus Method for Phenological Adjustment
                     lCIWDCASanJosePivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+
+                    if (lCIWDCASanJosePivot1_2016.Crop.Name.Contains("Maiz"))
+                    {
+                        lCIWDCASanJosePivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
+                    }
+
                     //Get Initial Hydric Balance
                     lCIWDCASanJosePivot1_2016.HydricBalance = lCIWDCASanJosePivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -2720,6 +2744,12 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                     //Set Calculus Method for Phenological Adjustment
                     lCIWDCASanJosePivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+
+                    if (lCIWDCASanJosePivot4_2016.Crop.Name.Contains("Maiz"))
+                    {
+                        lCIWDCASanJosePivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
+                    }
+
                     //Get Initial Hydric Balance
                     lCIWDCASanJosePivot4_2016.HydricBalance = lCIWDCASanJosePivot4_2016.GetInitialHydricBalance();
                     //Create the initial registry

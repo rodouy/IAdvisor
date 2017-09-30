@@ -201,6 +201,15 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.HydricBalanceDepth = pHydricBalanceDepth;
             this.PhenologicalStageIsUsed = pPhenologicalStageIsUsed;
             this.DegreesDaysInterval = pDegreesDaysInterval;
+
+            //Refactoring 2017/09 Cambios en tabla fenologica
+            //El dato pDegreesDaysInterval lo calculamos como la diferencia entre maximo y minimo degree
+            this.PhenologicalStageIsUsed = true;
+            if (pDegreesDaysInterval == 0 && pMaxDegree != 0)
+            {
+                this.DegreesDaysInterval = pMaxDegree - pMinDegree;
+            }
+
         }
         
         #endregion

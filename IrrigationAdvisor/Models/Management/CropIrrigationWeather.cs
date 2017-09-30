@@ -1801,6 +1801,12 @@ namespace IrrigationAdvisor.Models.Management
                     //Get Phenological Stage depending on the Days After Sowing
                     lNewPhenologicalStage = this.GetNewPhenologicalStage(lDaysAfterSowingModified);
                 }
+                if (this.CalculusMethodForPhenologicalAdjustment == Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays)
+                {
+                    //Get Phenological Stage depending on the Interval Growing Degree Days
+                    //lNewPhenologicalStage = this.GetNewPhenologicalStage();
+                    lNewPhenologicalStage = this.GetNewPhenologicalStage();
+                }
 
                 lNewRootDepth = this.GetDepthTakingIntoAccountSoilDepthLimitBy(lNewPhenologicalStage);
                 this.PhenologicalStage = lNewPhenologicalStage;
@@ -1850,12 +1856,13 @@ namespace IrrigationAdvisor.Models.Management
                 {
                     lDailyRecord.GrowingDegreeDaysModified += lModification; // +lDailyRecordToDelete.GrowingDegreeDaysModified;
                     this.GrowingDegreeDaysModified += lModification;
+                    this.GrowingDegreeDaysExtraGap += lModification;
                 }
             }
         }
 
         /// <summary>
-        /// Calculate Degrees by Differnces in Crop Stages
+        /// Calculate Degrees by Differnces in Crop Stages according CalculusMethodForPhenologicalAdjustment
         /// </summary>
         /// <param name="oldStage"></param>
         /// <param name="newStage"></param>
@@ -1871,20 +1878,39 @@ namespace IrrigationAdvisor.Models.Management
             try
             {
                 lPhenologicalStageList = pCrop.PhenologicalStageList;
-                foreach (PhenologicalStage lPhenologicalStage in lPhenologicalStageList)
+                if (this.CalculusMethodForPhenologicalAdjustment.Equals(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays))
                 {
-                    if (lPhenologicalStage.Stage.Equals(oldStage))
+                    foreach (PhenologicalStage lPhenologicalStage in lPhenologicalStageList)
                     {
-                        oldDegree = lPhenologicalStage.GetAverageDegree();
+                        if (lPhenologicalStage.PhenologicalStageIsUsed && lPhenologicalStage.Stage.Order <= oldStage.Order)
+                        {
+                            oldDegree += lPhenologicalStage.DegreesDaysInterval;
+                        }
+                        if (lPhenologicalStage.PhenologicalStageIsUsed && lPhenologicalStage.Stage.Order <= newStage.Order)
+                        {
+                            newDegree += lPhenologicalStage.DegreesDaysInterval;
+                        }
+
                     }
-                    if (lPhenologicalStage.Stage.Equals(newStage))
+
+                    lReturn = newDegree - oldDegree;
+                }
+                else { 
+                    foreach (PhenologicalStage lPhenologicalStage in lPhenologicalStageList)
                     {
-                        newDegree = lPhenologicalStage.GetAverageDegree();
-                    }
-                    if (newDegree != 0 && oldDegree != 0)
-                    {
-                        lReturn = newDegree - oldDegree;
-                        break;
+                        if (lPhenologicalStage.Stage.Equals(oldStage))
+                        {
+                            oldDegree = lPhenologicalStage.GetAverageDegree();
+                        }
+                        if (lPhenologicalStage.Stage.Equals(newStage))
+                        {
+                            newDegree = lPhenologicalStage.GetAverageDegree();
+                        }
+                        if (newDegree != 0 && oldDegree != 0)
+                        {
+                            lReturn = newDegree - oldDegree;
+                            break;
+                        }
                     }
                 }
 
@@ -3588,6 +3614,52 @@ namespace IrrigationAdvisor.Models.Management
             return lReturn;
         }
 
+        /// <summary>
+        /// Return Phenological Stage where Growing Degree Days is the sum of each Stage Degree
+        /// Not use  GrowingDegreeDaysModified. Use GrowingDegreeDaysExtraGap
+        /// </summary>
+        /// <returns></returns>
+        public PhenologicalStage GetNewPhenologicalStage()
+        {
+            PhenologicalStage lReturn;
+            List<PhenologicalStage> lPhenologicalStageList;
+            IEnumerable<PhenologicalStage> lPhenologicalTableOrderByStageOrder;
+            PhenologicalStage lNewPhenologicalStage = null;
+            PhenologicalStage lLastPhenologicalStage = null;
+            Double lGrowingDeGreeDaysAccumulatedAdjusded;
+            Double lTableGrowingDegreeDays=0;
+
+            lGrowingDeGreeDaysAccumulatedAdjusded = this.GrowingDegreeDaysAccumulated + this.GrowingDegreeDaysExtraGap;
+            //Order the phenological table
+            lPhenologicalStageList = this.Crop.PhenologicalStageList;
+            lPhenologicalTableOrderByStageOrder = lPhenologicalStageList.OrderBy(lPhenologicalStage => lPhenologicalStage.Stage.Order);
+
+            foreach (PhenologicalStage lPhenologicalStage in lPhenologicalTableOrderByStageOrder)
+            {
+                if (lPhenologicalStage != null
+                    && lTableGrowingDegreeDays <= lGrowingDeGreeDaysAccumulatedAdjusded)
+                {
+                    this.PhenologicalStage = lPhenologicalStage;
+                    lNewPhenologicalStage = lPhenologicalStage;
+                }
+                lTableGrowingDegreeDays += lPhenologicalStage.DegreesDaysInterval;
+                lLastPhenologicalStage = lPhenologicalStage;
+
+                if (lTableGrowingDegreeDays > lGrowingDeGreeDaysAccumulatedAdjusded)
+                {
+                    break;
+                }
+            }
+
+            if (lNewPhenologicalStage == null && lTableGrowingDegreeDays < lGrowingDeGreeDaysAccumulatedAdjusded)
+            {
+                lNewPhenologicalStage = lLastPhenologicalStage;
+            }
+
+            lReturn = lNewPhenologicalStage;
+            return lReturn;
+        }
+
 
         #endregion
 
@@ -3833,6 +3905,12 @@ namespace IrrigationAdvisor.Models.Management
                         {
                             this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData);
                         }
+                        if (this.CalculusMethodForPhenologicalAdjustment.Equals(
+                            Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays))
+                        {
+                            this.AddDailyRecordAccordingGrowinDegreeDays(pDateTime, pObservation, lWeatherData);
+                        }
+
 
                         //when arrives to final Stage, do not add new irrigation
                         if (this.PhenologicalStage.Stage.Order < this.Crop.StopIrrigationStageOrder)
@@ -4355,6 +4433,7 @@ namespace IrrigationAdvisor.Models.Management
             }
         }
 
+        
         #region With Context
         /// <summary>
         /// Add DailyRecord to List with Context
