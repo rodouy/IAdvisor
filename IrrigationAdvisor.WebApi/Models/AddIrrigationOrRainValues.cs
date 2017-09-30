@@ -9,7 +9,7 @@ namespace IrrigationAdvisor.WebApi.Models
     {
         public string Token { get; set; }
         public int IrrigationUnitId { get; set; }
-        public decimal Milimeters { get; set; }
+        public double Milimeters { get; set; }
         public DateTime Date { get; set; }
     }
 }

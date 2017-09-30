@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using IrrigationAdvisor;
+using IrrigationAdvisor.Controllers;
 
 namespace IrrigationAdvisor.WebApi.Controllers
 {
@@ -100,8 +102,22 @@ namespace IrrigationAdvisor.WebApi.Controllers
             OperationResult<string> result = new OperationResult<string>();
 
             try
-            {
-                result.IsOk = true;    
+            {               
+                HomeController homeController = new HomeController();
+
+                homeController.Home(new IrrigationAdvisor.Models.LoginViewModel()
+                {
+                    UserName = "Cristian",
+                    Password = ""
+                });
+
+                homeController.AddIrrigation(values.Milimeters,
+                                                values.IrrigationUnitId,
+                                                values.Date.Day,
+                                                values.Date.Month,
+                                                values.Date.Year);
+
+                result.IsOk = true;
             }
             catch (Exception ex)
             {
@@ -120,6 +136,13 @@ namespace IrrigationAdvisor.WebApi.Controllers
 
             try
             {
+                HomeController homeController = new HomeController();
+                homeController.AddRain(values.Milimeters,
+                                                values.IrrigationUnitId,
+                                                values.Date.Day,
+                                                values.Date.Month,
+                                                values.Date.Year);
+
                 result.IsOk = true;
             }
             catch (Exception ex)

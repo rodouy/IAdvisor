@@ -1320,6 +1320,7 @@ namespace IrrigationAdvisor.Controllers
 
             try
             {
+
                 lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
                 lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
                 lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
