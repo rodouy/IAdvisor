@@ -357,7 +357,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// No Irrigation
             /// </summary>
-            NoIrrigation
+            CantIrrigate,
+            /// <summary>
+            /// Irrigation was not decided.
+            /// </summary>
+            IrrigationWasNotDecided
         }
         
         /// <summary>

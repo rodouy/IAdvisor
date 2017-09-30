@@ -1480,7 +1480,7 @@ namespace IrrigationAdvisor.Controllers
             return Content("Ok");
         }
 
-        private void AddOrUpdateIrrigationDataToListForNoIrrigation(DateTime pDateFrom, DateTime pDateTo, CropIrrigationWeather pCIW, IrrigationAdvisorContext pContext, int? pReasonId = null, string pObservations = null)
+        private void AddOrUpdateIrrigationDataToListForCantIrrigate(DateTime pDateFrom, DateTime pDateTo, CropIrrigationWeather pCIW, IrrigationAdvisorContext pContext, int? pReasonId = null, string pObservations = null)
         {
             DateTime lDateIterator = pDateFrom;
             DateTime lReferenceDate = Utils.GetDateOfReference().Value;
@@ -1564,7 +1564,7 @@ namespace IrrigationAdvisor.Controllers
 
                 foreach (var bCIW in filteredCiw)
                 {
-                    AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations); 
+                    AddOrUpdateIrrigationDataToListForCantIrrigate(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations); 
                 }
 
                 lSaveChanges = lContext.SaveChanges();
@@ -2084,7 +2084,11 @@ namespace IrrigationAdvisor.Controllers
                 }
                 else if (lDailyRecord != null && (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Type == Utils.WaterInputType.CantIrrigate))
                 {
-                    lIrrigationStatus = Utils.IrrigationStatus.NoIrrigation;
+                    lIrrigationStatus = Utils.IrrigationStatus.CantIrrigate;
+                }
+                else if (lDailyRecord != null && (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Type == Utils.WaterInputType.IrrigationWasNotDecided))
+                {
+                    lIrrigationStatus = Utils.IrrigationStatus.IrrigationWasNotDecided;
                 }
                 else
                 {
