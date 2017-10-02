@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace IrrigationAdvisor.Models
+namespace IrrigationAdvisor.DBContext.Language
 {
     public class LanguageContext : DbContext
     {

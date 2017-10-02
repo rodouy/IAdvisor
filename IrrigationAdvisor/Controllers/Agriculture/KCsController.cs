@@ -9,11 +9,13 @@ using System.Web.Mvc;
 using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Agriculture;
 
+using IrrigationAdvisor.DBContext;
+
 namespace IrrigationAdvisor.Controllers.Agriculture
 {
     public class KCsController : Controller
     {
-        private LanguageContext db = new LanguageContext();
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         // GET: KCs
         public ActionResult Index()

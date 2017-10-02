@@ -26,17 +26,11 @@ namespace IrrigationAdvisor.DBContext.Agriculture
                 .IsRequired();
             Property(dm => dm.Day)
                 .IsRequired();
-            Property(dm => dm.RatePerHectareByDay)
-                .IsRequired();
-            Property(dm => dm.InitialWeightPerHectareInKG)
-                .IsRequired();
             Property(dm => dm.WeightPerHectareInKG)
                 .IsRequired();
             Property(dm => dm.Exponent)
                 .IsRequired();
             Property(dm => dm.Multiplier)
-                .IsRequired();
-            Property(dm => dm.MaxCoefficient)
                 .IsRequired();
             Property(dm => dm.Coefficient)
                 .IsRequired();

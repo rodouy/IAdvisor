@@ -3373,7 +3373,359 @@ namespace IrrigationAdvisor.Models.Data
 
         #endregion
 
-        #region DryMassList
+        #region DryMassRemainderList
+
+        #region Fescue
+
+        public static List<DryMassRemainder> CreateDryMassRemainderListForFescueForage(Crop pCrop, Specie pSpecie, Season pSeason)
+        {
+            List<DryMassRemainder> lReturn = null;
+            DryMassRemainder lDryMassRemainder = null;
+
+            String lDryMassRemainderName;
+            Crop lCrop = pCrop;
+            Specie lSpecie = pSpecie;
+            int lAgeOfCrop;
+            Season lSeason = pSeason;
+            Double lHeight = 0;
+            Double lInitialDryMass = 0;
+            try
+            {
+                List<DryMassRemainder> lDryMassRemainderList = new List<DryMassRemainder>();
+                if(lSeason.WeatherSeason.Equals(Utils.Season.Autumn))
+                {
+                    #region For Age of Crop 1
+                    lAgeOfCrop = 1; 
+                    lHeight = 5; lInitialDryMass = 400;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 1000;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 1250;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 2
+                    lAgeOfCrop = 2; 
+                    lHeight = 5; lInitialDryMass = 680;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 1490;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 1830;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 3
+                    lAgeOfCrop = 3; 
+                    lHeight = 5; lInitialDryMass = 800;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 1980;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 2300;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                }
+                if (lSeason.WeatherSeason.Equals(Utils.Season.Winter))
+                {
+                    #region For Age of Crop 1
+                    lAgeOfCrop = 1;
+                    lHeight = 5; lInitialDryMass = 800;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 2000;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 2500;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 2
+                    lAgeOfCrop = 2;
+                    lHeight = 5; lInitialDryMass = 1430;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 2780;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 3620;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 3
+                    lAgeOfCrop = 3;
+                    lHeight = 5; lInitialDryMass = 1450;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 2560;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 3100;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                }
+                if (lSeason.WeatherSeason.Equals(Utils.Season.Spring))
+                {
+                    #region For Age of Crop 1
+                    lAgeOfCrop = 1;
+                    lHeight = 5; lInitialDryMass = 802;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 1700;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 1750;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 2
+                    lAgeOfCrop = 2;
+                    lHeight = 5; lInitialDryMass = 815;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 1942;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 2010;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 3
+                    lAgeOfCrop = 3;
+                    lHeight = 5; lInitialDryMass = 822;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 2000;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 2200;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                }
+                if (lSeason.WeatherSeason.Equals(Utils.Season.Summer))
+                {
+                    #region For Age of Crop 1
+                    lAgeOfCrop = 1;
+                    lHeight = 5; lInitialDryMass = 903;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 1830;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 2018;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 2
+                    lAgeOfCrop = 2;
+                    lHeight = 5; lInitialDryMass = 983;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 1910;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 2098;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 3
+                    lAgeOfCrop = 3;
+                    lHeight = 5; lInitialDryMass = 985;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 10; lInitialDryMass = 2030;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    lHeight = 15; lInitialDryMass = 2118;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in InitialTables.CreateDryMassRemainderListForFescueForage " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+
+            
+            return lReturn;
+        }
+
+        #endregion
+
+        #region Alfalfa
+
+        public static List<DryMassRemainder> CreateDryMassRemainderListForAlfalfa(Crop pCrop, Specie pSpecie, Season pSeason)
+        {
+            List<DryMassRemainder> lReturn = null;
+            DryMassRemainder lDryMassRemainder = null;
+
+            String lDryMassRemainderName;
+            Crop lCrop = pCrop;
+            Specie lSpecie = pSpecie;
+            int lAgeOfCrop;
+            Season lSeason = pSeason;
+            Double lHeight = 0;
+            Double lInitialDryMass = 0;
+            try
+            {
+                List<DryMassRemainder> lDryMassRemainderList = new List<DryMassRemainder>();
+                if (lSeason.WeatherSeason.Equals(Utils.Season.Autumn))
+                {
+                    #region For Age of Crop 1
+                    lAgeOfCrop = 1;
+                    lHeight = 7; lInitialDryMass = 400;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 2
+                    lAgeOfCrop = 2;
+                    lHeight = 7; lInitialDryMass = 760;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 3
+                    lAgeOfCrop = 3;
+                    lHeight = 7; lInitialDryMass = 805;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                }
+                if (lSeason.WeatherSeason.Equals(Utils.Season.Winter))
+                {
+                    #region For Age of Crop 1
+                    lAgeOfCrop = 1;
+                    lHeight = 7; lInitialDryMass = 400;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 2
+                    lAgeOfCrop = 2;
+                    lHeight = 7; lInitialDryMass = 580;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 3
+                    lAgeOfCrop = 3;
+                    lHeight = 7; lInitialDryMass = 580;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                }
+                if (lSeason.WeatherSeason.Equals(Utils.Season.Spring))
+                {
+                    #region For Age of Crop 1
+                    lAgeOfCrop = 1;
+                    lHeight = 7; lInitialDryMass = 820;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 2
+                    lAgeOfCrop = 2;
+                    lHeight = 7; lInitialDryMass = 760;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 3
+                    lAgeOfCrop = 3;
+                    lHeight = 7; lInitialDryMass = 805;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                }
+                if (lSeason.WeatherSeason.Equals(Utils.Season.Summer))
+                {
+                    #region For Age of Crop 1
+                    lAgeOfCrop = 1;
+                    lHeight = 7; lInitialDryMass = 800;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 2
+                    lAgeOfCrop = 2;
+                    lHeight = 7; lInitialDryMass = 760;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                    #region For Age of Crop 3
+                    lAgeOfCrop = 3;
+                    lHeight = 7; lInitialDryMass = 805;
+                    lDryMassRemainderName = lCrop.Name + lSpecie.Name + lSeason.Name + "Year" + lAgeOfCrop;
+                    lDryMassRemainder = new DryMassRemainder(lDryMassRemainderName, lSpecie, lAgeOfCrop, lSeason, lHeight, lInitialDryMass);
+                    lDryMassRemainderList.Add(lDryMassRemainder);
+                    #endregion
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in InitialTables.CreateDryMassRemainderListForAlfalfa " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+
+
+            return lReturn;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region DryMassRateList
 
         /// <summary>
         /// Create DryMass List for FescueForage in Fall
@@ -3382,7 +3734,7 @@ namespace IrrigationAdvisor.Models.Data
         /// <param name="pSpecie"></param>
         /// <param name="pSeason"></param>
         /// <returns></returns>
-        public static List<DryMass> CreateDryMassListForFescueForageFall(Crop pCrop, Specie pSpecie, Season pSeason)
+        public static List<DryMass> CreateDryMassRateListForFescueForageFall(Crop pCrop, Specie pSpecie, Season pSeason)
         {
             List<DryMass> lReturn =null;
             DryMass lDryMass = null;
@@ -3431,9 +3783,8 @@ namespace IrrigationAdvisor.Models.Data
                     {
                         lRootDepth = 15;
                     }
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, 
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3449,9 +3800,8 @@ namespace IrrigationAdvisor.Models.Data
                     lWeightPerHectareInKG = lInitialWeightPerHectareInKG + (lDay * lRatePerHectareByDay);
                     lCoefficient = (Math.Pow(lWeightPerHectareInKG, lExponent) * lMultiplier);
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3467,9 +3817,8 @@ namespace IrrigationAdvisor.Models.Data
                     lWeightPerHectareInKG = lInitialWeightPerHectareInKG + (lDay * lRatePerHectareByDay);
                     lCoefficient = (Math.Pow(lWeightPerHectareInKG, lExponent) * lMultiplier);
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3547,9 +3896,8 @@ namespace IrrigationAdvisor.Models.Data
                     {
                         lRootDepth = 15;
                     }
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3577,9 +3925,8 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3599,9 +3946,8 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3676,9 +4022,8 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 25;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3710,9 +4055,8 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3744,9 +4088,8 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3821,9 +4164,8 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 35;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3855,9 +4197,8 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion
@@ -3889,9 +4230,8 @@ namespace IrrigationAdvisor.Models.Data
                         lCoefficient = lMaxCoefficient;
                     }
                     lRootDepth = 45;
-                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason,
-                                            lDay, lRatePerHectareByDay, lInitialWeightPerHectareInKG, lWeightPerHectareInKG,
-                                            lExponent, lMultiplier, lMaxCoefficient, lCoefficient, lRootDepth);
+                    lDryMass = new DryMass(lDryMassName, lSpecie, lAgeOfCrop, lSeason, lDay, lWeightPerHectareInKG,
+                                            lExponent, lMultiplier, lCoefficient, lRootDepth);
                     lDryMassList.Add(lDryMass);
                 }
                 #endregion

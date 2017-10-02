@@ -83,6 +83,9 @@ namespace IrrigationAdvisor.DBContext
 
         public virtual DbSet<Horizon> Horizons { get; set; }
 
+        public virtual DbSet<KC> KCs { get; set; }
+
+
         public virtual DbSet<PhenologicalStage> PhenologicalStages { get; set; }
 
         public virtual DbSet<PhenologicalStageAdjustment> PhenologicalStageAdjustments { get; set; }

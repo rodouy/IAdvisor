@@ -232,6 +232,8 @@
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropInformationByDateConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\DryMassConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\DryMassRateConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\DryMassRemainderConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\HorizonConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\KCConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\PhenologicalStageAdjustmentConfiguration.cs" />
@@ -347,6 +349,8 @@
     <Compile Include="Models\Agriculture\CropCoefficientGraph.cs" />
     <Compile Include="Models\Agriculture\CropInformationByDate.cs" />
     <Compile Include="Models\Agriculture\DryMass.cs" />
+    <Compile Include="Models\Agriculture\DryMassRate.cs" />
+    <Compile Include="Models\Agriculture\DryMassRemainder.cs" />
     <Compile Include="Models\Agriculture\Horizon.cs" />
     <Compile Include="Models\Agriculture\KC.cs" />
     <Compile Include="Models\Agriculture\PhenologicalStage.cs" />
@@ -362,7 +366,7 @@
     <Compile Include="Models\GridHome\GridDetailPivottHome.cs" />
     <Compile Include="Models\GridHome\GriPivotHome.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Language\LanguageContext.cs" />
+    <Compile Include="DBContext\Language\LanguageContext.cs" />
     <Compile Include="Models\Localization\Farm.cs" />
     <Compile Include="Models\Management\IrrigationSystem.cs" />
     <Compile Include="Models\Irrigation\Bomb.cs" />

@@ -896,25 +896,21 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pAgeOfCrop"></param>
         /// <param name="pSeason"></param>
         /// <param name="pDay"></param>
-        /// <param name="pRatePerHectareByDay"></param>
-        /// <param name="pInitialWeightPerHectareInKG"></param>
         /// <param name="pWeightPerHectareInKG"></param>
         /// <param name="pExponent"></param>
         /// <param name="pMultiplier"></param>
-        /// <param name="pMaxCoefficient"></param>
         /// <param name="pCoefficient"></param>
         /// <param name="pRootDepth"></param>
         /// <returns></returns>
         public DryMass AddDryMass(String pName, Specie pSpecie, int pAgeOfCrop, Season pSeason,
-                    int pDay, Double pRatePerHectareByDay, Double pInitialWeightPerHectareInKG,
-                    Double pWeightPerHectareInKG, Double pExponent, Double pMultiplier,
-                    Double pMaxCoefficient, Double pCoefficient, Double pRootDepth)
+                    int pDay, Double pWeightPerHectareInKG, Double pExponent, Double pMultiplier,
+                    Double pCoefficient, Double pRootDepth)
         {
             DryMass lReturn = null;
 
-            DryMass lDryMass = new DryMass(pName, pSpecie, pAgeOfCrop, pSeason, pDay, pRatePerHectareByDay,
-                                            pInitialWeightPerHectareInKG, pWeightPerHectareInKG, pExponent,
-                                            pMultiplier, pMaxCoefficient, pCoefficient, pRootDepth);
+            DryMass lDryMass = new DryMass(pName, pSpecie, pAgeOfCrop, pSeason, pDay,
+                                            pWeightPerHectareInKG, pExponent, pMultiplier,
+                                            pCoefficient, pRootDepth);
 
             lReturn = ExistDryMass(lDryMass);
             if (lReturn == null)
@@ -938,27 +934,23 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pAgeOfCrop"></param>
         /// <param name="pSeason"></param>
         /// <param name="pDay"></param>
-        /// <param name="pRatePerHectareByDay"></param>
-        /// <param name="pInitialWeightPerHectareInKG"></param>
         /// <param name="pWeightPerHectareInKG"></param>
         /// <param name="pExponent"></param>
         /// <param name="pMultiplier"></param>
-        /// <param name="pMaxCoefficient"></param>
         /// <param name="pCoefficient"></param>
         /// <param name="pRootDepth"></param>
         /// <returns></returns>
         public DryMass UpdateDryMass(String pName, Specie pSpecie, int pAgeOfCrop, Season pSeason,
-                    int pDay, Double pRatePerHectareByDay, Double pInitialWeightPerHectareInKG,
-                    Double pWeightPerHectareInKG, Double pExponent, Double pMultiplier,
-                    Double pMaxCoefficient, Double pCoefficient, Double pRootDepth)
+                    int pDay, Double pWeightPerHectareInKG, Double pExponent, Double pMultiplier,
+                    Double pCoefficient, Double pRootDepth)
         {
             DryMass lReturn = null;
 
             try
             {
-                DryMass lDryMass = new DryMass(pName, pSpecie, pAgeOfCrop, pSeason, pDay, pRatePerHectareByDay,
-                                            pInitialWeightPerHectareInKG, pWeightPerHectareInKG, pExponent,
-                                            pMultiplier, pMaxCoefficient, pCoefficient, pRootDepth);
+                DryMass lDryMass = new DryMass(pName, pSpecie, pAgeOfCrop, pSeason, pDay,
+                                            pWeightPerHectareInKG, pExponent, pMultiplier,
+                                            pCoefficient, pRootDepth);
                 lReturn = ExistDryMass(lDryMass);
                 if (lReturn != null)
                 {
@@ -968,12 +960,9 @@ namespace IrrigationAdvisor.Models.Agriculture
                     lReturn.Season = pSeason;
                     lReturn.SeasonId = pSeason.SeasonId;
                     lReturn.Day = pDay;
-                    lReturn.RatePerHectareByDay = pRatePerHectareByDay;
-                    lReturn.InitialWeightPerHectareInKG = pInitialWeightPerHectareInKG;
                     lReturn.WeightPerHectareInKG = pWeightPerHectareInKG;
                     lReturn.Exponent = pExponent;
                     lReturn.Multiplier = pMultiplier;
-                    lReturn.MaxCoefficient = pMaxCoefficient;
                     lReturn.Coefficient = pCoefficient;
                     lReturn.RootDepth = pRootDepth;
                 }

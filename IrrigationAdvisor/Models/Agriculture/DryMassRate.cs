@@ -9,17 +9,16 @@ using System.Web;
 namespace IrrigationAdvisor.Models.Agriculture
 {
     /// <summary>
-    /// Create: 2017-04-06
+    /// Create: 2017-09-25
     /// Author: rodouy
     /// Description: 
-    ///     Dry Mass for Pastures
-    ///     Have: KC and Root Depth for Pastures
+    ///     Dry Mass Rate by Day, Crop and Season
     ///     
     /// References:
     ///     list of classes this class use
     ///     
     /// Dependencies:
-    ///     list of classes is referenced by this class
+    ///     Season, Specie
     /// 
     /// TODO: OK
     ///     UnitTest
@@ -29,51 +28,40 @@ namespace IrrigationAdvisor.Models.Agriculture
     ///     - name String - PK (Primary Key)
     /// 
     /// Methods:
-    ///     - DryMass()      -- constructor
-    ///     - DryMass(name)  -- consturctor with parameters
+    ///     - ClassTemplate()      -- constructor
+    ///     - ClassTemplate(name)  -- consturctor with parameters
     ///     - SetName(newName)     -- method to set the name field
     /// 
     /// </summary>
-    public class DryMass
+    public class DryMassRate
     {
+
         #region Consts
         #endregion
 
         #region Fields
-        /// <summary>
-        /// The fields are:
-        ///     - id: long
-        ///     - specie: Specie
-        ///     - ageOfCrop: int
-        ///     - season: Season
-        ///     - weightPerHectareInKg: Double
-        ///     - exponent: Double
-        ///     - multiplier: Double
-        ///     - coefficient: Double
-        ///     - rootDepth: Double
-        ///     
-        /// </summary>
-        private long dryMassId;
+        private long dryMassRateId;
         private String name;
         private long specieId;
         private int ageOfCrop;
         private long seasonId;
-        private int day;
-        private Double weightPerHectareInKG;
+        private int durationInDays;
+        private Double ratePerHectareByDay;
         private Double exponent;
         private Double multiplier;
-        private Double coefficient;
+        private Double maxCoefficient;
         private Double rootDepth;
-
+        private int order;
+        private bool isUsed;
 
         #endregion
 
         #region Properties
-        
-        public long DryMassId
+
+        public long DryMassRateId
         {
-            get { return dryMassId; }
-            set { dryMassId = value; }
+            get { return dryMassRateId; }
+            set { dryMassRateId = value; }
         }
 
         public String Name
@@ -112,18 +100,18 @@ namespace IrrigationAdvisor.Models.Agriculture
             set;
         }
 
-        public int Day
+        public int DurationInDays
         {
-            get { return day; }
-            set { day = value; }
+            get { return durationInDays; }
+            set { durationInDays = value; }
         }
 
-        public Double WeightPerHectareInKG
+        public Double RatePerHectareByDay
         {
-            get { return weightPerHectareInKG; }
-            set { weightPerHectareInKG = value; }
+            get { return ratePerHectareByDay; }
+            set { ratePerHectareByDay = value; }
         }
-        
+
         public Double Exponent
         {
             get { return exponent; }
@@ -136,19 +124,28 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { multiplier = value; }
         }
 
-        public Double Coefficient
+        public Double MaxCoefficient
         {
-            get { return coefficient; }
-            set { coefficient = value; }
+            get { return maxCoefficient; }
+            set { maxCoefficient = value; }
         }
 
-        /// <summary>
-        /// Depends on: WeatherSeason, Day
-        /// </summary>
         public Double RootDepth
         {
-            get{ return rootDepth;}
-            set{ rootDepth = value;}
+            get { return rootDepth; }
+            set { rootDepth = value; }
+        }
+
+        public int Order
+        {
+            get { return order; }
+            set { order = value; }
+        }
+
+        public bool IsUsed
+        {
+            get { return isUsed; }
+            set { isUsed = value; }
         }
 
 
@@ -159,36 +156,41 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <summary>
         /// Constructor without parameters
         /// </summary>
-        public DryMass()
+         public DryMassRate()
         {
             this.Name = "noname";
             this.SpecieId = 0;
             this.AgeOfCrop = 0;
             this.SeasonId = 0;
-            this.Day = 0;
-            this.WeightPerHectareInKG = 0;
+            this.DurationInDays = 0;
+            this.RatePerHectareByDay = 0;
             this.Exponent = 0;
             this.Multiplier = 0;
-            this.Coefficient = 0;
+            this.MaxCoefficient = 0;
             this.RootDepth = 0;
+            this.Order = 0;
+            this.IsUsed = false;
         }
 
         /// <summary>
-        /// Constructor with all parameters
+         /// Constructor with all parameters
         /// </summary>
         /// <param name="pName"></param>
         /// <param name="pSpecie"></param>
         /// <param name="pAgeOfCrop"></param>
         /// <param name="pSeason"></param>
-        /// <param name="pDay"></param>
-        /// <param name="pWeightPerHectareInKG"></param>
+        /// <param name="pDurationInDays"></param>
+        /// <param name="pRatePerHectareByDay"></param>
         /// <param name="pExponent"></param>
         /// <param name="pMultiplier"></param>
-        /// <param name="pCoefficient"></param>
+        /// <param name="pMaxCoefficient"></param>
         /// <param name="pRootDepth"></param>
-        public DryMass(String pName, Specie pSpecie, int pAgeOfCrop, Season pSeason, int pDay,
-                    Double pWeightPerHectareInKG, Double pExponent, Double pMultiplier, 
-                    Double pCoefficient, Double pRootDepth)
+        /// <param name="pOrder"></param>
+        /// <param name="pIsUsed"></param>
+        public DryMassRate(String pName, Specie pSpecie, int pAgeOfCrop, Season pSeason,
+                        int pDurationInDays, Double pRatePerHectareByDay, Double pExponent,
+                        Double pMultiplier, Double pMaxCoefficient, Double pRootDepth,
+                        int pOrder, bool pIsUsed)
         {
             this.Name = pName;
             this.SpecieId = pSpecie.SpecieId;
@@ -196,13 +198,16 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.AgeOfCrop = pAgeOfCrop;
             this.SeasonId = pSeason.SeasonId;
             this.Season = pSeason;
-            this.Day = pDay;
-            this.WeightPerHectareInKG = pWeightPerHectareInKG;
+            this.DurationInDays = pDurationInDays;
+            this.RatePerHectareByDay = pRatePerHectareByDay;
             this.Exponent = pExponent;
             this.Multiplier = pMultiplier;
-            this.Coefficient = pCoefficient;
+            this.MaxCoefficient = pMaxCoefficient;
             this.RootDepth = pRootDepth;
+            this.Order = pOrder;
+            this.IsUsed = pIsUsed;
         }
+
 
         #endregion
 
@@ -210,6 +215,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         #endregion
 
         #region Public Methods
+
 
         /// <summary>
         /// Return the Weather Season
@@ -222,41 +228,6 @@ namespace IrrigationAdvisor.Models.Agriculture
             return lReturn;
         }
 
-        /// <summary>
-        /// Return Weigth per Hectare in KG
-        /// Depends on: InitialWeightPerHectareInKG, Day, RatePerHectareByDay
-        /// </summary>
-        /// <returns></returns>
-        public Double GetWeightPerHectareInKG()
-        {
-            Double lReturn;
-            lReturn = this.WeightPerHectareInKG;
-            return lReturn;
-        }
-
-        /// <summary>
-        /// Return the Coefficient of the Crop
-        /// Depends on WeightPerHectareInKG, Exponent, Multiplier, MaxCoefficient
-        /// </summary>
-        /// <returns></returns>
-        public double GetCoefficient()
-        {
-            double lReturn;
-            lReturn = this.Coefficient;
-            return lReturn;
-        }
-
-        /// <summary>
-        /// Return the Root Depth
-        /// Depends on: WeatherSeason, Day
-        /// </summary>
-        /// <returns></returns>
-        public double GetRootDepth()
-        {
-            double lRootDepth;
-            lRootDepth = this.rootDepth;
-            return lRootDepth;
-        }
 
         #endregion
 
@@ -276,11 +247,11 @@ namespace IrrigationAdvisor.Models.Agriculture
                 return false;
             }
 
-            DryMass lDryMass = obj as DryMass;
-            lReturn = this.Specie.Equals(lDryMass.Specie)
-                && this.Season.Equals(lDryMass.Season)
-                && this.AgeOfCrop.Equals(lDryMass.AgeOfCrop)
-                && this.Day.Equals(lDryMass.Day);
+            DryMassRate lDryMassRate = obj as DryMassRate;
+            lReturn = this.Specie.Equals(lDryMassRate.Specie)
+                && this.Season.Equals(lDryMassRate.Season)
+                && this.AgeOfCrop.Equals(lDryMassRate.AgeOfCrop)
+                && this.Order.Equals(lDryMassRate.Order);
 
             return lReturn;
         }
@@ -289,6 +260,8 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             return this.Specie.GetHashCode();
         }
+
         #endregion
+
     }
 }

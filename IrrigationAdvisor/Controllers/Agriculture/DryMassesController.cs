@@ -52,7 +52,7 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DryMassId,Name,SpecieId,AgeOfCrop,SeasonId,Day,RatePerHectareByDay,InitialWeightPerHectareInKG,WeightPerHectareInKG,Exponent,Multiplier,MaxCoefficient,Coefficient,RootDepth")] DryMass dryMass)
+        public ActionResult Create([Bind(Include = "DryMassId,Name,SpecieId,AgeOfCrop,SeasonId,Day,WeightPerHectareInKG,Exponent,Multiplier,Coefficient,RootDepth")] DryMass dryMass)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DryMassId,Name,SpecieId,AgeOfCrop,SeasonId,Day,RatePerHectareByDay,InitialWeightPerHectareInKG,WeightPerHectareInKG,Exponent,Multiplier,MaxCoefficient,Coefficient,RootDepth")] DryMass dryMass)
+        public ActionResult Edit([Bind(Include = "DryMassId,Name,SpecieId,AgeOfCrop,SeasonId,Day,RatePerHectareByDay,InitialWeightPerHectareInKG,WeightPerHectareInKG,Exponent,Multiplier,MaxCoefficient,Coefficient,RootDepth")] DryMassRemainder dryMass)
         {
             if (ModelState.IsValid)
             {

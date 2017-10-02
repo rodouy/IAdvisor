@@ -44,7 +44,8 @@ namespace IrrigationAdvisorConsole
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
-        public static DateTime DateOfReference = System.DateTime.Now;
+        public static DateTime DateOfReference = System.DateTime.Now.AddMonths(-9);
+        
         
         static void Main(string[] args)
         {
