@@ -609,7 +609,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             #endregion
 
             #region 19.  Create Bomb
-            testBomb = testIrrigationSystem.AddBomb("Bomba Santa Lucia", "1234", DateTime.Now, DateTime.Now, testPositionFarm.PositionId);
+            testBomb = testIrrigationSystem.AddBomb("Bomba Santa Lucia", "Bomba Santa Lucia", "1234", DateTime.Now, DateTime.Now, testPositionFarm.PositionId, 0);
             #endregion
 
             #region 20.  Create WeatherStation

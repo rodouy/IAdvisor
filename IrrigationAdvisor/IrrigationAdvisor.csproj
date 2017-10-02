@@ -339,6 +339,10 @@
     <Compile Include="Migrations\201709022236060_FarmAndBombNewColumnPosition.Designer.cs">
       <DependentUpon>201709022236060_FarmAndBombNewColumnPosition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709301513261_AddFarmIdToBombAndShortName.cs" />
+    <Compile Include="Migrations\201709301513261_AddFarmIdToBombAndShortName.Designer.cs">
+      <DependentUpon>201709301513261_AddFarmIdToBombAndShortName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -947,6 +951,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709022236060_FarmAndBombNewColumnPosition.resx">
       <DependentUpon>201709022236060_FarmAndBombNewColumnPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709301513261_AddFarmIdToBombAndShortName.resx">
+      <DependentUpon>201709301513261_AddFarmIdToBombAndShortName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

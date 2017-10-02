@@ -858,13 +858,13 @@
 {
     @Html.AntiForgeryToken()
 
-<input id="HorizonsHidden" name="HorizonsHidden" >
+<input id="HorizonsHidden" name="HorizonsHidden" type="hidden">
 <input id="HorizonsQuantity" name="HorizonsQuantity" value="0" type="hidden">
 <input id="HorizonLayerDepthSum" name="HorizonLayerDepthSum" value="0" type="hidden">
     <div class="container-fluid">
         <div data-wizard-init>
             <ul class="steps">
-                <li data-step="1">Piso</li>
+                <li data-step="1">Suelo</li>
                 <li data-step="2">Horizontes</li>
                 <li data-step="3">Confirmar</li>
             </ul><span id="DepthControlMessage"> </span>
@@ -874,7 +874,7 @@
                 *@
             <div class="steps-content">
                 <div data-step="1">
-                    <h4>Piso</h4>
+                    <h4>Suelo</h4>
                     <p>
                         <div class="form-group">
                             <label class="control-label">Establecimento</label>

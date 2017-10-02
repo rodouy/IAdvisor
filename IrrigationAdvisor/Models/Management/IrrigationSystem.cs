@@ -930,18 +930,20 @@ namespace IrrigationAdvisor.Models.Management
         /// TODO add description
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pSerialNumber"></param>
         /// <param name="pServiceDate"></param>
         /// <param name="pPurchaseDate"></param>
-        /// <param name="pLocation"></param>
+        /// <param name="pPosition"></param>
+        /// <param name="pFarmId"></param>
         /// <returns></returns>
-        public Bomb AddBomb(String pName, String pSerialNumber, DateTime pServiceDate,
-                            DateTime pPurchaseDate, long pPositionId)
+        public Bomb AddBomb(String pName, String pShortName, String pSerialNumber, DateTime pServiceDate,
+                            DateTime pPurchaseDate, long pPositionId, long pFarmId)
         {
             Bomb lReturn = null;
             long lIdBomb = this.BombList.Count();
-            Bomb lBomb = new Bomb(lIdBomb, pName, pSerialNumber, pServiceDate,
-                            pPurchaseDate, pPositionId);
+            Bomb lBomb = new Bomb(lIdBomb, pName, pShortName,pSerialNumber, pServiceDate,
+                            pPurchaseDate, pPositionId, pFarmId);
             lReturn = ExistBomb(lBomb);
             if(lReturn == null)
             {
@@ -960,20 +962,22 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pPurchaseDate"></param>
         /// <param name="pLocation"></param>
         /// <returns></returns>
-        public Bomb UpdateBomb(String pName, String pSerialNumber, DateTime pServiceDate,
-                            DateTime pPurchaseDate, long pPositionId)
+        public Bomb UpdateBomb(String pName, String pShortName, String pSerialNumber, DateTime pServiceDate,
+                            DateTime pPurchaseDate, long pPositionId, long pFarmId)
         {
             Bomb lReturn = null;
-            Bomb lBomb = new Bomb(0, pName, pSerialNumber, pServiceDate,
-                            pPurchaseDate, pPositionId);
+            Bomb lBomb = new Bomb(0, pName,pShortName, pSerialNumber, pServiceDate,
+                            pPurchaseDate, pPositionId,pFarmId);
             lReturn = ExistBomb(lBomb);
             if(lReturn != null)
             {
                 lReturn.Name = pName;
+                lReturn.ShortName = pShortName;
                 lReturn.SerialNumber = pSerialNumber;
                 lReturn.ServiceDate = pServiceDate;
                 lReturn.PurchaseDate = pPurchaseDate;
                 lReturn.PositionId = pPositionId;
+                lReturn.FarmId = pFarmId;
             }
             return lReturn;
         }

@@ -26,15 +26,18 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
         public static void InsertBombs()
         {
             Position lPosition = null;
+            Farm lFarm = null;
 
             #region Base
             var lBase = new Bomb
             {
                 Name = Utils.NameBase,
+                ShortName = Utils.NameBase,
                 SerialNumber = "0",
                 PurchaseDate = Utils.MAX_DATETIME,
                 ServiceDate = Utils.MAX_DATETIME,
                 PositionId = 0,
+                FarmId = 0,
             };
             #endregion
 
@@ -48,13 +51,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmDemo1
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDemo1
+                             select far).FirstOrDefault();
+
                     var lBombDemo = new Bomb
                     {
                         Name = Utils.NameBombDemo1,
+                        ShortName = Utils.NameBombDemo1,
                         SerialNumber = "98134759807",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombDemo);
                     context.SaveChanges();
@@ -72,13 +81,20 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmDemo2
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDemo2
+                             select far).FirstOrDefault();
+
+
                     var lBombDemo = new Bomb
                     {
                         Name = Utils.NameBombDemo2,
+                        ShortName = Utils.NameBombDemo2,
                         SerialNumber = "98134759807",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombDemo);
                     context.SaveChanges();
@@ -96,13 +112,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmDemo3
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDemo3
+                             select far).FirstOrDefault();
+
                     var lBombDemo = new Bomb
                     {
                         Name = Utils.NameBombDemo3,
+                        ShortName = Utils.NameBombDemo3,
                         SerialNumber = "98134759807",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombDemo);
                     context.SaveChanges();
@@ -120,13 +142,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmSantaLucia
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmSantaLucia
+                             select far).FirstOrDefault();
+
                     var lBombSantaLucia = new Bomb
                     {
                         Name = Utils.NameBombSantaLucia,
+                        ShortName = Utils.NameBombSantaLucia,
                         SerialNumber = "1234",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
 
                     context.Bombs.Add(lBombSantaLucia);
@@ -147,13 +175,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmDCAElParaiso
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDCAElParaiso
+                             select far).FirstOrDefault();
+
                     var lBombDCAElParaiso = new Bomb
                     {
                         Name = Utils.NameBombDCAElParaiso,
+                        ShortName = Utils.NameBombDCAElParaiso,
                         SerialNumber = "98134759807",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombDCAElParaiso);
                     context.SaveChanges();
@@ -173,13 +207,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmDCASanJose
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDCASanJose
+                             select far).FirstOrDefault();
+
                     var lBombDCASanJose = new Bomb
                     {
                         Name = Utils.NameBombDCASanJose,
+                        ShortName = Utils.NameBombDCASanJose,
                         SerialNumber = "98134759807",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombDCASanJose);
                     context.SaveChanges();
@@ -199,13 +239,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmDCALaPerdiz
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDCALaPerdiz
+                             select far).FirstOrDefault();
+
                     var lBombDCALaPerdiz = new Bomb
                     {
                         Name = Utils.NameBombDCALaPerdiz,
+                        ShortName = Utils.NameBombDCALaPerdiz,
                         SerialNumber = "98134759807",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombDCALaPerdiz);
                     context.SaveChanges();
@@ -224,13 +270,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmDelLagoSanPedro
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDelLagoSanPedro
+                             select far).FirstOrDefault(); 
+                    
                     var lBombDelLagoSanPedro = new Bomb
                     {
                         Name = Utils.NameBombDelLagoSanPedro,
+                        ShortName = Utils.NameBombDelLagoSanPedro,
                         SerialNumber = "",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombDelLagoSanPedro);
                     context.SaveChanges();
@@ -250,13 +302,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmDelLagoElMirador
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDelLagoElMirador
+                             select far).FirstOrDefault(); 
+                    
                     var lBombDelLagoElMirador = new Bomb
                     {
                         Name = Utils.NameBombDelLagoElMirador,
+                        ShortName = Utils.NameBombDelLagoElMirador,
                         SerialNumber = "",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombDelLagoElMirador);
                     context.SaveChanges();
@@ -276,14 +334,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmGMOLaPalma
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmGMOLaPalma
+                             select far).FirstOrDefault(); 
 
                     var lBombGMOLaPalma = new Bomb
                     {
                         Name = Utils.NameBombGMOLaPalma,
+                        ShortName = Utils.NameBombGMOLaPalma,
                         SerialNumber = "",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombGMOLaPalma);
                     context.SaveChanges();
@@ -303,13 +366,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmGMOElTacuru
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmGMOElTacuru
+                             select far).FirstOrDefault(); 
+
                     var lBombGMOElTacuru = new Bomb
                     {
                         Name = Utils.NameBombGMOElTacuru,
+                        ShortName = Utils.NameBombGMOElTacuru,
                         SerialNumber = "",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombGMOElTacuru);
                     context.SaveChanges();
@@ -328,13 +397,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmTresMarias
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmTresMarias
+                             select far).FirstOrDefault(); 
+
                     var lBombTresMarias = new Bomb
                     {
                         Name = Utils.NameBombTresMarias,
+                        ShortName = Utils.NameBombTresMarias,
                         SerialNumber = "111111111",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombTresMarias);
                     context.SaveChanges();
@@ -353,13 +428,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmLaRinconada
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmLaRinconada
+                             select far).FirstOrDefault(); 
+
                     var lBombLaRinconada = new Bomb
                     {
                         Name = Utils.NameBombLaRinconada,
+                        ShortName = Utils.NameBombLaRinconada,
                         SerialNumber = "111111111",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombLaRinconada);
                     context.SaveChanges();
