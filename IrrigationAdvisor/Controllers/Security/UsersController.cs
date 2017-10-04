@@ -199,8 +199,10 @@ namespace IrrigationAdvisor.Controllers.Security
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
-            return View("~/Views/Security/Users/Create.cshtml", user);
+
+            CreateUserViewModel userVM = new CreateUserViewModel();
+            userVM.Roles = this.LoadRoles();
+            return View("~/Views/Security/Users/Create.cshtml", userVM);
         }
 
         private List<string> Validation(CreateUserViewModel user)
