@@ -40,8 +40,9 @@ namespace IrrigationAdvisor.Controllers.Wizard
         // POST: Users/Create;
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name, Description, Latitude, Longitude, TestDate, DepthLimit, FarmId, HorizonsHidden")] WizardSoilHorizonViewModel vm)    
+        public ActionResult Create([Bind(Include = "Name, ShortName, Description, Latitude, Longitude, TestDate, DepthLimit, FarmId, HorizonsHidden")] WizardSoilHorizonViewModel vm)    
         {
+
             if (ModelState.IsValid)
             {
                 Soil soilMapped = new Soil();
@@ -53,7 +54,7 @@ namespace IrrigationAdvisor.Controllers.Wizard
                 {
                     positionAux.Latitude = vm.Latitude;
                     positionAux.Longitude = vm.Longitude;
-                    positionAux.Name = "Piso - " + vm.Name;
+                    positionAux.Name = vm.Name + " - Suelo";
                     soilMapped.Position = positionAux;
                 }
                 else
@@ -80,19 +81,21 @@ namespace IrrigationAdvisor.Controllers.Wizard
         
                     soilMapped.AddHorizon(lhorizonName, lorder, lhorizonLayer, lhorizonLayerDepth, lsand, llimo, lclay, lorganicMatter, lnitrogenAnalysis, lbulkDensitySoil);
                 }
-
+                soilMapped.ShortName = vm.ShortName;
                 soilMapped.Name = vm.Name;
                 soilMapped.Description= vm.Description;
                 soilMapped.TestDate = vm.TestDate;
                 soilMapped.DepthLimit = vm.DepthLimit;
-//                soilMapped.FarmId = vm.FarmId;
+                soilMapped.FarmId = vm.FarmId;
                 db.Soils.Add(soilMapped);
                 db.SaveChanges();
 
                 ////return RedirectToAction("Index");
             }
 
-            return View("~/Views/Wizard/SoilHorizon/Wizard.cshtml", vm);
+            WizardSoilHorizonViewModel vmReturn = new WizardSoilHorizonViewModel();
+            vmReturn.Farm = this.LoadFarms();
+            return View("~/Views/Wizard/SoilHorizon/Wizard.cshtml", vmReturn);
         }
 
         #region private methondaux

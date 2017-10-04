@@ -777,14 +777,14 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pTestDate"></param>
         /// <param name="pDepthLimit"></param>
         /// <returns></returns>
-        public Soil AddSoil(String pName, String pDescription,
+        public Soil AddSoil(String pName, String pShortName, String pDescription,
                         long pPositionId, DateTime pTestDate,
-                        double pDepthLimit)
+                        double pDepthLimit, long pFarmId)
         {
             Soil lReturn = null;
             int lIdSoil = this.SoilList.Count();
-            Soil lSoil = new Soil(lIdSoil, pName, pDescription,
-                                pPositionId, pTestDate, pDepthLimit);
+            Soil lSoil = new Soil(lIdSoil, pName, pShortName, pDescription,
+                                pPositionId, pTestDate, pDepthLimit, pFarmId);
             if(ExistSoil(lSoil) == null)
             {
                 this.SoilList.Add(lSoil);
@@ -803,13 +803,13 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pTestDate"></param>
         /// <param name="pDepthLimit"></param>
         /// <returns></returns>
-        public Soil UpdateSoil(String pName, String pDescription,
+        public Soil UpdateSoil(String pName, String pShortName, String pDescription,
                         long pPositionId, DateTime pTestDate,
-                        double pDepthLimit)
+                        double pDepthLimit, long pFarmId)
         {
             Soil lReturn = null;
-            Soil lSoil = new Soil(0, pName, pDescription,
-                                pPositionId, pTestDate, pDepthLimit);
+            Soil lSoil = new Soil(0, pName, pShortName, pDescription,
+                                pPositionId, pTestDate, pDepthLimit, pFarmId);
             lReturn = ExistSoil(lSoil);
             if(lReturn != null)
             {

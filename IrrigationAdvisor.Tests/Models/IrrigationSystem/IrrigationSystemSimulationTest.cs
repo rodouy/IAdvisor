@@ -1653,19 +1653,19 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
         {
 
             #region Soils
-            testSoil_Pivot_01 = testIrrigationSystem.AddSoil("Suelo Pivot 01", "Suelo Pivot 01", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_01_DepthLimit);
-            testSoil_Pivot_02 = testIrrigationSystem.AddSoil("Suelo Pivot 02", "Suelo Pivot 02", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_02_DepthLimit);
-            testSoil_Pivot_03 = testIrrigationSystem.AddSoil("Suelo Pivot 03", "Suelo Pivot 03", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_03_DepthLimit);
-            testSoil_Pivot_04 = testIrrigationSystem.AddSoil("Suelo Pivot 04", "Suelo Pivot 04", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_04_DepthLimit);
-            testSoil_Pivot_05 = testIrrigationSystem.AddSoil("Suelo Pivot 05", "Suelo Pivot 05", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_05_DepthLimit);
-            testSoil_Pivot_06 = testIrrigationSystem.AddSoil("Suelo Pivot 06", "Suelo Pivot 06", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_06_DepthLimit);
-            testSoil_Pivot_07 = testIrrigationSystem.AddSoil("Suelo Pivot 07", "Suelo Pivot 07", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_07_DepthLimit);
-            testSoil_Pivot_08 = testIrrigationSystem.AddSoil("Suelo Pivot 08", "Suelo Pivot 08", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_08_DepthLimit);
-            testSoil_Pivot_09 = testIrrigationSystem.AddSoil("Suelo Pivot 09", "Suelo Pivot 09", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_09_DepthLimit);
-            testSoil_Pivot_10 = testIrrigationSystem.AddSoil("Suelo Pivot 10", "Suelo Pivot 10", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_10_DepthLimit);
-            testSoil_Pivot_11 = testIrrigationSystem.AddSoil("Suelo Pivot 11", "Suelo Pivot 11", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_11_DepthLimit);
-            testSoil_Pivot_12 = testIrrigationSystem.AddSoil("Suelo Pivot 12", "Suelo Pivot 12", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_12_DepthLimit);
-            testSoil_Pivot_13 = testIrrigationSystem.AddSoil("Suelo Pivot 13", "Suelo Pivot 13", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_13_DepthLimit);
+            testSoil_Pivot_01 = testIrrigationSystem.AddSoil("Suelo Pivot 01", "Suelo Pivot 01", "Suelo Pivot 01", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_01_DepthLimit,0);
+            testSoil_Pivot_02 = testIrrigationSystem.AddSoil("Suelo Pivot 02", "Suelo Pivot 02", "Suelo Pivot 02", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_02_DepthLimit, 0);
+            testSoil_Pivot_03 = testIrrigationSystem.AddSoil("Suelo Pivot 03", "Suelo Pivot 03", "Suelo Pivot 03", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_03_DepthLimit, 0);
+            testSoil_Pivot_04 = testIrrigationSystem.AddSoil("Suelo Pivot 04", "Suelo Pivot 04", "Suelo Pivot 04", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_04_DepthLimit, 0);
+            testSoil_Pivot_05 = testIrrigationSystem.AddSoil("Suelo Pivot 05", "Suelo Pivot 05", "Suelo Pivot 05", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_05_DepthLimit, 0);
+            testSoil_Pivot_06 = testIrrigationSystem.AddSoil("Suelo Pivot 06", "Suelo Pivot 06", "Suelo Pivot 06", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_06_DepthLimit, 0);
+            testSoil_Pivot_07 = testIrrigationSystem.AddSoil("Suelo Pivot 07", "Suelo Pivot 07", "Suelo Pivot 07", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_07_DepthLimit, 0);
+            testSoil_Pivot_08 = testIrrigationSystem.AddSoil("Suelo Pivot 08", "Suelo Pivot 08", "Suelo Pivot 08", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_08_DepthLimit, 0);
+            testSoil_Pivot_09 = testIrrigationSystem.AddSoil("Suelo Pivot 09", "Suelo Pivot 09", "Suelo Pivot 09", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_09_DepthLimit, 0);
+            testSoil_Pivot_10 = testIrrigationSystem.AddSoil("Suelo Pivot 10", "Suelo Pivot 10", "Suelo Pivot 10", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_10_DepthLimit, 0);
+            testSoil_Pivot_11 = testIrrigationSystem.AddSoil("Suelo Pivot 11", "Suelo Pivot 11", "Suelo Pivot 11", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_11_DepthLimit, 0);
+            testSoil_Pivot_12 = testIrrigationSystem.AddSoil("Suelo Pivot 12", "Suelo Pivot 12", "Suelo Pivot 12", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_12_DepthLimit, 0);
+            testSoil_Pivot_13 = testIrrigationSystem.AddSoil("Suelo Pivot 13", "Suelo Pivot 13", "Suelo Pivot 13", testPositionFarm.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_13_DepthLimit, 0);
             #endregion
 
             #region horizon types

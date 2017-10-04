@@ -343,6 +343,10 @@
     <Compile Include="Migrations\201709301513261_AddFarmIdToBombAndShortName.Designer.cs">
       <DependentUpon>201709301513261_AddFarmIdToBombAndShortName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710021514349_AddFarmIdToSoilAndShortName.cs" />
+    <Compile Include="Migrations\201710021514349_AddFarmIdToSoilAndShortName.Designer.cs">
+      <DependentUpon>201710021514349_AddFarmIdToSoilAndShortName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -954,6 +958,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709301513261_AddFarmIdToBombAndShortName.resx">
       <DependentUpon>201709301513261_AddFarmIdToBombAndShortName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710021514349_AddFarmIdToSoilAndShortName.resx">
+      <DependentUpon>201710021514349_AddFarmIdToSoilAndShortName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

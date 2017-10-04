@@ -470,15 +470,15 @@
             }
         }
 
-        function bombNameValidation() {
+        function bombShortNameValidation() {
            
-            if ($("#BombName").val().trim() === "") {
-                $("#BombNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
+            if ($("#BombShortName").val().trim() === "") {
+                $("#BombShortNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
                 return false;
             }
             else {
               
-                $("#BombNameMessage").html("<span class=text-danger></span>");
+                $("#BombShortNameMessage").html("<span class=text-danger></span>");
                 return true;
             }
         }
@@ -538,7 +538,6 @@
                         $("#CityIdConfirmation").html($("#CityId").find('option:selected').text());
 
                         $("#NotBombMessage").html("<span class=text-danger></span>");
-                       // jsonData.items.push({ "id": "", "bombName": "", "serialNumber": "", "serviceDate": "", "purchaseDate": "", "bombLatitude": "", "bombLongitude": "" });
                     }
                     {
                         $("#NotBombMessage").html("<span class=text-danger>Debe agregar por lo menos una bomba</span>");
@@ -612,8 +611,8 @@
                 weatherStationIdValidation()
             });
 
-            $("#BombName").focusout(function () {
-                bombNameValidation()
+            $("#BombShortName").focusout(function () {
+                bombShortNameValidation()
             });
 
             $("#BombLatitude").focusout(function () {
@@ -631,9 +630,9 @@
             var cont = 0;
 
             $("#add-row").click(function () {
-                if (bombNameValidation() && bombNameValidation() && bombNameValidation())
+                if (bombShortNameValidation() && bombShortNameValidation() && bombShortNameValidation())
                 {
-                    var bombName = $("#BombName").val();
+                    var bombShortName = $("#BombShortName").val();
                     var serialNumber = $("#SerialNumber").val();
                     var serviceDate = $("#ServiceDate").val();
                     var purchaseDate = $("#PurchaseDate").val();
@@ -641,12 +640,11 @@
                     var bombLongitude = $("#BombLongitude").val();
 
                     debugger;
-                    jsonData.items.push({ "id": cont, "bombName": bombName, "serialNumber": serialNumber, "serviceDate": serviceDate, "purchaseDate": purchaseDate, "bombLatitude": bombLatitude, "bombLongitude": bombLongitude });
+                    jsonData.items.push({ "id": cont, "bombShortName": bombShortName, "serialNumber": serialNumber, "serviceDate": serviceDate, "purchaseDate": purchaseDate, "bombLatitude": bombLatitude, "bombLongitude": bombLongitude });
                     cont++;
 
-                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>";
-                    $("#BombsTable").append("<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
-       //             $("#BombsTableConfirmation").append("<tr><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
+                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombShortName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>";
+                    $("#BombsTable").append("<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombShortName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
                     $("#BombsHidden").val(JSON.stringify(jsonData));
 
                     $("#BombsQuantity").val(parseInt($("#BombsQuantity").val()) + 1);
@@ -722,7 +720,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Compañia</label>
-                            <input maxlength="50" id="Company" name="Company" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese apellido">
+                            <input maxlength="50" id="Company" name="Company" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese compañia">
                             <span id="CompanyMessage"></span>
                         </div>
                         <div class="form-group">
@@ -783,8 +781,8 @@
  
                         <div class="form-group">
                             <label class="control-label">Nombre</label>
-                            <input maxlength="50" id="BombName" name="BombName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
-                            <span id="BombNameMessage"></span>
+                            <input maxlength="50" id="BombShortName" name="BombShortName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="BombShortNameMessage"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Número de serie</label>

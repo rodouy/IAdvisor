@@ -11,6 +11,9 @@ namespace IrrigationAdvisor.ViewModels.Wizard
         [Required]
         public String Name { get; set; }
 
+        [Required]
+        public String ShortName { get; set; }
+
         public String Description { get; set; }
 
         [Required]

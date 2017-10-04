@@ -375,13 +375,13 @@
             }
         }
 
-        function nameValidation() {
-            if ($("#Name").val().trim() === "") {
-                $("#NameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
+        function shortNameValidation() {
+            if ($("#ShortName").val().trim() === "") {
+                $("#ShortNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
                 return false;
             }
             else {
-                $("#NameMessage").html("<span class=text-danger></span>");
+                $("#ShortNameMessage").html("<span class=text-danger></span>");
                 return true;
             }
         }
@@ -644,10 +644,11 @@
             var move = true;
             if (currentStep == "1") {
 
-                move = farmIdValidation() && nameValidation() && descriptionValidation() && testDateValidation() && latitudeValidation() && longitudeValidation() && depthLimitValidation()
+                move = farmIdValidation() && shortNameValidation() && descriptionValidation() && testDateValidation() && latitudeValidation() && longitudeValidation() && depthLimitValidation()
 
                 if (move) {
-                    $("#HorizonName").val($("#Name").val().trim());
+                    $("#Name").val($("#FarmId").find('option:selected').text() + ' - '+ $("#ShortName").val().trim());
+                   // $("#HorizonName").val($("#Name").val().trim());
                    
                 }
             }
@@ -662,7 +663,7 @@
                         $('#HorizonsTableConfirmation').html($('#HorizonsTable').html());
                         //cargo los datos para el paso de confiramcion
                         $("#FarmIdConfirmation").html($("#FarmId").find('option:selected').text());
-                        $("#NameConfirmation").html($("#Name").val());
+                        $("#ShortNameConfirmation").html($("#ShortName").val());
                         $("#DescriptionConfirmation").html($("#Description").val());
                         $("#TestDateConfirmation").html($("#TestDate").val());
                         $("#LatitudeConfirmation").html($("#Latitude").val());
@@ -715,8 +716,8 @@
                 farmIdValidation()
             });
 
-            $("#Name").focusout(function () {
-                nameValidation()
+            $("#ShortName").focusout(function () {
+                shortNameValidation()
             });
 
             $("#Description").focusout(function () {
@@ -811,6 +812,17 @@
                     var horizonLayerDepthSumValue = $("#HorizonLayerDepthSum").val();
 
                     $("#HorizonLayerDepthSum").val(parseInt(horizonLayerDepthSumValue) + parseInt(horizonLayerDepth))
+
+                    $("#HorizonName").val("");
+                    $("#Order").val("");
+                    $("#HorizonLayer").val("");
+                    $("#HorizonLayerDepth").val("");
+                    $("#Sand").val("0");
+                    $("#Limo").val("0");
+                    $("#Clay").val("0");
+                    $("#OrganicMatter").val("0");
+                    $("#NitrogenAnalysis").val("0");
+                    $("#BulkDensitySoil").val("0");
                 }
             });
 
@@ -860,6 +872,7 @@
 
 <input id="HorizonsHidden" name="HorizonsHidden" type="hidden">
 <input id="HorizonsQuantity" name="HorizonsQuantity" value="0" type="hidden">
+    <input id="Name" name="Name" type="hidden">
 <input id="HorizonLayerDepthSum" name="HorizonLayerDepthSum" value="0" type="hidden">
     <div class="container-fluid">
         <div data-wizard-init>
@@ -891,8 +904,8 @@
 
                         <div class="form-group">
                             <label class="control-label">Nombre</label>
-                            <input maxlength="50" id="Name" name="Name" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
-                            <span id="NameMessage"></span>
+                            <input maxlength="50" id="ShortName" name="ShortName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="ShortNameMessage"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Descripción</label>
@@ -943,41 +956,41 @@
 
                         <div class="form-group">
                             <label class="control-label">Capa</label>
-                            <input maxlength="50" id="HorizonLayer" name="HorizonLayer" type="text"  class="form-control text-box single-line" >
+                            <input maxlength="50" id="HorizonLayer" name="HorizonLayer" type="text" class="form-control text-box single-line">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Profundidad de capa</label>
-                            <input maxlength="50" id="HorizonLayerDepth" name="HorizonLayerDepth" type="text" class="form-control text-box single-line">
+                            <input maxlength="50" id="HorizonLayerDepth" name="HorizonLayerDepth" type="text" class="form-control text-box single-line" placeholder="Ingrese la profundidad">
                             <span id="HorizonLayerDepthMessage"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Arena</label>
-                            <input maxlength="50" id="Sand" name="Sand" type="text" class="form-control text-box single-line">
+                            <input maxlength="50" id="Sand" name="Sand" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la arena">
                             <span id="SandMessage"></span>
                         </div> 
                         <div class="form-group">
                             <label class="control-label">Barro (limo)</label>
-                            <input maxlength="50" id="Limo" name="Limo" type="text" class="form-control text-box single-line">
+                            <input maxlength="50" id="Limo" name="Limo" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la barro">
                             <span id="LimoMessage"></span>
                         </div>  
                         <div class="form-group">
                             <label class="control-label">Arcilla</label>
-                            <input maxlength="50" id="Clay" name="Clay" type="text" class="form-control text-box single-line">
+                            <input maxlength="50" id="Clay" name="Clay" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la arcilla">
                             <span id="ClayMessage"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Materia orgánica</label>
-                            <input maxlength="50" id="OrganicMatter" name="OrganicMatter" type="text" class="form-control text-box single-line">
+                            <input maxlength="50" id="OrganicMatter" name="OrganicMatter" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la matería orgánica">
                             <span id="OrganicMatterMessage"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Análisis de nitrógeno</label>
-                            <input maxlength="50" id="NitrogenAnalysis" name="NitrogenAnalysis" type="text" class="form-control text-box single-line">
+                            <input maxlength="50" id="NitrogenAnalysis" name="NitrogenAnalysis" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese el análisis de nitrógeno">
                             <span id="NitrogenAnalysisMessage"></span>
                         </div>                   
                         <div class="form-group">
                             <label class="control-label">Densidad</label>
-                            <input maxlength="50" id="BulkDensitySoil" name="BulkDensitySoil" type="text" class="form-control text-box single-line">
+                            <input maxlength="50" id="BulkDensitySoil" name="BulkDensitySoil" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la densidad">
                             <span id="BulkDensitySoilMessage"></span>
                         </div>     
 
@@ -1021,7 +1034,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Nombre: </label>
-                            <span class="control-label" id="NameConfirmation"></span>
+                            <span class="control-label" id="ShortNameConfirmation"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Descripción: </label>

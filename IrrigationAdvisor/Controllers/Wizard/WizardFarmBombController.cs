@@ -45,8 +45,9 @@ namespace IrrigationAdvisor.Controllers.Wizard
         // POST: Users/Create;
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,Company, Phone, Address, Latitude, Longitude, Has, WeatherStationId, CityId, BombsHidden")] WizardFarmViewModel vm)    
+        public ActionResult Create([Bind(Include = "Name, Company, Phone, Address, Latitude, Longitude, Has, WeatherStationId, CityId, BombsHidden")] WizardFarmViewModel vm)    
         {
+
             if (ModelState.IsValid)
             {
                 Farm farmMapped = new Farm();
@@ -59,7 +60,7 @@ namespace IrrigationAdvisor.Controllers.Wizard
                  {
                      positionFarm.Latitude = vm.Latitude;
                      positionFarm.Longitude = vm.Longitude;
-                     positionFarm.Name = "Establecimiento - " + vm.Name;
+                     positionFarm.Name = vm.Name + " - Establecimiento";
                      farmMapped.Position = positionFarm;
                  }
                  else
@@ -74,12 +75,13 @@ namespace IrrigationAdvisor.Controllers.Wizard
                     double bombLatitud = Convert.ToDouble((String)(item.bombLatitude));
                     double bombLongitude =  Convert.ToDouble((String)item.bombLongitude);
 
-                    Bomb b = new Bomb();
-                    b.Name = item.bombName;
-                    b.SerialNumber = item.serialNumber;
+                    Bomb newbomb = new Bomb();
+                    newbomb.Name = vm.Name + " - " + item.bombShortName;
+                    newbomb.ShortName = item.bombShortName;
+                    newbomb.SerialNumber = item.serialNumber;
 
-                    b.ServiceDate = ((String)item.serviceDate == "") ? Utils.MIN_DATETIME : item.serviceDate  ;
-                    b.PurchaseDate = ((String)item.purchaseDate == "") ? Utils.MIN_DATETIME : item.purchaseDate;
+                    newbomb.ServiceDate = ((String)item.serviceDate == "") ? Utils.MIN_DATETIME : item.serviceDate  ;
+                    newbomb.PurchaseDate = ((String)item.purchaseDate == "") ? Utils.MIN_DATETIME : item.purchaseDate;
                     
                     //position bomb is diferent to position farm, find position to bomb
                     if (vm.Latitude != bombLatitud || vm.Longitude != bombLongitude)
@@ -93,19 +95,19 @@ namespace IrrigationAdvisor.Controllers.Wizard
                             positionBomb.Latitude = item.bombLatitude;
                             positionBomb.Longitude = item.bombLongitude;
                             positionBomb.Name = Convert.ToString(item.bombLatitude) + " - " + Convert.ToString(item.bombLatitude);
-                            b.Position = positionBomb;
+                            newbomb.Position = positionBomb;
                         }
                         else
                         {
-                            b.PositionId = lBombPositionId;
+                            newbomb.PositionId = lBombPositionId;
                         }
                     }
                     else
                     {
-                        b.PositionId = lFarmPositionId;
+                        newbomb.PositionId = lFarmPositionId;
                     }
 
-                    farmMapped.AddBomb(b); 
+                    farmMapped.AddBomb(newbomb); 
                 }
 
                 farmMapped.Name = vm.Name;
@@ -119,10 +121,13 @@ namespace IrrigationAdvisor.Controllers.Wizard
                 db.Farms.Add(farmMapped);
                 db.SaveChanges();
 
-                //return RedirectToAction("Index");
+                
             }
 
-            return View("~/Views/Wizard/FarmBomb/Wizard.cshtml",vm);
+            WizardFarmViewModel vmReturn = new WizardFarmViewModel();
+            vmReturn.City = this.LoadCities();
+            vmReturn.WeatherStation = this.LoadWeatherStations();
+            return View("~/Views/Wizard/FarmBomb/Wizard.cshtml", vmReturn);
         }
 
         #region private methondaux

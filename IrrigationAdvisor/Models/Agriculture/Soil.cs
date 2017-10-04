@@ -30,15 +30,17 @@ namespace IrrigationAdvisor.Models.Agriculture
     /// Fields of Class:
     ///     - soilId long
     ///     - name String
+    ///     - shortName String 
     ///     - description String
     ///     - positionId PositionId
     ///     - horizonList List<Horizon>
     ///     - testDate DateTime
     ///     - depthLimit double
-    /// 
+    ///     - farmId ling
+     ///     /// 
     /// Methods:
     ///     - Soil()      -- constructor
-    ///     - Soil(name, description, PositionId, testDate, depthLimit)  -- consturctor with parameters
+    ///     - Soil(name, description, PositionId, testDate, depthLimit,farmid)  -- consturctor with parameters
     ///     - GetSoilFieldCapacity(double: RootDepth)
     ///     - GetPermanentWiltingPoint(double: RootDepth)
     ///     - GetAvailableWaterCapacity(double: RootDepth)
@@ -64,11 +66,13 @@ namespace IrrigationAdvisor.Models.Agriculture
 
         private long soilId;
         private String name;
+        private String shortName;
         private String description;
         private long positionId;
         private List<Horizon> horizonList;
         private DateTime testDate;
         private double depthLimit;
+        private long farmId;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -124,7 +128,26 @@ namespace IrrigationAdvisor.Models.Agriculture
             get;
             set;
         }
-        
+
+        public String ShortName
+        {
+            get { return shortName; }
+            set { shortName = value; }
+        }
+
+        public long FarmId
+        {
+            get { return farmId; }
+            set { farmId = value; }
+        }
+
+
+        public virtual Farm Farm
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region Construction
@@ -133,23 +156,27 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             this.SoilId = 0;
             this.Name= "noname";
+            this.ShortName = "noshortname"; 
             this.Description = "";
             this.PositionId = 0;
             this.HorizonList = new List<Horizon>();
             this.TestDate = Utilities.Utils.MIN_DATETIME;
             this.DepthLimit = 0;
+            this.FarmId = 0;
         }
 
-        public Soil(long pIdSoil, String pName, String pDescription,
-            long pPositionId, DateTime pTestDate, double pDepthLimit)
+        public Soil(long pIdSoil, String pName, String pShortName, String pDescription,
+            long pPositionId, DateTime pTestDate, double pDepthLimit, long pFarmId)
         {
             this.SoilId = pIdSoil;
             this.Name = pName;
+            this.ShortName = pShortName; 
             this.Description = pDescription;
             this.PositionId = pPositionId;
             this.HorizonList = new List<Horizon>();
             this.TestDate = pTestDate;
             this.DepthLimit = pDepthLimit;
+            this.FarmId = pFarmId;
         }
         
         #endregion
