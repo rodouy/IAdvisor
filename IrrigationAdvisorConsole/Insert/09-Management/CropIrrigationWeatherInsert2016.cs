@@ -427,7 +427,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCAElParaisoPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCAElParaisoPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCAElParaisoPivot1_2016.HydricBalance = lCIWDCAElParaisoPivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -589,7 +589,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCAElParaisoPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCAElParaisoPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCAElParaisoPivot2_2016.HydricBalance = lCIWDCAElParaisoPivot2_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -763,7 +763,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot1_2016.HydricBalance = lCIWDCALaPerdizPivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -925,7 +925,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot2_2016.HydricBalance = lCIWDCALaPerdizPivot2_2016.GetInitialHydricBalance();
                     //Create the initial registry

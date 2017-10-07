@@ -1804,8 +1804,7 @@ namespace IrrigationAdvisor.Models.Management
                 if (this.CalculusMethodForPhenologicalAdjustment == Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays)
                 {
                     //Get Phenological Stage depending on the Interval Growing Degree Days
-                    //lNewPhenologicalStage = this.GetNewPhenologicalStage();
-                    lNewPhenologicalStage = this.GetNewPhenologicalStage();
+                    lNewPhenologicalStage = this.GetNewPhenologicalStageByInterval(lGrowingDegreeDaysModified);
                 }
 
                 lNewRootDepth = this.GetDepthTakingIntoAccountSoilDepthLimitBy(lNewPhenologicalStage);
@@ -3554,7 +3553,6 @@ namespace IrrigationAdvisor.Models.Management
                     && (lPhenologicalStage.MinDegree - InitialTables.ACCURANCY_RANGE_MIN_MAX_DEGREE) <= pGrowingDegreeDaysModified
                     && (lPhenologicalStage.MaxDegree + InitialTables.ACCURANCY_RANGE_MIN_MAX_DEGREE) >= pGrowingDegreeDaysModified)
                 {
-                    this.PhenologicalStage = lPhenologicalStage;
                     lNewPhenologicalStage = lPhenologicalStage;
                     break;
                 }
@@ -3619,7 +3617,7 @@ namespace IrrigationAdvisor.Models.Management
         /// Not use  GrowingDegreeDaysModified. Use GrowingDegreeDaysExtraGap
         /// </summary>
         /// <returns></returns>
-        public PhenologicalStage GetNewPhenologicalStage()
+        public PhenologicalStage GetNewPhenologicalStageByInterval(Double lGrowingDegreeDaysModified)
         {
             PhenologicalStage lReturn;
             List<PhenologicalStage> lPhenologicalStageList;
@@ -3629,22 +3627,25 @@ namespace IrrigationAdvisor.Models.Management
             Double lGrowingDeGreeDaysAccumulatedAdjusded;
             Double lTableGrowingDegreeDays=0;
 
-            lGrowingDeGreeDaysAccumulatedAdjusded = this.GrowingDegreeDaysAccumulated + this.GrowingDegreeDaysExtraGap;
+            lGrowingDeGreeDaysAccumulatedAdjusded = lGrowingDegreeDaysModified;//this.GrowingDegreeDaysAccumulated + this.GrowingDegreeDaysExtraGap;
             //Order the phenological table
             lPhenologicalStageList = this.Crop.PhenologicalStageList;
             lPhenologicalTableOrderByStageOrder = lPhenologicalStageList.OrderBy(lPhenologicalStage => lPhenologicalStage.Stage.Order);
 
             foreach (PhenologicalStage lPhenologicalStage in lPhenologicalTableOrderByStageOrder)
             {
-                if (lPhenologicalStage != null
+                if (lPhenologicalStage != null && lPhenologicalStage.PhenologicalStageIsUsed
                     && lTableGrowingDegreeDays <= lGrowingDeGreeDaysAccumulatedAdjusded)
                 {
-                    this.PhenologicalStage = lPhenologicalStage;
                     lNewPhenologicalStage = lPhenologicalStage;
                 }
-                lTableGrowingDegreeDays += lPhenologicalStage.DegreesDaysInterval;
-                lLastPhenologicalStage = lPhenologicalStage;
-
+                if (lPhenologicalStage.PhenologicalStageIsUsed)
+                {
+                    lTableGrowingDegreeDays += lPhenologicalStage.DegreesDaysInterval;
+                    lLastPhenologicalStage = lPhenologicalStage;
+                }
+                
+                
                 if (lTableGrowingDegreeDays > lGrowingDeGreeDaysAccumulatedAdjusded)
                 {
                     break;
@@ -3895,7 +3896,9 @@ namespace IrrigationAdvisor.Models.Management
                     if(lWeatherData != null)
                     {
                         if(this.CalculusMethodForPhenologicalAdjustment.Equals(
-                            Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays))
+                            Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays) 
+                            || this.CalculusMethodForPhenologicalAdjustment.Equals(
+                            Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays))
                         {
                             this.AddDailyRecordAccordingGrowinDegreeDays(pDateTime, pObservation, lWeatherData);
                         }
@@ -3905,12 +3908,7 @@ namespace IrrigationAdvisor.Models.Management
                         {
                             this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData);
                         }
-                        if (this.CalculusMethodForPhenologicalAdjustment.Equals(
-                            Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays))
-                        {
-                            this.AddDailyRecordAccordingGrowinDegreeDays(pDateTime, pObservation, lWeatherData);
-                        }
-
+  
 
                         //when arrives to final Stage, do not add new irrigation
                         if (this.PhenologicalStage.Stage.Order < this.Crop.StopIrrigationStageOrder)
