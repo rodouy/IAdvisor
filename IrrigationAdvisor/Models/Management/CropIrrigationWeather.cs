@@ -3547,11 +3547,13 @@ namespace IrrigationAdvisor.Models.Management
             lPhenologicalStageList = this.Crop.PhenologicalStageList;
             lPhenologicalTableOrderByMinDegree = lPhenologicalStageList.OrderBy(lPhenologicalStage => lPhenologicalStage.MinDegree);
 
-            foreach (PhenologicalStage lPhenologicalStage in lPhenologicalTableOrderByMinDegree)
+
+                foreach (PhenologicalStage lPhenologicalStage in lPhenologicalTableOrderByMinDegree)
             {
                 if (lPhenologicalStage != null 
                     && (lPhenologicalStage.MinDegree - InitialTables.ACCURANCY_RANGE_MIN_MAX_DEGREE) <= pGrowingDegreeDaysModified
-                    && (lPhenologicalStage.MaxDegree + InitialTables.ACCURANCY_RANGE_MIN_MAX_DEGREE) >= pGrowingDegreeDaysModified)
+                    && (lPhenologicalStage.MaxDegree + InitialTables.ACCURANCY_RANGE_MIN_MAX_DEGREE) >= pGrowingDegreeDaysModified
+                    && lPhenologicalStage.PhenologicalStageIsUsed)
                 {
                     lNewPhenologicalStage = lPhenologicalStage;
                     break;
