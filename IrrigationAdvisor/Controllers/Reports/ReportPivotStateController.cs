@@ -73,7 +73,8 @@ namespace IrrigationAdvisor.Controllers.Reports
                 if (item.Irrigation != null)
                     lSumTotalEffectiveInputWater = lSumTotalEffectiveInputWater + item.Irrigation.Input + item.Irrigation.ExtraInput;              
                 
-                lSumTotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop + item.TotalEvapotranspirationCrop;
+                //lSumTotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop + item.TotalEvapotranspirationCrop;
+                lSumTotalEvapotranspirationCrop =  item.TotalEvapotranspirationCrop;
             }
             vm.TotalEffectiveRain = lSumTotalEffectiveRain;
             vm.TotalEffectiveInputWater = lSumTotalEffectiveInputWater;

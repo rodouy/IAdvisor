@@ -1781,7 +1781,8 @@ namespace IrrigationAdvisor.Controllers
                                                         "KC", 
                                                         homeViewModel.IsUserAdministrator,
                                                         new List<double>(),
-                                                        lGridIrrigationUnitDetailRow);
+                                                        lGridIrrigationUnitDetailRow,
+                                                        0);
 
                 lGridIrrigationUnitList.Add(lGridIrrigationUnit);
 
@@ -1821,6 +1822,7 @@ namespace IrrigationAdvisor.Controllers
             List<DailyRecord> lDailyRecordList;
             String lSowingDate;
             String lPhenologicalStageToday;
+            int lcropIrrigationWeatherId;
 
             #endregion
 
@@ -1924,7 +1926,8 @@ namespace IrrigationAdvisor.Controllers
                                                                 cropCoefficient != null ? cropCoefficient.CropCoefficient.ToString() : string.Empty,
                                                                 homeViewModel.IsUserAdministrator,
                                                                 etcList,
-                                                                lGridIrrigationUnitDetailRow);
+                                                                lGridIrrigationUnitDetailRow,
+                                                                lCropIrrigationWeather.CropIrrigationWeatherId);
 
                         lGridIrrigationUnitList.Add(lGridIrrigationUnit);
                     }

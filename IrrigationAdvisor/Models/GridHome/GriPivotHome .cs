@@ -22,6 +22,7 @@ namespace IrrigationAdvisor.Models.GridHome
         ///      
         ///
         /// </summary>
+        private long cropIrrigationWeatherId;
         private String irrigationUnitName;
         private String cropName;
         private String sowingDate;
@@ -35,7 +36,14 @@ namespace IrrigationAdvisor.Models.GridHome
         #endregion
 
         #region Properties
-
+        public long CropIrrigationWeatherId
+        {
+            get { return cropIrrigationWeatherId; }
+            set
+            {
+                cropIrrigationWeatherId = value;
+            }
+        }
         public String IrrigationUnitName
         {
             get { return irrigationUnitName; }
@@ -128,7 +136,8 @@ namespace IrrigationAdvisor.Models.GridHome
                             String pCropCoefficient,
                             bool pIsAdministratror,
                             List<double> pEtcs,
-                            List<GridPivotDetailHome> plistGridPivotDetailHome)
+                            List<GridPivotDetailHome> plistGridPivotDetailHome,
+                            long lpCcropIrrigationWeatherId)
         {
             this.IrrigationUnitName = pIrrigationUnitName;
             this.CropName = pCropName;
@@ -139,6 +148,7 @@ namespace IrrigationAdvisor.Models.GridHome
             this.IsAdministrator = pIsAdministratror;
             this.ListEtc = pEtcs;
             this.ListGridPivotDetailHome = plistGridPivotDetailHome;
+            this.CropIrrigationWeatherId = lpCcropIrrigationWeatherId;
         }
 
 
