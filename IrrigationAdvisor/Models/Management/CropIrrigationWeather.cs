@@ -3619,6 +3619,7 @@ namespace IrrigationAdvisor.Models.Management
         /// Not use  GrowingDegreeDaysModified. Use GrowingDegreeDaysExtraGap
         /// </summary>
         /// <returns></returns>
+
         public PhenologicalStage GetNewPhenologicalStageByInterval(Double lGrowingDegreeDaysModified)
         {
             PhenologicalStage lReturn;
@@ -3660,6 +3661,134 @@ namespace IrrigationAdvisor.Models.Management
             }
 
             lReturn = lNewPhenologicalStage;
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Change value of PhenologicalStageIsUsed searching by stageName
+        /// </summary>
+        /// <param name="pStageName">Value to search the phenological stage</param>
+        /// <param name="pEnabled">Value to be apply</param>
+        /// <returns>If the change was made</returns>
+        public bool EnableOrDisablePhenologicalStageByName(String pStageName, bool pEnabled)
+        {
+            bool lReturn = false;
+            List<PhenologicalStage> lPhenologicalStageList;
+            IEnumerable<PhenologicalStage> lPhenologicalTableOrderByOrder;
+            Double lAddNewRange = 0;
+
+
+            lPhenologicalStageList = this.Crop.PhenologicalStageList;
+            lPhenologicalTableOrderByOrder = lPhenologicalStageList.OrderBy(lPhenologicalStage => lPhenologicalStage.Stage.Order);
+            
+            foreach (PhenologicalStage lPhenologicalStage in lPhenologicalTableOrderByOrder)
+            {
+              
+                if (lPhenologicalStage.Stage.Name.Equals(pStageName) && lPhenologicalStage.PhenologicalStageIsUsed != pEnabled)
+                {
+                    lPhenologicalStage.PhenologicalStageIsUsed = pEnabled;
+                    lReturn = true;
+                    lAddNewRange = lPhenologicalStage.DegreesDaysInterval;
+                }
+                //For the next stages after the item ingresed: add the new interval
+                lPhenologicalStage.MinDegree += lAddNewRange;
+                lPhenologicalStage.MaxDegree += lAddNewRange;
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Change value of PhenologicalStageIsUsed searching by stage order
+        /// </summary>
+        /// <param name="pOrder">Value to search the phenological stage</param>
+        /// <param name="pEnabled">Value to be apply</param>
+        /// <returns>If the change was made</returns>
+        public bool EnableOrDisablePhenologicalStageByOrder(int pOrder, bool pEnabled)
+        {
+            bool lReturn = false;
+            List<PhenologicalStage> lPhenologicalStageList;
+            IEnumerable<PhenologicalStage> lPhenologicalTableOrderByOrder;
+            Double lAddNewRange = 0;
+
+            lPhenologicalStageList = this.Crop.PhenologicalStageList;
+            lPhenologicalTableOrderByOrder = lPhenologicalStageList.OrderBy(lPhenologicalStage => lPhenologicalStage.Stage.Order);
+
+            foreach (PhenologicalStage lPhenologicalStage in lPhenologicalTableOrderByOrder)
+            {
+                if (lPhenologicalStage.Stage.Order == pOrder && lPhenologicalStage.PhenologicalStageIsUsed != pEnabled)
+                {
+                    lPhenologicalStage.PhenologicalStageIsUsed = pEnabled;
+                    lReturn = true;
+                    lAddNewRange = lPhenologicalStage.DegreesDaysInterval;
+                }
+                //For the next stages after the item ingresed: add the new interval
+                lPhenologicalStage.MinDegree += lAddNewRange;
+                lPhenologicalStage.MaxDegree += lAddNewRange;
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Modify the interval or interval of one Phenological Stage
+        /// </summary>
+        /// <param name="pOrder">The order of the Phenological Stage will be modified. Must be PhenologicalStageIsUsed = true</param>
+        /// <param name="pNewIntervalValue">The new value for the interval</param>
+        /// <returns>If the change was made</returns>
+        public bool ModifyIntervalOfPhenologicalStage(int pOrder, Double  pNewIntervalValue)
+        {
+            bool lReturn = false;
+            List<PhenologicalStage> lPhenologicalStageList;
+            IEnumerable<PhenologicalStage> lPhenologicalTableOrderByOrder;
+            Double lDifferenceOfInterval = 0;
+
+
+            lPhenologicalStageList = this.Crop.PhenologicalStageList;
+            lPhenologicalTableOrderByOrder = lPhenologicalStageList.OrderBy(lPhenologicalStage => lPhenologicalStage.Stage.Order);
+
+            foreach (PhenologicalStage lPhenologicalStage in lPhenologicalTableOrderByOrder)
+            {
+                if (lPhenologicalStage.Stage.Order == pOrder && lPhenologicalStage.PhenologicalStageIsUsed)
+                {
+                    lDifferenceOfInterval = pNewIntervalValue - lPhenologicalStage.DegreesDaysInterval;
+                    lPhenologicalStage.DegreesDaysInterval = pNewIntervalValue;
+                    lReturn = true;
+                }
+                //For the next stages after the item ingresed: add the new interval
+                lPhenologicalStage.MinDegree += lDifferenceOfInterval;
+                lPhenologicalStage.MaxDegree += lDifferenceOfInterval;
+            }
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Modify the interval or interval of one Phenological Stage
+        /// </summary>
+        /// <param name="pStageName">The name of the Phenological Stage will be modified. Must be PhenologicalStageIsUsed = true</param>
+        /// <param name="pNewIntervalValue">The new value for the interval</param>
+        /// <returns>If the change was made</returns>
+        public bool ModifyIntervalOfPhenologicalStage(String pStageName, Double pNewIntervalValue)
+        {
+            bool lReturn = false;
+            List<PhenologicalStage> lPhenologicalStageList;
+            IEnumerable<PhenologicalStage> lPhenologicalTableOrderByOrder;
+            Double lDifferenceOfInterval = 0;
+
+
+            lPhenologicalStageList = this.Crop.PhenologicalStageList;
+            lPhenologicalTableOrderByOrder = lPhenologicalStageList.OrderBy(lPhenologicalStage => lPhenologicalStage.Stage.Order);
+
+            foreach (PhenologicalStage lPhenologicalStage in lPhenologicalTableOrderByOrder)
+            {
+                if (lPhenologicalStage.Stage.Name == pStageName && lPhenologicalStage.PhenologicalStageIsUsed)
+                {
+                    lDifferenceOfInterval = pNewIntervalValue - lPhenologicalStage.DegreesDaysInterval;
+                    lPhenologicalStage.DegreesDaysInterval = pNewIntervalValue;
+                    lReturn = true;
+                }
+                //For the next stages after the item ingresed: add the new interval
+                lPhenologicalStage.MinDegree += lDifferenceOfInterval;
+                lPhenologicalStage.MaxDegree += lDifferenceOfInterval;
+            }
             return lReturn;
         }
 
