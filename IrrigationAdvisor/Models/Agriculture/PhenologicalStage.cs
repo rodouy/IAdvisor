@@ -68,11 +68,16 @@ namespace IrrigationAdvisor.Models.Agriculture
         private double rootDepth;
         private double hydricBalanceDepth;
 
+        //Refactroing 2017/09/14 Changes in Phenological Table: Add phenologicalStageIsUsed, degreesDaysInterval
+        private bool phenologicalStageIsUsed;
+        private Double degreesDaysInterval;
+
+
         #endregion
 
         #region Properties
 
-        
+
         public long PhenologicalStageId
         {
             get { return phenologicalStageId; }
@@ -133,6 +138,19 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { hydricBalanceDepth = value; }
         }
 
+        public bool PhenologicalStageIsUsed
+        {
+            get { return phenologicalStageIsUsed; }
+            set { phenologicalStageIsUsed = value; }
+        }
+
+        public double DegreesDaysInterval
+        {
+            get { return degreesDaysInterval; }
+            set { degreesDaysInterval = value; }
+        }
+
+
         #endregion
 
         #region Construction
@@ -150,6 +168,8 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.Coefficient = 0;
             this.RootDepth = 0;
             this.HydricBalanceDepth = 0;
+            this.PhenologicalStageIsUsed = true;
+            this.DegreesDaysInterval = 0;
         }
 
         /// <summary>
@@ -168,7 +188,8 @@ namespace IrrigationAdvisor.Models.Agriculture
                                 Specie pSpecie, Stage pStage, 
                                 Double pMinDegree, Double pMaxDegree, 
                                 Double pCoefficient,
-                                Double pRootDepth, Double pHydricBalanceDepth)
+                                Double pRootDepth, Double pHydricBalanceDepth,
+                                bool pPhenologicalStageIsUsed, Double pDegreesDaysInterval)
         {
             this.phenologicalStageId = pPhenologicalStageId;
             this.SpecieId = pSpecie.SpecieId;
@@ -178,6 +199,17 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.Coefficient = pCoefficient;
             this.RootDepth = pRootDepth;
             this.HydricBalanceDepth = pHydricBalanceDepth;
+            this.PhenologicalStageIsUsed = pPhenologicalStageIsUsed;
+            this.DegreesDaysInterval = pDegreesDaysInterval;
+
+            //Refactoring 2017/09 Cambios en tabla fenologica
+            //El dato pDegreesDaysInterval lo calculamos como la diferencia entre maximo y minimo degree
+            this.PhenologicalStageIsUsed = true;
+            if (pDegreesDaysInterval == 0 && pMaxDegree != 0)
+            {
+                this.DegreesDaysInterval = pMaxDegree - pMinDegree;
+            }
+
         }
         
         #endregion

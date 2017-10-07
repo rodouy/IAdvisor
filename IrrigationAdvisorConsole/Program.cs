@@ -212,7 +212,7 @@ namespace IrrigationAdvisorConsole
 
                 if (PrintFarm != Utils.IrrigationAdvisorOutputFiles.NONE)
                 {
-                    Console.WriteLine("If it corresponds Layout process.");
+                    Console.WriteLine("Start Layout process.");
                 }
                 
                 PrintDailyRecord.LayoutDailyRecords();
