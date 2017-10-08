@@ -22,6 +22,7 @@ namespace IrrigationAdvisor.Models.GridHome
         ///      
         ///
         /// </summary>
+        private long cropIrrigationWeatherId;
         private String irrigationUnitName;
         private String cropName;
         private String sowingDate;
@@ -31,7 +32,14 @@ namespace IrrigationAdvisor.Models.GridHome
         #endregion
 
         #region Properties
-
+        public long CropIrrigationWeatherId
+        {
+            get { return cropIrrigationWeatherId; }
+            set
+            {
+                cropIrrigationWeatherId = value;
+            }
+        }
         public String IrrigationUnitName
         {
             get { return irrigationUnitName; }
@@ -80,14 +88,15 @@ namespace IrrigationAdvisor.Models.GridHome
         #endregion
 
 
-        public GridPivotHome(String pIrrigationUnitName, String pCropName, String pSowingDate, String pPhenologyName, 
-                            List<GridPivotDetailHome> plistGridPivotDetailHome)
+        public GridPivotHome(String pIrrigationUnitName, String pCropName, String pSowingDate, String pPhenologyName,
+                            List<GridPivotDetailHome> plistGridPivotDetailHome, long pCropIrrigationWeatherId)
         {
             this.IrrigationUnitName = pIrrigationUnitName;
             this.CropName = pCropName;
             this.SowingDate = pSowingDate;
             this.PhenologyName = pPhenologyName;
             this.ListGridPivotDetailHome = plistGridPivotDetailHome;
+            this.CropIrrigationWeatherId = pCropIrrigationWeatherId;
         }
 
 

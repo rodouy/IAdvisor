@@ -1625,7 +1625,7 @@ namespace IrrigationAdvisor.Controllers
                 }
 
                 //Add all the days for the IrrigationUnit
-                lGridIrrigationUnit = new GridPivotHome("Nombre", "Cultivo", "Siembra", "Fen.", lGridIrrigationUnitDetailRow);
+                lGridIrrigationUnit = new GridPivotHome("Nombre", "Cultivo", "Siembra", "Fen.", lGridIrrigationUnitDetailRow,0);
 
                 lGridIrrigationUnitList.Add(lGridIrrigationUnit);
 
@@ -1749,7 +1749,8 @@ namespace IrrigationAdvisor.Controllers
                                                                 lCropIrrigationWeather.Crop.ShortName,
                                                                 lSowingDate,
                                                                 lPhenologicalStageToday,
-                                                                lGridIrrigationUnitDetailRow);
+                                                                lGridIrrigationUnitDetailRow,
+                                                                lCropIrrigationWeather.CropIrrigationWeatherId);
 
                         lGridIrrigationUnitList.Add(lGridIrrigationUnit);
                     }
