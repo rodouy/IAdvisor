@@ -4945,7 +4945,8 @@ namespace IrrigationAdvisor.Models.Management
             CropIrrigationWeather lCropIrrigationWeather = obj as CropIrrigationWeather;
             lReturn = this.CropId.Equals(lCropIrrigationWeather.CropId) &&
                     this.IrrigationUnitId.Equals(lCropIrrigationWeather.IrrigationUnitId) &&
-                    this.MainWeatherStationId.Equals(lCropIrrigationWeather.MainWeatherStationId);
+                    this.MainWeatherStationId.Equals(lCropIrrigationWeather.MainWeatherStationId) &&
+                    this.SowingDate.Equals(lCropIrrigationWeather.SowingDate);
             return lReturn;
         }
 

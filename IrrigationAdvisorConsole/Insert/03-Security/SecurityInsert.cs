@@ -156,7 +156,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
             var lCPalo = new User()
             {
-                Name = "Cristian",
+                Name = "Cristian Diego",
                 Surname = "Palo",
                 Phone = "099 234 500",
                 Address = "1958 Cuareim, Montevideo",
