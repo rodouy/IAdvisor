@@ -24,6 +24,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -118,14 +119,14 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -155,9 +156,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -168,6 +167,7 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
@@ -320,6 +320,10 @@
     <Compile Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.Designer.cs">
       <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.cs" />
+    <Compile Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.Designer.cs">
+      <DependentUpon>201702212334312_AddObservationAndReasonForIrrigation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703272304551_AddUserAccess.cs" />
     <Compile Include="Migrations\201703272304551_AddUserAccess.Designer.cs">
       <DependentUpon>201703272304551_AddUserAccess.cs</DependentUpon>
@@ -456,8 +460,10 @@
     <Content Include="Content\metro-schemes.min.css" />
     <Content Include="Content\metro.css" />
     <Content Include="Content\metro.min.css" />
+    <Content Include="css\checkbox.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\wizard.css" />
     <Content Include="DataQueries\All Bombs - Query.sql" />
     <Content Include="DataQueries\All CropCoefficients - Query.sql" />
     <Content Include="DataQueries\All CropInformationByDates - Query.sql" />
@@ -526,10 +532,6 @@
     <Content Include="fonts\metro.eot" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
     <Content Include="images\company\img-1.jpg" />
     <Content Include="respond.min.js" />
@@ -866,6 +868,7 @@
     <Content Include="Views\Data\Status\Index.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Security\Users\Wizard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -914,6 +917,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.resx">
       <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.resx">
+      <DependentUpon>201702212334312_AddObservationAndReasonForIrrigation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703272304551_AddUserAccess.resx">
       <DependentUpon>201703272304551_AddUserAccess.cs</DependentUpon>

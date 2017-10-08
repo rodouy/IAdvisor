@@ -172,6 +172,7 @@ namespace IrrigationAdvisor.DBContext.Irrigation
                     .Include(ciw => ciw.Crop)
                     .Include(ciw => ciw.RainList)
                     .Include(ciw => ciw.IrrigationList)
+                    .Include(ciw => ciw.Soil.HorizonList)
                     .Where(ciw => ciw.IrrigationUnitId == lIrrigationUnitId
                         && ciw.SowingDate <= pDateOfReference
                         && ciw.HarvestDate >= pDateOfReference

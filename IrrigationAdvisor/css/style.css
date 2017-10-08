@@ -27,12 +27,12 @@ select:focus {
 
 input,
 textarea {
-  -webkit-appearance: none;
+  /*-webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  border-radius: 0;
+  border-radius: 0;*/
 }
 a {
   -webkit-transition: all .3s ease;
@@ -1566,6 +1566,18 @@ padding-left: 10px;
 padding-right: 10px;
 }
 
+.no-riego{
+	/*width:15%;*/
+background: crimson none repeat scroll 0% 0%;
+margin-left: 20px;
+padding: 5px;
+text-align: center;
+margin-top: 30px;
+float:left;
+padding-left: 10px;
+padding-right: 10px;
+}
+
 .regado h5{
 	font-size:17px;
 	color: #F7F3F3;
@@ -2053,6 +2065,11 @@ padding-right: 10px;
 	height:10px;
 	background:#4aca83;
 	}
+.ref-no-irrigation{
+	width:100%;
+	height:10px;
+	background-color:crimson;
+	}
 
 
 .table-wrap .replied {
@@ -2484,6 +2501,11 @@ width: -moz-available;
 	width:100%;
 	height:10px;
 	background:#4aca83;
+	}
+.ref-no-irrigation{
+	width:100%;
+	height:10px;
+	background:crimson;
 	}
 
 

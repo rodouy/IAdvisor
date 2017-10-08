@@ -1207,6 +1207,14 @@ padding-right: 10px;
     left: 27%;
 	}
 
+.ref-no-irrigation{
+	height:10px;
+	background-color:crimson;
+     width: 50%;
+    position: relative;
+    left: 27%;
+	}
+
  /*#addIrrigationModalMobile
     {
         display:block;
@@ -1498,6 +1506,14 @@ padding-right: 10px;
 	    left:0;
 	    height:10px;
 	    background:#4169E1;
+	    }
+    .ref-no-irrigation{
+        position:relative;
+        top:5px;
+        width:100%;
+	    left:0;
+	    height:10px;
+	    background-color:crimson;
 	    }
 
     .value-mobile-position

@@ -18,11 +18,27 @@
 {
     <td><span class="description-mobile-left">@date</span><div class="ref-next-irrigation"> <span class="value-mobile-position">@value</span> </div></td>
 }
+@helper NoIrrigation(Double value, string date)
+{
+    <td><span class="description-mobile-left">@date</span><div class="ref-no-irrigation"> <span class="value-mobile-position"></span> </div></td>
+}
 
 @foreach (var item in Model)
 {   
         @CustomRenderingOfColumn(item)
 }
+<tr>
+    @if (Model.First().IsAdministrator)
+    {
+        <td colspan="6">ETC</td>
+        foreach (var etc in Model.First().ListEtc)
+        {
+            <td>@etc</td>
+        }
+    }
+</tr>
+
+
 
 @helper CustomRenderingOfColumn(IrrigationAdvisor.Models.GridHome.GridPivotHome gridPivotItem)
 {
@@ -31,6 +47,12 @@
         <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.SowingDate</td>
         <td>@gridPivotItem.PhenologyName</td>
+        @if (gridPivotItem.IsAdministrator)
+        {
+            <td>@gridPivotItem.CropCoefficient</td>
+            <td>@gridPivotItem.HydricBalance</td>
+        }
+        
         @foreach (var detail in @gridPivotItem.ListGridPivotDetailHome)
         {
             if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Rain)
@@ -45,6 +67,10 @@
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NextIrrigation)
             {
                 @ForecastIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day)
+            }
+            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NoIrrigation)
+            {
+                @NoIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day)
             }
             else
             {

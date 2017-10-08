@@ -7,6 +7,7 @@ $(document).ready(function () {
     var saveRainBtn = $('#SaveRain');
     var saveIrrigationBtn = $('#SaveIrrigation');
     var savePhenoBtn = $('#savePhenoBtn');
+    var saveNoIrrigation = $('#SaveNoIrrigation');
     var irrigationMilimeters = $('#irrigationMilimeters');
     var rainMilimeters = $('#rain');
     var dateOfReferenceBtn = $('#dateOfReferenceBtn');
@@ -19,15 +20,19 @@ $(document).ready(function () {
     var minDateOfReference = $('#minDateOfReference');
     var addIrrigationModal = $('#addIrrigationModal');
     var addIrrigationModalMobile = $('#addIrrigationModalMobile');
+    var addNoIrrigationMobile = $('#addNoIrrigationMobile');
     var addPhenoModal = $('#addPhenoModal');
     var addRainModal = $('#addRainModal');
+    var addNoIrrigationModal = $('#addNoIrrigationModal');
     var addRainModalMobile = $('#addRainModalMobile');
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
+    var modalNoIrrigation = $('#modal-no-irrigation');
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
     var cancelPheno = $('#CancelPheno');
+    var cancelNoIrrigation = $('#CancelNoIrrigation');
     var lstFarms = $('#lstFarms');
     var modalLoadStatus = $('.disable-save-button').length == 0;
     var farmInfo = $('#farm-info');
@@ -38,6 +43,13 @@ $(document).ready(function () {
     var userName = $('#userName').val();
     var dvtxtDateOfReferencedateOfReferenceBtn2 = $('#dv-for-txtDateOfReference-dateOfReferenceBtn2');
     var barResp = $('.bar-resp');
+    var dateFromNoIrrigation = $('#dateFromNoIrrigation');
+    var dateToNoIrrigation = $('#dateToNoIrrigation');
+    var cropIrriWeatherNoIrrigation = $('#CropIrriWeatherNoIrrigation');
+    var noIrrigationReason = $('#noIrrigationReason');
+    var noIrrigationObs = $('#noIrrigationObs');
+    var noIrrigationChecks = $('.no-irrigation-check');
+    var selectedAllCiwNoIrrigation = $('#selectedAllCiwNoIrrigation');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -54,13 +66,27 @@ $(document).ready(function () {
         }
     };
 
+    var getDateToday = function () {
+
+        var monthValue;
+
+        if ((moment().month() + 1) < 10) {
+            monthValue = '0' + (moment().month() + 1);
+        }
+        else {
+            monthValue = (moment().month() + 1);
+        }
+
+        var today = moment().year() + '-' + monthValue + '-' + moment().date();
+
+        return today;
+    };
+
     $('#loading').modal({
         keyboard: false,
         backdrop: 'static'
     })
-
-
-
+ 
     var showLoading = function () {
         $('#loading').modal('show');
 
@@ -184,6 +210,15 @@ $(document).ready(function () {
 
     };
 
+    var loadDates = function () {
+
+        var date = getDateToday();
+
+        dateFromNoIrrigation.val(date);
+        dateToNoIrrigation.val(date);
+
+    };
+
     var init = function () {
 
         addIrrigationModal.hide();
@@ -191,14 +226,18 @@ $(document).ready(function () {
         addIrrigationModalMobile.hide();
         addRainModalMobile.hide();
         addPhenoModal.hide();
+        addNoIrrigationModal.hide();
+        addNoIrrigationMobile.hide();
         lstFarms.hide();
+        
         var initModal = { backdrop: false, show: false };
 
         modalIrrigation.modal(initModal);
         modalRain.modal(initModal);
         modalPheno.modal(initModal);
+        modalNoIrrigation.modal(initModal);
         loadUserFarms();
-
+        loadDates();
         if (modalLoadStatus) {
             loadStageForCropIrrigationWeather();
         }
@@ -245,18 +284,21 @@ $(document).ready(function () {
         if (width <= 760) {
             addIrrigationModalMobile.show();
             addRainModalMobile.show();
+            addNoIrrigationMobile.show();
 
             addIrrigationModal.hide();
             addRainModal.hide();
+            addNoIrrigationModal.hide();
             removeClasses();
         }
         else {
             addIrrigationModalMobile.hide();
             addRainModalMobile.hide();
-
+            addNoIrrigationMobile.hide();
 
             addIrrigationModal.show();
             addRainModal.show();
+            addNoIrrigationModal.show()
             addClasses();
         }
 
@@ -271,19 +313,22 @@ $(document).ready(function () {
         var addIrrigationModalMobile = $('#addIrrigationModalMobile');
         var addRainModalMobile = $('#addRainModalMobile');
         var addPhenoModalMobile = $('#addPhenoModalMobile');
+        var addNoIrrigationMobile = $('#addNoIrrigationMobile');
+        var addNoIrrigationModal = $('#addNoIrrigationModal');
 
         var width = $(window).width();
         var height = $(window).height();
 
         addPhenoModal.show();
 
-        if (width <= 760)
-        {
+        if (width <= 760) {
             addIrrigationModalMobile.show();
             addRainModalMobile.show();
 
             addIrrigationModal.hide();
             addRainModal.hide();
+            addNoIrrigationModal.hide();
+
             removeClasses();
         }
         else
@@ -293,6 +338,7 @@ $(document).ready(function () {
 
             addIrrigationModal.show();
             addRainModal.show();
+            addNoIrrigationModal.show();
             addClasses();
         }
         
@@ -319,6 +365,16 @@ $(document).ready(function () {
         $('.modal-content').draggable();
     });
 
+    addNoIrrigationModal.click(function () {
+        modalNoIrrigation.modal('show');
+        $('.modal-content').draggable();
+    });
+
+    addNoIrrigationMobile.click(function () {
+        modalNoIrrigation.modal('show');
+        $('.modal-content').draggable();
+    });
+
     addPhenoModal.click(function () {
         modalPheno.modal('show');
         $('.modal-content').draggable();
@@ -336,7 +392,9 @@ $(document).ready(function () {
         modalPheno.modal('hide');
     });
 
-    
+    cancelNoIrrigation.click(function () {
+        modalNoIrrigation.modal('hide');
+    });
 
     dateOfReferenceBtn2.click(function () {
 
@@ -629,7 +687,55 @@ $(document).ready(function () {
         }
 
     });
+
+    noIrrigationChecks.change(function()
+    {
+        selectedAllCiwNoIrrigation.prop("checked", false);
+    });
+
+    selectedAllCiwNoIrrigation.change(function () {
+        noIrrigationChecks.prop("checked", this.checked);
+    });
    
+    saveNoIrrigation.click(function () {
+        
+        if (moment(dateToNoIrrigation.val()).isBefore(dateFromNoIrrigation.val()))
+        {
+            alert("La fecha hasta no puede ser mayor que la fecha desde");
+        }
+        else
+        {
+            showLoading();
+            modalNoIrrigation.modal('hide');
+
+            var selectedCiws = "";
+
+            $.each(noIrrigationChecks, function (key, value) {
+                if (value.checked)
+                {
+                    selectedCiws = value.value + "," + selectedCiws;
+                }       
+            });
+
+            if (selectedCiws == "")
+            {
+                alert("Debe seleccionar por lo menos un cultivo");
+            }
+            else
+            {
+                selectedCiws = selectedCiws.substring(0, selectedCiws.length - 1);
+
+                addNoIrrigation(dateFromNoIrrigation.val(),
+                                dateToNoIrrigation.val(),
+                                selectedCiws,
+                                noIrrigationReason.val(),
+                                noIrrigationObs.val());
+            }
+            
+        }
+
+
+    });
 
     var addRain = function (pMilimiters, pIrrigationUnitId, pDate)
     {
@@ -742,6 +848,51 @@ $(document).ready(function () {
                 sendMail("Error al cargar Riego", data);
                 console.log(data);
                 //$('#myModal').modal('hide');
+            }
+        });
+
+    }
+
+    var addNoIrrigation = function (pDateFrom, pDateTo, pCIW, pReason, pObservations) {
+
+
+        var pUrl = './AddNoIrrigation?pDateFrom=' + pDateFrom +
+                '&pDateTo=' + pDateTo +
+                '&pCIW=' + pCIW +
+                '&pReason=' + pReason +
+                '&pObservations=' + pObservations;
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+                if (data == "Ok") {
+
+                    var ciwSelectedNoIrrigation = "";
+
+                    $('.dropdown :checkbox:checked').each(function (index, value) {                     
+                            ciwSelectedNoIrrigation = value.value + "- " + $(this).next('span').next('span').text() + "[br]" + ciwSelectedNoIrrigation;                                                             
+                    });
+                               
+                    ciwSelectedNoIrrigation = ciwSelectedNoIrrigation.replace("-1- Todos", "");
+
+                    var reasonString = $('#noIrrigationReason :selected').text();
+                    
+                    $.when(sendMail("Usuario: " + userName + " ha agregado intervalo de No Riego para el establecimiento " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Fecha Desde: " + pDateFrom + "[br] Fecha Hasta: " + pDateTo + '[br] Razón: ' + pReason + '- ' + reasonString + "[br] Cultivo: " + ciwSelectedNoIrrigation + '[br] Observaciones: ' + pObservations)).done(function () {
+                        location.href = "./home?farm=" + lstFarms.val();
+                    });
+
+                }
+                else {
+                    sendMail("Error al cargar No Riego", data);
+                    console.log(data);
+                    hideLoading();
+                }
+            },
+            error: function (data) {
+                hideLoading();
+                sendMail("Error al cargar No Riego", data);
+                console.log(data);
             }
         });
 
