@@ -1940,7 +1940,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = {Utils.NameUserDemo, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm};
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2024,7 +2024,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserDemo, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2108,7 +2108,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserDemo, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2192,7 +2192,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserSantaLucia, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2276,7 +2276,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserDCA1, Utils.NameUserDCA2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2360,7 +2360,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserDCA1, Utils.NameUserDCA2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2439,12 +2439,12 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<Bomb> lIQBombs = null;
             List<Soil> lSoilList = new List<Soil>();
             IQueryable<Soil> lIQSoils = null;
-            List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
-            IQueryable<IrrigationUnit> lIQPivots = null;
+            List<IrrigationUnit> lIrrigationUnitList = new List<IrrigationUnit>();
+            IQueryable<IrrigationUnit> lIQIrrigationUnits = null;
             String[] lUserNames = { Utils.NameUserDCA1, Utils.NameUserDCA2,
                                       Utils.NameUserSeba, Utils.NameUserGonza,
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2453,7 +2453,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
 
             Bomb lBomb = null;
             Soil lSoil = null;
-            Pivot lPivot = null;
+            IrrigationUnit lIrrigationUnit = null;
 
             using (var context = new IrrigationAdvisorContext())
             {
@@ -2461,15 +2461,15 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 lFarm = (from farm in context.Farms
                          where farm.Name == Utils.NameFarmDCASanJose
                          select farm).FirstOrDefault();
-                lBomb = (from bomb in context.Bombs
+                lBombList = (from bomb in context.Bombs
                          where bomb.Name.Contains(Utils.NameFarmDCASanJose)
-                         select bomb).FirstOrDefault();
-                lSoil = (from soil in context.Soils
+                         select bomb).ToList();
+                lSoilList = (from soil in context.Soils
                          where soil.Name.Contains(Utils.NameFarmDCASanJose)
-                         select soil).FirstOrDefault();
-                lPivot = (from pivot in context.Pivots
-                          where pivot.Name.Contains(Utils.NameFarmDCASanJose)
-                          select pivot).FirstOrDefault();
+                         select soil).ToList();
+                lIrrigationUnitList = (from IrrigationUnit in context.IrrigationUnits
+                          where IrrigationUnit.Name.Contains(Utils.NameFarmDCASanJose)
+                          select IrrigationUnit).ToList();
                 lUserList = (from user in context.Users
                              select user).ToList();
                 lUserFarmList = (from userFarm in context.UserFarms
@@ -2478,18 +2478,18 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
 
                 lIQBombs = context.Bombs;
                 lIQSoils = context.Soils;
-                lIQPivots = context.Pivots;
+                lIQIrrigationUnits = context.IrrigationUnits;
                 lIQUsers = context.Users;
                 lIQUserFarms = context.UserFarms;
 
-                lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmDCASanJose));
-                foreach (Bomb item in lIQBombs) lBombList.Add(item);
+                //lIQBombs = lIQBombs.Where(b => b.Name.Contains(Utils.NameFarmDCASanJose));
+                //foreach (Bomb item in lIQBombs) lBombList.Add(item);
 
-                lIQSoils = lIQSoils.Where(b => b.Name.Contains(Utils.NameFarmDCASanJose));
-                foreach (Soil item in lIQSoils) lSoilList.Add(item);
+                //lIQSoils = lIQSoils.Where(b => b.Name.Contains(Utils.NameFarmDCASanJose));
+                //foreach (Soil item in lIQSoils) lSoilList.Add(item);
 
-                lIQPivots = lIQPivots.Where(b => b.Name.Contains(Utils.NameFarmDCASanJose));
-                foreach (Pivot item in lIQPivots) lPivotList.Add(item);
+                //lIQIrrigationUnits = lIQIrrigationUnits.Where(b => b.Name.Contains(Utils.NameFarmDCASanJose));
+                //foreach (IrrigationUnit item in lIQIrrigationUnits) lIrrigationUnitList.Add(item);
 
                 lIQUsers = lIQUsers.Where(u => lUserNames.Contains(u.UserName));
                 lIQUserFarms = lIQUserFarms.Where(uf => uf.FarmId == lFarm.FarmId);
@@ -2508,7 +2508,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 // Update list of Bombs, Soils, Irrigation Units and Users
                 lFarm.BombList = lBombList;
                 lFarm.SoilList = lSoilList;
-                lFarm.IrrigationUnitList = lPivotList;
+                lFarm.IrrigationUnitList = lIrrigationUnitList;
                 lFarm.UserFarmList = lUserFarmList;
 
                 context.SaveChanges();
@@ -2528,7 +2528,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserDelLago1, Utils.NameUserDelLago2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2612,7 +2612,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserDelLago1, Utils.NameUserDelLago2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2696,7 +2696,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2778,9 +2778,10 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3, 
+                                      Utils.NameUserGMO4, Utils.NameUserGMO5, Utils.NameUserGMO6, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2864,7 +2865,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserTM1,
                                       Utils.NameUserSeba, Utils.NameUserGonza,
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;
@@ -2948,7 +2949,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             String[] lUserNames = { Utils.NameUserLR1, Utils.NameUserLR2, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
-                                      Utils.NameUserCPalo, Utils.NameUserROlivera,
+                                      Utils.NameUserCPalo, Utils.NameUserROlivera, Utils.NameUserMCarle,
                                       Utils.NameUserTesting, Utils.NameUserTestAdm };
             List<User> lUserList = new List<User>();
             IQueryable<User> lIQUsers = null;

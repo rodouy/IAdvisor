@@ -196,7 +196,7 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine("Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2015.AddInformationToIrrigationUnits2015();
                 }
-                else
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                 {
                     CropIrrigationWeatherInsert2016.InsertCropIrrigationWeather2016();
                     Console.WriteLine("Management - Add/Update Rain, Irrigation & Phenology Information.");
@@ -206,7 +206,17 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine("Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2016.AddInformationToIrrigationUnits2016();
                 }
-                
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                {
+                    CropIrrigationWeatherInsert2017.InsertCropIrrigationWeather2017();
+                    Console.WriteLine("Management - Add/Update Rain, Irrigation & Phenology Information.");
+                    WaterInsert.UpdateInformationOfRain2017();
+                    WaterInsert.UpdateInformationOfIrrigation2017();
+                    CropIrrigationWeatherInsert2017.AddPhenologicalStageAdjustements2017();
+                    Console.WriteLine("Management - Add/Update Information to Irrigation Units.");
+                    CropIrrigationWeatherInsert2017.AddInformationToIrrigationUnits2017();
+                }
                 #endif
                 #endregion
 

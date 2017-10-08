@@ -7639,10 +7639,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region DCA San Jose Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
             {
@@ -7762,7 +7762,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region DCA La Perdiz Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -8287,7 +8286,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region Del Lago - El Mirador Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -9122,7 +9120,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region GMO - El Tacuru Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -9759,7 +9756,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
+            
         }
 
         public static void InsertCropCoefficients()

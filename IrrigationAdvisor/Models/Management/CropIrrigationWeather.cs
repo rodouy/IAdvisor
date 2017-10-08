@@ -1631,7 +1631,7 @@ namespace IrrigationAdvisor.Models.Management
             }
 
             lIrrigationNextDay = this.GetIrrigation(pDateTime.AddDays(1));
-
+            
             if (this.IrrigationList != null)
             {
                 lNoIrrigationFlag = this.IrrigationList.Any(i => i.Type == Utils.WaterInputType.NoIrrigation && i.Date == pDateTime);
@@ -3856,9 +3856,9 @@ namespace IrrigationAdvisor.Models.Management
                 //Delete Irrigations input from database after date of record to delete. 
                 //Extra input or NoIrrigation input, will not be deleted
                 foreach (Water.Irrigation lIrrigation in this.IrrigationList
-                                        .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
-                                        ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId && 
-                                        ir.Type != Utils.WaterInputType.NoIrrigation).ToList())
+                                                        .Where(ir => ir.Date >= lDailyRecordToDelete.DailyRecordDateTime &&
+                                                        ir.CropIrrigationWeatherId == this.CropIrrigationWeatherId && 
+                                                        ir.Type != Utils.WaterInputType.NoIrrigation).ToList())
                 {
                     if (lIrrigation.ExtraInput > 0 ||
                         (lIrrigation.ExtraInput == 0 && lIrrigation.ExtraDate == lIrrigation.Date))
@@ -5183,7 +5183,8 @@ namespace IrrigationAdvisor.Models.Management
             CropIrrigationWeather lCropIrrigationWeather = obj as CropIrrigationWeather;
             lReturn = this.CropId.Equals(lCropIrrigationWeather.CropId) &&
                     this.IrrigationUnitId.Equals(lCropIrrigationWeather.IrrigationUnitId) &&
-                    this.MainWeatherStationId.Equals(lCropIrrigationWeather.MainWeatherStationId);
+                    this.MainWeatherStationId.Equals(lCropIrrigationWeather.MainWeatherStationId) &&
+                    this.SowingDate.Equals(lCropIrrigationWeather.SowingDate);
             return lReturn;
         }
 
