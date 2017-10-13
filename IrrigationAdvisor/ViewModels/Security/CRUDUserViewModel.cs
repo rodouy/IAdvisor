@@ -27,13 +27,12 @@ namespace IrrigationAdvisor.ViewModels.Security
         [Display(Name = "Role")]
         public long RoleId { get; set; }
         public String Address { get; set; }
-        
-        
-        
+
+        public String FarmsHidden { get; set; }
 
         public List<string> ErrorMessages { get; set; }
 
         public List<System.Web.Mvc.SelectListItem> Roles { get; set; }
-
+        public List<System.Web.Mvc.SelectListItem> Farms { get; set; }
     }
 }

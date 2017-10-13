@@ -147,6 +147,13 @@ namespace IrrigationAdvisor.DBContext.Localization
             return lReturn;
         }
 
-
+        /// <summary>
+        /// Get all Farms
+        /// </summary>
+        /// <returns></returns>
+        public List<Farm> GetAllFarms()
+        {
+            return db.Farms.ToList();
+        }
     }
 }
