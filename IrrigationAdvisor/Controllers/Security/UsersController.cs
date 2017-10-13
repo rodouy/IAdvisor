@@ -14,7 +14,8 @@ using IrrigationAdvisor.DBContext;
 using IrrigationAdvisor.ViewModels.Security;
 using AutoMapper;
 using IrrigationAdvisor.DBContext.Security;
-//using System.Net.Mail;
+using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.Models.Localization;
 
 namespace IrrigationAdvisor.Controllers.Security
 {
@@ -63,7 +64,7 @@ namespace IrrigationAdvisor.Controllers.Security
             CreateUserViewModel userVM = new CreateUserViewModel();
 
             userVM.Roles = this.LoadRoles();
-
+            userVM.Farms = this.LoadFarms();
             return View("~/Views/Security/Users/Wizard.cshtml", userVM);
         }
 
@@ -73,13 +74,16 @@ namespace IrrigationAdvisor.Controllers.Security
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Wizard([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,ConfirmPassword,RoleId")] CreateUserViewModel user)
+        public ActionResult Wizard([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,ConfirmPassword,RoleId,FarmsHidden")] CreateUserViewModel user)
         {
 
             if (ModelState.IsValid)
             {
 
                 MD5 md5Hash = MD5.Create();
+
+
+                //  private string[] s = user.FarmsHidden
 
                 var userMapped = new User
                 {
@@ -91,12 +95,32 @@ namespace IrrigationAdvisor.Controllers.Security
                     RoleId = user.RoleId,
                     Surname = user.Surname,
                     UserName = user.UserName
+
                 };
-
-
                 userMapped.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
-
                 db.Users.Add(userMapped);
+
+
+
+                //working with farms 
+                string[] farmsId = user.FarmsHidden.Split('|');
+                foreach (string fId in farmsId)
+                {
+                    UserFarm lUserFarm = new UserFarm();
+                    Farm lfarm = new Farm();
+                    long id = long.Parse(fId);
+                    lfarm = (from farm in db.Farms
+                             where farm.FarmId == id
+                             select farm).FirstOrDefault();
+                    lUserFarm.User = userMapped;
+                    lUserFarm.FarmId = id;
+                    lUserFarm.Name = userMapped.Name + " - " + lfarm.Name;
+                    lUserFarm.StartDate = DateTime.Now;
+
+                    db.UserFarms.Add(lUserFarm);
+                }
+
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -174,12 +198,12 @@ namespace IrrigationAdvisor.Controllers.Security
         //public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,UserName,UserName,Password")] User user)
         public ActionResult Create([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,ConfirmPassword,RoleId")] CreateUserViewModel user)
         {
-           
+
             if (ModelState.IsValid)
             {
-                
+
                 MD5 md5Hash = MD5.Create();
-                
+
                 var userMapped = new User
                 {
                     Address = user.Address,
@@ -189,20 +213,18 @@ namespace IrrigationAdvisor.Controllers.Security
                     Phone = user.Phone,
                     RoleId = user.RoleId,
                     Surname = user.Surname,
-                    UserName =user.UserName 
+                    UserName = user.UserName
                 };
 
 
                 userMapped.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
-                
+
                 db.Users.Add(userMapped);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            CreateUserViewModel userVM = new CreateUserViewModel();
-            userVM.Roles = this.LoadRoles();
-            return View("~/Views/Security/Users/Create.cshtml", userVM);
+            return View("~/Views/Security/Users/Create.cshtml", user);
         }
 
         private List<string> Validation(CreateUserViewModel user)
@@ -247,11 +269,38 @@ namespace IrrigationAdvisor.Controllers.Security
             };
 
             userVM.Roles = this.LoadRoles(user.RoleId, user);
-            
+
             return View("~/Views/Security/Users/Edit.cshtml", userVM);
         }
 
-        
+
+        private List<System.Web.Mvc.SelectListItem> LoadFarms(long? farmId = null, User user = null)
+        {
+            FarmConfiguration fc = new FarmConfiguration();
+
+            List<Farm> farms = fc.GetAllFarms();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in farms)
+            {
+                bool isSelected = false;
+                if (user != null && farmId.HasValue)
+                {
+                    isSelected = (user.RoleId == farmId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.FarmId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
+            }
+
+            return result;
+        }
 
         private List<System.Web.Mvc.SelectListItem> LoadRoles(long? roleId = null, User user = null)
         {
@@ -264,7 +313,7 @@ namespace IrrigationAdvisor.Controllers.Security
             {
 
                 bool isSelected = false;
-                if(user != null && roleId.HasValue)
+                if (user != null && roleId.HasValue)
                 {
                     isSelected = (user.RoleId == roleId);
                 }
@@ -308,7 +357,7 @@ namespace IrrigationAdvisor.Controllers.Security
                 updatedUser.Phone = user.Phone;
                 updatedUser.RoleId = user.RoleId;
                 updatedUser.Surname = user.Surname;
-                    
+
                 db.Entry(updatedUser).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
