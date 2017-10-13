@@ -1820,7 +1820,7 @@ namespace IrrigationAdvisor.Controllers
 
                         decimal hydricBalanceWithTwoDigits = decimal.Round(Convert.ToDecimal(lCropIrrigationWeather.HydricBalance), 2);
 
-                        var cropCoefficient = lDailyRecordList.Where(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId && n.DailyRecordDateTime == ManageSession.GetNavigationDate()).FirstOrDefault();
+                        var cropCoefficient = lDailyRecordList.Where(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId && n.DailyRecordDateTime.ToShortDateString() == ManageSession.GetNavigationDate().ToShortDateString()).FirstOrDefault();
 
                         var homeViewModel = ManageSession.GetHomeViewModel();
 
