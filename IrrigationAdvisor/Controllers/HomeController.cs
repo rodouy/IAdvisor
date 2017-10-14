@@ -1495,12 +1495,12 @@ namespace IrrigationAdvisor.Controllers
 
             lDateIterator = pDateFrom;
 
-            while (lDateIterator <= pDateTo)
-            {
-                pCIW.AddInformationToIrrigationUnits(lDateIterator, lReferenceDate, pContext);
-                pContext.SaveChanges();
-                lDateIterator = lDateIterator.AddDays(1);
-            }
+            ////while (lDateIterator <= pDateTo)
+            ////{
+            ////    pCIW.AddInformationToIrrigationUnits(lDateIterator, lReferenceDate, pContext);
+            ////    pContext.SaveChanges();
+            ////    lDateIterator = lDateIterator.AddDays(1);
+            ////}
 
             
         }
@@ -1543,24 +1543,6 @@ namespace IrrigationAdvisor.Controllers
                                    select Convert.ToInt64(p)).ToList();
 
                 var filteredCiw = ciwc.GetCropIrrigationWeatherByIds(selectedCiw);
-
-                //List<long> cropForFilter = filteredCiw.Select(n => n.CropIrrigationWeatherId).ToList();
-                //var dailyMemory = lContext.DailyRecords.Where(dr => cropForFilter.Contains(dr.CropIrrigationWeatherId)).ToList();
-                //var irrigationMemory = lContext.Irrigations.Where(w => w.Date >= pDateFrom && w.Date <= pDateTo).ToList();
-
-
-                //var daily = (from dr in dailyMemory
-                //            join w in irrigationMemory
-                //            on dr.IrrigationId equals w.WaterInputId
-                //            select w.WaterInputId).ToList();
-
-                //foreach (int item in daily)
-                //{
-
-                //    var waterInput = lContext.Irrigations.First(n => n.WaterInputId == item);
-                //    waterInput.Date = pDateTo.AddDays(1);
-                //    waterInput.ExtraDate = pDateTo.AddDays(1);
-                //}
 
                 foreach (var bCIW in filteredCiw)
                 {

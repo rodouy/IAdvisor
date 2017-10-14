@@ -7,8 +7,8 @@ namespace IrrigationAdvisor.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Irrigation", "Observations", c => c.String());
-            AddColumn("dbo.Irrigation", "ReasonId", c => c.Int());
+            //AddColumn("dbo.Irrigation", "Observations", c => c.String());
+            //AddColumn("dbo.Irrigation", "ReasonId", c => c.Int());
         }
         
         public override void Down()

@@ -88,22 +88,30 @@ namespace IrrigationAdvisor.Models.Water
                 this.CropIrrigationWeatherId = pCropIrrigationWeatherId;
             }
 
-            #endregion
+        public Irrigation(Utils.WaterInputType pType, DateTime pDate, double pInput, long pCropIrrigationWeatherId)
+        {
+            this.Type = pType;
+            this.Date = pDate;
+            this.Input = pInput;
+            this.CropIrrigationWeatherId = pCropIrrigationWeatherId;
+        }
 
-            #region Private Helpers
-            #endregion
+        #endregion
 
-            #region Public Methods
+        #region Private Helpers
+        #endregion
 
-            
-            #endregion
+        #region Public Methods
 
-            #region Overrides
 
-            
-            #endregion
+        #endregion
 
-        
+        #region Overrides
+
+
+        #endregion
+
+
 
     }
 }
