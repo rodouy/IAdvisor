@@ -7678,17 +7678,17 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotGMOLaPalma2
+                                       where iu.Name == Utils.NamePivotGMOLaPalma2_1
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NamePivotGMOLaPalma2
+                             where soil.Name == Utils.NamePivotGMOLaPalma2_1
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma2)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma2_1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot2_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot2_2017;
+                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot2_1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot2_1_2017;
                     lCropDate = Program.DateOfReference;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2017 == 0)
                     {
