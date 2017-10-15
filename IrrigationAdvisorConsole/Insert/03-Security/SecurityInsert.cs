@@ -360,6 +360,20 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 RoleId = 3,
             };
             #endregion
+
+            #region Nilve - El Rincon
+            var lElRincon = new User()
+            {
+                Name = "Carlos",
+                Surname = "Etchegaray",
+                Phone = "+598 99 603 349",
+                Address = "Misiones 1481 P2",
+                Email = "cetchega@gmail.com",
+                UserName = Utils.NameUserTM1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "TM2017"),
+                RoleId = 3,
+            };
+            #endregion
             
             using (var context = new IrrigationAdvisorContext())
             {

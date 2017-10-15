@@ -7691,7 +7691,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     var lDCASanJosePivot2 = new Soil
                     {
                         Name = Utils.NamePivotDCASanJose2,
-                        Description = "Suelo del Pivot 2 en El Paraiso. Unidad Bequlo con incidencia de Villa Soriano.",
+                        Description = "Suelo del Pivot 2 en San Jose. Unidad Bequlo con incidencia de Villa Soriano.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 55,
@@ -7717,7 +7717,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     var lDCASanJosePivot3 = new Soil
                     {
                         Name = Utils.NamePivotDCASanJose3,
-                        Description = "Suelo del Pivot 3 en El Paraiso. Unidad Bequlo con incidencia de Villa Soriano.",
+                        Description = "Suelo del Pivot 3 en San Jose. Unidad Bequlo con incidencia de Villa Soriano.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 55,
@@ -7743,7 +7743,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     var lDCASanJosePivot4 = new Soil
                     {
                         Name = Utils.NamePivotDCASanJose4,
-                        Description = "Suelo del Pivot 4 en El Paraiso. Unidad Bequlo con incidencia de Villa Soriano.",
+                        Description = "Suelo del Pivot 4 en San Jose. Unidad Bequlo con incidencia de Villa Soriano.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 55,

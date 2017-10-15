@@ -108,15 +108,22 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             var lSalto = new Position()
             {
                 Name = Utils.NamePositionCitySalto,
-                Latitude = -32.683333,
-                Longitude = -57.633333,
+                Latitude = -31.3850,
+                Longitude = -57.9602,
             };
 
             var lTacuarembo = new Position()
             {
                 Name = Utils.NamePositionCityTacuarembo,
-                Latitude = -32.683333,
-                Longitude = -57.633333,
+                Latitude = -31.7192,
+                Longitude = -55.9742,
+            };
+
+            var lRinconDelPino = new Position()
+            {
+                Name = Utils.NamePositionCityRinconDelPino,
+                Latitude = -34.5021	,
+                Longitude = -56.8345,
             };
 
             #endregion
