@@ -521,11 +521,11 @@ namespace IrrigationAdvisorConsole
         //public static DateTime SowingDate_CornSouth_DCASanJosePivot1_2017 = new DateTime(2017, 9, 19);
         //public static DateTime HarvestDate_CornSouth_DCASanJosePivot1_2017 = new DateTime(2017, 2, 5);
         //public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot1_2017 = 14;
-        public static DateTime SowingDate_SoyaSouth_DCASanJosePivot2_2017 = new DateTime(2017, 09, 26);
-        public static DateTime HarvestDate_SoyaSouth_DCASanJosePivot2_2017 = new DateTime(2018, 02, 10);
+        public static DateTime SowingDate_CornSouth_DCASanJosePivot2_2017 = new DateTime(2017, 09, 26);
+        public static DateTime HarvestDate_CornSouth_DCASanJosePivot2_2017 = new DateTime(2018, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot2_2017 = 10;
-        public static DateTime SowingDate_SoyaSouth_DCASanJosePivot3_2017 = new DateTime(2017, 09, 26);
-        public static DateTime HarvestDate_SoyaSouth_DCASanJosePivot3_2017 = new DateTime(2018, 02, 10);
+        public static DateTime SowingDate_CornSouth_DCASanJosePivot3_2017 = new DateTime(2017, 09, 26);
+        public static DateTime HarvestDate_CornSouth_DCASanJosePivot3_2017 = new DateTime(2018, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot3_2017 = 10;
         //public static DateTime SowingDate_CornSouth_DCASanJosePivot4_2017 = new DateTime(2017, 9, 19);
         //public static DateTime HarvestDate_CornSouth_DCASanJosePivot4_2017 = new DateTime(2017, 2, 5);
@@ -20980,7 +20980,7 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieAlfalfaSouthShort
+                       where sp.Name == Utils.NameSpecieAlfalfaNorthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
@@ -20993,12 +20993,12 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieAlfalfaSouthShort
+                     where crop.Name == Utils.NameSpecieAlfalfaNorthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
             lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
@@ -21019,7 +21019,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -21046,10 +21046,10 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieAlfalfaSouthShort
+                                where cc.Name == Utils.NameSpecieAlfalfaNorthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieAlfalfaSouthShort
+                       where cc.Name == Utils.NameSpecieAlfalfaNorthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilGMOLaPalma1
@@ -21182,7 +21182,7 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
@@ -21195,12 +21195,12 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieCornNorthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
             lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
@@ -21221,7 +21221,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -21248,10 +21248,10 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                where cc.Name == Utils.NameSpecieCornNorthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       where cc.Name == Utils.NameSpecieCornNorthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilGMOLaPalma2
@@ -21384,7 +21384,7 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
@@ -21397,12 +21397,12 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieCornNorthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
             lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
@@ -21423,7 +21423,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -21450,10 +21450,10 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                where cc.Name == Utils.NameSpecieCornNorthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       where cc.Name == Utils.NameSpecieCornNorthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilGMOLaPalma3
@@ -21586,7 +21586,7 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
@@ -21599,12 +21599,12 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieCornNorthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
             lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
@@ -21625,7 +21625,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -21652,10 +21652,10 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                where cc.Name == Utils.NameSpecieCornNorthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       where cc.Name == Utils.NameSpecieCornNorthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilGMOLaPalma4
@@ -21788,7 +21788,7 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
@@ -21801,12 +21801,12 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieCornNorthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
             lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
@@ -21827,7 +21827,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -21854,10 +21854,10 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                where cc.Name == Utils.NameSpecieCornNorthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       where cc.Name == Utils.NameSpecieCornNorthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilGMOLaPalma1_1
@@ -21990,7 +21990,7 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
@@ -22003,12 +22003,12 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieCornNorthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
             lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
@@ -22029,7 +22029,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -22056,10 +22056,10 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                where cc.Name == Utils.NameSpecieCornNorthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       where cc.Name == Utils.NameSpecieCornNorthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilGMOLaPalma2_1
@@ -22192,7 +22192,7 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
@@ -22205,12 +22205,12 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieCornNorthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
             lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
@@ -22231,7 +22231,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -22258,10 +22258,10 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                where cc.Name == Utils.NameSpecieCornNorthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       where cc.Name == Utils.NameSpecieCornNorthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilGMOLaPalma3_1
@@ -22394,7 +22394,7 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieCornSouthShort
+                       where sp.Name == Utils.NameSpecieCornNorthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
@@ -22407,12 +22407,12 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieCornNorthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
             lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                  where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                  where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
@@ -22433,7 +22433,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieCornSouthShort
+                                      where cid.Name == Utils.NameSpecieCornNorthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -22460,10 +22460,10 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieCornSouthShort
+                                where cc.Name == Utils.NameSpecieCornNorthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieCornSouthShort
+                       where cc.Name == Utils.NameSpecieCornNorthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilGMOLaPalma4_1

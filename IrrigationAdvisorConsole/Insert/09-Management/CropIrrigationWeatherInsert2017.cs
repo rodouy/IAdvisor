@@ -122,13 +122,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
 
                 #region Santa Lucia
-                #if false
                 
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationAlternativeName_SantaLucia_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_SantaLucia_2017;
+
+                    #if false
 
                     #region Santa Lucia Pivot 1 2017
                     //////////////////////////////////////////////////////////////////////
@@ -202,7 +203,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                    select weatherdata).ToList<WeatherData>();
                     var lCIWSantaLuciaPivot1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherSantaLuciaPivot1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherSantaLuciaPivot1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -297,13 +298,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region Santa Lucia Pivot 5 2017
 
                     #endregion
+
+#endif
                 }
-                #endif
 
                 #endregion
                 #region DCA El Paraiso
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
                 {
@@ -389,7 +391,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA ElParaiso Pivot1 2017
                     var lCIWDCAElParaisoPivot1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCAElParaisoPivot1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCAElParaisoPivot1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -550,7 +552,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA ElParaiso Pivot2 2017
                     var lCIWDCAElParaisoPivot2_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCAElParaisoPivot2,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCAElParaisoPivot2_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -632,12 +634,12 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                 }
                 #endregion
                 #region DCA La Perdiz
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                        || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                        //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
@@ -723,7 +725,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA LaPerdiz Pivot1 2017
                     var lCIWDCALaPerdizPivot1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -885,7 +887,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA LaPerdiz Pivot2 2017
                     var lCIWDCALaPerdizPivot2_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot2,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot2_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -1047,7 +1049,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA LaPerdiz Pivot3 2017
                     var lCIWDCALaPerdizPivot3_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot3,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot3_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -1209,7 +1211,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA LaPerdiz Pivot5 2017
                     var lCIWDCALaPerdizPivot5_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot5,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot5_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -1371,7 +1373,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA LaPerdiz Pivot6 2017
                     var lCIWDCALaPerdizPivot6_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot6,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot6_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -1533,7 +1535,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA LaPerdiz Pivot7 2017
                     var lCIWDCALaPerdizPivot7_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot7,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot7_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -1695,7 +1697,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA LaPerdiz Pivot10b 2017
                     var lCIWDCALaPerdizPivot10b_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot10b,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot10b_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -1857,7 +1859,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA LaPerdiz Pivot14 2017
                     var lCIWDCALaPerdizPivot14_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot14,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot14_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -2019,7 +2021,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA LaPerdiz Pivot15 2017
                     var lCIWDCALaPerdizPivot15_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot15,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCALaPerdizPivot15_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -2101,12 +2103,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                 }
                 #endregion
                 #region DCA San Jose
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
@@ -2192,7 +2195,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA SanJose Pivot1 2017
                     var lCIWDCASanJosePivot1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCASanJosePivot1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCASanJosePivot1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -2293,23 +2296,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieSoyaSouthShort
+                               where sp.Name == Utils.NameSpecieCornSouthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieSoyaSouthShort
+                             where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieSoyaSouthShort
+                                        where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieSoyaSouthShort
+                               where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieSoyaSouthShort
+                                              where cid.Name == Utils.NameSpecieCornSouthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -2323,8 +2326,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCASanJose2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCASanJosePivot2_2017;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCASanJosePivot2_2017;
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DCASanJosePivot2_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DCASanJosePivot2_2017;
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot2_2017 == 0)
                     {
@@ -2354,7 +2357,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA SanJose Pivot2 2017
                     var lCIWDCASanJosePivot2_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCASanJosePivot2,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCASanJosePivot2_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -2454,23 +2457,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieSoyaSouthShort
+                               where sp.Name == Utils.NameSpecieCornSouthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieSoyaSouthShort
+                             where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieSoyaSouthShort
+                                        where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieSoyaSouthShort
+                               where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieSoyaSouthShort
+                                              where cid.Name == Utils.NameSpecieCornSouthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -2484,8 +2487,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCASanJose3)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCASanJosePivot3_2017;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCASanJosePivot3_2017;
+                    lSowingDate = DataEntry.SowingDate_CornSouth_DCASanJosePivot3_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DCASanJosePivot3_2017;
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot3_2017 == 0)
                     {
@@ -2515,7 +2518,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA SanJose Pivot3 2017
                     var lCIWDCASanJosePivot3_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCASanJosePivot3,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCASanJosePivot3_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -2677,7 +2680,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DCA SanJose Pivot4 2017
                     var lCIWDCASanJosePivot4_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCASanJosePivot4,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDCASanJosePivot4_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -6827,7 +6830,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_GMOLaPalma_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017;
-                    #if true
+                    #if false
                     #region GMO - La Palma Pivot 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -6840,29 +6843,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieAlfalfaSouthShort
+                               where sp.Name == Utils.NameSpecieAlfalfaNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieAlfalfaSouthShort
+                             where crop.Name == Utils.NameSpecieAlfalfaNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieAlfalfaSouthShort
+                                        where cc.Name == Utils.NameSpecieAlfalfaNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieAlfalfaSouthShort
+                               where cc.Name == Utils.NameSpecieAlfalfaNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieAlfalfaSouthShort
+                                              where cid.Name == Utils.NameSpecieAlfalfaNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -6876,8 +6879,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot1_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot1_2017;
+                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot1_2017;
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2017 == 0)
                     {
@@ -6908,7 +6911,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     var lCIWGMOLaPalmaPivot1_2017 = new CropIrrigationWeather
                     {
 
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -6991,6 +6994,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
+                    #endif
                     #region GMO - La Palma Pivot 2 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -7003,29 +7007,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               where sp.Name == Utils.NameSpecieCornNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             where crop.Name == Utils.NameSpecieCornNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        where cc.Name == Utils.NameSpecieCornNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               where cc.Name == Utils.NameSpecieCornNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              where cid.Name == Utils.NameSpecieCornNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -7039,8 +7043,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot2_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot2_2017;
+                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot2_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot2_2017;
                     lCropDate = Program.DateOfReference;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2017 == 0)
                     {
@@ -7070,7 +7074,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO La Palma Pivot 2 2017
                     var lCIWGMOLaPalmaPivot2_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot2,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot2_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -7166,29 +7170,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               where sp.Name == Utils.NameSpecieCornNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             where crop.Name == Utils.NameSpecieCornNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        where cc.Name == Utils.NameSpecieCornNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               where cc.Name == Utils.NameSpecieCornNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              where cid.Name == Utils.NameSpecieCornNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -7202,8 +7206,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma3)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot3_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot3_2017;
+                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot3_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot3_2017;
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_2017 == 0)
                     {
@@ -7233,7 +7237,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO La Palma Pivot 3 2017
                     var lCIWGMOLaPalmaPivot3_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot3,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot3_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -7327,29 +7331,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               where sp.Name == Utils.NameSpecieCornNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             where crop.Name == Utils.NameSpecieCornNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        where cc.Name == Utils.NameSpecieCornNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               where cc.Name == Utils.NameSpecieCornNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              where cid.Name == Utils.NameSpecieCornNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -7363,8 +7367,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma4)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot4_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot4_2017;
+                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot4_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot4_2017;
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_2017 == 0)
                     {
@@ -7394,7 +7398,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO La Palma Pivot 4 2017
                     var lCIWGMOLaPalmaPivot4_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot4,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot4_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -7488,29 +7492,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieAlfalfaSouthShort
+                               where sp.Name == Utils.NameSpecieCornNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieAlfalfaSouthShort
+                             where crop.Name == Utils.NameSpecieCornNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieAlfalfaSouthShort
+                                        where cc.Name == Utils.NameSpecieCornNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieAlfalfaSouthShort
+                               where cc.Name == Utils.NameSpecieCornNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieAlfalfaSouthShort
+                                              where cid.Name == Utils.NameSpecieCornNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -7524,16 +7528,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot1_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot1_2017;
+                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot1_1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot1_1_2017;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2017 == 0)
+                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_1_2017 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2017;
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_1_2017;
                     }
                     #endregion
                     #region Weather Data
@@ -7552,11 +7556,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW GMO La Palma Pivot1 2017
-                    var lCIWGMOLaPalmaPivot1_2017 = new CropIrrigationWeather
+                    #region New CIW GMO La Palma Pivot 1.1 2017
+                    var lCIWGMOLaPalmaPivot1_1_2017 = new CropIrrigationWeather
                     {
 
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot1_1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -7592,53 +7596,54 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOLaPalmaPivot1_2017.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOLaPalmaPivot1_1_2017.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWGMOLaPalmaPivot1_2017.HydricBalance = lCIWGMOLaPalmaPivot1_2017.GetInitialHydricBalance();
+                    lCIWGMOLaPalmaPivot1_1_2017.HydricBalance = lCIWGMOLaPalmaPivot1_1_2017.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWGMOLaPalmaPivot1_2017.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWGMOLaPalmaPivot1_1_2017.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    context.CropIrrigationWeathers.Add(lCIWGMOLaPalmaPivot1_2017);
+                    context.CropIrrigationWeathers.Add(lCIWGMOLaPalmaPivot1_1_2017);
                     context.SaveChanges();
 
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWGMOLaPalmaPivot1_2017.Titles)
+                    foreach (var item in lCIWGMOLaPalmaPivot1_1_2017.Titles)
                     {
-                        var lTitlesGMOLaPalmaPivot1_2017 = new Title
+                        var lTitlesGMOLaPalmaPivot1_1_2017 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWGMOLaPalmaPivot1_2017.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWGMOLaPalmaPivot1_2017,
+                            CropIrrigationWeatherId = lCIWGMOLaPalmaPivot1_1_2017.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWGMOLaPalmaPivot1_1_2017,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesGMOLaPalmaPivot1_2017);
+                        context.Titles.Add(lTitlesGMOLaPalmaPivot1_1_2017);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdGMOLaPalmaPivot1_2017 = (from title in context.Titles
+                    long lFirstTitleIdGMOLaPalmaPivot1_1_2017 = (from title in context.Titles
                                                                where title.Name == "DDS"
                                                                   && title.Daily == false
-                                                                  && title.CropIrrigationWeatherId == lCIWGMOLaPalmaPivot1_2017.CropIrrigationWeatherId
+                                                                  && title.CropIrrigationWeatherId == lCIWGMOLaPalmaPivot1_1_2017.CropIrrigationWeatherId
                                                                select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesGMOLaPalmaPivot1_2017 = lCIWGMOLaPalmaPivot1_2017.Titles.Count();
-                    long lTitleIdGMOLaPalmaPivot1_2017 = lFirstTitleIdGMOLaPalmaPivot1_2017;
+                    long lTotalTitlesGMOLaPalmaPivot1_1_2017 = lCIWGMOLaPalmaPivot1_1_2017.Titles.Count();
+                    long lTitleIdGMOLaPalmaPivot1_1_2017 = lFirstTitleIdGMOLaPalmaPivot1_1_2017;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWGMOLaPalmaPivot1_2017.Messages)
+                    foreach (var item in lCIWGMOLaPalmaPivot1_1_2017.Messages)
                     {
-                        item.TitleId = lTitleIdGMOLaPalmaPivot1_2017;
-                        lTitleIdGMOLaPalmaPivot1_2017 += 1;
-                        item.CropIrrigationWeatherId = lCIWGMOLaPalmaPivot1_2017.CropIrrigationWeatherId;
-                        if ((lTitleIdGMOLaPalmaPivot1_2017 - lFirstTitleIdGMOLaPalmaPivot1_2017) % (lTotalTitlesGMOLaPalmaPivot1_2017) == 0)
+                        item.TitleId = lTitleIdGMOLaPalmaPivot1_1_2017;
+                        lTitleIdGMOLaPalmaPivot1_1_2017 += 1;
+                        item.CropIrrigationWeatherId = lCIWGMOLaPalmaPivot1_1_2017.CropIrrigationWeatherId;
+                        if ((lTitleIdGMOLaPalmaPivot1_1_2017 - lFirstTitleIdGMOLaPalmaPivot1_1_2017) % (lTotalTitlesGMOLaPalmaPivot1_1_2017) == 0)
                         {
-                            lTitleIdGMOLaPalmaPivot1_2017 = lFirstTitleIdGMOLaPalmaPivot1_2017;
+                            lTitleIdGMOLaPalmaPivot1_1_2017 = lFirstTitleIdGMOLaPalmaPivot1_1_2017;
                         }
                     }
                     context.SaveChanges();
                     #endregion
                     #endregion
+                    #if false
                     #region GMO - La Palma Pivot 2.1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -7651,29 +7656,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               where sp.Name == Utils.NameSpecieCornNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             where crop.Name == Utils.NameSpecieCornNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        where cc.Name == Utils.NameSpecieCornNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               where cc.Name == Utils.NameSpecieCornNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              where cid.Name == Utils.NameSpecieCornNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -7687,16 +7692,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma2_1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot2_1_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot2_1_2017;
+                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot2_1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot2_1_2017;
                     lCropDate = Program.DateOfReference;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2017 == 0)
+                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_1_2017 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2017;
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_1_2017;
                     }
                     #endregion
                     #region Weather Data
@@ -7715,10 +7720,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW GMO La Palma Pivot 2 2017
-                    var lCIWGMOLaPalmaPivot2_2017 = new CropIrrigationWeather
+                    #region New CIW GMO La Palma Pivot 2.1 2017
+                    var lCIWGMOLaPalmaPivot2_1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot2,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot2_1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -7756,47 +7761,47 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOLaPalmaPivot2_2017.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOLaPalmaPivot2_1_2017.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWGMOLaPalmaPivot2_2017.HydricBalance = lCIWGMOLaPalmaPivot2_2017.GetInitialHydricBalance();
+                    lCIWGMOLaPalmaPivot2_1_2017.HydricBalance = lCIWGMOLaPalmaPivot2_1_2017.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWGMOLaPalmaPivot2_2017.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWGMOLaPalmaPivot2_1_2017.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    context.CropIrrigationWeathers.Add(lCIWGMOLaPalmaPivot2_2017);
+                    context.CropIrrigationWeathers.Add(lCIWGMOLaPalmaPivot2_1_2017);
                     context.SaveChanges();
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWGMOLaPalmaPivot2_2017.Titles)
+                    foreach (var item in lCIWGMOLaPalmaPivot2_1_2017.Titles)
                     {
-                        var lTitlesGMOLaPalmaPivot2_2017 = new Title
+                        var lTitlesGMOLaPalmaPivot2_1_2017 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWGMOLaPalmaPivot2_2017.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWGMOLaPalmaPivot2_2017,
+                            CropIrrigationWeatherId = lCIWGMOLaPalmaPivot2_1_2017.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWGMOLaPalmaPivot2_1_2017,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesGMOLaPalmaPivot2_2017);
+                        context.Titles.Add(lTitlesGMOLaPalmaPivot2_1_2017);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdGMOLaPalmaPivot2_2017 = (from title in context.Titles
+                    long lFirstTitleIdGMOLaPalmaPivot2_1_2017 = (from title in context.Titles
                                                                where title.Name == "DDS"
                                                                   && title.Daily == false
-                                                                  && title.CropIrrigationWeatherId == lCIWGMOLaPalmaPivot2_2017.CropIrrigationWeatherId
+                                                                  && title.CropIrrigationWeatherId == lCIWGMOLaPalmaPivot2_1_2017.CropIrrigationWeatherId
                                                                select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesGMOLaPalmaPivot2_2017 = lCIWGMOLaPalmaPivot2_2017.Titles.Count();
-                    long lTitleIdGMOLaPalmaPivot2_2017 = lFirstTitleIdGMOLaPalmaPivot2_2017;
+                    long lTotalTitlesGMOLaPalmaPivot2_1_2017 = lCIWGMOLaPalmaPivot2_1_2017.Titles.Count();
+                    long lTitleIdGMOLaPalmaPivot2_1_2017 = lFirstTitleIdGMOLaPalmaPivot2_1_2017;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWGMOLaPalmaPivot2_2017.Messages)
+                    foreach (var item in lCIWGMOLaPalmaPivot2_1_2017.Messages)
                     {
-                        item.TitleId = lTitleIdGMOLaPalmaPivot2_2017;
-                        lTitleIdGMOLaPalmaPivot2_2017 += 1;
-                        item.CropIrrigationWeatherId = lCIWGMOLaPalmaPivot2_2017.CropIrrigationWeatherId;
-                        if ((lTitleIdGMOLaPalmaPivot2_2017 - lFirstTitleIdGMOLaPalmaPivot2_2017) % (lTotalTitlesGMOLaPalmaPivot2_2017) == 0)
+                        item.TitleId = lTitleIdGMOLaPalmaPivot2_1_2017;
+                        lTitleIdGMOLaPalmaPivot2_1_2017 += 1;
+                        item.CropIrrigationWeatherId = lCIWGMOLaPalmaPivot2_1_2017.CropIrrigationWeatherId;
+                        if ((lTitleIdGMOLaPalmaPivot2_1_2017 - lFirstTitleIdGMOLaPalmaPivot2_1_2017) % (lTotalTitlesGMOLaPalmaPivot2_1_2017) == 0)
                         {
-                            lTitleIdGMOLaPalmaPivot2_2017 = lFirstTitleIdGMOLaPalmaPivot2_2017;
+                            lTitleIdGMOLaPalmaPivot2_1_2017 = lFirstTitleIdGMOLaPalmaPivot2_1_2017;
                         }
                     }
                     context.SaveChanges();
@@ -7814,29 +7819,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               where sp.Name == Utils.NameSpecieCornNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             where crop.Name == Utils.NameSpecieCornNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        where cc.Name == Utils.NameSpecieCornNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               where cc.Name == Utils.NameSpecieCornNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              where cid.Name == Utils.NameSpecieCornNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -7850,16 +7855,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma3)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot3_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot3_2017;
+                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot3_1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot3_1_2017;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_2017 == 0)
+                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_1_2017 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_2017;
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_1_2017;
                     }
                     #endregion
                     #region Weather Data
@@ -7878,10 +7883,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW GMO La Palma Pivot 3 2017
-                    var lCIWGMOLaPalmaPivot3_2017 = new CropIrrigationWeather
+                    #region New CIW GMO La Palma Pivot 3.1 2017
+                    var lCIWGMOLaPalmaPivot3_1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot3,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot3_1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -7917,47 +7922,47 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOLaPalmaPivot3_2017.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOLaPalmaPivot3_1_2017.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWGMOLaPalmaPivot3_2017.HydricBalance = lCIWGMOLaPalmaPivot3_2017.GetInitialHydricBalance();
+                    lCIWGMOLaPalmaPivot3_1_2017.HydricBalance = lCIWGMOLaPalmaPivot3_1_2017.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWGMOLaPalmaPivot3_2017.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWGMOLaPalmaPivot3_1_2017.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    context.CropIrrigationWeathers.Add(lCIWGMOLaPalmaPivot3_2017);
+                    context.CropIrrigationWeathers.Add(lCIWGMOLaPalmaPivot3_1_2017);
                     context.SaveChanges();
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWGMOLaPalmaPivot3_2017.Titles)
+                    foreach (var item in lCIWGMOLaPalmaPivot3_1_2017.Titles)
                     {
-                        var lTitlesGMOLaPalmaPivot3_2017 = new Title
+                        var lTitlesGMOLaPalmaPivot3_1_2017 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWGMOLaPalmaPivot3_2017.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWGMOLaPalmaPivot3_2017,
+                            CropIrrigationWeatherId = lCIWGMOLaPalmaPivot3_1_2017.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWGMOLaPalmaPivot3_1_2017,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesGMOLaPalmaPivot3_2017);
+                        context.Titles.Add(lTitlesGMOLaPalmaPivot3_1_2017);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdGMOLaPalmaPivot3_2017 = (from title in context.Titles
+                    long lFirstTitleIdGMOLaPalmaPivot3_1_2017 = (from title in context.Titles
                                                                where title.Name == "DDS"
                                                                   && title.Daily == false
-                                                                  && title.CropIrrigationWeatherId == lCIWGMOLaPalmaPivot3_2017.CropIrrigationWeatherId
+                                                                  && title.CropIrrigationWeatherId == lCIWGMOLaPalmaPivot3_1_2017.CropIrrigationWeatherId
                                                                select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesGMOLaPalmaPivot3_2017 = lCIWGMOLaPalmaPivot3_2017.Titles.Count();
-                    long lTitleIdGMOLaPalmaPivot3_2017 = lFirstTitleIdGMOLaPalmaPivot3_2017;
+                    long lTotalTitlesGMOLaPalmaPivot3_1_2017 = lCIWGMOLaPalmaPivot3_1_2017.Titles.Count();
+                    long lTitleIdGMOLaPalmaPivot3_1_2017 = lFirstTitleIdGMOLaPalmaPivot3_1_2017;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWGMOLaPalmaPivot3_2017.Messages)
+                    foreach (var item in lCIWGMOLaPalmaPivot3_1_2017.Messages)
                     {
-                        item.TitleId = lTitleIdGMOLaPalmaPivot3_2017;
-                        lTitleIdGMOLaPalmaPivot3_2017 += 1;
-                        item.CropIrrigationWeatherId = lCIWGMOLaPalmaPivot3_2017.CropIrrigationWeatherId;
-                        if ((lTitleIdGMOLaPalmaPivot3_2017 - lFirstTitleIdGMOLaPalmaPivot3_2017) % (lTotalTitlesGMOLaPalmaPivot3_2017) == 0)
+                        item.TitleId = lTitleIdGMOLaPalmaPivot3_1_2017;
+                        lTitleIdGMOLaPalmaPivot3_1_2017 += 1;
+                        item.CropIrrigationWeatherId = lCIWGMOLaPalmaPivot3_1_2017.CropIrrigationWeatherId;
+                        if ((lTitleIdGMOLaPalmaPivot3_1_2017 - lFirstTitleIdGMOLaPalmaPivot3_1_2017) % (lTotalTitlesGMOLaPalmaPivot3_1_2017) == 0)
                         {
-                            lTitleIdGMOLaPalmaPivot3_2017 = lFirstTitleIdGMOLaPalmaPivot3_2017;
+                            lTitleIdGMOLaPalmaPivot3_1_2017 = lFirstTitleIdGMOLaPalmaPivot3_1_2017;
                         }
                     }
                     context.SaveChanges();
@@ -7975,29 +7980,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               where sp.Name == Utils.NameSpecieCornNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             where crop.Name == Utils.NameSpecieCornNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        where cc.Name == Utils.NameSpecieCornNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               where cc.Name == Utils.NameSpecieCornNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              where cid.Name == Utils.NameSpecieCornNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -8011,16 +8016,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma4)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot4_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot4_2017;
+                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot4_1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot4_1_2017;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_2017 == 0)
+                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_1_2017 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_2017;
+                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_1_2017;
                     }
                     #endregion
                     #region Weather Data
@@ -8039,10 +8044,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW GMO La Palma Pivot 4 2017
-                    var lCIWGMOLaPalmaPivot4_2017 = new CropIrrigationWeather
+                    #region New CIW GMO La Palma Pivot 4.1 2017
+                    var lCIWGMOLaPalmaPivot4_1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot4,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOLaPalmaPivot4_1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -8078,47 +8083,47 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOLaPalmaPivot4_2017.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOLaPalmaPivot4_1_2017.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWGMOLaPalmaPivot4_2017.HydricBalance = lCIWGMOLaPalmaPivot4_2017.GetInitialHydricBalance();
+                    lCIWGMOLaPalmaPivot4_1_2017.HydricBalance = lCIWGMOLaPalmaPivot4_1_2017.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWGMOLaPalmaPivot4_2017.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWGMOLaPalmaPivot4_1_2017.AddDailyRecordToList(lSowingDate, "Initial registry");
 
-                    context.CropIrrigationWeathers.Add(lCIWGMOLaPalmaPivot4_2017);
+                    context.CropIrrigationWeathers.Add(lCIWGMOLaPalmaPivot4_1_2017);
                     context.SaveChanges();
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWGMOLaPalmaPivot4_2017.Titles)
+                    foreach (var item in lCIWGMOLaPalmaPivot4_1_2017.Titles)
                     {
-                        var lTitlesGMOLaPalmaPivot4_2017 = new Title
+                        var lTitlesGMOLaPalmaPivot4_1_2017 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWGMOLaPalmaPivot4_2017.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWGMOLaPalmaPivot4_2017,
+                            CropIrrigationWeatherId = lCIWGMOLaPalmaPivot4_1_2017.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWGMOLaPalmaPivot4_1_2017,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesGMOLaPalmaPivot4_2017);
+                        context.Titles.Add(lTitlesGMOLaPalmaPivot4_1_2017);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdGMOLaPalmaPivot4_2017 = (from title in context.Titles
+                    long lFirstTitleIdGMOLaPalmaPivot4_1_2017 = (from title in context.Titles
                                                                where title.Name == "DDS"
                                                                   && title.Daily == false
-                                                                  && title.CropIrrigationWeatherId == lCIWGMOLaPalmaPivot4_2017.CropIrrigationWeatherId
+                                                                  && title.CropIrrigationWeatherId == lCIWGMOLaPalmaPivot4_1_2017.CropIrrigationWeatherId
                                                                select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesGMOLaPalmaPivot4_2017 = lCIWGMOLaPalmaPivot4_2017.Titles.Count();
-                    long lTitleIdGMOLaPalmaPivot4_2017 = lFirstTitleIdGMOLaPalmaPivot4_2017;
+                    long lTotalTitlesGMOLaPalmaPivot4_1_2017 = lCIWGMOLaPalmaPivot4_1_2017.Titles.Count();
+                    long lTitleIdGMOLaPalmaPivot4_1_2017 = lFirstTitleIdGMOLaPalmaPivot4_1_2017;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWGMOLaPalmaPivot4_2017.Messages)
+                    foreach (var item in lCIWGMOLaPalmaPivot4_1_2017.Messages)
                     {
-                        item.TitleId = lTitleIdGMOLaPalmaPivot4_2017;
-                        lTitleIdGMOLaPalmaPivot4_2017 += 1;
-                        item.CropIrrigationWeatherId = lCIWGMOLaPalmaPivot4_2017.CropIrrigationWeatherId;
-                        if ((lTitleIdGMOLaPalmaPivot4_2017 - lFirstTitleIdGMOLaPalmaPivot4_2017) % (lTotalTitlesGMOLaPalmaPivot4_2017) == 0)
+                        item.TitleId = lTitleIdGMOLaPalmaPivot4_1_2017;
+                        lTitleIdGMOLaPalmaPivot4_1_2017 += 1;
+                        item.CropIrrigationWeatherId = lCIWGMOLaPalmaPivot4_1_2017.CropIrrigationWeatherId;
+                        if ((lTitleIdGMOLaPalmaPivot4_1_2017 - lFirstTitleIdGMOLaPalmaPivot4_1_2017) % (lTotalTitlesGMOLaPalmaPivot4_1_2017) == 0)
                         {
-                            lTitleIdGMOLaPalmaPivot4_2017 = lFirstTitleIdGMOLaPalmaPivot4_2017;
+                            lTitleIdGMOLaPalmaPivot4_1_2017 = lFirstTitleIdGMOLaPalmaPivot4_1_2017;
                         }
                     }
                     context.SaveChanges();
@@ -8543,7 +8548,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO El Tacuru Pivot 2a 2017
                     var lCIWGMOElTacuruPivot2a_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot2a,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot2a_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -8705,7 +8710,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO El Tacuru Pivot 2b 2017
                     var lCIWGMOElTacuruPivot2b_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot2b,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot2b_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -8866,7 +8871,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO El Tacuru Pivot 3a 2017
                     var lCIWGMOElTacuruPivot3a_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot3a,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot3a_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -9027,7 +9032,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO El Tacuru Pivot 3b 2017
                     var lCIWGMOElTacuruPivot3b_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot3b,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot3b_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -9188,7 +9193,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO El Tacuru Pivot 4 2017
                     var lCIWGMOElTacuruPivot4_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot4,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot4_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -9349,7 +9354,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO El Tacuru Pivot 5 2017
                     var lCIWGMOElTacuruPivot5_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot5,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot5_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -9431,7 +9436,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                     #region GMO - El Tacuru Pivot 8 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -9511,7 +9516,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO El Tacuru Pivot 8 2017
                     var lCIWGMOElTacuruPivot8_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot8,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot8_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -9673,7 +9678,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO El Tacuru Pivot 9 2017
                     var lCIWGMOElTacuruPivot9_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot9,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot9_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -9834,7 +9839,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW GMO El Tacuru Pivot 10 2017
                     var lCIWGMOElTacuruPivot10_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot10,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherGMOElTacuruPivot10_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -9916,7 +9921,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif 
+#endif
                 }
                 #endregion
                 #region Tres Marias
@@ -10007,7 +10012,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     var lCIWTresMariasPivot1_2017 = new CropIrrigationWeather
                     {
 
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherTresMariasPivot1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherTresMariasPivot1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -10169,7 +10174,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //#region New CIW Tres Marias Pivot 2 2017
                     //var lCIWTresMariasPivot2_2017 = new CropIrrigationWeather
                     //{
-                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherTresMariasPivot2,
+                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherTresMariasPivot2_S1718,
                     //    CropId = lCrop.CropId,
                     //    Crop = lCrop,
                     //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -10332,7 +10337,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //#region New CIW Tres Marias Pivot 3 2017
                     //var lCIWTresMariasPivot3_2017 = new CropIrrigationWeather
                     //{
-                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherTresMariasPivot3,
+                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherTresMariasPivot3_S1718,
                     //    CropId = lCrop.CropId,
                     //    Crop = lCrop,
                     //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -10493,7 +10498,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //#region New CIW Tres Marias Pivot 13.1 2017
                     //var lCIWTresMariasPivot4_2017 = new CropIrrigationWeather
                     //{
-                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherTresMariasPivot4,
+                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherTresMariasPivot4_S1718,
                     //    CropId = lCrop.CropId,
                     //    Crop = lCrop,
                     //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -10575,7 +10580,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //context.SaveChanges();
                     //#endregion
                     #endregion
-                    #endif 
+#endif
                 }
                 #endregion
                 #region La Rinconada
@@ -10666,7 +10671,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //var lCIWLaRinconadaPivot1_2017 = new CropIrrigationWeather
                     //{
 
-                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaRinconadaPivot1,
+                    //    CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaRinconadaPivot1_S1718,
                     //    CropId = lCrop.CropId,
                     //    Crop = lCrop,
                     //    IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -10828,7 +10833,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW La Rinconada Pivot 2 2017
                     var lCIWLaRinconadaPivot2_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaRinconadaPivot2,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaRinconadaPivot2_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -10991,7 +10996,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW La Rinconada Pivot 3.1 2017
                     var lCIWLaRinconadaPivot3_1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaRinconadaPivot3_1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaRinconadaPivot3_1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -11152,7 +11157,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW La Rinconada Pivot 13.1 2017
                     var lCIWLaRinconadaPivot13_1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaRinconadaPivot13_1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaRinconadaPivot13_1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -11234,7 +11239,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif 
+#endif
                 }
                 #endregion
                 #region New Farm
@@ -11370,7 +11375,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 }
             }
             #endregion
-
             #region DCA - La Perdiz
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -11393,7 +11397,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 }
             }
             #endregion
-
             #region DCA - San Jose
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -11424,7 +11427,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 }
             }
             #endregion
-
             #region Del Lago - El Mirador
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -11480,22 +11482,20 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             }
             #endregion
 
-            #region GMO - La Palma
+
+            #region El Rincon
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
 
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2017(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2017(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2017(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2017(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot5_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsElRinconPivot1a_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsElRinconPivot1b_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("GMO - La Palma - Completed.");
+                    Console.WriteLine("El Rincon - Completed.");
                 }
             }
             #endregion
@@ -11527,6 +11527,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot10_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("GMO - El Tacuru - Completed.");
+                }
+            }
+            #endregion
+            #region GMO - La Palma
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot5_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_1_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_1_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_1_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_1_2017(context, Program.DateOfReference);
+                    context.SaveChanges();
+                    Console.WriteLine("GMO - La Palma - Completed.");
                 }
             }
             #endregion

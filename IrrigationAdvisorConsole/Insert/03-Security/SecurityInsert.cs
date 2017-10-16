@@ -362,15 +362,15 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
             #endregion
 
             #region Nilve - El Rincon
-            var lElRincon = new User()
+            var lElRinconEBonino = new User()
             {
-                Name = "Carlos",
-                Surname = "Etchegaray",
-                Phone = "+598 99 603 349",
-                Address = "Misiones 1481 P2",
-                Email = "cetchega@gmail.com",
-                UserName = Utils.NameUserTM1,
-                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "TM2017"),
+                Name = "Eduardo",
+                Surname = "Bonino",
+                Phone = "+598 99 204 293",
+                Address = "Ruta 1, km 77",
+                Email = "eb6164@vera.com.uy",
+                UserName = Utils.NameUserER1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "ER2018"),
                 RoleId = 3,
             };
             #endregion
@@ -398,9 +398,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lGMOGuillermo);
                 context.Users.Add(lGMOEsteban);
                 context.Users.Add(lGMOLuis);
+                context.Users.Add(lTresMariasCarlosE);
                 context.Users.Add(lLaRinconadaJuanB);
                 context.Users.Add(lLarinconadaJuanP);
-                context.Users.Add(lTresMariasCarlosE);
+                context.Users.Add(lElRinconEBonino);
                 context.SaveChanges();
             }
 
@@ -457,7 +458,6 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     }
                 }
                 #endregion
-
                 #region Demo2
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
@@ -490,7 +490,6 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     }
                 }
                 #endregion
-
                 #region Demo3
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
@@ -591,7 +590,6 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     }
                 }
                 #endregion
-
                 #region Del Carmen ACISA S.A. - La Perdiz - DCA
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -626,10 +624,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     }
                 }
                 #endregion
-
                 #region Del Carmen ACISA S.A. - San Jose - DCA
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
@@ -664,6 +662,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region DelLago - San Pedro - Estancias del Lago S.R.L.
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
                 {
@@ -695,7 +694,6 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     }
                 }
                 #endregion
-
                 #region DelLago - El Mirador - Estancias del Lago S.R.L.
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -734,6 +732,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region Estancia Menafra - GMO - LaPalma
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
@@ -766,7 +765,6 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     }
                 }
                 #endregion
-
                 #region Estancia Menafra - GMO - ElTacuru
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -851,6 +849,41 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmLaRinconada
+                             select farm).FirstOrDefault();
+                    lUserList = (from user in context.Users
+                                 where lUserNames.Contains(user.UserName)
+                                 select user).ToList();
+                    foreach (User lUser in lUserList)
+                    {
+                        var lUserFarm = new UserFarm()
+                        {
+                            UserId = lUser.UserId,
+                            FarmId = lFarm.FarmId,
+                            Name = lUser.Name + lFarm.Name,
+                            StartDate = DateTime.Now,
+                        };
+
+                        context.UserFarms.Add(lUserFarm);
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
+
+                #region Nilve S.A. - El Rincon - ER
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
+                {
+                    lUserNames = new String[] { Utils.NameUserER1, 
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin, Utils.NameUserCristian,
+                                                Utils.NameUserCPalo, Utils.NameUserMCarle,
+                                                Utils.NameUserROlivera,
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
+
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmElRincon
                              select farm).FirstOrDefault();
                     lUserList = (from user in context.Users
                                  where lUserNames.Contains(user.UserName)

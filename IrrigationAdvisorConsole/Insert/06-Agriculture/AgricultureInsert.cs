@@ -2536,7 +2536,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region Horizons Demo2 - Santa Lucia
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
@@ -2747,7 +2746,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region Horizons Demo3 - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
@@ -3407,10 +3405,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region Horizons DCA San Jose
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
             {
@@ -3599,7 +3597,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region Horizons DCA La Perdiz
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -4348,7 +4345,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region Horizons Del Lago - El Mirador
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -5590,6 +5586,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             #region Horizons GMO - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
@@ -5648,7 +5645,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.38,
                 };
                 #endregion
-
                 #region Pivot 2
                 var lGMOLaPalmaPivot_2_1 = new Horizon
                 {
@@ -5703,7 +5699,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.38,
                 };
                 #endregion
-
                 #region Pivot 3
                 var lGMOLaPalmaPivot_3_1 = new Horizon
                 {
@@ -5746,49 +5741,60 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
 
                 #endregion
-
                 #region Pivot 4
                 var lGMOLaPalmaPivot_4_1 = new Horizon
                 {
                     Name = Utils.NamePivotGMOLaPalma4 + " 1",
                     Order = 1,
                     HorizonLayer = "A",
-                    HorizonLayerDepth = 25,
-                    Sand = 42,
-                    Limo = 33,
-                    Clay = 25,
-                    OrganicMatter = 2.5,
+                    HorizonLayerDepth = 20,
+                    Sand = 36,
+                    Limo = 11,
+                    Clay = 53,
+                    OrganicMatter = 4.3,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.15,
+                    BulkDensitySoil = 1.2,
                 };
                 var lGMOLaPalmaPivot_4_2 = new Horizon
                 {
                     Name = Utils.NamePivotGMOLaPalma4 + " 2",
                     Order = 2,
                     HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 35,
-                    Limo = 35,
-                    Clay = 30,
-                    OrganicMatter = 2.0,
+                    HorizonLayerDepth = 15,
+                    Sand = 32,
+                    Limo = 13,
+                    Clay = 55,
+                    OrganicMatter = 3.2,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
+                    BulkDensitySoil = 1.24,
                 };
                 var lGMOLaPalmaPivot_4_3 = new Horizon
                 {
                     Name = Utils.NamePivotGMOLaPalma4 + " 3",
                     Order = 3,
                     HorizonLayer = "B2",
-                    HorizonLayerDepth = 30,
-                    Sand = 29,
-                    Limo = 37,
-                    Clay = 34,
-                    OrganicMatter = 1.3,
+                    HorizonLayerDepth = 25,
+                    Sand = 28,
+                    Limo = 15,
+                    Clay = 57,
+                    OrganicMatter = 2,
                     NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
+                    BulkDensitySoil = 1.34,
+                };
+                var lGMOLaPalmaPivot_4_4 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma4 + " 4",
+                    Order = 4,
+                    HorizonLayer = "B3",
+                    HorizonLayerDepth = 30,
+                    Sand = 21,
+                    Limo = 19,
+                    Clay = 60,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.38,
                 };
                 #endregion
-
                 #region Pivot 5
                 var lGMOLaPalmaPivot_5_1 = new Horizon
                 {
@@ -5830,6 +5836,197 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.3,
                 };
                 #endregion
+                #region Pivot 1.1
+                var lGMOLaPalmaPivot_1_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 36,
+                    Limo = 11,
+                    Clay = 53,
+                    OrganicMatter = 4.3,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lGMOLaPalmaPivot_1_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 15,
+                    Sand = 32,
+                    Limo = 13,
+                    Clay = 55,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.24,
+                };
+                var lGMOLaPalmaPivot_1_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 25,
+                    Sand = 28,
+                    Limo = 15,
+                    Clay = 57,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.34,
+                };
+                var lGMOLaPalmaPivot_1_1_4 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma1 + " 4",
+                    Order = 4,
+                    HorizonLayer = "B3",
+                    HorizonLayerDepth = 30,
+                    Sand = 21,
+                    Limo = 19,
+                    Clay = 60,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.38,
+                };
+                #endregion
+                #region Pivot 2.1
+                var lGMOLaPalmaPivot_2_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma2_1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 36,
+                    Limo = 11,
+                    Clay = 53,
+                    OrganicMatter = 4.3,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lGMOLaPalmaPivot_2_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma2_1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 15,
+                    Sand = 32,
+                    Limo = 13,
+                    Clay = 55,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.24,
+                };
+                var lGMOLaPalmaPivot_2_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma2_1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 25,
+                    Sand = 28,
+                    Limo = 15,
+                    Clay = 57,
+                    OrganicMatter = 2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.34,
+                };
+                var lGMOLaPalmaPivot_2_1_4 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma2_1 + " 4",
+                    Order = 4,
+                    HorizonLayer = "B3",
+                    HorizonLayerDepth = 30,
+                    Sand = 21,
+                    Limo = 19,
+                    Clay = 60,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.38,
+                };
+                #endregion
+                #region Pivot 3.1
+                var lGMOLaPalmaPivot_3_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma3_1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 25,
+                    Sand = 42,
+                    Limo = 33,
+                    Clay = 25,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.15,
+                };
+                var lGMOLaPalmaPivot_3_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma3_1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 35,
+                    Limo = 35,
+                    Clay = 30,
+                    OrganicMatter = 2.0,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lGMOLaPalmaPivot_3_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma3_1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 30,
+                    Sand = 29,
+                    Limo = 37,
+                    Clay = 34,
+                    OrganicMatter = 1.3,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+
+                #endregion
+                #region Pivot 4.1
+                var lGMOLaPalmaPivot_4_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma4_1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 25,
+                    Sand = 42,
+                    Limo = 33,
+                    Clay = 25,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.15,
+                };
+                var lGMOLaPalmaPivot_4_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma4_1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 35,
+                    Limo = 35,
+                    Clay = 30,
+                    OrganicMatter = 2.0,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lGMOLaPalmaPivot_4_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGMOLaPalma4_1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 30,
+                    Sand = 29,
+                    Limo = 37,
+                    Clay = 34,
+                    OrganicMatter = 1.3,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                #endregion
 
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -5848,15 +6045,29 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Horizons.Add(lGMOLaPalmaPivot_4_1);
                     context.Horizons.Add(lGMOLaPalmaPivot_4_2);
                     context.Horizons.Add(lGMOLaPalmaPivot_4_3);
+                    context.Horizons.Add(lGMOLaPalmaPivot_4_4);
                     context.Horizons.Add(lGMOLaPalmaPivot_5_1);
                     context.Horizons.Add(lGMOLaPalmaPivot_5_2);
                     context.Horizons.Add(lGMOLaPalmaPivot_5_3);
+                    context.Horizons.Add(lGMOLaPalmaPivot_1_1_1);
+                    context.Horizons.Add(lGMOLaPalmaPivot_1_1_2);
+                    context.Horizons.Add(lGMOLaPalmaPivot_1_1_3);
+                    context.Horizons.Add(lGMOLaPalmaPivot_1_1_4);
+                    context.Horizons.Add(lGMOLaPalmaPivot_2_1_1);
+                    context.Horizons.Add(lGMOLaPalmaPivot_2_1_2);
+                    context.Horizons.Add(lGMOLaPalmaPivot_2_1_3);
+                    context.Horizons.Add(lGMOLaPalmaPivot_2_1_4);
+                    context.Horizons.Add(lGMOLaPalmaPivot_3_1_1);
+                    context.Horizons.Add(lGMOLaPalmaPivot_3_1_2);
+                    context.Horizons.Add(lGMOLaPalmaPivot_3_1_3);
+                    context.Horizons.Add(lGMOLaPalmaPivot_4_1_1);
+                    context.Horizons.Add(lGMOLaPalmaPivot_4_1_2);
+                    context.Horizons.Add(lGMOLaPalmaPivot_4_1_3);
                     #endregion
                     context.SaveChanges();
                 }
             }
             #endregion
-
             #region Horizons GMO - El Tacuru
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -6653,7 +6864,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region Horizons La Rinconada
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -6863,6 +7073,110 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
+            #region Horizons El Rincon
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
+            {
+
+                #region Pivot 1a
+                var lElRinconPivot_1a_1 = new Horizon
+                {
+                    Name = Utils.NamePivotElRincon1a + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 16.67,
+                    Limo = 72.19,
+                    Clay = 11.14,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lElRinconPivot_1a_2 = new Horizon
+                {
+                    Name = Utils.NamePivotElRincon1a + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.73,
+                    Limo = 73.72,
+                    Clay = 10.55,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lElRinconPivot_1a_3 = new Horizon
+                {
+                    Name = Utils.NamePivotElRincon1a + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.08,
+                    Limo = 68.22,
+                    Clay = 16.7,
+                    OrganicMatter = 1.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.34,
+                };
+                #endregion
+                #region Pivot 1b
+                var lElRinconPivot_1b_1 = new Horizon
+                {
+                    Name = Utils.NamePivotElRincon1b + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 30.01,
+                    Limo = 58.59,
+                    Clay = 11.4,
+                    OrganicMatter = 3.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.31,
+                };
+                var lElRinconPivot_1b_2 = new Horizon
+                {
+                    Name = Utils.NamePivotElRincon1b + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 25.5,
+                    Limo = 57.92,
+                    Clay = 16.58,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.5,
+                };
+                var lElRinconPivot_1b_3 = new Horizon
+                {
+                    Name = Utils.NamePivotElRincon1b + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 27.07,
+                    Limo = 50.61,
+                    Clay = 27.32,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.44,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons El Rincon
+                    context.Horizons.Add(lElRinconPivot_1a_1);
+                    context.Horizons.Add(lElRinconPivot_1a_2);
+                    context.Horizons.Add(lElRinconPivot_1a_3);
+                    context.Horizons.Add(lElRinconPivot_1b_1);
+                    context.Horizons.Add(lElRinconPivot_1b_2);
+                    context.Horizons.Add(lElRinconPivot_1b_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
 
             #region Horizons
 
@@ -7019,7 +7333,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region Demo2 Soils - Santa Lucia
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
@@ -7163,7 +7476,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region Demo3 Soils - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
@@ -8957,6 +9269,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             #region GMO - La Palma Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
@@ -8994,7 +9307,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lGMOLaPalmaPivot1.HorizonList.Add(lHorizon3);
                     lGMOLaPalmaPivot1.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 2
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotGMOLaPalma2
@@ -9026,7 +9338,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lGMOLaPalmaPivot2.HorizonList.Add(lHorizon3);
                     lGMOLaPalmaPivot2.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 3
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotGMOLaPalma3
@@ -9054,7 +9365,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lGMOLaPalmaPivot3.HorizonList.Add(lHorizon2);
                     lGMOLaPalmaPivot3.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 4
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotGMOLaPalma4
@@ -9067,6 +9377,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                                  select hor).FirstOrDefault();
                     lHorizon3 = (from hor in context.Horizons
                                  where hor.Name == Utils.NamePivotGMOLaPalma4 + " 3"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma4 + " 4"
                                  select hor).FirstOrDefault();
                     var lGMOLaPalmaPivot4 = new Soil
                     {
@@ -9081,8 +9394,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lGMOLaPalmaPivot4.HorizonList.Add(lHorizon1);
                     lGMOLaPalmaPivot4.HorizonList.Add(lHorizon2);
                     lGMOLaPalmaPivot4.HorizonList.Add(lHorizon3);
+                    lGMOLaPalmaPivot4.HorizonList.Add(lHorizon4);
                     #endregion
-
                     #region Pivot 5
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotGMOLaPalma5
@@ -9110,12 +9423,132 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lGMOLaPalmaPivot5.HorizonList.Add(lHorizon2);
                     lGMOLaPalmaPivot5.HorizonList.Add(lHorizon3);
                     #endregion
+                    #region Pivot 1.1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma1_1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma1_1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma1_1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma1_1 + " 3"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma1_1 + " 4"
+                                 select hor).FirstOrDefault();
+                    var lGMOLaPalmaPivot1_1 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOLaPalma1_1,
+                        Description = "Suelo del Pivot 1.1 en GMO La Palma. "
+                         + "Vertisol.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 45,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon3);
+                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon4);
+                    #endregion
+                    #region Pivot 2.1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma2_1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma2_1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma2_1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma2_1 + " 3"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma2_1 + " 4"
+                                 select hor).FirstOrDefault();
+                    var lGMOLaPalmaPivot2_1 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOLaPalma2_1,
+                        Description = "Suelo del Pivot 2.1 en GMO - La Palma. "
+                         + "Vertisol.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 45,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOLaPalmaPivot2_1.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot2_1.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot2_1.HorizonList.Add(lHorizon3);
+                    lGMOLaPalmaPivot2_1.HorizonList.Add(lHorizon4);
+                    #endregion
+                    #region Pivot 3.1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma3_1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma3_1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma3_1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma3_1 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOLaPalmaPivot3_1 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOLaPalma3_1,
+                        Description = "Suelo del Pivot 3.1 en La Palma. "
+                         + "Vertisol.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 45,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOLaPalmaPivot3_1.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot3_1.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot3_1.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 4.1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGMOLaPalma4_1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma4_1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma4_1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGMOLaPalma4_1 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGMOLaPalmaPivot4_1 = new Soil
+                    {
+                        Name = Utils.NamePivotGMOLaPalma4_1,
+                        Description = "Suelo del Pivot 4.1 en La Palma. "
+                         + "Brunosol.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2016, 09, 28),
+                        DepthLimit = 45,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGMOLaPalmaPivot4_1.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot4_1.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot4_1.HorizonList.Add(lHorizon3);
+                    #endregion
 
                     context.Soils.Add(lGMOLaPalmaPivot1);
                     context.Soils.Add(lGMOLaPalmaPivot2);
                     context.Soils.Add(lGMOLaPalmaPivot3);
                     context.Soils.Add(lGMOLaPalmaPivot4);
                     context.Soils.Add(lGMOLaPalmaPivot5);
+                    context.Soils.Add(lGMOLaPalmaPivot1_1);
+                    context.Soils.Add(lGMOLaPalmaPivot2_1);
+                    context.Soils.Add(lGMOLaPalmaPivot3_1);
+                    context.Soils.Add(lGMOLaPalmaPivot4_1);
                     context.SaveChanges();
                 }
             }
@@ -9123,6 +9556,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             #region GMO - El Tacuru Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
@@ -9501,7 +9935,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
             #region Tres Marias Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -9533,7 +9967,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lTresMariasPivot1.HorizonList.Add(lHorizon2);
                     lTresMariasPivot1.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 2
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotTresMarias2
@@ -9560,7 +9993,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lTresMariasPivot2.HorizonList.Add(lHorizon2);
                     lTresMariasPivot2.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 3
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotTresMarias3
@@ -9587,7 +10019,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lTresMariasPivot3.HorizonList.Add(lHorizon2);
                     lTresMariasPivot3.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 4
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotTresMarias4
@@ -9623,10 +10054,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
-
             #region La Rinconada Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -9659,7 +10089,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lLaRinconadaPivot1.HorizonList.Add(lHorizon2);
                     lLaRinconadaPivot1.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 2
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotLaRinconada2
@@ -9687,7 +10116,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lLaRinconadaPivot2.HorizonList.Add(lHorizon2);
                     lLaRinconadaPivot2.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 3.1
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotLaRinconada3_1
@@ -9715,7 +10143,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lLaRinconadaPivot3_1.HorizonList.Add(lHorizon2);
                     lLaRinconadaPivot3_1.HorizonList.Add(lHorizon3);
                     #endregion
-
                     #region Pivot 13.1
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotLaRinconada13_1
@@ -9756,6 +10183,76 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
+            #region El Rincon Soils
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    #region Pivot 1a
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElRincon1a
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon1a + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon1a + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon1a + " 3"
+                                 select hor).FirstOrDefault();
+                    var lElRinconPivot1a = new Soil
+                    {
+                        Name = Utils.NamePivotElRincon1a,
+                        Description = "Suelo del Pivot 1a en El Rincon. "
+                         + "Suelo Franco Limoso. CONEAT 10.8b.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 09),
+                        DepthLimit = 60,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lElRinconPivot1a.HorizonList.Add(lHorizon1);
+                    lElRinconPivot1a.HorizonList.Add(lHorizon2);
+                    lElRinconPivot1a.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 1b
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElRincon1b
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon1b + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon1b + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon1b + " 3"
+                                 select hor).FirstOrDefault();
+                    var lElRinconPivot1b = new Soil
+                    {
+                        Name = Utils.NamePivotElRincon1b,
+                        Description = "Suelo del Pivot 1b en El Rincon. "
+                         + "Suelo Franco Arcilloso. CONEAT 10.8b.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 09),
+                        DepthLimit = 60,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lElRinconPivot1b.HorizonList.Add(lHorizon1);
+                    lElRinconPivot1b.HorizonList.Add(lHorizon2);
+                    lElRinconPivot1b.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    context.Soils.Add(lElRinconPivot1a);
+                    context.Soils.Add(lElRinconPivot1b);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
             
         }
 
@@ -9789,7 +10286,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
-
             #region Crop Coefficient Corn South Medium
             using (var context = new IrrigationAdvisorContext())
             {
@@ -9807,7 +10303,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
-
             #region Crop Coefficient Soya South Short
             using (var context = new IrrigationAdvisorContext())
             {
@@ -9825,7 +10320,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
-
             #region Crop Coefficient Soya South Medium
             using (var context = new IrrigationAdvisorContext())
             {
@@ -9861,7 +10355,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
-
             #region Crop Coefficient Corn North Medium
             using (var context = new IrrigationAdvisorContext())
             {
@@ -9879,7 +10372,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
-
             #region Crop Coefficient Soya North Short
             using (var context = new IrrigationAdvisorContext())
             {
@@ -9897,7 +10389,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
-
             #region Crop Coefficient Soya North Medium
             using (var context = new IrrigationAdvisorContext())
             {
