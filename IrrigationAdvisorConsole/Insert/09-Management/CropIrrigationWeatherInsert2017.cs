@@ -7519,13 +7519,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotGMOLaPalma1
+                                       where iu.Name == Utils.NamePivotGMOLaPalma1_1
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilGMOLaPalma1
+                             where soil.Name == Utils.NameSoilGMOLaPalma1_1
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma1)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma1_1)
                                     select horizon)
                                     .ToList<Horizon>();
                     lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot1_1_2017;

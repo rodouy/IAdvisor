@@ -5839,7 +5839,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 #region Pivot 1.1
                 var lGMOLaPalmaPivot_1_1_1 = new Horizon
                 {
-                    Name = Utils.NamePivotGMOLaPalma1 + " 1",
+                    Name = Utils.NamePivotGMOLaPalma1_1 + " 1",
                     Order = 1,
                     HorizonLayer = "A",
                     HorizonLayerDepth = 20,
@@ -5852,7 +5852,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
                 var lGMOLaPalmaPivot_1_1_2 = new Horizon
                 {
-                    Name = Utils.NamePivotGMOLaPalma1 + " 2",
+                    Name = Utils.NamePivotGMOLaPalma1_1 + " 2",
                     Order = 2,
                     HorizonLayer = "B1",
                     HorizonLayerDepth = 15,
@@ -5865,7 +5865,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
                 var lGMOLaPalmaPivot_1_1_3 = new Horizon
                 {
-                    Name = Utils.NamePivotGMOLaPalma1 + " 3",
+                    Name = Utils.NamePivotGMOLaPalma1_1 + " 3",
                     Order = 3,
                     HorizonLayer = "B2",
                     HorizonLayerDepth = 25,
@@ -5878,7 +5878,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
                 var lGMOLaPalmaPivot_1_1_4 = new Horizon
                 {
-                    Name = Utils.NamePivotGMOLaPalma1 + " 4",
+                    Name = Utils.NamePivotGMOLaPalma1_1 + " 4",
                     Order = 4,
                     HorizonLayer = "B3",
                     HorizonLayerDepth = 30,
