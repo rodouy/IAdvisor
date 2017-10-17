@@ -9299,7 +9299,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Vertisol.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
-                        DepthLimit = 45,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot1.HorizonList.Add(lHorizon1);
@@ -9330,7 +9330,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Vertisol.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
-                        DepthLimit = 45,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot2.HorizonList.Add(lHorizon1);
@@ -9358,7 +9358,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Vertisol.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
-                        DepthLimit = 45,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot3.HorizonList.Add(lHorizon1);
@@ -9388,7 +9388,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Brunosol.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
-                        DepthLimit = 45,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot4.HorizonList.Add(lHorizon1);
@@ -9416,7 +9416,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Brunosol.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
-                        DepthLimit = 45,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot5.HorizonList.Add(lHorizon1);
@@ -9446,13 +9446,13 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Vertisol.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
-                        DepthLimit = 45,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
-                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon1);
-                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon2);
-                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon3);
-                    lGMOLaPalmaPivot1.HorizonList.Add(lHorizon4);
+                    lGMOLaPalmaPivot1_1.HorizonList.Add(lHorizon1);
+                    lGMOLaPalmaPivot1_1.HorizonList.Add(lHorizon2);
+                    lGMOLaPalmaPivot1_1.HorizonList.Add(lHorizon3);
+                    lGMOLaPalmaPivot1_1.HorizonList.Add(lHorizon4);
                     #endregion
                     #region Pivot 2.1
                     lPosition = (from pos in context.Positions
@@ -9477,7 +9477,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Vertisol.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
-                        DepthLimit = 45,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot2_1.HorizonList.Add(lHorizon1);
@@ -9505,7 +9505,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Vertisol.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
-                        DepthLimit = 45,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot3_1.HorizonList.Add(lHorizon1);
@@ -9532,7 +9532,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Brunosol.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
-                        DepthLimit = 45,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot4_1.HorizonList.Add(lHorizon1);
@@ -9583,7 +9583,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot1a.HorizonList.Add(lHorizon1);
@@ -9610,7 +9610,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot1b.HorizonList.Add(lHorizon1);
@@ -9637,7 +9637,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot2a.HorizonList.Add(lHorizon1);
@@ -9664,7 +9664,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot2b.HorizonList.Add(lHorizon1);
@@ -9691,7 +9691,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot3a.HorizonList.Add(lHorizon1);
@@ -9718,7 +9718,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot3b.HorizonList.Add(lHorizon1);
@@ -9745,7 +9745,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot4.HorizonList.Add(lHorizon1);
@@ -9772,7 +9772,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot5.HorizonList.Add(lHorizon1);
@@ -9799,7 +9799,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot6.HorizonList.Add(lHorizon1);
@@ -9826,7 +9826,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(7016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot7.HorizonList.Add(lHorizon1);
@@ -9853,7 +9853,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot8.HorizonList.Add(lHorizon1);
@@ -9880,7 +9880,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot9.HorizonList.Add(lHorizon1);
@@ -9907,7 +9907,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                          + "Itapebi-TA. Vertisol Haplicos mod prof.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
-                        DepthLimit = 40,
+                        DepthLimit = 60,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot10.HorizonList.Add(lHorizon1);
