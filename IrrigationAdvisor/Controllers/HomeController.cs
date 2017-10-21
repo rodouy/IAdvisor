@@ -1822,7 +1822,12 @@ namespace IrrigationAdvisor.Controllers
             List<DailyRecord> lDailyRecordList;
             String lSowingDate;
             String lPhenologicalStageToday;
-
+            Double lHydricBalancePercentage;
+            DailyRecord lDailyRecord;
+            String lCropCoefficient;
+            List<Double> lETcList;
+            Double lETcItem;
+            HomeViewModel lHomeViewModel;
             #endregion
 
             #region Configuration Variables
@@ -1903,17 +1908,32 @@ namespace IrrigationAdvisor.Controllers
                             lFirstPivotName = "";
                         }
 
-                        decimal hydricBalanceWithTwoDigits = decimal.Round(Convert.ToDecimal(lCropIrrigationWeather.HydricBalance), 2);
+                        lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
 
-                        var cropCoefficient = lDailyRecordList.Where(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId && n.DailyRecordDateTime.ToShortDateString() == ManageSession.GetNavigationDate().ToShortDateString()).FirstOrDefault();
+                        //Obtain Crop Coefficient from DailyRecord
+                        lDailyRecord = lDailyRecordList
+                                                .Where(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId 
+                                                        && n.DailyRecordDateTime.ToShortDateString() == ManageSession.GetNavigationDate().ToShortDateString())
+                                                        .FirstOrDefault();
+                        if(lDailyRecord != null)
+                        {
+                            lCropCoefficient = lDailyRecord.CropCoefficient.ToString();
+                        }
+                        else
+                        {
+                            lCropCoefficient=String.Empty;
+                        }
 
-                        var homeViewModel = ManageSession.GetHomeViewModel();
+                        lHomeViewModel = ManageSession.GetHomeViewModel();
 
-                        List<double> etcList = new List<double>();
+                        lETcList = new List<Double>();
                         foreach (var item in lGridIrrigationUnitDetailRow)
                         {
-                            double etcItem = db.WeatherDatas.Where(n => n.Date == item.DateOfData.Date && n.WeatherStationId == lCropIrrigationWeather.MainWeatherStationId).Select(n => n.Evapotranspiration).FirstOrDefault();
-                            etcList.Add(etcItem);
+                            lETcItem = db.WeatherDatas
+                                            .Where(wd => wd.Date == item.DateOfData.Date 
+                                                && wd.WeatherStationId == lCropIrrigationWeather.MainWeatherStationId)
+                                                .Select(wd => wd.Evapotranspiration).FirstOrDefault();
+                            lETcList.Add(lETcItem);
                         }
 
                         //Add all the days for the IrrigationUnit
@@ -1921,10 +1941,10 @@ namespace IrrigationAdvisor.Controllers
                                                                 lCropIrrigationWeather.Crop.ShortName,
                                                                 lSowingDate,
                                                                 lPhenologicalStageToday,
-                                                                hydricBalanceWithTwoDigits.ToString(),
-                                                                cropCoefficient != null ? cropCoefficient.CropCoefficient.ToString() : string.Empty,
-                                                                homeViewModel.IsUserAdministrator,
-                                                                etcList,
+                                                                lHydricBalancePercentage.ToString() + " %",
+                                                                lCropCoefficient,
+                                                                lHomeViewModel.IsUserAdministrator,
+                                                                lETcList,
                                                                 lGridIrrigationUnitDetailRow,
                                                                 lCropIrrigationWeather.CropIrrigationWeatherId);
 
