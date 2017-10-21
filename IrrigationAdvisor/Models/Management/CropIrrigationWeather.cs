@@ -2997,45 +2997,54 @@ namespace IrrigationAdvisor.Models.Management
         {
             Water.Irrigation lReturn = null;
             Water.Irrigation lIrrigation = null;
+            var localContext = new IrrigationAdvisorContext();
 
-            ////foreach (Water.Irrigation lIrrigationItem in this.IrrigationList)
-            ////{
-            ////    if (Utils.IsTheSameDay(lIrrigationItem.Date, pDayOfIrrigation) || Utils.IsTheSameDay(lIrrigationItem.ExtraDate, pDayOfIrrigation))
-            ////    {
-            ////        if (lIrrigation.Type == WaterInputType.Rain)
-            ////        {
-            ////            lIrrigation = lIrrigationItem;
-            ////        }
-            ////        else if (lIrrigation.Type == WaterInputType.)
-            ////    }
-            ////    else
-            ////    {
-            ////        lIrrigation = new Water.Irrigation(WaterInputType.IrrigationWasNotDecided, pDayOfIrrigation, 0, this.CropIrrigationWeatherId);
-            ////        temporalWaterInput.Add(lIrrigation);
-            ////    }
+            /********* BEGIN WORKAROUND ***************/
+            // There are cases when in the IrrigationList aren't irrigations.
+            // This is because the context is a singleton implementation and doesn't update the new records if this method is called after an operation
+            // that update records in the database.
 
-            ////    break;
-            ////}
+            // Get the updated records from the database.
+            var irrigationsFromBase = localContext.Irrigations.Where(n => n.CropIrrigationWeatherId == this.CropIrrigationWeatherId).ToList();
+            
+            // Filter records by date.
+            irrigationsFromBase = irrigationsFromBase.Where(n => Utils.IsTheSameDay(n.Date, pDayOfIrrigation)).ToList();
 
             lIrrigation = this.irrigationList.Where(n => Utils.IsTheSameDay(n.Date, pDayOfIrrigation) && n.Type == WaterInputType.Rain).FirstOrDefault();
+
+            // If the application doesn't find irrigation then it try to find in the database records.
+            if (lIrrigation == null)
+            {
+                lIrrigation = irrigationsFromBase.Where(n => Utils.IsTheSameDay(n.Date, pDayOfIrrigation) && n.Type == WaterInputType.Rain).FirstOrDefault();
+            }
 
             if (lIrrigation == null)
             {
                 lIrrigation = this.irrigationList.Where(n => Utils.IsTheSameDay(n.Date, pDayOfIrrigation) && n.Type == WaterInputType.CantIrrigate).FirstOrDefault();
+
+                if (lIrrigation == null)
+                {
+                    lIrrigation = irrigationsFromBase.Where(n => Utils.IsTheSameDay(n.Date, pDayOfIrrigation) && n.Type == WaterInputType.CantIrrigate).FirstOrDefault();
+                }
             }
 
             if (lIrrigation == null)
             {
                 lIrrigation = this.irrigationList.Where(n => Utils.IsTheSameDay(n.Date, pDayOfIrrigation)).FirstOrDefault();
+
+                if (lIrrigation == null)
+                {
+                    lIrrigation = irrigationsFromBase.Where(n => Utils.IsTheSameDay(n.Date, pDayOfIrrigation)).FirstOrDefault();
+                }
             }
+
+            /************ END WORKAROUND *************/
 
             if (lIrrigation == null)
             {
                 lIrrigation = new Water.Irrigation(WaterInputType.IrrigationWasNotDecided, pDayOfIrrigation, 0, this.CropIrrigationWeatherId);
                 this.irrigationList.Add(lIrrigation);
             }
-
-            ////this.IrrigationList.AddRange(temporalWaterInput);
 
             lReturn = lIrrigation;
             return lReturn;
@@ -3284,7 +3293,12 @@ namespace IrrigationAdvisor.Models.Management
                     lNewIrrigation.CropIrrigationWeather = this;
                     lNewIrrigation.ReasonId = pReasonId;
                     lNewIrrigation.Observations = pObservations;
-                    this.IrrigationList.Add(lNewIrrigation);
+
+                    if (!this.IrrigationList.Any(n => n.WaterInputId == lNewIrrigation.WaterInputId))
+                    {
+                        this.IrrigationList.Add(lNewIrrigation);
+                    }
+                    
                 }
                 #endregion
                 #region Condition #6 NOT IRRIGATION FOR TODAY
