@@ -162,6 +162,12 @@ namespace IrrigationAdvisor.Models.Localization
             set { userFarmList = value; }
         }
 
+        public virtual Position Position
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region Construction

@@ -1,4 +1,5 @@
 ﻿using IrrigationAdvisor.Authorize;
+using IrrigationAdvisor.ComplementedUtils;
 using IrrigationAdvisor.Controllers.Helpers;
 using IrrigationAdvisor.DBContext;
 using IrrigationAdvisor.DBContext.Agriculture;
@@ -35,6 +36,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -429,7 +431,6 @@ namespace IrrigationAdvisor.Controllers
                 lHVM.DateOfReference = lDateOfReference;
                 
                 lHVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
-                
                 trace = 140;
                 ManageSession.SetHomeViewModel(lHVM);
 
@@ -487,15 +488,10 @@ namespace IrrigationAdvisor.Controllers
             return lResult;
         }
 
-        /// <summary>
-        /// Get Farms for the current user
-        /// </summary>
-        /// <returns>Json with the Farms</returns>
-        public JsonResult GetFarmsByUser()
+        private List<Farm> GetFarmsByUserAsList()
         {
-            FarmConfiguration lFc = new FarmConfiguration();
             UserConfiguration lUc = new UserConfiguration();
-            List<FarmShortView> lFarmShortViews = new List<FarmShortView>();
+            FarmConfiguration lFc = new FarmConfiguration();
 
             try
             {
@@ -509,8 +505,37 @@ namespace IrrigationAdvisor.Controllers
 
                     if (lUser != null)
                     {
-                        List<Farm> lFarmList = lFc.GetFarmWithActiveCropIrrigationWeathersListBy(lUser);
+                        return lFc.GetFarmWithActiveCropIrrigationWeathersListBy(lUser);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.GetFarmsByUserAsList ");
+            }
 
+            return null;
+        }
+        /// <summary>
+        /// Get Farms for the current user
+        /// </summary>
+        /// <returns>Json with the Farms</returns>
+        public JsonResult GetFarmsByUser()
+        {       
+            List<FarmShortView> lFarmShortViews = new List<FarmShortView>();
+
+            try
+            {
+                LoginViewModel lLoginViewModel = ManageSession.GetLoginViewModel();
+
+                if (lLoginViewModel != null)
+                {
+                    string lUserName = lLoginViewModel.UserName;
+      
+                    List<Farm> lFarmList = GetFarmsByUserAsList();
+
+                    if (lFarmList != null)
+                    {
                         foreach (var item in lFarmList)
                         {
                             FarmShortView lFarmShortView = new FarmShortView()
@@ -520,15 +545,15 @@ namespace IrrigationAdvisor.Controllers
                             };
 
                             lFarmShortViews.Add(lFarmShortView);
-                        }
-
-                        return Json(lFarmShortViews, JsonRequestBehavior.AllowGet);
+                        } 
                     }
                     else
                     {
                         // Que pasa cuando no encuentro en User ?
                         return Json("The user not exists", JsonRequestBehavior.AllowGet);
                     }
+
+                    return Json(lFarmShortViews, JsonRequestBehavior.AllowGet);                              
                 }
                 else
                 {
@@ -538,6 +563,113 @@ namespace IrrigationAdvisor.Controllers
             catch (Exception ex)
             {
                 Utils.LogError(ex, "Exception in HomeController.GetFarmsByUser ");
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult ForgetPassword(string userName, string email)
+        {
+            try
+            {
+                UserConfiguration uc = new UserConfiguration();
+                IrrigationAdvisorContext db = IrrigationAdvisorContext.Refresh();
+
+                User user = uc.GetUserByName(userName.Trim());
+
+                string subject = "Recuperación de contraseña PGG Wrightson";
+                string wrongBody = string.Format("Han intentado restablecer una constraseña sin éxito el User: {0}. El mail no coincidió {1} debería haber sido {2}",
+                                                user.UserName, email, user.Email);
+
+                string randomPassword = RandomPassword();
+                string body = string.Format("Ingrese con la siguiente contraseña temporal para acceder {0}", randomPassword);
+
+                if (user.Email.ToLower().Trim().Equals(email.ToLower().Trim()))
+                {
+
+                    MD5 md5Hash = MD5.Create();
+
+                    User toModify = db.Users.Single(n => n.UserName == user.UserName);
+
+                    toModify.Password = CryptoUtils.GetMd5Hash(md5Hash, randomPassword);
+
+                    db.SaveChanges();
+
+                    SendEmails(subject,
+                            body,
+                            user.Email);
+
+                    return Json("Ok", JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    SendEmails(subject,
+                               wrongBody);
+
+                    return Json("No se ha podido recuperar su contraseña contacte a su administrador", JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.ForgetPassword.");
+
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        private string RandomPassword()
+        {
+            RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider();
+
+            byte[] data = new byte[64];
+            rngCsp.GetBytes(data);
+
+            string dataAsString = Convert.ToBase64String(data);
+
+            return dataAsString.Substring(0, 10);
+            
+        }
+
+        /// <summary>
+        /// Move irrigations
+        /// </summary>
+        /// <param name="pDateToMove">Date to move</param>
+        /// <returns></returns>
+        public ActionResult MoveIrrigation(DateTime pDateToMove, long pWaterInputId)
+        {
+            try
+            {
+                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+
+                var waterInput = lContext.Irrigations.Single(w => w.WaterInputId == pWaterInputId);
+
+                //if (waterInput.ExtraInput > 0)
+                //{
+                //    waterInput.ExtraDate = pDateToMove;
+                //}
+
+                string observation = "Move Irrigation from " + waterInput.Date.ToShortDateString() + " to " + pDateToMove.ToShortDateString();
+
+                if (waterInput.Date < pDateToMove)
+                {
+                    AddNoIrrigation(waterInput.Date, pDateToMove.AddDays(-1),
+                                waterInput.CropIrrigationWeatherId.ToString(),
+                                (int)Utils.NoIrrigationReason.MoveIrrigation,
+                                observation);
+
+                    lContext.SaveChanges();
+                }
+                else
+                {
+                    // Not implemented yet.
+                }
+
+
+                return Content("Ok");
+
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.MoveIrrigation ");
                 return Json(ex.Message, JsonRequestBehavior.AllowGet);
             }
         }
@@ -660,11 +792,11 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
-        private MailMessage GetMailMessage(string subject, string body)
+        private MailMessage GetMailMessage(string subject, string body, string pEmailTo = null)
         {
             MailMessage mail = new MailMessage();
             string emailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]);
-            string emailTo = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]);
+            string emailTo = pEmailTo == null ? Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]) : pEmailTo;
 
             mail.From = new MailAddress(emailFrom);
             mail.To.Add(emailTo);
@@ -699,13 +831,13 @@ namespace IrrigationAdvisor.Controllers
         /// <param name="subject"></param>
         /// <param name="body"></param>
         /// <returns></returns>
-        public ActionResult SendEmails(string subject, string body)
+        public ActionResult SendEmails(string subject, string body, string pEmail = null)
         {
             try
             {
 
                 SmtpClient smtp = GetSmtpClient();
-                MailMessage mail = GetMailMessage(subject, body);
+                MailMessage mail = GetMailMessage(subject, body, pEmail);
 
                 smtp.Send(mail);
 
@@ -1384,6 +1516,7 @@ namespace IrrigationAdvisor.Controllers
         public ActionResult AddNoIrrigation(DateTime pDateFrom, DateTime pDateTo,
                                             string pCIW, int pReason, string pObservations)
         {
+            // TODO: Cuando es otro es obligatoria las observaciones
             string lSomeData = string.Empty;
             try
             {
@@ -1406,16 +1539,28 @@ namespace IrrigationAdvisor.Controllers
                 int lSaveChanges = 0;
                 #endregion
 
-                List<string> selectedCiw = pCIW.Split(',').ToList();
+                var selectedCiw = (from p in pCIW.Split(',').ToList()
+                                   select Convert.ToInt64(p)).ToList();
 
-                // ManageSession.SetFromDateTime(lDateResult);
+                var filteredCiw = ciwc.GetCropIrrigationWeatherByIds(selectedCiw);
 
-                //if (pCIW > -1)
+                //List<long> cropForFilter = filteredCiw.Select(n => n.CropIrrigationWeatherId).ToList();
+                //var dailyMemory = lContext.DailyRecords.Where(dr => cropForFilter.Contains(dr.CropIrrigationWeatherId)).ToList();
+                //var irrigationMemory = lContext.Irrigations.Where(w => w.Date >= pDateFrom && w.Date <= pDateTo).ToList();
+
+
+                //var daily = (from dr in dailyMemory
+                //            join w in irrigationMemory
+                //            on dr.IrrigationId equals w.WaterInputId
+                //            select w.WaterInputId).ToList();
+
+                //foreach (int item in daily)
                 //{
-                var filteredCiw = lContext.CropIrrigationWeathers
-                                    .Include(c => c.Soil.HorizonList)
-                                    .Where(c => selectedCiw.Contains(c.CropIrrigationWeatherId.ToString()))
-                                    .ToList();
+
+                //    var waterInput = lContext.Irrigations.First(n => n.WaterInputId == item);
+                //    waterInput.Date = pDateTo.AddDays(1);
+                //    waterInput.ExtraDate = pDateTo.AddDays(1);
+                //}
 
                 foreach (var bCIW in filteredCiw)
                 {
@@ -1423,32 +1568,34 @@ namespace IrrigationAdvisor.Controllers
                 }
 
                 lSaveChanges = lContext.SaveChanges();
-                //}
-                //else
-                //{
-                //    string farmParameter = Utils.GetUrlParameter("farm");
-                //    long lFarmId = 0;
-
-                //    if(farmParameter == null)
-                //    {
-                //        lFarmId = lContext.Farms.First().FarmId;
-                //    }
-                //    else
-                //    {
-                //        lFarmId = int.Parse(farmParameter);
-                //    }
-
-                //    List<CropIrrigationWeather> ciwByFarm = this.GetCropIrrigationWeatherListByFarmId(lFarmId, Utils.GetDateOfReference().Value);
-
-                //    foreach (var bCIW in ciwByFarm)
-                //    {
-                //        AddOrUpdateIrrigationDataToListForNoIrrigation(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations);
-                //    }
-                //    lSaveChanges = lContext.SaveChanges();
-                //}
 
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
+
+                string farm = Utils.GetUrlParameter("farm");
+
+                long farmId = 0;
+
+                if (farm != null)
+                {
+                    farmId = Convert.ToInt32(farm);
+                }
+                else
+                {
+                    farmId = GetFarmsByUserAsList().First().FarmId;
+                }
+
+                DateTime calculateFrom = DateTime.Now;
+                if(pDateFrom < lReferenceDate)
+                {
+                    calculateFrom = pDateFrom;
+                }
+                else
+                {
+                    calculateFrom = lReferenceDate;
+                }
+
+                this.CalculateAllActiveCropIrrigationWeather(farmId, calculateFrom, DateTime.Now);
                 ManageSession.SetNavigationDate(lReferenceDate);
             }
             catch (Exception ex)
@@ -1624,8 +1771,18 @@ namespace IrrigationAdvisor.Controllers
                     lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
                 }
 
+                var homeViewModel = ManageSession.GetHomeViewModel();
                 //Add all the days for the IrrigationUnit
-                lGridIrrigationUnit = new GridPivotHome("Nombre", "Cultivo", "Siembra", "Fen.", lGridIrrigationUnitDetailRow);
+                lGridIrrigationUnit = new GridPivotHome("Nombre", 
+                                                        "Cultivo", 
+                                                        "Siembra", 
+                                                        "Fen.", 
+                                                        "Balance H.", 
+                                                        "KC", 
+                                                        homeViewModel.IsUserAdministrator,
+                                                        new List<double>(),
+                                                        lGridIrrigationUnitDetailRow,
+                                                        0);
 
                 lGridIrrigationUnitList.Add(lGridIrrigationUnit);
 
@@ -1665,7 +1822,12 @@ namespace IrrigationAdvisor.Controllers
             List<DailyRecord> lDailyRecordList;
             String lSowingDate;
             String lPhenologicalStageToday;
-
+            Double lHydricBalancePercentage;
+            DailyRecord lDailyRecord;
+            String lCropCoefficient;
+            List<Double> lETcList;
+            Double lETcItem;
+            HomeViewModel lHomeViewModel;
             #endregion
 
             #region Configuration Variables
@@ -1673,6 +1835,7 @@ namespace IrrigationAdvisor.Controllers
             FarmConfiguration fc;
             IrrigationUnitConfiguration iuc;
             CropIrrigationWeatherConfiguration ciwc;
+            IrrigationAdvisorContext db;
             #endregion
 
             try
@@ -1683,6 +1846,7 @@ namespace IrrigationAdvisor.Controllers
                 fc = new FarmConfiguration();
                 iuc = new IrrigationUnitConfiguration();
                 ciwc = new CropIrrigationWeatherConfiguration();
+                db = IrrigationAdvisorContext.Refresh();
                 #endregion
 
                 lDateOfReference = ManageSession.GetNavigationDate();
@@ -1744,12 +1908,45 @@ namespace IrrigationAdvisor.Controllers
                             lFirstPivotName = "";
                         }
 
+                        lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
+
+                        //Obtain Crop Coefficient from DailyRecord
+                        lDailyRecord = lDailyRecordList
+                                                .Where(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId 
+                                                        && n.DailyRecordDateTime.ToShortDateString() == ManageSession.GetNavigationDate().ToShortDateString())
+                                                        .FirstOrDefault();
+                        if(lDailyRecord != null)
+                        {
+                            lCropCoefficient = lDailyRecord.CropCoefficient.ToString();
+                        }
+                        else
+                        {
+                            lCropCoefficient=String.Empty;
+                        }
+
+                        lHomeViewModel = ManageSession.GetHomeViewModel();
+
+                        lETcList = new List<Double>();
+                        foreach (var item in lGridIrrigationUnitDetailRow)
+                        {
+                            lETcItem = db.WeatherDatas
+                                            .Where(wd => wd.Date == item.DateOfData.Date 
+                                                && wd.WeatherStationId == lCropIrrigationWeather.MainWeatherStationId)
+                                                .Select(wd => wd.Evapotranspiration).FirstOrDefault();
+                            lETcList.Add(lETcItem);
+                        }
+
                         //Add all the days for the IrrigationUnit
                         lGridIrrigationUnit = new GridPivotHome(lFirstPivotName,
                                                                 lCropIrrigationWeather.Crop.ShortName,
                                                                 lSowingDate,
                                                                 lPhenologicalStageToday,
-                                                                lGridIrrigationUnitDetailRow);
+                                                                lHydricBalancePercentage.ToString() + " %",
+                                                                lCropCoefficient,
+                                                                lHomeViewModel.IsUserAdministrator,
+                                                                lETcList,
+                                                                lGridIrrigationUnitDetailRow,
+                                                                lCropIrrigationWeather.CropIrrigationWeatherId);
 
                         lGridIrrigationUnitList.Add(lGridIrrigationUnit);
                     }
@@ -1921,7 +2118,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
                                                                 lDateOfData, lIsToday, lIrrigationStatus,
-                                                                lPhenology);
+                                                                lPhenology, lDailyRecord);
             }
             catch (Exception ex)
             {

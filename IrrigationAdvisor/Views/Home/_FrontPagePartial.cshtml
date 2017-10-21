@@ -1,58 +1,98 @@
-﻿@model List<IrrigationAdvisor.Models.GridHome.GridPivotHome>
+﻿@using IrrigationAdvisor.Models.Management
+@model List<IrrigationAdvisor.Models.GridHome.GridPivotHome>
 
 @{
     ViewBag.Title = "Pivot Irrigation";
 }
 
-@helper CustomRain(Double value, string date)
+@helper CustomRain(Double value, string date, DailyRecord dailyRecord)
 {
-    <td><span class="description-mobile-left">@date</span><div class="ref-rain"><span class="value-mobile-position">@value</span></div></td>
+    <td>
+        <span class="description-mobile-left">@date</span>
+        <div class="ref-rain">
+            <span class="value-mobile-position">@value</span>
+        </div>
+    </td>
 }
 
-@helper CustomIrrigation(Double value, string date)
+@helper CustomIrrigation(Double value, string date, DailyRecord dailyRecord)
 {  
-    <td><span class="description-mobile-left">@date</span> <div class="ref-irrigated"><span class="value-mobile-position">@value</span></div></td>
+    <td>
+        <span class="description-mobile-left">@date</span> 
+        <div class="ref-irrigated">
+           <span class="value-mobile-position">@value</span>
+        </div>
+    </td>
 }
 
-@helper ForecastIrrigation(Double value, string date)
+@helper ForecastIrrigation(Double value, string date, DailyRecord dailyRecord)
 {
-    <td><span class="description-mobile-left">@date</span><div class="ref-next-irrigation"> <span class="value-mobile-position">@value</span> </div></td>
+    <td style="cursor:pointer" title="Mover riego" class="move-irrigation">
+        <span class="description-mobile-left">@date</span>
+        <div class="ref-next-irrigation"> 
+            <span class="value-mobile-position">@value</span> 
+            <input type="hidden" value="@dailyRecord.Irrigation.WaterInputId, @dailyRecord.Irrigation.Date.ToShortDateString() ,@dailyRecord.CropIrrigationWeatherId, @dailyRecord.CropIrrigationWeather.CropIrrigationWeatherName, @dailyRecord.Irrigation.Input" class="waterInputValue"/>
+        </div>
+    </td>
 }
-@helper NoIrrigation(Double value, string date)
+@helper NoIrrigation(Double value, string date, DailyRecord dailyRecord)
 {
-    <td><span class="description-mobile-left">@date</span><div class="ref-no-irrigation"> <span class="value-mobile-position"></span> </div></td>
+    <td>
+        <span class="description-mobile-left">@date</span>
+        <div class="ref-no-irrigation"> 
+            <span class="value-mobile-position"></span> 
+        </div>
+    </td>
 }
 
 @foreach (var item in Model)
 {   
         @CustomRenderingOfColumn(item)
 }
+<tr>
+    @if (Model.First().IsAdministrator)
+    {
+        <td colspan="6" align="right">ETC</td>
+        foreach (var etc in Model.First().ListEtc)
+        {
+            <td>@etc</td>
+        }
+    }
+</tr>
+
+
 
 @helper CustomRenderingOfColumn(IrrigationAdvisor.Models.GridHome.GridPivotHome gridPivotItem)
 {
     <tr>
-        <td>@gridPivotItem.IrrigationUnitName</td>
+        <td><a href="../ReportPivotState?ciw=@gridPivotItem.CropIrrigationWeatherId" title="Reporte de estado del pivot">@gridPivotItem.IrrigationUnitName</a></td>
         <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.SowingDate</td>
         <td>@gridPivotItem.PhenologyName</td>
+        @if (gridPivotItem.IsAdministrator)
+        {
+            <td>@gridPivotItem.CropCoefficient</td>
+            <td>@gridPivotItem.HydricBalance</td>
+        }
+        
         @foreach (var detail in @gridPivotItem.ListGridPivotDetailHome)
         {
             if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Rain)
             {
-                @CustomRain(detail.IrrigationQuantity + detail.RainQuantity, detail.Day)
+                @CustomRain(detail.IrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord)
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Irrigated)
             {
-                @CustomIrrigation(detail.IrrigationQuantity + detail.RainQuantity, detail.Day)
+                @CustomIrrigation(detail.IrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord)
 
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NextIrrigation)
             {
-                @ForecastIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day)
+                @ForecastIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord)
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NoIrrigation)
             {
-                @NoIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day)
+                @NoIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord)
             }
             else
             {

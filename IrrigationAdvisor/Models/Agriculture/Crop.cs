@@ -645,11 +645,18 @@ namespace IrrigationAdvisor.Models.Agriculture
                                         Double pMinDegree, Double pMaxDegree, Double pCoefficient,
                                         Double pRootDepth, Double pHydricBalanceDepth)
         {
+            //Refactroing 2017/09/14 Changes in Phenological Table Modificable
+            ///TODO ver si es mejor ingresar datos externos o calcular "lDegreesDaysInterval"
+            bool lPhenologicalStageIsUsed = true;
+            Double lDegreesDaysInterval = pMaxDegree - pMinDegree;
+
+
             PhenologicalStage lReturn = null;
             long lPhenologicalStageId = this.GetNewPhenologicalStageListId();
             PhenologicalStage lPhenologicalStage = new PhenologicalStage(lPhenologicalStageId,
                                                     pSpecie, pStage, pMinDegree, pMaxDegree,
-                                                    pCoefficient, pRootDepth, pHydricBalanceDepth);
+                                                    pCoefficient, pRootDepth, pHydricBalanceDepth,
+                                                    lPhenologicalStageIsUsed, lDegreesDaysInterval);
 
             lReturn = ExistPhenologicalStage(lPhenologicalStage);
             if (lReturn == null)
@@ -682,6 +689,11 @@ namespace IrrigationAdvisor.Models.Agriculture
                                         Double pMinDegree, Double pMaxDegree, Double pCoefficient,
                                         Double pRootDepth, Double pHydricBalanceDepth)
         {
+            //Refactroing 2017/09/14 Changes in Phenological Table Modificable
+            ///TODO ver si es mejor ingresar datos externos o calcular "lDegreesDaysInterval"
+            bool lPhenologicalStageIsUsed = true;
+            Double lDegreesDaysInterval = pMaxDegree - pMinDegree;
+
             PhenologicalStage lReturn = null;
             Stage lStage = null;
 
@@ -689,7 +701,8 @@ namespace IrrigationAdvisor.Models.Agriculture
             {
                 PhenologicalStage lPhenologicalStage = new PhenologicalStage(0, pSpecie, pStage,
                                                                 pMinDegree, pMaxDegree, pCoefficient,
-                                                                pRootDepth, pHydricBalanceDepth);
+                                                                pRootDepth, pHydricBalanceDepth,
+                                                                lPhenologicalStageIsUsed,lDegreesDaysInterval);
                 lReturn = ExistPhenologicalStage(lPhenologicalStage);
                 if (lReturn != null)
                 {
