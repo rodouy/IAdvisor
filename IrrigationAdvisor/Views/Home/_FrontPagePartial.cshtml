@@ -35,7 +35,7 @@
         </div>
     </td>
 }
-@helper NoIrrigation(Double value, string date, DailyRecord dailyRecord)
+@helper CantIrrigate(Double value, string date, DailyRecord dailyRecord)
 {
     <td>
         <span class="description-mobile-left">@date</span>
@@ -44,6 +44,18 @@
         </div>
     </td>
 }
+@helper NoDecidedIrrigate()
+{
+    <td>
+        <span class="description-mobile-left"></span>
+        <div class="ref-cant-irrigation">
+            <span class="value-mobile-position"></span>
+        </div>
+    </td>
+}
+
+
+
 
 @foreach (var item in Model)
 {   
@@ -90,9 +102,13 @@
             {
                 @ForecastIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord)
             }
-            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NoIrrigation)
+            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.CantIrrigate)
             {
-                @NoIrrigation(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord)
+                @CantIrrigate(detail.ForecastIrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord)
+            }
+            else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.IrrigationWasNotDecided)
+            {
+                @NoDecidedIrrigate()
             }
             else
             {

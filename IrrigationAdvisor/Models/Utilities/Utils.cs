@@ -187,9 +187,13 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             IrrigationByHydricBalance,
             /// <summary>
-            /// No irrigation.
+            /// Can't irrigate.
             /// </summary>
-            NoIrrigation
+            CantIrrigate,
+            /// <summary>
+            /// Irrigation was not decided
+            /// </summary>
+            IrrigationWasNotDecided
         }
 
         /// <summary>
@@ -358,7 +362,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// No Irrigation
             /// </summary>
-            NoIrrigation
+            CantIrrigate,
+            /// <summary>
+            /// Irrigation was not decided.
+            /// </summary>
+            IrrigationWasNotDecided
         }
         
         /// <summary>
