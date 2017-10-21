@@ -41,6 +41,8 @@ namespace IrrigationAdvisor.Models.Water
             #region Fields
 
             private Utils.WaterInputType type;
+            private String observations;
+            
 
             #endregion
 
@@ -59,34 +61,46 @@ namespace IrrigationAdvisor.Models.Water
                 }
             }
 
-        public string Observations { get; set; }
-        public int? ReasonId { get; set; }
-
-        #endregion
-
-        #region Construction
-
-        /// <summary>
-        /// Constructor of Irrigation
-        /// </summary>
-        public Irrigation(): base()
+            public string Observations
             {
-                this.Type = Utils.WaterInputType.Irrigation;
+                get
+                {
+                    return observations;
+                }
+
+                set
+                {
+                    observations = value;
+                }
             }
+
+            public int? ReasonId { get; set; }
+
+            #endregion
+
+            #region Construction
 
             /// <summary>
-            /// Constructor with parameters
+            /// Constructor of Irrigation
             /// </summary>
-            /// <param name="pDate"></param>
-            /// <param name="pInput"></param>
-            /// <param name="pCropIrrigationWeatherId"></param>
-            public Irrigation(DateTime pDate, double pInput, long pCropIrrigationWeatherId)
-            {
-                this.Type = Utils.WaterInputType.Irrigation;
-                this.Date = pDate;
-                this.Input = pInput;
-                this.CropIrrigationWeatherId = pCropIrrigationWeatherId;
-            }
+            public Irrigation(): base()
+                    {
+                        this.Type = Utils.WaterInputType.Irrigation;
+                    }
+
+                    /// <summary>
+                    /// Constructor with parameters
+                    /// </summary>
+                    /// <param name="pDate"></param>
+                    /// <param name="pInput"></param>
+                    /// <param name="pCropIrrigationWeatherId"></param>
+                    public Irrigation(DateTime pDate, double pInput, long pCropIrrigationWeatherId)
+                    {
+                        this.Type = Utils.WaterInputType.Irrigation;
+                        this.Date = pDate;
+                        this.Input = pInput;
+                        this.CropIrrigationWeatherId = pCropIrrigationWeatherId;
+                    }
 
         public Irrigation(Utils.WaterInputType pType, DateTime pDate, double pInput, long pCropIrrigationWeatherId)
         {

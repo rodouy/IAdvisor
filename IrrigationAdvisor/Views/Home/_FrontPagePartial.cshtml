@@ -64,7 +64,7 @@
 <tr>
     @if (Model.First().IsAdministrator)
     {
-        <td colspan="6">ETC</td>
+        <td colspan="6" align="right">ETC</td>
         foreach (var etc in Model.First().ListEtc)
         {
             <td>@etc</td>
@@ -77,7 +77,7 @@
 @helper CustomRenderingOfColumn(IrrigationAdvisor.Models.GridHome.GridPivotHome gridPivotItem)
 {
     <tr>
-        <td>@gridPivotItem.IrrigationUnitName</td>
+        <td><a href="../ReportPivotState?ciw=@gridPivotItem.CropIrrigationWeatherId" title="Reporte de estado del pivot">@gridPivotItem.IrrigationUnitName</a></td>
         <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.SowingDate</td>
         <td>@gridPivotItem.PhenologyName</td>

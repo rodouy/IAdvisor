@@ -11,7 +11,10 @@ namespace IrrigationAdvisor.DBContext.Weather
 {
     public class WeatherStationConfiguration:
         EntityTypeConfiguration<WeatherStation>
+
     {
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
         public WeatherStationConfiguration()
         {
             ToTable("WeatherStation");
@@ -22,6 +25,16 @@ namespace IrrigationAdvisor.DBContext.Weather
             Property(w => w.Name)
                 .IsRequired();
             
+        }
+
+
+        /// <summary>
+        /// Get all Weather Stations
+        /// </summary>
+        /// <returns></returns>
+        public List<WeatherStation> GetAllWeatherStations()
+        {
+            return db.WeatherStations.ToList();
         }
     }
 }

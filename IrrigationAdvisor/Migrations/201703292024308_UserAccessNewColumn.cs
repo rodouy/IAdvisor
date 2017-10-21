@@ -9,8 +9,8 @@ namespace IrrigationAdvisor.Migrations
         {
             DropIndex("dbo.UserAccess", new[] { "User_UserId" });
             RenameColumn(table: "dbo.UserAccess", name: "User_UserId", newName: "UserId");
-            AddColumn("dbo.Irrigation", "Observations", c => c.String());
-            AddColumn("dbo.Irrigation", "ReasonId", c => c.Int());
+            //AddColumn("dbo.Irrigation", "Observations", c => c.String());
+            //AddColumn("dbo.Irrigation", "ReasonId", c => c.Int());
             AlterColumn("dbo.UserAccess", "UserId", c => c.Long(nullable: false));
             CreateIndex("dbo.UserAccess", "UserId");
         }
@@ -19,8 +19,8 @@ namespace IrrigationAdvisor.Migrations
         {
             DropIndex("dbo.UserAccess", new[] { "UserId" });
             AlterColumn("dbo.UserAccess", "UserId", c => c.Long());
-            DropColumn("dbo.Irrigation", "ReasonId");
-            DropColumn("dbo.Irrigation", "Observations");
+            //DropColumn("dbo.Irrigation", "ReasonId");
+            //DropColumn("dbo.Irrigation", "Observations");
             RenameColumn(table: "dbo.UserAccess", name: "UserId", newName: "User_UserId");
             CreateIndex("dbo.UserAccess", "User_UserId");
         }

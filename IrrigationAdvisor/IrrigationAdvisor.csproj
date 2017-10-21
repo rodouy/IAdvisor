@@ -211,6 +211,7 @@
     <Compile Include="Controllers\Management\DailyRecordsController.cs" />
     <Compile Include="Controllers\Management\MessagesController.cs" />
     <Compile Include="Controllers\Management\TitlesController.cs" />
+    <Compile Include="Controllers\Reports\ReportPivotStateController.cs" />
     <Compile Include="Controllers\Security\AccessesController.cs" />
     <Compile Include="Controllers\Security\MenusController.cs" />
     <Compile Include="Controllers\Security\RolesController.cs" />
@@ -226,6 +227,7 @@
     <Compile Include="Controllers\Weather\WeatherDatasController.cs" />
     <Compile Include="Controllers\Weather\WeatherInformationsController.cs" />
     <Compile Include="Controllers\Weather\WeatherStationsController.cs" />
+    <Compile Include="Controllers\Wizard\WizardFarmBombController.cs" />
     <Compile Include="DBContext\Agriculture\CropCoefficientConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropInformationByDateConfiguration.cs" />
@@ -332,6 +334,14 @@
     <Compile Include="Migrations\201703292024308_UserAccessNewColumn.Designer.cs">
       <DependentUpon>201703292024308_UserAccessNewColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709022236060_FarmAndBombNewColumnPosition.cs" />
+    <Compile Include="Migrations\201709022236060_FarmAndBombNewColumnPosition.Designer.cs">
+      <DependentUpon>201709022236060_FarmAndBombNewColumnPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs" />
+    <Compile Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.Designer.cs">
+      <DependentUpon>201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -374,6 +384,7 @@
     <Compile Include="Models\Management\IrrigationCalculus.cs" />
     <Compile Include="Models\Management\Message.cs" />
     <Compile Include="Models\Management\Title.cs" />
+    <Compile Include="Models\Reports\GridDailyRecordIrrigationResume.cs" />
     <Compile Include="Models\Security\UserAccess.cs" />
     <Compile Include="Models\Security\UserFarm.cs" />
     <Compile Include="Models\Utilities\OutputFileCSV.cs" />
@@ -395,6 +406,8 @@
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
+    <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />
     <Compile Include="ViewModels\Weather\GridWeather.cs" />
     <Compile Include="Models\Weather\TemperatureData.cs" />
     <Compile Include="Models\Weather\WeatherData.cs" />
@@ -868,6 +881,10 @@
     <Content Include="Views\Data\Status\Index.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Wizard\FarmBomb\Wizard.cshtml" />
+    <Content Include="Views\ReportPivotState\ReportPivotState.cshtml" />
+    <Content Include="Views\ReportPivotState\_ReportPivotStatePartial.cshtml" />
+    <Content Include="Views\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -878,6 +895,7 @@
     <Folder Include="ViewModels\Data\" />
     <Folder Include="Views\Authenticate\" />
     <Folder Include="Views\Company\" />
+    <Folder Include="Views\Default\" />
     <Folder Include="Views\TemperatureDatas\" />
     <Folder Include="Views\Utilities\" />
   </ItemGroup>
@@ -926,6 +944,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703292024308_UserAccessNewColumn.resx">
       <DependentUpon>201703292024308_UserAccessNewColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709022236060_FarmAndBombNewColumnPosition.resx">
+      <DependentUpon>201709022236060_FarmAndBombNewColumnPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.resx">
+      <DependentUpon>201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
