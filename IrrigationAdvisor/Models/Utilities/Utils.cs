@@ -1397,6 +1397,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserGMO4 = "gobrien";
         public static String NameUserGMO5 = "emolina";
         public static String NameUserGMO6 = "lramirez";
+        public static String NameUserGMO7 = "sobrien";
         public static String NameUserTM1 = "cetchegaray";
         public static String NameUserLR1 = "jbaroffio";
         public static String NameUserLR2 = "jpastorini";

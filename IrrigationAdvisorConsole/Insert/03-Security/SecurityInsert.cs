@@ -320,6 +320,17 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GMO2018"),
                 RoleId = 3,
             };
+            var lGMOSebastian = new User()
+            {
+                Name = "Sebastian",
+                Surname = "O Brien",
+                Phone = "+598 99 684 102",
+                Address = "Ruta 4 km 640",
+                Email = "sobrien@timbertec.com.uy",
+                UserName = Utils.NameUserGMO7,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GMO2018"),
+                RoleId = 3,
+            };
             #endregion
 
             #region Maria Elena SRL - La Rinconada - LR
@@ -398,6 +409,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lGMOGuillermo);
                 context.Users.Add(lGMOEsteban);
                 context.Users.Add(lGMOLuis);
+                context.Users.Add(lGMOSebastian);
                 context.Users.Add(lTresMariasCarlosE);
                 context.Users.Add(lLaRinconadaJuanB);
                 context.Users.Add(lLarinconadaJuanP);
@@ -556,6 +568,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region Del Carmen ACISA S.A. - El Paraiso - DCA
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
                 {
@@ -590,6 +604,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region Del Carmen ACISA S.A. - La Perdiz - DCA
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
@@ -624,6 +640,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region Del Carmen ACISA S.A. - San Jose - DCA
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
@@ -660,6 +677,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region DelLago - San Pedro - Estancias del Lago S.R.L.
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
                 {
@@ -694,6 +713,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region DelLago - El Mirador - Estancias del Lago S.R.L.
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
@@ -729,12 +750,14 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region Estancia Menafra - GMO - LaPalma
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
                     lUserNames = new String[] { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3,
                                                 Utils.NameUserGMO4, Utils.NameUserGMO5, Utils.NameUserGMO6,
+                                                Utils.NameUserGMO7,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -765,11 +788,14 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region Estancia Menafra - GMO - ElTacuru
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
                     lUserNames = new String[] { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3,
                                                 Utils.NameUserGMO4, Utils.NameUserGMO5, Utils.NameUserGMO6,
+                                                Utils.NameUserGMO7,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -801,6 +827,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region Albanell - Tres Marias
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
                 {
                     lUserNames = new String[] { Utils.NameUserTM1, 
@@ -835,6 +863,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #region Maria Elena SRL - La Rinconada - LR
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
                 {
                     lUserNames = new String[] { Utils.NameUserLR1, Utils.NameUserLR2, 
