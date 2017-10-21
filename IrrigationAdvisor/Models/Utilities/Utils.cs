@@ -7,6 +7,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO;
 
 using IrrigationAdvisor.DBContext.Data;
 using NLog;
@@ -225,6 +226,71 @@ namespace IrrigationAdvisor.Models.Utilities
             /// Phenological Stage, Deep of Root and Crop Coefficient depend on this calculus
             /// </summary>
             ByIntervalGrowingDegreeDays,
+        }
+
+        public static void ExportOutPutToCSV(String pOutPut, String pFilePath)
+        {
+            FileStream fs = null;
+            if (!File.Exists(pFilePath))
+            {
+                using (fs = File.Create(pFilePath))
+                {
+                    // Do not close because we want to write on it
+                    //fs.Close();
+                }
+            }
+            else
+            {
+                File.Delete(pFilePath);
+            }
+            try
+            {
+                if (!pOutPut.Equals(""))
+                {
+                    using (FileStream lFile = new FileStream(pFilePath, FileMode.OpenOrCreate, FileAccess.Write))
+                    {
+                        lFile.Close();
+                        StreamWriter lStreamWriter = new StreamWriter(pFilePath, true);
+                        lStreamWriter.WriteLine(pOutPut);
+                        lStreamWriter.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in OutputFileCSV.WriteFile " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+
+            /*
+            //create the file
+            string lFolderName = lOutputFile.FolderName;
+            string lFilePath = lOutputFile.FilePath;
+            string lDataSplit = lOutputFile.DataSplit;
+
+            string lMethod = "createACropIrrigationWeather";
+            string lDescription = "All the data neccesary for doing a Irrigation Advisor.";
+            string lTime = System.DateTime.Now.ToString();
+
+            String lDate = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+            String FOLDER_ROOT = "FolderRoot";
+            String FolderName = FOLDER_ROOT + "folderName";
+
+            if (!Directory.Exists(FolderName))
+            {
+                Directory.CreateDirectory(FolderName);
+            }
+
+
+            //Writes the CSV file in the FilePath
+            lOutputFile.WriteFile(lMethod, lDescription, lTime);
+
+            foreach (var item in lDailyRecordList)
+            {
+                //item.Observations;
+            }
+
+    */
         }
 
         /// <summary>

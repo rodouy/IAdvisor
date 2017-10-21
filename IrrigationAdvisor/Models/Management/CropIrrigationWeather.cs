@@ -5230,27 +5230,28 @@ namespace IrrigationAdvisor.Models.Management
         /// <returns></returns>
         private string printHeader()
         {
-            string lRetrun = Environment.NewLine +
-                "DDS " +
-                "\tFecha " +
-                " \t\tETCAc " +
-                " \t\tETC Llu" +
+            //string lRetrun = Environment.NewLine +
+            string lRetrun = "DDS " +
+                " \t Fecha " +
+                " \t ETCAc " +
+                " \t ETC Llu" +
                 " \t G.Dia: " +
                 " \t G.D. Mod: " +
-                " \tB.Hid: " +
-                " \t% A.D.: " +
-                " \tA.D.: " +
-                " \t\tCC: " +
-                " \t\tPMP: " +
-                " \t\tLlu Ef: " +
-                " \tLluv Tot: " +
-                " \tFech Ult Llu: " +
-                " \t\tRaiz " +
-                " \tFenol " +
-                "\tTotRiegoCalc: " +
-                "\tTotRiegoInBI: " +
-                "\tTotRiegoExtra: " +
-                "\tTotRiegoExtraInBI: " +
+                " \t B.Hid: " +
+                " \t % A.D.: " +
+                " \t A.D.: " +
+                " \t CC: " +
+                " \t PMP: " +
+                " \t Llu Ef: " +
+                " \t Lluv Tot: " +
+                " \t Fech Ult Llu: " +
+                " \t Raiz " +
+                " \t Fenol " +
+                " \t Tot RiegoCalc: " +
+                " \t TipoRiego: " +
+                " \t Tot RiegoInBI: " +
+                " \t Tot RiegoExtra: " +
+                " \t Tot RiegoExtraInBI: " +
                 Environment.NewLine;
 
             //Add all the Title in a List of Strings
@@ -5423,8 +5424,8 @@ namespace IrrigationAdvisor.Models.Management
                 " \t " + lEffectiveRain.Substring(0, 7) +
                 " \t " + lTotalRain.Substring(0, 7) +
                 " \t " + this.LastWaterInputDate.ToShortDateString() +
-                " \t\t " + pCropIrrigationWeather.GetRootDepthTakingIntoAccountSoilDepthLimit(this.PhenologicalStage) +
-                " \tf " + this.PhenologicalStage.Stage.Name +
+                " \t " + pCropIrrigationWeather.GetRootDepthTakingIntoAccountSoilDepthLimit(this.PhenologicalStage) +
+                " \t " + this.PhenologicalStage.Stage.Name +
                 " \t " + lIrrigation.Substring(0, 7) +
                 " \t " + lTypeOfIrrigation.Substring(0, 30) +
                 " \t " + lTotIrrInHB.Substring(0, 7) +

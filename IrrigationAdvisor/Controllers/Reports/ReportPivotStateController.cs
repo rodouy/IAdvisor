@@ -20,14 +20,18 @@ using IrrigationAdvisor.Models;
 
 
 
+
+
 namespace IrrigationAdvisor.Controllers.Reports
 {
     public class ReportPivotStateController : Controller
     {
 
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
         ReportPivotStateViewModel vm = new ReportPivotStateViewModel();
         private static long ciwId = 0 ;
+        
 
         public ActionResult Index()
         {
@@ -59,7 +63,7 @@ namespace IrrigationAdvisor.Controllers.Reports
 
             lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
 
-
+            
             double lSumTotalEffectiveRain = 0;
             double lSumTotalEffectiveInputWater = 0;
             double lSumTotalEvapotranspirationCrop = 0;
@@ -130,7 +134,22 @@ namespace IrrigationAdvisor.Controllers.Reports
             return null;
         }
 
+        public ActionResult CreateCVS()
+        {
+            ciwId = GetCropIrrigationWeatherId();
+            CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
 
+            String lDate = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+            
+            String lOutPut = ciwc.GetOutputByCropIrrigationWeatherId(ciwId);
+            String lFileName = ciwc.GetNameByCropIrrigationWeatherId(ciwId);
+            
+            ///TODO implements file chosser
+            String lFilePath = "C:\\ExitCSV\\"+ lFileName + "_"+ lDate + ".csv";
+            Utils.ExportOutPutToCSV(lOutPut, lFilePath);
+
+            return View("~/Views/ReportPivotState/ReportPivotState.cshtml", vm);
+        }
 
         [ChildActionOnly]
         public PartialViewResult ReportPivotStateHeaderPartial()
