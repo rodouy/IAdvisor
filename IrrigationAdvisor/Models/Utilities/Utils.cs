@@ -833,7 +833,6 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSeasonFall = "Otoño";
         public static String NameSeasonWinter = "Invierno";
         public static String NameSeasonSpring = "Primavera";
-        public static String NameSeason = "";
         #endregion
 
         public static String NameWeatherStationLasBrujas = "Las Brujas";

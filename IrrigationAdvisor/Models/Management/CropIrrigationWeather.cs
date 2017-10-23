@@ -915,8 +915,8 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pDayAfterSowingModified"></param>
         /// <param name="pGrowingDegreeDaysAcumulated"></param>
         /// <param name="pGrowingDegreeDaysModified"></param>
-        /// <param name="pLastDayOfGrowingDegreeDays"></param>
         /// <param name="pGrowingDegreeDaysExtraGap"></param>
+        /// <param name="pLastDayOfGrowingDegreeDays"></param>
         /// <param name="pAgeOfCrop"></param>
         /// <param name="pSeasonId"></param>
         /// <param name="pDayAfterSeasonStart"></param>
