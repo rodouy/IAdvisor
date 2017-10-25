@@ -1317,6 +1317,7 @@ namespace IrrigationAdvisor.Controllers
                                             int pDay, int pMonth, int pYear)
         {
             String lSomeData = "";
+            bool lIsExtraIrrigation = true;
 
             try
             {
@@ -1346,9 +1347,10 @@ namespace IrrigationAdvisor.Controllers
                     lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
                     lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
 
-                    foreach (var lCropIrrigationWeather in lCropIrrigationWeatherList)
+                    foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
-                        lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                        lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), 
+                                                                                lIsExtraIrrigation, Utils.NoIrrigationReason.Other, "Add Irrigation OK.");
                         lSaveChanges = lContext.SaveChanges();
 
                         if (pMilimeters >= 0)
@@ -1366,14 +1368,15 @@ namespace IrrigationAdvisor.Controllers
                         lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == lIrrigationUnitViewModel.IrrigationUnitId).FirstOrDefault();
                         lCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
 
-                        foreach (var lCIW in lCropIrrigationWeatherList)
+                        foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                         {
-                            lCIW.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), true);
+                            lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation),
+                                                                                lIsExtraIrrigation, Utils.NoIrrigationReason.Other, "Add Irrigation OK.");
                             lSaveChanges = lContext.SaveChanges();
 
                             if (pMilimeters > 0)
                             {
-                                lCIW.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
+                                lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
                                 lSaveChanges = lContext.SaveChanges();
                             }
                         }
@@ -1480,14 +1483,17 @@ namespace IrrigationAdvisor.Controllers
             return Content("Ok");
         }
 
-        private void AddOrUpdateIrrigationDataToListForCantIrrigate(DateTime pDateFrom, DateTime pDateTo, CropIrrigationWeather pCIW, IrrigationAdvisorContext pContext, int? pReasonId = null, string pObservations = null)
+        private void AddOrUpdateIrrigationDataToListForCantIrrigate(DateTime pDateFrom, DateTime pDateTo, CropIrrigationWeather pCropIrrigationWeather, 
+                                                                    IrrigationAdvisorContext pContext, Utils.NoIrrigationReason pReason, String pObservations)
         {
             DateTime lDateIterator = pDateFrom;
             DateTime lReferenceDate = Utils.GetDateOfReference().Value;
+            bool lIsExtraIrrigation = true;
 
             while (lDateIterator <= pDateTo)
             {
-                pCIW.AddOrUpdateIrrigationDataToList(lDateIterator, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.CantIrrigate), true, pReasonId, pObservations);
+                pCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateIterator, new Pair<double, Utils.WaterInputType>(0, Utils.WaterInputType.CantIrrigate), 
+                                                                        lIsExtraIrrigation, pReason, pObservations);
                 lDateIterator = lDateIterator.AddDays(1);
             }
 
@@ -1514,10 +1520,11 @@ namespace IrrigationAdvisor.Controllers
 
         [HttpGet]
         public ActionResult AddNoIrrigation(DateTime pDateFrom, DateTime pDateTo,
-                                            string pCIW, int pReason, string pObservations)
+                                            string pCIW, int pReasonId, String pObservations)
         {
             // TODO: Cuando es otro es obligatoria las observaciones
             string lSomeData = string.Empty;
+            Utils.NoIrrigationReason lReason = (Utils.NoIrrigationReason) pReasonId;
             try
             {
                 lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
@@ -1546,7 +1553,7 @@ namespace IrrigationAdvisor.Controllers
 
                 foreach (var bCIW in filteredCiw)
                 {
-                    AddOrUpdateIrrigationDataToListForCantIrrigate(pDateFrom, pDateTo, bCIW, lContext, pReason, pObservations); 
+                    AddOrUpdateIrrigationDataToListForCantIrrigate(pDateFrom, pDateTo, bCIW, lContext, lReason, pObservations); 
                 }
 
                 lSaveChanges = lContext.SaveChanges();

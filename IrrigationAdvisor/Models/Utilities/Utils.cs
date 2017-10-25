@@ -706,7 +706,13 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// No irrigation because the irrigation was moved.
             /// </summary>
-            MoveIrrigation
+            MoveIrrigation,
+
+            /// <summary>
+            /// Not decided to Irrigate.
+            /// </summary>
+            NotDecided,
+
         }
 
 
