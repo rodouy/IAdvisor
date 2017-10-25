@@ -1,40 +1,41 @@
 ﻿@model IrrigationAdvisor.ViewModels.Reports.ReportPivotStateViewModel
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../css/flatWeatherPlugin.css">
-<link rel="stylesheet" type="text/css" href="../css/modal.css">
-<link rel="stylesheet" type="text/css" href="../css/style-1.css">
-<link rel="stylesheet" type="text/css" href="../css/md-font.css">
-<link href="~/css/shared.css" rel="stylesheet" />
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/js/Home.js"></script>
+<section class="content-bar ps-container">
+    <div class="container">
+        <div class="col-md-11">
+            <div class="col-md-4">
+                <ul class="bar-resp">
+                    <li> <a> <em class="icon md-flag"></em> @Html.DisplayFor(model => model.Title)</a> </li>
 
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="ps-scrollbar-x-rail" style="width: 1343px; display: none; left: 0px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 53px; display: none;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div>
+</section>
 
 <section class="profile">
-
     <div class="container">
         <div class="col-md-12" style="padding-left:0">
-            <div class="tab-content">
-                <table border="0">
+            <div class="tab-content" border="0">
+                <table>
                     <tr>
-                        <td align="center">
+                        <td align="center" style="border-color:white">
                             <img src="@Url.Action("GetChart") ">
 
                         </td>
                     </tr>
-                </table>
-                <br>
-                <div>
-                    <div class="tab-content">
-                        <!-- Table -->
-                        <div class="tab-pane fade in active">
+                    <tr>
+                        <td align="center" style="border-color:white">
 
                             <table cellspacing="10" class="main-table-advisor" border="1" style="width:300px" align="center">
-                            <thead>
-                                <tr>
-                                    <th colspan="2">Entrada y salida de agua</th>
-                            </tr>
-                            </thead>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Entrada y salida de agua</th>
+                                    </tr>
+                                </thead>
                                 <tr>
                                     <td width="50%">
                                         ET Acumulado:
@@ -60,41 +61,42 @@
                                         @Html.DisplayFor(model => model.TotalEffectiveRain)
                                     </td>
                                 </tr>
-                        </table>
-                    </div>
-                    <br>
-                    <!-- Table -->
-                    <div class="tab-content">
-                        <!-- table header -->
-                        <div class="tab-pane fade in active">
-                            <div class="table-wrap">
+                            </table>
+                        </td>
+                    </tr>
 
-                                @{ if (Model.IsUserAdministrator)
-                                 {
-                                    <div class="table-body">
-                                        <!--table-->
-                                        <table cellspacing="10" class="main-table-advisor" border="1" style="width:400px" align="center">
-                                            <thead>
-                                                <tr>
-                                                    @{ Html.RenderAction("ReportPivotStateHeaderPartial", "ReportPivotState"); }
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @{ Html.RenderAction("ReportPivotStatePartial", "ReportPivotState"); }
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                 }
+                    <tr>
+                        <td>
+                            @{ if (Model.IsUserAdministrator)
+                             {
+                                <div class="table-body">
+                                    <!--table-->
+                                    <table cellspacing="10" class="main-table-advisor" border="1" style="width:400px" align="center">
+                                        <thead>
+                                            <tr>
+                                                @{ Html.RenderAction("ReportPivotStateHeaderPartial", "ReportPivotState"); }
 
-                                }
-                            </div>
-                        </div>
-                    </div>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ Html.RenderAction("ReportPivotStatePartial", "ReportPivotState"); }
+                                        </tbody>
+                                    </table>
+                                </div>
+                             }
 
-                </div>                <!-- End Table -->
+                            }
+
+                        </td>
+
+                    </tr>
+                </table>
+
+
             </div>
         </div>
+    </div>
 </section>
 
 
