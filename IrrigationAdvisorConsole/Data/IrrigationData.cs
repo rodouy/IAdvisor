@@ -4309,6 +4309,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 14);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4367,6 +4369,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 09);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4405,6 +4409,8 @@ namespace IrrigationAdvisorConsole.Data
             //    lIrrigationDate = new DateTime(2017, 01, 15);
             //    lIrrigationQuantity = 14;
             //    lIsExtraIrrigation = true;
+            //    lReason = Utils.NoIrrigationReason.Other;
+            //    lObservations = "Add Irrigation OK.";
             //    /////////////////////////////////////////////////////////////////////////////////////////////
             //    lIrrigationList = (from ilist in context.Irrigations
             //                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4465,6 +4471,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4483,6 +4491,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 10);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4541,6 +4551,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4579,6 +4591,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 27);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4617,6 +4631,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 05);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4677,6 +4693,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4695,6 +4713,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 10);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4753,6 +4773,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4791,6 +4813,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 27);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4829,6 +4853,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 05);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4909,6 +4935,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 09, 28);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4927,6 +4955,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 09, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4945,6 +4975,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 10, 05);
                 lIrrigationQuantity = 8;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -4983,6 +5015,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 03);
                 lIrrigationQuantity = 05;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5001,6 +5035,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 04);
                 lIrrigationQuantity = 05;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5039,6 +5075,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 15);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5057,6 +5095,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 19);
                 lIrrigationQuantity = 05;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5115,6 +5155,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 02);
                 lIrrigationQuantity = 05;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5133,6 +5175,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5171,6 +5215,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 08);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5209,6 +5255,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 11);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5267,6 +5315,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 09);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5305,6 +5355,8 @@ namespace IrrigationAdvisorConsole.Data
             //    lIrrigationDate = new DateTime(2017, 01, 15);
             //    lIrrigationQuantity = 14;
             //    lIsExtraIrrigation = true;
+            //    lReason = Utils.NoIrrigationReason.Other;
+            //    lObservations = "Add Irrigation OK.";
             //    /////////////////////////////////////////////////////////////////////////////////////////////
             //    lIrrigationList = (from ilist in context.Irrigations
             //                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5411,6 +5463,8 @@ namespace IrrigationAdvisorConsole.Data
             //    lIrrigationDate = new DateTime(2017, 12, 07);
             //    lIrrigationQuantity = 10;
             //    lIsExtraIrrigation = true;
+            //    lReason = Utils.NoIrrigationReason.Other;
+            //    lObservations = "Add Irrigation OK.";
             //    /////////////////////////////////////////////////////////////////////////////////////////////
             //    lIrrigationList = (from ilist in context.Irrigations
             //                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5471,6 +5525,8 @@ namespace IrrigationAdvisorConsole.Data
             //    lIrrigationDate = new DateTime(2017, 10, 07);
             //    lIrrigationQuantity = 10;
             //    lIsExtraIrrigation = true;
+            //    lReason = Utils.NoIrrigationReason.Other;
+            //    lObservations = "Add Irrigation OK.";
             //    /////////////////////////////////////////////////////////////////////////////////////////////
             //    lIrrigationList = (from ilist in context.Irrigations
             //                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5551,6 +5607,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 09, 28);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5569,6 +5627,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 09, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5587,6 +5647,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 10, 05);
                 lIrrigationQuantity = 8;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5625,6 +5687,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 11, 03);
                 lIrrigationQuantity = 05;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5643,6 +5707,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 11, 04);
                 lIrrigationQuantity = 05;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5681,6 +5747,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 11, 15);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5699,6 +5767,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 11, 19);
                 lIrrigationQuantity = 05;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5757,6 +5827,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 12, 02);
                 lIrrigationQuantity = 05;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5775,6 +5847,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 12, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5813,6 +5887,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 12, 08);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5851,6 +5927,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 12, 11);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5909,6 +5987,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 09);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -5947,6 +6027,8 @@ namespace IrrigationAdvisorConsole.Data
             //    lIrrigationDate = new DateTime(2017, 01, 15);
             //    lIrrigationQuantity = 14;
             //    lIsExtraIrrigation = true;
+            //    lReason = Utils.NoIrrigationReason.Other;
+            //    lObservations = "Add Irrigation OK.";
             //    /////////////////////////////////////////////////////////////////////////////////////////////
             //    lIrrigationList = (from ilist in context.Irrigations
             //                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -6558,6 +6640,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 10, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -6596,6 +6680,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 10, 14);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -6714,6 +6800,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 24);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -6752,6 +6840,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 11);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -6811,6 +6901,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 09, 27);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -6829,6 +6921,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 10, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -6867,6 +6961,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 10, 14);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -6985,6 +7081,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 24);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7023,6 +7121,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 11);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7082,6 +7182,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 11);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7200,6 +7302,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7218,6 +7322,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 13);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7256,6 +7362,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7415,6 +7523,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 14);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7533,6 +7643,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7551,6 +7663,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 04);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7569,6 +7683,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7587,6 +7703,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 21);
                 lIrrigationQuantity = 03;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7646,6 +7764,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 15);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7664,6 +7784,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 02);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7682,6 +7804,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 09);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7700,6 +7824,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 16);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7718,6 +7844,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7736,6 +7864,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 13);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7754,6 +7884,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 20);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7772,6 +7904,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7790,6 +7924,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 27);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7808,6 +7944,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7826,6 +7964,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7844,6 +7984,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7862,6 +8004,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 21);
                 lIrrigationQuantity = 03;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7921,6 +8065,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 14);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7939,6 +8085,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 24);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7957,6 +8105,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 02);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7975,6 +8125,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 09);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -7993,6 +8145,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 17);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8011,6 +8165,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8029,6 +8185,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 13);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8047,6 +8205,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 20);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8065,6 +8225,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8083,6 +8245,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 27);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8101,6 +8265,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8119,6 +8285,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8137,6 +8305,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8196,6 +8366,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 16);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8214,6 +8386,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 17);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8232,6 +8406,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 24);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8250,6 +8426,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 09);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8268,6 +8446,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 17);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8286,6 +8466,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8304,6 +8486,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 13);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8322,6 +8506,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 20);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8340,6 +8526,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8358,6 +8546,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 27);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8376,6 +8566,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8394,6 +8586,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8412,6 +8606,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 04);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8430,6 +8626,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8489,6 +8687,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 10, 10);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8507,6 +8707,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 10, 16);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8525,6 +8727,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 14);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8563,6 +8767,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 20);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8601,6 +8807,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 06);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8619,6 +8827,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 15);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8637,6 +8847,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 01);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8655,6 +8867,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8673,6 +8887,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 19);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8691,6 +8907,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 23);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8709,6 +8927,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 26);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8727,6 +8947,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 01);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8745,6 +8967,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 04);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8763,6 +8987,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8781,6 +9007,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8840,6 +9068,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8858,6 +9088,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 15);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8876,6 +9108,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 20);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8914,6 +9148,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 06);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8932,6 +9168,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 15);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8950,6 +9188,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 01);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8968,6 +9208,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -8986,6 +9228,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 19);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9004,6 +9248,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 21);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9020,8 +9266,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 25);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.MoveIrrigation;
+                lObservations = "Moved Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9040,6 +9288,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 26);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9058,6 +9308,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9076,6 +9328,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9094,6 +9348,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 05);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9112,6 +9368,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 08);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9130,6 +9388,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9189,6 +9449,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 11);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9207,6 +9469,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 19);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9225,6 +9489,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 24);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9243,6 +9509,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 17);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9261,6 +9529,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9279,6 +9549,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 13);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9295,8 +9567,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 20);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.MoveIrrigation;
+                lObservations = "Moved Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9315,6 +9589,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 21);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9333,6 +9609,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 26);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9351,6 +9629,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9369,6 +9649,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9387,6 +9669,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 05);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9405,6 +9689,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 08);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9423,6 +9709,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9482,6 +9770,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 10);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9500,6 +9790,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 14);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9518,6 +9810,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 19);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9536,6 +9830,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 24);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9554,6 +9850,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9572,6 +9870,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 18);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9590,6 +9890,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9606,8 +9908,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 19);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.MoveIrrigation;
+                lObservations = "Moved Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9626,6 +9930,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 20);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9644,6 +9950,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 24);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9662,6 +9970,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 28);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9680,6 +9990,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9698,6 +10010,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9716,6 +10030,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9734,6 +10050,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9793,6 +10111,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 11);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9811,6 +10131,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 19);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9849,6 +10171,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 18);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9867,6 +10191,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9885,6 +10211,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9903,6 +10231,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 20);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9921,6 +10251,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9939,6 +10271,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9957,6 +10291,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9975,6 +10311,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 05);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -9993,6 +10331,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 08);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10011,6 +10351,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10070,6 +10412,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 13);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10088,6 +10432,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 18);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10106,6 +10452,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 23);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10124,6 +10472,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 18);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10142,6 +10492,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10160,6 +10512,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 19);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10178,6 +10532,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 21);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10196,6 +10552,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10214,6 +10572,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 27);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10232,6 +10592,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 29);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10250,6 +10612,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10268,6 +10632,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 05);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10286,6 +10652,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 08);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10304,6 +10672,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10363,6 +10733,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 11);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10381,6 +10753,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 21);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10399,6 +10773,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10417,6 +10793,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 29);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10455,6 +10833,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 04);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10493,6 +10873,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10511,6 +10893,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 04);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10529,6 +10913,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 18);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10588,6 +10974,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10606,6 +10994,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 14);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10624,6 +11014,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 19);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10642,6 +11034,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 24);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10680,6 +11074,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 18);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10698,6 +11094,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 12);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10716,6 +11114,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 19);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10734,6 +11134,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 21);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10752,6 +11154,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10770,6 +11174,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 27);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10788,6 +11194,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 02);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = false;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Calculated Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10806,6 +11214,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10870,6 +11280,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10888,6 +11300,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 01);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10906,6 +11320,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10924,6 +11340,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10942,6 +11360,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10980,6 +11400,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -10998,6 +11420,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11016,6 +11440,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 15);
                 lIrrigationQuantity = 7;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11034,6 +11460,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 21);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11052,6 +11480,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 27);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11070,6 +11500,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11088,6 +11520,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11106,6 +11540,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11124,6 +11560,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 16);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11183,6 +11621,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11201,6 +11641,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 01);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11219,6 +11661,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11237,6 +11681,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 06);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11255,6 +11701,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11293,6 +11741,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11311,6 +11761,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11329,6 +11781,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 15);
                 lIrrigationQuantity = 7;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11347,6 +11801,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 21);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11365,6 +11821,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 27);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11383,6 +11841,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11401,6 +11861,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11419,6 +11881,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11437,6 +11901,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 16);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11496,6 +11962,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11514,6 +11982,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 01);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11532,6 +12002,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11550,6 +12022,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 06);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11568,6 +12042,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11606,6 +12082,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11624,6 +12102,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11642,6 +12122,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 06);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11660,6 +12142,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 15);
                 lIrrigationQuantity = 7;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11678,6 +12162,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 21);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11696,6 +12182,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 27);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11714,6 +12202,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11732,6 +12222,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11750,6 +12242,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11768,6 +12262,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 16);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11827,6 +12323,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11845,6 +12343,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 01);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11863,6 +12363,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 03);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11881,6 +12383,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 06);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11899,6 +12403,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 10);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11937,6 +12443,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11955,6 +12463,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11973,6 +12483,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 06);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -11991,6 +12503,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 15);
                 lIrrigationQuantity = 7;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -12009,6 +12523,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 21);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -12027,6 +12543,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 27);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -12045,6 +12563,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 30);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -12063,6 +12583,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 03);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -12081,6 +12603,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 07);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -12099,6 +12623,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 04, 16);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -13905,6 +14431,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 12);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14003,6 +14531,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 07);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14183,6 +14713,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 09, 26);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14241,6 +14773,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 12);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14279,6 +14813,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 19);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14317,6 +14853,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 24);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14355,6 +14893,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 07);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14474,6 +15014,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 24);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14553,6 +15095,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 09, 28);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14571,6 +15115,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 10, 01);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14609,6 +15155,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 14);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14647,6 +15195,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 21);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14685,6 +15235,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 24);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14723,6 +15275,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 07);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -14822,6 +15376,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 16);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15122,6 +15678,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 24);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15184,6 +15742,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 09, 28);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15262,6 +15822,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 16);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15320,6 +15882,8 @@ namespace IrrigationAdvisorConsole.Data
             //    lIrrigationDate = new DateTime(2017, 09, 27);
             //    lIrrigationQuantity = 10;
             //    lIsExtraIrrigation = true;
+            //    lReason = Utils.NoIrrigationReason.Other;
+            //    lObservations = "Add Irrigation OK.";
             //    /////////////////////////////////////////////////////////////////////////////////////////////
             //    lIrrigationList = (from ilist in context.Irrigations
             //                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15581,6 +16145,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 09, 28);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15599,6 +16165,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 10, 01);
                 lIrrigationQuantity = 07;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15637,6 +16205,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 11, 14);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15675,6 +16245,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 11, 21);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15713,6 +16285,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 11, 24);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15751,6 +16325,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 12, 07);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -15850,6 +16426,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 01, 16);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16110,6 +16688,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 24);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16217,6 +16797,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 29);
                 lIrrigationQuantity = 06;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16233,8 +16815,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 22);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.MoveIrrigation;
+                lObservations = "Moved Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16251,8 +16835,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 23);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.MoveIrrigation;
+                lObservations = "Moved Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16269,8 +16855,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 24);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.RainForecast;
+                lObservations = "Moved Irrigation.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16287,8 +16875,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 28);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.IrrigationSystemFail;
+                lObservations = "No Irrigation. Broken Bomb";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16305,8 +16895,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 29);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.IrrigationSystemFail;
+                lObservations = "No Irrigation. Broken Bomb";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16323,8 +16915,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 30);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.IrrigationSystemFail;
+                lObservations = "No Irrigation. Broken Bomb";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16341,8 +16935,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 01, 31);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.IrrigationSystemFail;
+                lObservations = "No Irrigation. Broken Bomb";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16359,8 +16955,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 02, 01);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.IrrigationSystemFail;
+                lObservations = "No Irrigation. Broken Bomb";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16377,8 +16975,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 02, 02);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.IrrigationSystemFail;
+                lObservations = "No Irrigation. Broken Bomb";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16395,8 +16995,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 02, 03);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.IrrigationSystemFail;
+                lObservations = "No Irrigation. Broken Bomb";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16413,8 +17015,10 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 02, 04);
-                lIrrigationQuantity = 00;
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.IrrigationSystemFail;
+                lObservations = "No Irrigation. Broken Bomb";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16513,6 +17117,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 02, 28);
                 lIrrigationQuantity = 12;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16531,6 +17137,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2017, 03, 04);
                 lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16841,6 +17449,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 07);
                 lIrrigationQuantity = 15;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16859,6 +17469,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 21);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16957,6 +17569,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 11, 25);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -16975,6 +17589,8 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationDate = new DateTime(2016, 12, 09);
                 lIrrigationQuantity = 05;
                 lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
