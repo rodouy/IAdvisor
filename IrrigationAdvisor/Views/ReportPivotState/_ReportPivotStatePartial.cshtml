@@ -12,9 +12,10 @@
 @helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.GridDailyRecordIrrigationResume grid)
 {
     <tr>
-        <td width="33%">@grid.DailyRecordDate</td>
-        <td width="33%">@grid.EffectiveInputWater</td>
-        <td width="33%">@grid.EffectiveRain</td>
+        <td width="10%" align="center">@grid.Day</td>
+        <td width="30%" align="center">@grid.DailyRecordDate</td>
+        <td width="30%" align="right">@grid.EffectiveInputWater</td>
+        <td width="30%" align="right">@grid.EffectiveRain</td>
       
     </tr>
 }
