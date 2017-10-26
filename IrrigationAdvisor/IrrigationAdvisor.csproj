@@ -342,6 +342,10 @@
     <Compile Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.Designer.cs">
       <DependentUpon>201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.cs" />
+    <Compile Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.Designer.cs">
+      <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -950,6 +954,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.resx">
       <DependentUpon>201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.resx">
+      <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
