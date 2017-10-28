@@ -1324,6 +1324,8 @@ namespace IrrigationAdvisor.Controllers
             {
                 HomeViewModel lHomeViewModel = null;
 
+                // The ignoreSession variable is created for the compatibility with the web api and the external calls.
+                // I suggest that exists new methods to add rain and irrigation.
                 if (!ignoreSession)
                 {
                     lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
@@ -1419,20 +1421,30 @@ namespace IrrigationAdvisor.Controllers
         /// <param name="pDay"></param>
         /// <param name="pMonth"></param>
         /// <param name="pYear"></param>
+        /// <param name="ignoreSession">Parametero to avoid session sentences.</param>
         /// <returns></returns>
         [HttpGet]
         public ActionResult AddRain(double pMilimeters, long pIrrigationUnitId,
-                                    int pDay, int pMonth, int pYear)
+                                    int pDay, int pMonth, int pYear, bool ignoreSession = false)
         {
             String lSomeData = "";
             try
             {
+                HomeViewModel lHomeViewModel = null;
 
-                lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
-                lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
-                lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
+                // The ignoreSession variable is created for the compatibility with the web api and the external calls.
+                // I suggest that exists new methods to add rain and irrigation.
+                if (!ignoreSession)
+                {
+                    lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
+                    lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
+                    lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
+
+                    lHomeViewModel = ManageSession.GetHomeViewModel();
+                }
+               
                 #region local variables
-                HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
+               
 
                 DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
                 DateTime lReferenceDate = Utils.GetDateOfReference().Value;
@@ -1447,7 +1459,11 @@ namespace IrrigationAdvisor.Controllers
                 int lSaveChanges = 0;
                 #endregion
 
-                ManageSession.SetFromDateTime(lDateResult);
+                if(!ignoreSession)
+                {
+                    ManageSession.SetFromDateTime(lDateResult);
+                }
+                
 
                 if (pIrrigationUnitId > -1)
                 {
@@ -1464,7 +1480,7 @@ namespace IrrigationAdvisor.Controllers
                     }
                     lSaveChanges = lContext.SaveChanges();
                 }
-                else
+                else if (!ignoreSession)
                 {
                     foreach (var item in lHomeViewModel.IrrigationUnitViewModelList)
                     {
@@ -1485,7 +1501,11 @@ namespace IrrigationAdvisor.Controllers
 
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
-                ManageSession.SetNavigationDate(lReferenceDate);
+                if (!ignoreSession)
+                {
+                    ManageSession.SetNavigationDate(lReferenceDate);
+                }
+                
             }
             catch (Exception ex)
             {

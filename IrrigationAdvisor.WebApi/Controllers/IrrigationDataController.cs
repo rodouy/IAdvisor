@@ -154,6 +154,13 @@ namespace IrrigationAdvisor.WebApi.Controllers
 
             try
             {
+                HomeController home = new HomeController();
+
+                foreach (var irrigationUnitId in values.IrrigationUnitId)
+                {
+                    home.AddRain(values.Milimeters, irrigationUnitId, values.Date.Day, values.Date.Month, values.Date.Year, true);
+                }
+
                 result.IsOk = true;
             }
             catch (Exception ex)
