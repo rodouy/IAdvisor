@@ -1,0 +1,1594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IrrigationAdvisorWebApiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Crop">
+          <Key>
+            <PropertyRef Name="CropId" />
+          </Key>
+          <Property Name="CropId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar(max)" />
+          <Property Name="RegionId" Type="bigint" Nullable="false" />
+          <Property Name="SpecieId" Type="bigint" Nullable="false" />
+          <Property Name="CropCoefficientId" Type="bigint" Nullable="false" />
+          <Property Name="MaxEvapotranspirationToIrrigate" Type="float" Nullable="false" />
+          <Property Name="MinEvapotranspirationToIrrigate" Type="float" Nullable="false" />
+          <Property Name="StopIrrigationStageId" Type="bigint" Nullable="false" />
+          <Property Name="StopIrrigationStage_StageId" Type="bigint" />
+          <Property Name="MinStageToConsiderETinHBCalculationId" Type="bigint" Nullable="false" />
+          <Property Name="MinStageToConsiderETinHBCalculation_StageId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CropIrrigationWeather">
+          <Key>
+            <PropertyRef Name="CropIrrigationWeatherId" />
+          </Key>
+          <Property Name="CropIrrigationWeatherId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CropIrrigationWeatherName" Type="nvarchar(max)" />
+          <Property Name="CropId" Type="bigint" Nullable="false" />
+          <Property Name="SoilId" Type="bigint" Nullable="false" />
+          <Property Name="SowingDate" Type="datetime" Nullable="false" />
+          <Property Name="HarvestDate" Type="datetime" Nullable="false" />
+          <Property Name="CropDate" Type="datetime" Nullable="false" />
+          <Property Name="StartAdvisorDate" Type="datetime" Nullable="false" />
+          <Property Name="PhenologicalStageId" Type="bigint" Nullable="false" />
+          <Property Name="HydricBalance" Type="float" Nullable="false" />
+          <Property Name="SoilHydricVolume" Type="float" Nullable="false" />
+          <Property Name="TotalEvapotranspirationCropFromLastWaterInput" Type="float" Nullable="false" />
+          <Property Name="CalculusMethodForPhenologicalAdjustment" Type="int" Nullable="false" />
+          <Property Name="CropInformationByDateId" Type="bigint" Nullable="false" />
+          <Property Name="DaysAfterSowing" Type="int" Nullable="false" />
+          <Property Name="DaysAfterSowingModified" Type="int" Nullable="false" />
+          <Property Name="GrowingDegreeDaysAccumulated" Type="float" Nullable="false" />
+          <Property Name="GrowingDegreeDaysModified" Type="float" Nullable="false" />
+          <Property Name="IrrigationUnitId" Type="bigint" Nullable="false" />
+          <Property Name="PredeterminatedIrrigationQuantity" Type="float" Nullable="false" />
+          <Property Name="PositionId" Type="bigint" Nullable="false" />
+          <Property Name="LastWaterInputDate" Type="datetime" Nullable="false" />
+          <Property Name="LastBigWaterInputDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPartialWaterInputDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPartialWaterInput" Type="float" Nullable="false" />
+          <Property Name="LastBigGapWaterInputDate" Type="datetime" Nullable="false" />
+          <Property Name="MainWeatherStationId" Type="bigint" Nullable="false" />
+          <Property Name="AlternativeWeatherStationId" Type="bigint" Nullable="false" />
+          <Property Name="UsingMainWeatherStation" Type="bit" Nullable="false" />
+          <Property Name="TotalEvapotranspirationCrop" Type="float" Nullable="false" />
+          <Property Name="TotalEffectiveRain" Type="float" Nullable="false" />
+          <Property Name="TotalRealRain" Type="float" Nullable="false" />
+          <Property Name="TotalIrrigation" Type="float" Nullable="false" />
+          <Property Name="TotalIrrigationInHydricBalance" Type="float" Nullable="false" />
+          <Property Name="TotalExtraIrrigation" Type="float" Nullable="false" />
+          <Property Name="TotalExtraIrrigationInHydricBalance" Type="float" Nullable="false" />
+          <Property Name="OutPut" Type="nvarchar(max)" />
+          <Property Name="TotalMessageLines" Type="bigint" Nullable="false" />
+          <Property Name="TotalMessageDailyLines" Type="bigint" Nullable="false" />
+          <Property Name="TextLog" Type="nvarchar(max)" />
+          <Property Name="AlternativeWeatherStation_WeatherStationId" Type="bigint" />
+          <Property Name="MainWeatherStation_WeatherStationId" Type="bigint" />
+          <Property Name="WeatherEventType" Type="int" Nullable="false" />
+          <Property Name="DaysForHydricBalanceUnchangableAfterSowing" Type="int" Nullable="false" />
+          <Property Name="HasAdviseOfIrrigation" Type="bit" Nullable="false" />
+          <Property Name="Density" Type="float" Nullable="false" />
+          <Property Name="LastDayOfGrowingDegreeDays" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DailyRecord">
+          <Key>
+            <PropertyRef Name="DailyRecordId" />
+          </Key>
+          <Property Name="DailyRecordId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DailyRecordDateTime" Type="datetime" Nullable="false" />
+          <Property Name="MainWeatherDataId" Type="bigint" Nullable="false" />
+          <Property Name="AlternativeWeatherDataId" Type="bigint" Nullable="false" />
+          <Property Name="DaysAfterSowing" Type="int" Nullable="false" />
+          <Property Name="DaysAfterSowingModified" Type="int" Nullable="false" />
+          <Property Name="GrowingDegreeDays" Type="float" Nullable="false" />
+          <Property Name="GrowingDegreeDaysAccumulated" Type="float" Nullable="false" />
+          <Property Name="GrowingDegreeDaysModified" Type="float" Nullable="false" />
+          <Property Name="RainId" Type="bigint" Nullable="false" />
+          <Property Name="IrrigationId" Type="bigint" Nullable="false" />
+          <Property Name="LastWaterInputDate" Type="datetime" Nullable="false" />
+          <Property Name="LastBigWaterInputDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPartialWaterInputDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPartialWaterInput" Type="float" Nullable="false" />
+          <Property Name="LastBigGapWaterInputDate" Type="datetime" Nullable="false" />
+          <Property Name="EvapotranspirationCropId" Type="bigint" Nullable="false" />
+          <Property Name="TotalEffectiveInputWater" Type="float" Nullable="false" />
+          <Property Name="PercentageOfHydricBalance" Type="float" Nullable="false" />
+          <Property Name="GAPPercentageOfHydricBalance" Type="float" Nullable="false" />
+          <Property Name="PhenologicalStageId" Type="bigint" Nullable="false" />
+          <Property Name="HydricBalance" Type="float" Nullable="false" />
+          <Property Name="SoilHydricVolume" Type="float" Nullable="false" />
+          <Property Name="TotalEvapotranspirationCropFromLastWaterInput" Type="float" Nullable="false" />
+          <Property Name="CropCoefficient" Type="float" Nullable="false" />
+          <Property Name="Observations" Type="nvarchar(max)" />
+          <Property Name="TotalEvapotranspirationCrop" Type="float" Nullable="false" />
+          <Property Name="TotalEffectiveRain" Type="float" Nullable="false" />
+          <Property Name="TotalRealRain" Type="float" Nullable="false" />
+          <Property Name="TotalIrrigation" Type="float" Nullable="false" />
+          <Property Name="TotalIrrigationInHydricBalance" Type="float" Nullable="false" />
+          <Property Name="TotalExtraIrrigation" Type="float" Nullable="false" />
+          <Property Name="TotalExtraIrrigationInHydricBalance" Type="float" Nullable="false" />
+          <Property Name="AlternativeWeatherData_WeatherDataId" Type="bigint" />
+          <Property Name="EvapotranspirationCrop_WaterOutputId" Type="bigint" />
+          <Property Name="Irrigation_WaterInputId" Type="bigint" />
+          <Property Name="MainWeatherData_WeatherDataId" Type="bigint" />
+          <Property Name="Rain_WaterInputId" Type="bigint" />
+          <Property Name="CropIrrigationWeatherId" Type="bigint" Nullable="false" />
+          <Property Name="LastDayOfGrowingDegreeDays" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="FarmId" />
+          </Key>
+          <Property Name="FarmId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Company" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="PositionId" Type="bigint" Nullable="false" />
+          <Property Name="Has" Type="int" Nullable="false" />
+          <Property Name="WeatherStationId" Type="bigint" Nullable="false" />
+          <Property Name="CityId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Irrigation">
+          <Key>
+            <PropertyRef Name="WaterInputId" />
+          </Key>
+          <Property Name="WaterInputId" Type="bigint" Nullable="false" />
+          <Property Name="CropIrrigationWeather_CropIrrigationWeatherId" Type="bigint" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Observations" Type="nvarchar(max)" />
+          <Property Name="ReasonId" Type="int" />
+        </EntityType>
+        <EntityType Name="IrrigationUnit">
+          <Key>
+            <PropertyRef Name="IrrigationUnitId" />
+          </Key>
+          <Property Name="IrrigationUnitId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar(max)" />
+          <Property Name="IrrigationType" Type="int" Nullable="false" />
+          <Property Name="IrrigationEfficiency" Type="float" Nullable="false" />
+          <Property Name="Surface" Type="float" Nullable="false" />
+          <Property Name="BombId" Type="bigint" Nullable="false" />
+          <Property Name="PositionId" Type="bigint" Nullable="false" />
+          <Property Name="PredeterminatedIrrigationQuantity" Type="float" Nullable="false" />
+          <Property Name="FarmId" Type="bigint" Nullable="false" />
+          <Property Name="Show" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhenologicalStage">
+          <Key>
+            <PropertyRef Name="PhenologicalStageId" />
+          </Key>
+          <Property Name="PhenologicalStageId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecieId" Type="bigint" Nullable="false" />
+          <Property Name="StageId" Type="bigint" Nullable="false" />
+          <Property Name="MinDegree" Type="float" Nullable="false" />
+          <Property Name="MaxDegree" Type="float" Nullable="false" />
+          <Property Name="RootDepth" Type="float" Nullable="false" />
+          <Property Name="HydricBalanceDepth" Type="float" Nullable="false" />
+          <Property Name="CropInformationByDate_CropInformationByDateId" Type="bigint" />
+          <Property Name="Crop_CropId" Type="bigint" />
+          <Property Name="Coefficient" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rain">
+          <Key>
+            <PropertyRef Name="WaterInputId" />
+          </Key>
+          <Property Name="WaterInputId" Type="bigint" Nullable="false" />
+          <Property Name="CropIrrigationWeather_CropIrrigationWeatherId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Stage">
+          <Key>
+            <PropertyRef Name="StageId" />
+          </Key>
+          <Property Name="StageId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="Crop_CropId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfReference" Type="datetime" Nullable="false" />
+          <Property Name="WebStatus" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="RoleId" Type="bigint" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserAccess">
+          <Key>
+            <PropertyRef Name="UserAccessId" />
+          </Key>
+          <Property Name="UserAccessId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogInDate" Type="datetime" Nullable="false" />
+          <Property Name="LogOutDate" Type="datetime" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserFarm">
+          <Key>
+            <PropertyRef Name="UserFarmId" />
+          </Key>
+          <Property Name="UserFarmId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="FarmId" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WaterInput">
+          <Key>
+            <PropertyRef Name="WaterInputId" />
+          </Key>
+          <Property Name="WaterInputId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Input" Type="float" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ExtraInput" Type="float" Nullable="false" />
+          <Property Name="ExtraDate" Type="datetime" Nullable="false" />
+          <Property Name="CropIrrigationWeatherId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WaterOutput">
+          <Key>
+            <PropertyRef Name="WaterOutputId" />
+          </Key>
+          <Property Name="WaterOutputId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Output" Type="float" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ExtraOutput" Type="float" Nullable="false" />
+          <Property Name="ExtraDate" Type="datetime" Nullable="false" />
+          <Property Name="CropIrrigationWeatherId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_Crop_dbo_Stage_MinStageToConsiderETinHBCalculation_StageId">
+          <End Role="Stage" Type="Self.Stage" Multiplicity="0..1" />
+          <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stage">
+              <PropertyRef Name="StageId" />
+            </Principal>
+            <Dependent Role="Crop">
+              <PropertyRef Name="MinStageToConsiderETinHBCalculation_StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Crop_dbo_Stage_StopIrrigationStage_StageId">
+          <End Role="Stage" Type="Self.Stage" Multiplicity="0..1" />
+          <End Role="Crop" Type="Self.Crop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stage">
+              <PropertyRef Name="StageId" />
+            </Principal>
+            <Dependent Role="Crop">
+              <PropertyRef Name="StopIrrigationStage_StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CropIrrigationWeather_dbo_Crop_CropId">
+          <End Role="Crop" Type="Self.Crop" Multiplicity="1" />
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crop">
+              <PropertyRef Name="CropId" />
+            </Principal>
+            <Dependent Role="CropIrrigationWeather">
+              <PropertyRef Name="CropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId">
+          <End Role="IrrigationUnit" Type="Self.IrrigationUnit" Multiplicity="1" />
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IrrigationUnit">
+              <PropertyRef Name="IrrigationUnitId" />
+            </Principal>
+            <Dependent Role="CropIrrigationWeather">
+              <PropertyRef Name="IrrigationUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId">
+          <End Role="PhenologicalStage" Type="Self.PhenologicalStage" Multiplicity="1" />
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhenologicalStage">
+              <PropertyRef Name="PhenologicalStageId" />
+            </Principal>
+            <Dependent Role="CropIrrigationWeather">
+              <PropertyRef Name="PhenologicalStageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="1" />
+          <End Role="DailyRecord" Type="Self.DailyRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="DailyRecord">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId">
+          <End Role="Irrigation" Type="Self.Irrigation" Multiplicity="0..1" />
+          <End Role="DailyRecord" Type="Self.DailyRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Irrigation">
+              <PropertyRef Name="WaterInputId" />
+            </Principal>
+            <Dependent Role="DailyRecord">
+              <PropertyRef Name="Irrigation_WaterInputId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId">
+          <End Role="PhenologicalStage" Type="Self.PhenologicalStage" Multiplicity="1" />
+          <End Role="DailyRecord" Type="Self.DailyRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhenologicalStage">
+              <PropertyRef Name="PhenologicalStageId" />
+            </Principal>
+            <Dependent Role="DailyRecord">
+              <PropertyRef Name="PhenologicalStageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DailyRecord_dbo_Rain_Rain_WaterInputId">
+          <End Role="Rain" Type="Self.Rain" Multiplicity="0..1" />
+          <End Role="DailyRecord" Type="Self.DailyRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rain">
+              <PropertyRef Name="WaterInputId" />
+            </Principal>
+            <Dependent Role="DailyRecord">
+              <PropertyRef Name="Rain_WaterInputId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="0..1" />
+          <End Role="Irrigation" Type="Self.Irrigation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="Irrigation">
+              <PropertyRef Name="CropIrrigationWeather_CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Irrigation_dbo_WaterInput_WaterInputId">
+          <End Role="WaterInput" Type="Self.WaterInput" Multiplicity="1" />
+          <End Role="Irrigation" Type="Self.Irrigation" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="WaterInput">
+              <PropertyRef Name="WaterInputId" />
+            </Principal>
+            <Dependent Role="Irrigation">
+              <PropertyRef Name="WaterInputId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId">
+          <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+          <End Role="IrrigationUnit" Type="Self.IrrigationUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="FarmId" />
+            </Principal>
+            <Dependent Role="IrrigationUnit">
+              <PropertyRef Name="FarmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PhenologicalStage_dbo_Crop_Crop_CropId">
+          <End Role="Crop" Type="Self.Crop" Multiplicity="0..1" />
+          <End Role="PhenologicalStage" Type="Self.PhenologicalStage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crop">
+              <PropertyRef Name="CropId" />
+            </Principal>
+            <Dependent Role="PhenologicalStage">
+              <PropertyRef Name="Crop_CropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PhenologicalStage_dbo_Stage_StageId">
+          <End Role="Stage" Type="Self.Stage" Multiplicity="1" />
+          <End Role="PhenologicalStage" Type="Self.PhenologicalStage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stage">
+              <PropertyRef Name="StageId" />
+            </Principal>
+            <Dependent Role="PhenologicalStage">
+              <PropertyRef Name="StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="0..1" />
+          <End Role="Rain" Type="Self.Rain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="Rain">
+              <PropertyRef Name="CropIrrigationWeather_CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Rain_dbo_WaterInput_WaterInputId">
+          <End Role="WaterInput" Type="Self.WaterInput" Multiplicity="1" />
+          <End Role="Rain" Type="Self.Rain" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="WaterInput">
+              <PropertyRef Name="WaterInputId" />
+            </Principal>
+            <Dependent Role="Rain">
+              <PropertyRef Name="WaterInputId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Stage_dbo_Crop_Crop_CropId">
+          <End Role="Crop" Type="Self.Crop" Multiplicity="0..1" />
+          <End Role="Stage" Type="Self.Stage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crop">
+              <PropertyRef Name="CropId" />
+            </Principal>
+            <Dependent Role="Stage">
+              <PropertyRef Name="Crop_CropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserAccess_dbo_User_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserAccess" Type="Self.UserAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserAccess">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserFarm_dbo_Farm_FarmId">
+          <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+          <End Role="UserFarm" Type="Self.UserFarm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="FarmId" />
+            </Principal>
+            <Dependent Role="UserFarm">
+              <PropertyRef Name="FarmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserFarm_dbo_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserFarm" Type="Self.UserFarm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserFarm">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="1" />
+          <End Role="WaterInput" Type="Self.WaterInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="WaterInput">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="1" />
+          <End Role="WaterOutput" Type="Self.WaterOutput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="WaterOutput">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IrrigationAdvisorWebApiModelStoreContainer">
+          <EntitySet Name="Crop" EntityType="Self.Crop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CropIrrigationWeather" EntityType="Self.CropIrrigationWeather" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyRecord" EntityType="Self.DailyRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Farm" EntityType="Self.Farm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Irrigation" EntityType="Self.Irrigation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IrrigationUnit" EntityType="Self.IrrigationUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhenologicalStage" EntityType="Self.PhenologicalStage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rain" EntityType="Self.Rain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stage" EntityType="Self.Stage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAccess" EntityType="Self.UserAccess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserFarm" EntityType="Self.UserFarm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WaterInput" EntityType="Self.WaterInput" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WaterOutput" EntityType="Self.WaterOutput" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Crop_dbo_Stage_MinStageToConsiderETinHBCalculation_StageId" Association="Self.FK_dbo_Crop_dbo_Stage_MinStageToConsiderETinHBCalculation_StageId">
+            <End Role="Stage" EntitySet="Stage" />
+            <End Role="Crop" EntitySet="Crop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Crop_dbo_Stage_StopIrrigationStage_StageId" Association="Self.FK_dbo_Crop_dbo_Stage_StopIrrigationStage_StageId">
+            <End Role="Stage" EntitySet="Stage" />
+            <End Role="Crop" EntitySet="Crop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CropIrrigationWeather_dbo_Crop_CropId" Association="Self.FK_dbo_CropIrrigationWeather_dbo_Crop_CropId">
+            <End Role="Crop" EntitySet="Crop" />
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId" Association="Self.FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId">
+            <End Role="IrrigationUnit" EntitySet="IrrigationUnit" />
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId" Association="Self.FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId">
+            <End Role="PhenologicalStage" EntitySet="PhenologicalStage" />
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
+            <End Role="DailyRecord" EntitySet="DailyRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId" Association="Self.FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId">
+            <End Role="Irrigation" EntitySet="Irrigation" />
+            <End Role="DailyRecord" EntitySet="DailyRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId" Association="Self.FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId">
+            <End Role="PhenologicalStage" EntitySet="PhenologicalStage" />
+            <End Role="DailyRecord" EntitySet="DailyRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DailyRecord_dbo_Rain_Rain_WaterInputId" Association="Self.FK_dbo_DailyRecord_dbo_Rain_Rain_WaterInputId">
+            <End Role="Rain" EntitySet="Rain" />
+            <End Role="DailyRecord" EntitySet="DailyRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
+            <End Role="Irrigation" EntitySet="Irrigation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Irrigation_dbo_WaterInput_WaterInputId" Association="Self.FK_dbo_Irrigation_dbo_WaterInput_WaterInputId">
+            <End Role="WaterInput" EntitySet="WaterInput" />
+            <End Role="Irrigation" EntitySet="Irrigation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId" Association="Self.FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId">
+            <End Role="Farm" EntitySet="Farm" />
+            <End Role="IrrigationUnit" EntitySet="IrrigationUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PhenologicalStage_dbo_Crop_Crop_CropId" Association="Self.FK_dbo_PhenologicalStage_dbo_Crop_Crop_CropId">
+            <End Role="Crop" EntitySet="Crop" />
+            <End Role="PhenologicalStage" EntitySet="PhenologicalStage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PhenologicalStage_dbo_Stage_StageId" Association="Self.FK_dbo_PhenologicalStage_dbo_Stage_StageId">
+            <End Role="Stage" EntitySet="Stage" />
+            <End Role="PhenologicalStage" EntitySet="PhenologicalStage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
+            <End Role="Rain" EntitySet="Rain" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Rain_dbo_WaterInput_WaterInputId" Association="Self.FK_dbo_Rain_dbo_WaterInput_WaterInputId">
+            <End Role="WaterInput" EntitySet="WaterInput" />
+            <End Role="Rain" EntitySet="Rain" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Stage_dbo_Crop_Crop_CropId" Association="Self.FK_dbo_Stage_dbo_Crop_Crop_CropId">
+            <End Role="Crop" EntitySet="Crop" />
+            <End Role="Stage" EntitySet="Stage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserAccess_dbo_User_User_UserId" Association="Self.FK_dbo_UserAccess_dbo_User_User_UserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserAccess" EntitySet="UserAccess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserFarm_dbo_Farm_FarmId" Association="Self.FK_dbo_UserFarm_dbo_Farm_FarmId">
+            <End Role="Farm" EntitySet="Farm" />
+            <End Role="UserFarm" EntitySet="UserFarm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserFarm_dbo_User_UserId" Association="Self.FK_dbo_UserFarm_dbo_User_UserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserFarm" EntitySet="UserFarm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
+            <End Role="WaterInput" EntitySet="WaterInput" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
+            <End Role="WaterOutput" EntitySet="WaterOutput" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IrrigationAdvisorWebApiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Crop">
+          <Key>
+            <PropertyRef Name="CropId" />
+          </Key>
+          <Property Name="CropId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegionId" Type="Int64" Nullable="false" />
+          <Property Name="SpecieId" Type="Int64" Nullable="false" />
+          <Property Name="CropCoefficientId" Type="Int64" Nullable="false" />
+          <Property Name="MaxEvapotranspirationToIrrigate" Type="Double" Nullable="false" />
+          <Property Name="MinEvapotranspirationToIrrigate" Type="Double" Nullable="false" />
+          <Property Name="StopIrrigationStageId" Type="Int64" Nullable="false" />
+          <Property Name="StopIrrigationStage_StageId" Type="Int64" />
+          <Property Name="MinStageToConsiderETinHBCalculationId" Type="Int64" Nullable="false" />
+          <Property Name="MinStageToConsiderETinHBCalculation_StageId" Type="Int64" />
+          <NavigationProperty Name="CropIrrigationWeathers" Relationship="Self.FK_dbo_CropIrrigationWeather_dbo_Crop_CropId" FromRole="Crop" ToRole="CropIrrigationWeather" />
+          <NavigationProperty Name="PhenologicalStages" Relationship="Self.FK_dbo_PhenologicalStage_dbo_Crop_Crop_CropId" FromRole="Crop" ToRole="PhenologicalStage" />
+          <NavigationProperty Name="Stage" Relationship="IrrigationAdvisorWebApiModel.FK_dbo_Crop_dbo_Stage_MinStageToConsiderETinHBCalculation_StageId" FromRole="Crop" ToRole="Stage" />
+          <NavigationProperty Name="Stage1" Relationship="IrrigationAdvisorWebApiModel.FK_dbo_Crop_dbo_Stage_StopIrrigationStage_StageId" FromRole="Crop" ToRole="Stage" />
+          <NavigationProperty Name="Stages" Relationship="IrrigationAdvisorWebApiModel.FK_dbo_Stage_dbo_Crop_Crop_CropId" FromRole="Crop" ToRole="Stage" />
+        </EntityType>
+        <EntityType Name="CropIrrigationWeather">
+          <Key>
+            <PropertyRef Name="CropIrrigationWeatherId" />
+          </Key>
+          <Property Name="CropIrrigationWeatherId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CropIrrigationWeatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CropId" Type="Int64" Nullable="false" />
+          <Property Name="SoilId" Type="Int64" Nullable="false" />
+          <Property Name="SowingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HarvestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CropDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StartAdvisorDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PhenologicalStageId" Type="Int64" Nullable="false" />
+          <Property Name="HydricBalance" Type="Double" Nullable="false" />
+          <Property Name="SoilHydricVolume" Type="Double" Nullable="false" />
+          <Property Name="TotalEvapotranspirationCropFromLastWaterInput" Type="Double" Nullable="false" />
+          <Property Name="CalculusMethodForPhenologicalAdjustment" Type="Int32" Nullable="false" />
+          <Property Name="CropInformationByDateId" Type="Int64" Nullable="false" />
+          <Property Name="DaysAfterSowing" Type="Int32" Nullable="false" />
+          <Property Name="DaysAfterSowingModified" Type="Int32" Nullable="false" />
+          <Property Name="GrowingDegreeDaysAccumulated" Type="Double" Nullable="false" />
+          <Property Name="GrowingDegreeDaysModified" Type="Double" Nullable="false" />
+          <Property Name="IrrigationUnitId" Type="Int64" Nullable="false" />
+          <Property Name="PredeterminatedIrrigationQuantity" Type="Double" Nullable="false" />
+          <Property Name="PositionId" Type="Int64" Nullable="false" />
+          <Property Name="LastWaterInputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastBigWaterInputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastPartialWaterInputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastPartialWaterInput" Type="Double" Nullable="false" />
+          <Property Name="LastBigGapWaterInputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MainWeatherStationId" Type="Int64" Nullable="false" />
+          <Property Name="AlternativeWeatherStationId" Type="Int64" Nullable="false" />
+          <Property Name="UsingMainWeatherStation" Type="Boolean" Nullable="false" />
+          <Property Name="TotalEvapotranspirationCrop" Type="Double" Nullable="false" />
+          <Property Name="TotalEffectiveRain" Type="Double" Nullable="false" />
+          <Property Name="TotalRealRain" Type="Double" Nullable="false" />
+          <Property Name="TotalIrrigation" Type="Double" Nullable="false" />
+          <Property Name="TotalIrrigationInHydricBalance" Type="Double" Nullable="false" />
+          <Property Name="TotalExtraIrrigation" Type="Double" Nullable="false" />
+          <Property Name="TotalExtraIrrigationInHydricBalance" Type="Double" Nullable="false" />
+          <Property Name="OutPut" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalMessageLines" Type="Int64" Nullable="false" />
+          <Property Name="TotalMessageDailyLines" Type="Int64" Nullable="false" />
+          <Property Name="TextLog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AlternativeWeatherStation_WeatherStationId" Type="Int64" />
+          <Property Name="MainWeatherStation_WeatherStationId" Type="Int64" />
+          <Property Name="WeatherEventType" Type="Int32" Nullable="false" />
+          <Property Name="DaysForHydricBalanceUnchangableAfterSowing" Type="Int32" Nullable="false" />
+          <Property Name="HasAdviseOfIrrigation" Type="Boolean" Nullable="false" />
+          <Property Name="Density" Type="Double" Nullable="false" />
+          <Property Name="LastDayOfGrowingDegreeDays" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Crop" Relationship="Self.FK_dbo_CropIrrigationWeather_dbo_Crop_CropId" FromRole="CropIrrigationWeather" ToRole="Crop" />
+          <NavigationProperty Name="IrrigationUnit" Relationship="Self.FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId" FromRole="CropIrrigationWeather" ToRole="IrrigationUnit" />
+          <NavigationProperty Name="PhenologicalStage" Relationship="Self.FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId" FromRole="CropIrrigationWeather" ToRole="PhenologicalStage" />
+          <NavigationProperty Name="DailyRecords" Relationship="Self.FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="DailyRecord" />
+          <NavigationProperty Name="Irrigations" Relationship="Self.FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="Irrigation" />
+          <NavigationProperty Name="Rains" Relationship="Self.FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="Rain" />
+          <NavigationProperty Name="WaterInputs" Relationship="Self.FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="WaterInput" />
+          <NavigationProperty Name="WaterOutputs" Relationship="Self.FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="WaterOutput" />
+        </EntityType>
+        <EntityType Name="DailyRecord">
+          <Key>
+            <PropertyRef Name="DailyRecordId" />
+          </Key>
+          <Property Name="DailyRecordId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DailyRecordDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MainWeatherDataId" Type="Int64" Nullable="false" />
+          <Property Name="AlternativeWeatherDataId" Type="Int64" Nullable="false" />
+          <Property Name="DaysAfterSowing" Type="Int32" Nullable="false" />
+          <Property Name="DaysAfterSowingModified" Type="Int32" Nullable="false" />
+          <Property Name="GrowingDegreeDays" Type="Double" Nullable="false" />
+          <Property Name="GrowingDegreeDaysAccumulated" Type="Double" Nullable="false" />
+          <Property Name="GrowingDegreeDaysModified" Type="Double" Nullable="false" />
+          <Property Name="RainId" Type="Int64" Nullable="false" />
+          <Property Name="IrrigationId" Type="Int64" Nullable="false" />
+          <Property Name="LastWaterInputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastBigWaterInputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastPartialWaterInputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastPartialWaterInput" Type="Double" Nullable="false" />
+          <Property Name="LastBigGapWaterInputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EvapotranspirationCropId" Type="Int64" Nullable="false" />
+          <Property Name="TotalEffectiveInputWater" Type="Double" Nullable="false" />
+          <Property Name="PercentageOfHydricBalance" Type="Double" Nullable="false" />
+          <Property Name="GAPPercentageOfHydricBalance" Type="Double" Nullable="false" />
+          <Property Name="PhenologicalStageId" Type="Int64" Nullable="false" />
+          <Property Name="HydricBalance" Type="Double" Nullable="false" />
+          <Property Name="SoilHydricVolume" Type="Double" Nullable="false" />
+          <Property Name="TotalEvapotranspirationCropFromLastWaterInput" Type="Double" Nullable="false" />
+          <Property Name="CropCoefficient" Type="Double" Nullable="false" />
+          <Property Name="Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalEvapotranspirationCrop" Type="Double" Nullable="false" />
+          <Property Name="TotalEffectiveRain" Type="Double" Nullable="false" />
+          <Property Name="TotalRealRain" Type="Double" Nullable="false" />
+          <Property Name="TotalIrrigation" Type="Double" Nullable="false" />
+          <Property Name="TotalIrrigationInHydricBalance" Type="Double" Nullable="false" />
+          <Property Name="TotalExtraIrrigation" Type="Double" Nullable="false" />
+          <Property Name="TotalExtraIrrigationInHydricBalance" Type="Double" Nullable="false" />
+          <Property Name="AlternativeWeatherData_WeatherDataId" Type="Int64" />
+          <Property Name="EvapotranspirationCrop_WaterOutputId" Type="Int64" />
+          <Property Name="Irrigation_WaterInputId" Type="Int64" />
+          <Property Name="MainWeatherData_WeatherDataId" Type="Int64" />
+          <Property Name="Rain_WaterInputId" Type="Int64" />
+          <Property Name="CropIrrigationWeatherId" Type="Int64" Nullable="false" />
+          <Property Name="LastDayOfGrowingDegreeDays" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CropIrrigationWeather" Relationship="Self.FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="DailyRecord" ToRole="CropIrrigationWeather" />
+          <NavigationProperty Name="Irrigation" Relationship="Self.FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId" FromRole="DailyRecord" ToRole="Irrigation" />
+          <NavigationProperty Name="PhenologicalStage" Relationship="Self.FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId" FromRole="DailyRecord" ToRole="PhenologicalStage" />
+          <NavigationProperty Name="Rain" Relationship="Self.FK_dbo_DailyRecord_dbo_Rain_Rain_WaterInputId" FromRole="DailyRecord" ToRole="Rain" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="FarmId" />
+          </Key>
+          <Property Name="FarmId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PositionId" Type="Int64" Nullable="false" />
+          <Property Name="Has" Type="Int32" Nullable="false" />
+          <Property Name="WeatherStationId" Type="Int64" Nullable="false" />
+          <Property Name="CityId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="IrrigationUnits" Relationship="Self.FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId" FromRole="Farm" ToRole="IrrigationUnit" />
+          <NavigationProperty Name="UserFarms" Relationship="Self.FK_dbo_UserFarm_dbo_Farm_FarmId" FromRole="Farm" ToRole="UserFarm" />
+        </EntityType>
+        <EntityType Name="Irrigation">
+          <Key>
+            <PropertyRef Name="WaterInputId" />
+          </Key>
+          <Property Name="WaterInputId" Type="Int64" Nullable="false" />
+          <Property Name="CropIrrigationWeather_CropIrrigationWeatherId" Type="Int64" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReasonId" Type="Int32" />
+          <NavigationProperty Name="CropIrrigationWeather" Relationship="Self.FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="Irrigation" ToRole="CropIrrigationWeather" />
+          <NavigationProperty Name="DailyRecords" Relationship="Self.FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId" FromRole="Irrigation" ToRole="DailyRecord" />
+          <NavigationProperty Name="WaterInput" Relationship="Self.FK_dbo_Irrigation_dbo_WaterInput_WaterInputId" FromRole="Irrigation" ToRole="WaterInput" />
+        </EntityType>
+        <EntityType Name="IrrigationUnit">
+          <Key>
+            <PropertyRef Name="IrrigationUnitId" />
+          </Key>
+          <Property Name="IrrigationUnitId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IrrigationType" Type="Int32" Nullable="false" />
+          <Property Name="IrrigationEfficiency" Type="Double" Nullable="false" />
+          <Property Name="Surface" Type="Double" Nullable="false" />
+          <Property Name="BombId" Type="Int64" Nullable="false" />
+          <Property Name="PositionId" Type="Int64" Nullable="false" />
+          <Property Name="PredeterminatedIrrigationQuantity" Type="Double" Nullable="false" />
+          <Property Name="FarmId" Type="Int64" Nullable="false" />
+          <Property Name="Show" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CropIrrigationWeathers" Relationship="Self.FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId" FromRole="IrrigationUnit" ToRole="CropIrrigationWeather" />
+          <NavigationProperty Name="Farm" Relationship="Self.FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId" FromRole="IrrigationUnit" ToRole="Farm" />
+        </EntityType>
+        <EntityType Name="PhenologicalStage">
+          <Key>
+            <PropertyRef Name="PhenologicalStageId" />
+          </Key>
+          <Property Name="PhenologicalStageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecieId" Type="Int64" Nullable="false" />
+          <Property Name="StageId" Type="Int64" Nullable="false" />
+          <Property Name="MinDegree" Type="Double" Nullable="false" />
+          <Property Name="MaxDegree" Type="Double" Nullable="false" />
+          <Property Name="RootDepth" Type="Double" Nullable="false" />
+          <Property Name="HydricBalanceDepth" Type="Double" Nullable="false" />
+          <Property Name="CropInformationByDate_CropInformationByDateId" Type="Int64" />
+          <Property Name="Crop_CropId" Type="Int64" />
+          <Property Name="Coefficient" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Crop" Relationship="Self.FK_dbo_PhenologicalStage_dbo_Crop_Crop_CropId" FromRole="PhenologicalStage" ToRole="Crop" />
+          <NavigationProperty Name="CropIrrigationWeathers" Relationship="Self.FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId" FromRole="PhenologicalStage" ToRole="CropIrrigationWeather" />
+          <NavigationProperty Name="DailyRecords" Relationship="Self.FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId" FromRole="PhenologicalStage" ToRole="DailyRecord" />
+          <NavigationProperty Name="Stage" Relationship="IrrigationAdvisorWebApiModel.FK_dbo_PhenologicalStage_dbo_Stage_StageId" FromRole="PhenologicalStage" ToRole="Stage" />
+        </EntityType>
+        <EntityType Name="Rain">
+          <Key>
+            <PropertyRef Name="WaterInputId" />
+          </Key>
+          <Property Name="WaterInputId" Type="Int64" Nullable="false" />
+          <Property Name="CropIrrigationWeather_CropIrrigationWeatherId" Type="Int64" />
+          <NavigationProperty Name="CropIrrigationWeather" Relationship="Self.FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="Rain" ToRole="CropIrrigationWeather" />
+          <NavigationProperty Name="DailyRecords" Relationship="Self.FK_dbo_DailyRecord_dbo_Rain_Rain_WaterInputId" FromRole="Rain" ToRole="DailyRecord" />
+          <NavigationProperty Name="WaterInput" Relationship="Self.FK_dbo_Rain_dbo_WaterInput_WaterInputId" FromRole="Rain" ToRole="WaterInput" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int64" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserAccesses" Relationship="Self.FK_dbo_UserAccess_dbo_User_User_UserId" FromRole="User" ToRole="UserAccess" />
+          <NavigationProperty Name="UserFarms" Relationship="Self.FK_dbo_UserFarm_dbo_User_UserId" FromRole="User" ToRole="UserFarm" />
+        </EntityType>
+        <EntityType Name="UserAccess">
+          <Key>
+            <PropertyRef Name="UserAccessId" />
+          </Key>
+          <Property Name="UserAccessId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogInDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogOutDate" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_UserAccess_dbo_User_User_UserId" FromRole="UserAccess" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserFarm">
+          <Key>
+            <PropertyRef Name="UserFarmId" />
+          </Key>
+          <Property Name="UserFarmId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="FarmId" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Farm" Relationship="Self.FK_dbo_UserFarm_dbo_Farm_FarmId" FromRole="UserFarm" ToRole="Farm" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_UserFarm_dbo_User_UserId" FromRole="UserFarm" ToRole="User" />
+        </EntityType>
+        <EntityType Name="WaterInput">
+          <Key>
+            <PropertyRef Name="WaterInputId" />
+          </Key>
+          <Property Name="WaterInputId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Input" Type="Double" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExtraInput" Type="Double" Nullable="false" />
+          <Property Name="ExtraDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CropIrrigationWeatherId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CropIrrigationWeather" Relationship="Self.FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="WaterInput" ToRole="CropIrrigationWeather" />
+          <NavigationProperty Name="Irrigation" Relationship="Self.FK_dbo_Irrigation_dbo_WaterInput_WaterInputId" FromRole="WaterInput" ToRole="Irrigation" />
+          <NavigationProperty Name="Rain" Relationship="Self.FK_dbo_Rain_dbo_WaterInput_WaterInputId" FromRole="WaterInput" ToRole="Rain" />
+        </EntityType>
+        <EntityType Name="WaterOutput">
+          <Key>
+            <PropertyRef Name="WaterOutputId" />
+          </Key>
+          <Property Name="WaterOutputId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Output" Type="Double" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExtraOutput" Type="Double" Nullable="false" />
+          <Property Name="ExtraDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CropIrrigationWeatherId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CropIrrigationWeather" Relationship="Self.FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="WaterOutput" ToRole="CropIrrigationWeather" />
+        </EntityType>
+        <Association Name="FK_dbo_CropIrrigationWeather_dbo_Crop_CropId">
+          <End Role="Crop" Type="Self.Crop" Multiplicity="1" />
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crop">
+              <PropertyRef Name="CropId" />
+            </Principal>
+            <Dependent Role="CropIrrigationWeather">
+              <PropertyRef Name="CropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PhenologicalStage_dbo_Crop_Crop_CropId">
+          <End Role="Crop" Type="Self.Crop" Multiplicity="0..1" />
+          <End Role="PhenologicalStage" Type="Self.PhenologicalStage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crop">
+              <PropertyRef Name="CropId" />
+            </Principal>
+            <Dependent Role="PhenologicalStage">
+              <PropertyRef Name="Crop_CropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId">
+          <End Role="IrrigationUnit" Type="Self.IrrigationUnit" Multiplicity="1" />
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IrrigationUnit">
+              <PropertyRef Name="IrrigationUnitId" />
+            </Principal>
+            <Dependent Role="CropIrrigationWeather">
+              <PropertyRef Name="IrrigationUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId">
+          <End Role="PhenologicalStage" Type="Self.PhenologicalStage" Multiplicity="1" />
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhenologicalStage">
+              <PropertyRef Name="PhenologicalStageId" />
+            </Principal>
+            <Dependent Role="CropIrrigationWeather">
+              <PropertyRef Name="PhenologicalStageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="1" />
+          <End Role="DailyRecord" Type="Self.DailyRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="DailyRecord">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="0..1" />
+          <End Role="Irrigation" Type="Self.Irrigation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="Irrigation">
+              <PropertyRef Name="CropIrrigationWeather_CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="0..1" />
+          <End Role="Rain" Type="Self.Rain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="Rain">
+              <PropertyRef Name="CropIrrigationWeather_CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="1" />
+          <End Role="WaterInput" Type="Self.WaterInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="WaterInput">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
+          <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="1" />
+          <End Role="WaterOutput" Type="Self.WaterOutput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CropIrrigationWeather">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Principal>
+            <Dependent Role="WaterOutput">
+              <PropertyRef Name="CropIrrigationWeatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId">
+          <End Role="Irrigation" Type="Self.Irrigation" Multiplicity="0..1" />
+          <End Role="DailyRecord" Type="Self.DailyRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Irrigation">
+              <PropertyRef Name="WaterInputId" />
+            </Principal>
+            <Dependent Role="DailyRecord">
+              <PropertyRef Name="Irrigation_WaterInputId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId">
+          <End Role="PhenologicalStage" Type="Self.PhenologicalStage" Multiplicity="1" />
+          <End Role="DailyRecord" Type="Self.DailyRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhenologicalStage">
+              <PropertyRef Name="PhenologicalStageId" />
+            </Principal>
+            <Dependent Role="DailyRecord">
+              <PropertyRef Name="PhenologicalStageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DailyRecord_dbo_Rain_Rain_WaterInputId">
+          <End Role="Rain" Type="Self.Rain" Multiplicity="0..1" />
+          <End Role="DailyRecord" Type="Self.DailyRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rain">
+              <PropertyRef Name="WaterInputId" />
+            </Principal>
+            <Dependent Role="DailyRecord">
+              <PropertyRef Name="Rain_WaterInputId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId">
+          <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+          <End Role="IrrigationUnit" Type="Self.IrrigationUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="FarmId" />
+            </Principal>
+            <Dependent Role="IrrigationUnit">
+              <PropertyRef Name="FarmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserFarm_dbo_Farm_FarmId">
+          <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
+          <End Role="UserFarm" Type="Self.UserFarm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="FarmId" />
+            </Principal>
+            <Dependent Role="UserFarm">
+              <PropertyRef Name="FarmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Irrigation_dbo_WaterInput_WaterInputId">
+          <End Role="WaterInput" Type="Self.WaterInput" Multiplicity="1" />
+          <End Role="Irrigation" Type="Self.Irrigation" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="WaterInput">
+              <PropertyRef Name="WaterInputId" />
+            </Principal>
+            <Dependent Role="Irrigation">
+              <PropertyRef Name="WaterInputId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Rain_dbo_WaterInput_WaterInputId">
+          <End Role="WaterInput" Type="Self.WaterInput" Multiplicity="1" />
+          <End Role="Rain" Type="Self.Rain" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="WaterInput">
+              <PropertyRef Name="WaterInputId" />
+            </Principal>
+            <Dependent Role="Rain">
+              <PropertyRef Name="WaterInputId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserAccess_dbo_User_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserAccess" Type="Self.UserAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserAccess">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserFarm_dbo_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserFarm" Type="Self.UserFarm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserFarm">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IrrigationAdvisorWebApiEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Crops" EntityType="Self.Crop" />
+          <EntitySet Name="CropIrrigationWeathers" EntityType="Self.CropIrrigationWeather" />
+          <EntitySet Name="DailyRecords" EntityType="Self.DailyRecord" />
+          <EntitySet Name="Farms" EntityType="Self.Farm" />
+          <EntitySet Name="Irrigations" EntityType="Self.Irrigation" />
+          <EntitySet Name="IrrigationUnits" EntityType="Self.IrrigationUnit" />
+          <EntitySet Name="PhenologicalStages" EntityType="Self.PhenologicalStage" />
+          <EntitySet Name="Rains" EntityType="Self.Rain" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserAccesses" EntityType="Self.UserAccess" />
+          <EntitySet Name="UserFarms" EntityType="Self.UserFarm" />
+          <EntitySet Name="WaterInputs" EntityType="Self.WaterInput" />
+          <EntitySet Name="WaterOutputs" EntityType="Self.WaterOutput" />
+          <AssociationSet Name="FK_dbo_CropIrrigationWeather_dbo_Crop_CropId" Association="Self.FK_dbo_CropIrrigationWeather_dbo_Crop_CropId">
+            <End Role="Crop" EntitySet="Crops" />
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeathers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PhenologicalStage_dbo_Crop_Crop_CropId" Association="Self.FK_dbo_PhenologicalStage_dbo_Crop_Crop_CropId">
+            <End Role="Crop" EntitySet="Crops" />
+            <End Role="PhenologicalStage" EntitySet="PhenologicalStages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId" Association="Self.FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId">
+            <End Role="IrrigationUnit" EntitySet="IrrigationUnits" />
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeathers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId" Association="Self.FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId">
+            <End Role="PhenologicalStage" EntitySet="PhenologicalStages" />
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeathers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeathers" />
+            <End Role="DailyRecord" EntitySet="DailyRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeathers" />
+            <End Role="Irrigation" EntitySet="Irrigations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeathers" />
+            <End Role="Rain" EntitySet="Rains" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeathers" />
+            <End Role="WaterInput" EntitySet="WaterInputs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
+            <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeathers" />
+            <End Role="WaterOutput" EntitySet="WaterOutputs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId" Association="Self.FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId">
+            <End Role="Irrigation" EntitySet="Irrigations" />
+            <End Role="DailyRecord" EntitySet="DailyRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId" Association="Self.FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId">
+            <End Role="PhenologicalStage" EntitySet="PhenologicalStages" />
+            <End Role="DailyRecord" EntitySet="DailyRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DailyRecord_dbo_Rain_Rain_WaterInputId" Association="Self.FK_dbo_DailyRecord_dbo_Rain_Rain_WaterInputId">
+            <End Role="Rain" EntitySet="Rains" />
+            <End Role="DailyRecord" EntitySet="DailyRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId" Association="Self.FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId">
+            <End Role="Farm" EntitySet="Farms" />
+            <End Role="IrrigationUnit" EntitySet="IrrigationUnits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserFarm_dbo_Farm_FarmId" Association="Self.FK_dbo_UserFarm_dbo_Farm_FarmId">
+            <End Role="Farm" EntitySet="Farms" />
+            <End Role="UserFarm" EntitySet="UserFarms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Irrigation_dbo_WaterInput_WaterInputId" Association="Self.FK_dbo_Irrigation_dbo_WaterInput_WaterInputId">
+            <End Role="WaterInput" EntitySet="WaterInputs" />
+            <End Role="Irrigation" EntitySet="Irrigations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Rain_dbo_WaterInput_WaterInputId" Association="Self.FK_dbo_Rain_dbo_WaterInput_WaterInputId">
+            <End Role="WaterInput" EntitySet="WaterInputs" />
+            <End Role="Rain" EntitySet="Rains" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserAccess_dbo_User_User_UserId" Association="Self.FK_dbo_UserAccess_dbo_User_User_UserId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserAccess" EntitySet="UserAccesses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserFarm_dbo_User_UserId" Association="Self.FK_dbo_UserFarm_dbo_User_UserId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserFarm" EntitySet="UserFarms" />
+          </AssociationSet>
+          <EntitySet Name="Status" EntityType="IrrigationAdvisorWebApiModel.Status" />
+          <EntitySet Name="Stages" EntityType="IrrigationAdvisorWebApiModel.Stage" />
+          <AssociationSet Name="FK_dbo_Crop_dbo_Stage_MinStageToConsiderETinHBCalculation_StageId" Association="IrrigationAdvisorWebApiModel.FK_dbo_Crop_dbo_Stage_MinStageToConsiderETinHBCalculation_StageId">
+            <End Role="Stage" EntitySet="Stages" />
+            <End Role="Crop" EntitySet="Crops" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Crop_dbo_Stage_StopIrrigationStage_StageId" Association="IrrigationAdvisorWebApiModel.FK_dbo_Crop_dbo_Stage_StopIrrigationStage_StageId">
+            <End Role="Stage" EntitySet="Stages" />
+            <End Role="Crop" EntitySet="Crops" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Stage_dbo_Crop_Crop_CropId" Association="IrrigationAdvisorWebApiModel.FK_dbo_Stage_dbo_Crop_Crop_CropId">
+            <End Role="Crop" EntitySet="Crops" />
+            <End Role="Stage" EntitySet="Stages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PhenologicalStage_dbo_Stage_StageId" Association="IrrigationAdvisorWebApiModel.FK_dbo_PhenologicalStage_dbo_Stage_StageId">
+            <End Role="Stage" EntitySet="Stages" />
+            <End Role="PhenologicalStage" EntitySet="PhenologicalStages" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfReference" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WebStatus" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Stage">
+          <Key>
+            <PropertyRef Name="StageId" />
+          </Key>
+          <Property Name="StageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="Crop_CropId" Type="Int64" />
+          <NavigationProperty Name="Crops" Relationship="IrrigationAdvisorWebApiModel.FK_dbo_Crop_dbo_Stage_MinStageToConsiderETinHBCalculation_StageId" FromRole="Stage" ToRole="Crop" />
+          <NavigationProperty Name="Crops1" Relationship="IrrigationAdvisorWebApiModel.FK_dbo_Crop_dbo_Stage_StopIrrigationStage_StageId" FromRole="Stage" ToRole="Crop" />
+          <NavigationProperty Name="Crop" Relationship="IrrigationAdvisorWebApiModel.FK_dbo_Stage_dbo_Crop_Crop_CropId" FromRole="Stage" ToRole="Crop" />
+          <NavigationProperty Name="PhenologicalStages" Relationship="IrrigationAdvisorWebApiModel.FK_dbo_PhenologicalStage_dbo_Stage_StageId" FromRole="Stage" ToRole="PhenologicalStage" />
+        </EntityType>
+        <Association Name="FK_dbo_Crop_dbo_Stage_MinStageToConsiderETinHBCalculation_StageId">
+          <End Type="IrrigationAdvisorWebApiModel.Stage" Role="Stage" Multiplicity="0..1" />
+          <End Type="IrrigationAdvisorWebApiModel.Crop" Role="Crop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stage">
+              <PropertyRef Name="StageId" />
+            </Principal>
+            <Dependent Role="Crop">
+              <PropertyRef Name="MinStageToConsiderETinHBCalculation_StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Crop_dbo_Stage_StopIrrigationStage_StageId">
+          <End Type="IrrigationAdvisorWebApiModel.Stage" Role="Stage" Multiplicity="0..1" />
+          <End Type="IrrigationAdvisorWebApiModel.Crop" Role="Crop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stage">
+              <PropertyRef Name="StageId" />
+            </Principal>
+            <Dependent Role="Crop">
+              <PropertyRef Name="StopIrrigationStage_StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Stage_dbo_Crop_Crop_CropId">
+          <End Type="IrrigationAdvisorWebApiModel.Crop" Role="Crop" Multiplicity="0..1" />
+          <End Type="IrrigationAdvisorWebApiModel.Stage" Role="Stage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crop">
+              <PropertyRef Name="CropId" />
+            </Principal>
+            <Dependent Role="Stage">
+              <PropertyRef Name="Crop_CropId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PhenologicalStage_dbo_Stage_StageId">
+          <End Type="IrrigationAdvisorWebApiModel.Stage" Role="Stage" Multiplicity="1" />
+          <End Type="IrrigationAdvisorWebApiModel.PhenologicalStage" Role="PhenologicalStage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stage">
+              <PropertyRef Name="StageId" />
+            </Principal>
+            <Dependent Role="PhenologicalStage">
+              <PropertyRef Name="StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IrrigationAdvisorWebApiModelStoreContainer" CdmEntityContainer="IrrigationAdvisorWebApiEntities1">
+          <EntitySetMapping Name="Crops">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.Crop">
+              <MappingFragment StoreEntitySet="Crop">
+                <ScalarProperty Name="CropId" ColumnName="CropId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="SpecieId" ColumnName="SpecieId" />
+                <ScalarProperty Name="CropCoefficientId" ColumnName="CropCoefficientId" />
+                <ScalarProperty Name="MaxEvapotranspirationToIrrigate" ColumnName="MaxEvapotranspirationToIrrigate" />
+                <ScalarProperty Name="MinEvapotranspirationToIrrigate" ColumnName="MinEvapotranspirationToIrrigate" />
+                <ScalarProperty Name="StopIrrigationStageId" ColumnName="StopIrrigationStageId" />
+                <ScalarProperty Name="StopIrrigationStage_StageId" ColumnName="StopIrrigationStage_StageId" />
+                <ScalarProperty Name="MinStageToConsiderETinHBCalculationId" ColumnName="MinStageToConsiderETinHBCalculationId" />
+                <ScalarProperty Name="MinStageToConsiderETinHBCalculation_StageId" ColumnName="MinStageToConsiderETinHBCalculation_StageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CropIrrigationWeathers">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.CropIrrigationWeather">
+              <MappingFragment StoreEntitySet="CropIrrigationWeather">
+                <ScalarProperty Name="CropIrrigationWeatherId" ColumnName="CropIrrigationWeatherId" />
+                <ScalarProperty Name="CropIrrigationWeatherName" ColumnName="CropIrrigationWeatherName" />
+                <ScalarProperty Name="CropId" ColumnName="CropId" />
+                <ScalarProperty Name="SoilId" ColumnName="SoilId" />
+                <ScalarProperty Name="SowingDate" ColumnName="SowingDate" />
+                <ScalarProperty Name="HarvestDate" ColumnName="HarvestDate" />
+                <ScalarProperty Name="CropDate" ColumnName="CropDate" />
+                <ScalarProperty Name="StartAdvisorDate" ColumnName="StartAdvisorDate" />
+                <ScalarProperty Name="PhenologicalStageId" ColumnName="PhenologicalStageId" />
+                <ScalarProperty Name="HydricBalance" ColumnName="HydricBalance" />
+                <ScalarProperty Name="SoilHydricVolume" ColumnName="SoilHydricVolume" />
+                <ScalarProperty Name="TotalEvapotranspirationCropFromLastWaterInput" ColumnName="TotalEvapotranspirationCropFromLastWaterInput" />
+                <ScalarProperty Name="CalculusMethodForPhenologicalAdjustment" ColumnName="CalculusMethodForPhenologicalAdjustment" />
+                <ScalarProperty Name="CropInformationByDateId" ColumnName="CropInformationByDateId" />
+                <ScalarProperty Name="DaysAfterSowing" ColumnName="DaysAfterSowing" />
+                <ScalarProperty Name="DaysAfterSowingModified" ColumnName="DaysAfterSowingModified" />
+                <ScalarProperty Name="GrowingDegreeDaysAccumulated" ColumnName="GrowingDegreeDaysAccumulated" />
+                <ScalarProperty Name="GrowingDegreeDaysModified" ColumnName="GrowingDegreeDaysModified" />
+                <ScalarProperty Name="IrrigationUnitId" ColumnName="IrrigationUnitId" />
+                <ScalarProperty Name="PredeterminatedIrrigationQuantity" ColumnName="PredeterminatedIrrigationQuantity" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="LastWaterInputDate" ColumnName="LastWaterInputDate" />
+                <ScalarProperty Name="LastBigWaterInputDate" ColumnName="LastBigWaterInputDate" />
+                <ScalarProperty Name="LastPartialWaterInputDate" ColumnName="LastPartialWaterInputDate" />
+                <ScalarProperty Name="LastPartialWaterInput" ColumnName="LastPartialWaterInput" />
+                <ScalarProperty Name="LastBigGapWaterInputDate" ColumnName="LastBigGapWaterInputDate" />
+                <ScalarProperty Name="MainWeatherStationId" ColumnName="MainWeatherStationId" />
+                <ScalarProperty Name="AlternativeWeatherStationId" ColumnName="AlternativeWeatherStationId" />
+                <ScalarProperty Name="UsingMainWeatherStation" ColumnName="UsingMainWeatherStation" />
+                <ScalarProperty Name="TotalEvapotranspirationCrop" ColumnName="TotalEvapotranspirationCrop" />
+                <ScalarProperty Name="TotalEffectiveRain" ColumnName="TotalEffectiveRain" />
+                <ScalarProperty Name="TotalRealRain" ColumnName="TotalRealRain" />
+                <ScalarProperty Name="TotalIrrigation" ColumnName="TotalIrrigation" />
+                <ScalarProperty Name="TotalIrrigationInHydricBalance" ColumnName="TotalIrrigationInHydricBalance" />
+                <ScalarProperty Name="TotalExtraIrrigation" ColumnName="TotalExtraIrrigation" />
+                <ScalarProperty Name="TotalExtraIrrigationInHydricBalance" ColumnName="TotalExtraIrrigationInHydricBalance" />
+                <ScalarProperty Name="OutPut" ColumnName="OutPut" />
+                <ScalarProperty Name="TotalMessageLines" ColumnName="TotalMessageLines" />
+                <ScalarProperty Name="TotalMessageDailyLines" ColumnName="TotalMessageDailyLines" />
+                <ScalarProperty Name="TextLog" ColumnName="TextLog" />
+                <ScalarProperty Name="AlternativeWeatherStation_WeatherStationId" ColumnName="AlternativeWeatherStation_WeatherStationId" />
+                <ScalarProperty Name="MainWeatherStation_WeatherStationId" ColumnName="MainWeatherStation_WeatherStationId" />
+                <ScalarProperty Name="WeatherEventType" ColumnName="WeatherEventType" />
+                <ScalarProperty Name="DaysForHydricBalanceUnchangableAfterSowing" ColumnName="DaysForHydricBalanceUnchangableAfterSowing" />
+                <ScalarProperty Name="HasAdviseOfIrrigation" ColumnName="HasAdviseOfIrrigation" />
+                <ScalarProperty Name="Density" ColumnName="Density" />
+                <ScalarProperty Name="LastDayOfGrowingDegreeDays" ColumnName="LastDayOfGrowingDegreeDays" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyRecords">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.DailyRecord">
+              <MappingFragment StoreEntitySet="DailyRecord">
+                <ScalarProperty Name="DailyRecordId" ColumnName="DailyRecordId" />
+                <ScalarProperty Name="DailyRecordDateTime" ColumnName="DailyRecordDateTime" />
+                <ScalarProperty Name="MainWeatherDataId" ColumnName="MainWeatherDataId" />
+                <ScalarProperty Name="AlternativeWeatherDataId" ColumnName="AlternativeWeatherDataId" />
+                <ScalarProperty Name="DaysAfterSowing" ColumnName="DaysAfterSowing" />
+                <ScalarProperty Name="DaysAfterSowingModified" ColumnName="DaysAfterSowingModified" />
+                <ScalarProperty Name="GrowingDegreeDays" ColumnName="GrowingDegreeDays" />
+                <ScalarProperty Name="GrowingDegreeDaysAccumulated" ColumnName="GrowingDegreeDaysAccumulated" />
+                <ScalarProperty Name="GrowingDegreeDaysModified" ColumnName="GrowingDegreeDaysModified" />
+                <ScalarProperty Name="RainId" ColumnName="RainId" />
+                <ScalarProperty Name="IrrigationId" ColumnName="IrrigationId" />
+                <ScalarProperty Name="LastWaterInputDate" ColumnName="LastWaterInputDate" />
+                <ScalarProperty Name="LastBigWaterInputDate" ColumnName="LastBigWaterInputDate" />
+                <ScalarProperty Name="LastPartialWaterInputDate" ColumnName="LastPartialWaterInputDate" />
+                <ScalarProperty Name="LastPartialWaterInput" ColumnName="LastPartialWaterInput" />
+                <ScalarProperty Name="LastBigGapWaterInputDate" ColumnName="LastBigGapWaterInputDate" />
+                <ScalarProperty Name="EvapotranspirationCropId" ColumnName="EvapotranspirationCropId" />
+                <ScalarProperty Name="TotalEffectiveInputWater" ColumnName="TotalEffectiveInputWater" />
+                <ScalarProperty Name="PercentageOfHydricBalance" ColumnName="PercentageOfHydricBalance" />
+                <ScalarProperty Name="GAPPercentageOfHydricBalance" ColumnName="GAPPercentageOfHydricBalance" />
+                <ScalarProperty Name="PhenologicalStageId" ColumnName="PhenologicalStageId" />
+                <ScalarProperty Name="HydricBalance" ColumnName="HydricBalance" />
+                <ScalarProperty Name="SoilHydricVolume" ColumnName="SoilHydricVolume" />
+                <ScalarProperty Name="TotalEvapotranspirationCropFromLastWaterInput" ColumnName="TotalEvapotranspirationCropFromLastWaterInput" />
+                <ScalarProperty Name="CropCoefficient" ColumnName="CropCoefficient" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="TotalEvapotranspirationCrop" ColumnName="TotalEvapotranspirationCrop" />
+                <ScalarProperty Name="TotalEffectiveRain" ColumnName="TotalEffectiveRain" />
+                <ScalarProperty Name="TotalRealRain" ColumnName="TotalRealRain" />
+                <ScalarProperty Name="TotalIrrigation" ColumnName="TotalIrrigation" />
+                <ScalarProperty Name="TotalIrrigationInHydricBalance" ColumnName="TotalIrrigationInHydricBalance" />
+                <ScalarProperty Name="TotalExtraIrrigation" ColumnName="TotalExtraIrrigation" />
+                <ScalarProperty Name="TotalExtraIrrigationInHydricBalance" ColumnName="TotalExtraIrrigationInHydricBalance" />
+                <ScalarProperty Name="AlternativeWeatherData_WeatherDataId" ColumnName="AlternativeWeatherData_WeatherDataId" />
+                <ScalarProperty Name="EvapotranspirationCrop_WaterOutputId" ColumnName="EvapotranspirationCrop_WaterOutputId" />
+                <ScalarProperty Name="Irrigation_WaterInputId" ColumnName="Irrigation_WaterInputId" />
+                <ScalarProperty Name="MainWeatherData_WeatherDataId" ColumnName="MainWeatherData_WeatherDataId" />
+                <ScalarProperty Name="Rain_WaterInputId" ColumnName="Rain_WaterInputId" />
+                <ScalarProperty Name="CropIrrigationWeatherId" ColumnName="CropIrrigationWeatherId" />
+                <ScalarProperty Name="LastDayOfGrowingDegreeDays" ColumnName="LastDayOfGrowingDegreeDays" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Farms">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.Farm">
+              <MappingFragment StoreEntitySet="Farm">
+                <ScalarProperty Name="FarmId" ColumnName="FarmId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="Has" ColumnName="Has" />
+                <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Irrigations">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.Irrigation">
+              <MappingFragment StoreEntitySet="Irrigation">
+                <ScalarProperty Name="WaterInputId" ColumnName="WaterInputId" />
+                <ScalarProperty Name="CropIrrigationWeather_CropIrrigationWeatherId" ColumnName="CropIrrigationWeather_CropIrrigationWeatherId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="ReasonId" ColumnName="ReasonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IrrigationUnits">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.IrrigationUnit">
+              <MappingFragment StoreEntitySet="IrrigationUnit">
+                <ScalarProperty Name="IrrigationUnitId" ColumnName="IrrigationUnitId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="IrrigationType" ColumnName="IrrigationType" />
+                <ScalarProperty Name="IrrigationEfficiency" ColumnName="IrrigationEfficiency" />
+                <ScalarProperty Name="Surface" ColumnName="Surface" />
+                <ScalarProperty Name="BombId" ColumnName="BombId" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="PredeterminatedIrrigationQuantity" ColumnName="PredeterminatedIrrigationQuantity" />
+                <ScalarProperty Name="FarmId" ColumnName="FarmId" />
+                <ScalarProperty Name="Show" ColumnName="Show" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhenologicalStages">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.PhenologicalStage">
+              <MappingFragment StoreEntitySet="PhenologicalStage">
+                <ScalarProperty Name="PhenologicalStageId" ColumnName="PhenologicalStageId" />
+                <ScalarProperty Name="SpecieId" ColumnName="SpecieId" />
+                <ScalarProperty Name="StageId" ColumnName="StageId" />
+                <ScalarProperty Name="MinDegree" ColumnName="MinDegree" />
+                <ScalarProperty Name="MaxDegree" ColumnName="MaxDegree" />
+                <ScalarProperty Name="RootDepth" ColumnName="RootDepth" />
+                <ScalarProperty Name="HydricBalanceDepth" ColumnName="HydricBalanceDepth" />
+                <ScalarProperty Name="CropInformationByDate_CropInformationByDateId" ColumnName="CropInformationByDate_CropInformationByDateId" />
+                <ScalarProperty Name="Crop_CropId" ColumnName="Crop_CropId" />
+                <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rains">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.Rain">
+              <MappingFragment StoreEntitySet="Rain">
+                <ScalarProperty Name="WaterInputId" ColumnName="WaterInputId" />
+                <ScalarProperty Name="CropIrrigationWeather_CropIrrigationWeatherId" ColumnName="CropIrrigationWeather_CropIrrigationWeatherId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAccesses">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.UserAccess">
+              <MappingFragment StoreEntitySet="UserAccess">
+                <ScalarProperty Name="UserAccessId" ColumnName="UserAccessId" />
+                <ScalarProperty Name="LogInDate" ColumnName="LogInDate" />
+                <ScalarProperty Name="LogOutDate" ColumnName="LogOutDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserFarms">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.UserFarm">
+              <MappingFragment StoreEntitySet="UserFarm">
+                <ScalarProperty Name="UserFarmId" ColumnName="UserFarmId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="FarmId" ColumnName="FarmId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaterInputs">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.WaterInput">
+              <MappingFragment StoreEntitySet="WaterInput">
+                <ScalarProperty Name="WaterInputId" ColumnName="WaterInputId" />
+                <ScalarProperty Name="Input" ColumnName="Input" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ExtraInput" ColumnName="ExtraInput" />
+                <ScalarProperty Name="ExtraDate" ColumnName="ExtraDate" />
+                <ScalarProperty Name="CropIrrigationWeatherId" ColumnName="CropIrrigationWeatherId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaterOutputs">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.WaterOutput">
+              <MappingFragment StoreEntitySet="WaterOutput">
+                <ScalarProperty Name="WaterOutputId" ColumnName="WaterOutputId" />
+                <ScalarProperty Name="Output" ColumnName="Output" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ExtraOutput" ColumnName="ExtraOutput" />
+                <ScalarProperty Name="ExtraDate" ColumnName="ExtraDate" />
+                <ScalarProperty Name="CropIrrigationWeatherId" ColumnName="CropIrrigationWeatherId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="WebStatus" ColumnName="WebStatus" />
+                <ScalarProperty Name="DateOfReference" ColumnName="DateOfReference" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stages">
+            <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.Stage">
+              <MappingFragment StoreEntitySet="Stage">
+                <ScalarProperty Name="Crop_CropId" ColumnName="Crop_CropId" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StageId" ColumnName="StageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
