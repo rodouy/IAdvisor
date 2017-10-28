@@ -31,6 +31,8 @@ namespace IrrigationAdvisor.WebApi
         public Nullable<long> CropInformationByDate_CropInformationByDateId { get; set; }
         public Nullable<long> Crop_CropId { get; set; }
         public double Coefficient { get; set; }
+        public bool PhenologicalStageIsUsed { get; set; }
+        public double DegreesDaysInterval { get; set; }
     
         public virtual Crop Crop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

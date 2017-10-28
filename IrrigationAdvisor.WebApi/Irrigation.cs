@@ -24,7 +24,7 @@ namespace IrrigationAdvisor.WebApi
         public Nullable<long> CropIrrigationWeather_CropIrrigationWeatherId { get; set; }
         public int Type { get; set; }
         public string Observations { get; set; }
-        public Nullable<int> ReasonId { get; set; }
+        public int Reason { get; set; }
     
         public virtual CropIrrigationWeather CropIrrigationWeather { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

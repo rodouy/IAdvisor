@@ -71,6 +71,7 @@ namespace IrrigationAdvisor.WebApi
         public bool HasAdviseOfIrrigation { get; set; }
         public double Density { get; set; }
         public System.DateTime LastDayOfGrowingDegreeDays { get; set; }
+        public double GrowingDegreeDaysExtraGap { get; set; }
     
         public virtual Crop Crop { get; set; }
         public virtual IrrigationUnit IrrigationUnit { get; set; }

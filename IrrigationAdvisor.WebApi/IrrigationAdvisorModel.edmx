@@ -73,6 +73,7 @@
           <Property Name="HasAdviseOfIrrigation" Type="bit" Nullable="false" />
           <Property Name="Density" Type="float" Nullable="false" />
           <Property Name="LastDayOfGrowingDegreeDays" Type="datetime" Nullable="false" />
+          <Property Name="GrowingDegreeDaysExtraGap" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="DailyRecord">
           <Key>
@@ -141,7 +142,7 @@
           <Property Name="CropIrrigationWeather_CropIrrigationWeatherId" Type="bigint" />
           <Property Name="Type" Type="int" Nullable="false" />
           <Property Name="Observations" Type="nvarchar(max)" />
-          <Property Name="ReasonId" Type="int" />
+          <Property Name="Reason" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="IrrigationUnit">
           <Key>
@@ -173,6 +174,8 @@
           <Property Name="CropInformationByDate_CropInformationByDateId" Type="bigint" />
           <Property Name="Crop_CropId" Type="bigint" />
           <Property Name="Coefficient" Type="float" Nullable="false" />
+          <Property Name="PhenologicalStageIsUsed" Type="bit" Nullable="false" />
+          <Property Name="DegreesDaysInterval" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Rain">
           <Key>
@@ -711,6 +714,7 @@
           <NavigationProperty Name="Rains" Relationship="Self.FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="Rain" />
           <NavigationProperty Name="WaterInputs" Relationship="Self.FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="WaterInput" />
           <NavigationProperty Name="WaterOutputs" Relationship="Self.FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="WaterOutput" />
+          <Property Name="GrowingDegreeDaysExtraGap" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="DailyRecord">
           <Key>
@@ -785,10 +789,10 @@
           <Property Name="CropIrrigationWeather_CropIrrigationWeatherId" Type="Int64" />
           <Property Name="Type" Type="Int32" Nullable="false" />
           <Property Name="Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ReasonId" Type="Int32" />
           <NavigationProperty Name="CropIrrigationWeather" Relationship="Self.FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="Irrigation" ToRole="CropIrrigationWeather" />
           <NavigationProperty Name="DailyRecords" Relationship="Self.FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId" FromRole="Irrigation" ToRole="DailyRecord" />
           <NavigationProperty Name="WaterInput" Relationship="Self.FK_dbo_Irrigation_dbo_WaterInput_WaterInputId" FromRole="Irrigation" ToRole="WaterInput" />
+          <Property Name="Reason" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="IrrigationUnit">
           <Key>
@@ -826,6 +830,8 @@
           <NavigationProperty Name="CropIrrigationWeathers" Relationship="Self.FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId" FromRole="PhenologicalStage" ToRole="CropIrrigationWeather" />
           <NavigationProperty Name="DailyRecords" Relationship="Self.FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId" FromRole="PhenologicalStage" ToRole="DailyRecord" />
           <NavigationProperty Name="Stage" Relationship="IrrigationAdvisorWebApiModel.FK_dbo_PhenologicalStage_dbo_Stage_StageId" FromRole="PhenologicalStage" ToRole="Stage" />
+          <Property Name="PhenologicalStageIsUsed" Type="Boolean" Nullable="false" />
+          <Property Name="DegreesDaysInterval" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="Rain">
           <Key>
@@ -1322,6 +1328,7 @@
           <EntitySetMapping Name="CropIrrigationWeathers">
             <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.CropIrrigationWeather">
               <MappingFragment StoreEntitySet="CropIrrigationWeather">
+                <ScalarProperty Name="GrowingDegreeDaysExtraGap" ColumnName="GrowingDegreeDaysExtraGap" />
                 <ScalarProperty Name="CropIrrigationWeatherId" ColumnName="CropIrrigationWeatherId" />
                 <ScalarProperty Name="CropIrrigationWeatherName" ColumnName="CropIrrigationWeatherName" />
                 <ScalarProperty Name="CropId" ColumnName="CropId" />
@@ -1436,11 +1443,11 @@
           <EntitySetMapping Name="Irrigations">
             <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.Irrigation">
               <MappingFragment StoreEntitySet="Irrigation">
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
                 <ScalarProperty Name="WaterInputId" ColumnName="WaterInputId" />
                 <ScalarProperty Name="CropIrrigationWeather_CropIrrigationWeatherId" ColumnName="CropIrrigationWeather_CropIrrigationWeatherId" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Observations" ColumnName="Observations" />
-                <ScalarProperty Name="ReasonId" ColumnName="ReasonId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1464,6 +1471,8 @@
           <EntitySetMapping Name="PhenologicalStages">
             <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.PhenologicalStage">
               <MappingFragment StoreEntitySet="PhenologicalStage">
+                <ScalarProperty Name="DegreesDaysInterval" ColumnName="DegreesDaysInterval" />
+                <ScalarProperty Name="PhenologicalStageIsUsed" ColumnName="PhenologicalStageIsUsed" />
                 <ScalarProperty Name="PhenologicalStageId" ColumnName="PhenologicalStageId" />
                 <ScalarProperty Name="SpecieId" ColumnName="SpecieId" />
                 <ScalarProperty Name="StageId" ColumnName="StageId" />
