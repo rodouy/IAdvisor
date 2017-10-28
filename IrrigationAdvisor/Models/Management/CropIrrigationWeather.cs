@@ -3088,7 +3088,7 @@ namespace IrrigationAdvisor.Models.Management
             if (lIrrigation == null)
             {
                 // Get the updated records from the database and Filter records by date.
-                lIrrigationListFromBase = lContext.Irrigations.Where(irrigation => irrigation.CropIrrigationWeatherId == this.CropIrrigationWeatherId
+                lIrrigationListFromBase = lContext.Irrigations.ToList().Where(irrigation => irrigation.CropIrrigationWeatherId == this.CropIrrigationWeatherId
                                                                     && Utils.IsTheSameDay(irrigation.Date, pDayOfIrrigation)).ToList();
 
                 lIrrigation = lIrrigationListFromBase.Where(irrigation => Utils.IsTheSameDay(irrigation.Date, pDayOfIrrigation)).FirstOrDefault();
