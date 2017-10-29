@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5dc1988fc303438b9bc2396bccc6ba6e" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.Crop" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.CropIrrigationWeather" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.DailyRecord" Width="1.5" PointX="12" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.Farm" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.Irrigation" Width="1.5" PointX="9.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.IrrigationUnit" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.PhenologicalStage" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.Rain" Width="1.5" PointX="9.75" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.User" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.UserAccess" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.UserFarm" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.WaterInput" Width="1.5" PointX="7.5" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.WaterOutput" Width="1.5" PointX="7.5" PointY="31.5" IsExpanded="true" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_CropIrrigationWeather_dbo_Crop_CropId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_PhenologicalStage_dbo_Crop_Crop_CropId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_CropIrrigationWeather_dbo_PhenologicalStage_PhenologicalStageId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_Rain_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_DailyRecord_dbo_PhenologicalStage_PhenologicalStageId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_DailyRecord_dbo_Rain_Rain_WaterInputId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_UserFarm_dbo_Farm_FarmId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_Irrigation_dbo_WaterInput_WaterInputId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_Rain_dbo_WaterInput_WaterInputId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_UserAccess_dbo_User_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_UserFarm_dbo_User_UserId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.Status" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="IrrigationAdvisorWebApiModel.Stage" Width="1.5" PointX="0.75" PointY="11.875" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_Crop_dbo_Stage_MinStageToConsiderETinHBCalculation_StageId" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_Crop_dbo_Stage_StopIrrigationStage_StageId" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_Stage_dbo_Crop_Crop_CropId" />
+        <AssociationConnector Association="IrrigationAdvisorWebApiModel.FK_dbo_PhenologicalStage_dbo_Stage_StageId" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
