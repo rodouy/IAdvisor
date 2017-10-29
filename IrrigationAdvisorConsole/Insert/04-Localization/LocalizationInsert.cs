@@ -2010,7 +2010,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         Address = "Ruta 1 km 77",
                         Phone = "099 204 293",
                         PositionId = lPosition.PositionId,
-                        Has = 158,
+                        Has = 93,
                         WeatherStationId = lWeatherStation.WeatherStationId,
                         SoilList = null,
                         BombList = null,
