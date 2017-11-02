@@ -18,32 +18,28 @@ namespace IrrigationAdvisor.WebApi.Controllers
 
             try
             {
+                IrrigationAdvisorWebApiEntities1 context = new IrrigationAdvisorWebApiEntities1();
+
                 AuthViewModel vw = new AuthViewModel()
                 {
                     Token = "ffdvskdidmf5656483"
                 };
 
-                FarmViewModel farm = new FarmViewModel()
-                {
-                    Description = "El Venteveo",
-                    FarmId = 1
-                };
+                string cleanUserName = userName.ToLower().Trim();
+                var user = context.Users.Where(n => n.UserName == cleanUserName).Single();
 
-                FarmViewModel farm2 = new FarmViewModel()
-                {
-                    Description = "La casita",
-                    FarmId = 2
-                };
+                var farms = context.UserFarms.Where(n => n.UserId == user.UserId).ToList();
 
-                FarmViewModel farm3 = new FarmViewModel()
+                foreach (var f in farms)
                 {
-                    Description = "El Paraiso",
-                    FarmId = 3
-                };
+                    FarmViewModel newFarm = new FarmViewModel()
+                    {
+                        Description = f.Name,
+                        FarmId = f.FarmId
+                    };
 
-                vw.Farms.Add(farm);
-                vw.Farms.Add(farm2);
-                vw.Farms.Add(farm3);
+                    vw.Farms.Add(newFarm);
+                }
 
                 result.IsOk = true;
                 result.Data = vw;       
