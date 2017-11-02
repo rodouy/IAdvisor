@@ -1,4 +1,5 @@
-﻿using IrrigationAdvisor.WebApi.Models;
+﻿using IrrigationAdvisor.Authorize;
+using IrrigationAdvisor.WebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,21 +26,31 @@ namespace IrrigationAdvisor.WebApi.Controllers
                     Token = "ffdvskdidmf5656483"
                 };
 
-                string cleanUserName = userName.ToLower().Trim();
-                var user = context.Users.Where(n => n.UserName == cleanUserName).Single();
+                Authentication auth = new Authentication(userName, password);
 
-                var farms = context.UserFarms.Where(n => n.UserId == user.UserId).ToList();
-
-                foreach (var f in farms)
+                if (auth.IsAuthenticated())
                 {
-                    FarmViewModel newFarm = new FarmViewModel()
-                    {
-                        Description = f.Name,
-                        FarmId = f.FarmId
-                    };
+                    string cleanUserName = userName.ToLower().Trim();
+                    var user = context.Users.Where(n => n.UserName == cleanUserName).Single();
 
-                    vw.Farms.Add(newFarm);
+                    var farms = context.UserFarms.Where(n => n.UserId == user.UserId).ToList();
+
+                    foreach (var f in farms)
+                    {
+                        FarmViewModel newFarm = new FarmViewModel()
+                        {
+                            Description = f.Name,
+                            FarmId = f.FarmId
+                        };
+
+                        vw.Farms.Add(newFarm);
+                    }
                 }
+                else
+                {
+                    throw new UnauthorizedAccessException("Usuario o contraseña invalido");
+                }
+                               
 
                 result.IsOk = true;
                 result.Data = vw;       
