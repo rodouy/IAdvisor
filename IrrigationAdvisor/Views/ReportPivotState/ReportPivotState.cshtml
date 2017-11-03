@@ -11,15 +11,31 @@
             </div>
         </div>
 
-
     </div>
-    <div class="ps-scrollbar-x-rail" style="width: 1343px; display: none; left: 0px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 53px; display: none;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div>
 </section>
 
 <section class="profile">
     <div class="container">
         <div class="col-md-12" style="padding-left:0">
             <div class="tab-content" border="0">
+                <table style="width:200px" align="right">
+                    <tr >
+                        <td align="center" style="border-color:white">
+                            <a title="Imprimir reporte" href="../ReportPivotStatePrintable?ciw=@Model.CropIrrigationWeatherId)" onclick="window.open('../ReportPivotStatePrintable?ciw=@Model.CropIrrigationWeatherId', 'newwindow', 'width=1000,height=800'); return false;">Imprimir</a>
+                        </td>
+                        <!--
+                        <td align="center" style="border-color:white">
+                            <a title="Reporte del pivot" href="javascript:window.history.back();">Mas detalles</a>
+                        </td>
+                            -->
+                        <td align="center" style="border-color:white">
+                            <a title="Volver a la página anterior" href="javascript:window.history.back();">  Volver  </a>
+                        </td>
+                    </tr>
+                </table>
+
+
+
                 <table>
                     <tr>
                         <td align="center" style="border-color:white">
@@ -69,7 +85,7 @@
                     <tr>
                         <td>
                             @{ if (Model.IsUserAdministrator)
-                             {
+                                {
                                 <div class="table-body">
                                     <!--table-->
                                     <table cellspacing="10" class="main-table-advisor" border="1" style="width:400px" align="center">
@@ -84,7 +100,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                             }
+                                }
 
                             }
 
@@ -95,8 +111,10 @@
 
 
             </div>
+
+            </div>
+
         </div>
-    </div>
 </section>
 
 
