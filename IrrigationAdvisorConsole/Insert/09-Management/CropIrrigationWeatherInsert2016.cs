@@ -188,14 +188,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 //    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                 //                            join weatherstation in context.WeatherStations
                 //                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                //                            where (weatherdata.Date >= lSowingDate ||
+                //                            where (weatherdata.Date >= lSowingDate &&
                 //                                    weatherdata.Date <= lHarvestDate) &&
                 //                                    weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                 //                            select weatherdata).ToList<WeatherData>();
                 //    lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                 //                                   join weatherstation in context.WeatherStations
                 //                                   on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                //                                   where (weatherdata.Date >= lSowingDate ||
+                //                                   where (weatherdata.Date >= lSowingDate &&
                 //                                        weatherdata.Date <= lHarvestDate) &&
                 //                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                 //                                   select weatherdata).ToList<WeatherData>();
@@ -305,7 +305,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                 #region DCA El Paraiso
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
                 {
@@ -376,14 +376,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -427,7 +427,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCAElParaisoPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCAElParaisoPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCAElParaisoPivot1_2016.HydricBalance = lCIWDCAElParaisoPivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -538,14 +538,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -589,7 +589,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCAElParaisoPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCAElParaisoPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCAElParaisoPivot2_2016.HydricBalance = lCIWDCAElParaisoPivot2_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -641,7 +641,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                 #region DCA La Perdiz
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                        || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                        || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                     {
@@ -712,14 +712,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -763,7 +763,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot1_2016.HydricBalance = lCIWDCALaPerdizPivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -874,14 +874,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                     join weatherstation in context.WeatherStations
                                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                    where (weatherdata.Date >= lSowingDate ||
+                                                    where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                     select weatherdata).ToList<WeatherData>();
@@ -925,7 +925,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot2_2016.HydricBalance = lCIWDCALaPerdizPivot2_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -1036,14 +1036,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                     join weatherstation in context.WeatherStations
                                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                    where (weatherdata.Date >= lSowingDate ||
+                                                    where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                     select weatherdata).ToList<WeatherData>();
@@ -1087,7 +1087,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot3_2016.HydricBalance = lCIWDCALaPerdizPivot3_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -1198,14 +1198,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                     join weatherstation in context.WeatherStations
                                                     on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                    where (weatherdata.Date >= lSowingDate ||
+                                                    where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                     select weatherdata).ToList<WeatherData>();
@@ -1249,7 +1249,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot5_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot5_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot5_2016.HydricBalance = lCIWDCALaPerdizPivot5_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -1360,14 +1360,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -1411,7 +1411,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot6_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot6_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot6_2016.HydricBalance = lCIWDCALaPerdizPivot6_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -1522,14 +1522,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -1573,7 +1573,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot7_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot7_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot7_2016.HydricBalance = lCIWDCALaPerdizPivot7_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -1684,14 +1684,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -1735,7 +1735,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot10b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot10b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot10b_2016.HydricBalance = lCIWDCALaPerdizPivot10b_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -1846,14 +1846,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -1897,7 +1897,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot14_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot14_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot14_2016.HydricBalance = lCIWDCALaPerdizPivot14_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -2008,14 +2008,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -2059,7 +2059,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCALaPerdizPivot15_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCALaPerdizPivot15_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCALaPerdizPivot15_2016.HydricBalance = lCIWDCALaPerdizPivot15_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -2111,7 +2111,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                 #region DCA San Jose
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
@@ -2182,14 +2182,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -2233,7 +2233,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCASanJosePivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCASanJosePivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCASanJosePivot1_2016.HydricBalance = lCIWDCASanJosePivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -2344,14 +2344,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -2395,7 +2395,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCASanJosePivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCASanJosePivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCASanJosePivot2_2016.HydricBalance = lCIWDCASanJosePivot2_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -2506,14 +2506,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -2557,7 +2557,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCASanJosePivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCASanJosePivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCASanJosePivot3_2016.HydricBalance = lCIWDCASanJosePivot3_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -2668,14 +2668,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -2719,7 +2719,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDCASanJosePivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDCASanJosePivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDCASanJosePivot4_2016.HydricBalance = lCIWDCASanJosePivot4_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -2771,6 +2771,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                 #region Del Lago - San Pedro
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
                 {
@@ -2842,14 +2843,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                        join weatherstation in context.WeatherStations
                     //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                        where (weatherdata.Date >= lSowingDate &&
                     //                                weatherdata.Date <= lHarvestDate) &&
                     //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                     //                        select weatherdata).ToList<WeatherData>();
                     //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                               join weatherstation in context.WeatherStations
                     //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
+                    //                               where (weatherdata.Date >= lSowingDate &&
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
@@ -3005,14 +3006,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                        join weatherstation in context.WeatherStations
                     //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                        where (weatherdata.Date >= lSowingDate &&
                     //                                weatherdata.Date <= lHarvestDate) &&
                     //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                     //                        select weatherdata).ToList<WeatherData>();
                     //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                               join weatherstation in context.WeatherStations
                     //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
+                    //                               where (weatherdata.Date >= lSowingDate &&
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
@@ -3169,14 +3170,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                        join weatherstation in context.WeatherStations
                     //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                        where (weatherdata.Date >= lSowingDate &&
                     //                                weatherdata.Date <= lHarvestDate) &&
                     //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                     //                        select weatherdata).ToList<WeatherData>();
                     //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                               join weatherstation in context.WeatherStations
                     //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
+                    //                               where (weatherdata.Date >= lSowingDate &&
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
@@ -3331,14 +3332,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                        join weatherstation in context.WeatherStations
                     //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                        where (weatherdata.Date >= lSowingDate &&
                     //                                weatherdata.Date <= lHarvestDate) &&
                     //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                     //                        select weatherdata).ToList<WeatherData>();
                     //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                               join weatherstation in context.WeatherStations
                     //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
+                    //                               where (weatherdata.Date >= lSowingDate &&
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
@@ -3432,7 +3433,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                 #region Del Lago - El Mirador
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
@@ -3503,14 +3504,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -3554,7 +3555,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot1_2016.HydricBalance = lCIWDelLagoElMiradorPivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -3664,14 +3665,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -3715,7 +3716,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot2_2016.HydricBalance = lCIWDelLagoElMiradorPivot2_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -3825,14 +3826,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -3876,7 +3877,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot3_2016.HydricBalance = lCIWDelLagoElMiradorPivot3_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -3986,14 +3987,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -4037,7 +4038,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot4_2016.HydricBalance = lCIWDelLagoElMiradorPivot4_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -4147,14 +4148,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -4198,7 +4199,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot5_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot5_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot5_2016.HydricBalance = lCIWDelLagoElMiradorPivot5_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -4308,14 +4309,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -4359,7 +4360,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot6_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot6_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot6_2016.HydricBalance = lCIWDelLagoElMiradorPivot6_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -4469,14 +4470,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -4520,7 +4521,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot7_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot7_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot7_2016.HydricBalance = lCIWDelLagoElMiradorPivot7_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -4630,14 +4631,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -4681,7 +4682,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot8_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot8_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot8_2016.HydricBalance = lCIWDelLagoElMiradorPivot8_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -4791,14 +4792,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -4842,7 +4843,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot9_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot9_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot9_2016.HydricBalance = lCIWDelLagoElMiradorPivot9_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -4952,14 +4953,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -5003,7 +5004,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot10_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot10_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot10_2016.HydricBalance = lCIWDelLagoElMiradorPivot10_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -5113,14 +5114,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -5164,7 +5165,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot11_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot11_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot11_2016.HydricBalance = lCIWDelLagoElMiradorPivot11_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -5274,14 +5275,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -5325,7 +5326,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot12_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot12_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot12_2016.HydricBalance = lCIWDelLagoElMiradorPivot12_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -5435,14 +5436,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -5486,7 +5487,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot13_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot13_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot13_2016.HydricBalance = lCIWDelLagoElMiradorPivot13_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -5596,14 +5597,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -5647,7 +5648,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot14_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot14_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot14_2016.HydricBalance = lCIWDelLagoElMiradorPivot14_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -5757,14 +5758,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -5808,7 +5809,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot15_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot15_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot15_2016.HydricBalance = lCIWDelLagoElMiradorPivot15_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -5918,14 +5919,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -5969,7 +5970,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivotChaja1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivotChaja1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivotChaja1_2016.HydricBalance = lCIWDelLagoElMiradorPivotChaja1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -6079,14 +6080,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -6130,7 +6131,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivotChaja2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivotChaja2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivotChaja2_2016.HydricBalance = lCIWDelLagoElMiradorPivotChaja2_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -6244,14 +6245,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -6295,7 +6296,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot1b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot1b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot1b_2016.HydricBalance = lCIWDelLagoElMiradorPivot1b_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -6405,14 +6406,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -6456,7 +6457,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot2b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot2b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot2b_2016.HydricBalance = lCIWDelLagoElMiradorPivot2b_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -6566,14 +6567,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -6617,7 +6618,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot3b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot3b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot3b_2016.HydricBalance = lCIWDelLagoElMiradorPivot3b_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -6727,14 +6728,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -6778,7 +6779,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWDelLagoElMiradorPivot4b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWDelLagoElMiradorPivot4b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot4b_2016.HydricBalance = lCIWDelLagoElMiradorPivot4b_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -6829,7 +6830,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                 #region GMO - La Palma
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
@@ -6900,14 +6901,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                        join weatherstation in context.WeatherStations
                     //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                        where (weatherdata.Date >= lSowingDate &&
                     //                                weatherdata.Date <= lHarvestDate) &&
                     //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                     //                        select weatherdata).ToList<WeatherData>();
                     //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                               join weatherstation in context.WeatherStations
                     //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
+                    //                               where (weatherdata.Date >= lSowingDate &&
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
@@ -7116,7 +7117,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOLaPalmaPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOLaPalmaPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOLaPalmaPivot2_2016.HydricBalance = lCIWGMOLaPalmaPivot2_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -7226,14 +7227,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -7277,7 +7278,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOLaPalmaPivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOLaPalmaPivot3_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOLaPalmaPivot3_2016.HydricBalance = lCIWGMOLaPalmaPivot3_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -7387,14 +7388,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -7438,7 +7439,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOLaPalmaPivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOLaPalmaPivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOLaPalmaPivot4_2016.HydricBalance = lCIWGMOLaPalmaPivot4_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -7490,7 +7491,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #region GMO - El Tacuru
 
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
@@ -7561,14 +7562,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                        join weatherstation in context.WeatherStations
                     //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                        where (weatherdata.Date >= lSowingDate &&
                     //                                weatherdata.Date <= lHarvestDate) &&
                     //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                     //                        select weatherdata).ToList<WeatherData>();
                     //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                               join weatherstation in context.WeatherStations
                     //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
+                    //                               where (weatherdata.Date >= lSowingDate &&
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
@@ -7724,14 +7725,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -7776,7 +7777,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot1b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot1b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot1b_2016.HydricBalance = lCIWGMOElTacuruPivot1b_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -7887,14 +7888,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -7938,7 +7939,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot2a_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot2a_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot2a_2016.HydricBalance = lCIWGMOElTacuruPivot2a_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -8048,14 +8049,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -8099,7 +8100,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot2b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot2b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot2b_2016.HydricBalance = lCIWGMOElTacuruPivot2b_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -8209,14 +8210,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -8260,7 +8261,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot3a_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot3a_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot3a_2016.HydricBalance = lCIWGMOElTacuruPivot3a_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -8370,14 +8371,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -8421,7 +8422,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot3b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot3b_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot3b_2016.HydricBalance = lCIWGMOElTacuruPivot3b_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -8531,14 +8532,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -8582,7 +8583,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot4_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot4_2016.HydricBalance = lCIWGMOElTacuruPivot4_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -8692,14 +8693,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -8743,7 +8744,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot5_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot5_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot5_2016.HydricBalance = lCIWGMOElTacuruPivot5_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -8853,14 +8854,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -8904,7 +8905,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot8_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot8_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot8_2016.HydricBalance = lCIWGMOElTacuruPivot8_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -9014,14 +9015,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -9065,7 +9066,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot9_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot9_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot9_2016.HydricBalance = lCIWGMOElTacuruPivot9_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -9175,14 +9176,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -9226,7 +9227,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWGMOElTacuruPivot10_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWGMOElTacuruPivot10_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWGMOElTacuruPivot10_2016.HydricBalance = lCIWGMOElTacuruPivot10_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -9277,7 +9278,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                 #region Tres Marias
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_TresMarias_2016;
@@ -9347,14 +9348,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -9399,7 +9400,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWTresMariasPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWTresMariasPivot1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWTresMariasPivot1_2016.HydricBalance = lCIWTresMariasPivot1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -9673,14 +9674,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                        join weatherstation in context.WeatherStations
                     //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                        where (weatherdata.Date >= lSowingDate &&
                     //                                weatherdata.Date <= lHarvestDate) &&
                     //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                     //                        select weatherdata).ToList<WeatherData>();
                     //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                               join weatherstation in context.WeatherStations
                     //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
+                    //                               where (weatherdata.Date >= lSowingDate &&
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
@@ -9834,14 +9835,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                        join weatherstation in context.WeatherStations
                     //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                        where (weatherdata.Date >= lSowingDate &&
                     //                                weatherdata.Date <= lHarvestDate) &&
                     //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                     //                        select weatherdata).ToList<WeatherData>();
                     //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                               join weatherstation in context.WeatherStations
                     //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
+                    //                               where (weatherdata.Date >= lSowingDate &&
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
@@ -9937,7 +9938,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                 #region La Rinconada
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_LaRinconada_2016;
@@ -10007,14 +10008,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                        join weatherstation in context.WeatherStations
                     //                        on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                        where (weatherdata.Date >= lSowingDate ||
+                    //                        where (weatherdata.Date >= lSowingDate &&
                     //                                weatherdata.Date <= lHarvestDate) &&
                     //                                weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                     //                        select weatherdata).ToList<WeatherData>();
                     //lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                     //                               join weatherstation in context.WeatherStations
                     //                               on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                    //                               where (weatherdata.Date >= lSowingDate ||
+                    //                               where (weatherdata.Date >= lSowingDate &&
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
@@ -10223,7 +10224,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWLaRinconadaPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWLaRinconadaPivot2_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWLaRinconadaPivot2_2016.HydricBalance = lCIWLaRinconadaPivot2_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -10333,14 +10334,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -10384,7 +10385,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWLaRinconadaPivot3_1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWLaRinconadaPivot3_1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWLaRinconadaPivot3_1_2016.HydricBalance = lCIWLaRinconadaPivot3_1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -10494,14 +10495,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                                             join weatherstation in context.WeatherStations
                                             on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                            where (weatherdata.Date >= lSowingDate ||
+                                            where (weatherdata.Date >= lSowingDate &&
                                                     weatherdata.Date <= lHarvestDate) &&
                                                     weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
                                             select weatherdata).ToList<WeatherData>();
                     lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
                                                    join weatherstation in context.WeatherStations
                                                    on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
-                                                   where (weatherdata.Date >= lSowingDate ||
+                                                   where (weatherdata.Date >= lSowingDate &&
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
@@ -10545,7 +10546,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWLaRinconadaPivot13_1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWLaRinconadaPivot13_1_2016.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays);
                     //Get Initial Hydric Balance
                     lCIWLaRinconadaPivot13_1_2016.HydricBalance = lCIWLaRinconadaPivot13_1_2016.GetInitialHydricBalance();
                     //Create the initial registry
@@ -10616,6 +10617,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region Santa Lucia
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -10628,6 +10630,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region La Perdiz
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
@@ -10641,6 +10644,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region Del Lago - San Pedro
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
@@ -10654,7 +10658,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region Del Lago - El Mirador
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -10668,7 +10672,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region GMO - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
@@ -10682,7 +10686,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region GMO - El Tacuru
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
@@ -10714,7 +10718,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region DCA - El Paraiso
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
             {
@@ -10731,7 +10735,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region DCA - La Perdiz
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
@@ -10754,7 +10758,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region DCA - San Jose
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
             {
@@ -10772,6 +10776,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region Del Lago - San Pedro
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
@@ -10785,7 +10790,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region Del Lago - El Mirador
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -10822,7 +10827,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region Tres Marias
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -10840,7 +10845,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region GMO - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
@@ -10864,7 +10869,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region GMO - El Tacuru
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
@@ -10891,7 +10896,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region La Rinconada
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
             {
                 using (var context = new IrrigationAdvisorContext())

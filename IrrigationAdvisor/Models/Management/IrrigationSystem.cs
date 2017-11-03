@@ -2393,7 +2393,7 @@ namespace IrrigationAdvisor.Models.Management
             
             try
             {
-                lNewIrrigation = pCropIrrigationWeather.GetIrrigation(pIrrigationDate);
+                lNewIrrigation = pCropIrrigationWeather.GetIrrigationByDay(pIrrigationDate);
                 //If there is not a registry then it is created 
                 //If there is an Irrigation Registry it is updated 
                 if (lNewIrrigation == null)

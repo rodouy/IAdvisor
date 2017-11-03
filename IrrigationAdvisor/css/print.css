@@ -1,0 +1,83 @@
+﻿@media print {
+   body{   
+        line-height: 1.4;
+        font-size: 14px;
+        font-family: sans-serif;
+        color: #000;
+
+    }
+        .container {
+        align-content: center;
+    }
+    .center {
+        text-align: center;
+    }  
+    .title {
+           font-size: 50px
+    }
+
+    th {
+
+        font-size: 16px;
+        border-color:#000;
+        border-bottom:solid;
+        border-width:thin;
+        border-width:thin;
+        font-weight:bold;
+       
+    }
+
+    td {
+        font-size: 14px;
+        border-color:#000;
+        border-bottom:solid;
+        border-width:thin;
+
+    }
+
+    table{
+        border:thin;
+    }
+}
+
+@media screen {
+    body{   
+        line-height: 1.4;
+        font-size: 14px;
+        font-family: sans-serif;
+        color: #000;
+
+    }
+        .container {
+        align-content: center;
+    }
+    .center {
+        text-align: center;
+    }  
+    .title {
+           font-size: 50px
+    }
+
+    th {
+
+        font-size: 16px;
+        border-color:#000;
+        border-bottom:solid;
+        border-width:thin;
+        border-width:thin;
+        font-weight:bold;
+       
+    }
+
+    td {
+        font-size: 14px;
+        border-color:#000;
+        border-bottom:solid;
+        border-width:thin;
+
+    }
+
+    table{
+        border:thin;
+    }
+}

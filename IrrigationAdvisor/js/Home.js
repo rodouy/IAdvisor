@@ -28,6 +28,7 @@ $(document).ready(function () {
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
+    var modalMoveIrrigation = $('#modal-move-irrigation')
     var modalNoIrrigation = $('#modal-no-irrigation');
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
@@ -50,6 +51,11 @@ $(document).ready(function () {
     var noIrrigationObs = $('#noIrrigationObs');
     var noIrrigationChecks = $('.no-irrigation-check');
     var selectedAllCiwNoIrrigation = $('#selectedAllCiwNoIrrigation');
+    var moveIrrigation = $('.move-irrigation');
+    var saveMoveIrrigation = $('#SaveMoveIrrigation');
+    var dateToMove = $('#dateToMove');
+    var selectedWaterInput = $('#selectedWaterInput');
+    var cancelMoveIrrigation = $('#CancelMoveIrrigation');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -236,6 +242,7 @@ $(document).ready(function () {
         modalRain.modal(initModal);
         modalPheno.modal(initModal);
         modalNoIrrigation.modal(initModal);
+        modalMoveIrrigation.modal(initModal);
         loadUserFarms();
         loadDates();
         if (modalLoadStatus) {
@@ -380,6 +387,15 @@ $(document).ready(function () {
         $('.modal-content').draggable();
     });
 
+    moveIrrigation.click(function (e, v) {
+
+        var inputElement = $(this).find('.waterInputValue').val();
+        selectedWaterInput.val(inputElement);
+
+        modalMoveIrrigation.modal('show');
+        $('.modal-content').draggable();
+    });
+
     cancelIrrigation.click(function () {
         modalIrrigation.modal('hide');
     });
@@ -396,6 +412,10 @@ $(document).ready(function () {
         modalNoIrrigation.modal('hide');
     });
 
+    cancelMoveIrrigation.click(function () {
+        modalMoveIrrigation.modal('hide');
+    });
+
     dateOfReferenceBtn2.click(function () {
 
         txtDateOfReference.removeClass('input-red-border');
@@ -407,7 +427,6 @@ $(document).ready(function () {
 
         if (formattedDateOfReference.isValid() && formattedDateOfReference >= minDate && formattedDateOfReference <= maxDate)
         {
-
             showLoading();
 
             var farmId = -1;
@@ -737,6 +756,64 @@ $(document).ready(function () {
 
     });
 
+    saveMoveIrrigation.click(function () {
+        debugger;
+        var dateMove = moment(dateToMove.val());
+        
+        if (!dateMove.isValid())
+        {
+            alert("La fecha ingresada no es válida");
+        }
+        else
+        {
+            showLoading();
+            modalMoveIrrigation.modal('hide');
+            
+            var arrayElements = selectedWaterInput.val().split(',');
+
+            moveIrrigation(dateMove._i, arrayElements[0], arrayElements[1], arrayElements[2], arrayElements[3], arrayElements[4]);
+        }
+    });
+
+    var moveIrrigation = function (pDateToMove, pWaterInputId, pWaterInputOldDate, pCIWId, pCIWName, pMilimiters) {
+
+        var pUrl = './MoveIrrigation?pDateToMove=' + pDateToMove +
+                    '&pWaterInputId=' + pWaterInputId +
+                     '&farm=' + lstFarms.val();
+
+        $('#floatingCirclesG').show();
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+                if (data == "Ok") {
+
+                    var formatedDate = moment(pDateToMove).format('DD/MM/YYYY');
+
+                    $.when(sendMail("Usuario: " + userName + " ha movido riego " + farmInfo.val() + ".", "Establecimiento:" + farmInfo.val() + "[br] Fecha anterior: " + pWaterInputOldDate + "[br] Fecha actualizada: " + formatedDate + "[br] Water Input Id: " + pWaterInputId + "[br] Cultivo: " + pCIWId + " - " + pCIWName + "[br] Milímetros: " + pMilimiters)).done(function () {
+                        location.href = "./home?farm=" + lstFarms.val();
+                    });
+
+                }
+                else {
+                    sendMail("Error al mover riego", data);
+                    console.log(data);
+                    hideLoading();
+                }
+
+
+            },
+            error: function (data) {
+                hideLoading();
+                sendMail("Error al mover riego", data);
+                console.log(data);
+                //$('#myModal').modal('hide');
+            }
+        });
+
+    };
+
     var addRain = function (pMilimiters, pIrrigationUnitId, pDate)
     {
 
@@ -860,7 +937,8 @@ $(document).ready(function () {
                 '&pDateTo=' + pDateTo +
                 '&pCIW=' + pCIW +
                 '&pReason=' + pReason +
-                '&pObservations=' + pObservations;
+                '&pObservations=' + pObservations +
+                '&farm=' + lstFarms.val();
 
         $.ajax({
             type: 'GET',

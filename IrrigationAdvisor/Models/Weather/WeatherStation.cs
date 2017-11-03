@@ -7,6 +7,7 @@ using System.Web;
 using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Data;
 using NLog;
+using IrrigationAdvisor.DBContext;
 
 namespace IrrigationAdvisor.Models.Weather
 {
@@ -510,27 +511,27 @@ namespace IrrigationAdvisor.Models.Weather
                 //Depending on Station Type (WeatherLink or INIA)
                 if (this.StationType == Utils.WeatherStationType.INIA)
                 {
-                    lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.IniaWeatherService);
+                    lWeatherData = this.weatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.IniaWeatherService);
                 }
                 else if(this.StationType == Utils.WeatherStationType.WeatherLink || this.StationType == Utils.WeatherStationType.NOWebInformation)
                 {
-                    lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.GetWeatherInfoService);
+                    lWeatherData = this.weatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.GetWeatherInfoService);
                 }
 
                 //if WeatherData is still null, we find Code, or WebInsert, or Prediction Data
                 if (lWeatherData == null)
                 {
-                    lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.CodeInsert);
+                    lWeatherData = this.weatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.CodeInsert);
                 }
 
                 if (lWeatherData == null)
                 {
-                    lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.WebInsert);
+                    lWeatherData = this.weatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.WebInsert);
                 }
 
                 if (lWeatherData == null)
                 {
-                    lWeatherData = this.WeatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.Prediction);
+                    lWeatherData = this.weatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.Prediction);
                 }
 
             }

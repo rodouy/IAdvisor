@@ -41,6 +41,8 @@ namespace IrrigationAdvisor.Models.Water
             #region Fields
 
             private Utils.WaterInputType type;
+            private String observations;
+            private Utils.NoIrrigationReason reason;
 
             #endregion
 
@@ -58,18 +60,27 @@ namespace IrrigationAdvisor.Models.Water
                     type = value; 
                 }
             }
+            
+            public String Observations
+            {
+                get { return observations; }
+                set { observations = value; }
+            }
 
-        public string Observations { get; set; }
-        public int? ReasonId { get; set; }
+            public Utils.NoIrrigationReason Reason
+            {
+                get { return reason; }
+                set { reason = value; }
+            }
 
-        #endregion
+            #endregion
 
-        #region Construction
+            #region Construction
 
-        /// <summary>
-        /// Constructor of Irrigation
-        /// </summary>
-        public Irrigation(): base()
+            /// <summary>
+            /// Constructor of Irrigation
+            /// </summary>
+            public Irrigation(): base()
             {
                 this.Type = Utils.WaterInputType.Irrigation;
             }
@@ -88,6 +99,26 @@ namespace IrrigationAdvisor.Models.Water
                 this.CropIrrigationWeatherId = pCropIrrigationWeatherId;
             }
 
+            /// <summary>
+            /// Constructor with all parameters
+            /// </summary>
+            /// <param name="pType"></param>
+            /// <param name="pDate"></param>
+            /// <param name="pInput"></param>
+            /// <param name="pCropIrrigationWeatherId"></param>
+            /// <param name="pObservations"></param>
+            /// <param name="pReasonId"></param>
+            public Irrigation(Utils.WaterInputType pType, DateTime pDate, double pInput, long pCropIrrigationWeatherId,
+                                String pObservations, Utils.NoIrrigationReason pReason)
+            {
+                this.Type = pType;
+                this.Date = pDate;
+                this.Input = pInput;
+                this.CropIrrigationWeatherId = pCropIrrigationWeatherId;
+                this.Observations = pObservations;
+                this.Reason = pReason;
+            }
+
             #endregion
 
             #region Private Helpers
@@ -95,15 +126,37 @@ namespace IrrigationAdvisor.Models.Water
 
             #region Public Methods
 
-            
+
             #endregion
 
             #region Overrides
 
-            
+            /// <summary>
+            /// Overrides equals
+            /// </summary>
+            /// <param name="obj"></param>
+            /// <returns></returns>
+            public override bool Equals(object obj)
+            {
+                if (obj == null || obj.GetType() != this.GetType())
+                {
+                    return false;
+                }
+                Irrigation lIrrigation = obj as Irrigation;
+                return this.Date.Equals(lIrrigation.Date)
+                    && this.Input.Equals(lIrrigation.Input)
+                    && this.CropIrrigationWeatherId.Equals(lIrrigation.CropIrrigationWeatherId);
+            }
+
+            public override int GetHashCode()
+            {
+                return this.Date.GetHashCode();
+            }
+
+
             #endregion
 
-        
+
 
     }
 }
