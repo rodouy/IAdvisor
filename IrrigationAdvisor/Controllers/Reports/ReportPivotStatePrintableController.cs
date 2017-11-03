@@ -22,7 +22,7 @@ using IrrigationAdvisor.Models;
 
 namespace IrrigationAdvisor.Controllers.Reports
 {
-    public class ReportPivotStateController : Controller
+    public class ReportPivotStatePrintableController : Controller
     {
 
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
@@ -52,12 +52,13 @@ namespace IrrigationAdvisor.Controllers.Reports
             vm.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
             #endregion
 
-            ciwId = GetCropIrrigationWeatherIdFromURL();
+            ciwId = GetCropIrrigationWeatherId();
 
             DailyRecordConfiguration drc = new DailyRecordConfiguration();
             List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
 
             lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
+
 
             double lSumTotalEffectiveRain = 0;
             double lSumTotalEffectiveInputWater = 0;
@@ -80,8 +81,7 @@ namespace IrrigationAdvisor.Controllers.Reports
             vm.TotalEffectiveInputWater = lSumTotalEffectiveInputWater;
             vm.TotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop;
             vm.Title = lCropIrrigationWeatherTitle;
-            vm.CropIrrigationWeatherId = ciwId;
-            return View("~/Views/ReportPivotState/ReportPivotState.cshtml", vm);
+            return View("~/Views/ReportPivotState/ReportPivotStatePrintable.cshtml", vm);
         }
 
         public ActionResult GetChart()
@@ -112,25 +112,22 @@ namespace IrrigationAdvisor.Controllers.Reports
 
                 if (lRain > 0 || lIrrigation > 0)
                 {
-                yArrayIrrigation.Add(lIrrigation);
-                yArrayRain.Add(lRain);
-                yArrayETC.Add(item.TotalEvapotranspirationCrop);
-                xValue.Add(item.DaysAfterSowing);
-                
-                 }
+                    yArrayIrrigation.Add(lIrrigation);
+                    yArrayRain.Add(lRain);
+                    yArrayETC.Add(item.TotalEvapotranspirationCrop);
+                    xValue.Add(item.DaysAfterSowing);
+                }
 
             }
-            new Chart(width: 1000, height: 400, theme: ChartTheme.Green)
+            new Chart(width: 1000, height: 400)
                .AddTitle("Balance de agua últimos 30 días")
                .AddLegend()
-               
                .SetYAxis("Cantidad (mm.)")
-               .SetXAxis("Días de siembra", double.Parse(xValue[0].ToString())-2)
-               .AddSeries("Lluvia", chartType: "Column", xValue: xValue, yValues: yArrayRain, markerStep: 57)
+               .SetXAxis("Días de siembra", double.Parse(xValue[0].ToString()) - 2)
+               .AddSeries("Lluvia", chartType: "Column", xValue: xValue, yValues: yArrayRain, markerStep: 1)
                .AddSeries("Riego", chartType: "Column", xValue: xValue, yValues: yArrayIrrigation, markerStep: 1)
-               .AddSeries("ETc Acumulado", chartType: "Line", xValue: xValue, yValues: yArrayETC, markerStep: 1)
+               .AddSeries("ETc Acumulado", chartType: "Line", xValue: xValue, yValues: yArrayETC)
                .Write("bmp");
-            
             return null;
         }
 
@@ -260,9 +257,10 @@ namespace IrrigationAdvisor.Controllers.Reports
 
         }
 
-        private long GetCropIrrigationWeatherIdFromURL()
+        private long GetCropIrrigationWeatherId()
         {
             long retorno = 0;
+
 
             string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
             Uri lMyUri = new Uri(lURL);
