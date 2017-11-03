@@ -121,10 +121,10 @@ namespace IrrigationAdvisor.Controllers.Reports
 
             }
             new Chart(width: 1000, height: 400, theme: ChartTheme.Green)
-               .AddTitle("Balance de agua del último mes")
+               .AddTitle("Balance de agua últimos 30 días")
                .AddLegend()
                
-               .SetYAxis("Cantidad (mm)")
+               .SetYAxis("Cantidad (mm.)")
                .SetXAxis("Días de siembra", double.Parse(xValue[0].ToString())-2)
                .AddSeries("Lluvia", chartType: "Column", xValue: xValue, yValues: yArrayRain, markerStep: 57)
                .AddSeries("Riego", chartType: "Column", xValue: xValue, yValues: yArrayIrrigation, markerStep: 1)
