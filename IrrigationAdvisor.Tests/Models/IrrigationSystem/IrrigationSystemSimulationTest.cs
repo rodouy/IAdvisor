@@ -1469,7 +1469,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
                     //System.Diagnostics.Debugger.Break();
                 }
                 
-                testIrrigationSystem.AddDailyRecordToList(lCropIrrigationWeather, lDateOfRecord, lObservation);
+                testIrrigationSystem.AddDailyRecordToList(lCropIrrigationWeather, lDateOfRecord, lObservation, DateTime.Now);
 
                 if (pPivot.Equals(FarmPivotList.Pivot_01_Maiz_2007))
                 {

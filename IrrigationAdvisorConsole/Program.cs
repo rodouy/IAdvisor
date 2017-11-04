@@ -40,11 +40,11 @@ namespace IrrigationAdvisorConsole
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Season_2016_2017;
+        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Production;
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
-        public static DateTime DateOfReference = System.DateTime.Now.AddMonths(-9);
+        public static DateTime DateOfReference = System.DateTime.Now; //.AddMonths(-9);
         
         static void Main(string[] args)
         {
