@@ -143,12 +143,15 @@ namespace IrrigationAdvisor.Controllers.Reports
             
             String lOutPut = ciwc.GetOutputByCropIrrigationWeatherId(ciwId);
             String lFileName = ciwc.GetNameByCropIrrigationWeatherId(ciwId);
-            
-            ///TODO implements file chosser
-            String lFilePath = "C:\\ExitCSV\\"+ lFileName + "_"+ lDate + ".csv";
-            Utils.ExportOutPutToCSV(lOutPut, lFilePath);
 
-            return View("~/Views/ReportPivotState/ReportPivotState.cshtml", vm);
+            ///TODO implements file chosser
+            //Application.StartupPath
+            //Environment.CurrentDirectory
+
+            String lFilePath = "C:\\ExitCSV\\";
+            lFileName = lFileName + "_" + lDate + ".xls"; //".csv";
+            Utils.ExportOutPutToCSV(lOutPut, lFilePath, lFileName);
+            return RedirectToAction("Index");
         }
 
         [ChildActionOnly]

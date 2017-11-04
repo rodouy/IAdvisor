@@ -228,12 +228,33 @@ namespace IrrigationAdvisor.Models.Utilities
             ByIntervalGrowingDegreeDays,
         }
 
-        public static void ExportOutPutToCSV(String pOutPut, String pFilePath)
+        public static void ExportOutPutToCSV(String pOutPut, String pFilePath, String pFileName)
         {
             FileStream fs = null;
-            if (!File.Exists(pFilePath))
+            String lFilePath;
+            String lFullFileName;
+            
+            //Check if "\\" exist in file path
+            if(!pFilePath.EndsWith("\\"))
             {
-                using (fs = File.Create(pFilePath))
+                lFilePath = pFilePath + "\\";
+            }
+            else
+            {
+                lFilePath = pFilePath;
+            }
+            
+            lFullFileName = lFilePath + pFileName;
+            
+            if (!Directory.Exists(lFilePath))
+            {
+                Directory.CreateDirectory(lFilePath);
+            }
+
+
+            if (!File.Exists(lFullFileName))
+            {
+                using (fs = File.Create(lFullFileName))
                 {
                     // Do not close because we want to write on it
                     //fs.Close();
@@ -241,16 +262,16 @@ namespace IrrigationAdvisor.Models.Utilities
             }
             else
             {
-                File.Delete(pFilePath);
+                File.Delete(lFullFileName);
             }
             try
             {
                 if (!pOutPut.Equals(""))
                 {
-                    using (FileStream lFile = new FileStream(pFilePath, FileMode.OpenOrCreate, FileAccess.Write))
+                    using (FileStream lFile = new FileStream(lFullFileName, FileMode.OpenOrCreate, FileAccess.Write))
                     {
                         lFile.Close();
-                        StreamWriter lStreamWriter = new StreamWriter(pFilePath, true);
+                        StreamWriter lStreamWriter = new StreamWriter(lFullFileName, true);
                         lStreamWriter.WriteLine(pOutPut);
                         lStreamWriter.Close();
                     }
