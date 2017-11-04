@@ -2354,7 +2354,7 @@ namespace IrrigationAdvisor.Models.Management
         /// Verify the need of water for Irrigation
         /// </summary>
         /// <param name="pCurrentDateTime"></param>
-        public void VerifyNeedForIrrigation(DateTime pDateTime)
+        public void VerifyNeedForIrrigation(DateTime pDateTime, DateTime pDateOfReference)
         {
             Pair<Double, Utils.WaterInputType> lNeedForIrrigationPair;
             Double lQuantityOfWaterToIrrigate;
@@ -2377,7 +2377,7 @@ namespace IrrigationAdvisor.Models.Management
                 lObservations = "Add Irrigation OK.";
                 this.AddOrUpdateIrrigationDataToList(pDateTime, lNeedForIrrigationPair, lIsExtraIrrigation, lReason, lObservations);
                 //If we insert more water, we have to recalculate.
-                this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString());
+                this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString(), pDateOfReference);
             }
             //If Quantity is 0 and has Type of Irrigation, it insert an Extra Irrigation in 0.
             else if(lQuantityOfWaterToIrrigate == 0 
@@ -2424,6 +2424,7 @@ namespace IrrigationAdvisor.Models.Management
             Double lCropDays = 0;
             Double lDiffDays = 0;
             DateTime lDateOfRecord;
+            DateTime lDateOfReference;
             String lObservation = String.Empty;
 
             try
@@ -2434,7 +2435,9 @@ namespace IrrigationAdvisor.Models.Management
                     //Start to calculate one day after Sowing or later
                     lFromDate = Utils.MaxDateTimeBetween(lFromDate, this.SowingDate.AddDays(1));
                     lCropDays = lFromDate.Subtract(this.SowingDate).TotalDays;
-                    
+
+                    lDateOfReference = Utils.GetDateOfReference().Value;
+
                     if (pToDate != null && pToDate <= this.HarvestDate && lFromDate <= pToDate)
                     {
                         lToDate = Utils.MinDateTimeBetween(pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION),
@@ -2447,7 +2450,7 @@ namespace IrrigationAdvisor.Models.Management
                             lDateOfRecord = lFromDate.AddDays(i);
                             this.HasAdviseOfIrrigation = false;
 
-                            this.AddDailyRecordToList(lDateOfRecord, lObservation);
+                            this.AddDailyRecordToList(lDateOfRecord, lObservation, lDateOfReference);
                             //Adjustment of Phenological Stage
                             foreach (PhenologicalStageAdjustment item in this.PhenologicalStageAdjustmentList)
                             {
@@ -2481,7 +2484,7 @@ namespace IrrigationAdvisor.Models.Management
         /// </summary>
         /// <param name="pDateTime"></param>
         /// <param name="pIrrigationAdvisorContext"></param>
-        public void VerifyNeedForIrrigation(DateTime pDateTime, IrrigationAdvisorContext pIrrigationAdvisorContext)
+        public void VerifyNeedForIrrigation(DateTime pDateTime, DateTime pDateOfReference, IrrigationAdvisorContext pIrrigationAdvisorContext)
         {
             Pair<Double, Utils.WaterInputType> lNeedForIrrigationPair;
             Double lQuantityOfWaterToIrrigate;
@@ -2504,7 +2507,7 @@ namespace IrrigationAdvisor.Models.Management
                 this.AddOrUpdateIrrigationDataToList(pDateTime, lNeedForIrrigationPair, lIsExtraIrrigation, lReason, lObservations);
                 pIrrigationAdvisorContext.SaveChanges();
                 //We add a new Daily Record because we add water to the equation
-                this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString(), pIrrigationAdvisorContext);
+                this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString(), pDateOfReference, pIrrigationAdvisorContext);
                 pIrrigationAdvisorContext.SaveChanges();
             }
             //Is used when we move an Irrigation or we can not irrigate
@@ -2556,6 +2559,7 @@ namespace IrrigationAdvisor.Models.Management
             Double lCropDays = 0;
             Double lDiffDays = 0;
             DateTime lDateOfRecord;
+            DateTime lDateOfReference;
             String lObservation = String.Empty;
 
             try
@@ -2570,6 +2574,8 @@ namespace IrrigationAdvisor.Models.Management
                     /* We limit to enter the new future daily record with the next condition 
                     lFromDate <= pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION)
                     */
+                    lDateOfReference = Utils.GetDateOfReference().Value;
+
                     if (pToDate != null && pToDate.Date <= this.HarvestDate.Date 
                         && lFromDate.Date <= pToDate.AddDays(InitialTables.DAYS_FOR_PREDICTION))
                     {
@@ -2583,7 +2589,7 @@ namespace IrrigationAdvisor.Models.Management
                             lDateOfRecord = lFromDate.AddDays(i);
                             this.HasAdviseOfIrrigation = false;
 
-                            this.AddDailyRecordToList(lDateOfRecord, lObservation, pIrrigationAdvisorContext);
+                            this.AddDailyRecordToList(lDateOfRecord, lObservation, lDateOfReference, pIrrigationAdvisorContext);
 
                             //Save Changes to Database
                             pIrrigationAdvisorContext.SaveChanges();
@@ -4145,7 +4151,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pCurrentDateTime"></param>
         /// <param name="pObservation"></param>
         /// <returns></returns>
-        public bool AddDailyRecordToList(DateTime pDateTime, String pObservation)
+        public bool AddDailyRecordToList(DateTime pDateTime, String pObservation, DateTime pDateOfReference)
         {
             bool lReturn = false;
             WeatherData lWeatherData = null;
@@ -4166,13 +4172,13 @@ namespace IrrigationAdvisor.Models.Management
                             || this.CalculusMethodForPhenologicalAdjustment.Equals(
                             Utils.CalculusOfPhenologicalStage.ByIntervalGrowingDegreeDays))
                         {
-                            this.AddDailyRecordAccordingGrowinDegreeDays(pDateTime, pObservation, lWeatherData);
+                            this.AddDailyRecordAccordingGrowinDegreeDays(pDateTime, pObservation, lWeatherData, pDateOfReference);
                         }
 
                         if(this.CalculusMethodForPhenologicalAdjustment.Equals(
                             Utils.CalculusOfPhenologicalStage.ByDaysAfterSowing))
                         {
-                            this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData);
+                            this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData, pDateOfReference);
                         }
   
 
@@ -4181,7 +4187,7 @@ namespace IrrigationAdvisor.Models.Management
                         {
                             //Then that is added the DailyRecord, we must verify if we need to irrigate.
                             //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
-                            this.VerifyNeedForIrrigation(pDateTime);
+                            this.VerifyNeedForIrrigation(pDateTime, pDateOfReference);
                         }
                         else
                         {
@@ -4191,7 +4197,7 @@ namespace IrrigationAdvisor.Models.Management
                     else
                     {
                         //If WeatherData is null, use DaysAfterSowing
-                        this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData);
+                        this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData, pDateOfReference);
                     }
                 }
             }
@@ -4209,7 +4215,9 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pCurrentDateTime"></param>
         /// <param name="pObservations"></param>
         /// <param name="pWeatherData"></param>
-        public void AddDailyRecordAccordingDaysAfterSowing(DateTime pCurrentDateTime, String pObservations, WeatherData pWeatherData)
+        /// <param name="pDateOfReference"></param>
+        public void AddDailyRecordAccordingDaysAfterSowing(DateTime pCurrentDateTime, String pObservations, WeatherData pWeatherData,
+                                                            DateTime pDateOfReference)
         {
             try
             {
@@ -4423,7 +4431,10 @@ namespace IrrigationAdvisor.Models.Management
 
                 this.DailyRecordList.Add(lNewDailyRecord);
 
-                this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
+                if (lDailyRecordDateTime <= pDateOfReference)
+                {
+                    this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
+                }
             }
             catch (Exception ex)
             {
@@ -4435,10 +4446,12 @@ namespace IrrigationAdvisor.Models.Management
         /// <summary>
         /// Add DailyRecord According Growing Degree Days
         /// </summary>
-        /// <param name="pCurrentDateTime"></param>
+        /// <param name="pDateTime"></param>
         /// <param name="pObservations"></param>
         /// <param name="pWeatherData"></param>
-        public void AddDailyRecordAccordingGrowinDegreeDays(DateTime pDateTime, String pObservations, WeatherData pWeatherData)
+        /// <param name="pDateOfReference"></param>
+        public void AddDailyRecordAccordingGrowinDegreeDays(DateTime pDateTime, String pObservations, WeatherData pWeatherData,
+                                                            DateTime pDateOfReference)
         {
             try
             {
@@ -4692,7 +4705,10 @@ namespace IrrigationAdvisor.Models.Management
 
                 this.DailyRecordList.Add(lNewDailyRecord);
 
-                this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
+                if (lDailyRecordDateTime <= pDateOfReference)
+                {
+                    this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
+                }
             }
             catch (Exception ex)
             {
@@ -4710,7 +4726,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pObservation"></param>
         /// <param name="pIrrigationAdvisorContext"></param>
         /// <returns></returns>
-        public bool AddDailyRecordToList(DateTime pDateTime, String pObservation, IrrigationAdvisorContext pIrrigationAdvisorContext)
+        public bool AddDailyRecordToList(DateTime pDateTime, String pObservation, DateTime pDateOfReference, IrrigationAdvisorContext pIrrigationAdvisorContext)
         {
             bool lReturn = false;
             WeatherData lWeatherData = null;
@@ -4729,23 +4745,23 @@ namespace IrrigationAdvisor.Models.Management
                         if (this.CalculusMethodForPhenologicalAdjustment.Equals(
                             Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays))
                         {
-                            this.AddDailyRecordAccordingGrowinDegreeDays(pDateTime, pObservation, lWeatherData, pIrrigationAdvisorContext);
+                            this.AddDailyRecordAccordingGrowinDegreeDays(pDateTime, pObservation, lWeatherData, pDateOfReference, pIrrigationAdvisorContext);
                         }
 
                         if (this.CalculusMethodForPhenologicalAdjustment.Equals(
                             Utils.CalculusOfPhenologicalStage.ByDaysAfterSowing))
                         {
-                            this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData, pIrrigationAdvisorContext);
+                            this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData, pDateOfReference, pIrrigationAdvisorContext);
                         }
                       
                         //Then that is added the DailyRecord, we must verify if we need to irrigate.
                         //If it is necesary, the irrigation is added to the list and the DailyRecord is readded.
-                        this.VerifyNeedForIrrigation(pDateTime, pIrrigationAdvisorContext);
+                        this.VerifyNeedForIrrigation(pDateTime, pDateOfReference, pIrrigationAdvisorContext);
                     }
                     else
                     {
                         //If WeatherData is null, use DaysAfterSowing
-                        this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData, pIrrigationAdvisorContext);
+                        this.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservation, lWeatherData, pDateOfReference, pIrrigationAdvisorContext);
                     }
                     pIrrigationAdvisorContext.SaveChanges();
                 }
@@ -4764,8 +4780,10 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pCurrentDateTime"></param>
         /// <param name="pObservations"></param>
         /// <param name="pWeatherData"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <param name="pIrrigationAdvisorContext"></param>
         public void AddDailyRecordAccordingDaysAfterSowing(DateTime pCurrentDateTime, String pObservations, WeatherData pWeatherData,
-                                                            IrrigationAdvisorContext pIrrigationAdvisorContext)
+                                                            DateTime pDateOfReference, IrrigationAdvisorContext pIrrigationAdvisorContext)
         {
             try
             {
@@ -4990,7 +5008,10 @@ namespace IrrigationAdvisor.Models.Management
 
                 this.DailyRecordList.Add(lNewDailyRecord);
 
-                this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
+                if (lDailyRecordDateTime <= pDateOfReference)
+                {
+                    this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
+                }
             }
             catch (Exception ex)
             {
@@ -5003,11 +5024,13 @@ namespace IrrigationAdvisor.Models.Management
         /// <summary>
         /// Add DailyRecord According Growing Degree Days. With Context
         /// </summary>
-        /// <param name="pCurrentDateTime"></param>
+        /// <param name="pDateTime"></param>
         /// <param name="pObservations"></param>
         /// <param name="pWeatherData"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <param name="pIrrigationAdvisorContext"></param>
         public void AddDailyRecordAccordingGrowinDegreeDays(DateTime pDateTime, String pObservations, WeatherData pWeatherData,
-                                                            IrrigationAdvisorContext pIrrigationAdvisorContext)
+                                                            DateTime pDateOfReference, IrrigationAdvisorContext pIrrigationAdvisorContext)
         {
             try
             {
@@ -5266,7 +5289,10 @@ namespace IrrigationAdvisor.Models.Management
 
                 this.DailyRecordList.Add(lNewDailyRecord);
 
-                this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
+                if(lDailyRecordDateTime <= pDateOfReference)
+                {
+                    this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
+                }
             }
             catch (Exception ex)
             {

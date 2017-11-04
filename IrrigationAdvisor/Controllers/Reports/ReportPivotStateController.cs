@@ -140,7 +140,7 @@ namespace IrrigationAdvisor.Controllers.Reports
 
         public ActionResult CreateCVS()
         {
-            ciwId = GetCropIrrigationWeatherId();
+            ciwId = GetCropIrrigationWeatherIdFromURL();
             CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
 
             String lDate = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();

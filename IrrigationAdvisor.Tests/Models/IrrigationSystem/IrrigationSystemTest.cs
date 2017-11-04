@@ -658,6 +658,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             DateTime lToDate;
             CropIrrigationWeather lCropIrrigationWeather;
             DateTime lDateOfRecord;
+            DateTime lDateOfReference;
             String lObservation;
 
             //The start day is one day after sowing because the first day is created when the testCrop is created
@@ -666,6 +667,8 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
 
             lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
             lCropIrrigationWeather = pCropIrrigationWeather;
+
+            lDateOfReference = Utils.GetDateOfReference().Value;
 
             for (int i = 0; i < lDiffDays; i++)
             {
@@ -677,7 +680,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
                     //System.Diagnostics.Debugger.Break();
                 }
                 
-                testIrrigationSystem.AddDailyRecordToList(lCropIrrigationWeather, lDateOfRecord, lObservation);
+                testIrrigationSystem.AddDailyRecordToList(lCropIrrigationWeather, lDateOfRecord, lObservation, lDateOfReference);
 
                 if (pPivot.Equals(SantaLuciaPivotList.Pivot2))
                 {

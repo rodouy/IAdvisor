@@ -2106,7 +2106,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -2296,7 +2296,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -2477,7 +2477,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -2658,7 +2658,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -2850,7 +2850,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -3040,7 +3040,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -3222,7 +3222,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -3403,7 +3403,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -3585,7 +3585,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -3778,7 +3778,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -3968,7 +3968,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -4150,7 +4150,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -4331,7 +4331,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -4512,7 +4512,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -4694,7 +4694,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -4903,7 +4903,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -5085,7 +5085,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -5267,7 +5267,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -5462,7 +5462,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -5649,7 +5649,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -5836,7 +5836,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -6023,7 +6023,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -6216,7 +6216,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -6403,7 +6403,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -6590,7 +6590,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -6777,7 +6777,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -6970,7 +6970,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -7160,7 +7160,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
@@ -7350,7 +7350,7 @@ namespace IrrigationAdvisorConsole.Data
                 lObservation = "Dia " + (i + 1);
                 lDateOfRecord = lFromDate.AddDays(i);
 
-                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation);
+                lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, DateTime.Now);
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
