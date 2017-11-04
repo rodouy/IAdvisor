@@ -1082,6 +1082,8 @@ namespace IrrigationAdvisorConsole.Data
             DateTime lIrrigationDate;
             List<Irrigation> lIrrigationList;
             List<Rain> lRainList;
+            Utils.NoIrrigationReason lReason;
+            String lObservations;
 
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDemo1
@@ -1108,26 +1110,28 @@ namespace IrrigationAdvisorConsole.Data
                          select rlist).ToList<Rain>();
 
             lIsExtraIrrigation = true;
+            lReason = Utils.NoIrrigationReason.Other;
+            lObservations = "Add Irrigation OK.";
 
             lIrrigationDate = new DateTime(2015, 10, 29);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(9, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 17);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 26);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 12, 3);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(15, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
         }
 
@@ -1147,6 +1151,8 @@ namespace IrrigationAdvisorConsole.Data
             DateTime lIrrigationDate;
             List<Irrigation> lIrrigationList;
             List<Rain> lRainList;
+            Utils.NoIrrigationReason lReason;
+            String lObservations;
 
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDemo1
@@ -1173,26 +1179,28 @@ namespace IrrigationAdvisorConsole.Data
                          select rlist).ToList<Rain>();
 
             lIsExtraIrrigation = true;
+            lReason = Utils.NoIrrigationReason.Other;
+            lObservations = "Add Irrigation OK.";
 
             lIrrigationDate = new DateTime(2015, 10, 29);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(9, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 17);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 26);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 12, 3);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(15, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
         }
 
@@ -1212,6 +1220,8 @@ namespace IrrigationAdvisorConsole.Data
             DateTime lIrrigationDate;
             List<Irrigation> lIrrigationList;
             List<Rain> lRainList;
+            Utils.NoIrrigationReason lReason;
+            String lObservations;
 
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDemo1
@@ -1239,26 +1249,28 @@ namespace IrrigationAdvisorConsole.Data
                          select rlist).ToList<Rain>();
 
             lIsExtraIrrigation = true;
+            lReason = Utils.NoIrrigationReason.Other;
+            lObservations = "Add Irrigation OK.";
 
             lIrrigationDate = new DateTime(2015, 10, 29);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(9, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 17);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 26);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 12, 3);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(15, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
         }
 
@@ -1278,6 +1290,8 @@ namespace IrrigationAdvisorConsole.Data
             DateTime lIrrigationDate;
             List<Irrigation> lIrrigationList;
             List<Rain> lRainList;
+            Utils.NoIrrigationReason lReason;
+            String lObservations;
 
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDemo1
@@ -1307,26 +1321,28 @@ namespace IrrigationAdvisorConsole.Data
                          select rlist).ToList<Rain>();
 
             lIsExtraIrrigation = true;
+            lReason = Utils.NoIrrigationReason.Other;
+            lObservations = "Add Irrigation OK.";
 
             lIrrigationDate = new DateTime(2015, 10, 29);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(9, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 17);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6.2, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 24);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6.2, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 12, 2);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(15, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
         }
 
@@ -1359,6 +1375,8 @@ namespace IrrigationAdvisorConsole.Data
             DateTime lIrrigationDate;
             List<Irrigation> lIrrigationList;
             List<Rain> lRainList;
+            Utils.NoIrrigationReason lReason;
+            String lObservations;
 
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDCALaPerdiz
@@ -1385,26 +1403,28 @@ namespace IrrigationAdvisorConsole.Data
                          select rlist).ToList<Rain>();
 
             lIsExtraIrrigation = true;
+            lReason = Utils.NoIrrigationReason.Other;
+            lObservations = "Add Irrigation OK.";
 
             lIrrigationDate = new DateTime(2015, 10, 29);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(9, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 17);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 26);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 12, 3);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(15, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
         }
 
@@ -1424,6 +1444,8 @@ namespace IrrigationAdvisorConsole.Data
             DateTime lIrrigationDate;
             List<Irrigation> lIrrigationList;
             List<Rain> lRainList;
+            Utils.NoIrrigationReason lReason;
+            String lObservations;
 
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDCALaPerdiz
@@ -1451,26 +1473,28 @@ namespace IrrigationAdvisorConsole.Data
                          select rlist).ToList<Rain>();
 
             lIsExtraIrrigation = true;
+            lReason = Utils.NoIrrigationReason.Other;
+            lObservations = "Add Irrigation OK.";
 
             lIrrigationDate = new DateTime(2015, 10, 29);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(9, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 17);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 26);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 12, 3);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(15, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
         }
 
@@ -1490,6 +1514,8 @@ namespace IrrigationAdvisorConsole.Data
             DateTime lIrrigationDate;
             List<Irrigation> lIrrigationList;
             List<Rain> lRainList;
+            Utils.NoIrrigationReason lReason;
+            String lObservations;
 
             lFarm = (from farm in context.Farms
                      where farm.Name == Utils.NameFarmDCALaPerdiz
@@ -1519,26 +1545,28 @@ namespace IrrigationAdvisorConsole.Data
                          select rlist).ToList<Rain>();
 
             lIsExtraIrrigation = true;
+            lReason = Utils.NoIrrigationReason.Other;
+            lObservations = "Add Irrigation OK.";
 
             lIrrigationDate = new DateTime(2015, 10, 29);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(9, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 17);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6.2, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 11, 24);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(6.2, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
             lIrrigationDate = new DateTime(2015, 12, 2);
             lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(15, Utils.WaterInputType.Irrigation);
             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate,
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
 
         }
 

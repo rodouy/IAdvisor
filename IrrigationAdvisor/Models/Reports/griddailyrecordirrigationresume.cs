@@ -21,6 +21,7 @@ namespace IrrigationAdvisor.Models.Reports
         ///      
         ///
         /// </summary>
+        private String day;
         private String dailyRecordDate;
         private String effectiveInputWater;
         private String effectiveRain;
@@ -29,6 +30,15 @@ namespace IrrigationAdvisor.Models.Reports
         #endregion
 
         #region Properties
+
+        public String Day
+        {
+            get { return day; }
+            set
+            {
+                day = value;
+            }
+        }
 
         public String DailyRecordDate
         {
@@ -55,8 +65,9 @@ namespace IrrigationAdvisor.Models.Reports
         #endregion
 
 
-        public GridDailyRecordIrrigationResume(String pDailyRecordDate, String pEffectiveInputWater, String pEffectiveRain)
+        public GridDailyRecordIrrigationResume(String pDay, String pDailyRecordDate, String pEffectiveInputWater, String pEffectiveRain)
         {
+            this.day = pDay;
             this.dailyRecordDate = pDailyRecordDate;
             this.effectiveInputWater = pEffectiveInputWater;
             this.effectiveRain = pEffectiveRain;

@@ -125,7 +125,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         
         public Soil() 
         {
-            this.SoilId = 0;
+            //this.SoilId = 0;
             this.Name= "noname";
             this.Description = "";
             this.PositionId = 0;

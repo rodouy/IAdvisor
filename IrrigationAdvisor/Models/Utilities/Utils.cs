@@ -188,9 +188,13 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             IrrigationByHydricBalance,
             /// <summary>
-            /// No irrigation.
+            /// Can't irrigate.
             /// </summary>
-            NoIrrigation
+            CantIrrigate,
+            /// <summary>
+            /// Irrigation was not decided
+            /// </summary>
+            IrrigationWasNotDecided
         }
 
         /// <summary>
@@ -445,7 +449,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// No Irrigation
             /// </summary>
-            NoIrrigation
+            CantIrrigate,
+            /// <summary>
+            /// Irrigation was not decided.
+            /// </summary>
+            IrrigationWasNotDecided
         }
         
         /// <summary>
@@ -541,6 +549,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// Print all Farms in Production 2016-2017
             /// </summary>
             Season_2016_2017,
+
+            /// <summary>
+            /// Print all Farms in Production 2015
+            /// </summary>
+            Season_2015,
 
             /// <summary>
             /// Demo Farm
@@ -785,7 +798,13 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// No irrigation because the irrigation was moved.
             /// </summary>
-            MoveIrrigation
+            MoveIrrigation,
+
+            /// <summary>
+            /// Not decided to Irrigate.
+            /// </summary>
+            NotDecided,
+
         }
 
 
@@ -1484,6 +1503,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserGMO4 = "gobrien";
         public static String NameUserGMO5 = "emolina";
         public static String NameUserGMO6 = "lramirez";
+        public static String NameUserGMO7 = "sobrien";
+        public static String NameUserGMO8 = "ghernandez";
         public static String NameUserTM1 = "cetchegaray";
         public static String NameUserLR1 = "jbaroffio";
         public static String NameUserLR2 = "jpastorini";

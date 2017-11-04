@@ -646,9 +646,9 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationMainName_GMOElTacuru_2017 = Utils.NameWeatherStationSaltoGrande;
         public static String WeatherStationAlternativeName_GMOElTacuru_2017 = Utils.NameWeatherStationElRetiro;
 
-        //public static DateTime SowingDate_AlfalfaNorth_GMOElTacuruPivot1a_2017 = new DateTime(2017, 06, 23);
-        //public static DateTime HarvestDate_AlfalfaNorth_GMOElTacuruPivot1a_2017 = new DateTime(2017, 04, 30);
-        //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot1a_2017 = 12;
+        public static DateTime SowingDate_AlfalfaNorth_GMOElTacuruPivot1a_2017 = new DateTime(2016, 06, 23);
+        public static DateTime HarvestDate_AlfalfaNorth_GMOElTacuruPivot1a_2017 = new DateTime(2019, 07, 30);
+        public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot1a_2017 = 10;
         //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot1b_2017 = new DateTime(2017, 10, 29);
         //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot1b_2017 = new DateTime(2017, 03, 10);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot1b_2017 = 12;
@@ -656,25 +656,25 @@ namespace IrrigationAdvisorConsole
         public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot2a_2017 = new DateTime(2018, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot2a_2017 = 10;
         //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot2b_2017 = new DateTime(2017, 11, 07);
-        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot2b_2017 = new DateTime(2017, 03, 20);
+        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot2b_2017 = new DateTime(2018, 03, 20);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot2b_2017 = 12;
-        //public static DateTime SowingDate_CornNorth_GMOElTacuruPivot3a_2017 = new DateTime(2017, 09, 19);
-        //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot3a_2017 = new DateTime(2017, 01, 18);
-        //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3a_2017 = 12;
+        public static DateTime SowingDate_CornNorth_GMOElTacuruPivot3a_2017 = new DateTime(2017, 10, 06);
+        public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot3a_2017 = new DateTime(2018, 02, 25);
+        public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3a_2017 = 10;
         //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot3b_2017 = new DateTime(2017, 11, 11);
-        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot3b_2017 = new DateTime(2017, 03, 30);
+        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot3b_2017 = new DateTime(2018, 03, 30);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3b_2017 = 12;
         //public static DateTime SowingDate_CornNorth_GMOElTacuruPivot4_2017 = new DateTime(2017, 09, 17);
-        //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot4_2017 = new DateTime(2017, 01, 18);
+        //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot4_2017 = new DateTime(2018, 01, 18);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot4_2017 = 12;
         //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot5_2017 = new DateTime(2017, 10, 28);
-        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot5_2017 = new DateTime(2017, 03, 10);
+        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot5_2017 = new DateTime(2018, 03, 10);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot5_2017 = 10;
         //public static DateTime SowingDate_CornNorth_GMOElTacuruPivot6_2017 = new DateTime(2017, 10, 15);
-        //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot6_2017 = new DateTime(2017, 02, 20);
+        //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot6_2017 = new DateTime(2018, 02, 20);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot6_2017 = 10;
         //public static DateTime SowingDate_CornNorth_GMOElTacuruPivot7_2017 = new DateTime(2017, 10, 15);
-        //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot7_2017 = new DateTime(2017, 02, 20);
+        //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot7_2017 = new DateTime(2018, 02, 20);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot7_2017 = 10;
         public static DateTime SowingDate_CornNorth_GMOElTacuruPivot8_2017 = new DateTime(2017, 09, 25);
         public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot8_2017 = new DateTime(2018, 02, 10);
@@ -24716,7 +24716,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (i == 39)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }

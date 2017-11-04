@@ -1,0 +1,101 @@
+﻿@model IrrigationAdvisor.ViewModels.Reports.ReportPivotStateViewModel
+@{
+    Layout = null;
+}
+<script type="text/javascript">
+    
+    window.onload = function () {
+        window.print();
+        setTimeout(function () { window.close(); }, 1);
+    }
+    
+</script>
+<link href="~/css/print.css" rel="stylesheet" />
+<title>PWG Water</title>
+
+    <div class="container">
+        <div class="title">PGG Wrightson Water</div>
+    </div>
+
+        <div class="container">
+
+            <p><strong> @Html.DisplayFor(model => model.Title)</strong></p>
+
+        </div>
+        <div class="container">
+            <table border="0">
+                <tr>
+                    <td align="center" style="border-color:white">
+                        <img src="@Url.Action("GetChart") ">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="border-color:white">
+
+                        <table cellspacing="0" border="1" style="width:300px" align="center">
+
+                            <tr>
+                                <th colspan="2">Entrada y salida de agua</th>
+                            </tr>
+
+                            <tr>
+                                <td width="50%">
+                                    ET Acumulado:
+                                </td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.TotalEvapotranspirationCrop)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Riego:
+                                </td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.TotalEffectiveInputWater)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%">
+                                    Lluvia:
+                                </td>
+                                <td align="left">
+                                    @Html.DisplayFor(model => model.TotalEffectiveRain)
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+@{ if (Model.IsUserAdministrator)
+ {
+                <tr style="height:10px"><td style="border-color:white"></td></tr>
+                <tr>
+                    <td style ="border-color:white">
+                                 <!--table-->
+                        <table cellspacing="0" border="1" style="width:400px;" align="center">
+                            <thead>
+
+                                @{ Html.RenderAction("ReportPivotStateHeaderPartial", "ReportPivotState"); }
+
+
+                            </thead>
+                            <tbody>
+                                @{ Html.RenderAction("ReportPivotStatePartial", "ReportPivotState"); }
+                            </tbody>
+                        </table>
+
+                         
+
+                        
+
+                    </td>
+
+                </tr>
+                         
+}}
+            </table>
+
+
+        </div>
+

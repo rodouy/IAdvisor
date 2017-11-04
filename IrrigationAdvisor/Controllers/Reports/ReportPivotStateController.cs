@@ -30,7 +30,7 @@ namespace IrrigationAdvisor.Controllers.Reports
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
 
         ReportPivotStateViewModel vm = new ReportPivotStateViewModel();
-        private static long ciwId = 0 ;
+        private static long ciwId = 0;
         
 
         public ActionResult Index()
@@ -41,7 +41,7 @@ namespace IrrigationAdvisor.Controllers.Reports
             UserConfiguration uc;
             LoginViewModel lLoginViewModel;
             uc = new UserConfiguration();
-           
+
             LoginViewModel localLgM = ManageSession.GetLoginViewModel();
 
             if (localLgM == null)
@@ -56,34 +56,35 @@ namespace IrrigationAdvisor.Controllers.Reports
             vm.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
             #endregion
 
-            ciwId = GetCropIrrigationWeatherId();
+            ciwId = GetCropIrrigationWeatherIdFromURL();
 
             DailyRecordConfiguration drc = new DailyRecordConfiguration();
             List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
 
             lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
 
-            
             double lSumTotalEffectiveRain = 0;
             double lSumTotalEffectiveInputWater = 0;
             double lSumTotalEvapotranspirationCrop = 0;
+            string lCropIrrigationWeatherTitle = "";
 
 
             foreach (DailyRecord item in lDailyRecordList)
             {
                 if (item.Rain != null)
                     lSumTotalEffectiveRain = lSumTotalEffectiveRain + item.Rain.Input + item.Rain.ExtraInput; ;
-                
+
                 if (item.Irrigation != null)
-                    lSumTotalEffectiveInputWater = lSumTotalEffectiveInputWater + item.Irrigation.Input + item.Irrigation.ExtraInput;              
-                
-                //lSumTotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop + item.TotalEvapotranspirationCrop;
+                    lSumTotalEffectiveInputWater = lSumTotalEffectiveInputWater + item.Irrigation.Input + item.Irrigation.ExtraInput;
+
                 lSumTotalEvapotranspirationCrop = item.TotalEvapotranspirationCrop;
+                lCropIrrigationWeatherTitle = item.CropIrrigationWeather.ToString();
             }
             vm.TotalEffectiveRain = lSumTotalEffectiveRain;
             vm.TotalEffectiveInputWater = lSumTotalEffectiveInputWater;
             vm.TotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop;
-          
+            vm.Title = lCropIrrigationWeatherTitle;
+            vm.CropIrrigationWeatherId = ciwId;
             return View("~/Views/ReportPivotState/ReportPivotState.cshtml", vm);
         }
 
@@ -94,16 +95,16 @@ namespace IrrigationAdvisor.Controllers.Reports
             List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
             double lRain;
             double lIrrigation;
+         
+
+            lDailyRecordList = drc.GetLast30DaysDailyRecordsListDataBy(ciwId, Utils.GetDateOfReference().Value);
             
-
-            lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
-
             ArrayList yArrayRain = new ArrayList();
             ArrayList yArrayIrrigation = new ArrayList();
             ArrayList yArrayETC = new ArrayList();
             ArrayList xValue = new ArrayList();
             int i = 1;
-            
+
             foreach (DailyRecord item in lDailyRecordList)
             {
                 lRain = 0;
@@ -115,22 +116,25 @@ namespace IrrigationAdvisor.Controllers.Reports
 
                 if (lRain > 0 || lIrrigation > 0)
                 {
-                    yArrayIrrigation.Add(lIrrigation);
-                    yArrayRain.Add(lRain);
-                    yArrayETC.Add(item.TotalEvapotranspirationCrop);
-                    xValue.Add(i++);
-                }
+                yArrayIrrigation.Add(lIrrigation);
+                yArrayRain.Add(lRain);
+                yArrayETC.Add(item.TotalEvapotranspirationCrop);
+                xValue.Add(item.DaysAfterSowing);
+                
+                 }
 
             }
             new Chart(width: 1000, height: 400, theme: ChartTheme.Green)
-               .AddTitle("Estado del Pivot")
+               .AddTitle("Balance de agua últimos 30 días")
                .AddLegend()
-
-               .AddSeries("Lluvia", chartType: "Column", xValue: xValue, yValues: yArrayRain, markerStep: 1)
+               
+               .SetYAxis("Cantidad (mm.)")
+               .SetXAxis("Días de siembra", double.Parse(xValue[0].ToString())-2)
+               .AddSeries("Lluvia", chartType: "Column", xValue: xValue, yValues: yArrayRain, markerStep: 57)
                .AddSeries("Riego", chartType: "Column", xValue: xValue, yValues: yArrayIrrigation, markerStep: 1)
-               .AddSeries("ETc Acumulado", chartType: "Line", xValue: xValue, yValues: yArrayETC)
-               .Write("bmp")
-               ;
+               .AddSeries("ETc Acumulado", chartType: "Line", xValue: xValue, yValues: yArrayETC, markerStep: 1)
+               .Write("bmp");
+            
             return null;
         }
 
@@ -193,7 +197,7 @@ namespace IrrigationAdvisor.Controllers.Reports
                 #endregion
                 //Obtain logged user
                 lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
-                lGridDailyRecordIrrigationResume = new GridDailyRecordIrrigationResume("Fecha", "Riego", "Lluvia");
+                lGridDailyRecordIrrigationResume = new GridDailyRecordIrrigationResume("Día","Fecha", "Riego", "Lluvia");
 
                 lGridDailyRecordIrrigationResumeList.Add(lGridDailyRecordIrrigationResume);
 
@@ -224,7 +228,7 @@ namespace IrrigationAdvisor.Controllers.Reports
             string lEffectiveRain;
             string lEffectiveInputWater;
             double lEffectiveRainDouble;
-            double lEffectiveInputWaterDouble ;
+            double lEffectiveInputWaterDouble;
 
             List<DailyRecord> lDailyRecordList;
             DailyRecordConfiguration drc;
@@ -244,7 +248,7 @@ namespace IrrigationAdvisor.Controllers.Reports
                     lEffectiveInputWaterDouble = 0;
 
                     if (lDailyRecordUnit.Rain != null)
-                    {   
+                    {
                         lEffectiveRainDouble = lDailyRecordUnit.Rain.ExtraInput + lDailyRecordUnit.Rain.Input;
                     }
 
@@ -255,14 +259,14 @@ namespace IrrigationAdvisor.Controllers.Reports
                     if (lEffectiveRainDouble + lEffectiveInputWaterDouble > 0) // not input
                     {
                         if (lEffectiveRainDouble != 0)
-                            lEffectiveRain = lEffectiveRainDouble.ToString();                     
+                            lEffectiveRain = lEffectiveRainDouble.ToString();
 
                         if (lEffectiveInputWaterDouble != 0)
-                            lEffectiveInputWater= lEffectiveInputWaterDouble.ToString();
+                            lEffectiveInputWater = lEffectiveInputWaterDouble.ToString();
 
-                        lGridDailyRecordIrrigationResume = new GridDailyRecordIrrigationResume(lDailyRecordUnit.DailyRecordDateTime.ToShortDateString(), lEffectiveRain, lEffectiveInputWater);
+                        lGridDailyRecordIrrigationResume = new GridDailyRecordIrrigationResume(lDailyRecordUnit.DaysAfterSowing.ToString(),lDailyRecordUnit.DailyRecordDateTime.ToShortDateString(), lEffectiveRain, lEffectiveInputWater);
                         lGridDailyRecordIrrigationResumeList.Add(lGridDailyRecordIrrigationResume);
-                      
+
                     }
                 }
             }
@@ -278,26 +282,23 @@ namespace IrrigationAdvisor.Controllers.Reports
 
         }
 
-        private long GetCropIrrigationWeatherId()
+        private long GetCropIrrigationWeatherIdFromURL()
         {
             long retorno = 0;
-           
 
-                string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
-                Uri lMyUri = new Uri(lURL);
-                string lcurrentCiwViaUrl = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("ciw");
-         
-                if (!String.IsNullOrEmpty(lcurrentCiwViaUrl))
-                {
-                    ciwId = Convert.ToInt32(lcurrentCiwViaUrl);
-                    retorno = ciwId;
-                }
-                else
-                {
-                    retorno = ciwId;
-                }
+            string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+            Uri lMyUri = new Uri(lURL);
+            string lcurrentCiwViaUrl = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("ciw");
 
-           //ciwId = 36;
+            if (!String.IsNullOrEmpty(lcurrentCiwViaUrl))
+            {
+                ciwId = Convert.ToInt32(lcurrentCiwViaUrl);
+                retorno = ciwId;
+            }
+            else
+            {
+                retorno = ciwId;
+            }
             return ciwId;
         }
 

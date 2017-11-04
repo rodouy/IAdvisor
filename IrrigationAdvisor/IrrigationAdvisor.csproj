@@ -211,6 +211,7 @@
     <Compile Include="Controllers\Management\DailyRecordsController.cs" />
     <Compile Include="Controllers\Management\MessagesController.cs" />
     <Compile Include="Controllers\Management\TitlesController.cs" />
+    <Compile Include="Controllers\Reports\ReportPivotStatePrintableController.cs" />
     <Compile Include="Controllers\Reports\ReportPivotStateController.cs" />
     <Compile Include="Controllers\Security\AccessesController.cs" />
     <Compile Include="Controllers\Security\MenusController.cs" />
@@ -341,6 +342,10 @@
     <Compile Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs" />
     <Compile Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.Designer.cs">
       <DependentUpon>201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.cs" />
+    <Compile Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.Designer.cs">
+      <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -476,6 +481,7 @@
     <Content Include="css\checkbox.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\print.css" />
     <Content Include="css\wizard.css" />
     <Content Include="DataQueries\All Bombs - Query.sql" />
     <Content Include="DataQueries\All CropCoefficients - Query.sql" />
@@ -886,6 +892,7 @@
     <Content Include="Views\ReportPivotState\_ReportPivotStatePartial.cshtml" />
     <Content Include="Views\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
+    <Content Include="Views\ReportPivotState\ReportPivotStatePrintable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -950,6 +957,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.resx">
       <DependentUpon>201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.resx">
+      <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -2070,7 +2070,11 @@ padding-right: 10px;
 	height:10px;
 	background-color:crimson;
 	}
-
+.ref-cant-irrigation{
+	width:100%;
+	height:10px;
+	background-color:black;
+	}
 
 .table-wrap .replied {
   width: 1%;
@@ -2507,7 +2511,11 @@ width: -moz-available;
 	height:10px;
 	background:crimson;
 	}
-
+.ref-cant-irrigation{
+	width:100%;
+	height:10px;
+	background:black;
+	}
 
 .regado{
 	width:117px;
