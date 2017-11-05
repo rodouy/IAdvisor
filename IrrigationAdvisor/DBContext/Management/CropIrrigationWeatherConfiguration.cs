@@ -736,5 +736,56 @@ namespace IrrigationAdvisor.DBContext.Management
                     .ToList();
         }
 
+        public String GetOutputByCropIrrigationWeatherId(long pCropIrrigationWeatherId)
+        {
+            String lReturn = "";
+            CropIrrigationWeather lCIW;
+            try
+            {
+
+                if (pCropIrrigationWeatherId > 0)
+                {
+                    lCIW = db.CropIrrigationWeathers
+                       .Where(ciw => ciw.CropIrrigationWeatherId == pCropIrrigationWeatherId)
+                       .FirstOrDefault();
+                    if (lCIW != null)
+                    {
+                        lReturn = lCIW.OutPut;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in CropIrrigationWeatherConfiguration.GetOutputByCropIrrigationWeatherId " + "\n" + ex.Message + "\n" + ex.StackTrace);
+            }
+
+            return lReturn;
+        }
+
+        public String GetNameByCropIrrigationWeatherId(long pCropIrrigationWeatherId)
+        {
+            String lReturn = "";
+            CropIrrigationWeather lCIW;
+            try
+            {
+
+                if (pCropIrrigationWeatherId > 0)
+                {
+                    lCIW = db.CropIrrigationWeathers
+                       .Where(ciw => ciw.CropIrrigationWeatherId == pCropIrrigationWeatherId)
+                       .FirstOrDefault();
+                    if (lCIW != null)
+                    {
+                        lReturn = lCIW.CropIrrigationWeatherName;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in CropIrrigationWeatherConfiguration.GetNameByCropIrrigationWeatherId " + "\n" + ex.Message + "\n" + ex.StackTrace);
+            }
+
+            return lReturn;
+        }
     }
 }

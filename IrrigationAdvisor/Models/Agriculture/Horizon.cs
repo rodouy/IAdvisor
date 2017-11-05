@@ -167,7 +167,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         public Horizon()
         {
-            this.HorizonId = 0;
+            //this.HorizonId = 0;
             this.Name = "";
             this.Order = 0;
             this.HorizonLayer = "";

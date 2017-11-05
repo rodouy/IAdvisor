@@ -28,6 +28,9 @@ namespace IrrigationAdvisor.ViewModels.Reports
 
         [Required]
         public String Title { get; set; }
+
+        [Required]
+        public long CropIrrigationWeatherId { get; set; }
     }
 
 }

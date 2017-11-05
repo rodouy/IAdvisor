@@ -20,14 +20,18 @@ using IrrigationAdvisor.Models;
 
 
 
+
+
 namespace IrrigationAdvisor.Controllers.Reports
 {
     public class ReportPivotStateController : Controller
     {
 
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
         ReportPivotStateViewModel vm = new ReportPivotStateViewModel();
         private static long ciwId = 0;
+        
 
         public ActionResult Index()
         {
@@ -52,13 +56,12 @@ namespace IrrigationAdvisor.Controllers.Reports
             vm.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
             #endregion
 
-            ciwId = GetCropIrrigationWeatherId();
+            ciwId = GetCropIrrigationWeatherIdFromURL();
 
             DailyRecordConfiguration drc = new DailyRecordConfiguration();
             List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
 
             lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
-
 
             double lSumTotalEffectiveRain = 0;
             double lSumTotalEffectiveInputWater = 0;
@@ -81,6 +84,7 @@ namespace IrrigationAdvisor.Controllers.Reports
             vm.TotalEffectiveInputWater = lSumTotalEffectiveInputWater;
             vm.TotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop;
             vm.Title = lCropIrrigationWeatherTitle;
+            vm.CropIrrigationWeatherId = ciwId;
             return View("~/Views/ReportPivotState/ReportPivotState.cshtml", vm);
         }
 
@@ -110,29 +114,49 @@ namespace IrrigationAdvisor.Controllers.Reports
                 if (item.Irrigation != null)
                     lIrrigation = item.Irrigation.ExtraInput + item.Irrigation.Input;
 
-                //if (lRain > 0 || lIrrigation > 0)
-                //{
+                if (lRain > 0 || lIrrigation > 0)
+                {
                 yArrayIrrigation.Add(lIrrigation);
                 yArrayRain.Add(lRain);
                 yArrayETC.Add(item.TotalEvapotranspirationCrop);
                 xValue.Add(item.DaysAfterSowing);
                 
-                // }
+                 }
 
             }
             new Chart(width: 1000, height: 400, theme: ChartTheme.Green)
-               .AddTitle("Estado del Pivot")
+               .AddTitle("Balance de agua últimos 30 días")
                .AddLegend()
-               .SetYAxis("Cantidades")
-               .SetXAxis("Días de siembra")
-               .AddSeries("Lluvia", chartType: "Column", xValue: xValue, yValues: yArrayRain, markerStep: 1)
+               
+               .SetYAxis("Cantidad (mm.)")
+               .SetXAxis("Días de siembra", double.Parse(xValue[0].ToString())-2)
+               .AddSeries("Lluvia", chartType: "Column", xValue: xValue, yValues: yArrayRain, markerStep: 57)
                .AddSeries("Riego", chartType: "Column", xValue: xValue, yValues: yArrayIrrigation, markerStep: 1)
-               .AddSeries("ETc Acumulado", chartType: "Line", xValue: xValue, yValues: yArrayETC)
+               .AddSeries("ETc Acumulado", chartType: "Line", xValue: xValue, yValues: yArrayETC, markerStep: 1)
                .Write("bmp");
+            
             return null;
         }
 
+        public ActionResult CreateCVS()
+        {
+            ciwId = GetCropIrrigationWeatherIdFromURL();
+            CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
 
+            String lDate = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+            
+            String lOutPut = ciwc.GetOutputByCropIrrigationWeatherId(ciwId);
+            String lFileName = ciwc.GetNameByCropIrrigationWeatherId(ciwId);
+
+            ///TODO implements file chosser
+            //Application.StartupPath
+            //Environment.CurrentDirectory
+
+            String lFilePath = "C:\\ExitCSV\\";
+            lFileName = lFileName + "_" + lDate + ".xls"; //".csv";
+            Utils.ExportOutPutToCSV(lOutPut, lFilePath, lFileName);
+            return RedirectToAction("Index");
+        }
 
         [ChildActionOnly]
         public PartialViewResult ReportPivotStateHeaderPartial()
@@ -258,10 +282,9 @@ namespace IrrigationAdvisor.Controllers.Reports
 
         }
 
-        private long GetCropIrrigationWeatherId()
+        private long GetCropIrrigationWeatherIdFromURL()
         {
             long retorno = 0;
-
 
             string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
             Uri lMyUri = new Uri(lURL);
