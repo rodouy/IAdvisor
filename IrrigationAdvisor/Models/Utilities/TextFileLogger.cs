@@ -76,7 +76,7 @@ namespace IrrigationAdvisor.Models.Utilities
             get 
             {
                 String lFilePath = "";
-                lFilePath = Application.UserAppDataPath + FILE_NAME + FILE_EXTENTION;
+                //lFilePath = Application.UserAppDataPath + FILE_NAME + FILE_EXTENTION;
                 lFilePath = Environment.ExpandEnvironmentVariables(FOLDER_NAME + FILE_NAME + FILE_EXTENTION);
                 return  lFilePath;
             }
