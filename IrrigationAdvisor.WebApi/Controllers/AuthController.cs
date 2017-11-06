@@ -1,4 +1,5 @@
-﻿using IrrigationAdvisor.WebApi.Models;
+﻿using IrrigationAdvisor.Authorize;
+using IrrigationAdvisor.WebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,32 +19,38 @@ namespace IrrigationAdvisor.WebApi.Controllers
 
             try
             {
+                IrrigationAdvisorWebApiEntities1 context = new IrrigationAdvisorWebApiEntities1();
+
                 AuthViewModel vw = new AuthViewModel()
                 {
                     Token = "ffdvskdidmf5656483"
                 };
 
-                FarmViewModel farm = new FarmViewModel()
-                {
-                    Description = "El Venteveo",
-                    FarmId = 1
-                };
+                Authentication auth = new Authentication(userName, password);
 
-                FarmViewModel farm2 = new FarmViewModel()
+                if (auth.IsAuthenticated())
                 {
-                    Description = "La casita",
-                    FarmId = 2
-                };
+                    string cleanUserName = userName.ToLower().Trim();
+                    var user = context.Users.Where(n => n.UserName == cleanUserName).Single();
 
-                FarmViewModel farm3 = new FarmViewModel()
+                    var farms = context.UserFarms.Where(n => n.UserId == user.UserId).ToList();
+
+                    foreach (var f in farms)
+                    {
+                        FarmViewModel newFarm = new FarmViewModel()
+                        {
+                            Description = f.Name,
+                            FarmId = f.FarmId
+                        };
+
+                        vw.Farms.Add(newFarm);
+                    }
+                }
+                else
                 {
-                    Description = "El Paraiso",
-                    FarmId = 3
-                };
-
-                vw.Farms.Add(farm);
-                vw.Farms.Add(farm2);
-                vw.Farms.Add(farm3);
+                    throw new UnauthorizedAccessException("Usuario o contraseña invalido");
+                }
+                               
 
                 result.IsOk = true;
                 result.Data = vw;       

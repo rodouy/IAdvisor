@@ -7,6 +7,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO;
 
 using IrrigationAdvisor.DBContext.Data;
 using NLog;
@@ -187,9 +188,13 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             IrrigationByHydricBalance,
             /// <summary>
-            /// No irrigation.
+            /// Can't irrigate.
             /// </summary>
-            NoIrrigation
+            CantIrrigate,
+            /// <summary>
+            /// Irrigation was not decided
+            /// </summary>
+            IrrigationWasNotDecided
         }
 
         /// <summary>
@@ -225,6 +230,92 @@ namespace IrrigationAdvisor.Models.Utilities
             /// Phenological Stage, Deep of Root and Crop Coefficient depend on this calculus
             /// </summary>
             ByIntervalGrowingDegreeDays,
+        }
+
+        public static void ExportOutPutToCSV(String pOutPut, String pFilePath, String pFileName)
+        {
+            FileStream fs = null;
+            String lFilePath;
+            String lFullFileName;
+            
+            //Check if "\\" exist in file path
+            if(!pFilePath.EndsWith("\\"))
+            {
+                lFilePath = pFilePath + "\\";
+            }
+            else
+            {
+                lFilePath = pFilePath;
+            }
+            
+            lFullFileName = lFilePath + pFileName;
+            
+            if (!Directory.Exists(lFilePath))
+            {
+                Directory.CreateDirectory(lFilePath);
+            }
+
+
+            if (!File.Exists(lFullFileName))
+            {
+                using (fs = File.Create(lFullFileName))
+                {
+                    // Do not close because we want to write on it
+                    //fs.Close();
+                }
+            }
+            else
+            {
+                File.Delete(lFullFileName);
+            }
+            try
+            {
+                if (!pOutPut.Equals(""))
+                {
+                    using (FileStream lFile = new FileStream(lFullFileName, FileMode.OpenOrCreate, FileAccess.Write))
+                    {
+                        lFile.Close();
+                        StreamWriter lStreamWriter = new StreamWriter(lFullFileName, true);
+                        lStreamWriter.WriteLine(pOutPut);
+                        lStreamWriter.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in OutputFileCSV.WriteFile " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                throw ex;
+            }
+
+            /*
+            //create the file
+            string lFolderName = lOutputFile.FolderName;
+            string lFilePath = lOutputFile.FilePath;
+            string lDataSplit = lOutputFile.DataSplit;
+
+            string lMethod = "createACropIrrigationWeather";
+            string lDescription = "All the data neccesary for doing a Irrigation Advisor.";
+            string lTime = System.DateTime.Now.ToString();
+
+            String lDate = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+            String FOLDER_ROOT = "FolderRoot";
+            String FolderName = FOLDER_ROOT + "folderName";
+
+            if (!Directory.Exists(FolderName))
+            {
+                Directory.CreateDirectory(FolderName);
+            }
+
+
+            //Writes the CSV file in the FilePath
+            lOutputFile.WriteFile(lMethod, lDescription, lTime);
+
+            foreach (var item in lDailyRecordList)
+            {
+                //item.Observations;
+            }
+
+    */
         }
 
         /// <summary>
@@ -385,7 +476,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// No Irrigation
             /// </summary>
-            NoIrrigation
+            CantIrrigate,
+            /// <summary>
+            /// Irrigation was not decided.
+            /// </summary>
+            IrrigationWasNotDecided
         }
         
         /// <summary>
@@ -531,6 +626,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// Print all Farms in Production 2016-2017
             /// </summary>
             Season_2016_2017,
+
+            /// <summary>
+            /// Print all Farms in Production 2015
+            /// </summary>
+            Season_2015,
 
             /// <summary>
             /// Demo Farm
@@ -775,7 +875,13 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// No irrigation because the irrigation was moved.
             /// </summary>
-            MoveIrrigation
+            MoveIrrigation,
+
+            /// <summary>
+            /// Not decided to Irrigate.
+            /// </summary>
+            NotDecided,
+
         }
 
 
@@ -1508,6 +1614,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserGMO5 = "emolina";
         public static String NameUserGMO6 = "lramirez";
         public static String NameUserGMO7 = "sobrien";
+        public static String NameUserGMO8 = "ghernandez";
         public static String NameUserTM1 = "cetchegaray";
         public static String NameUserLR1 = "jbaroffio";
         public static String NameUserLR2 = "jpastorini";

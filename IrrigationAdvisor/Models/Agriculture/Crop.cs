@@ -207,7 +207,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         public Crop()
         {
-            this.CropId = 0;
+            //this.CropId = 0;
             this.Name = "noName";
             this.ShortName = "";
             this.RegionId = 0;

@@ -2059,7 +2059,7 @@ namespace IrrigationAdvisor.Models.Management
                 pCropIrrigationWeather.SetCalculusMethodForPhenologicalAdjustment(pCalculusOfPhenologicalStage);
                 
                 //Create the initial registry
-                this.AddDailyRecordToList(pCropIrrigationWeather, pSowingDate, "Initial registry");
+                this.AddDailyRecordToList(pCropIrrigationWeather, pSowingDate, "Initial registry", pSowingDate);
                 
             }
             catch (Exception ex)
@@ -2080,11 +2080,13 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pCurrentDateTime"></param>
         /// <param name="pObservations"></param>
         /// <returns></returns>
-        public bool AddDailyRecordToList(CropIrrigationWeather pCropIrrigationWeather, DateTime pDateTime, String pObservations)
+        public bool AddDailyRecordToList(CropIrrigationWeather pCropIrrigationWeather, DateTime pDateTime, String pObservations,
+                                        DateTime pDateOfReference)
         {
             bool lReturn = false;
             WeatherData lWeatherData = null;
             
+
             try
             {
                 //Controlo que la CropIrrigationWeather exista y la fecha no sean null
@@ -2099,23 +2101,23 @@ namespace IrrigationAdvisor.Models.Management
                         if(pCropIrrigationWeather.CalculusMethodForPhenologicalAdjustment.Equals(
                                             Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays))
                         {
-                            pCropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays(pDateTime, pObservations, lWeatherData);
+                            pCropIrrigationWeather.AddDailyRecordAccordingGrowinDegreeDays(pDateTime, pObservations, lWeatherData, pDateOfReference);
                         }
 
                         if (pCropIrrigationWeather.CalculusMethodForPhenologicalAdjustment.Equals(
                                             Utils.CalculusOfPhenologicalStage.ByDaysAfterSowing))
                         {
-                            pCropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservations, lWeatherData);
+                            pCropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservations, lWeatherData, pDateOfReference);
                         }
 
                         //Luego de que agrego un registro verifico si hay que regar.
                         //Si es asi se agrega el riego a la lista y se reingresa el registro diario. 
-                        this.verifyNeedForIrrigation(pCropIrrigationWeather, pDateTime);
+                        this.verifyNeedForIrrigation(pCropIrrigationWeather, pDateTime, pDateOfReference);
                     }
                     else 
                     {
                         
-                        pCropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservations, lWeatherData);
+                        pCropIrrigationWeather.AddDailyRecordAccordingDaysAfterSowing(pDateTime, pObservations, lWeatherData, pDateOfReference);
                         
                     }
                 }
@@ -2134,7 +2136,8 @@ namespace IrrigationAdvisor.Models.Management
         /// </summary>
         /// <param name="pCropIrrigationWeather"></param>
         /// <param name="pCurrentDateTime"></param>
-        public void verifyNeedForIrrigation(CropIrrigationWeather pCropIrrigationWeather, DateTime pDateTime)
+        public void verifyNeedForIrrigation(CropIrrigationWeather pCropIrrigationWeather, DateTime pDateTime,
+                                            DateTime pDateOfReference)
         {
             Pair<double, Utils.WaterInputType> lNeedForIrrigationPair;
             double lQuantityOfWaterToIrrigate;
@@ -2147,7 +2150,7 @@ namespace IrrigationAdvisor.Models.Management
             if (lQuantityOfWaterToIrrigate > 0)
             {
                 this.AddOrUpdateIrrigationDataToList(pCropIrrigationWeather, pDateTime, lNeedForIrrigationPair, false);
-                this.AddDailyRecordToList(pCropIrrigationWeather, pDateTime, pDateTime.ToShortDateString());
+                this.AddDailyRecordToList(pCropIrrigationWeather, pDateTime, pDateTime.ToShortDateString(), pDateOfReference);
             }
         }
 
@@ -2393,7 +2396,7 @@ namespace IrrigationAdvisor.Models.Management
             
             try
             {
-                lNewIrrigation = pCropIrrigationWeather.GetIrrigation(pIrrigationDate);
+                lNewIrrigation = pCropIrrigationWeather.GetIrrigationByDay(pIrrigationDate);
                 //If there is not a registry then it is created 
                 //If there is an Irrigation Registry it is updated 
                 if (lNewIrrigation == null)

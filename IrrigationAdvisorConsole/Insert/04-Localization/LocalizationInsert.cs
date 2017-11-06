@@ -1605,12 +1605,23 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #endregion
             #region SantaLucia - Campo de Sol SA
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_SantaLucia_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_SantaLucia_2016;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_SantaLucia_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_SantaLucia_2016
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmSantaLucia
@@ -1643,13 +1654,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region DCA - El Paraiso - Del Carmen ACISA SA
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
             {
+                String lWeatherStationName = DataEntry.WeatherStationMainName_DCAElParaiso_2017;
+                if(Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                {
+                    lWeatherStationName = DataEntry.WeatherStationMainName_DCAElParaiso_2016;
+                }
+                if(Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                {
+                    lWeatherStationName = DataEntry.WeatherStationMainName_DCAElParaiso_2017;
+                }
                 using (var context = new IrrigationAdvisorContext())
                 {
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_DCAElParaiso_2016
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmDCAElParaiso
@@ -1681,14 +1703,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region DCA - LaPerdiz - Del Carmen ACISA SA
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_DCALaPerdiz_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_DCALaPerdiz_2016;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_DCALaPerdiz_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmDCALaPerdiz
@@ -1720,14 +1752,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region DCA - SanJose - Del Carmen ACISA SA
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_DCASanJose_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_DCASanJose_2016;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_DCASanJose_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_DCASanJose_2016
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmDCASanJose
@@ -1760,13 +1802,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region DelLago - San Pedro - Estancias del Lago S.R.L.
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoSanPedro_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoSanPedro_2016;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoSanPedro_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2016
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmDelLagoSanPedro
@@ -1798,13 +1851,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region DelLago - El Mirador - Estancias del Lago S.R.L.
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoElMirador_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoElMirador_2016;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoElMirador_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmDelLagoElMirador
@@ -1837,13 +1901,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region Menafra - GMO - LaPalma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_GMOLaPalma_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_GMOLaPalma_2016;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_GMOLaPalma_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2017
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmGMOLaPalma
@@ -1875,13 +1950,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region Menafra - GMO - ElTacuru
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_GMOElTacuru_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_GMOElTacuru_2016;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_GMOElTacuru_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmGMOElTacuru
@@ -1914,12 +2000,23 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region Albanell - Tres Marias
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_TresMarias_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_TresMarias_2016;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_TresMarias_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_TresMarias_2017
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmTresMarias
@@ -1951,12 +2048,23 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region Maria Elena SRL - LaRinconada
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_LaRinconada_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_LaRinconada_2016;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_LaRinconada_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_LaRinconada_2017
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmLaRinconada
@@ -1993,8 +2101,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    String lWeatherStationName = DataEntry.WeatherStationMainName_ElRincon_2017;
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    {
+                        lWeatherStationName = DataEntry.WeatherStationMainName_ElRincon_2017;
+                    }
                     lWeatherStation = (from ws in context.WeatherStations
-                                       where ws.Name == DataEntry.WeatherStationMainName_ElRincon_2017
+                                       where ws.Name == lWeatherStationName
                                        select ws).FirstOrDefault();
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionFarmElRincon
@@ -2010,7 +2123,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         Address = "Ruta 1 km 77",
                         Phone = "099 204 293",
                         PositionId = lPosition.PositionId,
-                        Has = 158,
+                        Has = 93,
                         WeatherStationId = lWeatherStation.WeatherStationId,
                         SoilList = null,
                         BombList = null,
@@ -2804,7 +2917,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQIrrigationUnit = null;
             String[] lUserNames = { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3, 
                                       Utils.NameUserGMO4, Utils.NameUserGMO5, Utils.NameUserGMO6, 
-                                      Utils.NameUserGMO7,
+                                      Utils.NameUserGMO7, Utils.NameUserGMO8,
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
                                       Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -2891,7 +3004,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3, 
                                       Utils.NameUserGMO4, Utils.NameUserGMO5, Utils.NameUserGMO6, 
-                                      Utils.NameUserGMO7,
+                                      Utils.NameUserGMO7, Utils.NameUserGMO8,
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
                                       Utils.NameUserCPalo, Utils.NameUserMCarle,

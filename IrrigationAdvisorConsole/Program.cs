@@ -40,12 +40,11 @@ namespace IrrigationAdvisorConsole
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.DCA;
+        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Production;
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
-        public static DateTime DateOfReference = System.DateTime.Now.AddMonths(-9);
-        
+        public static DateTime DateOfReference = System.DateTime.Now; //.AddMonths(-9);
         
         static void Main(string[] args)
         {
@@ -143,6 +142,7 @@ namespace IrrigationAdvisorConsole
 
                 WaterInsert.InsertEffectiveRainsSouth();
                 WaterInsert.InsertEffectiveRainsNorth();
+                WaterInsert.UpdateRegionSetEffectiveRainList();
 
                 AgricultureInsert.InsertPhenologicalStagesCornSouthMedium();
                 //AgricultureInsert.InsertPhenologicalStagesCornSouthShort();
@@ -217,6 +217,17 @@ namespace IrrigationAdvisorConsole
                 }
                 else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                {
+                    CropIrrigationWeatherInsert2017.InsertCropIrrigationWeather2017();
+                    Console.WriteLine("Management - Add/Update Rain, Irrigation & Phenology Information.");
+                    WaterInsert.UpdateInformationOfRain2017();
+                    WaterInsert.UpdateInformationOfIrrigation2017();
+                    CropIrrigationWeatherInsert2017.AddPhenologicalStageAdjustements2017();
+                    Console.WriteLine("Management - Add/Update Information to Irrigation Units.");
+                    CropIrrigationWeatherInsert2017.AddInformationToIrrigationUnits2017();
+                }
+                //When we select only a Farm or group of farm
+                else
                 {
                     CropIrrigationWeatherInsert2017.InsertCropIrrigationWeather2017();
                     Console.WriteLine("Management - Add/Update Rain, Irrigation & Phenology Information.");

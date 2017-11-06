@@ -1,4 +1,5 @@
-﻿using IrrigationAdvisor.WebApi.Models;
+﻿using IrrigationAdvisor.Controllers;
+using IrrigationAdvisor.WebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,69 +17,95 @@ namespace IrrigationAdvisor.WebApi.Controllers
         {
             OperationResult<IrrigationDataViewModel> result = new OperationResult<IrrigationDataViewModel>();
 
+            IrrigationAdvisorWebApiEntities1 context = new IrrigationAdvisorWebApiEntities1();
+
             try
             {
                 IrrigationDataViewModel irrigationDataViewModel = new IrrigationDataViewModel();
 
+                var farm = context.Farms.Where(n => n.FarmId == farmId).Single();
+
                 irrigationDataViewModel.Farm = new FarmViewModel()
                 {
-                    FarmId = 1,
-                    Description = "El Venteveo"
+                    FarmId = farmId,
+                    Description = farm.Name
                 };
 
-                irrigationDataViewModel.ReferenceDate = DateTime.Now;
+                var status = context.Status.Where(n => n.Name == "Production").Single();
 
-                IrrigationRow irrigationRow = new IrrigationRow()
+                irrigationDataViewModel.ReferenceDate = status.DateOfReference;
+
+                var irrigationRows = (from ciw in context.CropIrrigationWeathers
+                                     join iu in context.IrrigationUnits
+                                     on ciw.IrrigationUnitId equals iu.IrrigationUnitId
+                                     join f in context.Farms
+                                     on iu.FarmId equals f.FarmId
+                                     join c in context.Crops
+                                     on ciw.CropId equals c.CropId
+                                     join p in context.PhenologicalStages
+                                     on ciw.PhenologicalStageId equals p.PhenologicalStageId
+                                     join s in context.Stages
+                                     on p.StageId equals s.StageId
+                                     where  f.FarmId == farmId
+                                     select new {   IrrigationUnit = iu,
+                                                    CropIrrigationWeather = ciw,
+                                                    Crop = c,
+                                                    Stage = s}).ToList();
+
+                foreach (var row in irrigationRows)
                 {
-                    Crop = "Soja",
-                    HarvestDate = DateTime.Now.AddMonths(6),
-                    HydricBalance = 51.29m,
-                    Kc = 0.5m,
-                    Phenology = "R6",
-                    Name = "Pivot 1"
-                };
+                    IrrigationRow irrigationRow = new IrrigationRow()
+                    {
+                        IrrigationUnitId = row.IrrigationUnit.IrrigationUnitId,
+                        Crop = row.Crop.Name,
+                        HarvestDate = row.CropIrrigationWeather.HarvestDate,
+                        HydricBalance = Math.Round(row.CropIrrigationWeather.HydricBalance, 2),
+                        Kc = 0,
+                        Phenology = row.Stage.Name,
+                        Name = row.IrrigationUnit.Name
+                    };
 
-                irrigationRow.Advices.Add(new AdviceViewModel()
-                {
-                    Date = DateTime.Now.AddDays(-2),
-                    IrrigationType = "Rain",
-                    Quantity = 10
-                });
+                    DateTime minorDate = status.DateOfReference.AddDays(-3);
+                    DateTime mayorDate = status.DateOfReference.AddDays(5);
 
-                irrigationRow.Advices.Add(new AdviceViewModel()
-                {
-                    Date = DateTime.Now.AddDays(3),
-                    IrrigationType = "Irrigation",
-                    Quantity = 15
-                });
+                    var dailyRecords = context.DailyRecords.Where(n => n.CropIrrigationWeatherId == row.CropIrrigationWeather.CropIrrigationWeatherId && 
+                                                                 (n.DailyRecordDateTime <= mayorDate && 
+                                                                 n.DailyRecordDateTime >= minorDate)).Distinct().ToList();
 
-                irrigationDataViewModel.IrrigationRows.Add(irrigationRow);
+                    foreach (var daily in dailyRecords)
+                    {
+                        if (daily.RainId > 0)
+                        {
+                            var rain = context.WaterInputs.SingleOrDefault(n => n.WaterInputId == daily.RainId);
 
-                IrrigationRow irrigationRow2 = new IrrigationRow()
-                {
-                    Crop = "Soja",
-                    HarvestDate = DateTime.Now.AddMonths(6),
-                    HydricBalance = 25.32m,
-                    Kc = 0.8m,
-                    Phenology = "V0",
-                    Name = "Pivot 2"
-                };
+                            if (rain != null)
+                            {
+                                irrigationRow.Advices.Add(new AdviceViewModel()
+                                {
+                                    Date = daily.DailyRecordDateTime,
+                                    IrrigationType = "Rain",
+                                    Quantity = rain.Input > 0 ? rain.Input : rain.ExtraInput
+                                });
+                            }                          
+                        }
+                        else if (daily.IrrigationId > 0)
+                        {
+                            var irrigation = context.WaterInputs.SingleOrDefault(n => n.WaterInputId == daily.RainId);
 
-                irrigationRow2.Advices.Add(new AdviceViewModel()
-                {
-                    Date = DateTime.Now.AddDays(-2),
-                    IrrigationType = "Rain",
-                    Quantity = 10
-                });
-
-                irrigationRow2.Advices.Add(new AdviceViewModel()
-                {
-                    Date = DateTime.Now.AddDays(4),
-                    IrrigationType = "Irrigation",
-                    Quantity = 15
-                });
-
-                irrigationDataViewModel.IrrigationRows.Add(irrigationRow2);
+                            if (irrigation != null)
+                            {
+                                irrigationRow.Advices.Add(new AdviceViewModel()
+                                {
+                                    Date = daily.DailyRecordDateTime,
+                                    IrrigationType = "Irrigation",
+                                    Quantity = irrigation.Input > 0 ? irrigation.Input : irrigation.ExtraInput
+                                });
+                            }                     
+                        }                    
+                    }
+                    
+                    irrigationDataViewModel.IrrigationRows.Add(irrigationRow);
+                }
 
                 result.IsOk = true;
                 result.Data = irrigationDataViewModel;
@@ -101,6 +128,13 @@ namespace IrrigationAdvisor.WebApi.Controllers
 
             try
             {
+                HomeController home = new HomeController();
+
+                foreach (var irrigationUnitId in values.IrrigationUnitId)
+                {
+                    home.AddIrrigation(values.Milimeters, irrigationUnitId, values.Date.Day, values.Date.Month, values.Date.Year, true);
+                }
+                
                 result.IsOk = true;    
             }
             catch (Exception ex)
@@ -120,6 +154,13 @@ namespace IrrigationAdvisor.WebApi.Controllers
 
             try
             {
+                HomeController home = new HomeController();
+
+                foreach (var irrigationUnitId in values.IrrigationUnitId)
+                {
+                    home.AddRain(values.Milimeters, irrigationUnitId, values.Date.Day, values.Date.Month, values.Date.Year, true);
+                }
+
                 result.IsOk = true;
             }
             catch (Exception ex)

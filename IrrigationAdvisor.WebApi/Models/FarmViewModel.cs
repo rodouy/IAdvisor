@@ -2,7 +2,7 @@
 {
     public class FarmViewModel
     {
-        public int FarmId { get; set; }
+        public long FarmId { get; set; }
         public string Description { get; set; }
     }
 }

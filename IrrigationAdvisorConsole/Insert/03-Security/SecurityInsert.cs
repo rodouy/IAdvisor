@@ -331,6 +331,17 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GMO2018"),
                 RoleId = 3,
             };
+            var lGMOGuzman = new User()
+            {
+                Name = "Guzman",
+                Surname = "Hernandez",
+                Phone = "+598 92 167 576",
+                Address = "Ruta 4 km 640",
+                Email = "guzmanhernandezbordenave@gmail.com",
+                UserName = Utils.NameUserGMO8,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GMO2018"),
+                RoleId = 3,
+            };
             #endregion
 
             #region Maria Elena SRL - La Rinconada - LR
@@ -410,6 +421,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lGMOEsteban);
                 context.Users.Add(lGMOLuis);
                 context.Users.Add(lGMOSebastian);
+                context.Users.Add(lGMOGuzman);
                 context.Users.Add(lTresMariasCarlosE);
                 context.Users.Add(lLaRinconadaJuanB);
                 context.Users.Add(lLarinconadaJuanP);
@@ -757,7 +769,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3,
                                                 Utils.NameUserGMO4, Utils.NameUserGMO5, Utils.NameUserGMO6,
-                                                Utils.NameUserGMO7,
+                                                Utils.NameUserGMO7, Utils.NameUserGMO8, 
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -795,7 +807,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserGMO1, Utils.NameUserGMO2, Utils.NameUserGMO3,
                                                 Utils.NameUserGMO4, Utils.NameUserGMO5, Utils.NameUserGMO6,
-                                                Utils.NameUserGMO7,
+                                                Utils.NameUserGMO7, Utils.NameUserGMO8,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,

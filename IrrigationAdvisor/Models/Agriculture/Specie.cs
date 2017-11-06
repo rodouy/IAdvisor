@@ -138,6 +138,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         public Specie()
         {
+            //this.specieId = 0;
             this.Name = "noName";
             this.ShortName = "";
             this.SpecieCycleId = 0;
