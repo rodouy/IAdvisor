@@ -20,14 +20,18 @@ using IrrigationAdvisor.Models;
 
 
 
+
+
 namespace IrrigationAdvisor.Controllers.Reports
 {
     public class ReportPivotStateController : Controller
     {
 
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
         ReportPivotStateViewModel vm = new ReportPivotStateViewModel();
         private static long ciwId = 0;
+        
 
         public ActionResult Index()
         {
@@ -134,7 +138,25 @@ namespace IrrigationAdvisor.Controllers.Reports
             return null;
         }
 
+        public ActionResult CreateCVS()
+        {
+            ciwId = GetCropIrrigationWeatherIdFromURL();
+            CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
 
+            String lDate = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+            
+            String lOutPut = ciwc.GetOutputByCropIrrigationWeatherId(ciwId);
+            String lFileName = ciwc.GetNameByCropIrrigationWeatherId(ciwId);
+
+            ///TODO implements file chosser
+            //Application.StartupPath
+            //Environment.CurrentDirectory
+
+            String lFilePath = "C:\\ExitCSV\\";
+            lFileName = lFileName + "_" + lDate + ".xls"; //".csv";
+            Utils.ExportOutPutToCSV(lOutPut, lFilePath, lFileName);
+            return RedirectToAction("Index");
+        }
 
         [ChildActionOnly]
         public PartialViewResult ReportPivotStateHeaderPartial()

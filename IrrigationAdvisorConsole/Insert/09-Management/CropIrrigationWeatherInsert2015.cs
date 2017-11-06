@@ -241,7 +241,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo1Pivot11_2015.HydricBalance = lCIWDemo1Pivot11_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo1Pivot11_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo1Pivot11_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo1Pivot11_2015);
                     context.SaveChanges();
@@ -397,7 +397,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo1Pivot12_2015.HydricBalance = lCIWDemo1Pivot12_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo1Pivot12_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo1Pivot12_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo1Pivot12_2015);
                     context.SaveChanges();
@@ -549,7 +549,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo1Pivot13_2015.HydricBalance = lCIWDemo1Pivot13_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo1Pivot13_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo1Pivot13_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo1Pivot13_2015);
                     context.SaveChanges();
@@ -702,7 +702,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo1Pivot15_2015.HydricBalance = lCIWDemo1Pivot15_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo1Pivot15_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo1Pivot15_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo1Pivot15_2015);
                     context.SaveChanges();
@@ -862,7 +862,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo2Pivot21_2015.HydricBalance = lCIWDemo2Pivot21_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo2Pivot21_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo2Pivot21_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo2Pivot21_2015);
                     context.SaveChanges();
@@ -1018,7 +1018,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo2Pivot22_2015.HydricBalance = lCIWDemo2Pivot22_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo2Pivot22_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo2Pivot22_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo2Pivot22_2015);
                     context.SaveChanges();
@@ -1170,7 +1170,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo2Pivot23_2015.HydricBalance = lCIWDemo2Pivot23_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo2Pivot23_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo2Pivot23_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo2Pivot23_2015);
                     context.SaveChanges();
@@ -1323,7 +1323,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo2Pivot24_2015.HydricBalance = lCIWDemo2Pivot24_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo2Pivot24_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo2Pivot24_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo2Pivot24_2015);
                     context.SaveChanges();
@@ -1476,7 +1476,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo2Pivot25_2015.HydricBalance = lCIWDemo2Pivot25_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo2Pivot25_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo2Pivot25_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo2Pivot25_2015);
                     context.SaveChanges();
@@ -1636,7 +1636,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo3Pivot31_2015.HydricBalance = lCIWDemo3Pivot31_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo3Pivot31_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo3Pivot31_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo3Pivot31_2015);
                     context.SaveChanges();
@@ -1792,7 +1792,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo3Pivot32A_2015.HydricBalance = lCIWDemo3Pivot32A_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo3Pivot32A_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo3Pivot32A_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo3Pivot32A_2015);
                     context.SaveChanges();
@@ -1944,7 +1944,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo3Pivot33_2015.HydricBalance = lCIWDemo3Pivot33_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo3Pivot33_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo3Pivot33_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo3Pivot33_2015);
                     context.SaveChanges();
@@ -2121,7 +2121,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo3Pivot34_2015.HydricBalance = lCIWDemo3Pivot34_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo3Pivot34_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo3Pivot34_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo3Pivot34_2015);
                     context.SaveChanges();
@@ -2168,7 +2168,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo3Pivot342_2015.HydricBalance = lCIWDemo3Pivot342_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo3Pivot342_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo3Pivot342_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo3Pivot342_2015);
                     context.SaveChanges();
@@ -2362,7 +2362,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDemo3Pivot35_2015.HydricBalance = lCIWDemo3Pivot35_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDemo3Pivot35_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDemo3Pivot35_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDemo3Pivot35_2015);
                     context.SaveChanges();
@@ -2525,7 +2525,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWSantaLuciaPivot1_2015.HydricBalance = lCIWSantaLuciaPivot1_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWSantaLuciaPivot1_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWSantaLuciaPivot1_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWSantaLuciaPivot1_2015);
                     context.SaveChanges();
@@ -2702,7 +2702,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWLaPerdizPivot2_2015.HydricBalance = lCIWLaPerdizPivot2_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWLaPerdizPivot2_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWLaPerdizPivot2_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWLaPerdizPivot2_2015);
                     context.SaveChanges();
@@ -2854,7 +2854,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWLaPerdizPivot3_2015.HydricBalance = lCIWLaPerdizPivot3_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWLaPerdizPivot3_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWLaPerdizPivot3_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWLaPerdizPivot3_2015);
                     context.SaveChanges();
@@ -3007,7 +3007,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWLaPerdizPivot5_2015.HydricBalance = lCIWLaPerdizPivot5_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWLaPerdizPivot5_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWLaPerdizPivot5_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWLaPerdizPivot5_2015);
                     context.SaveChanges();
@@ -3167,7 +3167,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDelLagoSanPedroPivot5_2015.HydricBalance = lCIWDelLagoSanPedroPivot5_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoSanPedroPivot5_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoSanPedroPivot5_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDelLagoSanPedroPivot5_2015);
                     context.SaveChanges();
@@ -3319,7 +3319,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDelLagoSanPedroPivot6_2015.HydricBalance = lCIWDelLagoSanPedroPivot6_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoSanPedroPivot6_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoSanPedroPivot6_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDelLagoSanPedroPivot6_2015);
                     context.SaveChanges();
@@ -3471,7 +3471,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDelLagoSanPedroPivot7_2015.HydricBalance = lCIWDelLagoSanPedroPivot7_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoSanPedroPivot7_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoSanPedroPivot7_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDelLagoSanPedroPivot7_2015);
                     context.SaveChanges();
@@ -3623,7 +3623,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDelLagoSanPedroPivot8_2015.HydricBalance = lCIWDelLagoSanPedroPivot8_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoSanPedroPivot8_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoSanPedroPivot8_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDelLagoSanPedroPivot8_2015);
                     context.SaveChanges();
@@ -3784,7 +3784,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot6_2015.HydricBalance = lCIWDelLagoElMiradorPivot6_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoElMiradorPivot6_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoElMiradorPivot6_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot6_2015);
                     context.SaveChanges();
@@ -3936,7 +3936,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot7_2015.HydricBalance = lCIWDelLagoElMiradorPivot7_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoElMiradorPivot7_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoElMiradorPivot7_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot7_2015);
                     context.SaveChanges();
@@ -4088,7 +4088,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot8_2015.HydricBalance = lCIWDelLagoElMiradorPivot8_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoElMiradorPivot8_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoElMiradorPivot8_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot8_2015);
                     context.SaveChanges();
@@ -4240,7 +4240,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWDelLagoElMiradorPivot9_2015.HydricBalance = lCIWDelLagoElMiradorPivot9_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWDelLagoElMiradorPivot9_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWDelLagoElMiradorPivot9_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWDelLagoElMiradorPivot9_2015);
                     context.SaveChanges();
@@ -4401,7 +4401,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWLaPalmaPivot2A_2015.HydricBalance = lCIWLaPalmaPivot2A_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWLaPalmaPivot2A_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWLaPalmaPivot2A_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot2A_2015);
                     context.SaveChanges();
@@ -4554,7 +4554,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWLaPalmaPivot3_2015.HydricBalance = lCIWLaPalmaPivot3_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWLaPalmaPivot3_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWLaPalmaPivot3_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot3_2015);
                     context.SaveChanges();
@@ -4707,7 +4707,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //Get Initial Hydric Balance
                     lCIWLaPalmaPivot4_2015.HydricBalance = lCIWLaPalmaPivot4_2015.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWLaPalmaPivot4_2015.AddDailyRecordToList(lSowingDate, "Initial registry");
+                    lCIWLaPalmaPivot4_2015.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
                     context.CropIrrigationWeathers.Add(lCIWLaPalmaPivot4_2015);
                     context.SaveChanges();
