@@ -1217,7 +1217,8 @@ padding-right: 10px;
 
 .ref-cant-irrigation{
 	height:10px;
-	background-color:black;
+	/*background-color:black;*/ /* For Debugging */
+    background:#c9d0d4;
      width: 50%;
     position: relative;
     left: 27%;
@@ -1530,7 +1531,8 @@ padding-right: 10px;
         width:100%;
 	    left:0;
 	    height:10px;
-	    background-color:black;
+        /*background-color:black;*/ /* For Debugging */
+	    background-color:#c9d0d4;
 	    }
     .value-mobile-position
     {
