@@ -66,6 +66,7 @@
         }
     }
 
+
     ; (function ($, document, window) {
 
         "use strict";
@@ -240,17 +241,6 @@
                 var form = that.$element.closest('form');
                 if (form.length) form.submit();
 
-                //if (typeof that.options.onCompleted == 'function') {
-                //    alert("1")
-                //    that.options.onCompleted(that);
-                //} else if (that.options.autoSubmit) {
-                //    // search if wizard is inside a form and submit it.
-                //    alert("2")
-                //    var form = that.$element.closest('form');
-                //    if (form.length) form.submit();
-                //}
-                //else
-                //alert("3")
             }
         },
 
@@ -361,10 +351,10 @@
         }
 
         function surnameValidation() {
-   
+
             if ($("#Surname").val().trim() === "") {
                 $("#SurnameMessage").html("<span class=text-danger>Ingrese el apellido</span>");
-               return false;
+                return false;
             }
             else {
                 $("#SurnameMessage").html("<span class=text-danger></span>");
@@ -375,7 +365,7 @@
         function phoneValidation() {
             if ($("#Phone").val().trim() === "") {
                 $("#PhoneMessage").html("<span class=text-danger>Ingrese el teléfono</span>");
-               return false;
+                return false;
             }
             else {
                 $("#PhoneMessage").html("<span class=text-danger></span>");
@@ -442,14 +432,14 @@
                 move = surnameValidation();
                 move = phoneValidation();
                 move = emailValidation();
-                    
+
                 if (move) {
 
                     $("#UserName").val($("#Name").val().trim().substring(0, 1) + '' + $("#Surname").val().trim());
                 }
             }
 
-            if (direction) {//se mueve hacia adelante               
+            if (direction) {//se mueve hacia adelante
                 if (currentStep == "2") {
                     move = rolIdValidation();
                     move = userNameValidation();
@@ -464,6 +454,31 @@
                         $("#UserNameConfirmation").html($("#UserName").val());
                     }
                 }
+
+                if (currentStep == "3") {
+                    move = true;
+
+                    var valueFarm;
+                    var textFarm
+                    $("#FarmsHidden").val("")
+
+                    $.each($("input[name='chksFarms']:checked"), function () {//are farms checked
+                        // FarmsHiddenValue = $("#FarmsHidden").val();
+
+                        if ($("#FarmsHidden").val().length == 0) {
+                            valueFarm = $(this).val();
+                            textFarm = "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;" + $(this).attr('title');
+                        }
+                        else {
+                            valueFarm = valueFarm + "|" + $(this).val()
+                            textFarm = textFarm + "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;" + $(this).attr('title');
+                        }
+                        $("#FarmsHidden").val(valueFarm);
+                        $("#FarmsMessage").html(textFarm);
+                    });
+                }
+
+
             }
             return move;
         }
@@ -526,6 +541,17 @@
             $("#ConfirmPassword").focusout(function () {
                 passwordValidation()
             });
+
+            $(function () {
+                $('#select_all').change(function () {
+                    var checkboxes = $(this).closest('form').find(':checkbox');
+                    if ($(this).prop('checked')) {
+                        checkboxes.prop('checked', true);
+                    } else {
+                        checkboxes.prop('checked', false);
+                    }
+                });
+            });
         });
 
 
@@ -539,128 +565,162 @@
 
 
 @using (Html.BeginForm())
-
 {
     @Html.AntiForgeryToken()
 
-<div class="container-fluid">
-    <div data-wizard-init>
-        <ul class="steps">
-            <li data-step="1">Datos personales</li>
-            <li data-step="2">Datos de la cuenta</li>
-            <li data-step="3">Confirmar</li>
-        </ul>
-@Html.ValidationSummary(true, "Error", new { @class = "text-danger" })
-@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-        <div class="steps-content">
-            <div data-step="1">
-                <h4>Datos personales</h4>
-                <p>
-                    <div class="form-group">
-                        <label class="control-label">Nombre</label>
-                        <input maxlength="50" id="Name" name="Name" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
-                        <span id="NameMessage"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Apellido</label>
-                        <input maxlength="50" id="Surname" name="Surname" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese apellido">
-                        <span id="SurnameMessage"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Teléfono</label>
-                        <input maxlength="50" id="Phone" name="Phone" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese teléfono">
-                        <span id="PhoneMessage"></span>
-                    </div>
+    <div class="container-fluid">
+        <div data-wizard-init>
+            <input id="FarmsHidden" name="FarmsHidden" type="hidden">
+            <ul class="steps">
+                <li data-step="1">Datos personales</li>
+                <li data-step="2">Datos de la cuenta</li>
+                <li data-step="3">Establecimientos</li>
+                <li data-step="4">Confirmar</li>
+            </ul>
+            @Html.ValidationSummary(true, "Error", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            <div class="steps-content">
+                <div data-step="1">
+                    <h4>Datos personales</h4>
+                    <p>
+                        <div class="form-group">
+                            <label class="control-label">Nombre</label>
+                            <input maxlength="50" id="Name" name="Name" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="NameMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Apellido</label>
+                            <input maxlength="50" id="Surname" name="Surname" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese apellido">
+                            <span id="SurnameMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Teléfono</label>
+                            <input maxlength="50" id="Phone" name="Phone" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese teléfono">
+                            <span id="PhoneMessage"></span>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="control-label">Dirección</label>
-                        <input maxlength="50" id="Address" name="Address" type="text" class="form-control text-box single-line">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Email</label>
-                        <input maxlength="50" id="Email" name="Email" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese email">
-                        <span id="EmailMessage"></span>
-                    </div>
+                        <div class="form-group">
+                            <label class="control-label">Dirección</label>
+                            <input maxlength="50" id="Address" name="Address" type="text" class="form-control text-box single-line">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input maxlength="50" id="Email" name="Email" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese email">
+                            <span id="EmailMessage"></span>
+                        </div>
 
+                    </p>
+                </div>
+                <div data-step="2">
+                    <h4>Datos de la cuenta</h4>
+                    <p>
+                        <div class="form-group">
+                            <label class="control-label">Rol</label>
+                            <select id="RoleId" name="RoleId" class="form-control">
+                                <option value="">-- Seleccione Rol --</option>
+                                @foreach (var item in Model.Roles)
+                                {
+                                    <option value=@item.Value>@item.Text</option>
+                                }
 
-               </p>
+                            </select>
+                            <span id="RoleIdMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Usuario</label>
+                            <input maxlength="50" id="UserName" name="UserName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese usuario">
+                            <span id="UserNameMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Contraseña</label>
+                            <input maxlength="50" id="Password" name="Password" type="password" required="required" class="form-control text-box single-line" placeholder="Ingrese contraseña">
+                            <span id="PasswordMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Confirmar contraseña</label>
+                            <input maxlength="50" id="ConfirmPassword" name="ConfirmPassword" type="password" required="required" class="form-control text-box single-line" placeholder="Ingrese confirmación de contraseña">
+                            <span id="ConfirmPasswordMessage"></span>
+                        </div>
+                    </p>
+                </div>
+                <div data-step="3">
+                    <h4>Establecimientos</h4>
+                    <p>
+                        <div class="form-group">
+                            <table>
+                                <tr>
+                                    <td style="border:none" width="1%"><input type="checkbox" id="select_all" /></td>
+                                    <td style="border:none" colspan="2"><label> [Seleccionar todos]</label></td>
+                                </tr>
+                                @foreach (var item in Model.Farms)
+                                {
+                                    <tr>
+                                        <td style="border:none;text-align:right">
+                                            &nbsp;&nbsp;&nbsp;
+                                        </td>
+                                        <td style="border:none;text-align:right" width="1%">
+                                            <input type="checkbox" class="checkbox" name="chksFarms" title="@item.Text.Trim()" value="@item.Value" id="@item.Value" />
+                                        </td>
+                                        <td style="border:none">
+                                            @item.Text.Trim()
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+
+                        </div>
+                    </p>
+                </div>
+
+                <div data-step="4">
+                    <h4>Confirmar</h4>
+                    <p>
+                        <div class="form-group">
+                            <label class="control-label">Nombre: </label>
+                            <span class="control-label" id="NameConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Apellido: </label>
+                            <span class="control-label" id="SurnameConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Teléfono: </label>
+                            <span class="control-label" id="PhoneConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Dirección: </label>
+                            <span class="control-label" id="AddressConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Email: </label>
+                            <span class="control-label" id="EmailConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Rol: </label>
+                            <span class="control-label" id="RoleIdConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Usuario: </label>
+                            <span class="control-label" id="UserNameConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Establecimientos: </label>
+                            <span class="control-label" id="FarmsMessage"></span>
+                        </div>
+
+                    </p>
+                </div>
+
             </div>
-            <div data-step="2">
-                <h4>Datos de la cuenta</h4>
-                <p>
-                    <div class="form-group">
-                        <label class="control-label">Rol</label>
-                        <select id="RoleId" name="RoleId" class="form-control">
-                            <option value="">-- Seleccione Rol --</option>
-                            @foreach (var item in Model.Roles)
-                            {
-                                <option value=@item.Value>@item.Text</option>
-                            }
-                            
-                        </select>
-                        <span id="RoleIdMessage"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Usuario</label>
-                        <input maxlength="50" id="UserName" name="UserName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese usuario">
-                        <span id="UserNameMessage"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Contraseña</label>
-                        <input maxlength="50" id="Password" name="Password" type="password" required="required" class="form-control text-box single-line" placeholder="Ingrese contraseña">
-                        <span id="PasswordMessage"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Confirmar contraseña</label>
-                        <input maxlength="50" id="ConfirmPassword" name="ConfirmPassword" type="password" required="required" class="form-control text-box single-line" placeholder="Ingrese confirmación de contraseña">
-                        <span id="ConfirmPasswordMessage"></span>
-                    </div>
-                </p>
-            </div>
-            <div data-step="3">
-                <h4>Confirmar</h4>
-                <p>
-                    <div class="form-group">
-                        <label class="control-label">Nombre: </label>
-                        <span class="control-label" id="NameConfirmation"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Apellido: </label>
-                        <span class="control-label" id="SurnameConfirmation"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Teléfono: </label>
-                        <span class="control-label" id="PhoneConfirmation"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Dirección: </label>
-                        <span class="control-label" id="AddressConfirmation"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Email: </label>
-                        <span class="control-label" id="EmailConfirmation"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Rol: </label>
-                        <span class="control-label" id="RoleIdConfirmation"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Usuario: </label>
-                        <span class="control-label" id="UserNameConfirmation"></span>
-                    </div>
-                </p>
-            </div>
-
         </div>
-    </div>
-</div><!--/.fluid-container-->
+    </div><!--/.fluid-container-->
 
 
-    }
+}
 
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
