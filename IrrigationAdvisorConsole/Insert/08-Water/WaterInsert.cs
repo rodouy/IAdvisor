@@ -25,8 +25,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
         public static void InsertEffectiveRainsSouth()
         {
             Region lRegion = null;
-            List<EffectiveRain> lEffectiveRainList = null;
-
+            
             using (var context = new IrrigationAdvisorContext())
             {
                 lRegion = context.Regions.SingleOrDefault(
@@ -365,23 +364,14 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 #endregion
 
                 context.SaveChanges();
-
-                lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
-                                      select effectiverain)
-                                     .ToList<EffectiveRain>();
-
-                lRegion.EffectiveRainList = lEffectiveRainList;
-
-                context.SaveChanges();
+                
             };
         }
 
         public static void InsertEffectiveRainsNorth()
         {
             Region lRegion = null;
-            List<EffectiveRain> lEffectiveRainList = null;
-
+            
             using (var context = new IrrigationAdvisorContext())
             {
                 lRegion = context.Regions.SingleOrDefault(
@@ -719,6 +709,32 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
 
                 context.SaveChanges();
 
+                
+            };
+        }
+
+        public static void UpdateRegionSetEffectiveRainList()
+        {
+            Region lRegion = null;
+            List<EffectiveRain> lEffectiveRainList = null;
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lRegion = context.Regions.SingleOrDefault(
+                                            region => region.Name == Utils.NameRegionSouth);
+                lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                      where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                      select effectiverain)
+                                     .ToList<EffectiveRain>();
+
+                lRegion.EffectiveRainList = lEffectiveRainList;
+
+                context.SaveChanges();
+
+                lRegion = context.Regions.SingleOrDefault(
+                            region => region.Name == Utils.NameRegionNorth);
+
+                
                 lEffectiveRainList = (from effectiverain in context.EffectiveRains
                                       where effectiverain.Region.Name.Equals(Utils.NameRegionNorth)
                                       select effectiverain)
@@ -727,7 +743,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 lRegion.EffectiveRainList = lEffectiveRainList;
 
                 context.SaveChanges();
-            };
+            }
         }
 
         #region Season_2015_2016

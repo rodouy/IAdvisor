@@ -348,14 +348,15 @@ namespace IrrigationAdvisor.Models.Localization
             List<TemperatureData> pTemperatureDataList)
         {
             Region lReturn = null;
-            Region lRegion = new Region(pName, pPositionId, pSpecieList,
-                                        pSpecieCycleList, pEffectiveRainList,
+            Region lRegion = new Region(pName, pPositionId, this.CountryId, 
+                                        pSpecieList, pSpecieCycleList, pEffectiveRainList,
                                         pTemperatureDataList);
             lReturn = ExistRegion(lRegion);
             if (lReturn != null)
             {
                 lReturn.Name = pName;
                 lReturn.PositionId = pPositionId;
+                lReturn.CountryId = this.CountryId;
                 lReturn.SpecieList = pSpecieList;
                 lReturn.SpecieCycleList = pSpecieCycleList;
                 lReturn.EffectiveRainList = pEffectiveRainList;

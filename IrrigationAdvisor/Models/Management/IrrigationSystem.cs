@@ -1782,12 +1782,14 @@ namespace IrrigationAdvisor.Models.Management
         /// </summary>
         /// <param name="pName"></param>
         /// <param name="pPositionId"></param>
+        /// <param name="pCountryId"></param>
         /// <param name="pSpecieList"></param>
         /// <param name="pSpecieCycleList"></param>
         /// <param name="pEffectiveRainList"></param>
         /// <param name="pTemperatureDataList"></param>
         /// <returns></returns>
-        public Region AddRegion(String pName, long pPositionId, List<Specie> pSpecieList,
+        public Region AddRegion(String pName, long pPositionId, long pCountryId,
+                                List<Specie> pSpecieList,
                                 List<SpecieCycle> pSpecieCycleList, 
                                 List<EffectiveRain> pEffectiveRainList,
                                 List<TemperatureData> pTemperatureDataList)
@@ -1798,11 +1800,11 @@ namespace IrrigationAdvisor.Models.Management
 
             if (pEffectiveRainList == null || pSpecieList == null)
             {
-                lRegion = new Region(lRegionId, pName, pPositionId);
+                lRegion = new Region(lRegionId, pName, pPositionId, pCountryId);
             }
             else
             {
-                lRegion = new Region(pName, pPositionId, pSpecieList,
+                lRegion = new Region(pName, pPositionId, pCountryId, pSpecieList,
                                      pSpecieCycleList, pEffectiveRainList, 
                                      pTemperatureDataList);
             }
@@ -1820,18 +1822,20 @@ namespace IrrigationAdvisor.Models.Management
         /// </summary>
         /// <param name="pName"></param>
         /// <param name="pPositionId"></param>
+        /// <param name="pCountryId"></param>
         /// <param name="pSpecieList"></param>
         /// <param name="pSpecieCycleList"></param>
         /// <param name="pEffectiveRainList"></param>
         /// <param name="pTemperatureDataList"></param>
         /// <returns></returns>
-        public Region UpdateRegion(String pName, long pPositionId, List<Specie> pSpecieList,
+        public Region UpdateRegion(String pName, long pPositionId, long pCountryId,
+                                    List<Specie> pSpecieList,
                                     List<SpecieCycle> pSpecieCycleList,
                                     List<EffectiveRain> pEffectiveRainList,
                                     List<TemperatureData> pTemperatureDataList)
         {
             Region lReturn = null;
-            Region lRegion = new Region(pName, pPositionId, pSpecieList,
+            Region lRegion = new Region(pName, pPositionId, pCountryId, pSpecieList,
                                         pSpecieCycleList, pEffectiveRainList,
                                         pTemperatureDataList);
             lReturn = ExistRegion(lRegion);

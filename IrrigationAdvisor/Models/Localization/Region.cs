@@ -63,6 +63,7 @@ namespace IrrigationAdvisor.Models.Localization
         private long regionId;
         private String name;
         private long positionId;
+        private long countryId;
         private List<Specie> specieList;
         private List<SpecieCycle> specieCycleList;
         private List<EffectiveRain> effectiveRainList;
@@ -94,6 +95,18 @@ namespace IrrigationAdvisor.Models.Localization
         }
 
         public virtual Position Position
+        {
+            get;
+            set;
+        }
+
+        public long CountryId
+        {
+            get { return countryId; }
+            set { countryId = value; }
+        }
+        
+        public virtual Country Country
         {
             get ; 
             set ; 
@@ -132,10 +145,11 @@ namespace IrrigationAdvisor.Models.Localization
         /// </summary>
         public Region()
         {
-            this.regionId = 0;
             this.Name = "";
             this.PositionId = 0;
             this.Position = new Position();
+            this.CountryId = 0;
+            this.Country = new Country();
             this.SpecieList = new List<Specie>();
             this.SpecieCycleList = new List<SpecieCycle>();
             this.EffectiveRainList = new List<EffectiveRain>();
@@ -147,12 +161,14 @@ namespace IrrigationAdvisor.Models.Localization
         /// </summary>
         /// <param name="pRegionId"></param>
         /// <param name="pName"></param>
-        /// <param name="pPosition"></param>
-        public Region(long pRegionId, String pName, long pPositionId)
+        /// <param name="pPositionId"></param>
+        /// <param name="pCountryId"></param>
+        public Region(long pRegionId, String pName, long pPositionId, long pCountryId)
         {
             this.regionId = pRegionId;
             this.Name = pName;
             this.PositionId = pPositionId;
+            this.CountryId = pCountryId;
             this.SpecieList = new List<Specie>();
             this.SpecieCycleList = new List<SpecieCycle>();
             this.EffectiveRainList = new List<EffectiveRain>();
@@ -164,11 +180,12 @@ namespace IrrigationAdvisor.Models.Localization
         /// </summary>
         /// <param name="pName"></param>
         /// <param name="pPositionId"></param>
+        /// <param name="pCountryId"></param>
         /// <param name="pSpecieList"></param>
         /// <param name="pSpecieCycleList"></param>
         /// <param name="pEffectiveRainList"></param>
         /// <param name="pTemperatureDataList"></param>
-        public Region(String pName, long pPositionId,
+        public Region(String pName, long pPositionId, long pCountryId,
                     List<Specie> pSpecieList, 
                     List<SpecieCycle> pSpecieCycleList,
                     List<EffectiveRain> pEffectiveRainList,
@@ -176,6 +193,7 @@ namespace IrrigationAdvisor.Models.Localization
         {
             this.Name = pName;
             this.PositionId = pPositionId;
+            this.CountryId = pCountryId;
             this.SpecieList = pSpecieList;
             this.SpecieCycleList = pSpecieCycleList;
             this.EffectiveRainList = pEffectiveRainList;

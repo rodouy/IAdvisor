@@ -244,7 +244,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             #endregion
 
             #region 2. Create Region (First create Specie Cycle List, Specie List, Effective Rain)
-            testRegion = testIrrigationSystem.AddRegion("Templada", testPositionRegionSur.PositionId, null, null, null, null);
+            testRegion = testIrrigationSystem.AddRegion("Templada", testPositionRegionSur.PositionId, 0, null, null, null, null);
             #endregion
 
             #region 3. Create Specie Cycle
@@ -317,6 +317,8 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
 
             #region 15. Create Country (First create Capital City)
             testCountry = testIrrigationSystem.AddCountry("Uruguay", testCapital.PositionId, testLanguage.LanguageId, null, null);
+            testRegion.CountryId = testCountry.CountryId;
+            testRegion.Country = testCountry;
             #endregion
 
             #region 16. Create City
