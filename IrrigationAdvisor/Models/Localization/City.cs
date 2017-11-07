@@ -105,7 +105,6 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="location">Location of the region</param>
         public City()
         {
-            this.CityId = 0;
             this.Name = "";
             this.PositionId = 0;
             this.CountryId = 0;

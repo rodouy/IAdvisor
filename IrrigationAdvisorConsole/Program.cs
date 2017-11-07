@@ -103,9 +103,9 @@ namespace IrrigationAdvisorConsole
                 Console.WriteLine("Add Information of Localization.");
                 
                 LocalizationInsert.InsertPositions();
-                LocalizationInsert.InsertRegions();
                 LocalizationInsert.InsertCapitals();
                 LocalizationInsert.InsertCountry();
+                LocalizationInsert.InsertRegions();
                 LocalizationInsert.InsertCities();
                 WeatherInsert.InsertWeatherStationsINIA();
                 WeatherInsert.InsertWeatherStationsWeatherLink();

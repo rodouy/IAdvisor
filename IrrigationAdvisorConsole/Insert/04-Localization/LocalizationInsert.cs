@@ -1183,12 +1183,18 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             Position lPosition = null;
             using (var context = new IrrigationAdvisorContext())
             {
+                Country lCountry;
+
+                lCountry = (from country in context.Countries
+                            where country.Name == Utils.NameCountryUruguay
+                            select country).FirstOrDefault();
+
                 #region Base
                 var lBase = new Region
                 {
                     Name = Utils.NameBase,
                     PositionId = 0,
-                    Position = new Position(),
+                    CountryId = 0,
                     EffectiveRainList = null,
                     SpecieList = null,
                     SpecieCycleList = null,
@@ -1204,6 +1210,9 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameRegionSouth,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
+                    CountryId = lCountry.CountryId,
+                    Country = lCountry,
                     EffectiveRainList = null,
                     SpecieList = null,
                     SpecieCycleList = null,
@@ -1219,6 +1228,9 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameRegionNorth,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
+                    CountryId = lCountry.CountryId,
+                    Country = lCountry,
                     EffectiveRainList = null,
                     SpecieList = null,
                     SpecieCycleList = null,
@@ -1256,6 +1268,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCityMontevideo,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
                     CountryId = 1,
                 };
 
@@ -1305,10 +1318,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCountryUruguay,
                     LanguageId = lLanguage.LanguageId,
+                    Language = lLanguage,
                     CapitalId = lCity.CityId,
-                    RegionList = null,
+                    Capital = lCity,
+                    RegionList = new List<Region>(),
                     CityList = new List<City>(),
                 };
+                //lCity.CountryId = lUruguay.CountryId;
                 lUruguay.AddCity(lCity);
                 #endregion
 
@@ -1334,12 +1350,12 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 };
                 #endregion
 
-                #region Minas
+                #region Country Uruguay
+
                 lCountry = (from country in context.Countries
                             where country.Name == Utils.NameCountryUruguay
                             select country).FirstOrDefault();
-
-
+                #region Minas
                 lPosition = (from pos in context.Positions
                              where pos.Name == Utils.NamePositionCityMinas
                              select pos).FirstOrDefault();
@@ -1347,15 +1363,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCityMinas,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
                     CountryId = lCountry.CountryId,
+                    Country = lCountry,
                 };
+                lCountry.AddCity(lMinas);
                 #endregion
                 #region Mercedes
-                lCountry = (from country in context.Countries
-                            where country.Name == Utils.NameCountryUruguay
-                            select country).FirstOrDefault();
-
-
                 lPosition = (from pos in context.Positions
                              where pos.Name == Utils.NamePositionCityMercedes
                              select pos).FirstOrDefault();
@@ -1363,13 +1377,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCityMercedes,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
                     CountryId = lCountry.CountryId,
+                    Country = lCountry,
                 };
+                lCountry.AddCity(lMercedes);
                 #endregion
                 #region Palmar
-                lCountry = (from country in context.Countries
-                            where country.Name == Utils.NameCountryUruguay
-                            select country).FirstOrDefault();
                 lPosition = (from pos in context.Positions
                              where pos.Name == Utils.NamePositionCityPalmar
                              select pos).FirstOrDefault();
@@ -1377,13 +1391,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCityPalmar,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
                     CountryId = lCountry.CountryId,
+                    Country = lCountry,
                 };
+                lCountry.AddCity(lPalmar);
                 #endregion
                 #region Durazno
-                lCountry = (from country in context.Countries
-                            where country.Name == Utils.NameCountryUruguay
-                            select country).FirstOrDefault();
                 lPosition = (from pos in context.Positions
                              where pos.Name == Utils.NamePositionCityDurazno
                              select pos).FirstOrDefault();
@@ -1391,13 +1405,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCityDurazno,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
                     CountryId = lCountry.CountryId,
+                    Country = lCountry,
                 };
+                lCountry.AddCity(lDurazno);
                 #endregion
                 #region Young
-                lCountry = (from country in context.Countries
-                            where country.Name == Utils.NameCountryUruguay
-                            select country).FirstOrDefault();
                 lPosition = (from pos in context.Positions
                              where pos.Name == Utils.NamePositionCityYoung
                              select pos).FirstOrDefault();
@@ -1405,13 +1419,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCityYoung,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
                     CountryId = lCountry.CountryId,
+                    Country = lCountry,
                 };
+                lCountry.AddCity(lYoung);
                 #endregion
                 #region Salto
-                lCountry = (from country in context.Countries
-                            where country.Name == Utils.NameCountryUruguay
-                            select country).FirstOrDefault();
                 lPosition = (from pos in context.Positions
                              where pos.Name == Utils.NamePositionCitySalto
                              select pos).FirstOrDefault();
@@ -1419,13 +1433,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCitySalto,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
                     CountryId = lCountry.CountryId,
+                    Country = lCountry,
                 };
+                lCountry.AddCity(lSalto);
                 #endregion
                 #region Tacuarembo
-                lCountry = (from country in context.Countries
-                            where country.Name == Utils.NameCountryUruguay
-                            select country).FirstOrDefault();
                 lPosition = (from pos in context.Positions
                              where pos.Name == Utils.NamePositionCityTacuarembo
                              select pos).FirstOrDefault();
@@ -1433,13 +1447,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCityTacuarembo,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
                     CountryId = lCountry.CountryId,
+                    Country = lCountry,
                 };
+                lCountry.AddCity(lTacuarembo);
                 #endregion
                 #region Rincon del Pino
-                lCountry = (from country in context.Countries
-                            where country.Name == Utils.NameCountryUruguay
-                            select country).FirstOrDefault();
                 lPosition = (from pos in context.Positions
                              where pos.Name == Utils.NamePositionCityRinconDelPino
                              select pos).FirstOrDefault();
@@ -1447,8 +1461,11 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 {
                     Name = Utils.NameCityRinconDelPino,
                     PositionId = lPosition.PositionId,
+                    Position = lPosition,
                     CountryId = lCountry.CountryId,
+                    Country = lCountry,
                 };
+                lCountry.AddCity(lRinconDelPino);
                 #endregion
 
                 //context.Cities.Add(lBase);
@@ -1461,6 +1478,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Cities.Add(lTacuarembo);
                 context.Cities.Add(lRinconDelPino);
                 context.SaveChanges();
+                #endregion
             }
         }
 

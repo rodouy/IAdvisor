@@ -126,7 +126,6 @@ namespace IrrigationAdvisor.Models.Localization
         /// <param name="location">Location of the country</param>
         public Country()
         {
-            this.CountryId = 0;
             this.Name = "NoName";
             this.LanguageId = 1;
             this.CapitalId = 1;

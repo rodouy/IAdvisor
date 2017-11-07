@@ -50,6 +50,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             WeatherStation lWeatherStationAlternative = null;
             String lWeatherStationAlternativeName = "";
             List<WeatherData> lAlternativeWeatherDataList = null;
+            Season lSeason = null;
 
             //This is used when we have two species in one CropIrrigationWeather
             Soil lSoil = null;
@@ -202,6 +203,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     var lCIWSantaLuciaPivot1_2017 = new CropIrrigationWeather
                     {
                         CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherSantaLuciaPivot1_S1718,
@@ -213,6 +219,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -389,6 +398,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA ElParaiso Pivot1 2017
                     var lCIWDCAElParaisoPivot1_2017 = new CropIrrigationWeather
@@ -402,6 +416,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -550,6 +567,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA ElParaiso Pivot2 2017
                     var lCIWDCAElParaisoPivot2_2017 = new CropIrrigationWeather
@@ -563,6 +585,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -724,6 +749,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA LaPerdiz Pivot1 2017
                     var lCIWDCALaPerdizPivot1_2017 = new CropIrrigationWeather
@@ -737,6 +767,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -886,6 +919,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                        weatherdata.Date <= lHarvestDate) &&
                                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA LaPerdiz Pivot2 2017
                     var lCIWDCALaPerdizPivot2_2017 = new CropIrrigationWeather
@@ -899,6 +937,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -1048,6 +1089,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                        weatherdata.Date <= lHarvestDate) &&
                                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA LaPerdiz Pivot3 2017
                     var lCIWDCALaPerdizPivot3_2017 = new CropIrrigationWeather
@@ -1061,6 +1107,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -1210,6 +1259,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                        weatherdata.Date <= lHarvestDate) &&
                                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA LaPerdiz Pivot5 2017
                     var lCIWDCALaPerdizPivot5_2017 = new CropIrrigationWeather
@@ -1223,6 +1277,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -1372,6 +1429,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA LaPerdiz Pivot6 2017
                     var lCIWDCALaPerdizPivot6_2017 = new CropIrrigationWeather
@@ -1385,6 +1447,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -1534,6 +1599,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA LaPerdiz Pivot7 2017
                     var lCIWDCALaPerdizPivot7_2017 = new CropIrrigationWeather
@@ -1547,6 +1617,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -1696,6 +1769,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA LaPerdiz Pivot10b 2017
                     var lCIWDCALaPerdizPivot10b_2017 = new CropIrrigationWeather
@@ -1709,6 +1787,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -1858,6 +1939,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA LaPerdiz Pivot14 2017
                     var lCIWDCALaPerdizPivot14_2017 = new CropIrrigationWeather
@@ -1871,6 +1957,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -2020,6 +2109,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA LaPerdiz Pivot15 2017
                     var lCIWDCALaPerdizPivot15_2017 = new CropIrrigationWeather
@@ -2033,6 +2127,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -2194,6 +2291,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA SanJose Pivot1 2017
                     var lCIWDCASanJosePivot1_2017 = new CropIrrigationWeather
@@ -2207,6 +2309,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -2280,7 +2385,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                     #region DCA - San Jose Pivot 2 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -2356,6 +2461,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA SanJose Pivot2 2017
                     var lCIWDCASanJosePivot2_2017 = new CropIrrigationWeather
@@ -2369,6 +2479,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -2388,7 +2501,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         DaysForHydricBalanceUnchangableAfterSowing = 0,
 
                         HydricBalance = 0,
-
+                        
                         CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
                         CropInformationByDate = lCropInformationByDate,
 
@@ -2517,6 +2630,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                               where (season.FromDate <= lSowingDate &&
+                                    season.ToDate >= lSowingDate) &&
+                                    season.RegionId == lCrop.RegionId
+                               select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA SanJose Pivot3 2017
                     var lCIWDCASanJosePivot3_2017 = new CropIrrigationWeather
@@ -2530,6 +2648,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -2679,6 +2800,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DCA SanJose Pivot4 2017
                     var lCIWDCASanJosePivot4_2017 = new CropIrrigationWeather
@@ -2693,6 +2819,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
 
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
+                        
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
                         PositionId = lFarm.PositionId,
@@ -2765,7 +2894,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                 }
                 #endregion
                 #region Del Lago - San Pedro
@@ -2853,6 +2982,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
+                    //lSeason = (from season in context.Seasons
+                    //               where(season.FromDate <= lSowingDate &&
+                    //                    season.ToDate >= lSowingDate) &&
+                    //                    season.RegionId == lCrop.RegionId
+                    //            select season).FirstOrDefault();
                     //#endregion
                     //#region New CIW Del Lago - San Pedro Pivot 5 2017
                     //var lCIWDelLagoSanPedroPivot5_2017 = new CropIrrigationWeather
@@ -2866,6 +3000,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    MainWeatherStation = lWeatherStationMain,
 
                     //    WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                    //    SeasonId = lSeason.SeasonId,
+                    //    Season = lSeason,
 
                     //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                     //    AlternativeWeatherStation = lWeatherStationAlternative,
@@ -3016,6 +3153,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
+                    //lSeason = (from season in context.Seasons
+                    //               where(season.FromDate <= lSowingDate &&
+                    //                    season.ToDate >= lSowingDate) &&
+                    //                    season.RegionId == lCrop.RegionId
+                    //            select season).FirstOrDefault();
                     //#endregion
                     //#region New CIW Del Lago - San Pedro Pivot 6 2017
                     //var lCIWDelLagoSanPedroPivot6_2017 = new CropIrrigationWeather
@@ -3029,6 +3171,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    MainWeatherStation = lWeatherStationMain,
 
                     //    WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                    //    SeasonId = lSeason.SeasonId,
+                    //    Season = lSeason,
 
                     //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                     //    AlternativeWeatherStation = lWeatherStationAlternative,
@@ -3180,6 +3325,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
+                    //lSeason = (from season in context.Seasons
+                    //               where(season.FromDate <= lSowingDate &&
+                    //                    season.ToDate >= lSowingDate) &&
+                    //                    season.RegionId == lCrop.RegionId
+                    //            select season).FirstOrDefault();
                     //#endregion
                     //#region New CIW Del Lago - San Pedro Pivot 7 2017
                     //var lCIWDelLagoSanPedroPivot7_2017 = new CropIrrigationWeather
@@ -3342,6 +3492,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
+                    //lSeason = (from season in context.Seasons
+                    //               where(season.FromDate <= lSowingDate &&
+                    //                    season.ToDate >= lSowingDate) &&
+                    //                    season.RegionId == lCrop.RegionId
+                    //            select season).FirstOrDefault();
                     //#endregion
                     //#region New CIW Del Lago - San Pedro Pivot 8 2017
                     //var lCIWDelLagoSanPedroPivot8_2017 = new CropIrrigationWeather
@@ -3427,7 +3582,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //#endregion
 
                     #endregion
-                    #endif
+#endif
                 }
                 #endregion
                 #region Del Lago - El Mirador
@@ -3515,6 +3670,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot1 2017
                     var lCIWDelLagoElMiradorPivot1_2017 = new CropIrrigationWeather
@@ -3528,6 +3688,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -3676,6 +3839,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot2 2017
                     var lCIWDelLagoElMiradorPivot2_2017 = new CropIrrigationWeather
@@ -3689,6 +3857,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -3837,6 +4008,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot3 2017
                     var lCIWDelLagoElMiradorPivot3_2017 = new CropIrrigationWeather
@@ -3850,6 +4026,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -3998,6 +4177,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot4 2017
                     var lCIWDelLagoElMiradorPivot4_2017 = new CropIrrigationWeather
@@ -4011,6 +4195,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -4159,6 +4346,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot5 2017
                     var lCIWDelLagoElMiradorPivot5_2017 = new CropIrrigationWeather
@@ -4172,6 +4364,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -4320,6 +4515,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot6 2017
                     var lCIWDelLagoElMiradorPivot6_2017 = new CropIrrigationWeather
@@ -4333,6 +4533,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -4481,6 +4684,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot7 2017
                     var lCIWDelLagoElMiradorPivot7_2017 = new CropIrrigationWeather
@@ -4494,6 +4702,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -4642,6 +4853,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot8 2017
                     var lCIWDelLagoElMiradorPivot8_2017 = new CropIrrigationWeather
@@ -4655,6 +4871,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -4803,6 +5022,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot9 2017
                     var lCIWDelLagoElMiradorPivot9_2017 = new CropIrrigationWeather
@@ -4816,6 +5040,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -4964,6 +5191,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot10 2017
                     var lCIWDelLagoElMiradorPivot10_2017 = new CropIrrigationWeather
@@ -4977,6 +5209,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -5125,6 +5360,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot11 2017
                     var lCIWDelLagoElMiradorPivot11_2017 = new CropIrrigationWeather
@@ -5138,6 +5378,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -5286,6 +5529,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot12 2017
                     var lCIWDelLagoElMiradorPivot12_2017 = new CropIrrigationWeather
@@ -5299,6 +5547,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -5447,6 +5698,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot13 2017
                     var lCIWDelLagoElMiradorPivot13_2017 = new CropIrrigationWeather
@@ -5460,6 +5716,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -5608,6 +5867,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot14 2017
                     var lCIWDelLagoElMiradorPivot14_2017 = new CropIrrigationWeather
@@ -5621,6 +5885,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -5769,6 +6036,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot15 2017
                     var lCIWDelLagoElMiradorPivot15_2017 = new CropIrrigationWeather
@@ -5782,6 +6054,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -5930,6 +6205,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador PivotChaja1 2017
                     var lCIWDelLagoElMiradorPivotChaja1_2017 = new CropIrrigationWeather
@@ -5943,6 +6223,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -6091,6 +6374,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador PivotChaja2 2017
                     var lCIWDelLagoElMiradorPivotChaja2_2017 = new CropIrrigationWeather
@@ -6104,6 +6392,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -6177,7 +6468,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif 
+#endif
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoElMirador_2017b;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017b;
                     #if false
@@ -6256,6 +6547,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot1b 2017
                     var lCIWDelLagoElMiradorPivot1b_2017 = new CropIrrigationWeather
@@ -6269,6 +6565,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -6417,6 +6716,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot2b 2017
                     var lCIWDelLagoElMiradorPivot2b_2017 = new CropIrrigationWeather
@@ -6430,6 +6734,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -6578,6 +6885,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot3b 2017
                     var lCIWDelLagoElMiradorPivot3b_2017 = new CropIrrigationWeather
@@ -6591,6 +6903,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -6739,6 +7054,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW DelLago ElMirador Pivot4b 2017
                     var lCIWDelLagoElMiradorPivot4b_2017 = new CropIrrigationWeather
@@ -6752,6 +7072,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -6825,7 +7148,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                 }
                 #endregion
                 #region GMO - La Palma
@@ -6913,6 +7236,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO La Palma Pivot1 2017
                     var lCIWGMOLaPalmaPivot1_2017 = new CropIrrigationWeather
@@ -6927,6 +7255,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -7001,7 +7332,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                     #region GMO - La Palma Pivot 2 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -7077,6 +7408,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                               where (season.FromDate <= lSowingDate &&
+                                    season.ToDate >= lSowingDate) &&
+                                    season.RegionId == lCrop.RegionId
+                               select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO La Palma Pivot 2 2017
                     var lCIWGMOLaPalmaPivot2_2017 = new CropIrrigationWeather
@@ -7091,6 +7427,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -7240,6 +7579,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                               where (season.FromDate <= lSowingDate &&
+                                    season.ToDate >= lSowingDate) &&
+                                    season.RegionId == lCrop.RegionId
+                               select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO La Palma Pivot 3 2017
                     var lCIWGMOLaPalmaPivot3_2017 = new CropIrrigationWeather
@@ -7253,6 +7597,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -7401,6 +7748,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                               where (season.FromDate <= lSowingDate &&
+                                    season.ToDate >= lSowingDate) &&
+                                    season.RegionId == lCrop.RegionId
+                               select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO La Palma Pivot 4 2017
                     var lCIWGMOLaPalmaPivot4_2017 = new CropIrrigationWeather
@@ -7414,6 +7766,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -7562,6 +7917,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                               where (season.FromDate <= lSowingDate &&
+                                    season.ToDate >= lSowingDate) &&
+                                    season.RegionId == lCrop.RegionId
+                               select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO La Palma Pivot 1.1 2017
                     var lCIWGMOLaPalmaPivot1_1_2017 = new CropIrrigationWeather
@@ -7576,6 +7936,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -7726,6 +8089,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO La Palma Pivot 2.1 2017
                     var lCIWGMOLaPalmaPivot2_1_2017 = new CropIrrigationWeather
@@ -7740,6 +8108,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -7889,6 +8260,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO La Palma Pivot 3.1 2017
                     var lCIWGMOLaPalmaPivot3_1_2017 = new CropIrrigationWeather
@@ -7902,6 +8278,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -8050,6 +8429,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO La Palma Pivot 4.1 2017
                     var lCIWGMOLaPalmaPivot4_1_2017 = new CropIrrigationWeather
@@ -8063,6 +8447,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -8136,7 +8523,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                 }
                 #endregion
                 #region GMO - El Tacuru
@@ -8225,6 +8612,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
+                    //lSeason = (from season in context.Seasons
+                    //               where(season.FromDate <= lSowingDate &&
+                    //                    season.ToDate >= lSowingDate) &&
+                    //                    season.RegionId == lCrop.RegionId
+                    //            select season).FirstOrDefault();
                     //#endregion
                     //#region New CIW GMO El Tacuru Pivot1a 2017
                     //var lCIWGMOElTacuruPivot1a_2017 = new CropIrrigationWeather
@@ -8239,6 +8631,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    MainWeatherStation = lWeatherStationMain,
 
                     //    WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                    //    SeasonId = lSeason.SeasonId,
+                    //    Season = lSeason,
 
                     //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                     //    AlternativeWeatherStation = lWeatherStationAlternative,
@@ -8388,6 +8783,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot1b 2017
                     var lCIWGMOElTacuruPivot1b_2017 = new CropIrrigationWeather
@@ -8402,6 +8802,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -8476,7 +8879,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif 
+#endif
                     #region GMO - El Tacuru Pivot 2a 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -8552,6 +8955,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                               where (season.FromDate <= lSowingDate &&
+                                    season.ToDate >= lSowingDate) &&
+                                    season.RegionId == lCrop.RegionId
+                               select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot 2a 2017
                     var lCIWGMOElTacuruPivot2a_2017 = new CropIrrigationWeather
@@ -8565,6 +8973,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -8713,6 +9124,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                               where (season.FromDate <= lSowingDate &&
+                                    season.ToDate >= lSowingDate) &&
+                                    season.RegionId == lCrop.RegionId
+                               select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot 3a 2017
                     var lCIWGMOElTacuruPivot3a_2017 = new CropIrrigationWeather
@@ -8726,6 +9142,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -8875,6 +9294,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot 2b 2017
                     var lCIWGMOElTacuruPivot2b_2017 = new CropIrrigationWeather
@@ -8888,6 +9312,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -9036,6 +9463,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot 3b 2017
                     var lCIWGMOElTacuruPivot3b_2017 = new CropIrrigationWeather
@@ -9049,6 +9481,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -9197,6 +9632,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot 4 2017
                     var lCIWGMOElTacuruPivot4_2017 = new CropIrrigationWeather
@@ -9210,6 +9650,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -9358,6 +9801,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot 5 2017
                     var lCIWGMOElTacuruPivot5_2017 = new CropIrrigationWeather
@@ -9371,6 +9819,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -9444,7 +9895,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                     #region GMO - El Tacuru Pivot 8 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -9520,6 +9971,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                               where (season.FromDate <= lSowingDate &&
+                                    season.ToDate >= lSowingDate) &&
+                                    season.RegionId == lCrop.RegionId
+                               select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot 8 2017
                     var lCIWGMOElTacuruPivot8_2017 = new CropIrrigationWeather
@@ -9533,6 +9989,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -9682,6 +10141,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot 9 2017
                     var lCIWGMOElTacuruPivot9_2017 = new CropIrrigationWeather
@@ -9695,6 +10159,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -9843,6 +10310,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW GMO El Tacuru Pivot 10 2017
                     var lCIWGMOElTacuruPivot10_2017 = new CropIrrigationWeather
@@ -9856,6 +10328,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -10016,6 +10491,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW Tres Marias Pivot1 2017
                     var lCIWTresMariasPivot1_2017 = new CropIrrigationWeather
@@ -10030,6 +10510,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -10179,6 +10662,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
+                    //lSeason = (from season in context.Seasons
+                    //               where(season.FromDate <= lSowingDate &&
+                    //                    season.ToDate >= lSowingDate) &&
+                    //                    season.RegionId == lCrop.RegionId
+                    //            select season).FirstOrDefault();
                     //#endregion
                     //#region New CIW Tres Marias Pivot 2 2017
                     //var lCIWTresMariasPivot2_2017 = new CropIrrigationWeather
@@ -10193,6 +10681,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    MainWeatherStation = lWeatherStationMain,
 
                     //    WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                    //    SeasonId = lSeason.SeasonId,
+                    //    Season = lSeason,
 
                     //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                     //    AlternativeWeatherStation = lWeatherStationAlternative,
@@ -10342,6 +10833,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
+                    //lSeason = (from season in context.Seasons
+                    //               where(season.FromDate <= lSowingDate &&
+                    //                    season.ToDate >= lSowingDate) &&
+                    //                    season.RegionId == lCrop.RegionId
+                    //            select season).FirstOrDefault();
                     //#endregion
                     //#region New CIW Tres Marias Pivot 3 2017
                     //var lCIWTresMariasPivot3_2017 = new CropIrrigationWeather
@@ -10355,6 +10851,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    MainWeatherStation = lWeatherStationMain,
 
                     //    WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                    //    SeasonId = lSeason.SeasonId,
+                    //    Season = lSeason,
 
                     //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                     //    AlternativeWeatherStation = lWeatherStationAlternative,
@@ -10503,6 +11002,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
+                    //lSeason = (from season in context.Seasons
+                    //               where(season.FromDate <= lSowingDate &&
+                    //                    season.ToDate >= lSowingDate) &&
+                    //                    season.RegionId == lCrop.RegionId
+                    //            select season).FirstOrDefault();
                     //#endregion
                     //#region New CIW Tres Marias Pivot 13.1 2017
                     //var lCIWTresMariasPivot4_2017 = new CropIrrigationWeather
@@ -10516,6 +11020,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    MainWeatherStation = lWeatherStationMain,
 
                     //    WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                    //    SeasonId = lSeason.SeasonId,
+                    //    Season = lSeason,
 
                     //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                     //    AlternativeWeatherStation = lWeatherStationAlternative,
@@ -10676,6 +11183,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                                    weatherdata.Date <= lHarvestDate) &&
                     //                                    weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                     //                               select weatherdata).ToList<WeatherData>();
+                    //lSeason = (from season in context.Seasons
+                    //               where(season.FromDate <= lSowingDate &&
+                    //                    season.ToDate >= lSowingDate) &&
+                    //                    season.RegionId == lCrop.RegionId
+                    //            select season).FirstOrDefault();
                     //#endregion
                     //#region New CIW La Rinconada Pivot1 2017
                     //var lCIWLaRinconadaPivot1_2017 = new CropIrrigationWeather
@@ -10690,6 +11202,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    MainWeatherStation = lWeatherStationMain,
 
                     //    WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                    //    SeasonId = lSeason.SeasonId,
+                    //    Season = lSeason,
 
                     //    AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                     //    AlternativeWeatherStation = lWeatherStationAlternative,
@@ -10839,6 +11354,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW La Rinconada Pivot 2 2017
                     var lCIWLaRinconadaPivot2_2017 = new CropIrrigationWeather
@@ -10853,6 +11373,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -11002,6 +11525,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW La Rinconada Pivot 3.1 2017
                     var lCIWLaRinconadaPivot3_1_2017 = new CropIrrigationWeather
@@ -11015,6 +11543,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -11163,6 +11694,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW La Rinconada Pivot 13.1 2017
                     var lCIWLaRinconadaPivot13_1_2017 = new CropIrrigationWeather
@@ -11176,6 +11712,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -11336,6 +11875,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                               where (season.FromDate <= lSowingDate &&
+                                    season.ToDate >= lSowingDate) &&
+                                    season.RegionId == lCrop.RegionId
+                               select season).FirstOrDefault();
                     #endregion
                     #region New CIW El Rincon Pivot1a 2017
                     var lCIWElRinconPivot1a_2017 = new CropIrrigationWeather
@@ -11350,6 +11894,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -11500,6 +12047,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherdata.Date <= lHarvestDate) &&
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
+                    lSeason = (from season in context.Seasons
+                                   where(season.FromDate <= lSowingDate &&
+                                        season.ToDate >= lSowingDate) &&
+                                        season.RegionId == lCrop.RegionId
+                                select season).FirstOrDefault();
                     #endregion
                     #region New CIW El Rincon Pivot 1b 2017
                     var lCIWElRinconPivot1b_2017 = new CropIrrigationWeather
@@ -11514,6 +12066,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MainWeatherStation = lWeatherStationMain,
 
                         WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        SeasonId = lSeason.SeasonId,
+                        Season = lSeason,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -11588,7 +12143,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
+#endif
                 }
                 #endregion
                 #region New Farm

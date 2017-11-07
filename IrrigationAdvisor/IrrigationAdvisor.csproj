@@ -357,6 +357,10 @@
     <Compile Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.Designer.cs">
       <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711070152223_AddCountryToRegion.cs" />
+    <Compile Include="Migrations\201711070152223_AddCountryToRegion.Designer.cs">
+      <DependentUpon>201711070152223_AddCountryToRegion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -929,7 +933,6 @@
     <Folder Include="Views\Default\" />
     <Folder Include="Views\TemperatureDatas\" />
     <Folder Include="Views\Utilities\" />
-    <Folder Include="Views\Wizard\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Project_Readme.html" />
@@ -988,6 +991,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.resx">
       <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711070152223_AddCountryToRegion.resx">
+      <DependentUpon>201711070152223_AddCountryToRegion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
