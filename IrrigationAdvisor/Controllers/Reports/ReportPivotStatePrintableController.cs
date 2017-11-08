@@ -18,7 +18,9 @@ using System.Web.Helpers;
 using System.Collections;
 using IrrigationAdvisor.Models;
 
-
+using System.Web.UI.DataVisualization.Charting;
+using System.Drawing;
+using System.IO;
 
 namespace IrrigationAdvisor.Controllers.Reports
 {
@@ -91,15 +93,13 @@ namespace IrrigationAdvisor.Controllers.Reports
             List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
             double lRain;
             double lIrrigation;
-         
 
-            lDailyRecordList = drc.GetLast30DaysDailyRecordsListDataBy(ciwId, Utils.GetDateOfReference().Value);
-            
+            lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
+
             ArrayList yArrayRain = new ArrayList();
             ArrayList yArrayIrrigation = new ArrayList();
             ArrayList yArrayETC = new ArrayList();
             ArrayList xValue = new ArrayList();
-            int i = 1;
 
             foreach (DailyRecord item in lDailyRecordList)
             {
@@ -110,28 +110,100 @@ namespace IrrigationAdvisor.Controllers.Reports
                 if (item.Irrigation != null)
                     lIrrigation = item.Irrigation.ExtraInput + item.Irrigation.Input;
 
-                if (lRain > 0 || lIrrigation > 0)
-                {
-                    yArrayIrrigation.Add(lIrrigation);
-                    yArrayRain.Add(lRain);
-                    yArrayETC.Add(item.TotalEvapotranspirationCrop);
-                    xValue.Add(item.DaysAfterSowing);
-                }
-
+                yArrayIrrigation.Add(lIrrigation);
+                yArrayRain.Add(lRain);
+                yArrayETC.Add(Math.Round(item.TotalEvapotranspirationCrop, 0));
+                xValue.Add(item.DaysAfterSowing);
             }
-            new Chart(width: 1000, height: 400)
-               .AddTitle("Balance de agua últimos 30 días")
-               .AddLegend()
-               .SetYAxis("Cantidad (mm.)")
-               .SetXAxis("Días de siembra", double.Parse(xValue[0].ToString()) - 2)
-               .AddSeries("Lluvia", chartType: "Column", xValue: xValue, yValues: yArrayRain, markerStep: 1)
-               .AddSeries("Riego", chartType: "Column", xValue: xValue, yValues: yArrayIrrigation, markerStep: 1)
-               .AddSeries("ETc Acumulado", chartType: "Line", xValue: xValue, yValues: yArrayETC)
-               .Write("bmp");
-            return null;
+
+            System.Web.UI.DataVisualization.Charting.Chart chart = new System.Web.UI.DataVisualization.Charting.Chart();
+            chart.Width = 1000;
+            chart.Height = 450;
+            chart.Titles.Add("Evolución de la ETc acumulada y distribucion de las lluvias y riegos, expresadas en mm de lámina bruta");
+            chart.BackColor = Color.FromArgb(210, 240, 204);
+            chart.BorderlineDashStyle = ChartDashStyle.Solid;
+            chart.BackSecondaryColor = Color.White;
+            chart.BackGradientStyle = GradientStyle.TopBottom;
+            chart.BorderlineWidth = 1;
+            chart.Palette = ChartColorPalette.BrightPastel;
+            chart.BorderlineColor = Color.FromArgb(26, 59, 105);
+            chart.RenderType = RenderType.BinaryStreaming;
+            chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
+            chart.AntiAliasing = AntiAliasingStyles.All;
+            chart.TextAntiAliasingQuality = TextAntiAliasingQuality.Normal;
+            chart.Series.Add(CreateSeries(yArrayETC, xValue, "ETc", SeriesChartType.Line, Color.FromArgb(246, 134, 36), AxisType.Primary));
+            chart.Series.Add(CreateSeries(yArrayRain, xValue, "Lluvia", SeriesChartType.Column, Color.FromArgb(74, 164, 209), AxisType.Secondary));
+            chart.Series.Add(CreateSeries(yArrayIrrigation, xValue, "Riego", SeriesChartType.Column, Color.FromArgb(97, 209, 74), AxisType.Secondary));
+            chart.ChartAreas.Add(CreateChartArea());
+
+            chart.Legends.Add("d");
+            chart.Legends["d"].Docking = Docking.Bottom;
+
+            MemoryStream ms = new MemoryStream();
+            chart.SaveImage(ms);
+            return File(ms.GetBuffer(), @"image/png");
+
         }
 
 
+        private Series CreateSeries(ArrayList pYArray, ArrayList pXArray, string pTitle, SeriesChartType pChartType, Color pColor, AxisType pAxisType)
+        {
+            Series seriesDetail = new Series();
+            seriesDetail.Name = pTitle;
+            seriesDetail.IsValueShownAsLabel = false;
+
+            seriesDetail.Color = pColor;
+            seriesDetail.ChartType = pChartType;
+            seriesDetail.BorderWidth = 2;
+
+            DataPoint point;
+            int i = 0;
+            foreach (var item in pYArray)
+            {
+                point = new DataPoint();
+                point.AxisLabel = pXArray[i].ToString();
+                point.YValues = new double[] { double.Parse(item.ToString().ToString()) };
+
+                seriesDetail.Points.Add(point);
+                i++;
+            }
+            seriesDetail.YAxisType = pAxisType;
+            seriesDetail.ChartArea = "ResultChart";
+
+            return seriesDetail;
+        }
+
+
+        private ChartArea CreateChartArea()
+        {
+            ChartArea chartArea = new ChartArea();
+            chartArea.Name = "ResultChart";
+            chartArea.BackColor = Color.Transparent;
+            chartArea.AxisX.IsLabelAutoFit = true;
+            chartArea.AxisX.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
+            chartArea.AxisX.LineColor = Color.FromArgb(64, 64, 64, 64);
+            chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
+            chartArea.AxisX.Interval = 1;
+            chartArea.AxisX.Title = "Días desde la siembra";
+
+            chartArea.AxisY.IsLabelAutoFit = true;
+            chartArea.AxisY.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
+            chartArea.AxisY.LineColor = Color.FromArgb(64, 64, 64, 64);
+            chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
+            chartArea.AxisY.IsLabelAutoFit = true;
+            chartArea.AxisY.Interval = 10;
+            chartArea.AxisY.Title = "Evotranspiración acumulada (mm)";
+
+            chartArea.AxisY2.IsLabelAutoFit = true;
+            chartArea.AxisY2.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
+            chartArea.AxisY2.LineColor = Color.FromArgb(250, 250, 254);
+            chartArea.AxisY2.MajorGrid.LineColor = Color.FromArgb(250, 250, 254);
+            chartArea.AxisY2.Title = "Distribución de lluvias y riegos (mm)";
+            chartArea.AxisY2.Interval = 10;
+            chartArea.AxisY2.Enabled = AxisEnabled.True;
+
+            return chartArea;
+        }
 
         [ChildActionOnly]
         public PartialViewResult ReportPivotStateHeaderPartial()
