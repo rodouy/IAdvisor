@@ -649,6 +649,18 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             ElRincon,
 
+            /// <summary>
+            /// El Desafio Farm
+            /// --
+            /// </summary>
+            ElDesafio,
+
+            /// <summary>
+            /// Los Naranjales Farm
+            /// OLAM
+            /// </summary>
+            LosNaranjales,
+
         }
 
 
@@ -767,6 +779,18 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             ElRincon,
 
+            /// <summary>
+            /// El Desafio Farm
+            /// --
+            /// </summary>
+            ElDesafio,
+
+            /// <summary>
+            /// Los Naranjales Farm
+            /// OLAM
+            /// </summary>
+            LosNaranjales,
+
         }
 
         /// <summary>
@@ -836,6 +860,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCitySalto = "Salto";
         public static String NameCityTacuarembo = "Tacuarembo";
         public static String NameCityRinconDelPino = "Rincon del Pino";
+        public static String NameCityPuntasDeValdez = "Puntas de Valdez";
+        public static String NameCitySanGabriel = "San Gabriel";
         public static String NameCity = "";
         #endregion
         #region Farms
@@ -854,7 +880,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameFarmPortonCampero = "Porton Campero";
         public static String NameFarmLaRinconada = "La Rinconada";
         public static String NameFarmElRincon = "El Rincon";
-        public static String NameFarm = "";
+        public static String NameFarmElDesafio = "El Desafio";
+        public static String NameFarmLosNaranjales = "Los Naranjales";
         #endregion
         #region Weather
         public static String NameWeatherStationLasBrujas = "Las Brujas";
@@ -1108,6 +1135,16 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilElRincon1a = NameFarmElRincon + " Pivot 1a";
         public static String NameSoilElRincon1b = NameFarmElRincon + " Pivot 1b";
         #endregion
+        #region El Desafio
+        public static String NameSoilElDesafio1 = NameFarmElDesafio + " Pivot 1";
+        public static String NameSoilElDesafio2 = NameFarmElDesafio + " Pivot 2";
+        #endregion
+        #region Los Naranjales
+        public static String NameSoilLosNaranjales1a = NameFarmLosNaranjales + " Pivot 1a";
+        public static String NameSoilLosNaranjales1b = NameFarmLosNaranjales + " Pivot 1b";
+        public static String NameSoilLosNaranjales2a = NameFarmLosNaranjales + " Pivot 2a";
+        public static String NameSoilLosNaranjales2b = NameFarmLosNaranjales + " Pivot 2b";
+        #endregion
         #endregion
         #endregion
         #region Data
@@ -1130,6 +1167,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameBombPortonCampero = NameFarmPortonCampero + " Bomba";
         public static String NameBombLaRinconada = NameFarmLaRinconada + " Bomba";
         public static String NameBombElRincon = NameFarmElRincon + " Bomba";
+        public static String NameBombElDesafio = NameFarmElDesafio + " Bomba";
+        public static String NameBombLosNaranjales = NameFarmLosNaranjales + " Bomba";
         #endregion
         #region Pivots
         #region Demo
@@ -1270,7 +1309,17 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region El Rincon
         public static String NamePivotElRincon1a = NameFarmElRincon + " Pivot 1a";
-        public static String NamePivotElRincon1b = NameFarmElRincon + " Pivot 1b";        
+        public static String NamePivotElRincon1b = NameFarmElRincon + " Pivot 1b";
+        #endregion
+        #region El Desafio
+        public static String NamePivotElDesafio1 = NameFarmElDesafio + " Pivot 1";
+        public static String NamePivotElDesafio2 = NameFarmElDesafio + " Pivot 2";
+        #endregion
+        #region Los Naranjales
+        public static String NamePivotLosNaranjales1a = NameFarmLosNaranjales + " Pivot 1a";
+        public static String NamePivotLosNaranjales1b = NameFarmLosNaranjales + " Pivot 1b";
+        public static String NamePivotLosNaranjales2a = NameFarmLosNaranjales + " Pivot 2a";
+        public static String NamePivotLosNaranjales2b = NameFarmLosNaranjales + " Pivot 2b";
         #endregion
         public static String NamePivot = "";
         #endregion
@@ -1479,6 +1528,16 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherElRinconPivot1a_S1718 = NamePivotElRincon1a + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherElRinconPivot1b_S1718 = NamePivotElRincon1b + " " + NameSpecieCornSouthShort + " " + NameSeason;
         #endregion
+        #region El Desafio
+        public static String NameCropIrrigationWeatherElDesafioPivot1a_S1718 = NamePivotElDesafio1 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherElDesafioPivot1b_S1718 = NamePivotElDesafio2 + " " + NameSpecieAlfalfaSouthShort + " " + NameSeason;
+        #endregion
+        #region Los Naranjales
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot1a_S1718 = NamePivotLosNaranjales1a + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot1b_S1718 = NamePivotLosNaranjales1b + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot2a_S1718 = NamePivotLosNaranjales2a + " " + NameSpecieFescueForageSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot2b_S1718 = NamePivotLosNaranjales2b + " " + NameSpecieFescueForageSouthShort + " " + NameSeason;
+        #endregion
         #endregion
         #endregion
         #region Security
@@ -1509,6 +1568,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserLR1 = "jbaroffio";
         public static String NameUserLR2 = "jpastorini";
         public static String NameUserER1 = "ebonino";
+        public static String NameUserED1 = "malcorta";
+        public static String NameUserLN1 = "igoicoechea";
         #endregion
         #region Utilities
         #endregion
@@ -1529,6 +1590,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionCitySalto = NameCitySalto;
         public static String NamePositionCityTacuarembo = NameCityTacuarembo;
         public static String NamePositionCityRinconDelPino = NameCityRinconDelPino;
+        public static String NamePositionCityPuntasDeValdez = NameCityPuntasDeValdez;
+        public static String NamePositionCitySanGabriel = NameCitySanGabriel;
         public static String NamePositionCity = NameCity;
         #endregion
         #region PositionsFarms
@@ -1547,7 +1610,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionFarmPortonCampero = NameFarmPortonCampero;
         public static String NamePositionFarmLaRinconada = NameFarmLaRinconada;
         public static String NamePositionFarmElRincon = NameFarmElRincon;
-        public static String NamePositionFarm = NameFarm;
+        public static String NamePositionFarmElDesafio = NameFarmElDesafio;
+        public static String NamePositionFarmLosNaranjales = NameFarmLosNaranjales;
         #endregion
         #region PositionsWeatherStations
         public static String NamePositionWeatherStationLasBrujas = NameWeatherStationLasBrujas;
@@ -1707,7 +1771,17 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region El Rincon
         public static String NamePositionPivotElRincon1a = NamePivotElRincon1a;
-        public static String NamePositionPivotElRincon1b = NamePivotElRincon1b;        
+        public static String NamePositionPivotElRincon1b = NamePivotElRincon1b;
+        #endregion
+        #region El Desafio
+        public static String NamePositionPivotElDesafio1 = NamePivotElDesafio1;
+        public static String NamePositionPivotElDesafio2 = NamePivotElDesafio2;
+        #endregion
+        #region Los Naranjales
+        public static String NamePositionPivotLosNaranjales1a = NamePivotLosNaranjales1a;
+        public static String NamePositionPivotLosNaranjales1b = NamePivotLosNaranjales1b;
+        public static String NamePositionPivotLosNaranjales2a = NamePivotLosNaranjales2a;
+        public static String NamePositionPivotLosNaranjales2b = NamePivotLosNaranjales2b;
         #endregion
         public static String NamePositionPivot = "";
         #endregion

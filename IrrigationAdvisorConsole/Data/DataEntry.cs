@@ -734,6 +734,30 @@ namespace IrrigationAdvisorConsole
         //public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1b_2017 = 10;
 
         #endregion
+        #region ED - El Desafio
+        public static String WeatherStationMainName_ElDesafio_2017 = Utils.NameWeatherStationLaEstanzuela;
+        public static String WeatherStationAlternativeName_ElDesafio_2017 = Utils.NameWeatherStationViveroSanFrancisco;
+
+        public static DateTime SowingDate_CornSouth_ElDesafioPivot1_2017 = new DateTime(2017, 10, 07);
+        public static DateTime HarvestDate_CornSouth_ElDesafioPivot1_2017 = new DateTime(2018, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_ElDesafioPivot1_2017 = 10;
+        public static DateTime SowingDate_AlfalfaSouth_ElDesafioPivot2_2017 = new DateTime(2017, 12, 10);
+        public static DateTime HarvestDate_AlfalfaSouth_ElDesafioPivot2_2017 = new DateTime(2018, 05, 30);
+        public static Double PredeterminatedIrrigationQuantity_ElDesafioPivot2_2017 = 10;
+
+        #endregion
+        #region LN - Los Naranjos
+        public static String WeatherStationMainName_LosNaranjales_2017 = Utils.NameWeatherStationLaEstanzuela;
+        public static String WeatherStationAlternativeName_LosNaranjales_2017 = Utils.NameWeatherStationViveroSanFrancisco;
+
+        public static DateTime SowingDate_CornSouth_LosNaranjalesPivot1a_2017 = new DateTime(2017, 10, 07);
+        public static DateTime HarvestDate_CornSouth_LosNaranjalesPivot1a_2017 = new DateTime(2018, 02, 28);
+        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot1a_2017 = 10;
+        //public static DateTime SowingDate_SoyaSouth_LosNaranjalesPivot1b_2017 = new DateTime(2017, 12, 10);
+        //public static DateTime HarvestDate_SoyaSouth_LosNaranjalesPivot1b_2017 = new DateTime(2017, 04, 01);
+        //public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot1b_2017 = 10;
+
+        #endregion
 
         #endregion
 
