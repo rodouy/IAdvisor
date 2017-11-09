@@ -12,16 +12,28 @@
 @{
     if (Model.IsAdministrator)
     {
-        <li>
-            <a href="../Users">Usuarios</a>
-        </li>
+
         <li>
             <a href="../Weatherdatas">Datos del clima</a>
         </li>
+
+        <li>
+            <a href="#">Mantenimiento</a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="../WizardFarmBomb">Establecimientos</a>
+                </li>
+                <li>
+                    <a href="../Users">Usuarios</a>
+                </li>
+                <li>
+                    <a href="../WizardSoilHorizon">Suelos</a>
+                </li>
+            </ul>
+        </li>
+
     }
 
 }
-
 <li>
     <a href="../Home/LogOut">Salir</a>
-</li>

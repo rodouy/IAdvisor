@@ -1,0 +1,1084 @@
+﻿@model IrrigationAdvisor.ViewModels.Wizard.WizardSoilHorizonViewModel
+
+<link href="~/css/wizard.css" rel="stylesheet" />
+
+<link href="~/css/library/bootstrap.min.css" rel="stylesheet" />
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+
+
+<script js>
+    var bg = bg || false;
+    if (!bg) {
+        if (typeof jQuery != 'undefined') {
+            bg = jQuery;
+        } else if (typeof angular != 'undefined') {
+            bg = angular.element;
+
+            (function () {
+                bg.extend = angular.extend;
+                bg.isFunction = angular.isFunction;
+
+                bg.prototype.is = function (selector) {
+                    for (var i = 0; i < this.length; i++) {
+                        var el = this[i];
+                        if ((el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector || el.webkitMatchesSelector || el.oMatchesSelector).call(el, selector)) return true;
+                    }
+                    return false;
+                }
+
+                bg.prototype.find = function (selector) {
+                    var context = this[0], matches = [];
+                    // Early return if context is not an element or document
+                    if (!context || (context.nodeType !== 1 && context.nodeType !== 9) || typeof selector != 'string') {
+                        return [];
+                    }
+
+                    for (var i = 0; i < this.length; i++) {
+                        var elm = this[i],
+                        nodes = bg(elm.querySelectorAll(selector));
+                        matches.push.apply(matches, nodes.slice());
+                    }
+
+                    return bg(matches);
+                };
+
+                bg.prototype.outerWidth = function () {
+                    var el = this[0];
+                    if (typeof el == 'undefined') return null;
+                    return el.offsetWidth;
+                };
+
+                bg.prototype.width = function () {
+                    var el = this[0];
+                    if (typeof el == 'undefined') return null;
+                    var computedStyle = getComputedStyle(el);
+                    var width = el.offsetWidth;
+                    if (computedStyle)
+                        width -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
+                    return width;
+                };
+
+            })();
+        }
+    }
+
+    ; (function ($, document, window) {
+
+        "use strict";
+
+        var pluginName = "wizardByGiro",
+        // the name of using in .data()
+        dataPlugin = "plugin_" + pluginName,
+        defaults = {
+            currentStep: 0,
+            checkStep: false,
+            onCompleted: false,
+            bottomButtons: true,
+            topButtons: true,
+            autoSubmit: false,
+            keyboard: false,
+            btnClass: 'btn',
+            btnClassDefault: 'btn-default',
+            btnClassCompleted: 'btn-success',
+            text: {
+                finished: 'Enviar',
+                next: 'Siguiente',
+                previous: 'Anterior'
+            }
+        },
+
+        attachEventsHandler = function () {
+            var that = this,
+            opts = this.options;
+
+            that.$element.find('.btn-next, .btn-prev').on('click', function (e) {
+                if ($(this).attr('disabled') || $(this).hasClass('disabled') || !$(this).is(':visible')) return;
+
+                var type = $(this).hasClass('btn-next') ? 'next' : 'previous';
+                e.stopPropagation();
+                that[type].call(that, true, e);
+            });
+
+            that.$element.find('.steps > li').on('click', function (e) {
+                e.stopPropagation();
+                var step = $(this).attr('data-step'),
+                isCompleted = $(this).hasClass('completed');
+                if (!isCompleted) return true;
+
+                that.setStep.call(that, step, e);
+            });
+
+            $(document).on('keydown', function (e) {
+                if (!that.$element.is(':visible')) return;
+
+                // arrow left
+                if (e.ctrlKey && e.keyCode == 37) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    that.previous.call(that, true, e);
+                }
+
+                // arrow right
+                if (e.ctrlKey && e.keyCode == 39) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    that.next.call(that, true, e);
+                }
+            });
+
+        },
+
+        checkStatus = function () {
+            var that = this,
+                currentWidth,
+                stepsWidth = 0,
+                stepPosition = false,
+                steps = that.$element.find('.steps'),
+                stepsItems = that.$element.find('.steps > li'),
+                opts = that.options;
+
+            if (!this.currentStep) this.currentStep = 1;
+
+            stepsItems.removeClass('active');
+            that.$element
+                .find('.steps > li[data-step="' + that.currentStep + '"]')
+                .addClass('active');
+
+            that.$element.find('.steps-content .step-pane').removeClass('active');
+            var current = that.$element.find('.steps-content .step-pane[data-step="' + that.currentStep + '"]');
+            current.addClass('active');
+
+            for (var i = 0; i < stepsItems.length; i++) {
+                var stepLi = $(stepsItems[i]);
+                if (that.currentStep > (i + 1)) {
+                    stepLi.addClass('completed');
+                } else {
+                    stepLi.removeClass('completed');
+                }
+
+                currentWidth = stepLi.outerWidth();
+                if (!stepPosition && stepLi.hasClass('active')) {
+                    stepPosition = stepsWidth + (currentWidth / 2);
+                }
+
+                stepsWidth += currentWidth;
+            }
+
+
+
+            // set buttons based on current step
+            that.$element.find('.btn-next').removeClass('final-step ' + opts.btnClassCompleted).addClass(opts.btnClassDefault);
+            that.$element.find('.btn-prev').removeClass('disabled hidden');
+            if (that.currentStep == stepsItems.length) {
+                // we are in the last step
+                that.$element.find('.btn-next').removeClass(opts.btnClassDefault).addClass('final-step ' + opts.btnClassCompleted);
+            } else if (that.currentStep == 1) {
+                that.$element.find('.btn-prev').addClass('disabled hidden');
+            }
+
+            // move steps view if needed
+            var totalWidth = that.$element.width() - that.$element.find('.actions').outerWidth();
+
+            if (stepsWidth < totalWidth) return;
+
+            var offsetDiff = stepPosition - (totalWidth / 2);
+            if (offsetDiff > 0) {
+                // move it forward
+                steps.css('left', -offsetDiff);
+            } else {
+                // move it backward
+                steps.css('left', 0);
+            }
+        },
+
+
+
+            moveStep = function (step, direction, event, checkStep) {
+                var that = this, canMove = true,
+                steps = that.$element.find('.steps > li'),
+                triggerEnd = false;
+
+                checkStep = checkStep === false ? false : true;
+
+                /////////////////////////////////////////////
+                canMove = customValidation(that.currentStep, direction);
+
+                /////////////////////////////////////////////
+
+                // check we can move
+                if (checkStep && typeof that.options.checkStep == 'function') {
+                    canMove = that.options.checkStep(that, direction, event);
+                }
+
+                if (!canMove) return;
+
+                if (step) {
+                    that.currentStep = parseInt(step);
+                } else {
+                    if (direction) {
+                        that.currentStep++;
+                    } else {
+                        that.currentStep--;
+                    }
+                }
+
+                that.$element.triggerHandler('step_changed.wizardByGiro');
+
+                if (that.currentStep < 0) that.currentStep = 0;
+                if (that.currentStep > steps.length) {
+                    that.currentStep = steps.length;
+                    triggerEnd = true;
+                }
+
+                checkStatus.call(that);
+
+                if (triggerEnd) {
+
+                    var form = that.$element.closest('form');
+
+                    if (form.length) form.submit();
+
+                }
+            },
+
+        methods = {
+            init: function (element, options) {
+                var that = this;
+                this.$element = $(element);
+                this.options = $.extend({}, defaults, options);
+
+                var opts = this.options;
+
+                this.$element.addClass('wizard');
+
+                // add the buttons
+                var stepsBar = this.$element.find('.steps'),
+                topActions = this.$element.find('.top-actions'),
+                bottomActions = this.$element.find('.bottom-actions'),
+                progressBar = this.$element.find('.progress-bar'),
+                html = '';
+
+                // wrap steps in a container with hidden overflow, if it doesn't have a container
+                if (stepsBar.parent().hasClass('wizard')) {
+                    // let's add a container
+                    stepsBar.wrap('<div class="steps-index-container"></div>');
+                } else {
+                    stepsBar.parent().addClass('steps-index-container');
+                }
+
+                if (opts.topButtons && stepsBar.length && !topActions.length) {
+                    html += '<div class="top-actions"><div class="btn-group">';
+                    html += '<span class="' + opts.btnClass + ' ' + opts.btnClassDefault + ' btn-prev"><span class="previous-text">' + opts.text.previous + '</span></span>';
+                    html += '<span class="' + opts.btnClass + ' ' + opts.btnClassDefault + ' btn-next"><span class="next-text">' + opts.text.next + '</span><span class="finished-text">' + opts.text.finished + '</span></span>';
+                    html += '</div></div>';
+
+                    stepsBar.after(html);
+                }
+
+                html = '';
+                if (opts.bottomButtons && !bottomActions.length) {
+                    html += '<div class="bottom-actions">';
+                    html += '<div class="left-actions"><span class="' + opts.btnClass + ' ' + opts.btnClassDefault + ' btn-prev"><span class="previous-text">' + opts.text.previous + '</span></span></div>';
+                    html += '<div class="right-actions"><span class="' + opts.btnClass + ' ' + opts.btnClassDefault + ' btn-next"><span class="next-text">' + opts.text.next + '</span><span class="finished-text">' + opts.text.finished + '</span></span></div>';
+                    html += '</div>';
+
+                    that.$element.find('.steps-content').append(html);
+                }
+
+                // add arrows to btn
+                this.$element.find('.btn-prev').prepend('<i class="wiz-icon-arrow-left"></i>');
+                this.$element.find('.btn-next').append('<i class="wiz-icon-arrow-right"></i>');
+
+                // get steps and prepare them
+                var stepsLi = this.$element.find('.steps > li');
+                for (var i = 0; i < stepsLi.length; i++) {
+                    var step = $(stepsLi[i]),
+                    target = step.attr('data-step'),
+                    content = '<span class="step-text">' + step.html() + '</span>';
+
+                    step.empty().html('<span class="step-index"><span class="label">' + (i + 1) + '</span></span>' + content + '<span class="wiz-icon-chevron-right colorA"></span><span class="wiz-icon-chevron-right colorB"></span>');
+
+                    that.$element.find('.steps-content [data-step="' + target + '"]').addClass('step-pane');
+
+                    // detect currentStep
+                    if (step.hasClass('active') && !that.currentStep) {
+                        that.currentStep = i + 1;
+                    }
+                }
+
+                this.$element.find('.steps > li:last-child').addClass('final');
+
+                attachEventsHandler.call(this);
+
+                var callbacks = ['checkStep', 'onCompleted'], cb;
+                for (var i = 0; i < callbacks.length; i++) {
+                    cb = callbacks[i];
+                    if (typeof this.options[cb] == 'string' && typeof window[this.options[cb]] == 'function') {
+                        this.options[cb] = window[this.options[cb]];
+                    }
+                }
+
+                checkStatus.call(this);
+            },
+
+            next: function (checkStep, event) {
+                moveStep.call(this, false, true, event, checkStep);
+            },
+
+            previous: function (checkStep, event) {
+                moveStep.call(this, false, false, event, checkStep);
+            },
+
+            setStep: function (step, checkStep, event) {
+                moveStep.call(this, step, null, event, checkStep);
+            }
+
+
+        };
+
+        function getData(table, format) {
+            var rows = table.tBodies[0].rows,
+                header_row = rows[0],
+                result = [],
+                header = [],
+                format = format || function (val) { return val; },
+                i, j, cell, row, row_data;
+
+            // extract header
+            for (i = 0, l = header_row.cells.length; i < l; i++) {
+                cell = header_row.cells[i];
+                header.push((cell.textContent || cell.innerText));
+            }
+
+            // extract values
+            for (i = 1, l = rows.length; i < l; i++) {
+                row = rows[i];
+                row_data = {};
+                for (j = 0, l = row.cells.length; j < l; j++) {
+                    cell = row.cells[j];
+                    row_data[header[j]] = format(i, j, cell.textContent || cell.innerText);
+                }
+                result.push(row_data);
+            }
+            return result;
+        }
+
+        function farmIdValidation() {
+            if ($("#FarmId").val() === "") {
+                $("#FarmIdMessage").html("<span class=text-danger>Seleccione el establecimiento</span>");
+                return false;
+            }
+            else {
+                $("#FarmIdMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function shortNameValidation() {
+            if ($("#ShortName").val().trim() === "") {
+                $("#ShortNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
+                return false;
+            }
+            else {
+                $("#ShortNameMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function descriptionValidation() {
+            if ($("#Description").val().trim() === "") {
+                $("#DescriptionMessage").html("<span class=text-danger>Ingrese la descripción</span>");
+                return false;
+            }
+            else {
+                $("#DescriptionMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function testDateValidation() {
+            if ($("#TestDate").val().trim() === "") {
+                $("#TestDateMessage").html("<span class=text-danger>Ingrese la fecha</span>");
+                return false;
+            }
+            else {
+                $("#TestDateMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function latitudeValidation() {
+            if ($("#Latitude").val().trim() === "") {
+                $("#LatitudeMessage").html("<span class=text-danger>Ingrese latitud</span>");
+                return false;
+            }
+            else {
+                $("#LatitudeMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+        function longitudeValidation() {
+            if ($("#Longitude").val().trim() === "") {
+                $("#LongitudeMessage").html("<span class=text-danger>Ingrese longitud</span>");
+                return false;
+            }
+            else {
+                $("#LongitudeMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function isNumber(n) {
+            'use strict';
+            n = n.replace(/\./g, '').replace(',', '.');
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        function validDecimal(n) {
+
+            return n.replace(".", ",");
+        }
+
+        function depthLimitValidation() {
+            if ($("#DepthLimit").val().trim() === "") {
+                $("#DepthLimitMessage").html("<span class=text-danger>Ingrese la profundidad</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#DepthLimit").val())) {
+                    $("#DepthLimit").val(validDecimal($("#DepthLimit").val()));
+                    $("#DepthLimitMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#DepthLimitMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+
+        function horizonNameValidation() {
+
+            if ($("#HorizonName").val().trim() === "") {
+                $("#HorizonNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
+                return false;
+            }
+            else {
+
+                $("#HorizonNameMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function orderValidation() {
+            if ($("#Order").val().trim() === "") {
+                $("#OrderMessage").html("<span class=text-danger>Ingrese el orden</span>");
+                return false;
+            }
+            else {
+
+                if ($("#Order").val() == Math.floor($("#Order").val()))
+                    //if (isNumber($("#Order").val()))
+                    //    $("#Order").val(validDecimal($("#Order").val()));
+                {
+                    $("#OrderMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#OrderMessage").html("<span class=text-danger>Ingrese solo números enteros</span>");
+                    return false;
+                }
+            }
+        }
+
+        function horizonLayerDepthValidation() {
+            if ($("#HorizonLayerDepth").val().trim() === "") {
+                $("#HorizonLayerDepthMessage").html("<span class=text-danger>Ingrese la profundidad de la capa</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#HorizonLayerDepth").val())) {
+                    $("#HorizonLayerDepth").val(validDecimal($("#HorizonLayerDepth").val()));
+                    $("#HorizonLayerDepthMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#HorizonLayerDepthMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+        function sandValidation() {
+            if ($("#Sand").val().trim() === "") {
+                $("#SandMessage").html("<span class=text-danger>Ingrese la capa de arena</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#Sand").val())) {
+                    $("#Sand").val(validDecimal($("#Sand").val()));
+                    $("#SandMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#SandMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+        function limoValidation() {
+            if ($("#Limo").val().trim() === "") {
+                $("#LimoMessage").html("<span class=text-danger>Ingrese la capa de barro (limo)</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#Limo").val())) {
+                    $("#Limo").val(validDecimal($("#Limo").val()));
+                    $("#LimoMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#LimoMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+
+        function clayValidation() {
+            if ($("#Clay").val().trim() === "") {
+                $("#ClayMessage").html("<span class=text-danger>Ingrese la capa de arcilla</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#Clay").val())) {
+                    $("#Clay").val(validDecimal($("#Clay").val()));
+                    $("#ClayMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#ClayMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+
+        function organicMatterValidation() {
+            if ($("#OrganicMatter").val().trim() === "") {
+                $("#OrganicMatterMessage").html("<span class=text-danger>Ingrese la capa de materia orgánica</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#OrganicMatter").val())) {
+                    $("#OrganicMatter").val(validDecimal($("#OrganicMatter").val()));
+                    $("#OrganicMatterMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#OrganicMatterMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+
+        function nitrogenAnalysisValidation() {
+            if ($("#NitrogenAnalysis").val().trim() === "") {
+                $("#NitrogenAnalysisMessage").html("<span class=text-danger>Ingrese el analisis de nitrógeno</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#NitrogenAnalysis").val())) {
+                    $("#NitrogenAnalysis").val(validDecimal($("#NitrogenAnalysis").val()));
+                    $("#NitrogenAnalysisMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#NitrogenAnalysisMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+        function bulkDensitySoilValidation() {
+            if ($("#BulkDensitySoil").val().trim() === "") {
+                $("#BulkDensitySoilMessage").html("<span class=text-danger>Ingrese la densidad</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#BulkDensitySoil").val())) {
+                    $("#BulkDensitySoil").val(validDecimal($("#BulkDensitySoil").val()));
+                    $("#BulkDensitySoilMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#BulkDensitySoilMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+
+        function depthControlValidation() {
+            if (parseInt($("#DepthLimit").val()) > parseInt($("#HorizonLayerDepthSum").val())) {
+                $("#DepthControlMessage").html("<span class=text-danger>La profundidad del suelo (" + $("#DepthLimit").val() + ") debe ser menor o igual a la suma de las profundidades del los horizontes (" + $("#HorizonLayerDepthSum").val() + ") </span>");
+                $("#DepthControlMessage1").html("<span class=text-danger>La profundidad del suelo (" + $("#DepthLimit").val() + ") debe ser menor o igual a la suma de las profundidades del los horizontes (" + $("#HorizonLayerDepthSum").val() + ") </span>");
+
+                return false;
+            }
+            else {
+                $("#DepthControlMessage").html("<span class=text-danger></span>");
+                $("#DepthControlMessage1").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function horizonsQuantity() {
+            if (parseInt($("#HorizonsQuantity").val()) <= 0) {
+                $("#NotHorizonMessage").html("<span class=text-danger>Debe agregar por lo menos una capa</span>");
+                return false;
+            }
+            else {
+                $("#NotHorizonMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function customValidation(currentStep, direction) {
+            var move = true;
+            if (currentStep == "1") {
+
+                move = farmIdValidation() && shortNameValidation() && descriptionValidation() && testDateValidation() && latitudeValidation() && longitudeValidation() && depthLimitValidation()
+
+                if (move) {
+                    $("#Name").val($("#FarmId").find('option:selected').text() + ' - ' + $("#ShortName").val().trim());
+                    // $("#HorizonName").val($("#Name").val().trim());
+
+                }
+            }
+
+            if (direction) {//se mueve hacia adelante
+                if (currentStep == "2") {
+                    //la validacione del nombre de  y campos requeridos se hace al agregar un item en la tabla...
+
+                    move = horizonsQuantity() && depthControlValidation();
+
+                    if (move) {
+                        $('#HorizonsTableConfirmation').html($('#HorizonsTable').html());
+                        //cargo los datos para el paso de confiramcion
+                        $("#FarmIdConfirmation").html($("#FarmId").find('option:selected').text());
+                        $("#ShortNameConfirmation").html($("#ShortName").val());
+                        $("#DescriptionConfirmation").html($("#Description").val());
+                        $("#TestDateConfirmation").html($("#TestDate").val());
+                        $("#LatitudeConfirmation").html($("#Latitude").val());
+                        $("#LongitudeConfirmation").html($("#Longitude").val());
+                        var s = $("#DepthLimit").val();
+                        $("#DepthLimitConfirmation").html(s);
+                        $("#NotHorizonMessage").html("<span class=text-danger></span>");
+                    }
+
+                }
+            }
+            return move;
+        }
+
+
+        ////////////////////////////////////////////////////////////////
+
+        var main = function (method) {
+            var thisPlugin = this.data(dataPlugin);
+            if (thisPlugin) {
+                if (typeof method === 'string' && thisPlugin[method]) {
+                    return thisPlugin[method].apply(thisPlugin, Array.prototype.slice.call(arguments, 1));
+                }
+                return console.log('Method ' + arg + ' does not exist on jQuery / jqLite' + pluginName);
+            } else {
+                if (!method || typeof method === 'object') {
+                    thisPlugin = $.extend({}, methods);
+                    thisPlugin.init(this, method);
+                    this.data(dataPlugin, thisPlugin);
+
+                    return this;
+                }
+                return console.log(pluginName + ' is not instantiated. Please call $("selector").' + pluginName + '({options})');
+            }
+        };
+
+        // plugin integration
+        if ($.fn) {
+            $.fn[pluginName] = main;
+        } else {
+            $.prototype[pluginName] = main;
+        }
+
+        $(document).ready(function () {
+            var mySelector = document.querySelector('[data-wizard-init]');
+            $(mySelector)[pluginName]({});
+            ///CP: ACTIV VALIDATION
+
+            $("#FarmId").change(function () {
+                farmIdValidation()
+            });
+
+            $("#ShortName").focusout(function () {
+                shortNameValidation()
+            });
+
+            $("#Description").focusout(function () {
+                descriptionValidation()
+            });
+
+            $("#TestDate").focusout(function () {
+                testDateValidation()
+            });
+
+            $("#Latitude").focusout(function () {
+                latitudeValidation()
+            });
+
+            $("#Longitude").focusout(function () {
+                longitudeValidation()
+            });
+
+            $("#DepthLimit").focusout(function () {
+                depthLimitValidation()
+            });
+
+
+            $("#HorizonName").focusout(function () {
+                horizonNameValidation()
+            });
+
+            $("#Order").focusout(function () {
+                orderValidation()
+            });
+
+            $("#HorizonLayerDepth").focusout(function () {
+                horizonLayerDepthValidation()
+            });
+
+            $("#Sand").focusout(function () {
+                sandValidation()
+            });
+
+            $("#Limo").focusout(function () {
+                limoValidation()
+            });
+
+            $("#Clay").focusout(function () {
+                clayValidation()
+            });
+
+            $("#OrganicMatter").focusout(function () {
+                organicMatterValidation()
+            });
+
+            $("#NitrogenAnalysis").focusout(function () {
+                nitrogenAnalysisValidation()
+            });
+
+            $("#BulkDensitySoil").focusout(function () {
+                bulkDensitySoilValidation()
+            });
+
+
+            ////END ACTIV VALIDATION///////////////////
+
+            ///CP: ACTIV  TABLE
+
+            var jsonData = { "items": [] };
+            var cont = 0;
+            $("#add-row").click(function () {
+                if (horizonNameValidation() && orderValidation() && horizonLayerDepthValidation() && sandValidation() && limoValidation() && clayValidation() && organicMatterValidation() && nitrogenAnalysisValidation() && bulkDensitySoilValidation()) {
+                    var horizonName = $("#HorizonName").val();
+                    var order = $("#Order").val();
+                    var horizonLayer = $("#HorizonLayer").val();
+                    var horizonLayerDepth = $("#HorizonLayerDepth").val();
+                    var sand = $("#Sand").val();
+                    var limo = $("#Limo").val();
+                    var clay = $("#Clay").val();
+                    var organicMatter = $("#OrganicMatter").val();
+                    var nitrogenAnalysis = $("#NitrogenAnalysis").val();
+                    var bulkDensitySoil = $("#BulkDensitySoil").val();
+
+                    jsonData.items.push({ "id": cont, "horizonName": horizonName, "order": order, "horizonLayer": horizonLayer, "horizonLayerDepth": horizonLayerDepth, "sand": sand, "limo": limo, "clay": clay, "organicMatter": organicMatter, "nitrogenAnalysis": nitrogenAnalysis, "bulkDensitySoil": bulkDensitySoil });
+                    cont++;
+
+
+                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "|" + horizonLayerDepth + "' name='record|" + cont + "'></td><td>" + horizonName + "</td><td>" + order + "</td><td>" + horizonLayer + "</td><td>" + horizonLayerDepth + "</td><td>" + sand + "</td><td>" + limo + "</td><td>" + clay + "</td><td>" + organicMatter + "</td><td>" + nitrogenAnalysis + "</td><td>" + bulkDensitySoil + "</td></tr>";
+                    $("#HorizonsTable").append(markup)
+                    $("#HorizonsHidden").val(JSON.stringify(jsonData));
+
+                    $("#HorizonsQuantity").val(parseInt($("#HorizonsQuantity").val()) + 1);
+                    $("#NotHorizonMessage").html("<span class=text-danger></span>");
+
+                    var horizonLayerDepthSumValue = $("#HorizonLayerDepthSum").val();
+
+                    $("#HorizonLayerDepthSum").val(parseInt(horizonLayerDepthSumValue) + parseInt(horizonLayerDepth))
+
+                    $("#HorizonName").val("");
+                    $("#Order").val("");
+                    $("#HorizonLayer").val("");
+                    $("#HorizonLayerDepth").val("");
+                    $("#Sand").val("0");
+                    $("#Limo").val("0");
+                    $("#Clay").val("0");
+                    $("#OrganicMatter").val("0");
+                    $("#NitrogenAnalysis").val("0");
+                    $("#BulkDensitySoil").val("0");
+                }
+            });
+
+            // Find and remove selected table rows
+            $("#delete-row").click(function () {
+                debugger;
+
+                $("table tbody").find('input[type="checkbox"]').each(function () {
+                    if ($(this).is(":checked")) {
+                        var res = $(this).attr('id').split("|");
+                        var aa = res[1];
+                        var a = aa - 1;
+                        var prof = res[2];
+
+                        delete jsonData.items[a];
+
+                        $(this).parents("tr").remove();
+                        var a = $("#HorizonsQuantity").val();
+
+                        var horizonLayerDepthSumValue = $("#HorizonLayerDepthSum").val();
+                        $("#HorizonLayerDepthSum").val(parseInt(horizonLayerDepthSumValue) - parseInt(prof));
+                        $("#HorizonsQuantity").val(parseInt($("#HorizonsQuantity").val()) - 1);
+
+                    }
+                    $("#HorizonsHidden").val(JSON.stringify(jsonData));
+
+                });
+            });
+
+
+        });
+
+
+
+    }(bg, document, window));
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+    });
+</script>
+@using (Html.BeginForm("Create", "WizardSoilHorizon"))
+{
+    @Html.AntiForgeryToken()
+
+    <input id="HorizonsHidden" name="HorizonsHidden" type="hidden">
+    <input id="HorizonsQuantity" name="HorizonsQuantity" value="0" type="hidden">
+    <input id="Name" name="Name" type="hidden">
+    <input id="HorizonLayerDepthSum" name="HorizonLayerDepthSum" value="0" type="hidden">
+    <div class="container-fluid">
+        <div data-wizard-init>
+            <ul class="steps">
+                <li data-step="1">Suelo</li>
+                <li data-step="2">Horizontes</li>
+                <li data-step="3">Confirmar</li>
+            </ul><span id="DepthControlMessage"> </span>
+            @Html.ValidationSummary(true, "Error", new { @class = "text-danger" })
+            @*@Html.ValidationMessageFor(model => model.wizardFarmViewModel., "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            *@
+            <div class="steps-content">
+                <div data-step="1">
+                    <h4>Suelo</h4>
+                    <p>
+                        <div class="form-group">
+                            <label class="control-label">Establecimento</label>
+                            <select id="FarmId" name="FarmId" class="form-control">
+                                <option value="">-- Seleccione el establecimiento --</option>
+
+                                @foreach (var item in Model.Farm)
+                                {
+                                    <option value=@item.Value>@item.Text</option>
+                                }
+                            </select>
+                            <span id="FarmIdMessage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Nombre</label>
+                            <input maxlength="50" id="ShortName" name="ShortName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="ShortNameMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Descripción</label>
+                            <input maxlength="100" id="Description" name="Description" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese descripción">
+                            <span id="DescriptionMessage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Fecha de visita</label>
+                            <input maxlength="50" id="TestDate" name="TestDate" type="date" class="form-control text-box single-line">
+                            <span id="TestDateMessage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Latitud</label>
+                            <input maxlength="50" id="Latitude" name="Latitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese latitud">
+                            <span id="LatitudeMessage"></span>
+                            @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Longitud</label>
+                            <input maxlength="50" id="Longitude" name="Longitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese longitud">
+                            <span id="LongitudeMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Profundidad</label>
+                            <input maxlength="50" id="DepthLimit" name="DepthLimit" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese las hectareas">
+                            <span id="DepthLimitMessage"></span>
+                        </div>
+
+                    </p>
+                </div>
+
+                <div data-step="2">
+                    <h4>Horizontes</h4>
+                    <p>
+
+                        <div class="form-group">
+                            <label class="control-label">Nombre</label>
+                            <input maxlength="50" id="HorizonName" name="HorizonName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="HorizonNameMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Orden</label>
+                            <input maxlength="50" id="Order" name="Order" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el orden">
+                            <span id="OrderMessage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Capa</label>
+                            <input maxlength="50" id="HorizonLayer" name="HorizonLayer" type="text" class="form-control text-box single-line">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Profundidad de capa</label>
+                            <input maxlength="50" id="HorizonLayerDepth" name="HorizonLayerDepth" type="text" class="form-control text-box single-line" placeholder="Ingrese la profundidad">
+                            <span id="HorizonLayerDepthMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Arena</label>
+                            <input maxlength="50" id="Sand" name="Sand" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la arena">
+                            <span id="SandMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Barro (limo)</label>
+                            <input maxlength="50" id="Limo" name="Limo" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la barro">
+                            <span id="LimoMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Arcilla</label>
+                            <input maxlength="50" id="Clay" name="Clay" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la arcilla">
+                            <span id="ClayMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Materia orgánica</label>
+                            <input maxlength="50" id="OrganicMatter" name="OrganicMatter" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la matería orgánica">
+                            <span id="OrganicMatterMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Análisis de nitrógeno</label>
+                            <input maxlength="50" id="NitrogenAnalysis" name="NitrogenAnalysis" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese el análisis de nitrógeno">
+                            <span id="NitrogenAnalysisMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Densidad</label>
+                            <input maxlength="50" id="BulkDensitySoil" name="BulkDensitySoil" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la densidad">
+                            <span id="BulkDensitySoilMessage"></span>
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="button" class="btn btn-success" id="add-row" value="Agregar capa"> <span id="NotHorizonMessage"> </span><span id="DepthControlMessage1">  </span>
+                        </div>
+                        <table id="HorizonsTable" class="main-table-advisor" cellpadding="10">
+                            <thead>
+                                <tr style="height:40px">
+                                    <th width="5%" align="center">Seleccionar</th>
+                                    <th>Nombre</th>
+                                    <th>Orden</th>
+                                    <th>Capa</th>
+                                    <th>Profundidad</th>
+                                    <th>Arena</th>
+                                    <th>Barro</th>
+                                    <th>Arcilla</th>
+                                    <th>Mat. orgánica</th>
+                                    <th>Nitrógeno</th>
+                                    <th>Densidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-success" id="delete-row" value="Quitar capa">
+                        </div>
+                    </p>
+                </div>
+
+                <div data-step="3">
+                    <h4>Confirmar</h4>
+                    <p>
+                        <div class="form-group">
+                            <label class="control-label">Establecimento: </label>
+                            <span class="control-label" id="FarmIdConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Nombre: </label>
+                            <span class="control-label" id="ShortNameConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Descripción: </label>
+                            <span class="control-label" id="DescriptionConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Fecha de visita: </label>
+                            <span class="control-label" id="TestDateConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Latitud: </label>
+                            <span class="control-label" id="LatitudeConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Longitude: </label>
+                            <span class="control-label" id="LongitudeConfirmation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Profundidad: </label>
+                            <span class="control-label" id="DepthLimitConfirmation"></span>
+                        </div>
+                        <table id="HorizonsTableConfirmation" class="main-table-advisor">
+                            <thead>
+                                <tr style="height:40px">
+                                    <th>Nombre</th>
+                                    <th>Orden</th>
+                                    <th>Capa</th>
+                                    <th>Profundidad</th>
+                                    <th>Arena</th>
+                                    <th>Barro</th>
+                                    <th>Arcilla</th>
+                                    <th>Mat. orgánica</th>
+                                    <th>Nitrógeno</th>
+                                    <th>Densidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
