@@ -4,10 +4,10 @@
 }
 <script type="text/javascript">
     
-    window.onload = function () {
-        window.print();
-        setTimeout(function () { window.close(); }, 1);
-    }
+    //window.onload = function () {
+    //    window.print();
+    //    setTimeout(function () { window.close(); }, 1);
+   // }
     
 </script>
 <link href="~/css/print.css" rel="stylesheet" />
@@ -43,8 +43,8 @@
                                 <td width="50%">
                                     ET Acumulado:
                                 </td>
-                                <td align="left">
-                                    @Html.DisplayFor(model => model.TotalEvapotranspirationCrop)
+                                <td align="right">
+                                    @Html.DisplayFor(model => model.TotalEvapotranspirationCrop) mm.
                                 </td>
                             </tr>
 
@@ -52,18 +52,26 @@
                                 <td>
                                     Riego:
                                 </td>
-                                <td align="left">
-                                    @Html.DisplayFor(model => model.TotalEffectiveInputWater)
+                                <td align="right">
+                                    @Html.DisplayFor(model => model.TotalEffectiveInputWater) mm.
                                 </td>
                             </tr>
                             <tr>
                                 <td width="50%">
                                     Lluvia:
                                 </td>
-                                <td align="left">
-                                    @Html.DisplayFor(model => model.TotalEffectiveRain)
+                                <td align="right">
+                                    @Html.DisplayFor(model => model.TotalEffectiveRain) mm.
+                                </td>
+                            <tr>
+                                <td width="50%">
+                                    Balance hídrico:
+                                </td>
+                                <td align="right">
+                                    @Html.DisplayFor(model => model.HydricBalancePercentage) %
                                 </td>
                             </tr>
+                           
                         </table>
                     </td>
                 </tr>
@@ -72,16 +80,21 @@
                 <tr style="height:10px"><td style="border-color:white"></td></tr>
                 <tr>
                     <td style ="border-color:white">
-                                 <!--table-->
-                        <table cellspacing="0" border="1" style="width:400px;" align="center">
+                                
+                        <table cellspacing="0" border="1" style="width:500px;" align="center">
                             <thead>
-
                                 @{ Html.RenderAction("ReportPivotStateHeaderPartial", "ReportPivotState"); }
-
-
                             </thead>
                             <tbody>
                                 @{ Html.RenderAction("ReportPivotStatePartial", "ReportPivotState"); }
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"><b>TOTAL:</b></td>
+
+                                    <td align="right"><b>@Html.DisplayFor(model => model.TotalEffectiveRain)</b></td>
+                                    <td align="right"><b>@Html.DisplayFor(model => model.TotalEffectiveInputWater)</b></td>
+                                </tr>
                             </tbody>
                         </table>
 

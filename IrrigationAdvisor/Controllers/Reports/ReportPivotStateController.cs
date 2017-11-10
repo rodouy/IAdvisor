@@ -58,19 +58,33 @@ namespace IrrigationAdvisor.Controllers.Reports
             vm.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
             #endregion
 
-            ciwId = GetCropIrrigationWeatherIdFromURL();
-
             DailyRecordConfiguration drc = new DailyRecordConfiguration();
+            CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
             List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
-
-            lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
-
+            double lHydricBalancePercentage = 0;
             double lSumTotalEffectiveRain = 0;
             double lSumTotalEffectiveInputWater = 0;
             double lSumTotalEvapotranspirationCrop = 0;
             string lCropIrrigationWeatherTitle = "";
+      
+            ciwId = GetCropIrrigationWeatherIdFromURL();
+            
+            lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
+            
+            #region get ciw
+            List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+            List<long> lListciw = new List<long>();
+            lListciw.Add(ciwId);
+                        
+            lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw);
 
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
+            }
+            #endregion
 
+           
             foreach (DailyRecord item in lDailyRecordList)
             {
                 if (item.Rain != null)
@@ -87,8 +101,11 @@ namespace IrrigationAdvisor.Controllers.Reports
             vm.TotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop;
             vm.Title = lCropIrrigationWeatherTitle;
             vm.CropIrrigationWeatherId = ciwId;
+            vm.HydricBalancePercentage = lHydricBalancePercentage;
             return View("~/Views/ReportPivotState/ReportPivotState.cshtml", vm);
         }
+
+        #region manage chart
 
         public ActionResult GetChart()
         {
@@ -116,7 +133,7 @@ namespace IrrigationAdvisor.Controllers.Reports
 
                 yArrayIrrigation.Add(lIrrigation);
                 yArrayRain.Add(lRain);
-                yArrayETC.Add(Math.Round(item.TotalEvapotranspirationCrop,0));
+                yArrayETC.Add(Math.Round(item.TotalEvapotranspirationCrop,1));
                 xDaysAfterSowing.Add(item.DaysAfterSowing);
             }
 
@@ -135,7 +152,7 @@ namespace IrrigationAdvisor.Controllers.Reports
             chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
             chart.AntiAliasing = AntiAliasingStyles.All;
             chart.TextAntiAliasingQuality = TextAntiAliasingQuality.Normal;
-            chart.Series.Add(CreateSeries(yArrayETC, xDaysAfterSowing, "ETc", SeriesChartType.Line, Color.FromArgb(246, 134, 36), AxisType.Primary));
+            chart.Series.Add(CreateSeries(yArrayETC, xDaysAfterSowing, "ETc acumulada", SeriesChartType.Line, Color.FromArgb(246, 134, 36), AxisType.Primary));
             chart.Series.Add(CreateSeries(yArrayRain, xDaysAfterSowing, "Lluvia", SeriesChartType.Column, Color.FromArgb(74, 164, 209), AxisType.Secondary));
             chart.Series.Add(CreateSeries(yArrayIrrigation, xDaysAfterSowing, "Riego", SeriesChartType.Column, Color.FromArgb(97, 209, 74), AxisType.Secondary));
             chart.ChartAreas.Add(CreateChartArea());
@@ -153,7 +170,6 @@ namespace IrrigationAdvisor.Controllers.Reports
         {
             Series seriesDetail = new Series();
             seriesDetail.Name = pTitle;
-            seriesDetail.IsValueShownAsLabel = false;   
      
             seriesDetail.Color = pColor;
             seriesDetail.ChartType = pChartType;
@@ -166,14 +182,28 @@ namespace IrrigationAdvisor.Controllers.Reports
                 point = new DataPoint();
                 point.AxisLabel = pXArray[i].ToString();
                 point.YValues = new double[] { double.Parse(item.ToString().ToString()) };
-               
                 seriesDetail.Points.Add(point);
                 i++;
             }
-            seriesDetail.YAxisType = pAxisType;
-            seriesDetail.ChartArea = "ResultChart";
 
-            return seriesDetail;
+            //hide label value if zero in the chart
+            if (pAxisType == AxisType.Primary)
+            {
+                seriesDetail.IsValueShownAsLabel = false;  
+            }
+            else
+            { 
+                foreach (System.Web.UI.DataVisualization.Charting.DataPoint p in seriesDetail.Points)
+                {
+                    p.IsValueShownAsLabel = true;
+                    if (p.YValues.Length > 0 && (double)p.YValues.GetValue(0) == 0)
+                    {
+                        p.IsValueShownAsLabel = false;
+
+                    }
+                }
+            }
+           return seriesDetail;
         }
 
 
@@ -187,7 +217,8 @@ namespace IrrigationAdvisor.Controllers.Reports
             chartArea.AxisX.LineColor = Color.FromArgb(64, 64, 64, 64);
             chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
             chartArea.AxisX.Interval = 1;       
-            chartArea.AxisX.Title = "Días desde la siembra";    
+            chartArea.AxisX.Title = "Días desde la siembra";
+           
 
             chartArea.AxisY.IsLabelAutoFit = true;
             chartArea.AxisY.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
@@ -207,6 +238,7 @@ namespace IrrigationAdvisor.Controllers.Reports
 
             return chartArea;
         }
+        #endregion
 
         public ActionResult CreateCVS()
         {
@@ -250,9 +282,6 @@ namespace IrrigationAdvisor.Controllers.Reports
             #region Local Variables
             List<GridDailyRecordIrrigationResume> lGridDailyRecordIrrigationResumeList = new List<GridDailyRecordIrrigationResume>();
             GridDailyRecordIrrigationResume lGridDailyRecordIrrigationResume;
-            User lLoggedUser;
-
-
             #endregion
 
             #region Configuration Variables
@@ -265,10 +294,8 @@ namespace IrrigationAdvisor.Controllers.Reports
                 #region Configuration - Instance
                 uc = new UserConfiguration();
                 #endregion
-                //Obtain logged user
-                lLoggedUser = uc.GetUserByName(ManageSession.GetUserName());
-                lGridDailyRecordIrrigationResume = new GridDailyRecordIrrigationResume("Día", "Fecha", "Riego", "Lluvia");
 
+                lGridDailyRecordIrrigationResume = new GridDailyRecordIrrigationResume("Día", "Fecha", "Riego", "Lluvia");
                 lGridDailyRecordIrrigationResumeList.Add(lGridDailyRecordIrrigationResume);
 
             }
