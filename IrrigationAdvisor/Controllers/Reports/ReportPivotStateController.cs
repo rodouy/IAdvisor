@@ -69,7 +69,7 @@ namespace IrrigationAdvisor.Controllers.Reports
       
             ciwId = GetCropIrrigationWeatherIdFromURL();
             
-            lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
+            lDailyRecordList = drc.GetDailyRecordsListDataUntilDateBy(ciwId, Utils.GetDateOfReference().Value);
             
             #region get ciw
             List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
@@ -114,9 +114,9 @@ namespace IrrigationAdvisor.Controllers.Reports
             List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
             double lRain;
             double lIrrigation;
-            
-            lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
 
+            lDailyRecordList = drc.GetDailyRecordsListDataUntilDateBy(ciwId, Utils.GetDateOfReference().Value);
+         
             ArrayList yArrayRain = new ArrayList();
             ArrayList yArrayIrrigation = new ArrayList();
             ArrayList yArrayETC = new ArrayList();
@@ -335,7 +335,7 @@ namespace IrrigationAdvisor.Controllers.Reports
             {
                 drc = new DailyRecordConfiguration();
 
-                lDailyRecordList = drc.GetDailyRecordsListDataBy(ciwId);
+                lDailyRecordList = drc.GetDailyRecordsListDataUntilDateBy(ciwId, Utils.GetDateOfReference().Value);
 
                 foreach (var lDailyRecordUnit in lDailyRecordList)
                 {
