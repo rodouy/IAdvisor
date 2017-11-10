@@ -100,6 +100,7 @@ namespace IrrigationAdvisor.Controllers.Reports
         }
 
         #region manage chart
+
         public ActionResult GetChart()
         {
 
@@ -113,7 +114,7 @@ namespace IrrigationAdvisor.Controllers.Reports
             ArrayList yArrayRain = new ArrayList();
             ArrayList yArrayIrrigation = new ArrayList();
             ArrayList yArrayETC = new ArrayList();
-            ArrayList xValue = new ArrayList();
+            ArrayList xDaysAfterSowing = new ArrayList();
 
             foreach (DailyRecord item in lDailyRecordList)
             {
@@ -127,7 +128,7 @@ namespace IrrigationAdvisor.Controllers.Reports
                 yArrayIrrigation.Add(lIrrigation);
                 yArrayRain.Add(lRain);
                 yArrayETC.Add(Math.Round(item.TotalEvapotranspirationCrop, 1));
-                xValue.Add(item.DaysAfterSowing);
+                xDaysAfterSowing.Add(item.DaysAfterSowing);
             }
 
             System.Web.UI.DataVisualization.Charting.Chart chart = new System.Web.UI.DataVisualization.Charting.Chart();
@@ -145,9 +146,9 @@ namespace IrrigationAdvisor.Controllers.Reports
             chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
             chart.AntiAliasing = AntiAliasingStyles.All;
             chart.TextAntiAliasingQuality = TextAntiAliasingQuality.Normal;
-            chart.Series.Add(CreateSeries(yArrayETC, xValue, "ETc acumulada", SeriesChartType.Line, Color.FromArgb(246, 134, 36), AxisType.Primary));
-            chart.Series.Add(CreateSeries(yArrayRain, xValue, "Lluvia", SeriesChartType.Column, Color.FromArgb(74, 164, 209), AxisType.Secondary));
-            chart.Series.Add(CreateSeries(yArrayIrrigation, xValue, "Riego", SeriesChartType.Column, Color.FromArgb(97, 209, 74), AxisType.Secondary));
+            chart.Series.Add(CreateSeries(yArrayETC, xDaysAfterSowing, "ETc acumulada", SeriesChartType.Line, Color.FromArgb(246, 134, 36), AxisType.Primary));
+            chart.Series.Add(CreateSeries(yArrayRain, xDaysAfterSowing, "Lluvia", SeriesChartType.Column, Color.FromArgb(74, 164, 209), AxisType.Secondary));
+            chart.Series.Add(CreateSeries(yArrayIrrigation, xDaysAfterSowing, "Riego", SeriesChartType.Column, Color.FromArgb(97, 209, 74), AxisType.Secondary));
             chart.ChartAreas.Add(CreateChartArea());
 
             chart.Legends.Add("d");
@@ -158,7 +159,6 @@ namespace IrrigationAdvisor.Controllers.Reports
             return File(ms.GetBuffer(), @"image/png");
 
         }
-
 
         private Series CreateSeries(ArrayList pYArray, ArrayList pXArray, string pTitle, SeriesChartType pChartType, Color pColor, AxisType pAxisType)
         {
@@ -213,18 +213,19 @@ namespace IrrigationAdvisor.Controllers.Reports
             chartArea.AxisX.Interval = 1;
             chartArea.AxisX.Title = "Días desde la siembra";
 
-            chartArea.AxisY.IsLabelAutoFit = true;
+
+            chartArea.AxisY.IsLabelAutoFit = false;
             chartArea.AxisY.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
             chartArea.AxisY.LineColor = Color.FromArgb(64, 64, 64, 64);
-            chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
+            chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(250, 250, 254);
             chartArea.AxisY.IsLabelAutoFit = true;
             chartArea.AxisY.Interval = 10;
             chartArea.AxisY.Title = "Evotranspiración acumulada (mm)";
 
-            chartArea.AxisY2.IsLabelAutoFit = true;
+            chartArea.AxisY2.IsLabelAutoFit = false;
             chartArea.AxisY2.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
-            chartArea.AxisY2.LineColor = Color.FromArgb(250, 250, 254);
-            chartArea.AxisY2.MajorGrid.LineColor = Color.FromArgb(250, 250, 254);
+            chartArea.AxisY2.LineColor = Color.FromArgb(64, 64, 64, 64);
+            chartArea.AxisY2.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
             chartArea.AxisY2.Title = "Distribución de lluvias y riegos (mm)";
             chartArea.AxisY2.Interval = 10;
             chartArea.AxisY2.Enabled = AxisEnabled.True;

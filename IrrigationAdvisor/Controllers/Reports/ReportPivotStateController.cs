@@ -218,20 +218,20 @@ namespace IrrigationAdvisor.Controllers.Reports
             chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
             chartArea.AxisX.Interval = 1;       
             chartArea.AxisX.Title = "Días desde la siembra";
-           
 
-            chartArea.AxisY.IsLabelAutoFit = true;
+
+            chartArea.AxisY.IsLabelAutoFit = false;
             chartArea.AxisY.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
             chartArea.AxisY.LineColor = Color.FromArgb(64, 64, 64, 64);
-            chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);    
+            chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(250, 250, 254);  
             chartArea.AxisY.IsLabelAutoFit = true;
             chartArea.AxisY.Interval = 10;
             chartArea.AxisY.Title = "Evotranspiración acumulada (mm)";
 
-            chartArea.AxisY2.IsLabelAutoFit = true; 
+            chartArea.AxisY2.IsLabelAutoFit = false; 
             chartArea.AxisY2.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
-            chartArea.AxisY2.LineColor = Color.FromArgb(250, 250, 254);
-            chartArea.AxisY2.MajorGrid.LineColor = Color.FromArgb(250, 250, 254); 
+            chartArea.AxisY2.LineColor = Color.FromArgb(64, 64, 64, 64);
+            chartArea.AxisY2.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64); 
             chartArea.AxisY2.Title = "Distribución de lluvias y riegos (mm)";
             chartArea.AxisY2.Interval = 10;
             chartArea.AxisY2.Enabled = AxisEnabled.True;
