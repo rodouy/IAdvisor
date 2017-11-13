@@ -22,6 +22,7 @@ using System.Drawing;
 using System.IO;
 
 
+using System.Text;  
 
 
 namespace IrrigationAdvisor.Controllers.Reports
@@ -240,25 +241,35 @@ namespace IrrigationAdvisor.Controllers.Reports
         }
         #endregion
 
-        public ActionResult CreateCVS()
+      /// <summary>
+      /// Allow export and download info abaout CIW
+      /// </summary>
+      /// <returns>stream to save file</returns>
+        public FileStreamResult CreateAndDownloadFileXLS() 
         {
-            ciwId = GetCropIrrigationWeatherIdFromURL();
-            CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
+            try
+            {
+                CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
 
-            String lDate = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+                string lDate = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+                string lOutPut = ciwc.GetOutputByCropIrrigationWeatherId(ciwId);
+                string lFileName = ciwc.GetNameByCropIrrigationWeatherId(ciwId);
 
-            String lOutPut = ciwc.GetOutputByCropIrrigationWeatherId(ciwId);
-            String lFileName = ciwc.GetNameByCropIrrigationWeatherId(ciwId);
+                lFileName = lFileName + "_" + ".csv";
 
-            ///TODO implements file chosser
-            //Application.StartupPath
-            //Environment.CurrentDirectory
+                var byteArray = Encoding.ASCII.GetBytes(lOutPut);
+                var stream = new MemoryStream(byteArray);
 
-            String lFilePath = "C:\\ExitCSV\\";
-            lFileName = lFileName + "_" + lDate + ".xls"; //".csv";
-            Utils.ExportOutPutToCSV(lOutPut, lFilePath, lFileName);
-            return RedirectToAction("Index");
+                return File(stream, "application/vnd.ms-excel", lFileName);
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in ReportPivotState.CreateAndDownloadFileXLS \n {0} ");
+                throw ex;
+            }
         }
+
+
 
         [ChildActionOnly]
         public PartialViewResult ReportPivotStateHeaderPartial()
