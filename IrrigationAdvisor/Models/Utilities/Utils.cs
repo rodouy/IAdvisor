@@ -1466,7 +1466,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherGMOElTacuruPivot2b_S1718 = NamePivotGMOElTacuru2b + " " + NameSpecieSoyaNorthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherGMOElTacuruPivot3a_S1718 = NamePivotGMOElTacuru3a + " " + NameSpecieCornNorthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherGMOElTacuruPivot3b_S1718 = NamePivotGMOElTacuru3b + " " + NameSpecieSoyaNorthShort + " " + NameSeason;
-        public static String NameCropIrrigationWeatherGMOElTacuruPivot4_S1718 = NamePivotGMOElTacuru4 + " " + NameSpecieCornNorthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot4_S1718 = NamePivotGMOElTacuru4 + " " + NameSpecieSoyaNorthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherGMOElTacuruPivot5_S1718 = NamePivotGMOElTacuru5 + " " + NameSpecieSoyaNorthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherGMOElTacuruPivot6_S1718 = NamePivotGMOElTacuru6 + " " + NameSpecieCornNorthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherGMOElTacuruPivot7_S1718 = NamePivotGMOElTacuru7 + " " + NameSpecieCornNorthShort + " " + NameSeason;
