@@ -33,70 +33,78 @@ namespace IrrigationAdvisor.Controllers.Reports
 
         public ActionResult Index()
         {
-
-            #region userdata
-            User lLoggedUser;
-            UserConfiguration uc;
-            LoginViewModel lLoginViewModel;
-            uc = new UserConfiguration();
-
-            LoginViewModel localLgM = ManageSession.GetLoginViewModel();
-
-            if (localLgM == null)
+            try
             {
-                return RedirectToAction("Index");
+                #region userdata
+                User lLoggedUser;
+                UserConfiguration uc;
+                LoginViewModel lLoginViewModel;
+                uc = new UserConfiguration();
+
+                LoginViewModel localLgM = ManageSession.GetLoginViewModel();
+
+                if (localLgM == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    lLoginViewModel = ManageSession.GetLoginViewModel();
+                }
+                lLoggedUser = uc.GetUserByName(lLoginViewModel.UserName);
+                vm.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
+                #endregion
+
+                DailyRecordConfiguration drc = new DailyRecordConfiguration();
+                CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
+                List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
+                double lHydricBalancePercentage = 0;
+                double lSumTotalEffectiveRain = 0;
+                double lSumTotalEffectiveInputWater = 0;
+                double lSumTotalEvapotranspirationCrop = 0;
+                string lCropIrrigationWeatherTitle = "";
+
+                ciwId = GetCropIrrigationWeatherIdFromURL();
+
+                lDailyRecordList = drc.GetDailyRecordsListDataUntilDateBy(ciwId, Utils.GetDateOfReference().Value);
+
+                #region get ciw
+                List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+                List<long> lListciw = new List<long>();
+                lListciw.Add(ciwId);
+
+                lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw);
+
+                foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+                {
+                    lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
+                }
+                #endregion
+
+                foreach (DailyRecord item in lDailyRecordList)
+                {
+                    if (item.Rain != null)
+                        lSumTotalEffectiveRain = lSumTotalEffectiveRain + item.Rain.Input + item.Rain.ExtraInput; ;
+
+                    if (item.Irrigation != null)
+                        lSumTotalEffectiveInputWater = lSumTotalEffectiveInputWater + item.Irrigation.Input + item.Irrigation.ExtraInput;
+
+                    lSumTotalEvapotranspirationCrop = item.TotalEvapotranspirationCrop;
+                    lCropIrrigationWeatherTitle = item.CropIrrigationWeather.ToString();
+                }
+                vm.TotalEffectiveRain = lSumTotalEffectiveRain;
+                vm.TotalEffectiveInputWater = lSumTotalEffectiveInputWater;
+                vm.TotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop;
+                vm.Title = lCropIrrigationWeatherTitle;
+                vm.HydricBalancePercentage = lHydricBalancePercentage;
+                return View("~/Views/ReportPivotState/ReportPivotStatePrintable.cshtml", vm);
             }
-            else
+            catch (Exception ex)
             {
-                lLoginViewModel = ManageSession.GetLoginViewModel();
+                Utils.LogError(ex, "Exception in ReportPivotStatePrintableController.Index \n {0} ");
+                return null;
+
             }
-            lLoggedUser = uc.GetUserByName(lLoginViewModel.UserName);
-            vm.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
-            #endregion
-
-            DailyRecordConfiguration drc = new DailyRecordConfiguration();
-            CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
-            List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
-            double lHydricBalancePercentage = 0;
-            double lSumTotalEffectiveRain = 0;
-            double lSumTotalEffectiveInputWater = 0;
-            double lSumTotalEvapotranspirationCrop = 0;
-            string lCropIrrigationWeatherTitle = "";
-
-            ciwId = GetCropIrrigationWeatherIdFromURL();
-
-            lDailyRecordList = drc.GetDailyRecordsListDataUntilDateBy(ciwId, Utils.GetDateOfReference().Value);
-
-            #region get ciw
-            List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
-            List<long> lListciw = new List<long>();
-            lListciw.Add(ciwId);
-
-            lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw);
-
-            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
-            {
-                lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
-            }
-            #endregion
-
-            foreach (DailyRecord item in lDailyRecordList)
-            {
-                if (item.Rain != null)
-                    lSumTotalEffectiveRain = lSumTotalEffectiveRain + item.Rain.Input + item.Rain.ExtraInput; ;
-
-                if (item.Irrigation != null)
-                    lSumTotalEffectiveInputWater = lSumTotalEffectiveInputWater + item.Irrigation.Input + item.Irrigation.ExtraInput;
-
-                lSumTotalEvapotranspirationCrop = item.TotalEvapotranspirationCrop;
-                lCropIrrigationWeatherTitle = item.CropIrrigationWeather.ToString();
-            }
-            vm.TotalEffectiveRain = lSumTotalEffectiveRain;
-            vm.TotalEffectiveInputWater = lSumTotalEffectiveInputWater;
-            vm.TotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop;
-            vm.Title = lCropIrrigationWeatherTitle;
-            vm.HydricBalancePercentage = lHydricBalancePercentage;
-            return View("~/Views/ReportPivotState/ReportPivotStatePrintable.cshtml", vm);
         }
 
         #region manage chart
@@ -111,52 +119,61 @@ namespace IrrigationAdvisor.Controllers.Reports
 
             lDailyRecordList = drc.GetDailyRecordsListDataUntilDateBy(ciwId, Utils.GetDateOfReference().Value);
 
-            ArrayList yArrayRain = new ArrayList();
-            ArrayList yArrayIrrigation = new ArrayList();
-            ArrayList yArrayETC = new ArrayList();
-            ArrayList xDaysAfterSowing = new ArrayList();
-
-            foreach (DailyRecord item in lDailyRecordList)
+            try
             {
-                lRain = 0;
-                lIrrigation = 0;
-                if (item.Rain != null)
-                    lRain = item.Rain.Input + item.Rain.ExtraInput;
-                if (item.Irrigation != null)
-                    lIrrigation = item.Irrigation.ExtraInput + item.Irrigation.Input;
+                ArrayList yArrayRain = new ArrayList();
+                ArrayList yArrayIrrigation = new ArrayList();
+                ArrayList yArrayETC = new ArrayList();
+                ArrayList xDaysAfterSowing = new ArrayList();
 
-                yArrayIrrigation.Add(lIrrigation);
-                yArrayRain.Add(lRain);
-                yArrayETC.Add(Math.Round(item.TotalEvapotranspirationCrop, 1));
-                xDaysAfterSowing.Add(item.DaysAfterSowing);
+                foreach (DailyRecord item in lDailyRecordList)
+                {
+                    lRain = 0;
+                    lIrrigation = 0;
+                    if (item.Rain != null)
+                        lRain = item.Rain.Input + item.Rain.ExtraInput;
+                    if (item.Irrigation != null)
+                        lIrrigation = item.Irrigation.ExtraInput + item.Irrigation.Input;
+
+                    yArrayIrrigation.Add(lIrrigation);
+                    yArrayRain.Add(lRain);
+                    yArrayETC.Add(Math.Round(item.TotalEvapotranspirationCrop, 1));
+                    xDaysAfterSowing.Add(item.DaysAfterSowing);
+                }
+
+                System.Web.UI.DataVisualization.Charting.Chart chart = new System.Web.UI.DataVisualization.Charting.Chart();
+                chart.Width = 1000;
+                chart.Height = 450;
+                chart.Titles.Add("Evolución de la ETc acumulada y distribucion de las lluvias y riegos, expresadas en mm de lámina bruta");
+                chart.BackColor = Color.FromArgb(210, 240, 204);
+                chart.BorderlineDashStyle = ChartDashStyle.Solid;
+                chart.BackSecondaryColor = Color.White;
+                chart.BackGradientStyle = GradientStyle.TopBottom;
+                chart.BorderlineWidth = 1;
+                chart.Palette = ChartColorPalette.BrightPastel;
+                chart.BorderlineColor = Color.FromArgb(26, 59, 105);
+                chart.RenderType = RenderType.BinaryStreaming;
+                chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
+                chart.AntiAliasing = AntiAliasingStyles.All;
+                chart.TextAntiAliasingQuality = TextAntiAliasingQuality.Normal;
+                chart.Series.Add(CreateSeries(yArrayETC, xDaysAfterSowing, "ETc acumulada", SeriesChartType.Line, Color.FromArgb(246, 134, 36), AxisType.Primary));
+                chart.Series.Add(CreateSeries(yArrayRain, xDaysAfterSowing, "Lluvia", SeriesChartType.Column, Color.FromArgb(74, 164, 209), AxisType.Secondary));
+                chart.Series.Add(CreateSeries(yArrayIrrigation, xDaysAfterSowing, "Riego", SeriesChartType.Column, Color.FromArgb(97, 209, 74), AxisType.Secondary));
+                chart.ChartAreas.Add(CreateChartArea());
+
+                chart.Legends.Add("d");
+                chart.Legends["d"].Docking = Docking.Bottom;
+
+                MemoryStream ms = new MemoryStream();
+                chart.SaveImage(ms);
+                return File(ms.GetBuffer(), @"image/png");
             }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in ReportPivotStatePrintableController.GetChart \n {0} ");
+                return null;
 
-            System.Web.UI.DataVisualization.Charting.Chart chart = new System.Web.UI.DataVisualization.Charting.Chart();
-            chart.Width = 1000;
-            chart.Height = 450;
-            chart.Titles.Add("Evolución de la ETc acumulada y distribucion de las lluvias y riegos, expresadas en mm de lámina bruta");
-            chart.BackColor = Color.FromArgb(210, 240, 204);
-            chart.BorderlineDashStyle = ChartDashStyle.Solid;
-            chart.BackSecondaryColor = Color.White;
-            chart.BackGradientStyle = GradientStyle.TopBottom;
-            chart.BorderlineWidth = 1;
-            chart.Palette = ChartColorPalette.BrightPastel;
-            chart.BorderlineColor = Color.FromArgb(26, 59, 105);
-            chart.RenderType = RenderType.BinaryStreaming;
-            chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
-            chart.AntiAliasing = AntiAliasingStyles.All;
-            chart.TextAntiAliasingQuality = TextAntiAliasingQuality.Normal;
-            chart.Series.Add(CreateSeries(yArrayETC, xDaysAfterSowing, "ETc acumulada", SeriesChartType.Line, Color.FromArgb(246, 134, 36), AxisType.Primary));
-            chart.Series.Add(CreateSeries(yArrayRain, xDaysAfterSowing, "Lluvia", SeriesChartType.Column, Color.FromArgb(74, 164, 209), AxisType.Secondary));
-            chart.Series.Add(CreateSeries(yArrayIrrigation, xDaysAfterSowing, "Riego", SeriesChartType.Column, Color.FromArgb(97, 209, 74), AxisType.Secondary));
-            chart.ChartAreas.Add(CreateChartArea());
-
-            chart.Legends.Add("d");
-            chart.Legends["d"].Docking = Docking.Bottom;
-
-            MemoryStream ms = new MemoryStream();
-            chart.SaveImage(ms);
-            return File(ms.GetBuffer(), @"image/png");
+            }
 
         }
 
@@ -197,6 +214,7 @@ namespace IrrigationAdvisor.Controllers.Reports
                     }
                 }
             }
+            seriesDetail.YAxisType = pAxisType;
             return seriesDetail;
         }
 
@@ -206,7 +224,7 @@ namespace IrrigationAdvisor.Controllers.Reports
             ChartArea chartArea = new ChartArea();
             chartArea.Name = "ResultChart";
             chartArea.BackColor = Color.Transparent;
-            chartArea.AxisX.IsLabelAutoFit = true;
+            chartArea.AxisX.IsLabelAutoFit = false;
             chartArea.AxisX.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
             chartArea.AxisX.LineColor = Color.FromArgb(64, 64, 64, 64);
             chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
@@ -214,15 +232,14 @@ namespace IrrigationAdvisor.Controllers.Reports
             chartArea.AxisX.Title = "Días desde la siembra";
 
 
-            chartArea.AxisY.IsLabelAutoFit = false;
+            chartArea.AxisY.IsLabelAutoFit = true;
             chartArea.AxisY.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
             chartArea.AxisY.LineColor = Color.FromArgb(64, 64, 64, 64);
             chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(250, 250, 254);
-            chartArea.AxisY.IsLabelAutoFit = true;
             chartArea.AxisY.Interval = 10;
             chartArea.AxisY.Title = "Evotranspiración acumulada (mm)";
 
-            chartArea.AxisY2.IsLabelAutoFit = false;
+            chartArea.AxisY2.IsLabelAutoFit = true;
             chartArea.AxisY2.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
             chartArea.AxisY2.LineColor = Color.FromArgb(64, 64, 64, 64);
             chartArea.AxisY2.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
@@ -275,8 +292,8 @@ namespace IrrigationAdvisor.Controllers.Reports
             }
             catch (Exception ex)
             {
-                Utils.LogError(ex, "Exception in Reports.GetGridDailyRecordIrrigationResumeTitles");
-                throw ex;
+                Utils.LogError(ex, "Exception in ReportPivotStatePrintableController.GetGridDailyRecordIrrigationResumeTitles");
+                return null;
             }
 
             return lGridDailyRecordIrrigationResumeList;
@@ -345,8 +362,8 @@ namespace IrrigationAdvisor.Controllers.Reports
 
             catch (Exception ex)
             {
-                Utils.LogError(ex, "Exception in ReportPivotState.GetGridDailyRecordIrrigationResume \n {0} ");
-                throw ex;
+                Utils.LogError(ex, "Exception in ReportPivotStatePrintableController.GetGridDailyRecordIrrigationResume \n {0} ");
+                return null;
             }
 
             return lGridDailyRecordIrrigationResumeList;
@@ -355,23 +372,32 @@ namespace IrrigationAdvisor.Controllers.Reports
 
         private long GetCropIrrigationWeatherIdFromURL()
         {
-            long retorno = 0;
-
-
-            string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
-            Uri lMyUri = new Uri(lURL);
-            string lcurrentCiwViaUrl = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("ciw");
-
-            if (!String.IsNullOrEmpty(lcurrentCiwViaUrl))
+            try
             {
-                ciwId = Convert.ToInt32(lcurrentCiwViaUrl);
-                retorno = ciwId;
-            }
-            else
+                long retorno = 0;
+
+
+                string lURL = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+                Uri lMyUri = new Uri(lURL);
+                string lcurrentCiwViaUrl = System.Web.HttpUtility.ParseQueryString(lMyUri.Query).Get("ciw");
+
+                if (!String.IsNullOrEmpty(lcurrentCiwViaUrl))
+                {
+                    ciwId = Convert.ToInt32(lcurrentCiwViaUrl);
+                    retorno = ciwId;
+                }
+                else
+                {
+                    retorno = ciwId;
+                }
+                return ciwId;
+                }
+            
+             catch (Exception ex)
             {
-                retorno = ciwId;
+                Utils.LogError(ex, "Exception in ReportPivotStatePrintableController.GetGridDailyRecordIrrigationResume \n {0} ");
+                return 0;
             }
-            return ciwId;
         }
 
     }
