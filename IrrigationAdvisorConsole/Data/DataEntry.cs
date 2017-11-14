@@ -647,29 +647,29 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationAlternativeName_GMOElTacuru_2017 = Utils.NameWeatherStationElRetiro;
 
         public static DateTime SowingDate_AlfalfaNorth_GMOElTacuruPivot1a_2017 = new DateTime(2016, 06, 23);
-        public static DateTime HarvestDate_AlfalfaNorth_GMOElTacuruPivot1a_2017 = new DateTime(2019, 07, 30);
+        public static DateTime HarvestDate_AlfalfaNorth_GMOElTacuruPivot1a_2017 = new DateTime(2019, 08, 01);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot1a_2017 = 10;
-        //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot1b_2017 = new DateTime(2017, 10, 29);
-        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot1b_2017 = new DateTime(2017, 03, 10);
-        //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot1b_2017 = 12;
+        public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot1b_2017 = new DateTime(2017, 10, 28);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot1b_2017 = new DateTime(2018, 04, 15);
+        public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot1b_2017 = 10;
         public static DateTime SowingDate_CornNorth_GMOElTacuruPivot2a_2017 = new DateTime(2017, 09, 26);
         public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot2a_2017 = new DateTime(2018, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot2a_2017 = 10;
-        //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot2b_2017 = new DateTime(2017, 11, 07);
-        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot2b_2017 = new DateTime(2018, 03, 20);
-        //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot2b_2017 = 12;
+        public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot2b_2017 = new DateTime(2017, 10, 24);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot2b_2017 = new DateTime(2018, 04, 15);
+        public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot2b_2017 = 10;
         public static DateTime SowingDate_CornNorth_GMOElTacuruPivot3a_2017 = new DateTime(2017, 10, 06);
-        public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot3a_2017 = new DateTime(2018, 02, 25);
+        public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot3a_2017 = new DateTime(2018, 03, 10);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3a_2017 = 10;
         //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot3b_2017 = new DateTime(2017, 11, 11);
         //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot3b_2017 = new DateTime(2018, 03, 30);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3b_2017 = 12;
-        //public static DateTime SowingDate_CornNorth_GMOElTacuruPivot4_2017 = new DateTime(2017, 09, 17);
-        //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot4_2017 = new DateTime(2018, 01, 18);
-        //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot4_2017 = 12;
-        //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot5_2017 = new DateTime(2017, 10, 28);
-        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot5_2017 = new DateTime(2018, 03, 10);
-        //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot5_2017 = 10;
+        public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot4_2017 = new DateTime(2017, 10, 30);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot4_2017 = new DateTime(2018, 04, 10);
+        public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot4_2017 = 10;
+        public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot5_2017 = new DateTime(2017, 10, 26);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot5_2017 = new DateTime(2018, 04, 10);
+        public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot5_2017 = 10;
         //public static DateTime SowingDate_CornNorth_GMOElTacuruPivot6_2017 = new DateTime(2017, 10, 15);
         //public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot6_2017 = new DateTime(2018, 02, 20);
         //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot6_2017 = 10;
@@ -727,11 +727,11 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationAlternativeName_ElRincon_2017 = Utils.NameWeatherStationViveroSanFrancisco;
 
         public static DateTime SowingDate_CornSouth_ElRinconPivot1a_2017 = new DateTime(2017, 10, 07);
-        public static DateTime HarvestDate_CornSouth_ElRinconPivot1a_2017 = new DateTime(2018, 02, 28);
+        public static DateTime HarvestDate_CornSouth_ElRinconPivot1a_2017 = new DateTime(2018, 03, 10);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1a_2017 = 10;
-        //public static DateTime SowingDate_SoyaSouth_ElRinconPivot1b_2017 = new DateTime(2017, 12, 10);
-        //public static DateTime HarvestDate_SoyaSouth_ElRinconPivot1b_2017 = new DateTime(2017, 04, 01);
-        //public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1b_2017 = 10;
+        public static DateTime SowingDate_SoyaSouth_ElRinconPivot1b_2017 = new DateTime(2017, 11, 07);
+        public static DateTime HarvestDate_SoyaSouth_ElRinconPivot1b_2017 = new DateTime(2018, 04, 10);
+        public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1b_2017 = 10;
 
         #endregion
         #region ED - El Desafio
@@ -23842,11 +23842,11 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieCornNorthShort
+                       where sp.Name == Utils.NameSpecieSoyaNorthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
-                       where st.Name.Contains(Utils.NameStagesCorn)
+                       where st.Name.Contains(Utils.NameStagesSoya)
                        select st).ToList<Stage>();
             lPhenologicalStages = (from ps in context.PhenologicalStages
                                    where ps.SpecieId == lSpecie.SpecieId
@@ -23855,7 +23855,7 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmGMOElTacuru
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornNorthShort
+                     where crop.Name == Utils.NameSpecieSoyaNorthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
@@ -23881,7 +23881,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieCornNorthShort
+                                      where cid.Name == Utils.NameSpecieSoyaNorthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -23908,10 +23908,10 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieCornNorthShort
+                                where cc.Name == Utils.NameSpecieSoyaNorthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieCornNorthShort
+                       where cc.Name == Utils.NameSpecieSoyaNorthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilGMOElTacuru4

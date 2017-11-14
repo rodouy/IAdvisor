@@ -488,6 +488,7 @@
     <Content Include="DataQueries\All CropInformationByDates - Query.sql" />
     <Content Include="DataQueries\All CropIrrigationWeathers - Query.sql" />
     <Content Include="DataQueries\All Crops - Query.sql" />
+    <Content Include="DataQueries\All DailyRecords - Query for Report.sql" />
     <Content Include="DataQueries\All Farms - Query.sql" />
     <Content Include="DataQueries\All Horizons - Query.sql" />
     <Content Include="DataQueries\All IrrigationUnits - Query.sql" />
@@ -499,6 +500,9 @@
     <Content Include="DataQueries\All SpecieCycle - Query.sql" />
     <Content Include="DataQueries\All Stages- Query.sql" />
     <Content Include="DataQueries\All Users - Query.sql" />
+    <Content Include="DataQueries\All WaterInputs - Query.sql" />
+    <Content Include="DataQueries\All WaterOututs - Query.sql" />
+    <Content Include="DataQueries\All WeatherData - Query by WeatherStation.sql" />
     <Content Include="DataQueries\All WeatherData - Query.sql" />
     <Content Include="DataQueries\All WeatherStations - Query.sql" />
     <Content Include="DataQueries\CIW-DR Queries Test.sql" />

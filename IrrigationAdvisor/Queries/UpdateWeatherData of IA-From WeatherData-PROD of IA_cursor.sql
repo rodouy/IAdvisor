@@ -56,7 +56,7 @@ DECLARE UpdateWeatherData_cursor CURSOR FOR
       ,WD.[WeatherDataType]
       ,WD.[Observations]
   FROM [IrrigationAdvisor].[dbo].[WeatherData-PROD] AS WD
-  WHERE wd.Date >= '2016-09-01'
+  WHERE wd.Date >= '2017-09-01'
   ORDER BY WD.Date
     --WHERE EXISTS
 				--  (SELECT wd2.WeatherDataId, wd2.[Date]
