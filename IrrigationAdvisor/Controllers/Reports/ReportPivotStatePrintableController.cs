@@ -224,7 +224,7 @@ namespace IrrigationAdvisor.Controllers.Reports
             ChartArea chartArea = new ChartArea();
             chartArea.Name = "ResultChart";
             chartArea.BackColor = Color.Transparent;
-            chartArea.AxisX.IsLabelAutoFit = false;
+            chartArea.AxisX.IsLabelAutoFit = true;
             chartArea.AxisX.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
             chartArea.AxisX.LineColor = Color.FromArgb(64, 64, 64, 64);
             chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
