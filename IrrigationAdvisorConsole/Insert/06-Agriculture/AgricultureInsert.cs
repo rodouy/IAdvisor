@@ -7205,6 +7205,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
         public static void InsertSoils()
         {
+            Farm lFarm = null;
             Position lPosition = null;
             Horizon lHorizon1 = null;
             Horizon lHorizon2 = null;
@@ -7215,10 +7216,12 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             var lBase = new Soil
             {
                 Name = Utils.NameBase,
+                ShortName = Utils.NameBase,
                 Description = "",
                 PositionId = 0,
                 TestDate = Utils.MIN_DATETIME,
                 DepthLimit = 0,
+                FarmId = 0,
             };
             #endregion
 
@@ -7228,6 +7231,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDemo1
+                             select far).FirstOrDefault();
 
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
@@ -7249,6 +7256,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 6),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo11,
+                        FarmId = lFarm.FarmId, 
                         HorizonList = new List<Horizon>(),
                     };
                     lDemoPivot1.HorizonList.Add(lHorizon1);
@@ -7276,6 +7285,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 6),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo12,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemoPivot2.HorizonList.Add(lHorizon1);
@@ -7303,6 +7314,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 7),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo13,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemoPivot3.HorizonList.Add(lHorizon1);
@@ -7330,6 +7343,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 8),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo15,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemoPivot5.HorizonList.Add(lHorizon1);
@@ -7351,6 +7366,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDemo2
+                             select far).FirstOrDefault();
 
                     #region Pivot 21
                     lPosition = (from pos in context.Positions
@@ -7372,6 +7390,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 6),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo21,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo2Pivot21.HorizonList.Add(lHorizon1);
@@ -7399,6 +7419,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 6),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo22,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo2Pivot22.HorizonList.Add(lHorizon1);
@@ -7423,6 +7445,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 7),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo23,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo2Pivot23.HorizonList.Add(lHorizon1);
@@ -7446,6 +7470,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 8),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo24,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo2Pivot24.HorizonList.Add(lHorizon1);
@@ -7472,6 +7498,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 8),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo25,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo2Pivot25.HorizonList.Add(lHorizon1);
@@ -7495,6 +7523,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 using (var context = new IrrigationAdvisorContext())
                 {
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDemo3
+                             select far).FirstOrDefault();
+                    
                     #region Pivot 31
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDemo31
@@ -7512,6 +7544,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 6),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo31,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo3Pivot31.HorizonList.Add(lHorizon1);
@@ -7535,6 +7569,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 6),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo32A,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo3Pivot32A.HorizonList.Add(lHorizon1);
@@ -7558,6 +7594,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 7),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo33,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo3Pivot33.HorizonList.Add(lHorizon1);
@@ -7581,6 +7619,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 8),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo34,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo3Pivot34.HorizonList.Add(lHorizon1);
@@ -7604,6 +7644,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 8),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDemo35,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDemo3Pivot35.HorizonList.Add(lHorizon1);
@@ -7626,6 +7668,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmSantaLucia
+                             select far).FirstOrDefault();
+
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotSantaLucia1
@@ -7646,6 +7692,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = Utils.MIN_DATETIME,
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotSantaLucia1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lSantaLuciaPivot1.HorizonList.Add(lHorizon1);
@@ -7673,6 +7721,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = Utils.MIN_DATETIME,
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotSantaLucia2,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lSantaLuciaPivot2.HorizonList.Add(lHorizon1);
@@ -7697,6 +7747,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = Utils.MIN_DATETIME,
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotSantaLucia3,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lSantaLuciaPivot3.HorizonList.Add(lHorizon1);
@@ -7720,6 +7772,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = Utils.MIN_DATETIME,
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotSantaLucia4,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lSantaLuciaPivot4.HorizonList.Add(lHorizon1);
@@ -7746,6 +7800,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = Utils.MIN_DATETIME,
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotSantaLucia5,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lSantaLuciaPivot5.HorizonList.Add(lHorizon1);
@@ -7775,6 +7831,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 using (var context = new IrrigationAdvisorContext())
                 {
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDCAElParaiso
+                             select far).FirstOrDefault();
+
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCAElParaiso1
@@ -7795,6 +7855,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCAElParaiso1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCAElParaisoPivot1.HorizonList.Add(lHorizon1);
@@ -7821,6 +7883,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCAElParaiso2,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCAElParaisoPivot2.HorizonList.Add(lHorizon1);
@@ -7847,6 +7911,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCAElParaiso3,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCAElParaisoPivot3.HorizonList.Add(lHorizon1);
@@ -7873,6 +7939,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCAElParaiso4,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCAElParaisoPivot4.HorizonList.Add(lHorizon1);
@@ -7896,6 +7964,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 30,
+                        ShortName = Utils.NamePivotDCAElParaiso5,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCAElParaisoPivot5.HorizonList.Add(lHorizon1);
@@ -7921,6 +7991,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCAElParaiso6,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCAElParaisoPivot6.HorizonList.Add(lHorizon1);
@@ -7948,6 +8020,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
                         HorizonList = new List<Horizon>(),
+                        ShortName = Utils.NamePivotDCAElParaiso7,
+                        FarmId = lFarm.FarmId,
                     };
                     lDCAElParaisoPivot7.HorizonList.Add(lHorizon1);
                     lDCAElParaisoPivot7.HorizonList.Add(lHorizon2);
@@ -7975,6 +8049,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                      lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDCASanJose
+                             select far).FirstOrDefault();
 
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
@@ -7996,6 +8073,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 55,
+                        ShortName = Utils.NamePivotDCASanJose1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCASanJosePivot1.HorizonList.Add(lHorizon1);
@@ -8022,6 +8101,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 55,
+                        ShortName = Utils.NamePivotDCASanJose2,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCASanJosePivot2.HorizonList.Add(lHorizon1);
@@ -8048,6 +8129,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 55,
+                        ShortName = Utils.NamePivotDCASanJose3,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCASanJosePivot3.HorizonList.Add(lHorizon1);
@@ -8074,6 +8157,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 55,
+                        ShortName = Utils.NamePivotDCASanJose4,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCASanJosePivot4.HorizonList.Add(lHorizon1);
@@ -8100,6 +8185,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 using (var context = new IrrigationAdvisorContext())
                 {
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDCALaPerdiz
+                             select far).FirstOrDefault();
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDCALaPerdiz1
@@ -8120,6 +8208,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDCALaPerdiz1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot1.HorizonList.Add(lHorizon1);
@@ -8146,6 +8236,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDCALaPerdiz2,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot2.HorizonList.Add(lHorizon1);
@@ -8172,6 +8264,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDCALaPerdiz3,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot3.HorizonList.Add(lHorizon1);
@@ -8198,6 +8292,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDCALaPerdiz4,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot4.HorizonList.Add(lHorizon1);
@@ -8224,6 +8320,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDCALaPerdiz5,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot5.HorizonList.Add(lHorizon1);
@@ -8250,6 +8348,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDCALaPerdiz6,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot6.HorizonList.Add(lHorizon1);
@@ -8273,6 +8373,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCALaPerdiz7,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot7.HorizonList.Add(lHorizon1);
@@ -8295,6 +8397,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCALaPerdiz8,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot8.HorizonList.Add(lHorizon1);
@@ -8317,6 +8421,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCALaPerdiz9,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot9.HorizonList.Add(lHorizon1);
@@ -8342,6 +8448,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDCALaPerdiz10a,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot10a.HorizonList.Add(lHorizon1);
@@ -8366,6 +8474,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
                         HorizonList = new List<Horizon>(),
+                        ShortName = Utils.NamePivotDCALaPerdiz10b,
+                        FarmId = lFarm.FarmId,
                     };
                     lDCALaPerdizPivot10b.HorizonList.Add(lHorizon1);
                     lDCALaPerdizPivot10b.HorizonList.Add(lHorizon2);
@@ -8387,6 +8497,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCALaPerdiz11,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot11.HorizonList.Add(lHorizon1);
@@ -8409,6 +8521,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCALaPerdiz12,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot12.HorizonList.Add(lHorizon1);
@@ -8431,6 +8545,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCALaPerdiz13,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot13.HorizonList.Add(lHorizon1);
@@ -8453,6 +8569,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotDCALaPerdiz14,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot14.HorizonList.Add(lHorizon1);
@@ -8478,6 +8596,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDCALaPerdiz15,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDCALaPerdizPivot15.HorizonList.Add(lHorizon1);
@@ -8515,6 +8635,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDelLagoSanPedro
+                             select far).FirstOrDefault();
 
                     #region Pivot 5
                     lPosition = (from pos in context.Positions
@@ -8533,6 +8656,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 6),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro5,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoSanPedroPivot5.HorizonList.Add(lHorizon1);
@@ -8556,6 +8681,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 6),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro6,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoSanPedroPivot6.HorizonList.Add(lHorizon1);
@@ -8579,6 +8706,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 7),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro7,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoSanPedroPivot7.HorizonList.Add(lHorizon1);
@@ -8602,6 +8731,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2015, 11, 8),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro8,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoSanPedroPivot8.HorizonList.Add(lHorizon1);
@@ -8627,6 +8758,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDelLagoElMirador
+                             select far).FirstOrDefault();
 
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
@@ -8651,6 +8785,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot1.HorizonList.Add(lHorizon1);
@@ -8681,6 +8817,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador2,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot2.HorizonList.Add(lHorizon1);
@@ -8711,6 +8849,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador3,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot3.HorizonList.Add(lHorizon1);
@@ -8741,6 +8881,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador4,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot4.HorizonList.Add(lHorizon1);
@@ -8771,6 +8913,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador5,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot5.HorizonList.Add(lHorizon1);
@@ -8801,6 +8945,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador6,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot6.HorizonList.Add(lHorizon1);
@@ -8831,6 +8977,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador7,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot7.HorizonList.Add(lHorizon1);
@@ -8861,6 +9009,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador8,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot8.HorizonList.Add(lHorizon1);
@@ -8891,6 +9041,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador9,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot9.HorizonList.Add(lHorizon1);
@@ -8921,6 +9073,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador10,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot10.HorizonList.Add(lHorizon1);
@@ -8951,6 +9105,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador11,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot11.HorizonList.Add(lHorizon1);
@@ -8981,6 +9137,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador12,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot12.HorizonList.Add(lHorizon1);
@@ -9011,6 +9169,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador13,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot13.HorizonList.Add(lHorizon1);
@@ -9041,6 +9201,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador14,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot14.HorizonList.Add(lHorizon1);
@@ -9071,6 +9233,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador15,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot15.HorizonList.Add(lHorizon1);
@@ -9101,6 +9265,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMiradorChaja1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivotChaja1.HorizonList.Add(lHorizon1);
@@ -9131,6 +9297,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMiradorChaja2,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivotChaja2.HorizonList.Add(lHorizon1);
@@ -9162,6 +9330,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador1b,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot1b.HorizonList.Add(lHorizon1);
@@ -9192,6 +9362,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador2b,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot2b.HorizonList.Add(lHorizon1);
@@ -9222,6 +9394,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador3b,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot3b.HorizonList.Add(lHorizon1);
@@ -9252,6 +9426,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 23),
                         DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoElMirador4b,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lDelLagoElMiradorPivot4b.HorizonList.Add(lHorizon1);
@@ -9297,7 +9473,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmDCAElParaiso
+                             select far).FirstOrDefault();
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotGMOLaPalma1
@@ -9322,6 +9500,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOLaPalma1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot1.HorizonList.Add(lHorizon1);
@@ -9353,6 +9533,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOLaPalma2,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot2.HorizonList.Add(lHorizon1);
@@ -9381,6 +9563,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOLaPalma3,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot3.HorizonList.Add(lHorizon1);
@@ -9411,6 +9595,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOLaPalma4,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot4.HorizonList.Add(lHorizon1);
@@ -9439,6 +9625,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOLaPalma5,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot5.HorizonList.Add(lHorizon1);
@@ -9469,6 +9657,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOLaPalma1_1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot1_1.HorizonList.Add(lHorizon1);
@@ -9500,6 +9690,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOLaPalma2_1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot2_1.HorizonList.Add(lHorizon1);
@@ -9528,6 +9720,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOLaPalma3_1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot3_1.HorizonList.Add(lHorizon1);
@@ -9555,6 +9749,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 28),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOLaPalma4_1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOLaPalmaPivot4_1.HorizonList.Add(lHorizon1);
@@ -9585,6 +9781,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmGMOElTacuru
+                             select far).FirstOrDefault();
 
                     #region Pivot 1a
                     lPosition = (from pos in context.Positions
@@ -9607,6 +9806,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru1a,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot1a.HorizonList.Add(lHorizon1);
@@ -9634,6 +9835,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru1b,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot1b.HorizonList.Add(lHorizon1);
@@ -9661,6 +9864,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru2a,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot2a.HorizonList.Add(lHorizon1);
@@ -9688,6 +9893,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru2b,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot2b.HorizonList.Add(lHorizon1);
@@ -9715,6 +9922,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru3a,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot3a.HorizonList.Add(lHorizon1);
@@ -9742,6 +9951,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru3b,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot3b.HorizonList.Add(lHorizon1);
@@ -9769,6 +9980,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru4,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot4.HorizonList.Add(lHorizon1);
@@ -9796,6 +10009,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru5,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot5.HorizonList.Add(lHorizon1);
@@ -9823,6 +10038,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru6,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot6.HorizonList.Add(lHorizon1);
@@ -9850,6 +10067,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(7016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru7,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot7.HorizonList.Add(lHorizon1);
@@ -9877,6 +10096,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru8,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot8.HorizonList.Add(lHorizon1);
@@ -9904,6 +10125,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru9,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot9.HorizonList.Add(lHorizon1);
@@ -9931,6 +10154,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 09, 30),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotGMOElTacuru10,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lGMOElTacuruPivot10.HorizonList.Add(lHorizon1);
@@ -9965,6 +10190,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmTresMarias
+                             select far).FirstOrDefault();
 
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
@@ -9986,6 +10214,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 12, 19),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotTresMarias1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lTresMariasPivot1.HorizonList.Add(lHorizon1);
@@ -10012,6 +10242,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 12, 19),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotTresMarias2,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lTresMariasPivot2.HorizonList.Add(lHorizon1);
@@ -10038,6 +10270,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 12, 19),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotTresMarias3,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lTresMariasPivot3.HorizonList.Add(lHorizon1);
@@ -10064,6 +10298,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 12, 19),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotTresMarias4,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lTresMariasPivot4.HorizonList.Add(lHorizon1);
@@ -10088,6 +10324,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmLaRinconada
+                             select far).FirstOrDefault();
 
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
@@ -10110,6 +10349,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 11, 10),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotLaRinconada1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lLaRinconadaPivot1.HorizonList.Add(lHorizon1);
@@ -10137,6 +10378,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 11, 10),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotLaRinconada2,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lLaRinconadaPivot2.HorizonList.Add(lHorizon1);
@@ -10164,6 +10407,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 11, 10),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotLaRinconada3_1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lLaRinconadaPivot3_1.HorizonList.Add(lHorizon1);
@@ -10194,6 +10439,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2016, 11, 10),
                         DepthLimit = 40,
+                        ShortName = Utils.NamePivotLaRinconada13_1,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lLaRinconadaPivot13_1.HorizonList.Add(lHorizon1);
@@ -10218,6 +10465,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmLaRinconada
+                             select far).FirstOrDefault();
 
                     #region Pivot 1a
                     lPosition = (from pos in context.Positions
@@ -10240,6 +10490,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2017, 10, 09),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotElRincon1a,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lElRinconPivot1a.HorizonList.Add(lHorizon1);
@@ -10267,6 +10519,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2017, 10, 09),
                         DepthLimit = 60,
+                        ShortName = Utils.NamePivotElRincon1b,
+                        FarmId = lFarm.FarmId,
                         HorizonList = new List<Horizon>(),
                     };
                     lElRinconPivot1b.HorizonList.Add(lHorizon1);

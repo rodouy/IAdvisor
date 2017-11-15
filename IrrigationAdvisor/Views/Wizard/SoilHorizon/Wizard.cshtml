@@ -1,4 +1,4 @@
-﻿@model IrrigationAdvisor.ViewModels.Wizard.WizardFarmViewModel
+﻿@model IrrigationAdvisor.ViewModels.Wizard.WizardSoilHorizonViewModel
 
 <link href="~/css/wizard.css" rel="stylesheet" />
 
@@ -237,20 +237,8 @@
 
                     var form = that.$element.closest('form');
 
-
                     if (form.length) form.submit();
 
-                    //if (typeof that.options.onCompleted == 'function') {
-                    //    alert("1")
-                    //    that.options.onCompleted(that);
-                    //} else if (that.options.autoSubmit) {
-                    //    // search if wizard is inside a form and submit it.
-                    //    alert("2")
-                    //    var form = that.$element.closest('form');
-                    //    if (form.length) form.submit();
-                    //}
-                    //else
-                    //alert("3")
                 }
             },
 
@@ -376,36 +364,46 @@
             return result;
         }
 
-        function nameValidation() {
-            if ($("#Name").val().trim() === "") {
-                $("#NameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
+        function farmIdValidation() {
+            if ($("#FarmId").val() === "") {
+                $("#FarmIdMessage").html("<span class=text-danger>Seleccione el establecimiento</span>");
                 return false;
             }
             else {
-                $("#NameMessage").html("<span class=text-danger></span>");
+                $("#FarmIdMessage").html("<span class=text-danger></span>");
                 return true;
             }
         }
 
-        function companyValidation() {
-
-            if ($("#Company").val().trim() === "") {
-                $("#CompanyMessage").html("<span class=text-danger>Ingrese la compañia</span>");
+        function shortNameValidation() {
+            if ($("#ShortName").val().trim() === "") {
+                $("#ShortNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
                 return false;
             }
             else {
-                $("#CompanyMessage").html("<span class=text-danger></span>");
+                $("#ShortNameMessage").html("<span class=text-danger></span>");
                 return true;
             }
         }
 
-        function phoneValidation() {
-            if ($("#Phone").val().trim() === "") {
-                $("#PhoneMessage").html("<span class=text-danger>Ingrese el teléfono</span>");
+        function descriptionValidation() {
+            if ($("#Description").val().trim() === "") {
+                $("#DescriptionMessage").html("<span class=text-danger>Ingrese la descripción</span>");
                 return false;
             }
             else {
-                $("#PhoneMessage").html("<span class=text-danger></span>");
+                $("#DescriptionMessage").html("<span class=text-danger></span>");
+                return true;
+            }
+        }
+
+        function testDateValidation() {
+            if ($("#TestDate").val().trim() === "") {
+                $("#TestDateMessage").html("<span class=text-danger>Ingrese la fecha</span>");
+                return false;
+            }
+            else {
+                $("#TestDateMessage").html("<span class=text-danger></span>");
                 return true;
             }
         }
@@ -431,75 +429,213 @@
             }
         }
 
-        function hasValidation() {
-            if ($("#Has").val().trim() === "") {
-                $("#HasMessage").html("<span class=text-danger>Ingrese las hectareas</span>");
+        function isNumber(n) {
+            'use strict';
+            n = n.replace(/\./g, '').replace(',', '.');
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        function validDecimal(n) {
+
+            return n.replace(".", ",");
+        }
+
+        function depthLimitValidation() {
+            if ($("#DepthLimit").val().trim() === "") {
+                $("#DepthLimitMessage").html("<span class=text-danger>Ingrese la profundidad</span>");
                 return false;
             }
             else {
-                if (!isNaN($("#Has").val())) {
-                    $("#HasMessage").html("<span class=text-danger></span>");
+                if (isNumber($("#DepthLimit").val())) {
+                    $("#DepthLimit").val(validDecimal($("#DepthLimit").val()));
+                    $("#DepthLimitMessage").html("<span class=text-danger></span>");
                     return true;
                 }
                 else {
-                    $("#HasMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    $("#DepthLimitMessage").html("<span class=text-danger>Ingrese solo números</span>");
                     return false;
                 }
             }
         }
 
-        function cityIdValidation() {
-            if ($("#CityId").val() === "") {
-                $("#CityIdMessage").html("<span class=text-danger>Seleccione la ciudad</span>");
+        function horizonNameValidation() {
+
+            if ($("#HorizonName").val().trim() === "") {
+                $("#HorizonNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
                 return false;
             }
             else {
-                $("#CityIdMessage").html("<span class=text-danger></span>");
+
+                $("#HorizonNameMessage").html("<span class=text-danger></span>");
                 return true;
             }
         }
 
-        function weatherStationIdValidation() {
-            if ($("#WeatherStationId").val() === "") {
-                $("#WeatherStationIdMessage").html("<span class=text-danger>Seleccione la estación</span>");
+        function orderValidation() {
+            if ($("#Order").val().trim() === "") {
+                $("#OrderMessage").html("<span class=text-danger>Ingrese el orden</span>");
                 return false;
             }
             else {
-                $("#WeatherStationIdMessage").html("<span class=text-danger></span>");
+
+                if ($("#Order").val() == Math.floor($("#Order").val()))
+                    //if (isNumber($("#Order").val()))
+                    //    $("#Order").val(validDecimal($("#Order").val()));
+                {
+                    $("#OrderMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#OrderMessage").html("<span class=text-danger>Ingrese solo números enteros</span>");
+                    return false;
+                }
+            }
+        }
+
+        function horizonLayerDepthValidation() {
+            if ($("#HorizonLayerDepth").val().trim() === "") {
+                $("#HorizonLayerDepthMessage").html("<span class=text-danger>Ingrese la profundidad de la capa</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#HorizonLayerDepth").val())) {
+                    $("#HorizonLayerDepth").val(validDecimal($("#HorizonLayerDepth").val()));
+                    $("#HorizonLayerDepthMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#HorizonLayerDepthMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+        function sandValidation() {
+            if ($("#Sand").val().trim() === "") {
+                $("#SandMessage").html("<span class=text-danger>Ingrese la capa de arena</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#Sand").val())) {
+                    $("#Sand").val(validDecimal($("#Sand").val()));
+                    $("#SandMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#SandMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+        function limoValidation() {
+            if ($("#Limo").val().trim() === "") {
+                $("#LimoMessage").html("<span class=text-danger>Ingrese la capa de barro (limo)</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#Limo").val())) {
+                    $("#Limo").val(validDecimal($("#Limo").val()));
+                    $("#LimoMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#LimoMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+
+        function clayValidation() {
+            if ($("#Clay").val().trim() === "") {
+                $("#ClayMessage").html("<span class=text-danger>Ingrese la capa de arcilla</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#Clay").val())) {
+                    $("#Clay").val(validDecimal($("#Clay").val()));
+                    $("#ClayMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#ClayMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+
+        function organicMatterValidation() {
+            if ($("#OrganicMatter").val().trim() === "") {
+                $("#OrganicMatterMessage").html("<span class=text-danger>Ingrese la capa de materia orgánica</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#OrganicMatter").val())) {
+                    $("#OrganicMatter").val(validDecimal($("#OrganicMatter").val()));
+                    $("#OrganicMatterMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#OrganicMatterMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+
+        function nitrogenAnalysisValidation() {
+            if ($("#NitrogenAnalysis").val().trim() === "") {
+                $("#NitrogenAnalysisMessage").html("<span class=text-danger>Ingrese el analisis de nitrógeno</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#NitrogenAnalysis").val())) {
+                    $("#NitrogenAnalysis").val(validDecimal($("#NitrogenAnalysis").val()));
+                    $("#NitrogenAnalysisMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#NitrogenAnalysisMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+        function bulkDensitySoilValidation() {
+            if ($("#BulkDensitySoil").val().trim() === "") {
+                $("#BulkDensitySoilMessage").html("<span class=text-danger>Ingrese la densidad</span>");
+                return false;
+            }
+            else {
+                if (isNumber($("#BulkDensitySoil").val())) {
+                    $("#BulkDensitySoil").val(validDecimal($("#BulkDensitySoil").val()));
+                    $("#BulkDensitySoilMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
+                else {
+                    $("#BulkDensitySoilMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                    return false;
+                }
+            }
+        }
+
+        function depthControlValidation() {
+            if (parseInt($("#DepthLimit").val()) > parseInt($("#HorizonLayerDepthSum").val())) {
+                $("#DepthControlMessage").html("<span class=text-danger>La profundidad del suelo (" + $("#DepthLimit").val() + ") debe ser menor o igual a la suma de las profundidades del los horizontes (" + $("#HorizonLayerDepthSum").val() + ") </span>");
+                $("#DepthControlMessage1").html("<span class=text-danger>La profundidad del suelo (" + $("#DepthLimit").val() + ") debe ser menor o igual a la suma de las profundidades del los horizontes (" + $("#HorizonLayerDepthSum").val() + ") </span>");
+
+                return false;
+            }
+            else {
+                $("#DepthControlMessage").html("<span class=text-danger></span>");
+                $("#DepthControlMessage1").html("<span class=text-danger></span>");
                 return true;
             }
         }
 
-        function bombShortNameValidation() {
-
-            if ($("#BombShortName").val().trim() === "") {
-                $("#BombShortNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
+        function horizonsQuantity() {
+            if (parseInt($("#HorizonsQuantity").val()) <= 0) {
+                $("#NotHorizonMessage").html("<span class=text-danger>Debe agregar por lo menos una capa</span>");
                 return false;
             }
             else {
-
-                $("#BombShortNameMessage").html("<span class=text-danger></span>");
-                return true;
-            }
-        }
-
-        function bombLatitudeValidation() {
-            if ($("#BombLatitude").val().trim() === "") {
-                $("#BombLatitudeMessage").html("<span class=text-danger>Ingrese latitud</span>");
-                return false;
-            }
-            else {
-                $("#BombLatitudeMessage").html("<span class=text-danger></span>");
-                return true;
-            }
-        }
-        function bombLongitudeValidation() {
-            if ($("#BombLongitude").val().trim() === "") {
-                $("#BombLongitudeMessage").html("<span class=text-danger>Ingrese longitud</span>");
-                return false;
-            }
-            else {
-                $("#BombLatitudeMessage").html("<span class=text-danger></span>");
+                $("#NotHorizonMessage").html("<span class=text-danger></span>");
                 return true;
             }
         }
@@ -508,45 +644,41 @@
             var move = true;
             if (currentStep == "1") {
 
-                move = nameValidation() && companyValidation() && phoneValidation() && latitudeValidation() && longitudeValidation() && hasValidation() && cityIdValidation() && weatherStationIdValidation()
+                move = farmIdValidation() && shortNameValidation() && descriptionValidation() && testDateValidation() && latitudeValidation() && longitudeValidation() && depthLimitValidation()
 
                 if (move) {
+                    $("#Name").val($("#FarmId").find('option:selected').text() + ' - ' + $("#ShortName").val().trim());
+                    // $("#HorizonName").val($("#Name").val().trim());
 
-                    $("#BombLatitude").val($("#Latitude").val().trim());
-                    $("#BombLongitude").val($("#Longitude").val().trim());
                 }
             }
 
             if (direction) {//se mueve hacia adelante
                 if (currentStep == "2") {
-                    //la validacione del nombre nomber de bomba y campos requeridos se hace al agregar un item en la tabla...
-                    move = parseInt($("#BombsQuantity").val()) > 0;
+                    //la validacione del nombre de  y campos requeridos se hace al agregar un item en la tabla...
 
+                    move = horizonsQuantity() && depthControlValidation();
 
                     if (move) {
-
-                        $('#BombsTableConfirmation').html($('#BombsTable').html());
+                        $('#HorizonsTableConfirmation').html($('#HorizonsTable').html());
                         //cargo los datos para el paso de confiramcion
-                        $("#NameConfirmation").html($("#Name").val());
-                        $("#CompanyConfirmation").html($("#Company").val());
-                        $("#PhoneConfirmation").html($("#Phone").val());
-                        $("#AddressConfirmation").html($("#Address").val());
+                        $("#FarmIdConfirmation").html($("#FarmId").find('option:selected').text());
+                        $("#ShortNameConfirmation").html($("#ShortName").val());
+                        $("#DescriptionConfirmation").html($("#Description").val());
+                        $("#TestDateConfirmation").html($("#TestDate").val());
                         $("#LatitudeConfirmation").html($("#Latitude").val());
                         $("#LongitudeConfirmation").html($("#Longitude").val());
-                        $("#HasConfirmation").html($("#Has").val());
-                        $("#WeatherStationIdConfirmation").html($("#WeatherStationId").find('option:selected').text());
-                        $("#CityIdConfirmation").html($("#CityId").find('option:selected').text());
-
-                        $("#NotBombMessage").html("<span class=text-danger></span>");
-                    }
-                    {
-                        $("#NotBombMessage").html("<span class=text-danger>Debe agregar por lo menos una bomba</span>");
+                        var s = $("#DepthLimit").val();
+                        $("#DepthLimitConfirmation").html(s);
+                        $("#NotHorizonMessage").html("<span class=text-danger></span>");
                     }
 
                 }
             }
             return move;
         }
+
+
         ////////////////////////////////////////////////////////////////
 
         var main = function (method) {
@@ -579,16 +711,21 @@
             var mySelector = document.querySelector('[data-wizard-init]');
             $(mySelector)[pluginName]({});
             ///CP: ACTIV VALIDATION
-            $("#Name").focusout(function () {
-                nameValidation()
+
+            $("#FarmId").change(function () {
+                farmIdValidation()
             });
 
-            $("#Company").focusout(function () {
-                companyValidation()
+            $("#ShortName").focusout(function () {
+                shortNameValidation()
             });
 
-            $("#Phone").focusout(function () {
-                phoneValidation()
+            $("#Description").focusout(function () {
+                descriptionValidation()
+            });
+
+            $("#TestDate").focusout(function () {
+                testDateValidation()
             });
 
             $("#Latitude").focusout(function () {
@@ -599,76 +736,117 @@
                 longitudeValidation()
             });
 
-            $("#Has").focusout(function () {
-                hasValidation()
+            $("#DepthLimit").focusout(function () {
+                depthLimitValidation()
             });
 
-            $("#CityId").change(function () {
-                cityIdValidation()
+
+            $("#HorizonName").focusout(function () {
+                horizonNameValidation()
             });
 
-            $("#WeatherStationId").change(function () {
-                weatherStationIdValidation()
+            $("#Order").focusout(function () {
+                orderValidation()
             });
 
-            $("#BombShortName").focusout(function () {
-                bombShortNameValidation()
+            $("#HorizonLayerDepth").focusout(function () {
+                horizonLayerDepthValidation()
             });
 
-            $("#BombLatitude").focusout(function () {
-                bombLatitudeValidation()
+            $("#Sand").focusout(function () {
+                sandValidation()
             });
 
-            $("#BombLongitude").focusout(function () {
-                bombLongitudeValidation()
+            $("#Limo").focusout(function () {
+                limoValidation()
             });
+
+            $("#Clay").focusout(function () {
+                clayValidation()
+            });
+
+            $("#OrganicMatter").focusout(function () {
+                organicMatterValidation()
+            });
+
+            $("#NitrogenAnalysis").focusout(function () {
+                nitrogenAnalysisValidation()
+            });
+
+            $("#BulkDensitySoil").focusout(function () {
+                bulkDensitySoilValidation()
+            });
+
+
             ////END ACTIV VALIDATION///////////////////
 
-            ///CP: ACTIV BOMBS TABLE
+            ///CP: ACTIV  TABLE
 
             var jsonData = { "items": [] };
             var cont = 0;
-
             $("#add-row").click(function () {
-                if (bombShortNameValidation() && bombShortNameValidation() && bombShortNameValidation()) {
-                    var bombShortName = $("#BombShortName").val();
-                    var serialNumber = $("#SerialNumber").val();
-                    var serviceDate = $("#ServiceDate").val();
-                    var purchaseDate = $("#PurchaseDate").val();
-                    var bombLatitude = $("#BombLatitude").val();
-                    var bombLongitude = $("#BombLongitude").val();
+                if (horizonNameValidation() && orderValidation() && horizonLayerDepthValidation() && sandValidation() && limoValidation() && clayValidation() && organicMatterValidation() && nitrogenAnalysisValidation() && bulkDensitySoilValidation()) {
+                    var horizonName = $("#HorizonName").val();
+                    var order = $("#Order").val();
+                    var horizonLayer = $("#HorizonLayer").val();
+                    var horizonLayerDepth = $("#HorizonLayerDepth").val();
+                    var sand = $("#Sand").val();
+                    var limo = $("#Limo").val();
+                    var clay = $("#Clay").val();
+                    var organicMatter = $("#OrganicMatter").val();
+                    var nitrogenAnalysis = $("#NitrogenAnalysis").val();
+                    var bulkDensitySoil = $("#BulkDensitySoil").val();
 
-                    debugger;
-                    jsonData.items.push({ "id": cont, "bombShortName": bombShortName, "serialNumber": serialNumber, "serviceDate": serviceDate, "purchaseDate": purchaseDate, "bombLatitude": bombLatitude, "bombLongitude": bombLongitude });
+                    jsonData.items.push({ "id": cont, "horizonName": horizonName, "order": order, "horizonLayer": horizonLayer, "horizonLayerDepth": horizonLayerDepth, "sand": sand, "limo": limo, "clay": clay, "organicMatter": organicMatter, "nitrogenAnalysis": nitrogenAnalysis, "bulkDensitySoil": bulkDensitySoil });
                     cont++;
 
-                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombShortName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>";
-                    $("#BombsTable").append("<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombShortName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
-                    $("#BombsHidden").val(JSON.stringify(jsonData));
 
-                    $("#BombsQuantity").val(parseInt($("#BombsQuantity").val()) + 1);
-                    $("#NotBombMessage").html("<span class=text-danger></span>");
+                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "|" + horizonLayerDepth + "' name='record|" + cont + "'></td><td>" + horizonName + "</td><td>" + order + "</td><td>" + horizonLayer + "</td><td>" + horizonLayerDepth + "</td><td>" + sand + "</td><td>" + limo + "</td><td>" + clay + "</td><td>" + organicMatter + "</td><td>" + nitrogenAnalysis + "</td><td>" + bulkDensitySoil + "</td></tr>";
+                    $("#HorizonsTable").append(markup)
+                    $("#HorizonsHidden").val(JSON.stringify(jsonData));
+
+                    $("#HorizonsQuantity").val(parseInt($("#HorizonsQuantity").val()) + 1);
+                    $("#NotHorizonMessage").html("<span class=text-danger></span>");
+
+                    var horizonLayerDepthSumValue = $("#HorizonLayerDepthSum").val();
+
+                    $("#HorizonLayerDepthSum").val(parseInt(horizonLayerDepthSumValue) + parseInt(horizonLayerDepth))
+
+                    $("#HorizonName").val("");
+                    $("#Order").val("");
+                    $("#HorizonLayer").val("");
+                    $("#HorizonLayerDepth").val("");
+                    $("#Sand").val("0");
+                    $("#Limo").val("0");
+                    $("#Clay").val("0");
+                    $("#OrganicMatter").val("0");
+                    $("#NitrogenAnalysis").val("0");
+                    $("#BulkDensitySoil").val("0");
                 }
             });
 
             // Find and remove selected table rows
             $("#delete-row").click(function () {
+                debugger;
+
                 $("table tbody").find('input[type="checkbox"]').each(function () {
-
                     if ($(this).is(":checked")) {
-
                         var res = $(this).attr('id').split("|");
                         var aa = res[1];
                         var a = aa - 1;
+                        var prof = res[2];
+
                         delete jsonData.items[a];
 
-
                         $(this).parents("tr").remove();
-                        var a = $("#BombsQuantity").val();
-                        $("#BombsQuantity").val(parseInt($("#BombsQuantity").val()) - 1);
-                    }
+                        var a = $("#HorizonsQuantity").val();
 
-                    $("#BombsHidden").val(JSON.stringify(jsonData));
+                        var horizonLayerDepthSumValue = $("#HorizonLayerDepthSum").val();
+                        $("#HorizonLayerDepthSum").val(parseInt(horizonLayerDepthSumValue) - parseInt(prof));
+                        $("#HorizonsQuantity").val(parseInt($("#HorizonsQuantity").val()) - 1);
+
+                    }
+                    $("#HorizonsHidden").val(JSON.stringify(jsonData));
 
                 });
             });
@@ -683,55 +861,63 @@
 
 <script type="text/javascript">
 
-
     $(document).ready(function () {
-
-
-
 
     });
 </script>
-@using (Html.BeginForm("Create", "WizardFarmBomb"))
+@using (Html.BeginForm("Create", "WizardSoilHorizon"))
 {
     @Html.AntiForgeryToken()
 
-    <input id="BombsHidden" name="BombsHidden" type="hidden">
-    <input id="BombsQuantity" name="BombsQuantity" type="hidden" value="0">
+    <input id="HorizonsHidden" name="HorizonsHidden" type="hidden">
+    <input id="HorizonsQuantity" name="HorizonsQuantity" value="0" type="hidden">
+    <input id="Name" name="Name" type="hidden">
+    <input id="HorizonLayerDepthSum" name="HorizonLayerDepthSum" value="0" type="hidden">
     <div class="container-fluid">
         <div data-wizard-init>
             <ul class="steps">
-                <li data-step="1">Establecimiento</li>
-                <li data-step="2">Bombas</li>
+                <li data-step="1">Suelo</li>
+                <li data-step="2">Horizontes</li>
                 <li data-step="3">Confirmar</li>
-            </ul>
+            </ul><span id="DepthControlMessage"> </span>
             @Html.ValidationSummary(true, "Error", new { @class = "text-danger" })
             @*@Html.ValidationMessageFor(model => model.wizardFarmViewModel., "", new { @class = "text-danger" })
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             *@
             <div class="steps-content">
                 <div data-step="1">
-                    <h4>Establecimiento</h4>
+                    <h4>Suelo</h4>
                     <p>
                         <div class="form-group">
-                            <label class="control-label">Nombre</label>
-                            <input maxlength="50" id="Name" name="Name" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
-                            <span id="NameMessage"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Compañia</label>
-                            <input maxlength="50" id="Company" name="Company" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese compañia">
-                            <span id="CompanyMessage"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Teléfono</label>
-                            <input maxlength="50" id="Phone" name="Phone" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese teléfono">
-                            <span id="PhoneMessage"></span>
+                            <label class="control-label">Establecimento</label>
+                            <select id="FarmId" name="FarmId" class="form-control">
+                                <option value="">-- Seleccione el establecimiento --</option>
+
+                                @foreach (var item in Model.Farm)
+                                {
+                                    <option value=@item.Value>@item.Text</option>
+                                }
+                            </select>
+                            <span id="FarmIdMessage"></span>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Dirección</label>
-                            <input maxlength="50" id="Address" name="Address" type="text" class="form-control text-box single-line">
+                            <label class="control-label">Nombre</label>
+                            <input maxlength="50" id="ShortName" name="ShortName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="ShortNameMessage"></span>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label">Descripción</label>
+                            <input maxlength="100" id="Description" name="Description" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese descripción">
+                            <span id="DescriptionMessage"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Fecha de visita</label>
+                            <input maxlength="50" id="TestDate" name="TestDate" type="date" class="form-control text-box single-line">
+                            <span id="TestDateMessage"></span>
+                        </div>
+
                         <div class="form-group">
                             <label class="control-label">Latitud</label>
                             <input maxlength="50" id="Latitude" name="Latitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese latitud">
@@ -744,84 +930,87 @@
                             <span id="LongitudeMessage"></span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Hectareas</label>
-                            <input maxlength="50" id="Has" name="Has" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese las hectareas">
-                            <span id="HasMessage"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Estación</label>
-                            <select id="WeatherStationId" name="WeatherStationId" class="form-control">
-                                <option value="">-- Seleccione Estación --</option>
-
-                                @foreach (var item in Model.WeatherStation)
-                                {
-                                    <option value=@item.Value>@item.Text</option>
-                                }
-                            </select>
-                            <span id="WeatherStationIdMessage"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Ciudad</label>
-                            <select id="CityId" name="CityId" class="form-control">
-                                <option value="">-- Seleccione Estación --</option>
-                                @foreach (var item in Model.City)
-                                {
-                                    <option value=@item.Value>@item.Text</option>
-                                }
-                            </select>
-                            <span id="CityIdMessage"></span>
+                            <label class="control-label">Profundidad</label>
+                            <input maxlength="50" id="DepthLimit" name="DepthLimit" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese las hectareas">
+                            <span id="DepthLimitMessage"></span>
                         </div>
 
                     </p>
                 </div>
+
                 <div data-step="2">
-                    <h4>Bombas</h4>
+                    <h4>Horizontes</h4>
                     <p>
 
                         <div class="form-group">
                             <label class="control-label">Nombre</label>
-                            <input maxlength="50" id="BombShortName" name="BombShortName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
-                            <span id="BombShortNameMessage"></span>
+                            <input maxlength="50" id="HorizonName" name="HorizonName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="HorizonNameMessage"></span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Número de serie</label>
-                            <input maxlength="50" id="SerialNumber" name="SerialNumber" type="text" class="form-control text-box single-line">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Fecha de compra</label>
-                            <input maxlength="50" id="PurchaseDate" name="PurchaseDate" type="date" class="form-control text-box single-line">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Fecha de servicio</label>
-                            <input maxlength="50" id="ServiceDate" name="ServiceDate" type="date" class="form-control text-box single-line">
-                            <span id="PhoneMessage"></span>
+                            <label class="control-label">Orden</label>
+                            <input maxlength="50" id="Order" name="Order" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el orden">
+                            <span id="OrderMessage"></span>
                         </div>
 
+                        <div class="form-group">
+                            <label class="control-label">Capa</label>
+                            <input maxlength="50" id="HorizonLayer" name="HorizonLayer" type="text" class="form-control text-box single-line">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Profundidad de capa</label>
+                            <input maxlength="50" id="HorizonLayerDepth" name="HorizonLayerDepth" type="text" class="form-control text-box single-line" placeholder="Ingrese la profundidad">
+                            <span id="HorizonLayerDepthMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Arena</label>
+                            <input maxlength="50" id="Sand" name="Sand" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la arena">
+                            <span id="SandMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Barro (limo)</label>
+                            <input maxlength="50" id="Limo" name="Limo" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la barro">
+                            <span id="LimoMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Arcilla</label>
+                            <input maxlength="50" id="Clay" name="Clay" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la arcilla">
+                            <span id="ClayMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Materia orgánica</label>
+                            <input maxlength="50" id="OrganicMatter" name="OrganicMatter" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la matería orgánica">
+                            <span id="OrganicMatterMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Análisis de nitrógeno</label>
+                            <input maxlength="50" id="NitrogenAnalysis" name="NitrogenAnalysis" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese el análisis de nitrógeno">
+                            <span id="NitrogenAnalysisMessage"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Densidad</label>
+                            <input maxlength="50" id="BulkDensitySoil" name="BulkDensitySoil" type="text" class="form-control text-box single-line" value="0" placeholder="Ingrese la densidad">
+                            <span id="BulkDensitySoilMessage"></span>
+                        </div>
 
                         <div class="form-group">
-                            <label class="control-label">Latitud</label>
-                            <input maxlength="50" id="BombLatitude" name="BombLatitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese latitud">
-                            <span id="BombLatitudeMessage"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Longitud</label>
-                            <input maxlength="50" id="BombLongitude" name="BombLongitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese longitud">
-                            <span id="BombLongitudeMessage"></span>
-                        </div>
-                        <div class="form-group">
 
-                            <input type="button" class="btn btn-success" id="add-row" value="Agregar bomba"> <span id="NotBombMessage"></span>
+                            <input type="button" class="btn btn-success" id="add-row" value="Agregar capa"> <span id="NotHorizonMessage"> </span><span id="DepthControlMessage1">  </span>
                         </div>
-                        <table id="BombsTable" class="main-table-advisor" cellpadding="10">
+                        <table id="HorizonsTable" class="main-table-advisor" cellpadding="10">
                             <thead>
                                 <tr style="height:40px">
                                     <th width="5%" align="center">Seleccionar</th>
                                     <th>Nombre</th>
-                                    <th>Número de serie</th>
-                                    <th>Fecha de compra</th>
-                                    <th>Fecha de servicio</th>
-                                    <th>Latitud</th>
-                                    <th>Longitud</th>
+                                    <th>Orden</th>
+                                    <th>Capa</th>
+                                    <th>Profundidad</th>
+                                    <th>Arena</th>
+                                    <th>Barro</th>
+                                    <th>Arcilla</th>
+                                    <th>Mat. orgánica</th>
+                                    <th>Nitrógeno</th>
+                                    <th>Densidad</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -830,28 +1019,29 @@
                         </table>
                         <br>
                         <div class="form-group">
-                            <input type="button" class="btn btn-success" id="delete-row" value="Quitar bomba">
+                            <input type="button" class="btn btn-success" id="delete-row" value="Quitar capa">
                         </div>
                     </p>
                 </div>
+
                 <div data-step="3">
                     <h4>Confirmar</h4>
                     <p>
                         <div class="form-group">
+                            <label class="control-label">Establecimento: </label>
+                            <span class="control-label" id="FarmIdConfirmation"></span>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">Nombre: </label>
-                            <span class="control-label" id="NameConfirmation"></span>
+                            <span class="control-label" id="ShortNameConfirmation"></span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Compañia: </label>
-                            <span class="control-label" id="CompanyConfirmation"></span>
+                            <label class="control-label">Descripción: </label>
+                            <span class="control-label" id="DescriptionConfirmation"></span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Teléfono: </label>
-                            <span class="control-label" id="PhoneConfirmation"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Dirección: </label>
-                            <span class="control-label" id="AddressConfirmation"></span>
+                            <label class="control-label">Fecha de visita: </label>
+                            <span class="control-label" id="TestDateConfirmation"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Latitud: </label>
@@ -862,27 +1052,22 @@
                             <span class="control-label" id="LongitudeConfirmation"></span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Hectareas: </label>
-                            <span class="control-label" id="HasConfirmation"></span>
+                            <label class="control-label">Profundidad: </label>
+                            <span class="control-label" id="DepthLimitConfirmation"></span>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Estación: </label>
-                            <span class="control-label" id="WeatherStationIdConfirmation"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Ciudad: </label>
-                            <span class="control-label" id="CityIdConfirmation"></span>
-                        </div>
-                        <table id="BombsTableConfirmation" class="main-table-advisor">
+                        <table id="HorizonsTableConfirmation" class="main-table-advisor">
                             <thead>
                                 <tr style="height:40px">
                                     <th>Nombre</th>
-                                    <th>Número de serie</th>
-                                    <th>Fecha de compra</th>
-                                    <th>Fecha de servicio</th>
-                                    <th>Latitud</th>
-                                    <th>Longitud</th>
-
+                                    <th>Orden</th>
+                                    <th>Capa</th>
+                                    <th>Profundidad</th>
+                                    <th>Arena</th>
+                                    <th>Barro</th>
+                                    <th>Arcilla</th>
+                                    <th>Mat. orgánica</th>
+                                    <th>Nitrógeno</th>
+                                    <th>Densidad</th>
                                 </tr>
                             </thead>
                             <tbody>

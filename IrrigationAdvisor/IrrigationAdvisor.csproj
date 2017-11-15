@@ -244,6 +244,7 @@
     <Compile Include="Controllers\Weather\WeatherDatasController.cs" />
     <Compile Include="Controllers\Weather\WeatherInformationsController.cs" />
     <Compile Include="Controllers\Weather\WeatherStationsController.cs" />
+    <Compile Include="Controllers\Wizard\WizardSoilHorizonController.cs" />
     <Compile Include="Controllers\Wizard\WizardFarmBombController.cs" />
     <Compile Include="DBContext\Agriculture\CropCoefficientConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
@@ -363,6 +364,10 @@
     <Compile Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.Designer.cs">
       <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs" />
+    <Compile Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.Designer.cs">
+      <DependentUpon>201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -428,6 +433,7 @@
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
+    <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />
     <Compile Include="ViewModels\Weather\GridWeather.cs" />
     <Compile Include="Models\Weather\TemperatureData.cs" />
@@ -913,6 +919,7 @@
     <Content Include="Views\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
     <Content Include="Views\ReportPivotState\ReportPivotStatePrintable.cshtml" />
+    <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -980,6 +987,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.resx">
       <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.resx">
+      <DependentUpon>201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
