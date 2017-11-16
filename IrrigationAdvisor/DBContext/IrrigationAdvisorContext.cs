@@ -61,7 +61,7 @@ namespace IrrigationAdvisor.DBContext
         public IrrigationAdvisorContext()
             :base("name=IrrigationAdvisorContext")
         {
-            this.Database.CommandTimeout = 200;
+            this.Database.CommandTimeout = 250;
         }
 
         public IrrigationAdvisorContext(string databaseName)

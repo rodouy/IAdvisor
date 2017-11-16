@@ -1556,37 +1556,47 @@ namespace IrrigationAdvisor.Controllers
                                             string pCIW, int pReasonId, String pObservations)
         {
             // TODO: Cuando es otro es obligatoria las observaciones
+            #region local variables
+            HomeViewModel lHomeViewModel;
             string lSomeData = string.Empty;
             Utils.NoIrrigationReason lReason = (Utils.NoIrrigationReason) pReasonId;
+            DateTime lReferenceDate;
+            IrrigationAdvisorContext lContext;
+            IrrigationUnitConfiguration lIUC ;
+            CropIrrigationWeatherConfiguration lCIWConfiguration;
+            List<long> lSelectedCIW;
+            List<CropIrrigationWeather> lFilteredCIW;
+            int lSaveChanges;
+            string lFarm;
+            long lFarmId;
+            DateTime lCalculateFrom;
+            #endregion
+
             try
             {
                 lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
                 lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
                 lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
-                #region local variables
-                HomeViewModel lHomeViewModel = ManageSession.GetHomeViewModel();
+                
+                lHomeViewModel = ManageSession.GetHomeViewModel();
 
                 // DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
-                DateTime lReferenceDate = Utils.GetDateOfReference().Value;
+                lReferenceDate = Utils.GetDateOfReference().Value;
 
-                IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
-                IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
-                CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
+                lContext = IrrigationAdvisorContext.Instance();
+                lIUC = new IrrigationUnitConfiguration();
+                lCIWConfiguration = new CropIrrigationWeatherConfiguration();
 
-                CropIrrigationWeather lCIW;
-               
+                lSaveChanges = 0;
 
-                int lSaveChanges = 0;
-                #endregion
-
-                var selectedCiw = (from p in pCIW.Split(',').ToList()
+                lSelectedCIW = (from p in pCIW.Split(',').ToList()
                                    select Convert.ToInt64(p)).ToList();
 
-                var filteredCiw = ciwc.GetCropIrrigationWeatherByIds(selectedCiw);
+                lFilteredCIW = lCIWConfiguration.GetCropIrrigationWeatherByIds(lSelectedCIW);
 
-                foreach (var bCIW in filteredCiw)
+                foreach (CropIrrigationWeather lCIW in lFilteredCIW)
                 {
-                    AddOrUpdateIrrigationDataToListForCantIrrigate(pDateFrom, pDateTo, bCIW, lContext, lReason, pObservations); 
+                    AddOrUpdateIrrigationDataToListForCantIrrigate(pDateFrom, pDateTo, lCIW, lContext, lReason, pObservations); 
                 }
 
                 lSaveChanges = lContext.SaveChanges();
@@ -1594,30 +1604,30 @@ namespace IrrigationAdvisor.Controllers
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
 
-                string farm = Utils.GetUrlParameter("farm");
+                lFarm = Utils.GetUrlParameter("farm");
 
-                long farmId = 0;
+                lFarmId = 0;
 
-                if (farm != null)
+                if (lFarm != null)
                 {
-                    farmId = Convert.ToInt32(farm);
+                    lFarmId = Convert.ToInt32(lFarm);
                 }
                 else
                 {
-                    farmId = GetFarmsByUserAsList().First().FarmId;
+                    lFarmId = GetFarmsByUserAsList().First().FarmId;
                 }
 
-                DateTime calculateFrom = DateTime.Now;
+                lCalculateFrom = DateTime.Now;
                 if(pDateFrom < lReferenceDate)
                 {
-                    calculateFrom = pDateFrom;
+                    lCalculateFrom = pDateFrom;
                 }
                 else
                 {
-                    calculateFrom = lReferenceDate;
+                    lCalculateFrom = lReferenceDate;
                 }
 
-                this.CalculateAllActiveCropIrrigationWeather(farmId, calculateFrom, DateTime.Now);
+                this.CalculateAllActiveCropIrrigationWeather(lFarmId, lCalculateFrom, DateTime.Now);
                 ManageSession.SetNavigationDate(lReferenceDate);
             }
             catch (Exception ex)
