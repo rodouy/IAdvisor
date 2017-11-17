@@ -78,7 +78,7 @@ namespace IrrigationAdvisor.Controllers.Reports
                 List<long> lListciw = new List<long>();
                 lListciw.Add(ciwId);
 
-                lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw);
+                lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw, Utils.GetDateOfReference().Value);
 
                 foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                 {
