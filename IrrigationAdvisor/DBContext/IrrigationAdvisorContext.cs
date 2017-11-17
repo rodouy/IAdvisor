@@ -199,9 +199,9 @@ namespace IrrigationAdvisor.DBContext
 
         public virtual DbSet<Rain> Rains { get; set; }
 
-        //public virtual DbSet<WaterInput> WaterInputs { get; set; }
+        public virtual DbSet<WaterInput> WaterInputs { get; set; }
 
-        //public virtual DbSet<WaterOutput> WaterOutputs { get; set; }
+        public virtual DbSet<WaterOutput> WaterOutputs { get; set; }
 
         #endif
         #endregion
