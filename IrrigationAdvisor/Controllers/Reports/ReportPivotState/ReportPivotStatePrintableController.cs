@@ -22,7 +22,7 @@ using System.Web.UI.DataVisualization.Charting;
 using System.Drawing;
 using System.IO;
 
-namespace IrrigationAdvisor.Controllers.Reports
+namespace IrrigationAdvisor.Controllers.Reports.ReportPivotState
 {
     public class ReportPivotStatePrintableController : Controller
     {
@@ -97,7 +97,7 @@ namespace IrrigationAdvisor.Controllers.Reports
                 vm.TotalEvapotranspirationCrop = lSumTotalEvapotranspirationCrop;
                 vm.Title = lCropIrrigationWeatherTitle;
                 vm.HydricBalancePercentage = lHydricBalancePercentage;
-                return View("~/Views/ReportPivotState/ReportPivotStatePrintable.cshtml", vm);
+                return View("~/Views/Reports/ReportPivotState/ReportPivotStatePrintable.cshtml", vm);
             }
             catch (Exception ex)
             {
@@ -254,13 +254,13 @@ namespace IrrigationAdvisor.Controllers.Reports
         [ChildActionOnly]
         public PartialViewResult ReportPivotStateHeaderPartial()
         {
-            return PartialView("_ReportPivotStateHeaderPartial", GetGridDailyRecordIrrigationResumeTitles());
+            return PartialView("~/Views/Reports/ReportPivotState/_ReportPivotStateHeaderPartial.cshtml", GetGridDailyRecordIrrigationResumeTitles());
         }
 
         [ChildActionOnly]
         public PartialViewResult ReportPivotStatePartial()
         {
-            return PartialView("_ReportPivotStatePartial", GetGridDailyRecordIrrigationResume());
+            return PartialView("~/Views/Reports/ReportPivotState/_ReportPivotStatePartial.cshtml", GetGridDailyRecordIrrigationResume());
         }
 
         /// <summary>

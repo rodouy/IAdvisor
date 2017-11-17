@@ -1,0 +1,144 @@
+﻿@model IrrigationAdvisor.ViewModels.Reports.ReportPivotStateViewModel
+
+<section class="content-bar ps-container">
+    <div class="container">
+        <div class="col-md-11">
+            <div class="col-md-4">
+                <ul class="bar-resp">
+                    <li> <a> <em class="icon md-flag"></em> @Html.DisplayFor(model => model.Title)</a> </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="profile">
+    <div class="container">
+        <div class="col-md-12" style="padding-left:0">
+            <div class="tab-content" border="0">
+                <table style="width:250px" align="right">
+                    <tr>
+                        <td align="center" style="border-color:white">
+                            <a title="Reporte por unidades de riego" href="../ReportPivotStatePrintable?ciw=@Model.CropIrrigationWeatherId)" onclick="window.open('../../ReportIrrigationUnit?ciw=@Model.CropIrrigationWeatherId', 'newwindow', 'width=1000,height=800'); return false;">Imprimir</a>
+                        </td>
+                        <td align="center" style="border-color:white">
+                            <a title="Imprimir reporte" href="../ReportPivotStatePrintable?ciw=@Model.CropIrrigationWeatherId)" onclick="window.open('../ReportPivotStatePrintable?ciw=@Model.CropIrrigationWeatherId', 'newwindow', 'width=1000,height=800'); return false;">Imprimir</a>
+                        </td>
+                        @{ if (Model.IsUserAdministrator)
+                         {
+                            <td align="center" style="border-color:white">
+                                @Html.ActionLink("Descargar xls", "CreateAndDownloadFileXLS", "ReportPivotState", null, new { title = "Exporta y descargar archivo .csv", rel = "me" })
+                              </td>
+                         }
+                        }
+                        <td align="center" style="border-color:white">
+                            <a title="Volver a la página anterior" href="javascript:window.history.back();">  Volver  </a>
+                        </td>
+                    </tr>
+                </table>
+
+
+
+                <table>
+                    <tr>
+                        <td align="center" style="border-color:white">
+                            <img src="@Url.Action("GetChart") ">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="border-color:white">
+
+                            <table cellspacing="10" class="main-table-advisor" border="1" style="width:300px" align="center">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Entrada y salida de agua</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td width="50%">
+                                        ET Acumulado:
+                                    </td>
+                                    <td align="right">
+                                        @Html.DisplayFor(model => model.TotalEvapotranspirationCrop) mm.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Riego:
+                                    </td>
+                                    <td align="right">
+                                        @Html.DisplayFor(model => model.TotalEffectiveInputWater) mm.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        Lluvia:
+                                    </td>
+                                    <td align="right">
+                                        @Html.DisplayFor(model => model.TotalEffectiveRain) mm.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        Balance hídrico:
+                                    </td>
+                                    <td align="right">
+                                        @Html.DisplayFor(model => model.HydricBalancePercentage) %
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            @{ if (Model.IsUserAdministrator)
+                             {
+                                <div class="table-body">
+                                    <!--table-->
+                                    <table class="main-table-advisor" border="1" style="width:500px" align="center">
+                                        <thead>
+                                            <tr>
+                                                @{ Html.RenderAction("ReportPivotStateHeaderPartial", "ReportPivotState", new { area = "" }); }
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ Html.RenderAction("ReportPivotStatePartial", "ReportPivotState",new { area = "" }); }
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="2"><b>TOTAL:</b></td>
+
+                                                <td align="right"><b>@Html.DisplayFor(model => model.TotalEffectiveRain)</b></td>
+                                                <td align="right"><b>@Html.DisplayFor(model => model.TotalEffectiveInputWater)</b></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+            
+
+                             }
+
+                            }
+
+                        </td>
+
+                    </tr>
+                </table>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+

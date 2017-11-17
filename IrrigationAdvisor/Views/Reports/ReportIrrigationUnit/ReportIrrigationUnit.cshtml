@@ -101,11 +101,11 @@
                                     <table class="main-table-advisor" border="1" style="width:500px" align="center">
                                         <thead>
                                             <tr>
-                                                @{ Html.RenderAction("ReportPivotStateHeaderPartial", "ReportPivotState"); }
+                                                @{ Html.RenderAction("ReportPivotStateHeaderPartial", "ReportPivotState", new { area = "" }); }
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @{ Html.RenderAction("ReportPivotStatePartial", "ReportPivotState"); }
+                                            @{ Html.RenderAction("ReportPivotStatePartial", "ReportPivotState",new { area = "" }); }
                                         </tbody>
                                         <tbody>
                                             <tr>
