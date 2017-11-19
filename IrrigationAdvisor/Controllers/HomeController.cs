@@ -1397,7 +1397,7 @@ namespace IrrigationAdvisor.Controllers
                         lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), 
                                                                                 lIsExtraIrrigation, Utils.NoIrrigationReason.Other, "Add Irrigation OK.");
                         lSaveChanges = lContext.SaveChanges();
-
+                        
                         if (pMilimeters >= 0)
                         {
                             lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
