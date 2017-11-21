@@ -115,6 +115,19 @@ namespace IrrigationAdvisor.DBContext.Management
 
         }
 
+        /// <summary>
+        /// Get MAX irrigation list id (next IrrigationList Id)
+        /// </summary>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public long GetMaxIrrigationListId(DateTime pDateOfReference)
+        {
+            long lReturn = 0;
+
+            lReturn = db.Irrigations.Max(table => table.WaterInputId);
+
+            return lReturn;
+        }
 
         /// <summary>
         /// Get a MAX date of reference in CropIrrigationWeather list 
