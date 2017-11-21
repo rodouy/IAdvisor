@@ -63,12 +63,12 @@ namespace IrrigationAdvisor.DBContext.Management
         }
         
         /// <summary>
-        /// Get Last 30 days DailyRecords List with Rains and Irrigation
+        /// Get DailyRecords List with Rains and Irrigation To 
         /// </summary>
         /// <param name="pCropIrrigationWeatherId"></param>
         /// <param name="pDateOfReference"></param>
         /// <returns></returns>
-        public List<DailyRecord> GetLast30DaysDailyRecordsListDataBy(long cropIrrigationWeatherId, DateTime pDateOfReference)
+        public List<DailyRecord> GetDailyRecordsListDataUntilDateBy(long cropIrrigationWeatherId, DateTime pDateOfReference)
         {
             List<DailyRecord> lReturn = null;
             List<DailyRecord> lDailyRecordList = null;
@@ -81,8 +81,7 @@ namespace IrrigationAdvisor.DBContext.Management
                                 .Include(d => d.Rain)
                                 .Include(d => d.Irrigation)
                                 .Where(d => d.CropIrrigationWeatherId == cropIrrigationWeatherId &&
-                                        d.DailyRecordDateTime <= pDateOfReference &&
-                                        d.DailyRecordDateTime >= ldt).ToList();
+                                        d.DailyRecordDateTime <= pDateOfReference).ToList();
 
                     lReturn = lDailyRecordList;
                 }
