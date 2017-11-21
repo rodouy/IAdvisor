@@ -641,6 +641,7 @@ namespace IrrigationAdvisor.Controllers
             try
             {
                 IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+                int lDatabaseChangeResult = 0;
 
                 var waterInput = lContext.Irrigations.Single(w => w.WaterInputId == pWaterInputId);
 
@@ -658,7 +659,7 @@ namespace IrrigationAdvisor.Controllers
                                 (int)Utils.NoIrrigationReason.MoveIrrigation,
                                 observation);
 
-                    lContext.SaveChanges();
+                    lDatabaseChangeResult = lContext.SaveChanges();
                 }
                 else
                 {
@@ -885,6 +886,7 @@ namespace IrrigationAdvisor.Controllers
         private void ProcessInformationToIrrigationUnits(List<CropIrrigationWeather> pCropIrrigationWeatherList, DateTime pDateOfReference, DateTime pToday)
         {
             IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
+            int lDatabaseChangeResult = 0;
 
             if (pCropIrrigationWeatherList != null)
             {
@@ -898,7 +900,7 @@ namespace IrrigationAdvisor.Controllers
                                     " - DateOfReference=" + pDateOfReference +
                                     " - Today=" + pToday + "");
                         lCIW.AddInformationToIrrigationUnits(pDateOfReference, pToday, lContext);
-                        lContext.SaveChanges();
+                        lDatabaseChangeResult = lContext.SaveChanges();
 
                     }
                     catch (Exception ex)
@@ -1182,6 +1184,7 @@ namespace IrrigationAdvisor.Controllers
                         }
                     }
                 }
+                lResult = true;
             }
             catch (Exception ex)
             {
@@ -1203,9 +1206,20 @@ namespace IrrigationAdvisor.Controllers
             CalculateAllActiveCropIrrigationWeatherByFarmId("Demo", "lluvia", farmId, pDateFrom);
         }
 
+        /// <summary>
+        /// Test Calculate all Active CropIrrigationWeather
+        /// </summary>
         public void TestCalculate()
         {
             CalculateAllActiveCropIrrigationWeather("Admin", "Irrigation4dvis0r");
+        }
+
+        /// <summary>
+        /// Calculate Prediction WeatherData
+        /// </summary>
+        public void CalculatePredictionWeatherData()
+        {
+            CalculatePredictionWeatherData("Admin", "Irrigation4dvis0r");
         }
 
         [HttpPost]
@@ -1275,6 +1289,38 @@ namespace IrrigationAdvisor.Controllers
 
             return Content("Error al calcular los Cultivos activos");
         }
+        
+        /// <summary>
+        /// Prediction Weather Data
+        /// </summary>
+        /// <param name="pUserName"></param>
+        /// <param name="pPassword"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult CalculatePredictionWeatherData(string pUserName, string pPassword)
+        {
+            try
+            {
+                bool lResult = false;
+
+                if (Login(pUserName, pPassword))
+                {
+                    lResult = PredictionWeatherData();
+
+                    if (lResult)
+                    {
+                        return Content("Ok");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.CalculatePredictionWeatherData ");
+                //return Content("Exception in HomeController.CalculatePredictionWeatherData " + "\n" + ex.Message);
+            }
+
+            return Content("Error al calcular los Cultivos activos");
+        }
 
         /// <summary>
         /// Update Phenology of a CropIrrigationWeather by Date and Stage
@@ -1291,6 +1337,7 @@ namespace IrrigationAdvisor.Controllers
 
             IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
             IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
+            int lDatabaseChangeResult = 0;
 
             try
             {
@@ -1317,10 +1364,10 @@ namespace IrrigationAdvisor.Controllers
                 lCIW.AddPhenologicalStageAdjustmentToList(lName, lCIW.Crop, pDate,
                                                          lStageToChange, lPhenologicalStage, lObservation);
 
-                lContext.SaveChanges();
+                lDatabaseChangeResult = lContext.SaveChanges();
 
                 lCIW.AddInformationToIrrigationUnits(pDate, lReferenceDate, lContext);
-                lContext.SaveChanges();
+                lDatabaseChangeResult = lContext.SaveChanges();
 
                 // Change navigation date of reference
                 // When the user add an irrigation the navigation date changes by the date of reference from the database
@@ -1554,6 +1601,7 @@ namespace IrrigationAdvisor.Controllers
             DateTime lDateIterator = pDateFrom;
             DateTime lReferenceDate = Utils.GetDateOfReference().Value;
             bool lIsExtraIrrigation = true;
+            int lDatabaseChangeResult = 0;
 
             while (lDateIterator <= pDateTo)
             {
@@ -1562,7 +1610,7 @@ namespace IrrigationAdvisor.Controllers
                 lDateIterator = lDateIterator.AddDays(1);
             }
 
-            pContext.SaveChanges();
+            lDatabaseChangeResult = pContext.SaveChanges();
 
             lDateIterator = pDateFrom;
 

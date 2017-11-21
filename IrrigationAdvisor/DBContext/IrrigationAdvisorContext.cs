@@ -67,7 +67,7 @@ namespace IrrigationAdvisor.DBContext
         public IrrigationAdvisorContext(string databaseName)
             : base(databaseName)
         {
-
+            this.Database.CommandTimeout = 250;
         }
 
         #region Agriculture
