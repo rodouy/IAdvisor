@@ -334,18 +334,20 @@ namespace IrrigationAdvisor.Models.Localization
         /// If exists return null
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pDescription"></param>
         /// <param name="pLocation"></param>
         /// <param name="pTestDate"></param>
         /// <param name="pDepthLimit"></param>
+        /// <param name="pFarmId"></param>
         /// <returns></returns>
-        public Soil AddSoil(String pName, String pDescription, long pPositionId, 
-                            DateTime pTestDate, double pDepthLimit)
+        public Soil AddSoil(String pName, String pShortName, String pDescription, long pPositionId,
+                            DateTime pTestDate, double pDepthLimit, long pFarmId)
         {
             Soil lReturn = null;
             long lIdSoil = this.GetNewSoilListId();
-            Soil lSoil = new Soil(lIdSoil, pName, pDescription, pPositionId, pTestDate, pDepthLimit);
-            if(ExistSoil(lSoil) == null)
+            Soil lSoil = new Soil(lIdSoil, pName, pShortName, pDescription, pPositionId, pTestDate, pDepthLimit, pFarmId);
+            if (ExistSoil(lSoil) == null)
             {
                 this.SoilList.Add(lSoil);
                 lReturn = lSoil;
@@ -358,18 +360,20 @@ namespace IrrigationAdvisor.Models.Localization
         /// If do not exists return null
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pDescription"></param>
         /// <param name="pLocation"></param>
         /// <param name="pTestDate"></param>
         /// <param name="pDepthLimit"></param>
+        /// <param name="pFarmId"></param>
         /// <returns></returns>
-        public Soil UpdateSoil(String pName, String pDescription, long pPositionId,
-                            DateTime pTestDate, double pDepthLimit)
+        public Soil UpdateSoil(String pName, String pShortName, String pDescription, long pPositionId,
+                            DateTime pTestDate, double pDepthLimit, long pFarmId)
         {
             Soil lReturn = null;
-            Soil lSoil = new Soil(this.GetNewSoilListId(), pName, pDescription, pPositionId, pTestDate, pDepthLimit);
+            Soil lSoil = new Soil(this.GetNewSoilListId(), pName, pShortName, pDescription, pPositionId, pTestDate, pDepthLimit, pFarmId);
             lReturn = ExistSoil(lSoil);
-            if(lReturn != null)
+            if (lReturn != null)
             {
                 lReturn.Name = pName;
                 lReturn.Description = pDescription;
@@ -379,6 +383,7 @@ namespace IrrigationAdvisor.Models.Localization
             }
             return lReturn;
         }
+
 
         #endregion
 

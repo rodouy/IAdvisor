@@ -772,20 +772,22 @@ namespace IrrigationAdvisor.Models.Management
         ///     if exist in the list, return the soil from the list.
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pDescription"></param>
         /// <param name="pLocation"></param>
         /// <param name="pTestDate"></param>
         /// <param name="pDepthLimit"></param>
+        /// <param name="pFarmId"></param>
         /// <returns></returns>
-        public Soil AddSoil(String pName, String pDescription,
+        public Soil AddSoil(String pName, String pShortName, String pDescription,
                         long pPositionId, DateTime pTestDate,
-                        double pDepthLimit)
+                        double pDepthLimit, long pFarmId)
         {
             Soil lReturn = null;
             int lIdSoil = this.SoilList.Count();
-            Soil lSoil = new Soil(lIdSoil, pName, pDescription,
-                                pPositionId, pTestDate, pDepthLimit);
-            if(ExistSoil(lSoil) == null)
+            Soil lSoil = new Soil(lIdSoil, pName, pShortName, pDescription,
+                                pPositionId, pTestDate, pDepthLimit, pFarmId);
+            if (ExistSoil(lSoil) == null)
             {
                 this.SoilList.Add(lSoil);
                 lReturn = lSoil;
@@ -798,20 +800,22 @@ namespace IrrigationAdvisor.Models.Management
         ///     if do not exist return null
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pDescription"></param>
         /// <param name="pLocation"></param>
         /// <param name="pTestDate"></param>
         /// <param name="pDepthLimit"></param>
+        /// <param name="pFarmId"></param>
         /// <returns></returns>
-        public Soil UpdateSoil(String pName, String pDescription,
+        public Soil UpdateSoil(String pName, String pShortName, String pDescription,
                         long pPositionId, DateTime pTestDate,
-                        double pDepthLimit)
+                        double pDepthLimit, long pFarmId)
         {
             Soil lReturn = null;
-            Soil lSoil = new Soil(0, pName, pDescription,
-                                pPositionId, pTestDate, pDepthLimit);
+            Soil lSoil = new Soil(0, pName, pShortName, pDescription,
+                                pPositionId, pTestDate, pDepthLimit, pFarmId);
             lReturn = ExistSoil(lSoil);
-            if(lReturn != null)
+            if (lReturn != null)
             {
                 lReturn.Name = pName;
                 lReturn.Description = pDescription;
@@ -930,20 +934,22 @@ namespace IrrigationAdvisor.Models.Management
         /// TODO add description
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pSerialNumber"></param>
         /// <param name="pServiceDate"></param>
         /// <param name="pPurchaseDate"></param>
-        /// <param name="pLocation"></param>
+        /// <param name="pPosition"></param>
+        /// <param name="pFarmId"></param>
         /// <returns></returns>
-        public Bomb AddBomb(String pName, String pSerialNumber, DateTime pServiceDate,
-                            DateTime pPurchaseDate, long pPositionId)
+        public Bomb AddBomb(String pName, String pShortName, String pSerialNumber, DateTime pServiceDate,
+                            DateTime pPurchaseDate, long pPositionId, long pFarmId)
         {
             Bomb lReturn = null;
             long lIdBomb = this.BombList.Count();
-            Bomb lBomb = new Bomb(lIdBomb, pName, pSerialNumber, pServiceDate,
-                            pPurchaseDate, pPositionId);
+            Bomb lBomb = new Bomb(lIdBomb, pName, pShortName, pSerialNumber, pServiceDate,
+                            pPurchaseDate, pPositionId, pFarmId);
             lReturn = ExistBomb(lBomb);
-            if(lReturn == null)
+            if (lReturn == null)
             {
                 this.BombList.Add(lBomb);
                 lReturn = lBomb;
@@ -960,23 +966,26 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pPurchaseDate"></param>
         /// <param name="pLocation"></param>
         /// <returns></returns>
-        public Bomb UpdateBomb(String pName, String pSerialNumber, DateTime pServiceDate,
-                            DateTime pPurchaseDate, long pPositionId)
+        public Bomb UpdateBomb(String pName, String pShortName, String pSerialNumber, DateTime pServiceDate,
+                            DateTime pPurchaseDate, long pPositionId, long pFarmId)
         {
             Bomb lReturn = null;
-            Bomb lBomb = new Bomb(0, pName, pSerialNumber, pServiceDate,
-                            pPurchaseDate, pPositionId);
+            Bomb lBomb = new Bomb(0, pName, pShortName, pSerialNumber, pServiceDate,
+                            pPurchaseDate, pPositionId, pFarmId);
             lReturn = ExistBomb(lBomb);
-            if(lReturn != null)
+            if (lReturn != null)
             {
                 lReturn.Name = pName;
+                lReturn.ShortName = pShortName;
                 lReturn.SerialNumber = pSerialNumber;
                 lReturn.ServiceDate = pServiceDate;
                 lReturn.PurchaseDate = pPurchaseDate;
                 lReturn.PositionId = pPositionId;
+                lReturn.FarmId = pFarmId;
             }
             return lReturn;
         }
+
 
         #endregion
 
