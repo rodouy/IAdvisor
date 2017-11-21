@@ -1725,13 +1725,13 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 using (var context = new IrrigationAdvisorContext())
                 {
                     //IrrigationData.AddIrrigationDataGMOElTacuruPivot1a_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot1b_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot1b_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOElTacuruPivot2a_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot2b_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot2b_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOElTacuruPivot3a_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataGMOElTacuruPivot3b_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot4_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot5_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot4_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot5_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataGMOElTacuruPivot6_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataGMOElTacuruPivot7_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOElTacuruPivot8_2017(context, Program.DateOfReference);
