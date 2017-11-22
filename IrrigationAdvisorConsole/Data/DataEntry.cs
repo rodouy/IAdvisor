@@ -661,9 +661,9 @@ namespace IrrigationAdvisorConsole
         public static DateTime SowingDate_CornNorth_GMOElTacuruPivot3a_2017 = new DateTime(2017, 10, 06);
         public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot3a_2017 = new DateTime(2018, 03, 10);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3a_2017 = 10;
-        //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot3b_2017 = new DateTime(2017, 11, 11);
-        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot3b_2017 = new DateTime(2018, 03, 30);
-        //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3b_2017 = 12;
+        public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot3b_2017 = new DateTime(2017, 11, 10);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot3b_2017 = new DateTime(2018, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot3b_2017 = 12;
         public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot4_2017 = new DateTime(2017, 10, 30);
         public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot4_2017 = new DateTime(2018, 04, 10);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot4_2017 = 10;
@@ -679,12 +679,12 @@ namespace IrrigationAdvisorConsole
         public static DateTime SowingDate_CornNorth_GMOElTacuruPivot8_2017 = new DateTime(2017, 09, 25);
         public static DateTime HarvestDate_CornNorth_GMOElTacuruPivot8_2017 = new DateTime(2018, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot8_2017 = 10;
-        //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot9_2017 = new DateTime(2017, 11, 06);
-        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot9_2017 = new DateTime(2017, 03, 20);
-        //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot9_2017 = 10;
-        //public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot10_2017 = new DateTime(2017, 11, 11);
-        //public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot10_2017 = new DateTime(2017, 03, 30);
-        //public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot10_2017 = 10;
+        public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot9_2017 = new DateTime(2017, 11, 14);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot9_2017 = new DateTime(2018, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot9_2017 = 10;
+        public static DateTime SowingDate_SoyaNorth_GMOElTacuruPivot10_2017 = new DateTime(2017, 11, 14);
+        public static DateTime HarvestDate_SoyaNorth_GMOElTacuruPivot10_2017 = new DateTime(2018, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_GMOElTacuruPivot10_2017 = 10;
         #endregion
         #region TM - Tres Marias
         public static String WeatherStationMainName_TresMarias_2017 = Utils.NameWeatherStationLaEstanzuela;
