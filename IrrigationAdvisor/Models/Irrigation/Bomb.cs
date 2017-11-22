@@ -28,6 +28,8 @@ namespace IrrigationAdvisor.Models.Irrigation
     ///     - serviceDate DateTime
     ///     - purchaseDate DateTime
     ///     - positionId long
+    ///     - shortName String
+    ///     - farmId long
     ///     
     /// 
     /// Methods:
@@ -49,12 +51,15 @@ namespace IrrigationAdvisor.Models.Irrigation
         private DateTime serviceDate;
         private DateTime purchaseDate;
         private long positionId;
+        private String shortName;
+        private long farmId;
+
 
         #endregion
 
         #region Properties
 
-        
+
         public long BombId
         {
             get { return bombId; }
@@ -91,12 +96,30 @@ namespace IrrigationAdvisor.Models.Irrigation
             set { positionId = value; }
         }
 
-
         public virtual Position Position
         {
             get;
             set;
         }
+
+        public string ShortName
+        {
+            get { return shortName; }
+            set { shortName = value; }
+        }
+
+        public long FarmId
+        {
+            get { return farmId; }
+            set { farmId = value; }
+        }
+        
+        public virtual Farm Farm
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region Construction
@@ -112,6 +135,8 @@ namespace IrrigationAdvisor.Models.Irrigation
             this.ServiceDate = DateTime.Now;
             this.PurchaseDate = DateTime.Now;
             this.PositionId = 0;
+            this.ShortName = "noshortname";
+            this.FarmId = 0;
         }
 
         /// <summary>
@@ -119,19 +144,23 @@ namespace IrrigationAdvisor.Models.Irrigation
         /// </summary>
         /// <param name="pBombId"></param>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pSerialNumber"></param>
         /// <param name="pServiceDate"></param>
         /// <param name="pPurchaseDate"></param>
         /// <param name="pPositionId"></param>
-        public Bomb(long pBombId, String pName, String pSerialNumber, DateTime pServiceDate,
-            DateTime pPurchaseDate, long pPositionId) 
+        /// <param name="pFarmId"></param>
+        public Bomb(long pBombId, String pName, String pShortName, String pSerialNumber, DateTime pServiceDate,
+            DateTime pPurchaseDate, long pPositionId, long pFarmId)
         {
             this.BombId = pBombId;
             this.Name = pName;
+            this.ShortName = pShortName;
             this.SerialNumber = pSerialNumber;
             this.ServiceDate = pServiceDate;
             this.PurchaseDate = pPurchaseDate;
             this.PositionId = pPositionId;
+            this.FarmId = pFarmId;
         }
 
         #endregion

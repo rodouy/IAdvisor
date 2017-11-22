@@ -31,6 +31,10 @@ namespace IrrigationAdvisor.ViewModels.Reports
 
         [Required]
         public long CropIrrigationWeatherId { get; set; }
+
+        [Required]
+        public double HydricBalancePercentage { get; set; }
+        
     }
 
 }
