@@ -497,13 +497,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmElDesafio
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NamePositionFarmElDesafio
+                             select far).FirstOrDefault(); 
+
                     var lBombElDesafio = new Bomb
                     {
                         Name = Utils.NameBombElDesafio,
+                        ShortName = Utils.NameBombElDesafio,
                         SerialNumber = "111111111",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombElDesafio);
                     context.SaveChanges();
@@ -522,13 +528,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                                  where pos.Name == Utils.NamePositionFarmLosNaranjales
                                  select pos).FirstOrDefault();
 
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NamePositionFarmLosNaranjales
+                             select far).FirstOrDefault(); 
+
                     var lBombLosNaranjales = new Bomb
                     {
                         Name = Utils.NameBombLosNaranjales,
+                        ShortName = Utils.NameBombLosNaranjales,
                         SerialNumber = "111111111",
                         PurchaseDate = Utils.MIN_DATETIME,
                         ServiceDate = Utils.MIN_DATETIME,
                         PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombLosNaranjales);
                     context.SaveChanges();
@@ -2471,12 +2483,12 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 48,
+                        Surface = 50,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
-                        Radius = 24,
-                        Show = false,
+                        Radius = 25,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -2543,11 +2555,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 28,
+                        Surface = 24,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
-                        Radius = 14,
+                        Radius = 12,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -2591,11 +2603,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 48,
+                        Surface = 46,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
-                        Radius = 24,
+                        Radius = 23,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -2615,11 +2627,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 56,
+                        Surface = 59,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
-                        Radius = 28,
+                        Radius = 29,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -2639,7 +2651,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 54,
+                        Surface = 55,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
@@ -2835,11 +2847,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 143,
+                        Surface = 59,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
-                        Radius = 71,
+                        Radius = 29,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -2979,11 +2991,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 100,
+                        Surface = 83,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
-                        Radius = 50,
+                        Radius = 42,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -3003,11 +3015,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.85,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 66,
+                        Surface = 55,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
-                        Radius = 33,
+                        Radius = 27,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -4128,7 +4140,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 var lCropAlfalfaSouthMedium = new Crop
                 {
                     Name = Utils.NameSpecieAlfalfaSouthMedium,
-                    ShortName = "Maíz",
+                    ShortName = "Alfalfa",
                     RegionId = lRegion.RegionId,
                     Region = lRegion,
                     SpecieId = lSpecie.SpecieId,
@@ -4222,7 +4234,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 var lCropAlfalfaNorthMedium = new Crop
                 {
                     Name = Utils.NameSpecieAlfalfaNorthMedium,
-                    ShortName = "Maíz",
+                    ShortName = "Alfalfa",
                     RegionId = lRegion.RegionId,
                     Region = lRegion,
                     SpecieId = lSpecie.SpecieId,
@@ -4396,10 +4408,63 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 };
                 #endregion
 
+                #region Alfalfa South Short
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieAlfalfaSouthShort
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lAlfalfaSouthShort = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieAlfalfaSouthShort,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Alfalfa South Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieAlfalfaSouthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lAlfalfaSouthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieAlfalfaSouthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+
                 context.CropInformationByDates.Add(lCornSouthShort);
                 context.CropInformationByDates.Add(lCornSouthMedium);
                 context.CropInformationByDates.Add(lSoyaSouthShort);
                 context.CropInformationByDates.Add(lSoyaSouthMedium);
+                context.CropInformationByDates.Add(lAlfalfaSouthShort);
+                context.CropInformationByDates.Add(lAlfalfaSouthMedium);
                 context.SaveChanges();
 
                 #endregion
@@ -4510,10 +4575,63 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 };
                 #endregion
 
+                #region Alfalfa North Short
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieAlfalfaNorthShort
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lAlfalfaNorthShort = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieAlfalfaNorthShort,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Alfalfa North Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieAlfalfaNorthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lAlfalfaNorthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieAlfalfaNorthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+
                 context.CropInformationByDates.Add(lCornNorthShort);
                 context.CropInformationByDates.Add(lCornNorthMedium);
                 context.CropInformationByDates.Add(lSoyaNorthShort);
                 context.CropInformationByDates.Add(lSoyaNorthMedium);
+                context.CropInformationByDates.Add(lAlfalfaNorthShort);
+                context.CropInformationByDates.Add(lAlfalfaNorthMedium);
                 context.SaveChanges();
 
                 #endregion

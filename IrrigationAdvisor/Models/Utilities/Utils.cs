@@ -1529,8 +1529,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherElRinconPivot1b_S1718 = NamePivotElRincon1b + " " + NameSpecieCornSouthShort + " " + NameSeason;
         #endregion
         #region El Desafio
-        public static String NameCropIrrigationWeatherElDesafioPivot1a_S1718 = NamePivotElDesafio1 + " " + NameSpecieCornSouthShort + " " + NameSeason;
-        public static String NameCropIrrigationWeatherElDesafioPivot1b_S1718 = NamePivotElDesafio2 + " " + NameSpecieAlfalfaSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherElDesafioPivot1_S1718 = NamePivotElDesafio1 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherElDesafioPivot2_S1718 = NamePivotElDesafio2 + " " + NameSpecieAlfalfaSouthShort + " " + NameSeason;
         #endregion
         #region Los Naranjales
         public static String NameCropIrrigationWeatherLosNaranjalesPivot1a_S1718 = NamePivotLosNaranjales1a + " " + NameSpecieCornSouthShort + " " + NameSeason;

@@ -166,7 +166,9 @@ namespace IrrigationAdvisorConsole
 
 
                 AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2017();
                 AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2017();
 
                 AgricultureInsert.InsertHorizons();
                 AgricultureInsert.InsertSoils();

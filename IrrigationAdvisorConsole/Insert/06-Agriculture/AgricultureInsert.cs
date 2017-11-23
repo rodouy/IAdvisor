@@ -643,6 +643,26 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
+            #region AlfalfaSouthMedium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lAlfalfaSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaSouthMedium,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_AlfalfaSouth_2017,
+                    StressTemperature = DataEntry.StressTemperature_AlfalfaSouth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lAlfalfaSouthMedium);
+                context.SaveChanges();
+            }
+            #endregion
 
             #region RedCloverForageSouthShort
             using (var context = new IrrigationAdvisorContext())
@@ -823,6 +843,26 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
 
                 context.Species.Add(lAlfalfaNorthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region AlfalfaNorthMedium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lAlfalfaNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaNorthMedium,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_AlfalfaNorth_2017,
+                    StressTemperature = DataEntry.StressTemperature_AlfalfaNorth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lAlfalfaNorthMedium);
                 context.SaveChanges();
             }
             #endregion
@@ -2919,6 +2959,133 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             };
         }
 
+        public static void InsertPhenologicalStagesAlfalfaSouthMedium_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region Alfalfa
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieAlfalfaSouthMedium) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V0") select stage).FirstOrDefault();
+                var lPSAlfalfaV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " VE") select stage).FirstOrDefault();
+                var lPSAlfalfaVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V1") select stage).FirstOrDefault();
+                var lPSAlfalfaV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V2") select stage).FirstOrDefault();
+                var lPSAlfalfaV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V3") select stage).FirstOrDefault();
+                var lPSAlfalfaV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V4") select stage).FirstOrDefault();
+                var lPSAlfalfaV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V5") select stage).FirstOrDefault();
+                var lPSAlfalfaV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V6") select stage).FirstOrDefault();
+                var lPSAlfalfaV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V7") select stage).FirstOrDefault();
+                var lPSAlfalfaV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V8") select stage).FirstOrDefault();
+                var lPSAlfalfaV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V9") select stage).FirstOrDefault();
+                var lPSAlfalfaV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V10") select stage).FirstOrDefault();
+                var lPSAlfalfaV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V11") select stage).FirstOrDefault();
+                var lPSAlfalfaV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V12") select stage).FirstOrDefault();
+                var lPSAlfalfaV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V13") select stage).FirstOrDefault();
+                var lPSAlfalfaV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V14") select stage).FirstOrDefault();
+                var lPSAlfalfaV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V15") select stage).FirstOrDefault();
+                var lPSAlfalfaV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V16") select stage).FirstOrDefault();
+                var lPSAlfalfaV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V17") select stage).FirstOrDefault();
+                var lPSAlfalfaV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " VT") select stage).FirstOrDefault();
+                var lPSAlfalfaVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R1") select stage).FirstOrDefault();
+                var lPSAlfalfaR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R2") select stage).FirstOrDefault();
+                var lPSAlfalfaR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R3") select stage).FirstOrDefault();
+                var lPSAlfalfaR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R4") select stage).FirstOrDefault();
+                var lPSAlfalfaR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R5") select stage).FirstOrDefault();
+                var lPSAlfalfaR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R6") select stage).FirstOrDefault();
+                var lPSAlfalfaR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R7") select stage).FirstOrDefault();
+                var lPSAlfalfaR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R8") select stage).FirstOrDefault();
+                var lPSAlfalfaR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - Alfalfa
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSAlfalfaV0);
+                context.PhenologicalStages.Add(lPSAlfalfaVe);
+                context.PhenologicalStages.Add(lPSAlfalfaV1);
+                context.PhenologicalStages.Add(lPSAlfalfaV2);
+                context.PhenologicalStages.Add(lPSAlfalfaV3);
+                context.PhenologicalStages.Add(lPSAlfalfaV4);
+                context.PhenologicalStages.Add(lPSAlfalfaV5);
+                context.PhenologicalStages.Add(lPSAlfalfaV6);
+                context.PhenologicalStages.Add(lPSAlfalfaV7);
+                context.PhenologicalStages.Add(lPSAlfalfaV8);
+                context.PhenologicalStages.Add(lPSAlfalfaV9);
+                context.PhenologicalStages.Add(lPSAlfalfaV10);
+                context.PhenologicalStages.Add(lPSAlfalfaV11);
+                context.PhenologicalStages.Add(lPSAlfalfaV12);
+                context.PhenologicalStages.Add(lPSAlfalfaV13);
+                context.PhenologicalStages.Add(lPSAlfalfaV14);
+                context.PhenologicalStages.Add(lPSAlfalfaV15);
+                context.PhenologicalStages.Add(lPSAlfalfaV16);
+                context.PhenologicalStages.Add(lPSAlfalfaV17);
+                context.PhenologicalStages.Add(lPSAlfalfaVt);
+                context.PhenologicalStages.Add(lPSAlfalfaR1);
+                context.PhenologicalStages.Add(lPSAlfalfaR2);
+                context.PhenologicalStages.Add(lPSAlfalfaR3);
+                context.PhenologicalStages.Add(lPSAlfalfaR4);
+                context.PhenologicalStages.Add(lPSAlfalfaR5);
+                context.PhenologicalStages.Add(lPSAlfalfaR6);
+                context.PhenologicalStages.Add(lPSAlfalfaR7);
+                context.PhenologicalStages.Add(lPSAlfalfaR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
         public static void InsertPhenologicalStagesAlfalfaNorthShort_2017()
         {
             #region Base
@@ -2940,7 +3107,134 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 #region Alfalfa
                 Specie lSpecie = null;
                 Stage lStage = null;
-                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieAlfalfaSouthShort) select specie).FirstOrDefault();
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieAlfalfaNorthShort) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V0") select stage).FirstOrDefault();
+                var lPSAlfalfaV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " VE") select stage).FirstOrDefault();
+                var lPSAlfalfaVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V1") select stage).FirstOrDefault();
+                var lPSAlfalfaV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V2") select stage).FirstOrDefault();
+                var lPSAlfalfaV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V3") select stage).FirstOrDefault();
+                var lPSAlfalfaV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V4") select stage).FirstOrDefault();
+                var lPSAlfalfaV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V5") select stage).FirstOrDefault();
+                var lPSAlfalfaV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V6") select stage).FirstOrDefault();
+                var lPSAlfalfaV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V7") select stage).FirstOrDefault();
+                var lPSAlfalfaV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V8") select stage).FirstOrDefault();
+                var lPSAlfalfaV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V9") select stage).FirstOrDefault();
+                var lPSAlfalfaV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V10") select stage).FirstOrDefault();
+                var lPSAlfalfaV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V11") select stage).FirstOrDefault();
+                var lPSAlfalfaV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V12") select stage).FirstOrDefault();
+                var lPSAlfalfaV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V13") select stage).FirstOrDefault();
+                var lPSAlfalfaV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V14") select stage).FirstOrDefault();
+                var lPSAlfalfaV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V15") select stage).FirstOrDefault();
+                var lPSAlfalfaV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V16") select stage).FirstOrDefault();
+                var lPSAlfalfaV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V17") select stage).FirstOrDefault();
+                var lPSAlfalfaV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " VT") select stage).FirstOrDefault();
+                var lPSAlfalfaVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R1") select stage).FirstOrDefault();
+                var lPSAlfalfaR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R2") select stage).FirstOrDefault();
+                var lPSAlfalfaR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R3") select stage).FirstOrDefault();
+                var lPSAlfalfaR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R4") select stage).FirstOrDefault();
+                var lPSAlfalfaR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R5") select stage).FirstOrDefault();
+                var lPSAlfalfaR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R6") select stage).FirstOrDefault();
+                var lPSAlfalfaR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R7") select stage).FirstOrDefault();
+                var lPSAlfalfaR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " R8") select stage).FirstOrDefault();
+                var lPSAlfalfaR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - Alfalfa
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSAlfalfaV0);
+                context.PhenologicalStages.Add(lPSAlfalfaVe);
+                context.PhenologicalStages.Add(lPSAlfalfaV1);
+                context.PhenologicalStages.Add(lPSAlfalfaV2);
+                context.PhenologicalStages.Add(lPSAlfalfaV3);
+                context.PhenologicalStages.Add(lPSAlfalfaV4);
+                context.PhenologicalStages.Add(lPSAlfalfaV5);
+                context.PhenologicalStages.Add(lPSAlfalfaV6);
+                context.PhenologicalStages.Add(lPSAlfalfaV7);
+                context.PhenologicalStages.Add(lPSAlfalfaV8);
+                context.PhenologicalStages.Add(lPSAlfalfaV9);
+                context.PhenologicalStages.Add(lPSAlfalfaV10);
+                context.PhenologicalStages.Add(lPSAlfalfaV11);
+                context.PhenologicalStages.Add(lPSAlfalfaV12);
+                context.PhenologicalStages.Add(lPSAlfalfaV13);
+                context.PhenologicalStages.Add(lPSAlfalfaV14);
+                context.PhenologicalStages.Add(lPSAlfalfaV15);
+                context.PhenologicalStages.Add(lPSAlfalfaV16);
+                context.PhenologicalStages.Add(lPSAlfalfaV17);
+                context.PhenologicalStages.Add(lPSAlfalfaVt);
+                context.PhenologicalStages.Add(lPSAlfalfaR1);
+                context.PhenologicalStages.Add(lPSAlfalfaR2);
+                context.PhenologicalStages.Add(lPSAlfalfaR3);
+                context.PhenologicalStages.Add(lPSAlfalfaR4);
+                context.PhenologicalStages.Add(lPSAlfalfaR5);
+                context.PhenologicalStages.Add(lPSAlfalfaR6);
+                context.PhenologicalStages.Add(lPSAlfalfaR7);
+                context.PhenologicalStages.Add(lPSAlfalfaR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        public static void InsertPhenologicalStagesAlfalfaNorthMedium_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region Alfalfa
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieAlfalfaNorthMedium) select specie).FirstOrDefault();
 
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesAlfalfa + " V0") select stage).FirstOrDefault();
                 var lPSAlfalfaV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
@@ -11428,6 +11722,23 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
+            #region Crop Coefficient Alfalfa South Medium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieAlfalfaSouthMedium)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientAlfalfaSouthMedium = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieAlfalfaSouthMedium,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientAlfalfaSouthMedium = InitialTables.CreateUpdateCropCoefficient_AlfalfaSouthMedium(lCropCoefficientAlfalfaSouthMedium, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientAlfalfaSouthMedium);
+                context.SaveChanges();
+            }
+            #endregion
             #region Crop Coefficient Alfalfa North Short
             using (var context = new IrrigationAdvisorContext())
             {
@@ -11442,6 +11753,23 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
                 lCropCoefficientAlfalfaNorthShort = InitialTables.CreateUpdateCropCoefficient_AlfalfaNorthShort(lCropCoefficientAlfalfaNorthShort, 0, lSpecie);
                 context.CropCoefficients.Add(lCropCoefficientAlfalfaNorthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient Alfalfa North Medium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieAlfalfaNorthMedium)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientAlfalfaNorthMedium = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieAlfalfaNorthMedium,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientAlfalfaNorthMedium = InitialTables.CreateUpdateCropCoefficient_AlfalfaNorthMedium(lCropCoefficientAlfalfaNorthMedium, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientAlfalfaNorthMedium);
                 context.SaveChanges();
             }
             #endregion
