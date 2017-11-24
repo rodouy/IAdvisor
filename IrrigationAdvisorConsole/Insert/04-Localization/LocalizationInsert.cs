@@ -1041,25 +1041,25 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             #region Pivots Los Naranjales #4
             var lLosNaranjalesPivot1a = new Position()
             {
-                Name = Utils.NamePositionPivotLosNaranjales1a,
+                Name = Utils.NamePositionPivotLosNaranjales6aT3,
                 Latitude = -34.0726,
                 Longitude = -55.868,
             };
             var lLosNaranjalesPivot1b = new Position()
             {
-                Name = Utils.NamePositionPivotLosNaranjales1b,
+                Name = Utils.NamePositionPivotLosNaranjales6bT3,
                 Latitude = -34.0726,
                 Longitude = -55.868,
             };
             var lLosNaranjalesPivot2a = new Position()
             {
-                Name = Utils.NamePositionPivotLosNaranjales2a,
+                Name = Utils.NamePositionPivotLosNaranjales5aT5,
                 Latitude = -34.0726,
                 Longitude = -55.868,
             };
             var lLosNaranjalesPivot2b = new Position()
             {
-                Name = Utils.NamePositionPivotLosNaranjales2b,
+                Name = Utils.NamePositionPivotLosNaranjales5bT5,
                 Latitude = -34.0726,
                 Longitude = -55.868,
             };

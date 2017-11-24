@@ -1140,10 +1140,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilElDesafio2 = NameFarmElDesafio + " Pivot 2";
         #endregion
         #region Los Naranjales
-        public static String NameSoilLosNaranjales1a = NameFarmLosNaranjales + " Pivot 1a";
-        public static String NameSoilLosNaranjales1b = NameFarmLosNaranjales + " Pivot 1b";
-        public static String NameSoilLosNaranjales2a = NameFarmLosNaranjales + " Pivot 2a";
-        public static String NameSoilLosNaranjales2b = NameFarmLosNaranjales + " Pivot 2b";
+        public static String NameSoilLosNaranjales6aT3 = NameFarmLosNaranjales + " Pivot 6aT3";
+        public static String NameSoilLosNaranjales6bT3 = NameFarmLosNaranjales + " Pivot 6bT3";
+        public static String NameSoilLosNaranjales5aT5 = NameFarmLosNaranjales + " Pivot 5aT5";
+        public static String NameSoilLosNaranjales5bT5 = NameFarmLosNaranjales + " Pivot 5bT5";
         #endregion
         #endregion
         #endregion
@@ -1316,10 +1316,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotElDesafio2 = NameFarmElDesafio + " Pivot 2";
         #endregion
         #region Los Naranjales
-        public static String NamePivotLosNaranjales1a = NameFarmLosNaranjales + " Pivot 1a";
-        public static String NamePivotLosNaranjales1b = NameFarmLosNaranjales + " Pivot 1b";
-        public static String NamePivotLosNaranjales2a = NameFarmLosNaranjales + " Pivot 2a";
-        public static String NamePivotLosNaranjales2b = NameFarmLosNaranjales + " Pivot 2b";
+        public static String NamePivotLosNaranjales6aT3 = NameFarmLosNaranjales + " Pivot 6aT3";
+        public static String NamePivotLosNaranjales6bT3 = NameFarmLosNaranjales + " Pivot 6bT3";
+        public static String NamePivotLosNaranjales5aT5 = NameFarmLosNaranjales + " Pivot 5aT5";
+        public static String NamePivotLosNaranjales5bT5 = NameFarmLosNaranjales + " Pivot 5bT5";
         #endregion
         public static String NamePivot = "";
         #endregion
@@ -1533,10 +1533,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherElDesafioPivot2_S1718 = NamePivotElDesafio2 + " " + NameSpecieAlfalfaSouthShort + " " + NameSeason;
         #endregion
         #region Los Naranjales
-        public static String NameCropIrrigationWeatherLosNaranjalesPivot1a_S1718 = NamePivotLosNaranjales1a + " " + NameSpecieCornSouthShort + " " + NameSeason;
-        public static String NameCropIrrigationWeatherLosNaranjalesPivot1b_S1718 = NamePivotLosNaranjales1b + " " + NameSpecieCornSouthShort + " " + NameSeason;
-        public static String NameCropIrrigationWeatherLosNaranjalesPivot2a_S1718 = NamePivotLosNaranjales2a + " " + NameSpecieFescueForageSouthShort + " " + NameSeason;
-        public static String NameCropIrrigationWeatherLosNaranjalesPivot2b_S1718 = NamePivotLosNaranjales2b + " " + NameSpecieFescueForageSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot6aT3_S1718 = NamePivotLosNaranjales6aT3 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot6bT3_S1718 = NamePivotLosNaranjales6bT3 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot5aT5_S1718 = NamePivotLosNaranjales5aT5 + " " + NameSpecieFescueForageSouthMedium + " " + NameSeason;
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot5bT5_S1718 = NamePivotLosNaranjales5bT5 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         #endregion
         #endregion
         #endregion
@@ -1778,10 +1778,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotElDesafio2 = NamePivotElDesafio2;
         #endregion
         #region Los Naranjales
-        public static String NamePositionPivotLosNaranjales1a = NamePivotLosNaranjales1a;
-        public static String NamePositionPivotLosNaranjales1b = NamePivotLosNaranjales1b;
-        public static String NamePositionPivotLosNaranjales2a = NamePivotLosNaranjales2a;
-        public static String NamePositionPivotLosNaranjales2b = NamePivotLosNaranjales2b;
+        public static String NamePositionPivotLosNaranjales6aT3 = NamePivotLosNaranjales6aT3;
+        public static String NamePositionPivotLosNaranjales6bT3 = NamePivotLosNaranjales6bT3;
+        public static String NamePositionPivotLosNaranjales5aT5 = NamePivotLosNaranjales5aT5;
+        public static String NamePositionPivotLosNaranjales5bT5 = NamePivotLosNaranjales5bT5;
         #endregion
         public static String NamePositionPivot = "";
         #endregion

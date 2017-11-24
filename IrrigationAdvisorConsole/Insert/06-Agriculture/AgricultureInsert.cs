@@ -725,6 +725,26 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
+            #region FescueForageSouthMedium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lFescueForageSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageSouthMedium,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_FescueForageSouth_2017,
+                    StressTemperature = DataEntry.StressTemperature_FescueForageSouth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lFescueForageSouthMedium);
+                context.SaveChanges();
+            }
+            #endregion
             #region FescueSeedSouthShort
             using (var context = new IrrigationAdvisorContext())
             {
@@ -742,6 +762,26 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
 
                 context.Species.Add(lFescueSeedSouthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region FescueSeedSouthMedium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lFescueSeedSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedSouthMedium,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_FescueSeedSouth_2017,
+                    StressTemperature = DataEntry.StressTemperature_FescueSeedSouth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lFescueSeedSouthMedium);
                 context.SaveChanges();
             }
             #endregion
@@ -887,6 +927,26 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SaveChanges();
             }
             #endregion
+            #region FescueForageNorthMedium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lFescueForageNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageNorthMedium,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_FescueForageNorth_2017,
+                    StressTemperature = DataEntry.StressTemperature_FescueForageNorth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lFescueForageNorthMedium);
+                context.SaveChanges();
+            }
+            #endregion
             #region FescueSeedNorthShort
             using (var context = new IrrigationAdvisorContext())
             {
@@ -904,6 +964,26 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
 
                 context.Species.Add(lFescueSeedNorthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region FescueSeedNorthMedium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lFescueSeedNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedNorthMedium,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_FescueSeedNorth_2017,
+                    StressTemperature = DataEntry.StressTemperature_FescueSeedNorth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lFescueSeedNorthMedium);
                 context.SaveChanges();
             }
             #endregion
@@ -3335,6 +3415,514 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.PhenologicalStages.Add(lPSAlfalfaR6);
                 context.PhenologicalStages.Add(lPSAlfalfaR7);
                 context.PhenologicalStages.Add(lPSAlfalfaR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        public static void InsertPhenologicalStagesFescueForageSouthShort_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region FescueForage
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieFescueForageSouthShort) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V0") select stage).FirstOrDefault();
+                var lPSFescueForageV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " VE") select stage).FirstOrDefault();
+                var lPSFescueForageVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V1") select stage).FirstOrDefault();
+                var lPSFescueForageV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V2") select stage).FirstOrDefault();
+                var lPSFescueForageV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V3") select stage).FirstOrDefault();
+                var lPSFescueForageV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V4") select stage).FirstOrDefault();
+                var lPSFescueForageV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V5") select stage).FirstOrDefault();
+                var lPSFescueForageV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V6") select stage).FirstOrDefault();
+                var lPSFescueForageV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V7") select stage).FirstOrDefault();
+                var lPSFescueForageV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V8") select stage).FirstOrDefault();
+                var lPSFescueForageV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V9") select stage).FirstOrDefault();
+                var lPSFescueForageV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V10") select stage).FirstOrDefault();
+                var lPSFescueForageV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V11") select stage).FirstOrDefault();
+                var lPSFescueForageV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V12") select stage).FirstOrDefault();
+                var lPSFescueForageV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V13") select stage).FirstOrDefault();
+                var lPSFescueForageV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V14") select stage).FirstOrDefault();
+                var lPSFescueForageV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V15") select stage).FirstOrDefault();
+                var lPSFescueForageV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V16") select stage).FirstOrDefault();
+                var lPSFescueForageV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V17") select stage).FirstOrDefault();
+                var lPSFescueForageV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " VT") select stage).FirstOrDefault();
+                var lPSFescueForageVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R1") select stage).FirstOrDefault();
+                var lPSFescueForageR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R2") select stage).FirstOrDefault();
+                var lPSFescueForageR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R3") select stage).FirstOrDefault();
+                var lPSFescueForageR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R4") select stage).FirstOrDefault();
+                var lPSFescueForageR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R5") select stage).FirstOrDefault();
+                var lPSFescueForageR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R6") select stage).FirstOrDefault();
+                var lPSFescueForageR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R7") select stage).FirstOrDefault();
+                var lPSFescueForageR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R8") select stage).FirstOrDefault();
+                var lPSFescueForageR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - FescueForage
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSFescueForageV0);
+                context.PhenologicalStages.Add(lPSFescueForageVe);
+                context.PhenologicalStages.Add(lPSFescueForageV1);
+                context.PhenologicalStages.Add(lPSFescueForageV2);
+                context.PhenologicalStages.Add(lPSFescueForageV3);
+                context.PhenologicalStages.Add(lPSFescueForageV4);
+                context.PhenologicalStages.Add(lPSFescueForageV5);
+                context.PhenologicalStages.Add(lPSFescueForageV6);
+                context.PhenologicalStages.Add(lPSFescueForageV7);
+                context.PhenologicalStages.Add(lPSFescueForageV8);
+                context.PhenologicalStages.Add(lPSFescueForageV9);
+                context.PhenologicalStages.Add(lPSFescueForageV10);
+                context.PhenologicalStages.Add(lPSFescueForageV11);
+                context.PhenologicalStages.Add(lPSFescueForageV12);
+                context.PhenologicalStages.Add(lPSFescueForageV13);
+                context.PhenologicalStages.Add(lPSFescueForageV14);
+                context.PhenologicalStages.Add(lPSFescueForageV15);
+                context.PhenologicalStages.Add(lPSFescueForageV16);
+                context.PhenologicalStages.Add(lPSFescueForageV17);
+                context.PhenologicalStages.Add(lPSFescueForageVt);
+                context.PhenologicalStages.Add(lPSFescueForageR1);
+                context.PhenologicalStages.Add(lPSFescueForageR2);
+                context.PhenologicalStages.Add(lPSFescueForageR3);
+                context.PhenologicalStages.Add(lPSFescueForageR4);
+                context.PhenologicalStages.Add(lPSFescueForageR5);
+                context.PhenologicalStages.Add(lPSFescueForageR6);
+                context.PhenologicalStages.Add(lPSFescueForageR7);
+                context.PhenologicalStages.Add(lPSFescueForageR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        public static void InsertPhenologicalStagesFescueForageSouthMedium_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region FescueForage
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieFescueForageSouthMedium) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V0") select stage).FirstOrDefault();
+                var lPSFescueForageV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " VE") select stage).FirstOrDefault();
+                var lPSFescueForageVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V1") select stage).FirstOrDefault();
+                var lPSFescueForageV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V2") select stage).FirstOrDefault();
+                var lPSFescueForageV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V3") select stage).FirstOrDefault();
+                var lPSFescueForageV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V4") select stage).FirstOrDefault();
+                var lPSFescueForageV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V5") select stage).FirstOrDefault();
+                var lPSFescueForageV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V6") select stage).FirstOrDefault();
+                var lPSFescueForageV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V7") select stage).FirstOrDefault();
+                var lPSFescueForageV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V8") select stage).FirstOrDefault();
+                var lPSFescueForageV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V9") select stage).FirstOrDefault();
+                var lPSFescueForageV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V10") select stage).FirstOrDefault();
+                var lPSFescueForageV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V11") select stage).FirstOrDefault();
+                var lPSFescueForageV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V12") select stage).FirstOrDefault();
+                var lPSFescueForageV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V13") select stage).FirstOrDefault();
+                var lPSFescueForageV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V14") select stage).FirstOrDefault();
+                var lPSFescueForageV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V15") select stage).FirstOrDefault();
+                var lPSFescueForageV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V16") select stage).FirstOrDefault();
+                var lPSFescueForageV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V17") select stage).FirstOrDefault();
+                var lPSFescueForageV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " VT") select stage).FirstOrDefault();
+                var lPSFescueForageVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R1") select stage).FirstOrDefault();
+                var lPSFescueForageR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R2") select stage).FirstOrDefault();
+                var lPSFescueForageR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R3") select stage).FirstOrDefault();
+                var lPSFescueForageR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R4") select stage).FirstOrDefault();
+                var lPSFescueForageR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R5") select stage).FirstOrDefault();
+                var lPSFescueForageR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R6") select stage).FirstOrDefault();
+                var lPSFescueForageR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R7") select stage).FirstOrDefault();
+                var lPSFescueForageR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R8") select stage).FirstOrDefault();
+                var lPSFescueForageR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - FescueForage
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSFescueForageV0);
+                context.PhenologicalStages.Add(lPSFescueForageVe);
+                context.PhenologicalStages.Add(lPSFescueForageV1);
+                context.PhenologicalStages.Add(lPSFescueForageV2);
+                context.PhenologicalStages.Add(lPSFescueForageV3);
+                context.PhenologicalStages.Add(lPSFescueForageV4);
+                context.PhenologicalStages.Add(lPSFescueForageV5);
+                context.PhenologicalStages.Add(lPSFescueForageV6);
+                context.PhenologicalStages.Add(lPSFescueForageV7);
+                context.PhenologicalStages.Add(lPSFescueForageV8);
+                context.PhenologicalStages.Add(lPSFescueForageV9);
+                context.PhenologicalStages.Add(lPSFescueForageV10);
+                context.PhenologicalStages.Add(lPSFescueForageV11);
+                context.PhenologicalStages.Add(lPSFescueForageV12);
+                context.PhenologicalStages.Add(lPSFescueForageV13);
+                context.PhenologicalStages.Add(lPSFescueForageV14);
+                context.PhenologicalStages.Add(lPSFescueForageV15);
+                context.PhenologicalStages.Add(lPSFescueForageV16);
+                context.PhenologicalStages.Add(lPSFescueForageV17);
+                context.PhenologicalStages.Add(lPSFescueForageVt);
+                context.PhenologicalStages.Add(lPSFescueForageR1);
+                context.PhenologicalStages.Add(lPSFescueForageR2);
+                context.PhenologicalStages.Add(lPSFescueForageR3);
+                context.PhenologicalStages.Add(lPSFescueForageR4);
+                context.PhenologicalStages.Add(lPSFescueForageR5);
+                context.PhenologicalStages.Add(lPSFescueForageR6);
+                context.PhenologicalStages.Add(lPSFescueForageR7);
+                context.PhenologicalStages.Add(lPSFescueForageR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        public static void InsertPhenologicalStagesFescueForageNorthShort_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region FescueForage
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieFescueForageNorthShort) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V0") select stage).FirstOrDefault();
+                var lPSFescueForageV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " VE") select stage).FirstOrDefault();
+                var lPSFescueForageVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V1") select stage).FirstOrDefault();
+                var lPSFescueForageV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V2") select stage).FirstOrDefault();
+                var lPSFescueForageV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V3") select stage).FirstOrDefault();
+                var lPSFescueForageV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V4") select stage).FirstOrDefault();
+                var lPSFescueForageV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V5") select stage).FirstOrDefault();
+                var lPSFescueForageV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V6") select stage).FirstOrDefault();
+                var lPSFescueForageV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V7") select stage).FirstOrDefault();
+                var lPSFescueForageV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V8") select stage).FirstOrDefault();
+                var lPSFescueForageV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V9") select stage).FirstOrDefault();
+                var lPSFescueForageV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V10") select stage).FirstOrDefault();
+                var lPSFescueForageV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V11") select stage).FirstOrDefault();
+                var lPSFescueForageV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V12") select stage).FirstOrDefault();
+                var lPSFescueForageV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V13") select stage).FirstOrDefault();
+                var lPSFescueForageV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V14") select stage).FirstOrDefault();
+                var lPSFescueForageV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V15") select stage).FirstOrDefault();
+                var lPSFescueForageV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V16") select stage).FirstOrDefault();
+                var lPSFescueForageV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V17") select stage).FirstOrDefault();
+                var lPSFescueForageV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " VT") select stage).FirstOrDefault();
+                var lPSFescueForageVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R1") select stage).FirstOrDefault();
+                var lPSFescueForageR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R2") select stage).FirstOrDefault();
+                var lPSFescueForageR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R3") select stage).FirstOrDefault();
+                var lPSFescueForageR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R4") select stage).FirstOrDefault();
+                var lPSFescueForageR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R5") select stage).FirstOrDefault();
+                var lPSFescueForageR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R6") select stage).FirstOrDefault();
+                var lPSFescueForageR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R7") select stage).FirstOrDefault();
+                var lPSFescueForageR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R8") select stage).FirstOrDefault();
+                var lPSFescueForageR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - FescueForage
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSFescueForageV0);
+                context.PhenologicalStages.Add(lPSFescueForageVe);
+                context.PhenologicalStages.Add(lPSFescueForageV1);
+                context.PhenologicalStages.Add(lPSFescueForageV2);
+                context.PhenologicalStages.Add(lPSFescueForageV3);
+                context.PhenologicalStages.Add(lPSFescueForageV4);
+                context.PhenologicalStages.Add(lPSFescueForageV5);
+                context.PhenologicalStages.Add(lPSFescueForageV6);
+                context.PhenologicalStages.Add(lPSFescueForageV7);
+                context.PhenologicalStages.Add(lPSFescueForageV8);
+                context.PhenologicalStages.Add(lPSFescueForageV9);
+                context.PhenologicalStages.Add(lPSFescueForageV10);
+                context.PhenologicalStages.Add(lPSFescueForageV11);
+                context.PhenologicalStages.Add(lPSFescueForageV12);
+                context.PhenologicalStages.Add(lPSFescueForageV13);
+                context.PhenologicalStages.Add(lPSFescueForageV14);
+                context.PhenologicalStages.Add(lPSFescueForageV15);
+                context.PhenologicalStages.Add(lPSFescueForageV16);
+                context.PhenologicalStages.Add(lPSFescueForageV17);
+                context.PhenologicalStages.Add(lPSFescueForageVt);
+                context.PhenologicalStages.Add(lPSFescueForageR1);
+                context.PhenologicalStages.Add(lPSFescueForageR2);
+                context.PhenologicalStages.Add(lPSFescueForageR3);
+                context.PhenologicalStages.Add(lPSFescueForageR4);
+                context.PhenologicalStages.Add(lPSFescueForageR5);
+                context.PhenologicalStages.Add(lPSFescueForageR6);
+                context.PhenologicalStages.Add(lPSFescueForageR7);
+                context.PhenologicalStages.Add(lPSFescueForageR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        public static void InsertPhenologicalStagesFescueForageNorthMedium_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region FescueForage
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieFescueForageNorthMedium) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V0") select stage).FirstOrDefault();
+                var lPSFescueForageV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " VE") select stage).FirstOrDefault();
+                var lPSFescueForageVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V1") select stage).FirstOrDefault();
+                var lPSFescueForageV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V2") select stage).FirstOrDefault();
+                var lPSFescueForageV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V3") select stage).FirstOrDefault();
+                var lPSFescueForageV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V4") select stage).FirstOrDefault();
+                var lPSFescueForageV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V5") select stage).FirstOrDefault();
+                var lPSFescueForageV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V6") select stage).FirstOrDefault();
+                var lPSFescueForageV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V7") select stage).FirstOrDefault();
+                var lPSFescueForageV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V8") select stage).FirstOrDefault();
+                var lPSFescueForageV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V9") select stage).FirstOrDefault();
+                var lPSFescueForageV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V10") select stage).FirstOrDefault();
+                var lPSFescueForageV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V11") select stage).FirstOrDefault();
+                var lPSFescueForageV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V12") select stage).FirstOrDefault();
+                var lPSFescueForageV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V13") select stage).FirstOrDefault();
+                var lPSFescueForageV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V14") select stage).FirstOrDefault();
+                var lPSFescueForageV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V15") select stage).FirstOrDefault();
+                var lPSFescueForageV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V16") select stage).FirstOrDefault();
+                var lPSFescueForageV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " V17") select stage).FirstOrDefault();
+                var lPSFescueForageV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " VT") select stage).FirstOrDefault();
+                var lPSFescueForageVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R1") select stage).FirstOrDefault();
+                var lPSFescueForageR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R2") select stage).FirstOrDefault();
+                var lPSFescueForageR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R3") select stage).FirstOrDefault();
+                var lPSFescueForageR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R4") select stage).FirstOrDefault();
+                var lPSFescueForageR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R5") select stage).FirstOrDefault();
+                var lPSFescueForageR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R6") select stage).FirstOrDefault();
+                var lPSFescueForageR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R7") select stage).FirstOrDefault();
+                var lPSFescueForageR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesFescueForage + " R8") select stage).FirstOrDefault();
+                var lPSFescueForageR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - FescueForage
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSFescueForageV0);
+                context.PhenologicalStages.Add(lPSFescueForageVe);
+                context.PhenologicalStages.Add(lPSFescueForageV1);
+                context.PhenologicalStages.Add(lPSFescueForageV2);
+                context.PhenologicalStages.Add(lPSFescueForageV3);
+                context.PhenologicalStages.Add(lPSFescueForageV4);
+                context.PhenologicalStages.Add(lPSFescueForageV5);
+                context.PhenologicalStages.Add(lPSFescueForageV6);
+                context.PhenologicalStages.Add(lPSFescueForageV7);
+                context.PhenologicalStages.Add(lPSFescueForageV8);
+                context.PhenologicalStages.Add(lPSFescueForageV9);
+                context.PhenologicalStages.Add(lPSFescueForageV10);
+                context.PhenologicalStages.Add(lPSFescueForageV11);
+                context.PhenologicalStages.Add(lPSFescueForageV12);
+                context.PhenologicalStages.Add(lPSFescueForageV13);
+                context.PhenologicalStages.Add(lPSFescueForageV14);
+                context.PhenologicalStages.Add(lPSFescueForageV15);
+                context.PhenologicalStages.Add(lPSFescueForageV16);
+                context.PhenologicalStages.Add(lPSFescueForageV17);
+                context.PhenologicalStages.Add(lPSFescueForageVt);
+                context.PhenologicalStages.Add(lPSFescueForageR1);
+                context.PhenologicalStages.Add(lPSFescueForageR2);
+                context.PhenologicalStages.Add(lPSFescueForageR3);
+                context.PhenologicalStages.Add(lPSFescueForageR4);
+                context.PhenologicalStages.Add(lPSFescueForageR5);
+                context.PhenologicalStages.Add(lPSFescueForageR6);
+                context.PhenologicalStages.Add(lPSFescueForageR7);
+                context.PhenologicalStages.Add(lPSFescueForageR8);
                 context.SaveChanges();
                 #endregion
             };
@@ -8205,6 +8793,302 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
+            #region Horizons El Desafio
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElDesafio)
+            {
+
+                #region Pivot 1
+                var lElDesafioPivot_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotElDesafio1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 16.67,
+                    Limo = 72.19,
+                    Clay = 11.14,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.48,
+                };
+                var lElDesafioPivot_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotElDesafio1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.73,
+                    Limo = 73.72,
+                    Clay = 10.55,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.51,
+                };
+                var lElDesafioPivot_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotElDesafio1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.08,
+                    Limo = 68.22,
+                    Clay = 16.7,
+                    OrganicMatter = 1.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.40,
+                };
+                #endregion
+                #region Pivot 2
+                var lElDesafioPivot_2_1 = new Horizon
+                {
+                    Name = Utils.NamePivotElDesafio2 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 30.01,
+                    Limo = 58.59,
+                    Clay = 11.4,
+                    OrganicMatter = 3.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.44,
+                };
+                var lElDesafioPivot_2_2 = new Horizon
+                {
+                    Name = Utils.NamePivotElDesafio2 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 25.5,
+                    Limo = 57.92,
+                    Clay = 16.58,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.46,
+                };
+                var lElDesafioPivot_2_3 = new Horizon
+                {
+                    Name = Utils.NamePivotElDesafio2 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 27.07,
+                    Limo = 50.61,
+                    Clay = 27.32,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.47,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons El Rincon
+                    context.Horizons.Add(lElDesafioPivot_1_1);
+                    context.Horizons.Add(lElDesafioPivot_1_2);
+                    context.Horizons.Add(lElDesafioPivot_1_3);
+                    context.Horizons.Add(lElDesafioPivot_2_1);
+                    context.Horizons.Add(lElDesafioPivot_2_2);
+                    context.Horizons.Add(lElDesafioPivot_2_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+            #region Horizons Los Naranjales
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
+            {
+
+                #region Pivot 6aT3
+                var lLosNaranjalesPivot_6aT3_1 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales6aT3 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 39,
+                    Limo = 40,
+                    Clay = 21,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+                var lLosNaranjalesPivot_6aT3_2 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales6aT3 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 37,
+                    Limo = 40,
+                    Clay = 23,
+                    OrganicMatter = 2.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.38,
+                };
+                var lLosNaranjalesPivot_6aT3_3 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales6aT3 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 35,
+                    Limo = 37,
+                    Clay = 28,
+                    OrganicMatter = 1.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.35,
+                };
+                #endregion
+                #region Pivot 6bT3
+                var lLosNaranjalesPivot_6bT3_1 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales6bT3 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 42,
+                    Limo = 35,
+                    Clay = 23,
+                    OrganicMatter = 3.0,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+                var lLosNaranjalesPivot_6bT3_2 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales6bT3 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 40,
+                    Limo = 30,
+                    Clay = 30,
+                    OrganicMatter = 2.7,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.42,
+                };
+                var lLosNaranjalesPivot_6bT3_3 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales6bT3 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 36,
+                    Limo = 26,
+                    Clay = 38,
+                    OrganicMatter = 2.1,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.38,
+                };
+                #endregion
+                #region Pivot 5aT5
+                var lLosNaranjalesPivot_5aT5_1 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales5aT5 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 42,
+                    Limo = 21,
+                    Clay = 37,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.37,
+                };
+                var lLosNaranjalesPivot_5aT5_2 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales5aT5 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 44,
+                    Limo = 23,
+                    Clay = 33,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.38,
+                };
+                var lLosNaranjalesPivot_5aT5_3 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales5aT5 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 40,
+                    Limo = 30,
+                    Clay = 30,
+                    OrganicMatter = 1.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+                #region Pivot 5bT5
+                var lLosNaranjalesPivot_5bT5_1 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales5bT5 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 42,
+                    Limo = 21,
+                    Clay = 37,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.37,
+                };
+                var lLosNaranjalesPivot_5bT5_2 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales5bT5 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 44,
+                    Limo = 23,
+                    Clay = 33,
+                    OrganicMatter = 2.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.38,
+                };
+                var lLosNaranjalesPivot_5bT5_3 = new Horizon
+                {
+                    Name = Utils.NamePivotLosNaranjales5bT5 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 40,
+                    Limo = 30,
+                    Clay = 30,
+                    OrganicMatter = 1.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons El Rincon
+                    context.Horizons.Add(lLosNaranjalesPivot_6aT3_1);
+                    context.Horizons.Add(lLosNaranjalesPivot_6aT3_2);
+                    context.Horizons.Add(lLosNaranjalesPivot_6aT3_3);
+                    context.Horizons.Add(lLosNaranjalesPivot_6bT3_1);
+                    context.Horizons.Add(lLosNaranjalesPivot_6bT3_2);
+                    context.Horizons.Add(lLosNaranjalesPivot_6bT3_3);
+                    context.Horizons.Add(lLosNaranjalesPivot_5aT5_1);
+                    context.Horizons.Add(lLosNaranjalesPivot_5aT5_2);
+                    context.Horizons.Add(lLosNaranjalesPivot_5aT5_3);
+                    context.Horizons.Add(lLosNaranjalesPivot_5bT5_1);
+                    context.Horizons.Add(lLosNaranjalesPivot_5bT5_2);
+                    context.Horizons.Add(lLosNaranjalesPivot_5bT5_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
 
             #region Horizons
 
@@ -11550,6 +12434,220 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
+            #region El Desafio Soils
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElDesafio)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmLaRinconada
+                             select far).FirstOrDefault();
+
+                    #region Pivot 1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElDesafio1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElDesafio1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElDesafio1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElDesafio1 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lElDesafioPivot1 = new Soil
+                    {
+                        Name = Utils.NamePivotElDesafio1,
+                        Description = "Suelo del Pivot 1 en El Desafio. "
+                         + "CONEAT 10.8b Suelo arcillo limoso.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 10),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotElDesafio1,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lElDesafioPivot1.HorizonList.Add(lHorizon1);
+                    lElDesafioPivot1.HorizonList.Add(lHorizon2);
+                    lElDesafioPivot1.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 2
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElDesafio2
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElDesafio2 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElDesafio2 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElDesafio2 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lElDesafioPivot2 = new Soil
+                    {
+                        Name = Utils.NamePivotElDesafio2,
+                        Description = "Suelo del Pivot 1b en El Desafio. "
+                         + "CONEAT 10.8b Suelo arcillo limoso.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 09),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotElDesafio2,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lElDesafioPivot2.HorizonList.Add(lHorizon1);
+                    lElDesafioPivot2.HorizonList.Add(lHorizon2);
+                    lElDesafioPivot2.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    context.Soils.Add(lElDesafioPivot1);
+                    context.Soils.Add(lElDesafioPivot2);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+            #region Los Naranjales Soils
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmLaRinconada
+                             select far).FirstOrDefault();
+
+                    #region Pivot 6aT3
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLosNaranjales6aT3
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales6aT3 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales6aT3 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales6aT3 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lLosNaranjalesPivot6aT3 = new Soil
+                    {
+                        Name = Utils.NamePivotLosNaranjales6aT3,
+                        Description = "Suelo del Pivot 6aT3 en Los Naranjales. "
+                         + "CONEAT 5.4 Suelo arcillo limoso.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 30),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotLosNaranjales6aT3,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lLosNaranjalesPivot6aT3.HorizonList.Add(lHorizon1);
+                    lLosNaranjalesPivot6aT3.HorizonList.Add(lHorizon2);
+                    lLosNaranjalesPivot6aT3.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 6bT3
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLosNaranjales6bT3
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales6bT3 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales6bT3 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales6bT3 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lLosNaranjalesPivot6bT3 = new Soil
+                    {
+                        Name = Utils.NamePivotLosNaranjales6bT3,
+                        Description = "Suelo del Pivot 6bT3 en Los Naranjales. "
+                         + "CONEAT 5.4 Suelo arcillo limoso.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 30),
+                        DepthLimit = 45,
+                        ShortName = Utils.NamePivotLosNaranjales6bT3,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lLosNaranjalesPivot6bT3.HorizonList.Add(lHorizon1);
+                    lLosNaranjalesPivot6bT3.HorizonList.Add(lHorizon2);
+                    lLosNaranjalesPivot6bT3.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 5aT5
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLosNaranjales5aT5
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales5aT5 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales5aT5 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales5aT5 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lLosNaranjalesPivot5aT5 = new Soil
+                    {
+                        Name = Utils.NamePivotLosNaranjales5aT5,
+                        Description = "Suelo del Pivot 5aT5 en Los Naranjales. "
+                         + "CONEAT 5.02b Suelo arcillo limoso.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 30),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotLosNaranjales5aT5,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lLosNaranjalesPivot5aT5.HorizonList.Add(lHorizon1);
+                    lLosNaranjalesPivot5aT5.HorizonList.Add(lHorizon2);
+                    lLosNaranjalesPivot5aT5.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 5bT5
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLosNaranjales5bT5
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales5bT5 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales5bT5 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLosNaranjales5bT5 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lLosNaranjalesPivot5bT5 = new Soil
+                    {
+                        Name = Utils.NamePivotLosNaranjales5bT5,
+                        Description = "Suelo del Pivot 5bT5 en Los Naranjales. "
+                         + "CONEAT 5.02b Suelo arcillo limoso.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 30),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotLosNaranjales5bT5,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lLosNaranjalesPivot5bT5.HorizonList.Add(lHorizon1);
+                    lLosNaranjalesPivot5bT5.HorizonList.Add(lHorizon2);
+                    lLosNaranjalesPivot5bT5.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    context.Soils.Add(lLosNaranjalesPivot6aT3);
+                    context.Soils.Add(lLosNaranjalesPivot6bT3);
+                    context.Soils.Add(lLosNaranjalesPivot5aT5);
+                    context.Soils.Add(lLosNaranjalesPivot5bT5);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
             
         }
 
@@ -11774,6 +12872,74 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             }
             #endregion
 
+            #region Crop Coefficient FescueForage South Short
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieFescueForageSouthShort)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientFescueForageSouthShort = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieFescueForageSouthShort,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientFescueForageSouthShort = InitialTables.CreateUpdateCropCoefficient_FescueForageSouthShort(lCropCoefficientFescueForageSouthShort, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientFescueForageSouthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient FescueForage South Medium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieFescueForageSouthMedium)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientFescueForageSouthMedium = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieFescueForageSouthMedium,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientFescueForageSouthMedium = InitialTables.CreateUpdateCropCoefficient_FescueForageSouthMedium(lCropCoefficientFescueForageSouthMedium, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientFescueForageSouthMedium);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient FescueForage North Short
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieFescueForageNorthShort)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientFescueForageNorthShort = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieFescueForageNorthShort,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientFescueForageNorthShort = InitialTables.CreateUpdateCropCoefficient_FescueForageNorthShort(lCropCoefficientFescueForageNorthShort, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientFescueForageNorthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient FescueForage North Medium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieFescueForageNorthMedium)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientFescueForageNorthMedium = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieFescueForageNorthMedium,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientFescueForageNorthMedium = InitialTables.CreateUpdateCropCoefficient_FescueForageNorthMedium(lCropCoefficientFescueForageNorthMedium, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientFescueForageNorthMedium);
+                context.SaveChanges();
+            }
+            #endregion
         }
 
 #endif

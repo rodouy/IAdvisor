@@ -750,18 +750,18 @@ namespace IrrigationAdvisorConsole
         public static String WeatherStationMainName_LosNaranjales_2017 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_LosNaranjales_2017 = Utils.NameWeatherStationViveroSanFrancisco;
 
-        public static DateTime SowingDate_CornSouth_LosNaranjalesPivot1a_2017 = new DateTime(2017, 10, 12);
-        public static DateTime HarvestDate_CornSouth_LosNaranjalesPivot1a_2017 = new DateTime(2018, 04, 01);
-        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot1a_2017 = 10;
-        public static DateTime SowingDate_CornSouth_LosNaranjalesPivot1b_2017 = new DateTime(2017, 10, 12);
-        public static DateTime HarvestDate_CornSouth_LosNaranjalesPivot1b_2017 = new DateTime(2018, 04, 01);
-        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot1b_2017 = 10;
-        public static DateTime SowingDate_FescueForageSouth_LosNaranjalesPivot2a_2017 = new DateTime(2016, 03, 25);
-        public static DateTime HarvestDate_FescueForageSouth_LosNaranjalesPivot2a_2017 = new DateTime(2018, 07, 01);
-        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot2a_2017 = 10;
-        public static DateTime SowingDate_FescueForageSouth_LosNaranjalesPivot2b_2017 = new DateTime(2015, 03, 25);
-        public static DateTime HarvestDate_FescueForageSouth_LosNaranjalesPivot2b_2017 = new DateTime(2018, 07, 01);
-        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot2b_2017 = 10;
+        public static DateTime SowingDate_CornSouth_LosNaranjalesPivot6aT3_2017 = new DateTime(2017, 10, 20);
+        public static DateTime HarvestDate_CornSouth_LosNaranjalesPivot6aT3_2017 = new DateTime(2018, 04, 10);
+        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot6aT3_2017 = 10;
+        public static DateTime SowingDate_CornSouth_LosNaranjalesPivot6bT3_2017 = new DateTime(2017, 10, 20);
+        public static DateTime HarvestDate_CornSouth_LosNaranjalesPivot6bT3_2017 = new DateTime(2018, 04, 10);
+        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot6bT3_2017 = 10;
+        public static DateTime SowingDate_FescueForageSouth_LosNaranjalesPivot5aT5_2017 = new DateTime(2017, 03, 27);
+        public static DateTime HarvestDate_FescueForageSouth_LosNaranjalesPivot5aT5_2017 = new DateTime(2018, 06, 20);
+        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot5aT5_2017 = 14;
+        public static DateTime SowingDate_CornSouth_LosNaranjalesPivot5bT5_2017 = new DateTime(2017, 10, 24);
+        public static DateTime HarvestDate_CornSouth_LosNaranjalesPivot5bT5_2017 = new DateTime(2018, 04, 10);
+        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot5bT5_2017 = 10;
 
         #endregion
 
@@ -27705,7 +27705,7 @@ namespace IrrigationAdvisorConsole
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotLosNaranjales1a
+                               where iu.Name == Utils.NamePivotLosNaranjales6aT3
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
@@ -27755,10 +27755,10 @@ namespace IrrigationAdvisorConsole
                        where cc.Name == Utils.NameSpecieCornSouthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
-                     where soil.Name == Utils.NameSoilLosNaranjales1a
+                     where soil.Name == Utils.NameSoilLosNaranjales6aT3
                      select soil).FirstOrDefault();
             lHorizonList = (from horizon in context.Horizons
-                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales1a)
+                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales6aT3)
                             select horizon).ToList<Horizon>();
             #endregion
             #region Calculate for each day
@@ -27906,7 +27906,7 @@ namespace IrrigationAdvisorConsole
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotLosNaranjales1b
+                               where iu.Name == Utils.NamePivotLosNaranjales6bT3
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
@@ -27956,10 +27956,10 @@ namespace IrrigationAdvisorConsole
                        where cc.Name == Utils.NameSpecieCornSouthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
-                     where soil.Name == Utils.NameSoilLosNaranjales1b
+                     where soil.Name == Utils.NameSoilLosNaranjales6bT3
                      select soil).FirstOrDefault();
             lHorizonList = (from horizon in context.Horizons
-                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales1b)
+                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales6bT3)
                             select horizon).ToList<Horizon>();
             #endregion
             #region Calculate for each day
@@ -28107,7 +28107,7 @@ namespace IrrigationAdvisorConsole
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotLosNaranjales1a
+                               where iu.Name == Utils.NamePivotLosNaranjales6aT3
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
@@ -28157,10 +28157,10 @@ namespace IrrigationAdvisorConsole
                        where cc.Name == Utils.NameSpecieFescueForageSouthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
-                     where soil.Name == Utils.NameSoilLosNaranjales1a
+                     where soil.Name == Utils.NameSoilLosNaranjales6aT3
                      select soil).FirstOrDefault();
             lHorizonList = (from horizon in context.Horizons
-                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales1a)
+                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales6aT3)
                             select horizon).ToList<Horizon>();
             #endregion
             #region Calculate for each day
@@ -28308,7 +28308,7 @@ namespace IrrigationAdvisorConsole
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotLosNaranjales1b
+                               where iu.Name == Utils.NamePivotLosNaranjales6bT3
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
@@ -28358,10 +28358,10 @@ namespace IrrigationAdvisorConsole
                        where cc.Name == Utils.NameSpecieFescueForageSouthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
-                     where soil.Name == Utils.NameSoilLosNaranjales1b
+                     where soil.Name == Utils.NameSoilLosNaranjales6bT3
                      select soil).FirstOrDefault();
             lHorizonList = (from horizon in context.Horizons
-                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales1b)
+                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales6bT3)
                             select horizon).ToList<Horizon>();
             #endregion
             #region Calculate for each day
