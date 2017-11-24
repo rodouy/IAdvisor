@@ -12261,7 +12261,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 using (var context = new IrrigationAdvisorContext())
                 {
                     lFarm = (from far in context.Farms
-                             where far.Name == Utils.NameFarmLaRinconada
+                             where far.Name == Utils.NameFarmElRincon
                              select far).FirstOrDefault();
 
                     #region Pivot 1a
@@ -12338,7 +12338,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 using (var context = new IrrigationAdvisorContext())
                 {
                     lFarm = (from far in context.Farms
-                             where far.Name == Utils.NameFarmLaRinconada
+                             where far.Name == Utils.NameFarmElDesafio
                              select far).FirstOrDefault();
 
                     #region Pivot 1
@@ -12415,7 +12415,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 using (var context = new IrrigationAdvisorContext())
                 {
                     lFarm = (from far in context.Farms
-                             where far.Name == Utils.NameFarmLaRinconada
+                             where far.Name == Utils.NameFarmLosNaranjales
                              select far).FirstOrDefault();
 
                     #region Pivot 6aT3

@@ -21092,6 +21092,7 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
+            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2017, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -22711,6 +22712,7 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
+            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2017, 11, 01));
             if (lHarvestDate > DateTime.Now)
             {
                 lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -27561,6 +27563,7 @@ namespace IrrigationAdvisorConsole
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
+            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2017, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -28107,7 +28110,7 @@ namespace IrrigationAdvisorConsole
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotLosNaranjales6aT3
+                               where iu.Name == Utils.NamePivotLosNaranjales5aT5
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
@@ -28157,16 +28160,17 @@ namespace IrrigationAdvisorConsole
                        where cc.Name == Utils.NameSpecieFescueForageSouthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
-                     where soil.Name == Utils.NameSoilLosNaranjales6aT3
+                     where soil.Name == Utils.NameSoilLosNaranjales5aT5
                      select soil).FirstOrDefault();
             lHorizonList = (from horizon in context.Horizons
-                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales6aT3)
+                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales5aT5)
                             select horizon).ToList<Horizon>();
             #endregion
             #region Calculate for each day
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
+            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2017, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -28286,11 +28290,11 @@ namespace IrrigationAdvisorConsole
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieFescueForageSouthShort
+                       where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
-                       where st.Name.Contains(Utils.NameStagesFescueForage)
+                       where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
             lPhenologicalStages = (from ps in context.PhenologicalStages
                                    where ps.SpecieId == lSpecie.SpecieId
@@ -28299,7 +28303,7 @@ namespace IrrigationAdvisorConsole
                      where farm.Name == Utils.NameFarmLosNaranjales
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieFescueForageSouthShort
+                     where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
@@ -28308,7 +28312,7 @@ namespace IrrigationAdvisorConsole
                                   select effectiverain)
                                      .ToList<EffectiveRain>();
             lIrrigationUnit = (from iu in context.Pivots
-                               where iu.Name == Utils.NamePivotLosNaranjales6bT3
+                               where iu.Name == Utils.NamePivotLosNaranjales5bT5
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
@@ -28325,7 +28329,7 @@ namespace IrrigationAdvisorConsole
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieFescueForageSouthShort
+                                      where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -28352,16 +28356,16 @@ namespace IrrigationAdvisorConsole
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieFescueForageSouthShort
+                                where cc.Name == Utils.NameSpecieCornSouthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieFescueForageSouthShort
+                       where cc.Name == Utils.NameSpecieCornSouthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
-                     where soil.Name == Utils.NameSoilLosNaranjales6bT3
+                     where soil.Name == Utils.NameSoilLosNaranjales5bT5
                      select soil).FirstOrDefault();
             lHorizonList = (from horizon in context.Horizons
-                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales6bT3)
+                            where horizon.Name.StartsWith(Utils.NamePivotLosNaranjales5bT5)
                             select horizon).ToList<Horizon>();
             #endregion
             #region Calculate for each day
