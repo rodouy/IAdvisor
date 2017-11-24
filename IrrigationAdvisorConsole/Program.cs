@@ -119,7 +119,21 @@ namespace IrrigationAdvisorConsole
                 Console.WriteLine("Add Information of Agriculture.");
                 
                 AgricultureInsert.InsertSpecieCycles();
-                AgricultureInsert.InsertSpecies();
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2015
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                {
+                    AgricultureInsert.InsertSpecies_2016();
+                }
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                {
+                    AgricultureInsert.InsertSpecies_2017();
+                }
+                else
+                {
+                    AgricultureInsert.InsertSpecies_2017();
+                }
                 AgricultureInsert.UpdateCountryRegionWithSpeciesSpeciesCycles();
                 AgricultureInsert.InsertStagesCorn();
                 AgricultureInsert.InsertStagesSoya();
@@ -148,6 +162,17 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort();
                 //AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2017();
                 AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium();
+
+
+
+                AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2017();
+                AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2017();
+                AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2017();
+                AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2017();
 
                 AgricultureInsert.InsertHorizons();
                 AgricultureInsert.InsertSoils();
