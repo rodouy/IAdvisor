@@ -1484,7 +1484,35 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 {
 
                     RainData.AddRainDataElRinconPivot1a_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataElRinconPivot1b_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataElRinconPivot1b_2017(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region El Desafio
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElDesafio)
+                {
+
+                    RainData.AddRainDataElDesafioPivot1_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataElDesafioPivot2_2017(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region El Rincon
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
+                {
+
+                    RainData.AddRainDataLosNaranjalesPivot6aT3_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataLosNaranjalesPivot6bT3_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataLosNaranjalesPivot5aT5_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataLosNaranjalesPivot5bT5_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -1503,19 +1531,19 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
-                    //RainData.AddRainDataGMOElTacuruPivot1a_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOElTacuruPivot1b_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOElTacuruPivot1a_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOElTacuruPivot1b_2017(context, Program.DateOfReference);
                     RainData.AddRainDataGMOElTacuruPivot2a_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOElTacuruPivot2b_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOElTacuruPivot2b_2017(context, Program.DateOfReference);
                     RainData.AddRainDataGMOElTacuruPivot3a_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOElTacuruPivot3b_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOElTacuruPivot4_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOElTacuruPivot5_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOElTacuruPivot3b_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOElTacuruPivot4_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOElTacuruPivot5_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataGMOElTacuruPivot6_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataGMOElTacuruPivot7_2017(context, Program.DateOfReference);
                     RainData.AddRainDataGMOElTacuruPivot8_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOElTacuruPivot9_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOElTacuruPivot10_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOElTacuruPivot9_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOElTacuruPivot10_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -1704,7 +1732,41 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 using (var context = new IrrigationAdvisorContext())
                 {
                     IrrigationData.AddIrrigationDataElRinconPivot1a_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataElRinconPivot1b_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataElRinconPivot1b_2017(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region El Desafio
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElDesafio)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData.AddIrrigationDataElDesafioPivot1_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataElDesafioPivot2_2017(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region El Rincon
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData.AddIrrigationDataLosNaranjalesPivot6aT3_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataLosNaranjalesPivot6bT3_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataLosNaranjalesPivot5aT5_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataLosNaranjalesPivot5bT5_2017(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
@@ -1724,19 +1786,19 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot1a_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot1b_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot1a_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot1b_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOElTacuruPivot2a_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot2b_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot2b_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOElTacuruPivot3a_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot3b_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot4_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot5_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot3b_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot4_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot5_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataGMOElTacuruPivot6_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataGMOElTacuruPivot7_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOElTacuruPivot8_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot9_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOElTacuruPivot10_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot9_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOElTacuruPivot10_2017(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
