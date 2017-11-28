@@ -3439,8 +3439,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoElMirador_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017;
-                    #if false
+                    
                     #region Del Lago - El Mirador Pivot 1 2017
+                    #if false
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -3519,7 +3520,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot1 2017
                     var lCIWDelLagoElMiradorPivot1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -3600,8 +3601,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     }
                     context.SaveChanges();
                     #endregion
+                    #endif
                     #endregion
                     #region Del Lago - El Mirador Pivot 2 2017
+                    #if false
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -3680,7 +3683,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot2 2017
                     var lCIWDelLagoElMiradorPivot2_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot2,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot2_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -3761,6 +3764,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     }
                     context.SaveChanges();
                     #endregion
+                    #endif
                     #endregion
                     #region Del Lago - El Mirador Pivot 3 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -3841,7 +3845,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot3 2017
                     var lCIWDelLagoElMiradorPivot3_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot3,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot3_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -3924,6 +3928,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #endregion
                     #region Del Lago - El Mirador Pivot 4 2017
+                    #if false
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -4002,7 +4007,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot4 2017
                     var lCIWDelLagoElMiradorPivot4_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot4,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot4_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -4083,6 +4088,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     }
                     context.SaveChanges();
                     #endregion
+                    #endif
                     #endregion
                     #region Del Lago - El Mirador Pivot 5 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -4163,7 +4169,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot5 2017
                     var lCIWDelLagoElMiradorPivot5_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot5,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot5_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -4324,7 +4330,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot6 2017
                     var lCIWDelLagoElMiradorPivot6_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot6,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot6_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -4407,6 +4413,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #endregion
                     #region Del Lago - El Mirador Pivot 7 2017
+                    #if false
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmDelLagoElMirador
@@ -4485,7 +4492,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot7 2017
                     var lCIWDelLagoElMiradorPivot7_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot7,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot7_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -4566,6 +4573,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     }
                     context.SaveChanges();
                     #endregion
+                    #endif
                     #endregion
                     #region Del Lago - El Mirador Pivot 8 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -4646,7 +4654,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot8 2017
                     var lCIWDelLagoElMiradorPivot8_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot8,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot8_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -4807,7 +4815,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot9 2017
                     var lCIWDelLagoElMiradorPivot9_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot9,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot9_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -4968,7 +4976,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot10 2017
                     var lCIWDelLagoElMiradorPivot10_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot10,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot10_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -5050,6 +5058,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
+                    #if false
                     #region Del Lago - El Mirador Pivot 11 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -5129,7 +5138,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot11 2017
                     var lCIWDelLagoElMiradorPivot11_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot11,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot11_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -5290,7 +5299,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot12 2017
                     var lCIWDelLagoElMiradorPivot12_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot12,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot12_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -5451,7 +5460,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot13 2017
                     var lCIWDelLagoElMiradorPivot13_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot13,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot13_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -5612,7 +5621,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot14 2017
                     var lCIWDelLagoElMiradorPivot14_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot14,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot14_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -5773,7 +5782,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador Pivot15 2017
                     var lCIWDelLagoElMiradorPivot15_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot15,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivot15_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -5855,6 +5864,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
+                    #endif
                     #region Del Lago - El Mirador Pivot Chaja 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -5934,7 +5944,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador PivotChaja1 2017
                     var lCIWDelLagoElMiradorPivotChaja1_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivotChaja1,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivotChaja1_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -6095,7 +6105,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW DelLago ElMirador PivotChaja2 2017
                     var lCIWDelLagoElMiradorPivotChaja2_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivotChaja2,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoElMiradorPivotChaja2_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -6177,7 +6187,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif 
+                    
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoElMirador_2017b;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017b;
                     #if false

@@ -930,13 +930,13 @@ $(document).ready(function () {
 
     }
 
-    var addNoIrrigation = function (pDateFrom, pDateTo, pCIW, pReason, pObservations) {
+    var addNoIrrigation = function (pDateFrom, pDateTo, pCIW, pReasonId, pObservations) {
 
 
         var pUrl = './AddNoIrrigation?pDateFrom=' + pDateFrom +
                 '&pDateTo=' + pDateTo +
                 '&pCIW=' + pCIW +
-                '&pReasonId=' + pReason +
+                '&pReasonId=' + pReasonId +
                 '&pObservations=' + pObservations +
                 '&farm=' + lstFarms.val();
 

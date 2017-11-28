@@ -1497,6 +1497,37 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherDCASanJosePivot4_S1718 = NamePivotDCASanJose4 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
         #endregion
         #endregion
+        #region Del Lago
+        #region SanPedro
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot5_S1718 = NamePivotDelLagoSanPedro5 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot6_S1718 = NamePivotDelLagoSanPedro6 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot7_S1718 = NamePivotDelLagoSanPedro7 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot8_S1718 = NamePivotDelLagoSanPedro8 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        #endregion
+        #region ElMirador
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot1_S1718 = NamePivotDelLagoElMirador1 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot3_S1718 = NamePivotDelLagoElMirador3 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot4_S1718 = NamePivotDelLagoElMirador4 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot5_S1718 = NamePivotDelLagoElMirador5 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot6_S1718 = NamePivotDelLagoElMirador6 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot7_S1718 = NamePivotDelLagoElMirador7 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot8_S1718 = NamePivotDelLagoElMirador8 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot9_S1718 = NamePivotDelLagoElMirador9 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot10_S1718 = NamePivotDelLagoElMirador10 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot11_S1718 = NamePivotDelLagoElMirador11 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot12_S1718 = NamePivotDelLagoElMirador12 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot13_S1718 = NamePivotDelLagoElMirador13 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot14_S1718 = NamePivotDelLagoElMirador14 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot15_S1718 = NamePivotDelLagoElMirador15 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivotChaja1_S1718 = NamePivotDelLagoElMiradorChaja1 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivotChaja2_S1718 = NamePivotDelLagoElMiradorChaja2 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot1b_S1718 = NamePivotDelLagoElMirador1b + " " + NameSpecieCornSouthMedium + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot2b_S1718 = NamePivotDelLagoElMirador2b + " " + NameSpecieCornSouthMedium + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot3b_S1718 = NamePivotDelLagoElMirador3b + " " + NameSpecieCornSouthMedium + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot4b_S1718 = NamePivotDelLagoElMirador4b + " " + NameSpecieCornSouthMedium + " " + NameSeason;
+        #endregion
+        #endregion
         #region GMO
         #region LaPalma
         public static String NameCropIrrigationWeatherGMOLaPalmaPivot1_S1718 = NamePivotGMOLaPalma1 + " " + NameSpecieSoyaNorthShort + " " + NameSeason;
@@ -1568,8 +1599,11 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserLR1 = "jbaroffio";
         public static String NameUserLR2 = "jpastorini";
         public static String NameUserER1 = "ebonino";
-        public static String NameUserED1 = "malcorta";
+        public static String NameUserED1 = "malgorta";
         public static String NameUserLN1 = "igoicoechea";
+        public static String NameUserLN2 = "piglesias";
+        public static String NameUserLN3 = "jdemelo";
+        public static String NameUserLN4 = "sscarlato";
         #endregion
         #region Utilities
         #endregion
