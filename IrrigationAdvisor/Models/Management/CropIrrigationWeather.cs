@@ -2184,7 +2184,7 @@ namespace IrrigationAdvisor.Models.Management
             long lMaxId = 0;
             long lNewId = 0;
 
-            IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+            IrrigationAdvisorContext lContext = IrrigationAdvisorContext.Instance();
 
             if (this.EvapotranspirationCropList != null && this.EvapotranspirationCropList.Count > 0)
             {
@@ -2234,7 +2234,9 @@ namespace IrrigationAdvisor.Models.Management
             long lMaxId = 0;
             long lNewId = 0;
 
-            IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+            IrrigationAdvisorContext lContext;
+
+            lContext = IrrigationAdvisorContext.Instance();
 
             if (this.IrrigationList != null && this.IrrigationList.Count > 0)
             {
@@ -2290,7 +2292,9 @@ namespace IrrigationAdvisor.Models.Management
             long lMaxId = 0;
             long lNewId = 0;
 
-            IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+            IrrigationAdvisorContext lContext;
+
+            lContext = IrrigationAdvisorContext.Instance();
 
             if (this.RainList != null && this.RainList.Count > 0)
             {
@@ -3211,7 +3215,7 @@ namespace IrrigationAdvisor.Models.Management
             Water.Irrigation lReturn = null;
             Water.Irrigation lCantIrrigate = null;
             Water.Irrigation lIrrigation = null;
-            IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+            IrrigationAdvisorContext lContext;
             Water.Irrigation lCantIrrigateFromBase = null;
             Water.Irrigation lIrrigationFromBase = null;
 
@@ -3221,6 +3225,7 @@ namespace IrrigationAdvisor.Models.Management
 
             if (lCantIrrigate == null)
             {
+                lContext = IrrigationAdvisorContext.Instance();
                 lCantIrrigateFromBase = lContext.Irrigations.ToList()
                                             .Where(irrigation => irrigation.CropIrrigationWeatherId == this.CropIrrigationWeatherId
                                                     && Utils.IsTheSameDay(irrigation.Date, pDayOfIrrigation)
@@ -3263,7 +3268,7 @@ namespace IrrigationAdvisor.Models.Management
         {
             Water.Irrigation lReturn = null;
             Water.Irrigation lIrrigation = null;
-            IrrigationAdvisorContext lContext = new IrrigationAdvisorContext();
+            IrrigationAdvisorContext lContext;
             List<Water.Irrigation> lIrrigationListFromBase;
 
             /********* BEGIN WORKAROUND ***************/
@@ -3276,6 +3281,7 @@ namespace IrrigationAdvisor.Models.Management
             // If the application doesn't find irrigation then it try to find in the database records.
             if (lIrrigation == null)
             {
+                lContext = IrrigationAdvisorContext.Instance();
                 // Get the updated records from the database and Filter records by date.
                 lIrrigationListFromBase = lContext.Irrigations.ToList().Where(irrigation => irrigation.CropIrrigationWeatherId == this.CropIrrigationWeatherId
                                                                     && Utils.IsTheSameDay(irrigation.Date, pDayOfIrrigation)).ToList();
@@ -3375,6 +3381,7 @@ namespace IrrigationAdvisor.Models.Management
             DailyRecord lDailyRecordIrrigationNextDate = null;
             bool lIrrigationWasNotDecided = false;
             bool lIrrigationNextDateWasNotDecided = false;
+            int lIrrigationCount;
 
             try
             {
@@ -3606,7 +3613,7 @@ namespace IrrigationAdvisor.Models.Management
                 else if (pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second == Utils.WaterInputType.CantIrrigate ||
                          pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second == Utils.WaterInputType.IrrigationWasNotDecided)
                 {
-                    int lcount = this.IrrigationList.Count;
+                    lIrrigationCount = this.IrrigationList.Count;
                     if(lNewIrrigation == null)
                     {
                         lNewIrrigation = new Water.Irrigation();
