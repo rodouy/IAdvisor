@@ -1599,8 +1599,11 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserLR1 = "jbaroffio";
         public static String NameUserLR2 = "jpastorini";
         public static String NameUserER1 = "ebonino";
-        public static String NameUserED1 = "malcorta";
+        public static String NameUserED1 = "malgorta";
         public static String NameUserLN1 = "igoicoechea";
+        public static String NameUserLN2 = "piglesias";
+        public static String NameUserLN3 = "jdemelo";
+        public static String NameUserLN4 = "sscarlato";
         #endregion
         #region Utilities
         #endregion

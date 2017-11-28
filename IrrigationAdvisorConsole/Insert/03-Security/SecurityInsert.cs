@@ -423,6 +423,41 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LN2018"),
                 RoleId = 3,
             };
+            var lLosNaranjalesPIglesias = new User()
+            {
+                Name = "Pablo",
+                Surname = "Iglesias",
+                Phone = "+598 913 933 094",
+                Address = "Ruta 56, km 32",
+                Email = "pablo.iglesias@olamnet.com",
+                UserName = Utils.NameUserLN2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LN2018"),
+                RoleId = 3,
+            };
+            var lLosNaranjalesJDemelo = new User()
+            {
+                Name = "Juan",
+                Surname = "de Melo",
+                Phone = "+598 98 200 066",
+                Address = "Ruta 56, km 32",
+                Email = "juan.demelo@olamnet.com",
+                UserName = Utils.NameUserLN3,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LN2018"),
+                RoleId = 3,
+            };
+            var lLosNaranjalesSScarlato = new User()
+            {
+                Name = "Santiago",
+                Surname = "Scarlato",
+                Phone = "+598 99 140 736",
+                Address = "Ruta 56, km 32",
+                Email = "sscarlato@gmail.com",
+                UserName = Utils.NameUserLN4,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LN2018"),
+                RoleId = 3,
+            };
+            
+
             #endregion
 
             using (var context = new IrrigationAdvisorContext())
@@ -456,6 +491,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lElRinconEBonino);
                 context.Users.Add(lElDesafioMAlgorta);
                 context.Users.Add(lLosNaranjalesIGoicoechea);
+                context.Users.Add(lLosNaranjalesPIglesias);
+                context.Users.Add(lLosNaranjalesJDemelo);
+                context.Users.Add(lLosNaranjalesSScarlato);
                 context.SaveChanges();
             }
 
@@ -1014,7 +1052,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
                 {
-                    lUserNames = new String[] { Utils.NameUserLN1, 
+                    lUserNames = new String[] { Utils.NameUserLN1, Utils.NameUserLN2,
+                                                Utils.NameUserLN3, Utils.NameUserLN4, 
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
