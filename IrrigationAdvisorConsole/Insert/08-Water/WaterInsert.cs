@@ -1437,21 +1437,21 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 {
                     //RainData.AddRainDataDelLagoElMiradorPivot1_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoElMiradorPivot2_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDelLagoElMiradorPivot3_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDelLagoElMiradorPivot3_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoElMiradorPivot4_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDelLagoElMiradorPivot5_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDelLagoElMiradorPivot6_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDelLagoElMiradorPivot5_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDelLagoElMiradorPivot6_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoElMiradorPivot7_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDelLagoElMiradorPivot8_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDelLagoElMiradorPivot9_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDelLagoElMiradorPivot10_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDelLagoElMiradorPivot8_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDelLagoElMiradorPivot9_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDelLagoElMiradorPivot10_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoElMiradorPivot11_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoElMiradorPivot12_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoElMiradorPivot13_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoElMiradorPivot14_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoElMiradorPivot15_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDelLagoElMiradorPivotChaja1_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDelLagoElMiradorPivotChaja2_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDelLagoElMiradorPivotChaja1_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDelLagoElMiradorPivotChaja2_2017(context, Program.DateOfReference);
 
                     //RainData.AddRainDataDelLagoElMiradorPivot1_2017b(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoElMiradorPivot2_2017b(context, Program.DateOfReference);
@@ -1678,21 +1678,21 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 {
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot1_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot2_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot3_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDelLagoElMiradorPivot3_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot4_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot5_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot6_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDelLagoElMiradorPivot5_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDelLagoElMiradorPivot6_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot7_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot8_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot9_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot10_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDelLagoElMiradorPivot8_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDelLagoElMiradorPivot9_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDelLagoElMiradorPivot10_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot11_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot12_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot13_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot14_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot15_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDelLagoElMiradorPivotChaja1_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDelLagoElMiradorPivotChaja2_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDelLagoElMiradorPivotChaja1_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDelLagoElMiradorPivotChaja2_2017(context, Program.DateOfReference);
 
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot1_2017b(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoElMiradorPivot2_2017b(context, Program.DateOfReference);
