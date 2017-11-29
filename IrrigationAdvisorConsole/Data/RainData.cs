@@ -15544,7 +15544,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornNorthShort
+                     where crop.Name == Utils.NameSpecieSoyaNorthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOLaPalma1
@@ -15994,7 +15994,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornNorthShort
+                     where crop.Name == Utils.NameSpecieSoyaNorthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOLaPalma2_1
@@ -16084,7 +16084,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornNorthShort
+                     where crop.Name == Utils.NameSpecieSoyaNorthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOLaPalma3_1
@@ -16174,7 +16174,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmGMOLaPalma
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornNorthShort
+                     where crop.Name == Utils.NameSpecieSoyaNorthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOLaPalma4_1

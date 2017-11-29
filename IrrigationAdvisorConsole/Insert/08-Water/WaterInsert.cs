@@ -1554,14 +1554,14 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
-                    //RainData.AddRainDataGMOLaPalmaPivot1_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOLaPalmaPivot1_2017(context, Program.DateOfReference);
                     RainData.AddRainDataGMOLaPalmaPivot2_2017(context, Program.DateOfReference);
                     RainData.AddRainDataGMOLaPalmaPivot3_2017(context, Program.DateOfReference);
                     RainData.AddRainDataGMOLaPalmaPivot4_2017(context, Program.DateOfReference);
                     RainData.AddRainDataGMOLaPalmaPivot1_1_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOLaPalmaPivot2_1_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOLaPalmaPivot3_1_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataGMOLaPalmaPivot4_1_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOLaPalmaPivot2_1_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOLaPalmaPivot3_1_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGMOLaPalmaPivot4_1_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -1813,14 +1813,14 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //IrrigationData.AddIrrigationDataGMOLaPalmaPivot1_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOLaPalmaPivot1_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOLaPalmaPivot2_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOLaPalmaPivot3_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOLaPalmaPivot4_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGMOLaPalmaPivot1_1_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOLaPalmaPivot2_1_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOLaPalmaPivot3_1_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataGMOLaPalmaPivot4_1_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOLaPalmaPivot2_1_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOLaPalmaPivot3_1_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGMOLaPalmaPivot4_1_2017(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }

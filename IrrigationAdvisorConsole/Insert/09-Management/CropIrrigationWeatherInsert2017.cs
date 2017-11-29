@@ -6847,7 +6847,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_GMOLaPalma_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017;
-                    #if false
                     #region GMO - La Palma Pivot 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -6866,23 +6865,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieAlfalfaNorthShort
+                               where sp.Name == Utils.NameSpecieSoyaNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieAlfalfaNorthShort
+                             where crop.Name == Utils.NameSpecieSoyaNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieAlfalfaNorthShort
+                                        where cc.Name == Utils.NameSpecieSoyaNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieAlfalfaNorthShort
+                               where cc.Name == Utils.NameSpecieSoyaNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieAlfalfaNorthShort
+                                              where cid.Name == Utils.NameSpecieSoyaNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -6896,8 +6895,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot1_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot1_2017;
+                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOLaPalmaPivot1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOLaPalmaPivot1_2017;
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2017 == 0)
                     {
@@ -7011,7 +7010,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
                     #region GMO - La Palma Pivot 2 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -7660,7 +7658,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #if false
                     #region GMO - La Palma Pivot 2.1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -7679,23 +7676,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornNorthShort
+                               where sp.Name == Utils.NameSpecieSoyaNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornNorthShort
+                             where crop.Name == Utils.NameSpecieSoyaNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornNorthShort
+                                        where cc.Name == Utils.NameSpecieSoyaNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornNorthShort
+                               where cc.Name == Utils.NameSpecieSoyaNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornNorthShort
+                                              where cid.Name == Utils.NameSpecieSoyaNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -7709,8 +7706,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma2_1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot2_1_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot2_1_2017;
+                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOLaPalmaPivot2_1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOLaPalmaPivot2_1_2017;
                     lCropDate = Program.DateOfReference;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_1_2017 == 0)
                     {
@@ -7842,23 +7839,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornNorthShort
+                               where sp.Name == Utils.NameSpecieSoyaNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornNorthShort
+                             where crop.Name == Utils.NameSpecieSoyaNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornNorthShort
+                                        where cc.Name == Utils.NameSpecieSoyaNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornNorthShort
+                               where cc.Name == Utils.NameSpecieSoyaNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornNorthShort
+                                              where cid.Name == Utils.NameSpecieSoyaNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -7872,8 +7869,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma3)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot3_1_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot3_1_2017;
+                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOLaPalmaPivot3_1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOLaPalmaPivot3_1_2017;
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_1_2017 == 0)
                     {
@@ -8003,23 +8000,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornNorthShort
+                               where sp.Name == Utils.NameSpecieSoyaNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornNorthShort
+                             where crop.Name == Utils.NameSpecieSoyaNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornNorthShort
+                                        where cc.Name == Utils.NameSpecieSoyaNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornNorthShort
+                               where cc.Name == Utils.NameSpecieSoyaNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornNorthShort
+                                              where cid.Name == Utils.NameSpecieSoyaNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -8033,8 +8030,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma4)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOLaPalmaPivot4_1_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOLaPalmaPivot4_1_2017;
+                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOLaPalmaPivot4_1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOLaPalmaPivot4_1_2017;
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_1_2017 == 0)
                     {
@@ -8146,7 +8143,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
                 }
                 #endregion
                 #region GMO - El Tacuru
@@ -12953,15 +12949,15 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot5_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_1_2017(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_1_2017(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_1_2017(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_1_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_1_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_1_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_1_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("GMO - La Palma - Completed.");
                 }
