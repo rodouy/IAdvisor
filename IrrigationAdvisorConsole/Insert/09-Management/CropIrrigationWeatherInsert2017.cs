@@ -2118,7 +2118,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DCASanJose_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DCASanJose_2017;
-                    #if false
                     #region DCA - San Jose Pivot 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -2280,7 +2279,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
                     #region DCA - San Jose Pivot 2 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -2603,7 +2601,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #if false
                     #region DCA - San Jose Pivot 4 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -2765,7 +2762,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-                    #endif
                 }
                 #endregion
                 #region Del Lago - San Pedro
@@ -12793,8 +12789,26 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot1_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot2_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot3_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot4_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot5_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot6_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot7_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot8_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot9_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot10_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot11_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot12_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot13_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot14_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot15_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot16_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot17_2017(context, Program.DateOfReference);
 
                     context.SaveChanges();
+                    Console.WriteLine("Del Lago - San Pedro - Completed.");
                 }
             }
             #endregion
