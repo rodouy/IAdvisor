@@ -662,15 +662,38 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             };
             #endregion
             #endregion
-            #region Pivots Del Lago #25
-            #region Pivots Del Lago - San Pedro #4
+            #region Pivots Del Lago #38
+            #region Pivots Del Lago - San Pedro #17
+            var lDelLagoSanPedroPivot1 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro1,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot2 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro2,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot3 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro3,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot4 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro4,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
             var lDelLagoSanPedroPivot5 = new Position()
             {
                 Name = Utils.NamePositionPivotDelLagoSanPedro5,
                 Latitude = -33.035406,
                 Longitude = -57.551740,
             };
-
             var lDelLagoSanPedroPivot6 = new Position()
             {
                 Name = Utils.NamePositionPivotDelLagoSanPedro6,
@@ -688,6 +711,60 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Name = Utils.NamePositionPivotDelLagoSanPedro8,
                 Latitude = -33.031979,
                 Longitude = -57.531700
+            };
+            var lDelLagoSanPedroPivot9 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro9,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot10 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro10,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot11 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro11,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot12 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro12,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot13 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro13,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot14 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro14,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot15 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro15,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot16 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro16,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
+            };
+            var lDelLagoSanPedroPivot17 = new Position()
+            {
+                Name = Utils.NamePositionPivotDelLagoSanPedro17,
+                Latitude = -33.035406,
+                Longitude = -57.551740,
             };
             #endregion
             #region Pivots Del Lago - El Mirador #21
@@ -1119,7 +1196,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosOlivos);
                 context.Positions.Add(lViveroSanFrancisco);
                 #endregion
-                #region Pivots #109
+                #region Pivots #122
                 #region Pivots - Demo #14
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1172,11 +1249,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lDCALaPerdizPivot14);
                 context.Positions.Add(lDCALaPerdizPivot15);
                 #endregion
-                #region Pivots - Estancias Del Lago #25
+                #region Pivots - Estancias Del Lago #38
+                context.Positions.Add(lDelLagoSanPedroPivot1);
+                context.Positions.Add(lDelLagoSanPedroPivot2);
+                context.Positions.Add(lDelLagoSanPedroPivot3);
+                context.Positions.Add(lDelLagoSanPedroPivot4);
                 context.Positions.Add(lDelLagoSanPedroPivot5);
                 context.Positions.Add(lDelLagoSanPedroPivot6);
                 context.Positions.Add(lDelLagoSanPedroPivot7);
                 context.Positions.Add(lDelLagoSanPedroPivot8);
+                context.Positions.Add(lDelLagoSanPedroPivot9);
+                context.Positions.Add(lDelLagoSanPedroPivot10);
+                context.Positions.Add(lDelLagoSanPedroPivot11);
+                context.Positions.Add(lDelLagoSanPedroPivot12);
+                context.Positions.Add(lDelLagoSanPedroPivot13);
+                context.Positions.Add(lDelLagoSanPedroPivot14);
+                context.Positions.Add(lDelLagoSanPedroPivot15);
+                context.Positions.Add(lDelLagoSanPedroPivot16);
+                context.Positions.Add(lDelLagoSanPedroPivot17);
                 context.Positions.Add(lDelLagoElMiradorPivot1);
                 context.Positions.Add(lDelLagoElMiradorPivot2);
                 context.Positions.Add(lDelLagoElMiradorPivot3);
