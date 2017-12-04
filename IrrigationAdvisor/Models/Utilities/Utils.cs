@@ -947,6 +947,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSpecieAlfalfaNorthShort = "Alfalfa " + NameSpecieCycleNorthShort;
         public static String NameSpecieAlfalfaNorthMedium = "Alfalfa " + NameSpecieCycleNorthShort;
         #endregion
+        #region SudanGrass
+        public static String NameSpecieSudanGrassSouthShort = "SudanGrass " + NameSpecieCycleSouthShort;
+        public static String NameSpecieSudanGrassSouthMedium = "SudanGrass " + NameSpecieCycleSouthMedium;
+        public static String NameSpecieSudanGrassNorthShort = "SudanGrass " + NameSpecieCycleNorthShort;
+        public static String NameSpecieSudanGrassNorthMedium = "SudanGrass " + NameSpecieCycleNorthShort;
+        #endregion
         #region RedClover Forage
         public static String NameSpecieRedCloverForageSouthShort = "Trebol Rojo Forraje " + NameSpecieCycleSouthShort;
         public static String NameSpecieRedCloverForageSouthMedium = "Trebol Rojo Forraje " + NameSpecieCycleSouthMedium;
@@ -979,6 +985,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameStagesSorghumForage = "Sorgo Forrajero";
         public static String NameStagesSorghumGrain = "Sorgo Granifero";
         public static String NameStagesAlfalfa = "Alfalfa";
+        public static String NameStagesSudanGrass = "SudanGrass";
         public static String NameStagesRedCloverForage = "Trebol Rojo Forraje";
         public static String NameStagesRedCloverSeed = "Trebol Rojo Semilla";
         public static String NameStagesFescueForage = "Festuca Forraje";
@@ -1599,8 +1606,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherElRinconPivot1b_S1718 = NamePivotElRincon1b + " " + NameSpecieCornSouthShort + " " + NameSeason;
         #endregion
         #region El Desafio
-        public static String NameCropIrrigationWeatherElDesafioPivot1_S1718 = NamePivotElDesafio1 + " " + NameSpecieCornSouthShort + " " + NameSeason;
-        public static String NameCropIrrigationWeatherElDesafioPivot2_S1718 = NamePivotElDesafio2 + " " + NameSpecieAlfalfaSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherElDesafioPivot1_S1718 = NamePivotElDesafio1 + " " + NameSpecieSudanGrassSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherElDesafioPivot2_S1718 = NamePivotElDesafio2 + " " + NameSpecieSudanGrassSouthShort + " " + NameSeason;
         #endregion
         #region Los Naranjales
         public static String NameCropIrrigationWeatherLosNaranjalesPivot6aT3_S1718 = NamePivotLosNaranjales6aT3 + " " + NameSpecieCornSouthShort + " " + NameSeason;
@@ -1894,6 +1901,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static int MinEvapotranspirationToIrrigate_SorghumGrain = 25;
         public static int MaxEvapotranspirationToIrrigate_Alfalfa = 30;
         public static int MinEvapotranspirationToIrrigate_Alfalfa = 25;
+        public static int MaxEvapotranspirationToIrrigate_SudanGrass = 30;
+        public static int MinEvapotranspirationToIrrigate_SudanGrass = 25;
         public static int MaxEvapotranspirationToIrrigate_RedCloverForage = 30;
         public static int MinEvapotranspirationToIrrigate_RedCloverForage = 25;
         public static int MaxEvapotranspirationToIrrigate_RedCloverSeed = 30;
@@ -1908,6 +1917,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static int CropDensity_SorghumForage = 0;
         public static int CropDensity_SorghumGrain = 0;
         public static int CropDensity_Alfalfa = 0;
+        public static int CropDensity_SudanGrass = 0;
         public static int CropDensity_RedCloverForage = 0;
         public static int CropDensity_RedCloverSeed = 0;
         public static int CropDensity_FescueForage = 0;

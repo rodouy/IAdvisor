@@ -144,6 +144,7 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertStagesSorghumForage();
                 AgricultureInsert.InsertStagesSorghumGrain();
                 AgricultureInsert.InsertStagesAlfalfa();
+                AgricultureInsert.InsertStagesSudanGrass();
                 AgricultureInsert.InsertStagesRedCloverForage();
                 AgricultureInsert.InsertStagesRedCloverSeed();
                 AgricultureInsert.InsertStagesFescueForage();
@@ -175,6 +176,12 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2017();
                 AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2017();
                 AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2017();
+
+                AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2017();
+                AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2017();
+
                 AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2017();
                 AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2017();
                 AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2017();

@@ -4565,6 +4565,195 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
 
                 #endregion
 
+                #region SudanGrass South Short
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpecieSudanGrassSouthShort
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesSudanGrass)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesSudanGrass)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SUDANGRASS)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesSudanGrass)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SUDANGRASS)
+                                        select st).FirstOrDefault();
+
+                var lCropSudanGrassSouthShort = new Crop
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthShort,
+                    ShortName = "SudanGrass",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_SudanGrass,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_SudanGrass,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+                #region SudanGrass South Medium
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpecieSudanGrassSouthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpecieSudanGrassSouthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesSudanGrass)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesSudanGrass)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SUDANGRASS)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesSudanGrass)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SUDANGRASS)
+                                        select st).FirstOrDefault();
+
+                var lCropSudanGrassSouthMedium = new Crop
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthMedium,
+                    ShortName = "SudanGrass",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_SudanGrass,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_SudanGrass,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+                #region SudanGrass North Short
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpecieSudanGrassNorthShort
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpecieSudanGrassNorthShort
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesSudanGrass)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesSudanGrass)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SUDANGRASS)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesSudanGrass)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SUDANGRASS)
+                                        select st).FirstOrDefault();
+
+                var lCropSudanGrassNorthShort = new Crop
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthShort,
+                    ShortName = "SudanGrass",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_SudanGrass,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_SudanGrass,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+                #region SudanGrass North Medium
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpecieSudanGrassNorthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpecieSudanGrassNorthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesSudanGrass)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesSudanGrass)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SUDANGRASS)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesSudanGrass)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SUDANGRASS)
+                                        select st).FirstOrDefault();
+
+                var lCropSudanGrassNorthMedium = new Crop
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthMedium,
+                    ShortName = "SudanGrass",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_SudanGrass,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_SudanGrass,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+
                 #region FescueForage South Short
 
                 lRegion = (from reg in context.Regions
@@ -4769,6 +4958,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 context.Crops.Add(lCropAlfalfaSouthMedium);
                 context.Crops.Add(lCropAlfalfaNorthShort);
                 context.Crops.Add(lCropAlfalfaNorthMedium);
+                context.Crops.Add(lCropSudanGrassSouthShort);
+                context.Crops.Add(lCropSudanGrassSouthMedium);
+                context.Crops.Add(lCropSudanGrassNorthShort);
+                context.Crops.Add(lCropSudanGrassNorthMedium);
                 context.Crops.Add(lCropFescueForageSouthShort);
                 context.Crops.Add(lCropFescueForageSouthMedium);
                 context.Crops.Add(lCropFescueForageNorthShort);
@@ -4963,6 +5156,56 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     RootDepth = 0,
                 };
                 #endregion
+                #region SudanGrass South Short
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieSudanGrassSouthShort
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lSudanGrassSouthShort = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthShort,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region SudanGrass South Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieSudanGrassSouthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lSudanGrassSouthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
                 #region FescueForage South Short
                 lCrop = (from crop in context.Crops
                          where crop.Name == Utils.NameSpecieFescueForageSouthShort
@@ -5020,6 +5263,8 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 context.CropInformationByDates.Add(lSoyaSouthMedium);
                 context.CropInformationByDates.Add(lAlfalfaSouthShort);
                 context.CropInformationByDates.Add(lAlfalfaSouthMedium);
+                context.CropInformationByDates.Add(lSudanGrassSouthShort);
+                context.CropInformationByDates.Add(lSudanGrassSouthMedium);
                 context.CropInformationByDates.Add(lFescueForageSouthShort);
                 context.CropInformationByDates.Add(lFescueForageSouthMedium);
                 context.SaveChanges();
@@ -5182,6 +5427,56 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     RootDepth = 0,
                 };
                 #endregion
+                #region SudanGrass North Short
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieSudanGrassNorthShort
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lSudanGrassNorthShort = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthShort,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region SudanGrass North Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpecieSudanGrassNorthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lSudanGrassNorthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
                 #region FescueForage North Short
                 lCrop = (from crop in context.Crops
                          where crop.Name == Utils.NameSpecieFescueForageNorthShort
@@ -5239,6 +5534,8 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 context.CropInformationByDates.Add(lSoyaNorthMedium);
                 context.CropInformationByDates.Add(lAlfalfaNorthShort);
                 context.CropInformationByDates.Add(lAlfalfaNorthMedium);
+                context.CropInformationByDates.Add(lSudanGrassNorthShort);
+                context.CropInformationByDates.Add(lSudanGrassNorthMedium);
                 context.CropInformationByDates.Add(lFescueForageNorthShort);
                 context.CropInformationByDates.Add(lFescueForageNorthMedium);
                 context.SaveChanges();
