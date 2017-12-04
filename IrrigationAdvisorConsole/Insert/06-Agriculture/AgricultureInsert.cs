@@ -5712,6 +5712,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
             #region Horizons Del Lago - San Pedro
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
@@ -10823,6 +10824,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
             #region Del Lago - San Pedro Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago

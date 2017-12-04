@@ -130,6 +130,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lWeatherStationMainName = DataEntry.WeatherStationAlternativeName_SantaLucia_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_SantaLucia_2017;
 
+                    Console.Write(" Santa Lucia | ");
+
                     #if false
 
                     #region Santa Lucia Pivot 1 2017
@@ -313,6 +315,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DCAElParaiso_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DCAElParaiso_2017;
+
+                    Console.Write(" DCA - El Paraiso | ");
+
                     #if false
                     #region DCA - El Paraiso Pivot 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -648,6 +653,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DCALaPerdiz_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017;
+
+                    Console.Write(" DCA - La Perdiz | ");
+
                     #if false
                     #region DCA - La Perdiz Pivot 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -2118,6 +2126,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DCASanJose_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DCASanJose_2017;
+
+                    Console.Write(" DCA - San Jose | ");
+
                     #region DCA - San Jose Pivot 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -2773,6 +2784,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoSanPedro_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017;
+
+                    Console.Write(" Del Lago - San Pedro | ");
 #if true
 #endif
                     #region Del Lago - San Pedro Pivot 5 2017
@@ -3432,6 +3445,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoElMirador_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017;
+
+                    Console.Write(" Del Lago - El Mirador | ");
                     
                     #region Del Lago - El Mirador Pivot 1 2017
                     #if true
@@ -6838,6 +6853,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_GMOLaPalma_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017;
+
+                    Console.Write(" GMO - La Palma | ");
+
                     #region GMO - La Palma Pivot 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -7851,13 +7869,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotGMOLaPalma3
+                                       where iu.Name == Utils.NamePivotGMOLaPalma3_1
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NamePivotGMOLaPalma3
+                             where soil.Name == Utils.NamePivotGMOLaPalma3_1
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma3)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma3_1)
                                     select horizon)
                                     .ToList<Horizon>();
                     lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOLaPalmaPivot3_1_2017;
@@ -8012,13 +8030,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotGMOLaPalma4
+                                       where iu.Name == Utils.NamePivotGMOLaPalma4_1
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NamePivotGMOLaPalma4
+                             where soil.Name == Utils.NamePivotGMOLaPalma4_1
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma4)
+                                    where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma4_1)
                                     select horizon)
                                     .ToList<Horizon>();
                     lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOLaPalmaPivot4_1_2017;
@@ -8146,7 +8164,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_GMOElTacuru_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017;
-                    
+
+                    Console.Write(" GMO - El Tacuru | ");
+
                     #region GMO - El Tacuru Pivot 1a 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -9934,6 +9954,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_TresMarias_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_TresMarias_2017;
+
+                    Console.Write(" Tres Marias | ");
+
                     #if false
                     #region Tres Marias Pivot 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -10594,6 +10617,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_LaRinconada_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_LaRinconada_2017;
+
+                    Console.Write(" La Rinconada | ");
+
                     #if false
                     #region La Rinconada Pivot 1 2017
                     //#region Farm //////////////////////////////////////////////////////////////////////
@@ -11255,6 +11281,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_ElRincon_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_ElRincon_2017;
 
+                    Console.Write(" El Rincon | ");
+
                     #region El Rincon Pivot 1a 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -11595,6 +11623,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_ElDesafio_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_ElDesafio_2017;
 
+                    Console.Write(" El Desafio | ");
+
                     #region El Desafio Pivot 1 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -11934,6 +11964,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
                     lWeatherStationMainName = DataEntry.WeatherStationMainName_LosNaranjales_2017;
                     lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_LosNaranjales_2017;
+
+                    Console.Write(" Los Naranjales | ");
 
                     #region Los Naranjales Pivot 6aT3 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -12726,10 +12758,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
+                    Console.Write(" - DCA - El Paraiso");
                     DataEntry.AddInformationToIrrigationUnitsDCAElParaisoPivot1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDCAElParaisoPivot2_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("DCA - El Paraiso - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12742,6 +12775,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    Console.Write(" - DCA - La Perdiz");
                     DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot2_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot3_2017(context, Program.DateOfReference);
@@ -12752,7 +12786,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot14_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("DCA - La Perdiz - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12765,12 +12799,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    Console.Write(" - DCA - San Jose");
                     DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot2_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot3_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot4_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("DCA - San Jose - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12784,6 +12819,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    Console.Write(" - Del Lago - San Pedro");
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot1_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot2_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot3_2017(context, Program.DateOfReference);
@@ -12803,7 +12839,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot17_2017(context, Program.DateOfReference);
 
                     context.SaveChanges();
-                    Console.WriteLine("Del Lago - San Pedro - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12816,6 +12852,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    Console.Write(" - Del Lago - El Mirador");
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2017(context, Program.DateOfReference);
@@ -12840,7 +12877,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4b_2017(context, Program.DateOfReference);
 
                     context.SaveChanges();
-                    Console.WriteLine("Del Lago - El Mirador - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12854,12 +12891,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
+                    Console.Write(" - Tres Marias");
                     DataEntry.AddInformationToIrrigationUnitsTresMariasPivot1_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsTresMariasPivot2_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsTresMariasPivot3_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsTresMariasPivot4_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("Tres Marias - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12873,10 +12911,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
+                    Console.Write(" - El Rincon");
                     DataEntry.AddInformationToIrrigationUnitsElRinconPivot1a_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsElRinconPivot1b_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("El Rincon - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12890,10 +12929,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
+                    Console.Write(" - El Desafio");
                     DataEntry.AddInformationToIrrigationUnitsElDesafioPivot1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsElDesafioPivot2_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("El Desafio - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12907,12 +12947,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
+                    Console.Write(" - Los Naranjales");
                     DataEntry.AddInformationToIrrigationUnitsLosNaranjalesPivot6aT3_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsLosNaranjalesPivot6bT3_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsLosNaranjalesPivot5aT5_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsLosNaranjalesPivot5bT5_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("Los Naranjales - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12930,6 +12971,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    Console.Write(" - GMO - El Tacuru");
                     DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot1a_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot1b_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot2a_2017(context, Program.DateOfReference);
@@ -12944,7 +12986,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot9_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot10_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("GMO - El Tacuru - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12957,7 +12999,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-
+                    Console.Write(" - GMO - La Palma");
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2017(context, Program.DateOfReference);
@@ -12968,7 +13010,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_1_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("GMO - La Palma - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
@@ -12981,13 +13023,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-
+                    Console.Write(" - La Rinconada");
                     //DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot2_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot3_1_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot13_1_2017(context, Program.DateOfReference);
                     context.SaveChanges();
-                    Console.WriteLine("La Rinconada - Completed.");
+                    Console.WriteLine(" - Completed.");
                 }
             }
             #endregion
