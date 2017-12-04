@@ -155,5 +155,27 @@ namespace IrrigationAdvisor.DBContext.Localization
         {
             return db.Farms.ToList();
         }
+
+        /// <summary>
+        /// Get Farm by pCropIrrigationWeatherId
+        /// </summary>
+        /// <param name="pFarmId"></param>
+        /// <returns></returns>
+        public Farm GetFarmBy(long pCropIrrigationWeatherId)
+        {
+
+
+
+            return (from dr in db.DailyRecords
+                    join ciw in db.CropIrrigationWeathers
+                    on dr.CropIrrigationWeatherId equals ciw.CropIrrigationWeatherId
+                    join i in db.IrrigationUnits
+                    on ciw.IrrigationUnitId equals i.IrrigationUnitId
+                    join f in db.Farms
+                    on i.FarmId equals f.FarmId
+                    where ciw.CropIrrigationWeatherId == pCropIrrigationWeatherId
+                    select f). FirstOrDefault();
+
+        }
     }
 }

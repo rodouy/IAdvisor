@@ -227,7 +227,7 @@
     <Compile Include="Controllers\Management\DailyRecordsController.cs" />
     <Compile Include="Controllers\Management\MessagesController.cs" />
     <Compile Include="Controllers\Management\TitlesController.cs" />
-    <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnit.cs" />
+    <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitController.cs" />
     <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStatePrintableController.cs" />
     <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStateController.cs" />
     <Compile Include="Controllers\Security\AccessesController.cs" />
@@ -415,7 +415,8 @@
     <Compile Include="Models\Management\IrrigationCalculus.cs" />
     <Compile Include="Models\Management\Message.cs" />
     <Compile Include="Models\Management\Title.cs" />
-    <Compile Include="Models\Reports\GridDailyRecordIrrigationResume.cs" />
+    <Compile Include="Models\Reports\ReportIrrigationUnit\GridReportIrrigationUnit.cs" />
+    <Compile Include="Models\Reports\ReportPivotState\GridReportPivotState.cs" />
     <Compile Include="Models\Security\UserAccess.cs" />
     <Compile Include="Models\Security\UserFarm.cs" />
     <Compile Include="Models\Utilities\OutputFileCSV.cs" />
@@ -437,6 +438,7 @@
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />

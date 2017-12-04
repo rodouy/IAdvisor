@@ -1,4 +1,4 @@
-﻿@model List<IrrigationAdvisor.Models.Reports.GridDailyRecordIrrigationResume>
+﻿@model List<IrrigationAdvisor.Models.Reports.ReportIrrigationUnit.GridReportIrrigationUnit>
 
 @{
     ViewBag.Title = "Pivot State Reports";
@@ -9,17 +9,36 @@
 <th>Siembra</th>
 <th>Fen.</th>*@
 
-@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.GridDailyRecordIrrigationResume grid)
+@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.ReportIrrigationUnit.GridReportIrrigationUnit grid)
 {
     <th>@grid.Day</th>
     <th>@grid.DailyRecordDate </th>
     <th>@grid.EffectiveRain (mm)</th>
-    <th>@grid.EffectiveInputWater (mm)</th>   
+    <th>@grid.EffectiveInputWater (mm)</th>
+    {
+        if (grid.ShowTemperatureColumn)
+        {            <th>@grid.Temperature</th>
+        }
+    }
 
+    {
+        if (grid.ShowEvapotranspirationColumn)
+        {
+            <th>@grid.Evapotranspiration</th>
+        }
+    }
+
+
+    {
+        if (grid.ShowAvailableWaterColumn)
+        {
+            <th>@grid.AvailableWater (%)</th>
+        }
+    }
+    <th>@grid.Phenology</th>
+    <th>@grid.CropCoefficient</th>
+   
 }
-
-
-
 
 @foreach (var item in Model)
 {

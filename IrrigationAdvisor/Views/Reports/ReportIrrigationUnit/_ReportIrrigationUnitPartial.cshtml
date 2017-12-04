@@ -1,4 +1,4 @@
-﻿@model List<IrrigationAdvisor.Models.Reports.GridDailyRecordIrrigationResume>
+﻿@model List<IrrigationAdvisor.Models.Reports.ReportIrrigationUnit.GridReportIrrigationUnit>
 
 @{
     ViewBag.Title = "Pivot Irrigation";
@@ -9,13 +9,34 @@
     @CustomRenderingOfColumn(item)
 }
 
-@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.GridDailyRecordIrrigationResume grid)
+@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.ReportIrrigationUnit.GridReportIrrigationUnit grid)
 {
     <tr>
-        <td width="25%" align="center">@grid.Day</td>
-        <td width="25%" align="center">@grid.DailyRecordDate</td>
-        <td width="25%" align="right">@grid.EffectiveInputWater</td>
-        <td width="25%" align="right">@grid.EffectiveRain</td>
+        <td  align="center">@grid.Day</td>
+        <td  align="center">@grid.DailyRecordDate</td>
+        <td  align="right">@grid.EffectiveInputWater</td>
+        <td align="right">@grid.EffectiveRain</td>
+        @{ if (grid.ShowTemperatureColumn)
+         {
+        <td  align="right">@grid.Temperature</td>
+         }
+        }
+
+        @{ if (grid.ShowEvapotranspirationColumn)
+         {
+            <td  align="right">@grid.Evapotranspiration</td>
+         }
+        }
+
+
+        @{ if (grid.ShowAvailableWaterColumn)
+         {
+            <td align="right">@grid.AvailableWater</td>
+         }
+        }
+        <td  align="right">@grid.Phenology</td>
+        <td align="right">@grid.CropCoefficient</td>
+
       
     </tr>
 }
