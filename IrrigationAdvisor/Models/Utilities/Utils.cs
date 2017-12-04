@@ -1045,10 +1045,23 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region Del Lago
         #region SanPedro
+        public static String NameSoilDelLagoSanPedro1 = NameFarmDelLagoSanPedro + " Pivot 01";
+        public static String NameSoilDelLagoSanPedro2 = NameFarmDelLagoSanPedro + " Pivot 02";
+        public static String NameSoilDelLagoSanPedro3 = NameFarmDelLagoSanPedro + " Pivot 03";
+        public static String NameSoilDelLagoSanPedro4 = NameFarmDelLagoSanPedro + " Pivot 04";
         public static String NameSoilDelLagoSanPedro5 = NameFarmDelLagoSanPedro + " Pivot 05";
         public static String NameSoilDelLagoSanPedro6 = NameFarmDelLagoSanPedro + " Pivot 06";
         public static String NameSoilDelLagoSanPedro7 = NameFarmDelLagoSanPedro + " Pivot 07";
         public static String NameSoilDelLagoSanPedro8 = NameFarmDelLagoSanPedro + " Pivot 08";
+        public static String NameSoilDelLagoSanPedro9 = NameFarmDelLagoSanPedro + " Pivot 09";
+        public static String NameSoilDelLagoSanPedro10 = NameFarmDelLagoSanPedro + " Pivot 10";
+        public static String NameSoilDelLagoSanPedro11 = NameFarmDelLagoSanPedro + " Pivot 11";
+        public static String NameSoilDelLagoSanPedro12 = NameFarmDelLagoSanPedro + " Pivot 12";
+        public static String NameSoilDelLagoSanPedro13 = NameFarmDelLagoSanPedro + " Pivot 13";
+        public static String NameSoilDelLagoSanPedro14 = NameFarmDelLagoSanPedro + " Pivot 14";
+        public static String NameSoilDelLagoSanPedro15 = NameFarmDelLagoSanPedro + " Pivot 15";
+        public static String NameSoilDelLagoSanPedro16 = NameFarmDelLagoSanPedro + " Pivot 16";
+        public static String NameSoilDelLagoSanPedro17 = NameFarmDelLagoSanPedro + " Pivot 17";
         #endregion
         #region ElMirador
         public static String NameSoilDelLagoElMirador1 = NameFarmDelLagoElMirador + " Pivot 01";
@@ -1231,10 +1244,23 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region Del Lago
         #region San Pedro - Pivots
-        public static String NamePivotDelLagoSanPedro5 = NameFarmDelLagoSanPedro + " Pivot 5";
-        public static String NamePivotDelLagoSanPedro6 = NameFarmDelLagoSanPedro + " Pivot 6";
-        public static String NamePivotDelLagoSanPedro7 = NameFarmDelLagoSanPedro + " Pivot 7";
-        public static String NamePivotDelLagoSanPedro8 = NameFarmDelLagoSanPedro + " Pivot 8";
+        public static String NamePivotDelLagoSanPedro1 = NameFarmDelLagoSanPedro + " Pivot 01";
+        public static String NamePivotDelLagoSanPedro2 = NameFarmDelLagoSanPedro + " Pivot 02";
+        public static String NamePivotDelLagoSanPedro3 = NameFarmDelLagoSanPedro + " Pivot 03";
+        public static String NamePivotDelLagoSanPedro4 = NameFarmDelLagoSanPedro + " Pivot 04";
+        public static String NamePivotDelLagoSanPedro5 = NameFarmDelLagoSanPedro + " Pivot 05";
+        public static String NamePivotDelLagoSanPedro6 = NameFarmDelLagoSanPedro + " Pivot 06";
+        public static String NamePivotDelLagoSanPedro7 = NameFarmDelLagoSanPedro + " Pivot 07";
+        public static String NamePivotDelLagoSanPedro8 = NameFarmDelLagoSanPedro + " Pivot 08";
+        public static String NamePivotDelLagoSanPedro9 = NameFarmDelLagoSanPedro + " Pivot 09";
+        public static String NamePivotDelLagoSanPedro10 = NameFarmDelLagoSanPedro + " Pivot 10";
+        public static String NamePivotDelLagoSanPedro11 = NameFarmDelLagoSanPedro + " Pivot 11";
+        public static String NamePivotDelLagoSanPedro12 = NameFarmDelLagoSanPedro + " Pivot 12";
+        public static String NamePivotDelLagoSanPedro13 = NameFarmDelLagoSanPedro + " Pivot 13";
+        public static String NamePivotDelLagoSanPedro14 = NameFarmDelLagoSanPedro + " Pivot 14";
+        public static String NamePivotDelLagoSanPedro15 = NameFarmDelLagoSanPedro + " Pivot 15";
+        public static String NamePivotDelLagoSanPedro16 = NameFarmDelLagoSanPedro + " Pivot 16";
+        public static String NamePivotDelLagoSanPedro17 = NameFarmDelLagoSanPedro + " Pivot 17";
         #endregion
         #region El Mirador - Pivots
         public static String NamePivotDelLagoElMirador1 = NameFarmDelLagoElMirador + " Pivot 01";
@@ -1499,13 +1525,26 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region Del Lago
         #region SanPedro
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot1_S1718 = NamePivotDelLagoSanPedro1 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot3_S1718 = NamePivotDelLagoSanPedro3 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot4_S1718 = NamePivotDelLagoSanPedro4 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherDelLagoSanPedroPivot5_S1718 = NamePivotDelLagoSanPedro5 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherDelLagoSanPedroPivot6_S1718 = NamePivotDelLagoSanPedro6 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherDelLagoSanPedroPivot7_S1718 = NamePivotDelLagoSanPedro7 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherDelLagoSanPedroPivot8_S1718 = NamePivotDelLagoSanPedro8 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot9_S1718 = NamePivotDelLagoSanPedro9 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot10_S1718 = NamePivotDelLagoSanPedro10 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot11_S1718 = NamePivotDelLagoSanPedro11 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot12_S1718 = NamePivotDelLagoSanPedro12 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot13_S1718 = NamePivotDelLagoSanPedro13 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot14_S1718 = NamePivotDelLagoSanPedro14 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot15_S1718 = NamePivotDelLagoSanPedro15 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot16_S1718 = NamePivotDelLagoSanPedro16 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot17_S1718 = NamePivotDelLagoSanPedro17 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         #endregion
         #region ElMirador
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivot1_S1718 = NamePivotDelLagoElMirador1 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot2_S1718 = NamePivotDelLagoElMirador2 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivot3_S1718 = NamePivotDelLagoElMirador3 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivot4_S1718 = NamePivotDelLagoElMirador4 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherDelLagoElMiradorPivot5_S1718 = NamePivotDelLagoElMirador5 + " " + NameSpecieCornSouthShort + " " + NameSeason;
@@ -1587,6 +1626,9 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserSantaLucia = "SantaLucia";
         public static String NameUserDelLago1 = "girazabal";
         public static String NameUserDelLago2 = "jhemala";
+        public static String NameUserDelLago3 = "sriera";
+        public static String NameUserDelLago4 = "jvolf";
+        public static String NameUserDelLago5 = "llanusse";
         public static String NameUserGMO1 = "ptarigo";
         public static String NameUserGMO2 = "danselmi";
         public static String NameUserGMO3 = "mrios";
@@ -1727,10 +1769,23 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region Del Lago - Pivots
         #region SanPedro
+        public static String NamePositionPivotDelLagoSanPedro1 = NamePivotDelLagoSanPedro1;
+        public static String NamePositionPivotDelLagoSanPedro2 = NamePivotDelLagoSanPedro2;
+        public static String NamePositionPivotDelLagoSanPedro3 = NamePivotDelLagoSanPedro3;
+        public static String NamePositionPivotDelLagoSanPedro4 = NamePivotDelLagoSanPedro4;
         public static String NamePositionPivotDelLagoSanPedro5 = NamePivotDelLagoSanPedro5;
         public static String NamePositionPivotDelLagoSanPedro6 = NamePivotDelLagoSanPedro6;
         public static String NamePositionPivotDelLagoSanPedro7 = NamePivotDelLagoSanPedro7;
         public static String NamePositionPivotDelLagoSanPedro8 = NamePivotDelLagoSanPedro8;
+        public static String NamePositionPivotDelLagoSanPedro9 = NamePivotDelLagoSanPedro9;
+        public static String NamePositionPivotDelLagoSanPedro10 = NamePivotDelLagoSanPedro10;
+        public static String NamePositionPivotDelLagoSanPedro11 = NamePivotDelLagoSanPedro11;
+        public static String NamePositionPivotDelLagoSanPedro12 = NamePivotDelLagoSanPedro12;
+        public static String NamePositionPivotDelLagoSanPedro13 = NamePivotDelLagoSanPedro13;
+        public static String NamePositionPivotDelLagoSanPedro14 = NamePivotDelLagoSanPedro14;
+        public static String NamePositionPivotDelLagoSanPedro15 = NamePivotDelLagoSanPedro15;
+        public static String NamePositionPivotDelLagoSanPedro16 = NamePivotDelLagoSanPedro16;
+        public static String NamePositionPivotDelLagoSanPedro17 = NamePivotDelLagoSanPedro17;
         #endregion
         #region ElMirador
         public static String NamePositionPivotDelLagoElMirador1 = NamePivotDelLagoElMirador1;
