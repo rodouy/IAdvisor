@@ -11643,23 +11643,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               where sp.Name == Utils.NameSpecieSudanGrassSouthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             where crop.Name == Utils.NameSpecieSudanGrassSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        where cc.Name == Utils.NameSpecieSudanGrassSouthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               where cc.Name == Utils.NameSpecieSudanGrassSouthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              where cid.Name == Utils.NameSpecieSudanGrassSouthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -11673,8 +11673,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotElDesafio1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_ElDesafioPivot1_2017;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_ElDesafioPivot1_2017;
+                    lSowingDate = DataEntry.SowingDate_SudanGrassSouth_ElDesafioPivot1_2017;
+                    lHarvestDate = DataEntry.HarvestDate_SudanGrassSouth_ElDesafioPivot1_2017;
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_ElDesafioPivot1_2017 == 0)
                     {
@@ -11806,23 +11806,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieAlfalfaSouthShort
+                               where sp.Name == Utils.NameSpecieSudanGrassSouthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieAlfalfaSouthShort
+                             where crop.Name == Utils.NameSpecieSudanGrassSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieAlfalfaSouthShort
+                                        where cc.Name == Utils.NameSpecieSudanGrassSouthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieAlfalfaSouthShort
+                               where cc.Name == Utils.NameSpecieSudanGrassSouthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieAlfalfaSouthShort
+                                              where cid.Name == Utils.NameSpecieSudanGrassSouthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -11836,8 +11836,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotElDesafio2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_AlfalfaSouth_ElDesafioPivot2_2017;
-                    lHarvestDate = DataEntry.HarvestDate_AlfalfaSouth_ElDesafioPivot2_2017;
+                    lSowingDate = DataEntry.SowingDate_SudanGrassSouth_ElDesafioPivot2_2017;
+                    lHarvestDate = DataEntry.HarvestDate_SudanGrassSouth_ElDesafioPivot2_2017;
                     lCropDate = Program.DateOfReference;
                     if (DataEntry.PredeterminatedIrrigationQuantity_ElDesafioPivot2_2017 == 0)
                     {

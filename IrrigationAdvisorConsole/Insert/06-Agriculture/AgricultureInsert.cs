@@ -664,6 +664,47 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             }
             #endregion
 
+            #region SudanGrassSouthShort
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lSudanGrassSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthShort,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_SudanGrassSouth_2017,
+                    StressTemperature = DataEntry.StressTemperature_SudanGrassSouth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lSudanGrassSouthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region SudanGrassSouthMedium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lSudanGrassSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthMedium,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_SudanGrassSouth_2017,
+                    StressTemperature = DataEntry.StressTemperature_SudanGrassSouth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lSudanGrassSouthMedium);
+                context.SaveChanges();
+            }
+            #endregion
+
             #region RedCloverForageSouthShort
             using (var context = new IrrigationAdvisorContext())
             {
@@ -903,6 +944,47 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
 
                 context.Species.Add(lAlfalfaNorthMedium);
+                context.SaveChanges();
+            }
+            #endregion
+
+            #region SudanGrassNorthShort
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lSudanGrassNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthShort,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_SudanGrassNorth_2017,
+                    StressTemperature = DataEntry.StressTemperature_SudanGrassNorth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lSudanGrassNorthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region SudanGrassNorthMedium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lSudanGrassNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthMedium,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry.BaseTemperature_SudanGrassNorth_2017,
+                    StressTemperature = DataEntry.StressTemperature_SudanGrassNorth_2017,
+                    SpecieType = Utils.SpecieType.Pastures,
+                };
+
+                context.Species.Add(lSudanGrassNorthMedium);
                 context.SaveChanges();
             }
             #endregion
@@ -1277,6 +1359,79 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             var lStageSr6 = new Stage { Name = Utils.NameStagesAlfalfa + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 26, };
             var lStageSr7 = new Stage { Name = Utils.NameStagesAlfalfa + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 27, };
             var lStageSr8 = new Stage { Name = Utils.NameStagesAlfalfa + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 28, };
+
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                //context.Stages.Add(lBase);
+                context.Stages.Add(lStageSv0);
+                context.Stages.Add(lStageSve);
+                context.Stages.Add(lStageSv1);
+                context.Stages.Add(lStageSv2);
+                context.Stages.Add(lStageSv3);
+                context.Stages.Add(lStageSv4);
+                context.Stages.Add(lStageSv5);
+                context.Stages.Add(lStageSv6);
+                context.Stages.Add(lStageSv7);
+                context.Stages.Add(lStageSv8);
+                context.Stages.Add(lStageSv9);
+                context.Stages.Add(lStageSv10);
+                context.Stages.Add(lStageSv11);
+                context.Stages.Add(lStageSv12);
+                context.Stages.Add(lStageSv13);
+                context.Stages.Add(lStageSv14);
+                context.Stages.Add(lStageSv15);
+                context.Stages.Add(lStageSv16);
+                context.Stages.Add(lStageSv17);
+                context.Stages.Add(lStageMvt);
+                context.Stages.Add(lStageSr1);
+                context.Stages.Add(lStageSr2);
+                context.Stages.Add(lStageSr3);
+                context.Stages.Add(lStageSr4);
+                context.Stages.Add(lStageSr5);
+                context.Stages.Add(lStageSr6);
+                context.Stages.Add(lStageSr7);
+                context.Stages.Add(lStageSr8);
+                context.SaveChanges();
+            };
+        }
+
+        public static void InsertStagesSudanGrass()
+        {
+            var lBase = new Stage
+            {
+                Name = Utils.NameBase,
+                Description = "",
+            };
+
+            var lStageSv0 = new Stage { Name = Utils.NameStagesSudanGrass + " V0", Description = "Siembra", Order = 1, };
+            var lStageSve = new Stage { Name = Utils.NameStagesSudanGrass + " VE", Description = "Emergencia", Order = 2, };
+            var lStageSv1 = new Stage { Name = Utils.NameStagesSudanGrass + " V1", Description = "1 nudo", Order = 3, };
+            var lStageSv2 = new Stage { Name = Utils.NameStagesSudanGrass + " V2", Description = "2 nudos", Order = 4, };
+            var lStageSv3 = new Stage { Name = Utils.NameStagesSudanGrass + " V3", Description = "3 nudos", Order = 5, };
+            var lStageSv4 = new Stage { Name = Utils.NameStagesSudanGrass + " V4", Description = "4 nudos", Order = 6, };
+            var lStageSv5 = new Stage { Name = Utils.NameStagesSudanGrass + " V5", Description = "5 nudos", Order = 7, };
+            var lStageSv6 = new Stage { Name = Utils.NameStagesSudanGrass + " V6", Description = "6 nudos", Order = 8, };
+            var lStageSv7 = new Stage { Name = Utils.NameStagesSudanGrass + " V7", Description = "7 nudos", Order = 9, };
+            var lStageSv8 = new Stage { Name = Utils.NameStagesSudanGrass + " V8", Description = "8 nudos", Order = 10, };
+            var lStageSv9 = new Stage { Name = Utils.NameStagesSudanGrass + " V9", Description = "9 nudos", Order = 11, };
+            var lStageSv10 = new Stage { Name = Utils.NameStagesSudanGrass + " V10", Description = "10 nudos", Order = 12, };
+            var lStageSv11 = new Stage { Name = Utils.NameStagesSudanGrass + " V11", Description = "11 nudo", Order = 13, };
+            var lStageSv12 = new Stage { Name = Utils.NameStagesSudanGrass + " V12", Description = "12 nudo", Order = 14, };
+            var lStageSv13 = new Stage { Name = Utils.NameStagesSudanGrass + " V13", Description = "13 nudo", Order = 15, };
+            var lStageSv14 = new Stage { Name = Utils.NameStagesSudanGrass + " V14", Description = "14 nudo", Order = 16, };
+            var lStageSv15 = new Stage { Name = Utils.NameStagesSudanGrass + " V15", Description = "15 nudo", Order = 17, };
+            var lStageSv16 = new Stage { Name = Utils.NameStagesSudanGrass + " V16", Description = "16 nudo", Order = 18, };
+            var lStageSv17 = new Stage { Name = Utils.NameStagesSudanGrass + " V17", Description = "17 nudo", Order = 19, };
+            var lStageMvt = new Stage { Name = Utils.NameStagesSudanGrass + " VT", ShortName = "VT", Description = "Floracion", Order = 20, };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesSudanGrass + " R1", ShortName = "R1", Description = "Inicio Floracion", Order = 21, };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesSudanGrass + " R2", ShortName = "R2", Description = "Floracion Completa", Order = 22, };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesSudanGrass + " R3", ShortName = "R3", Description = "Inicio Vainas", Order = 23, };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesSudanGrass + " R4", ShortName = "R4", Description = "Vainas Completas", Order = 24, };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesSudanGrass + " R5", ShortName = "R5", Description = "Formacion de semillas", Order = 25, };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesSudanGrass + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 26, };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesSudanGrass + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 27, };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesSudanGrass + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 28, };
 
 
             using (var context = new IrrigationAdvisorContext())
@@ -3415,6 +3570,514 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.PhenologicalStages.Add(lPSAlfalfaR6);
                 context.PhenologicalStages.Add(lPSAlfalfaR7);
                 context.PhenologicalStages.Add(lPSAlfalfaR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        public static void InsertPhenologicalStagesSudanGrassSouthShort_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region SudanGrass
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieSudanGrassSouthShort) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V0") select stage).FirstOrDefault();
+                var lPSSudanGrassV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " VE") select stage).FirstOrDefault();
+                var lPSSudanGrassVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V1") select stage).FirstOrDefault();
+                var lPSSudanGrassV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V2") select stage).FirstOrDefault();
+                var lPSSudanGrassV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V3") select stage).FirstOrDefault();
+                var lPSSudanGrassV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V4") select stage).FirstOrDefault();
+                var lPSSudanGrassV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V5") select stage).FirstOrDefault();
+                var lPSSudanGrassV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V6") select stage).FirstOrDefault();
+                var lPSSudanGrassV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V7") select stage).FirstOrDefault();
+                var lPSSudanGrassV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V8") select stage).FirstOrDefault();
+                var lPSSudanGrassV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V9") select stage).FirstOrDefault();
+                var lPSSudanGrassV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V10") select stage).FirstOrDefault();
+                var lPSSudanGrassV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V11") select stage).FirstOrDefault();
+                var lPSSudanGrassV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V12") select stage).FirstOrDefault();
+                var lPSSudanGrassV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V13") select stage).FirstOrDefault();
+                var lPSSudanGrassV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V14") select stage).FirstOrDefault();
+                var lPSSudanGrassV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V15") select stage).FirstOrDefault();
+                var lPSSudanGrassV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V16") select stage).FirstOrDefault();
+                var lPSSudanGrassV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V17") select stage).FirstOrDefault();
+                var lPSSudanGrassV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " VT") select stage).FirstOrDefault();
+                var lPSSudanGrassVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R1") select stage).FirstOrDefault();
+                var lPSSudanGrassR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R2") select stage).FirstOrDefault();
+                var lPSSudanGrassR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R3") select stage).FirstOrDefault();
+                var lPSSudanGrassR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R4") select stage).FirstOrDefault();
+                var lPSSudanGrassR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R5") select stage).FirstOrDefault();
+                var lPSSudanGrassR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R6") select stage).FirstOrDefault();
+                var lPSSudanGrassR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R7") select stage).FirstOrDefault();
+                var lPSSudanGrassR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R8") select stage).FirstOrDefault();
+                var lPSSudanGrassR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - SudanGrass
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSSudanGrassV0);
+                context.PhenologicalStages.Add(lPSSudanGrassVe);
+                context.PhenologicalStages.Add(lPSSudanGrassV1);
+                context.PhenologicalStages.Add(lPSSudanGrassV2);
+                context.PhenologicalStages.Add(lPSSudanGrassV3);
+                context.PhenologicalStages.Add(lPSSudanGrassV4);
+                context.PhenologicalStages.Add(lPSSudanGrassV5);
+                context.PhenologicalStages.Add(lPSSudanGrassV6);
+                context.PhenologicalStages.Add(lPSSudanGrassV7);
+                context.PhenologicalStages.Add(lPSSudanGrassV8);
+                context.PhenologicalStages.Add(lPSSudanGrassV9);
+                context.PhenologicalStages.Add(lPSSudanGrassV10);
+                context.PhenologicalStages.Add(lPSSudanGrassV11);
+                context.PhenologicalStages.Add(lPSSudanGrassV12);
+                context.PhenologicalStages.Add(lPSSudanGrassV13);
+                context.PhenologicalStages.Add(lPSSudanGrassV14);
+                context.PhenologicalStages.Add(lPSSudanGrassV15);
+                context.PhenologicalStages.Add(lPSSudanGrassV16);
+                context.PhenologicalStages.Add(lPSSudanGrassV17);
+                context.PhenologicalStages.Add(lPSSudanGrassVt);
+                context.PhenologicalStages.Add(lPSSudanGrassR1);
+                context.PhenologicalStages.Add(lPSSudanGrassR2);
+                context.PhenologicalStages.Add(lPSSudanGrassR3);
+                context.PhenologicalStages.Add(lPSSudanGrassR4);
+                context.PhenologicalStages.Add(lPSSudanGrassR5);
+                context.PhenologicalStages.Add(lPSSudanGrassR6);
+                context.PhenologicalStages.Add(lPSSudanGrassR7);
+                context.PhenologicalStages.Add(lPSSudanGrassR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        public static void InsertPhenologicalStagesSudanGrassSouthMedium_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region SudanGrass
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieSudanGrassSouthMedium) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V0") select stage).FirstOrDefault();
+                var lPSSudanGrassV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " VE") select stage).FirstOrDefault();
+                var lPSSudanGrassVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V1") select stage).FirstOrDefault();
+                var lPSSudanGrassV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V2") select stage).FirstOrDefault();
+                var lPSSudanGrassV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V3") select stage).FirstOrDefault();
+                var lPSSudanGrassV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V4") select stage).FirstOrDefault();
+                var lPSSudanGrassV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V5") select stage).FirstOrDefault();
+                var lPSSudanGrassV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V6") select stage).FirstOrDefault();
+                var lPSSudanGrassV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V7") select stage).FirstOrDefault();
+                var lPSSudanGrassV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V8") select stage).FirstOrDefault();
+                var lPSSudanGrassV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V9") select stage).FirstOrDefault();
+                var lPSSudanGrassV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V10") select stage).FirstOrDefault();
+                var lPSSudanGrassV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V11") select stage).FirstOrDefault();
+                var lPSSudanGrassV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V12") select stage).FirstOrDefault();
+                var lPSSudanGrassV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V13") select stage).FirstOrDefault();
+                var lPSSudanGrassV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V14") select stage).FirstOrDefault();
+                var lPSSudanGrassV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V15") select stage).FirstOrDefault();
+                var lPSSudanGrassV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V16") select stage).FirstOrDefault();
+                var lPSSudanGrassV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V17") select stage).FirstOrDefault();
+                var lPSSudanGrassV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " VT") select stage).FirstOrDefault();
+                var lPSSudanGrassVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R1") select stage).FirstOrDefault();
+                var lPSSudanGrassR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R2") select stage).FirstOrDefault();
+                var lPSSudanGrassR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R3") select stage).FirstOrDefault();
+                var lPSSudanGrassR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R4") select stage).FirstOrDefault();
+                var lPSSudanGrassR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R5") select stage).FirstOrDefault();
+                var lPSSudanGrassR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R6") select stage).FirstOrDefault();
+                var lPSSudanGrassR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R7") select stage).FirstOrDefault();
+                var lPSSudanGrassR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R8") select stage).FirstOrDefault();
+                var lPSSudanGrassR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - SudanGrass
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSSudanGrassV0);
+                context.PhenologicalStages.Add(lPSSudanGrassVe);
+                context.PhenologicalStages.Add(lPSSudanGrassV1);
+                context.PhenologicalStages.Add(lPSSudanGrassV2);
+                context.PhenologicalStages.Add(lPSSudanGrassV3);
+                context.PhenologicalStages.Add(lPSSudanGrassV4);
+                context.PhenologicalStages.Add(lPSSudanGrassV5);
+                context.PhenologicalStages.Add(lPSSudanGrassV6);
+                context.PhenologicalStages.Add(lPSSudanGrassV7);
+                context.PhenologicalStages.Add(lPSSudanGrassV8);
+                context.PhenologicalStages.Add(lPSSudanGrassV9);
+                context.PhenologicalStages.Add(lPSSudanGrassV10);
+                context.PhenologicalStages.Add(lPSSudanGrassV11);
+                context.PhenologicalStages.Add(lPSSudanGrassV12);
+                context.PhenologicalStages.Add(lPSSudanGrassV13);
+                context.PhenologicalStages.Add(lPSSudanGrassV14);
+                context.PhenologicalStages.Add(lPSSudanGrassV15);
+                context.PhenologicalStages.Add(lPSSudanGrassV16);
+                context.PhenologicalStages.Add(lPSSudanGrassV17);
+                context.PhenologicalStages.Add(lPSSudanGrassVt);
+                context.PhenologicalStages.Add(lPSSudanGrassR1);
+                context.PhenologicalStages.Add(lPSSudanGrassR2);
+                context.PhenologicalStages.Add(lPSSudanGrassR3);
+                context.PhenologicalStages.Add(lPSSudanGrassR4);
+                context.PhenologicalStages.Add(lPSSudanGrassR5);
+                context.PhenologicalStages.Add(lPSSudanGrassR6);
+                context.PhenologicalStages.Add(lPSSudanGrassR7);
+                context.PhenologicalStages.Add(lPSSudanGrassR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        public static void InsertPhenologicalStagesSudanGrassNorthShort_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region SudanGrass
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieSudanGrassNorthShort) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V0") select stage).FirstOrDefault();
+                var lPSSudanGrassV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " VE") select stage).FirstOrDefault();
+                var lPSSudanGrassVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V1") select stage).FirstOrDefault();
+                var lPSSudanGrassV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V2") select stage).FirstOrDefault();
+                var lPSSudanGrassV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V3") select stage).FirstOrDefault();
+                var lPSSudanGrassV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V4") select stage).FirstOrDefault();
+                var lPSSudanGrassV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V5") select stage).FirstOrDefault();
+                var lPSSudanGrassV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V6") select stage).FirstOrDefault();
+                var lPSSudanGrassV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V7") select stage).FirstOrDefault();
+                var lPSSudanGrassV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V8") select stage).FirstOrDefault();
+                var lPSSudanGrassV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V9") select stage).FirstOrDefault();
+                var lPSSudanGrassV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V10") select stage).FirstOrDefault();
+                var lPSSudanGrassV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V11") select stage).FirstOrDefault();
+                var lPSSudanGrassV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V12") select stage).FirstOrDefault();
+                var lPSSudanGrassV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V13") select stage).FirstOrDefault();
+                var lPSSudanGrassV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V14") select stage).FirstOrDefault();
+                var lPSSudanGrassV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V15") select stage).FirstOrDefault();
+                var lPSSudanGrassV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V16") select stage).FirstOrDefault();
+                var lPSSudanGrassV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V17") select stage).FirstOrDefault();
+                var lPSSudanGrassV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " VT") select stage).FirstOrDefault();
+                var lPSSudanGrassVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R1") select stage).FirstOrDefault();
+                var lPSSudanGrassR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R2") select stage).FirstOrDefault();
+                var lPSSudanGrassR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R3") select stage).FirstOrDefault();
+                var lPSSudanGrassR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R4") select stage).FirstOrDefault();
+                var lPSSudanGrassR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R5") select stage).FirstOrDefault();
+                var lPSSudanGrassR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R6") select stage).FirstOrDefault();
+                var lPSSudanGrassR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R7") select stage).FirstOrDefault();
+                var lPSSudanGrassR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R8") select stage).FirstOrDefault();
+                var lPSSudanGrassR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - SudanGrass
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSSudanGrassV0);
+                context.PhenologicalStages.Add(lPSSudanGrassVe);
+                context.PhenologicalStages.Add(lPSSudanGrassV1);
+                context.PhenologicalStages.Add(lPSSudanGrassV2);
+                context.PhenologicalStages.Add(lPSSudanGrassV3);
+                context.PhenologicalStages.Add(lPSSudanGrassV4);
+                context.PhenologicalStages.Add(lPSSudanGrassV5);
+                context.PhenologicalStages.Add(lPSSudanGrassV6);
+                context.PhenologicalStages.Add(lPSSudanGrassV7);
+                context.PhenologicalStages.Add(lPSSudanGrassV8);
+                context.PhenologicalStages.Add(lPSSudanGrassV9);
+                context.PhenologicalStages.Add(lPSSudanGrassV10);
+                context.PhenologicalStages.Add(lPSSudanGrassV11);
+                context.PhenologicalStages.Add(lPSSudanGrassV12);
+                context.PhenologicalStages.Add(lPSSudanGrassV13);
+                context.PhenologicalStages.Add(lPSSudanGrassV14);
+                context.PhenologicalStages.Add(lPSSudanGrassV15);
+                context.PhenologicalStages.Add(lPSSudanGrassV16);
+                context.PhenologicalStages.Add(lPSSudanGrassV17);
+                context.PhenologicalStages.Add(lPSSudanGrassVt);
+                context.PhenologicalStages.Add(lPSSudanGrassR1);
+                context.PhenologicalStages.Add(lPSSudanGrassR2);
+                context.PhenologicalStages.Add(lPSSudanGrassR3);
+                context.PhenologicalStages.Add(lPSSudanGrassR4);
+                context.PhenologicalStages.Add(lPSSudanGrassR5);
+                context.PhenologicalStages.Add(lPSSudanGrassR6);
+                context.PhenologicalStages.Add(lPSSudanGrassR7);
+                context.PhenologicalStages.Add(lPSSudanGrassR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        public static void InsertPhenologicalStagesSudanGrassNorthMedium_2017()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region SudanGrass
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieSudanGrassNorthMedium) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V0") select stage).FirstOrDefault();
+                var lPSSudanGrassV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " VE") select stage).FirstOrDefault();
+                var lPSSudanGrassVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 109.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V1") select stage).FirstOrDefault();
+                var lPSSudanGrassV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 110, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V2") select stage).FirstOrDefault();
+                var lPSSudanGrassV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 169.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V3") select stage).FirstOrDefault();
+                var lPSSudanGrassV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 170, MaxDegree = 209.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V4") select stage).FirstOrDefault();
+                var lPSSudanGrassV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 210, MaxDegree = 249.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V5") select stage).FirstOrDefault();
+                var lPSSudanGrassV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 250, MaxDegree = 289.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V6") select stage).FirstOrDefault();
+                var lPSSudanGrassV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 334.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V7") select stage).FirstOrDefault();
+                var lPSSudanGrassV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 335, MaxDegree = 379.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V8") select stage).FirstOrDefault();
+                var lPSSudanGrassV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 380, MaxDegree = 419.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V9") select stage).FirstOrDefault();
+                var lPSSudanGrassV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 420, MaxDegree = 459.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V10") select stage).FirstOrDefault();
+                var lPSSudanGrassV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 494.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V11") select stage).FirstOrDefault();
+                var lPSSudanGrassV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 495, MaxDegree = 529.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V12") select stage).FirstOrDefault();
+                var lPSSudanGrassV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 530, MaxDegree = 554.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V13") select stage).FirstOrDefault();
+                var lPSSudanGrassV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 555, MaxDegree = 579.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V14") select stage).FirstOrDefault();
+                var lPSSudanGrassV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V15") select stage).FirstOrDefault();
+                var lPSSudanGrassV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V16") select stage).FirstOrDefault();
+                var lPSSudanGrassV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " V17") select stage).FirstOrDefault();
+                var lPSSudanGrassV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " VT") select stage).FirstOrDefault();
+                var lPSSudanGrassVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 580, MaxDegree = 679.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R1") select stage).FirstOrDefault();
+                var lPSSudanGrassR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 680, MaxDegree = 799.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R2") select stage).FirstOrDefault();
+                var lPSSudanGrassR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 800, MaxDegree = 929.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R3") select stage).FirstOrDefault();
+                var lPSSudanGrassR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1039.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R4") select stage).FirstOrDefault();
+                var lPSSudanGrassR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1040, MaxDegree = 1199.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R5") select stage).FirstOrDefault();
+                var lPSSudanGrassR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R6") select stage).FirstOrDefault();
+                var lPSSudanGrassR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R7") select stage).FirstOrDefault();
+                var lPSSudanGrassR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 2499.999, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSudanGrass + " R8") select stage).FirstOrDefault();
+                var lPSSudanGrassR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3500, Coefficient = 0.60, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000 };
+
+                #endregion
+
+                #region Add to Context - SudanGrass
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSSudanGrassV0);
+                context.PhenologicalStages.Add(lPSSudanGrassVe);
+                context.PhenologicalStages.Add(lPSSudanGrassV1);
+                context.PhenologicalStages.Add(lPSSudanGrassV2);
+                context.PhenologicalStages.Add(lPSSudanGrassV3);
+                context.PhenologicalStages.Add(lPSSudanGrassV4);
+                context.PhenologicalStages.Add(lPSSudanGrassV5);
+                context.PhenologicalStages.Add(lPSSudanGrassV6);
+                context.PhenologicalStages.Add(lPSSudanGrassV7);
+                context.PhenologicalStages.Add(lPSSudanGrassV8);
+                context.PhenologicalStages.Add(lPSSudanGrassV9);
+                context.PhenologicalStages.Add(lPSSudanGrassV10);
+                context.PhenologicalStages.Add(lPSSudanGrassV11);
+                context.PhenologicalStages.Add(lPSSudanGrassV12);
+                context.PhenologicalStages.Add(lPSSudanGrassV13);
+                context.PhenologicalStages.Add(lPSSudanGrassV14);
+                context.PhenologicalStages.Add(lPSSudanGrassV15);
+                context.PhenologicalStages.Add(lPSSudanGrassV16);
+                context.PhenologicalStages.Add(lPSSudanGrassV17);
+                context.PhenologicalStages.Add(lPSSudanGrassVt);
+                context.PhenologicalStages.Add(lPSSudanGrassR1);
+                context.PhenologicalStages.Add(lPSSudanGrassR2);
+                context.PhenologicalStages.Add(lPSSudanGrassR3);
+                context.PhenologicalStages.Add(lPSSudanGrassR4);
+                context.PhenologicalStages.Add(lPSSudanGrassR5);
+                context.PhenologicalStages.Add(lPSSudanGrassR6);
+                context.PhenologicalStages.Add(lPSSudanGrassR7);
+                context.PhenologicalStages.Add(lPSSudanGrassR8);
                 context.SaveChanges();
                 #endregion
             };
@@ -13487,6 +14150,75 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
                 lCropCoefficientAlfalfaNorthMedium = InitialTables.CreateUpdateCropCoefficient_AlfalfaNorthMedium(lCropCoefficientAlfalfaNorthMedium, 0, lSpecie);
                 context.CropCoefficients.Add(lCropCoefficientAlfalfaNorthMedium);
+                context.SaveChanges();
+            }
+            #endregion
+
+            #region Crop Coefficient SudanGrass South Short
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieSudanGrassSouthShort)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientSudanGrassSouthShort = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthShort,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientSudanGrassSouthShort = InitialTables.CreateUpdateCropCoefficient_SudanGrassSouthShort(lCropCoefficientSudanGrassSouthShort, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientSudanGrassSouthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient SudanGrass South Medium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieSudanGrassSouthMedium)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientSudanGrassSouthMedium = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthMedium,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientSudanGrassSouthMedium = InitialTables.CreateUpdateCropCoefficient_SudanGrassSouthMedium(lCropCoefficientSudanGrassSouthMedium, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientSudanGrassSouthMedium);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient SudanGrass North Short
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieSudanGrassNorthShort)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientSudanGrassNorthShort = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthShort,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientSudanGrassNorthShort = InitialTables.CreateUpdateCropCoefficient_SudanGrassNorthShort(lCropCoefficientSudanGrassNorthShort, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientSudanGrassNorthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient SudanGrass North Medium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpecieSudanGrassNorthMedium)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientSudanGrassNorthMedium = new CropCoefficient
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthMedium,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientSudanGrassNorthMedium = InitialTables.CreateUpdateCropCoefficient_SudanGrassNorthMedium(lCropCoefficientSudanGrassNorthMedium, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientSudanGrassNorthMedium);
                 context.SaveChanges();
             }
             #endregion

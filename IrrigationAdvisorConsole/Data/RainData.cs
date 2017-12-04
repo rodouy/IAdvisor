@@ -25429,7 +25429,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmElDesafio
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieSudanGrassSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotElDesafio1
@@ -25459,7 +25459,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmElDesafio
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieSudanGrassSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotElDesafio2
