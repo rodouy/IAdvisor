@@ -5712,11 +5712,128 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
             #region Horizons Del Lago - San Pedro
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
+                #region Pivot 1
+                var lDelLagoSanPedroPivot_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro1 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro1 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 2
+                var lDelLagoSanPedroPivot_2_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro2 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_2_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro2 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 3
+                var lDelLagoSanPedroPivot_3_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro3 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_3_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro3 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 4
+                var lDelLagoSanPedroPivot_4_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro4 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_4_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro4 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
                 #region Pivot 5
                 var lDelLagoSanPedroPivot_5_1 = new Horizon
                 {
@@ -5746,7 +5863,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
 
                 #endregion
-
                 #region Pivot 6
                 var lDelLagoSanPedroPivot_6_1 = new Horizon
                 {
@@ -5776,7 +5892,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
 
                 #endregion
-
                 #region Pivot 7
                 var lDelLagoSanPedroPivot_7_1 = new Horizon
                 {
@@ -5806,7 +5921,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 };
 
                 #endregion
-
                 #region Pivot 8
                 var lDelLagoSanPedroPivot_8_1 = new Horizon
                 {
@@ -5835,10 +5949,279 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BulkDensitySoil = 1.4,
                 };
                 #endregion
+                #region Pivot 9
+                var lDelLagoSanPedroPivot_9_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro9 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_9_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro9 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 10
+                var lDelLagoSanPedroPivot_10_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro10 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_10_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro10 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 11
+                var lDelLagoSanPedroPivot_11_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro11 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_11_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro11 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 12
+                var lDelLagoSanPedroPivot_12_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro12 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_12_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro12 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 13
+                var lDelLagoSanPedroPivot_13_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro13 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_13_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro13 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 14
+                var lDelLagoSanPedroPivot_14_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro14 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_14_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro14 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 15
+                var lDelLagoSanPedroPivot_15_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro15 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_15_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro15 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 16
+                var lDelLagoSanPedroPivot_16_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro16 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_16_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro16 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
+                #region Pivot 17
+                var lDelLagoSanPedroPivot_17_1 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro17 + " 1",
+                    Order = 0,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 21,
+                    Sand = 31,
+                    Limo = 31,
+                    Clay = 38,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.25,
+                };
+                var lDelLagoSanPedroPivot_17_2 = new Horizon
+                {
+                    Name = Utils.NamePivotDelLagoSanPedro17 + " 2",
+                    Order = 1,
+                    HorizonLayer = "B",
+                    HorizonLayerDepth = 20,
+                    Sand = 20,
+                    Limo = 28,
+                    Clay = 52,
+                    OrganicMatter = 4.4,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.4,
+                };
+
+                #endregion
 
                 using (var context = new IrrigationAdvisorContext())
                 {
                     #region Horizons Del Lago - San Pedro
+                    context.Horizons.Add(lDelLagoSanPedroPivot_1_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_1_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_2_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_2_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_3_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_3_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_4_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_4_2);
                     context.Horizons.Add(lDelLagoSanPedroPivot_5_1);
                     context.Horizons.Add(lDelLagoSanPedroPivot_5_2);
                     context.Horizons.Add(lDelLagoSanPedroPivot_6_1);
@@ -5847,6 +6230,24 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Horizons.Add(lDelLagoSanPedroPivot_7_2);
                     context.Horizons.Add(lDelLagoSanPedroPivot_8_1);
                     context.Horizons.Add(lDelLagoSanPedroPivot_8_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_9_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_9_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_10_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_10_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_11_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_11_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_12_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_12_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_13_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_13_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_14_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_14_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_15_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_15_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_16_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_16_2);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_17_1);
+                    context.Horizons.Add(lDelLagoSanPedroPivot_17_2);
                     #endregion
                     context.SaveChanges();
                 }
@@ -10423,6 +10824,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
             #region Del Lago - San Pedro Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
@@ -10434,6 +10836,102 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                              where far.Name == Utils.NameFarmDelLagoSanPedro
                              select far).FirstOrDefault();
 
+                    #region Pivot 1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro1 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot1 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro1,
+                        Description = "Suelo del Pivot 1 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro1,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot1.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot1.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 2
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro2
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro2 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro2 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot2 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro2,
+                        Description = "Suelo del Pivot 2 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro2,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot2.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot2.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 3
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro3
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro3 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro3 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot3 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro3,
+                        Description = "Suelo del Pivot 3 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro3,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot3.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot3.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 4
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro4
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro4 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro4 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot4 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro4,
+                        Description = "Suelo del Pivot 4 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro4,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot4.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot4.HorizonList.Add(lHorizon2);
+                    #endregion
                     #region Pivot 5
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoSanPedro5
@@ -10458,7 +10956,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoSanPedroPivot5.HorizonList.Add(lHorizon1);
                     lDelLagoSanPedroPivot5.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 6
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoSanPedro6
@@ -10483,7 +10980,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoSanPedroPivot6.HorizonList.Add(lHorizon1);
                     lDelLagoSanPedroPivot6.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 7
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoSanPedro7
@@ -10508,7 +11004,6 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoSanPedroPivot7.HorizonList.Add(lHorizon1);
                     lDelLagoSanPedroPivot7.HorizonList.Add(lHorizon2);
                     #endregion
-
                     #region Pivot 8
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotDelLagoSanPedro8
@@ -10533,12 +11028,241 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lDelLagoSanPedroPivot8.HorizonList.Add(lHorizon1);
                     lDelLagoSanPedroPivot8.HorizonList.Add(lHorizon2);
                     #endregion
+                    #region Pivot 9
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro9
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro9 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro9 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot9 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro9,
+                        Description = "Suelo del Pivot 9 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro9,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot9.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot9.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 10
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro10
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro10 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro10 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot10 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro10,
+                        Description = "Suelo del Pivot 10 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro10,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot10.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot10.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 11
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro11
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro11 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro11 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot11 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro11,
+                        Description = "Suelo del Pivot 11 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro11,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot11.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot11.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 12
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro12
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro12 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro12 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot12 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro12,
+                        Description = "Suelo del Pivot 12 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro12,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot12.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot12.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 13
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro13
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro13 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro13 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot13 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro13,
+                        Description = "Suelo del Pivot 13 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro13,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot13.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot13.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 14
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro14
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro14 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro14 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot14 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro14,
+                        Description = "Suelo del Pivot 14 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro14,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot14.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot14.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 15
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro15
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro15 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro15 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot15 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro15,
+                        Description = "Suelo del Pivot 15 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro15,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot15.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot15.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 16
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro16
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro16 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro16 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot16 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro16,
+                        Description = "Suelo del Pivot 16 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro16,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot16.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot16.HorizonList.Add(lHorizon2);
+                    #endregion
+                    #region Pivot 17
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro17
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro17 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotDelLagoSanPedro17 + " 2"
+                                 select hor).FirstOrDefault();
+                    var lDelLagoSanPedroPivot17 = new Soil
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro17,
+                        Description = "Suelo del Pivot 17 en Del Lago - San Pedro.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2015, 11, 6),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotDelLagoSanPedro17,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lDelLagoSanPedroPivot17.HorizonList.Add(lHorizon1);
+                    lDelLagoSanPedroPivot17.HorizonList.Add(lHorizon2);
+                    #endregion
 
                     //context.Soils.Add(lBase);
+                    context.Soils.Add(lDelLagoSanPedroPivot1);
+                    context.Soils.Add(lDelLagoSanPedroPivot2);
+                    context.Soils.Add(lDelLagoSanPedroPivot3);
+                    context.Soils.Add(lDelLagoSanPedroPivot4);
                     context.Soils.Add(lDelLagoSanPedroPivot5);
                     context.Soils.Add(lDelLagoSanPedroPivot6);
                     context.Soils.Add(lDelLagoSanPedroPivot7);
                     context.Soils.Add(lDelLagoSanPedroPivot8);
+                    context.Soils.Add(lDelLagoSanPedroPivot9);
+                    context.Soils.Add(lDelLagoSanPedroPivot10);
+                    context.Soils.Add(lDelLagoSanPedroPivot11);
+                    context.Soils.Add(lDelLagoSanPedroPivot12);
+                    context.Soils.Add(lDelLagoSanPedroPivot13);
+                    context.Soils.Add(lDelLagoSanPedroPivot14);
+                    context.Soils.Add(lDelLagoSanPedroPivot15);
+                    context.Soils.Add(lDelLagoSanPedroPivot16);
+                    context.Soils.Add(lDelLagoSanPedroPivot17);
                     context.SaveChanges();
                 }
             }

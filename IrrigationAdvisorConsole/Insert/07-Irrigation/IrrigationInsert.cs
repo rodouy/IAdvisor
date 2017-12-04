@@ -1807,6 +1807,98 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                              where f.Name == Utils.NameFarmDelLagoSanPedro
                              select f).FirstOrDefault();
 
+                    #region Pivot 1
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro1
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot1 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro1,
+                        ShortName = "Pivot 1",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro2
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot2 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro2,
+                        ShortName = "Pivot 2",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro3
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot3 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro3,
+                        ShortName = "Pivot 3",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro4
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot4 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro4,
+                        ShortName = "Pivot 4",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
                     #region Pivot 5
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombDelLagoSanPedro
@@ -1820,13 +1912,13 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Name = Utils.NamePivotDelLagoSanPedro5,
                         ShortName = "Pivot 5",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.85,
+                        IrrigationEfficiency = 0.80,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 118,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         Radius = 59,
-                        Show = false,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1843,13 +1935,13 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Name = Utils.NamePivotDelLagoSanPedro6,
                         ShortName = "Pivot 6",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.85,
+                        IrrigationEfficiency = 0.80,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 60,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         Radius = 30,
-                        Show = false,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1866,13 +1958,13 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Name = Utils.NamePivotDelLagoSanPedro7,
                         ShortName = "Pivot 7",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.85,
+                        IrrigationEfficiency = 0.80,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 110,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         Radius = 55,
-                        Show = false,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1889,7 +1981,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Name = Utils.NamePivotDelLagoSanPedro8,
                         ShortName = "Pivot 8",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
-                        IrrigationEfficiency = 0.85,
+                        IrrigationEfficiency = 0.80,
                         IrrigationList = new List<Pair<DateTime, double>>(),
                         Surface = 32,
                         BombId = lBomb.BombId,
@@ -1899,11 +1991,231 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
+                    #region Pivot 9
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro9
+                                 select pos).FirstOrDefault();
 
+                    var lDelLagoSanPedroPivot9 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro9,
+                        ShortName = "Pivot 9",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 10
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro10
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot10 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro10,
+                        ShortName = "Pivot 10",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 11
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro11
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot11 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro11,
+                        ShortName = "Pivot 11",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 12
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro12
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot12 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro12,
+                        ShortName = "Pivot 12",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 13
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro13
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot13 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro13,
+                        ShortName = "Pivot 13",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 14
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro14
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot14 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro14,
+                        ShortName = "Pivot 14",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 15
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro15
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot15 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro15,
+                        ShortName = "Pivot 15",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 16
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro16
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot16 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro16,
+                        ShortName = "Pivot 16",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 17
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombDelLagoSanPedro
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotDelLagoSanPedro17
+                                 select pos).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot17 = new Pivot
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro17,
+                        ShortName = "Pivot 17",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 118,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        Radius = 59,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+
+                    context.Pivots.Add(lDelLagoSanPedroPivot1);
+                    context.Pivots.Add(lDelLagoSanPedroPivot2);
+                    context.Pivots.Add(lDelLagoSanPedroPivot3);
+                    context.Pivots.Add(lDelLagoSanPedroPivot4);
                     context.Pivots.Add(lDelLagoSanPedroPivot5);
                     context.Pivots.Add(lDelLagoSanPedroPivot6);
                     context.Pivots.Add(lDelLagoSanPedroPivot7);
                     context.Pivots.Add(lDelLagoSanPedroPivot8);
+                    context.Pivots.Add(lDelLagoSanPedroPivot9);
+                    context.Pivots.Add(lDelLagoSanPedroPivot10);
+                    context.Pivots.Add(lDelLagoSanPedroPivot11);
+                    context.Pivots.Add(lDelLagoSanPedroPivot12);
+                    context.Pivots.Add(lDelLagoSanPedroPivot13);
+                    context.Pivots.Add(lDelLagoSanPedroPivot14);
+                    context.Pivots.Add(lDelLagoSanPedroPivot15);
+                    context.Pivots.Add(lDelLagoSanPedroPivot16);
+                    context.Pivots.Add(lDelLagoSanPedroPivot17);
                     context.SaveChanges();
                 }
             }

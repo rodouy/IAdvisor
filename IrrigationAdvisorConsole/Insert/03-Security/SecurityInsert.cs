@@ -228,7 +228,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
             };
             #endregion
 
-            #region Estancias del lago - Del Lago - EDL
+            #region Estancias del Lago - Del Lago - EDL
             var lDelLagoGuzman = new User()
             {
                 Name = "Guzmán",
@@ -248,6 +248,39 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Address = "Ruta 4 Km 20, Durazno, Uruguay CP 97.000",
                 Email = "jose.hemala@estanciasdellago.com ",
                 UserName = Utils.NameUserDelLago2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "EDL2017"),
+                RoleId = 3,
+            };
+            var lDelLagoSebastian = new User()
+            {
+                Name = "Sebastian",
+                Surname = "Riera",
+                Phone = "+598 99 355 924",
+                Address = "Ruta 4 Km 20, Durazno, Uruguay CP 97.000",
+                Email = "sriera@estanciasdellago.com ",
+                UserName = Utils.NameUserDelLago3,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "EDL2017"),
+                RoleId = 3,
+            };
+            var lDelLagoJoseV = new User()
+            {
+                Name = "José",
+                Surname = "Volf",
+                Phone = "+598 98 349 739",
+                Address = "Ruta 4 Km 20, Durazno, Uruguay CP 97.000",
+                Email = "jose.volf@estanciasdellago.com ",
+                UserName = Utils.NameUserDelLago4,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "EDL2017"),
+                RoleId = 3,
+            };
+            var lDelLagoLuis = new User()
+            {
+                Name = "Luis",
+                Surname = "Lanusse",
+                Phone = "+54 11 6469 5425",
+                Address = "Ruta 4 Km 20, Durazno, Uruguay CP 97.000",
+                Email = "llanusse@samconsult.com ",
+                UserName = Utils.NameUserDelLago5,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "EDL2017"),
                 RoleId = 3,
             };
@@ -477,6 +510,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lDCAFabian);
                 context.Users.Add(lDelLagoGuzman);
                 context.Users.Add(lDelLagoJose);
+                context.Users.Add(lDelLagoSebastian);
+                context.Users.Add(lDelLagoJoseV);
+                context.Users.Add(lDelLagoLuis);
                 context.Users.Add(lGMOPablo);
                 context.Users.Add(lGMODiego);
                 context.Users.Add(lGMOMauricio);
@@ -763,6 +799,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
                 {
                     lUserNames = new String[] { Utils.NameUserDelLago1, Utils.NameUserDelLago2, 
+                                                Utils.NameUserDelLago3, Utils.NameUserDelLago4,  
+                                                Utils.NameUserDelLago5,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -799,6 +837,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
                     lUserNames = new String[] { Utils.NameUserDelLago1, Utils.NameUserDelLago2,
+                                                Utils.NameUserDelLago3, Utils.NameUserDelLago4,  
+                                                Utils.NameUserDelLago5,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
