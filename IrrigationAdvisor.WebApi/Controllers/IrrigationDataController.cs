@@ -78,7 +78,7 @@ namespace IrrigationAdvisor.WebApi.Controllers
                         {
                             var rain = context.WaterInputs.SingleOrDefault(n => n.WaterInputId == daily.RainId);
 
-                            if (rain != null)
+                            if (rain != null && (rain.Input > 0 || rain.ExtraInput > 0))
                             {
                                 irrigationRow.Advices.Add(new AdviceViewModel()
                                 {
@@ -90,9 +90,9 @@ namespace IrrigationAdvisor.WebApi.Controllers
                         }
                         else if (daily.IrrigationId > 0)
                         {
-                            var irrigation = context.WaterInputs.SingleOrDefault(n => n.WaterInputId == daily.RainId);
+                            var irrigation = context.WaterInputs.SingleOrDefault(n => n.WaterInputId == daily.IrrigationId);
 
-                            if (irrigation != null)
+                            if (irrigation != null && (irrigation.Input > 0 || irrigation.Input > 0))
                             {
                                 irrigationRow.Advices.Add(new AdviceViewModel()
                                 {
