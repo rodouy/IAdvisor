@@ -18,10 +18,10 @@
     <div class="container">
         <div class="col-md-12" style="padding-left:0">
             <div class="tab-content" border="0">
-                <table style="width:300px" align="right">
+                <table style="width:200px" align="right">
                     <tr>
                          <td align="center" style="border-color:white">
-                             <a title="Imprimir reporte" href="../ReportIrrigationUnitPrintable?ciw=@Model.CropIrrigationWeatherId" onclick="window.open('../ReportIrrigationUnitPrintable?ciw=@Model.CropIrrigationWeatherId', 'newwindow', 'width=1000,height=800'); return false;">Imprimir</a>
+                             <a title="Imprimir reporte" href="../ReportIrrigationUnitPrintable?ciw=@Model.CropIrrigationWeatherId" onclick="window.open('../ReportIrrigationUnitPrintable?ciw=@Model.CropIrrigationWeatherId', 'newwindow', 'width=1020,height=800'); return false;">Imprimir</a>
                         </td>
                         <td align="center" style="border-color:white">
                             <a title="Volver a la página anterior" href="javascript:window.history.back();">  Volver  </a>
@@ -29,31 +29,30 @@
                     </tr>
                 </table>
                 <table>
-
                     <tr>
-                        <td>
-                                <div class="table-body">
-                                    <!--table-->
-                                    <table class="main-table-advisor" border="1" style="table-layout:fixed; width:1000px" align="center"  >
-                                        <thead>
-                                            <tr>
-                                                @{ Html.RenderAction("ReportIrrigationUnitHeaderPartial", "ReportIrrigationUnit", new { area = "" }); }
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @{ Html.RenderAction("ReportIrrigationUnitPartial", "ReportIrrigationUnit", new { area = "" }); }
-                                        </tbody>
-                                        <!--
-        <tbody>
-            <tr>
-                <td colspan="2"><b>TOTAL:</b></td>
+                        <td align="center" style="border-color:white">
+                           
+                                <!--table-->
+                                <table class="main-table-advisor" border="1" style="table-layout:fixed; width:1000px" align="center">
+                                    <thead>
+                                        <tr>
+                                            @{ Html.RenderAction("ReportIrrigationUnitHeaderPartial", "ReportIrrigationUnit", new { area = "" }); }
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{ Html.RenderAction("ReportIrrigationUnitPartial", "ReportIrrigationUnit", new { area = "" }); }
+                                    </tbody>
+                                    <!--
+                        <tbody>
+                            <tr>
+                                <td colspan="2"><b>TOTAL:</b></td>
 
 
-            </tr>
-        </tbody>
-            -->
-                                    </table>
-                                </div>
+                            </tr>
+                        </tbody>
+                            -->
+                                </table>
+                       
 
                         </td>
 

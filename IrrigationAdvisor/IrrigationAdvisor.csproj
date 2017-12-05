@@ -227,6 +227,7 @@
     <Compile Include="Controllers\Management\DailyRecordsController.cs" />
     <Compile Include="Controllers\Management\MessagesController.cs" />
     <Compile Include="Controllers\Management\TitlesController.cs" />
+    <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintableController.cs" />
     <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitController.cs" />
     <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStatePrintableController.cs" />
     <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStateController.cs" />
@@ -930,6 +931,7 @@
     <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitHeaderPartial.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitPartial.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnit.cshtml" />
+    <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />

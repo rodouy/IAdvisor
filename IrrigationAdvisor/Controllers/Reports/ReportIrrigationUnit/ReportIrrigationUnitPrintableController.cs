@@ -25,7 +25,7 @@ using System.Text;
 
 namespace IrrigationAdvisor.Controllers.Reports.ReportIrrigationUnit
 {
-    public class ReportIrrigationUnitController : Controller
+    public class ReportIrrigationUnitPrintableController : Controller
     {
 
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
@@ -52,8 +52,8 @@ namespace IrrigationAdvisor.Controllers.Reports.ReportIrrigationUnit
                     vm.Title = item.CropIrrigationWeather.ToString();
 
                 }
-               
-                return View("~/Views/Reports/ReportIrrigationUnit/ReportIrrigationUnit.cshtml", vm);
+
+                return View("~/Views/Reports/ReportIrrigationUnit/ReportIrrigationUnitPrintable.cshtml", vm);
             }
             catch (Exception ex)
             {
@@ -87,7 +87,7 @@ namespace IrrigationAdvisor.Controllers.Reports.ReportIrrigationUnit
             }
             catch (Exception ex)
             {
-                Utils.LogError(ex, "Exception in ReportIrrigationUnit.CreateAndDownloadFileXLS \n {0} ");
+                Utils.LogError(ex, "Exception in ReportIrrigationUnitPrintable.CreateAndDownloadFileXLS \n {0} ");
                 return null;
             }
         }
@@ -274,7 +274,7 @@ namespace IrrigationAdvisor.Controllers.Reports.ReportIrrigationUnit
 
             catch (Exception ex)
             {
-                Utils.LogError(ex, "Exception in ReportIrrigationUnit.GetGridDailyRecordIrrigationResume \n {0} ");
+                Utils.LogError(ex, "Exception in ReportIrrigationUnitPrintable.GetGridDailyRecordIrrigationResume \n {0} ");
                 return null;
             }
 
@@ -306,7 +306,7 @@ namespace IrrigationAdvisor.Controllers.Reports.ReportIrrigationUnit
             }
             catch (Exception ex)
             {
-                Utils.LogError(ex, "Exception in ReportIrrigationUnit.GetGridDailyRecordIrrigationResume \n {0} ");
+                Utils.LogError(ex, "Exception in ReportIrrigationUnitPrintable.GetGridDailyRecordIrrigationResume \n {0} ");
                 return 0;
             }
         }
