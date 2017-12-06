@@ -60,7 +60,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             };
 
             #endregion
-            #region Cities #11
+            #region Cities #12
             //1 - Montevideo
             var lMontevideo = new Position()
             {
@@ -124,17 +124,26 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Latitude = -34.5021	,
                 Longitude = -56.8345,
             };
+            //10 - Puntas de Valdez
             var lPuntasDeValdez = new Position()
             {
                 Name = Utils.NamePositionCityPuntasDeValdez,
                 Latitude = -34.585,
                 Longitude = -56.701,
             };
+
             var lSanGabriel = new Position()
             {
                 Name = Utils.NamePositionCitySanGabriel,
                 Latitude = -34.0376,
                 Longitude = -55.8864,
+            };
+
+            var lPalmitas = new Position()
+            {
+                Name = Utils.NamePositionCityPalmitas,
+                Latitude = -33.5167 ,
+                Longitude = -57.8333,
             };
             //10 - 
             #endregion
@@ -240,7 +249,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -56.896186,
             };
             #endregion
-            #region 4 - El Desafio; Los Naranjales;
+            #region 4 - El Desafio; Los Naranjales; Santa Emilia;
             var lElDesafio = new Position()
             {
                 Name = Utils.NamePositionFarmElDesafio,
@@ -252,6 +261,12 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Name = Utils.NamePositionFarmLosNaranjales,
                 Latitude = -34.0726,
                 Longitude = -55.868,
+            };
+            var lSantaEmilia = new Position()
+            {
+                Name = Utils.NamePositionFarmSantaEmilia,
+                Latitude = -33.4572,
+                Longitude = -57.6705,
             };
             #endregion
             #endregion
@@ -1148,7 +1163,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lUruguay);
                 context.Positions.Add(lRegionSur);
                 context.Positions.Add(lRegionNorte);
-                #region Cities #11
+                #region Cities #12
                 context.Positions.Add(lMontevideo);
                 context.Positions.Add(lMinas);
                 context.Positions.Add(lMercedes);
@@ -1160,6 +1175,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lRinconDelPino);
                 context.Positions.Add(lPuntasDeValdez);
                 context.Positions.Add(lSanGabriel);
+                context.Positions.Add(lPalmitas);
                 #endregion
                 #region Farms #16
                 context.Positions.Add(lDemo1);
@@ -1178,6 +1194,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lElRincon);
                 context.Positions.Add(lElDesafio);
                 context.Positions.Add(lLosNaranjales);
+                context.Positions.Add();
                 #endregion
                 #region Weather Stations #15
                 context.Positions.Add(lLasBrujasWS);
@@ -1648,6 +1665,20 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     CountryId = lCountry.CountryId,
                 };
                 #endregion
+                #region Palmitas
+                lCountry = (from country in context.Countries
+                            where country.Name == Utils.NameCountryUruguay
+                            select country).FirstOrDefault();
+                lPosition = (from pos in context.Positions
+                             where pos.Name == Utils.NamePositionCityPalmitas
+                             select pos).FirstOrDefault();
+                var lPalmitas = new City
+                {
+                    Name = Utils.NameCityPalmitas,
+                    PositionId = lPosition.PositionId,
+                    CountryId = lCountry.CountryId,
+                };
+                #endregion
 
                 //context.Cities.Add(lBase);
                 context.Cities.Add(lMinas);
@@ -1660,6 +1691,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Cities.Add(lRinconDelPino);
                 context.Cities.Add(lPuntasDeValdez);
                 context.Cities.Add(lSanGabriel);
+                context.Cities.Add(lPalmitas);
                 context.SaveChanges();
             }
         }
