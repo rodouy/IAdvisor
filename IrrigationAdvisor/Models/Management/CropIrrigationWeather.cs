@@ -3618,30 +3618,41 @@ namespace IrrigationAdvisor.Models.Management
                     {
                         lNewIrrigation = new Water.Irrigation();
                         lNewIrrigation.WaterInputId = this.GetNewIrrigationListId();
-                    }
-                    lNewIrrigation.Date = pIrrigationDate;
-                    if (pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second == Utils.WaterInputType.CantIrrigate)
-                    {
-                        lNewIrrigation.ExtraInput = 0;
-                        lNewIrrigation.ExtraDate = pIrrigationDate;
-                    }
-                    else
-                    {
+                        lNewIrrigation.Date = pIrrigationDate;
                         lNewIrrigation.Input = 0;
-                    }
-
-                    // Set the type of lIrrigationItem. 
-                    lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
-                    lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
-                    //lNewIrrigation.CropIrrigationWeather = this;
-                    lNewIrrigation.Reason = pReason;
-                    lNewIrrigation.Observations = pObservations;
-
-                    if (!this.IrrigationList.Any(irrigation => irrigation.Date == lNewIrrigation.Date))
-                    {
+                        if (pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second == Utils.WaterInputType.CantIrrigate)
+                        {
+                            lNewIrrigation.ExtraInput = 0;
+                            lNewIrrigation.ExtraDate = pIrrigationDate;
+                        }
+                        // Set the type of lIrrigationItem. 
+                        lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
+                        lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                        //lNewIrrigation.CropIrrigationWeather = this;
+                        lNewIrrigation.Reason = pReason;
+                        lNewIrrigation.Observations = pObservations;
                         this.IrrigationList.Add(lNewIrrigation);
                     }
-                    
+                    else 
+                    { 
+                        if (pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second == Utils.WaterInputType.CantIrrigate)
+                        {
+                            lNewIrrigation.ExtraInput = 0;
+                            lNewIrrigation.ExtraDate = pIrrigationDate;
+                        }  
+                        if(lNewIrrigation.Reason != Utils.NoIrrigationReason.NotDecided)
+                        {
+                            //Do nothing, it is an Irrigation
+                        }
+                        else
+                        {
+                            // Set the type of lIrrigationItem. 
+                            lNewIrrigation.Type = pQuantityOfWaterToIrrigateAndTypeOfIrrigation.Second;
+                            lNewIrrigation.CropIrrigationWeatherId = this.CropIrrigationWeatherId;
+                            lNewIrrigation.Reason = pReason;
+                            lNewIrrigation.Observations = pObservations;
+                        }
+                    }
                 }
                 #endregion
 

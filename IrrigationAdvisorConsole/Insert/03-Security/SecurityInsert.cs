@@ -493,6 +493,31 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
             #endregion
 
+            #region Santa Emilia
+            var lSantaEmiliaDSilveyra = new User()
+            {
+                Name = "David",
+                Surname = "Silveyra",
+                Phone = "+598 98 319 949",
+                Address = "Ruta 2, km 141",
+                Email = "thedavis015@hotmail.com",
+                UserName = Utils.NameUserSE1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "SE2018"),
+                RoleId = 3,
+            };
+            var lSantaEmiliaSMontero = new User()
+            {
+                Name = "Salvador",
+                Surname = "Montero",
+                Phone = "+598 99 550 676",
+                Address = "Ruta 2, km 141",
+                Email = "monterosalvador@hotmail.com",
+                UserName = Utils.NameUserSE2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "SE2018"),
+                RoleId = 3,
+            };
+            #endregion
+
             using (var context = new IrrigationAdvisorContext())
             {
                 //context.Users.Add(lBase);
@@ -530,6 +555,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lLosNaranjalesPIglesias);
                 context.Users.Add(lLosNaranjalesJDemelo);
                 context.Users.Add(lLosNaranjalesSScarlato);
+                context.Users.Add(lSantaEmiliaDSilveyra);
+                context.Users.Add(lSantaEmiliaSMontero);
                 context.SaveChanges();
             }
 
@@ -1102,6 +1129,41 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmLosNaranjales
+                             select farm).FirstOrDefault();
+                    lUserList = (from user in context.Users
+                                 where lUserNames.Contains(user.UserName)
+                                 select user).ToList();
+                    foreach (User lUser in lUserList)
+                    {
+                        var lUserFarm = new UserFarm()
+                        {
+                            UserId = lUser.UserId,
+                            FarmId = lFarm.FarmId,
+                            Name = lUser.Name + lFarm.Name,
+                            StartDate = DateTime.Now,
+                        };
+
+                        context.UserFarms.Add(lUserFarm);
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
+
+                #region Sierra Madera S.A - Santa Emilia - SE
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
+                {
+                    lUserNames = new String[] { Utils.NameUserSE1, Utils.NameUserSE2,
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin, Utils.NameUserCristian,
+                                                Utils.NameUserCPalo, Utils.NameUserMCarle,
+                                                Utils.NameUserROlivera, Utils.NameUserDemo,
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
+
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmSantaEmilia
                              select farm).FirstOrDefault();
                     lUserList = (from user in context.Users
                                  where lUserNames.Contains(user.UserName)
