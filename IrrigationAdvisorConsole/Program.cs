@@ -45,6 +45,8 @@ namespace IrrigationAdvisorConsole
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
         public static DateTime DateOfReference = System.DateTime.Now; //.AddMonths(-9);
+
+        public static bool AddWeatherInformation = true;
         
         static void Main(string[] args)
         {
@@ -221,10 +223,14 @@ namespace IrrigationAdvisorConsole
                 Console.WriteLine("  - WetherStationsAddInformationOfWeather");
                 Console.WriteLine("Weather - Completed.");
 
-
-                Console.WriteLine(" ------------------------------------------------ ");
-                Console.WriteLine("Add Information of WeatherLink and press enter.");
-                Console.ReadLine();
+                if (AddWeatherInformation 
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                {
+                    Console.WriteLine(" ------------------------------------------------ ");
+                    Console.WriteLine("Add Information of WeatherLink and press enter.");
+                    Console.ReadLine();
+                }
 
                 #endif
                 #endregion

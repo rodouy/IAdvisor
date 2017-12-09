@@ -4230,6 +4230,14 @@ namespace IrrigationAdvisorConsole.Data
 
             #endregion
             #region 12
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(334), 21.0, 651.6, 28.7, 13.2, 5.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-12-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(335), 21.9, 396.1, 27.3, 16.5, 4.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(336), 21.3, 538.5, 25.4, 17.2, 4.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(337), 19.0, 570.2, 23.1, 14.9, 4.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(338), 18.9, 674.6, 25.1, 12.8, 5.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-12-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(339), 22.6, 685.6, 30.1, 15.1, 5.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(340), 18.8, 637.5, 24.0, 13.5, 4.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+
             #endregion
 
             #endregion
@@ -5431,9 +5439,15 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(330), 16.1, 674.5, 19.8, 12.4, 4.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(331), 14.6, 735.8, 21.3, 07.8, 5.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(332), 20.7, 679.7, 29.0, 12.4, 6.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
-
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(333), 21.8, 717.0, 29.2, 14.4, 7.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-11-30
+            
             #endregion
             #region 12
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(334), 21.3, 661.0, 27.8, 14.8, 6.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-12-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(335), 20.8, 434.4, 26.5, 15.0, 4.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(336), 20.5, 301.0, 23.2, 17.8, 3.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(337), 19.0, 703.8, 24.3, 13.6, 5.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+
             #endregion
             //From Las Brujas - To Replace
 
@@ -6644,6 +6658,14 @@ namespace IrrigationAdvisorConsole.Data
 
             #endregion
             #region 12
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(334), 24.4, 612.0, 32.0, 16.8, 6.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-12-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(335), 25.0, 276.6, 30.0, 20.0, 3.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(336), 25.0, 288.1, 29.5, 20.4, 3.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(337), 22.7, 478.8, 27.2, 18.2, 5.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(338), 22.0, 445.6, 27.5, 16.4, 4.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-12-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(339), 25.3, 614.1, 32.0, 18.5, 5.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(340), 26.9, 692.9, 35.5, 18.2, 6.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+
             #endregion
 
             #endregion

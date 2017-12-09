@@ -1514,12 +1514,12 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 {
 
                     RainData.AddRainDataElDesafioPivot1_2017(context, Program.DateOfReference);
-                    RainData.AddRainDataElDesafioPivot2_2017(context, Program.DateOfReference);
+                    //RainData.AddRainDataElDesafioPivot2_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
 
-                #region El Rincon
+                #region Los Naranjales
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
@@ -1530,6 +1530,22 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     RainData.AddRainDataLosNaranjalesPivot6bT3_2017(context, Program.DateOfReference);
                     RainData.AddRainDataLosNaranjalesPivot5aT5_2017(context, Program.DateOfReference);
                     RainData.AddRainDataLosNaranjalesPivot5bT5_2017(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Santa Emilia
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
+                {
+
+                    //RainData.AddRainDataSantaEmiliaPivot1_2017(context, Program.DateOfReference);
+                    //RainData.AddRainDataSantaEmiliaPivot2_2017(context, Program.DateOfReference);
+                    //RainData.AddRainDataSantaEmiliaPivot3_2017(context, Program.DateOfReference);
+                    //RainData.AddRainDataSantaEmiliaPivot4_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataSantaEmiliaPivot5_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -1782,7 +1798,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 using (var context = new IrrigationAdvisorContext())
                 {
                     IrrigationData.AddIrrigationDataElDesafioPivot1_2017(context, Program.DateOfReference);
-                    IrrigationData.AddIrrigationDataElDesafioPivot2_2017(context, Program.DateOfReference);
+                    //IrrigationData.AddIrrigationDataElDesafioPivot2_2017(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
@@ -1801,6 +1817,25 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     IrrigationData.AddIrrigationDataLosNaranjalesPivot6bT3_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataLosNaranjalesPivot5aT5_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataLosNaranjalesPivot5bT5_2017(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Santa Emilia
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //IrrigationData.AddIrrigationDataSantaEmiliaPivot1_2017(context, Program.DateOfReference);
+                    //IrrigationData.AddIrrigationDataSantaEmiliaPivot2_2017(context, Program.DateOfReference);
+                    //IrrigationData.AddIrrigationDataSantaEmiliaPivot3_2017(context, Program.DateOfReference);
+                    //IrrigationData.AddIrrigationDataSantaEmiliaPivot4_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataSantaEmiliaPivot5_2017(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
