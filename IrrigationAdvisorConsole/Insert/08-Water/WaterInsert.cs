@@ -1389,8 +1389,8 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
                     //RainData.AddRainDataDCALaPerdizPivot1_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDCALaPerdizPivot2_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDCALaPerdizPivot3_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDCALaPerdizPivot2_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDCALaPerdizPivot3_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDCALaPerdizPivot4_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDCALaPerdizPivot5_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDCALaPerdizPivot6_2017(context, Program.DateOfReference);
@@ -1670,8 +1670,8 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 using (var context = new IrrigationAdvisorContext())
                 {
                     //IrrigationData.AddIrrigationDataDCALaPerdizPivot1_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDCALaPerdizPivot2_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDCALaPerdizPivot3_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDCALaPerdizPivot2_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDCALaPerdizPivot3_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDCALaPerdizPivot5_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDCALaPerdizPivot6_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataDCALaPerdizPivot7_2017(context, Program.DateOfReference);

@@ -1536,8 +1536,8 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region LaPerdiz
         public static String NameCropIrrigationWeatherDCALaPerdizPivot1_S1718 = NamePivotDCALaPerdiz1 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
-        public static String NameCropIrrigationWeatherDCALaPerdizPivot2_S1718 = NamePivotDCALaPerdiz2 + " " + NameSpecieSoyaSouthShort+ " " + NameSeason;
-        public static String NameCropIrrigationWeatherDCALaPerdizPivot3_S1718 = NamePivotDCALaPerdiz3 + " " + NameSpecieSoyaSouthShort+ " " + NameSeason;
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot2_S1718 = NamePivotDCALaPerdiz2 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot3_S1718 = NamePivotDCALaPerdiz3 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot4_S1718 = NamePivotDCALaPerdiz4 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot5_S1718 = NamePivotDCALaPerdiz5 + " " + NameSpecieSoyaSouthShort+ " " + NameSeason;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot6_S1718 = NamePivotDCALaPerdiz6 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
@@ -1632,7 +1632,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region El Rincon
         public static String NameCropIrrigationWeatherElRinconPivot1a_S1718 = NamePivotElRincon1a + " " + NameSpecieCornSouthShort + " " + NameSeason;
-        public static String NameCropIrrigationWeatherElRinconPivot1b_S1718 = NamePivotElRincon1b + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherElRinconPivot1b_S1718 = NamePivotElRincon1b + " " + NameSpecieSoyaSouthShort + " " + NameSeason;
         #endregion
         #region El Desafio
         public static String NameCropIrrigationWeatherElDesafioPivot1_S1718 = NamePivotElDesafio1 + " " + NameSpecieSudanGrassSouthShort + " " + NameSeason;

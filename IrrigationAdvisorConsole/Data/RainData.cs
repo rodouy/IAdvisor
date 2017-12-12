@@ -5958,7 +5958,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmDCALaPerdiz
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieSoyaSouthShort
+                     where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz2
@@ -5972,14 +5972,14 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
 
             #region Rain 2017/10/07 2 mm
-            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
-            {
-                //Data to change about Rain
-                lRainDate = new DateTime(2017, 10, 7);
-                lRainQuantity = 2;
-                /////////////////////////////////////////////////////////////////////////////////////////////
-                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
-            }
+            //foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            //{
+            //    //Data to change about Rain
+            //    lRainDate = new DateTime(2017, 10, 7);
+            //    lRainQuantity = 2;
+            //    /////////////////////////////////////////////////////////////////////////////////////////////
+            //    lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            //}
             #endregion
 
         }
@@ -5998,7 +5998,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmDCALaPerdiz
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieSoyaSouthShort
+                     where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotDCALaPerdiz3
@@ -6012,14 +6012,14 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
 
             #region Rain 2017/10/07 2 mm
-            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
-            {
-                //Data to change about Rain
-                lRainDate = new DateTime(2017, 10, 7);
-                lRainQuantity = 2;
-                /////////////////////////////////////////////////////////////////////////////////////////////
-                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
-            }
+            //foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            //{
+            //    //Data to change about Rain
+            //    lRainDate = new DateTime(2017, 10, 7);
+            //    lRainQuantity = 2;
+            //    /////////////////////////////////////////////////////////////////////////////////////////////
+            //    lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            //}
             #endregion
 
         }
@@ -22708,7 +22708,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmGMOElTacuru
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornNorthShort
+                     where crop.Name == Utils.NameSpecieSoyaNorthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotGMOElTacuru4
