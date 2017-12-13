@@ -2026,7 +2026,7 @@ namespace IrrigationAdvisor.Controllers
 
                         lRainList = lCropIrrigationWeather.RainList;
                         lIrrigationList = lCropIrrigationWeather.IrrigationList;
-                        lPhenologicalStageToday = lCropIrrigationWeather.PhenologicalStage.Stage.ShortName;
+                       // lPhenologicalStageToday = lCropIrrigationWeather.PhenologicalStage.Stage.ShortName;
                         lSowingDate = lCropIrrigationWeather.SowingDate.Day.ToString()
                                 + "/" + lCropIrrigationWeather.SowingDate.Month.ToString();
                         //Grid of irrigation data
@@ -2051,32 +2051,44 @@ namespace IrrigationAdvisor.Controllers
                             lFirstPivotName = "";
                         }
 
-                        lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
+
 
                         //Obtain Crop Coefficient from DailyRecord
                         lDailyRecord = lDailyRecordList
                                                 .Where(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId 
                                                         && n.DailyRecordDateTime.ToShortDateString() == ManageSession.GetNavigationDate().ToShortDateString())
                                                         .FirstOrDefault();
+
+                          //lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
+                       
+                        
+                      
                         if(lDailyRecord != null)
                         {
                             lCropCoefficient = lDailyRecord.CropCoefficient.ToString();
+                            lPhenologicalStageToday = lDailyRecord.PhenologicalStage.Stage.ShortName;
+                            lHydricBalancePercentage = lDailyRecord.PercentageOfHydricBalance;     
+
                         }
                         else
                         {
                             lCropCoefficient=String.Empty;
+                            lPhenologicalStageToday = String.Empty;
+                            lHydricBalancePercentage = 0;
+
                         }
 
                         lHomeViewModel = ManageSession.GetHomeViewModel();
 
+
                         lETcList = new List<Double>();
                         foreach (var item in lGridIrrigationUnitDetailRow)
                         {
-                            lETcItem = lIrrigationAdvisorContext.WeatherDatas
-                                            .Where(wd => wd.Date == item.DateOfData.Date 
-                                                && wd.WeatherStationId == lCropIrrigationWeather.MainWeatherStationId)
-                                                .Select(wd => wd.Evapotranspiration).FirstOrDefault();
-                            lETcList.Add(lETcItem);
+                            lETcItem = lIrrigationAdvisorContext.WaterOutputs
+                                            .Where(wd => wd.Date == item.DateOfData.Date
+                                                && wd.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId)
+                                                .Select(wd => wd.Output).FirstOrDefault();
+                            lETcList.Add(Math.Round(lETcItem, 2));
                         }
 
                         //Add all the days for the IrrigationUnit
