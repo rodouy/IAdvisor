@@ -16,27 +16,35 @@
         <td  align="center">@grid.DailyRecordDate</td>
         <td  align="right">@grid.EffectiveInputWater</td>
         <td align="right">@grid.EffectiveRain</td>
-        @{ if (grid.ShowTemperatureColumn)
-         {
-        <td  align="right">@grid.Temperature</td>
-         }
+        @{ if (grid.ShowTemperatureColumn || grid.ShowAdministratorColumn)
+             {
+            <td  align="right">@grid.Temperature</td>
+             }
         }
 
-        @{ if (grid.ShowEvapotranspirationColumn)
-         {
-            <td  align="right">@grid.Evapotranspiration</td>
-         }
+        @{ if (grid.ShowEvapotranspirationColumn || grid.ShowAdministratorColumn)
+             {
+                <td  align="right">@grid.Evapotranspiration</td>
+             }
         }
 
 
-        @{ if (grid.ShowAvailableWaterColumn)
-         {
-            <td align="right">@grid.AvailableWater</td>
-         }
+        @{ if (grid.ShowAvailableWaterColumn || grid.ShowAdministratorColumn)
+             {
+                <td align="right">@grid.AvailableWater</td>
+             }
         }
-        <td  align="right">@grid.Phenology</td>
-        <td align="right">@grid.CropCoefficient</td>
 
+       @{if (grid.ShowAdministratorColumn)
+            {
+                <td align="center">@grid.Phenology</td>
+            }
+        }
+        @{if (grid.ShowAdministratorColumn)
+        {
+            <td align="right">@grid.CropCoefficient</td>
+            }
+        }
       
     </tr>
 }

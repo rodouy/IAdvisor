@@ -16,13 +16,13 @@
     <th>@grid.EffectiveRain (mm)</th>
     <th>@grid.EffectiveInputWater (mm)</th>
     {
-        if (grid.ShowTemperatureColumn)
+        if (grid.ShowTemperatureColumn || grid.ShowAdministratorColumn)
         {            <th>@grid.Temperature</th>
         }
     }
 
     {
-        if (grid.ShowEvapotranspirationColumn)
+        if (grid.ShowEvapotranspirationColumn || grid.ShowAdministratorColumn)
         {
             <th>@grid.Evapotranspiration</th>
         }
@@ -30,13 +30,26 @@
 
 
     {
-        if (grid.ShowAvailableWaterColumn)
+        if (grid.ShowAvailableWaterColumn || grid.ShowAdministratorColumn)
         {
             <th>@grid.AvailableWater (%)</th>
         }
     }
-    <th>@grid.Phenology</th>
-    <th>@grid.CropCoefficient</th>
+
+    {
+        if (grid.ShowAdministratorColumn)
+        {
+            <th>@grid.Phenology</th>
+        }
+    }
+    {
+        if (grid.ShowAdministratorColumn)
+        {
+            <th>@grid.CropCoefficient</th>
+        }
+    }
+
+
    
 }
 
