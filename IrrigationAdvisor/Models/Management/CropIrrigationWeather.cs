@@ -155,6 +155,8 @@ namespace IrrigationAdvisor.Models.Management
         #region Irrigation
 
         private long irrigationUnitId;
+        private Double maxIrrigationQuantity;
+        private bool adjustableIrrigationQuantity;
         private Double predeterminatedIrrigationQuantity;
         private bool hasAdviseOfIrrigation;
 
@@ -420,6 +422,18 @@ namespace IrrigationAdvisor.Models.Management
         {
             get;
             set;
+        }
+
+        public Double MaxIrrigationQuantity
+        {
+            get { return maxIrrigationQuantity; }
+            set { maxIrrigationQuantity = value; }
+        }
+
+        public bool AdjustableIrrigationQuantity
+        {
+            get { return adjustableIrrigationQuantity; }
+            set { adjustableIrrigationQuantity = value; }
         }
 
         public Double PredeterminatedIrrigationQuantity
@@ -740,7 +754,11 @@ namespace IrrigationAdvisor.Models.Management
 
             #region Irrigation
             this.IrrigationUnitId = 0;
-            this.PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+            this.MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart));
+            this.AdjustableIrrigationQuantity = true;
+            this.PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
             this.HasAdviseOfIrrigation = false;
             #endregion
 
@@ -891,8 +909,12 @@ namespace IrrigationAdvisor.Models.Management
             this.GrowingDegreeDaysModified = pGrowingDegreeDaysModified;
             this.GrowingDegreeDaysExtraGap = pGrowingDegreeDaysExtraGap;
             this.LastDayOfGrowingDegreeDays = pLastDayOfGrowingDegreeDays;
-            
+
             this.IrrigationUnitId = pIrrigationUnitId;
+            this.MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart));
+            this.AdjustableIrrigationQuantity = true;
             this.PredeterminatedIrrigationQuantity = pPredeterminatedIrrigationQuantity;
             this.HasAdviseOfIrrigation = false;
 
@@ -1396,6 +1418,42 @@ namespace IrrigationAdvisor.Models.Management
         #region Calculus
 
         /// <summary>
+        /// Get Predeterminated Irrigation Quantity by Date
+        /// Depends if the Irrigation Unit can be Adjustable
+        /// </summary>
+        /// <param name="pDateTime"></param>
+        /// <returns></returns>
+        private Double getPredeterminatedIrrigationQuantity(DateTime pDateTime)
+        {
+            Double lReturn;
+            Double lPredeterminatedIrrigationQuantity;
+
+            if (!this.AdjustableIrrigationQuantity)
+            {
+                lPredeterminatedIrrigationQuantity = this.PredeterminatedIrrigationQuantity;
+            }
+            else if (pDateTime > Utils.PredeterminatedDateFrom_ThirdPart)
+            {
+                lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_ThirdPart;
+            }
+            else if (pDateTime > Utils.PredeterminatedDateFrom_SecondPart)
+            {
+                lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
+            }
+            else if (pDateTime > Utils.PredeterminatedDateFrom_FirstPart)
+            {
+                lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
+            }
+            else
+            {
+                lPredeterminatedIrrigationQuantity = this.PredeterminatedIrrigationQuantity;
+            }
+            //Take into account the max quantity of irrigation
+            lReturn = Math.Min(lPredeterminatedIrrigationQuantity, this.MaxIrrigationQuantity);
+            return lReturn;
+        }
+
+        /// <summary>
         /// Calculate the GrowingDegreeDays and update the GrowingDegreeDaysAccumulated and GrowingDegreeDaysModified
         /// </summary>
         /// <param name="pBaseTemperature"></param>
@@ -1562,6 +1620,7 @@ namespace IrrigationAdvisor.Models.Management
             bool lIrrigationByHydricBalance;
             bool lNoIrrigationFlag;
             Double lPercentageAvailableWater;
+            Double lPredeterminatedIrrigationQuantity;
 
             Water.Irrigation lHaveIrrigation = null;
             Water.Irrigation lHaveIrrigationDayBefore = null;
@@ -1591,6 +1650,10 @@ namespace IrrigationAdvisor.Models.Management
             lHaveIrrigation = this.GetIrrigationByDay(pDateTime);
             //Get the irrigation of yesterday
             lHaveIrrigationDayBefore = this.GetIrrigationByDay(pDateTime.AddDays(-1));
+
+            //Get Predeterminated Irrigation Quantity by Date
+            //Change 2017-12-12 by Rodo
+            lPredeterminatedIrrigationQuantity = this.getPredeterminatedIrrigationQuantity(pDateTime);
 
             // The date refers an explicit Cant irrigation date
             if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.CantIrrigate)
@@ -1636,14 +1699,14 @@ namespace IrrigationAdvisor.Models.Management
             {
                 if (lIrrigationByHydricBalance)
                 {
-                    lReturn.First = this.PredeterminatedIrrigationQuantity;
+                    lReturn.First = lPredeterminatedIrrigationQuantity;
                     lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
                 }
                 else if (lIrrigationByEvapotranspiration)
                 {
                     if (this.WeatherEventType == Utils.WeatherEventType.LaNinia)
                     {
-                        lReturn.First = this.PredeterminatedIrrigationQuantity;
+                        lReturn.First = lPredeterminatedIrrigationQuantity;
                         lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
                     }
                     //If we need to irrigate by Evapotranspiraton, then Available water has to be lower than 60% 
@@ -1651,7 +1714,7 @@ namespace IrrigationAdvisor.Models.Management
                     {
                         if (lPercentageAvailableWater < InitialTables.PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE)
                         {
-                            lReturn.First = this.PredeterminatedIrrigationQuantity;
+                            lReturn.First = lPredeterminatedIrrigationQuantity;
                             lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
                         }
                     }
@@ -1659,7 +1722,7 @@ namespace IrrigationAdvisor.Models.Management
                     {
                         if (lPercentageAvailableWater < InitialTables.PERCENTAGE_OF_AVAILABE_WATER_TO_IRRIGATE)
                         {
-                            lReturn.First = this.PredeterminatedIrrigationQuantity;
+                            lReturn.First = lPredeterminatedIrrigationQuantity;
                             lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
                         }
                     }
