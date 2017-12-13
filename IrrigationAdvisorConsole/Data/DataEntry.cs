@@ -482,9 +482,9 @@ namespace IrrigationAdvisorConsole
         //public static DateTime SowingDate_SoyaSouth_DCALaPerdizPivot4_2017 = new DateTime(2017, 11, 15);
         //public static DateTime HarvestDate_SoyaSouth_DCALaPerdizPivot4_2017 = new DateTime(2018, 04, 15);
         //public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot4_2017 = 10;
-        //public static DateTime SowingDate_SoyaSouth_DCALaPerdizPivot5_2017 = new DateTime(2017, 11, 15);
-        //public static DateTime HarvestDate_SoyaSouth_DCALaPerdizPivot5_2017 = new DateTime(2018, 04, 15);
-        //public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot5_2017 = 10;
+        public static DateTime SowingDate_CornSouth_DCALaPerdizPivot5_2017 = new DateTime(2017, 12, 01);
+        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot5_2017 = new DateTime(2018, 04, 15);
+        public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot5_2017 = 10;
         //public static DateTime SowingDate_CornSouth_DCALaPerdizPivot6_2017 = new DateTime(2017, 9, 23);
         //public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot6_2017 = new DateTime(2018, 02, 5);
         //public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot6_2017 = 10;

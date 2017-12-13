@@ -368,6 +368,10 @@
     <Compile Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.Designer.cs">
       <DependentUpon>201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs" />
+    <Compile Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.Designer.cs">
+      <DependentUpon>201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -990,6 +994,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.resx">
       <DependentUpon>201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.resx">
+      <DependentUpon>201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

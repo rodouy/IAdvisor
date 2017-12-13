@@ -1427,7 +1427,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherDCALaPerdizPivot2 = NamePivotDCALaPerdiz2 + " " + NameSpecieSoyaSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot3 = NamePivotDCALaPerdiz3 + " " + NameSpecieSoyaSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot4 = NamePivotDCALaPerdiz4 + " " + NameSpecieCornSouthShort;
-        public static String NameCropIrrigationWeatherDCALaPerdizPivot5 = NamePivotDCALaPerdiz5 + " " + NameSpecieSoyaSouthShort;
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot5 = NamePivotDCALaPerdiz5 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot6 = NamePivotDCALaPerdiz6 + " " + NameSpecieCornSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot7 = NamePivotDCALaPerdiz7 + " " + NameSpecieSoyaSouthShort;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot8 = NamePivotDCALaPerdiz8 + " " + NameSpecieCornSouthShort;
@@ -1539,7 +1539,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherDCALaPerdizPivot2_S1718 = NamePivotDCALaPerdiz2 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot3_S1718 = NamePivotDCALaPerdiz3 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot4_S1718 = NamePivotDCALaPerdiz4 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
-        public static String NameCropIrrigationWeatherDCALaPerdizPivot5_S1718 = NamePivotDCALaPerdiz5 + " " + NameSpecieSoyaSouthShort+ " " + NameSeason;
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot5_S1718 = NamePivotDCALaPerdiz5 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot6_S1718 = NamePivotDCALaPerdiz6 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot7_S1718 = NamePivotDCALaPerdiz7 + " " + NameSpecieSoyaSouthShort+ " " + NameSeason;
         public static String NameCropIrrigationWeatherDCALaPerdizPivot8_S1718 = NamePivotDCALaPerdiz8 + " " + NameSpecieCornSouthShort+ " " + NameSeason;
@@ -1984,7 +1984,13 @@ namespace IrrigationAdvisor.Models.Utilities
         /// 2016:02:18 - From 20 -> 15
         /// 2017:10:02 - From 15 -> 12
         /// </summary>
-        public static Double PredeterminatedIrrigationQuantity = 10;
+        /// 
+        public static DateTime PredeterminatedDateFrom_FirstPart = new DateTime(2017, 09, 01);
+        public static Double PredeterminatedIrrigationQuantity_FirstPart = 10;
+        public static DateTime PredeterminatedDateFrom_SecondPart = new DateTime(2017, 12, 01);
+        public static Double PredeterminatedIrrigationQuantity_SecondPart = 14;
+        public static DateTime PredeterminatedDateFrom_ThirdPart = new DateTime(2017, 02, 01);
+        public static Double PredeterminatedIrrigationQuantity_ThirdPart = 14;
         #endregion
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
