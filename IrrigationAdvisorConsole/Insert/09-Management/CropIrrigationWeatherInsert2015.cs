@@ -91,7 +91,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 GrowingDegreeDaysModified = 0,
 
                 IrrigationUnitId = 0,
-                PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity,
+                PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart,
 
                 PositionId = 0,
 
@@ -180,7 +180,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo1Pivot11_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -217,6 +217,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -336,7 +340,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo1Pivot12_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -373,6 +377,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -489,7 +497,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo1Pivot13_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -525,6 +533,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -642,7 +654,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo1Pivot15_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -678,6 +690,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -801,7 +817,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo2Pivot21_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -838,6 +854,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -957,7 +977,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo2Pivot22_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -994,6 +1014,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1110,7 +1134,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo2Pivot23_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -1146,6 +1170,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1263,7 +1291,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo2Pivot24_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -1299,6 +1327,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1416,7 +1448,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo2Pivot25_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -1452,6 +1484,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1575,7 +1611,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo3Pivot31_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -1612,6 +1648,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1731,7 +1771,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo3Pivot32A_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -1768,6 +1808,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1884,7 +1928,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo3Pivot33_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -1920,6 +1964,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2059,7 +2107,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo3Pivot34_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -2097,6 +2145,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2144,6 +2196,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2302,7 +2358,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_Demo3Pivot35_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -2338,6 +2394,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2462,7 +2522,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_SantaLuciaPivot1_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -2498,6 +2558,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2641,7 +2705,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_LaPerdizPivot2_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -2678,6 +2742,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2794,7 +2862,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_LaPerdizPivot3_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -2830,6 +2898,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2947,7 +3019,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_LaPerdizPivot5_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -2983,6 +3055,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -3107,7 +3183,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot5_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -3143,6 +3219,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -3259,7 +3339,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot6_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -3295,6 +3375,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -3411,7 +3495,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot7_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -3447,6 +3531,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -3563,7 +3651,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot8_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -3599,6 +3687,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -3724,7 +3816,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot6_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -3760,6 +3852,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -3876,7 +3972,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot7_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -3912,6 +4008,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4028,7 +4128,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot8_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -4064,6 +4164,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4180,7 +4284,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot9_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -4216,6 +4320,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4340,7 +4448,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_LaPalmaPivot2A_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -4377,6 +4485,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4493,7 +4605,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_LaPalmaPivot3_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -4530,6 +4642,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4646,7 +4762,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry2015.PredeterminatedIrrigationQuantity_LaPalmaPivot4_2015 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
@@ -4683,6 +4799,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop

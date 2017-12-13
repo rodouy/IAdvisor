@@ -460,19 +460,19 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             testIrrigationUnit_CropList_Pivot_2 = new List<Crop>();
             testIU_Pivot_2 = testIrrigationSystem.AddIrrigationUnit("Pivot 2", "Pivot 2", lType, testEfficiency_Pivot_2,
                                testIrrigationUnit_IrrigationList_Pivot_2, testSurface_Pivot_2,
-                               testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity);
+                               testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity_SecondPart);
             
             testIrrigationUnit_IrrigationList_Pivot_3_4 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_3_4 = new List<Crop>();
             testIU_Pivot_3_4 = testIrrigationSystem.AddIrrigationUnit("Pivot 3 y 4", "Pivot 3 y 4", lType, testEfficiency_Pivot_3_4,
                             testIrrigationUnit_IrrigationList_Pivot_3_4, testSurface_Pivot_3_4,
-                            testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity);
+                            testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity_SecondPart);
             
             testIrrigationUnit_IrrigationList_Pivot_5 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_5 = new List<Crop>();
             testIU_Pivot_5 = testIrrigationSystem.AddIrrigationUnit("Pivot 5", "Pivot 5", lType, testEfficiency_Pivot_5,
                             testIrrigationUnit_IrrigationList_Pivot_5, testSurface_Pivot_5,
-                            testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity);
+                            testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity_SecondPart);
 
         }
 

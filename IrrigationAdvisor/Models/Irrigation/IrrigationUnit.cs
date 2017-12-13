@@ -164,7 +164,7 @@ namespace IrrigationAdvisor.Models.Irrigation
             this.Surface = 0;
             this.BombId = 0;
             this.PositionId = 0;
-            this.PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+            this.PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
             this.Show = false;
         }
         
