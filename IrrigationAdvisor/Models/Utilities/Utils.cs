@@ -1641,7 +1641,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Los Naranjales
         public static String NameCropIrrigationWeatherLosNaranjalesPivot6aT3_S1718 = NamePivotLosNaranjales6aT3 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherLosNaranjalesPivot6bT3_S1718 = NamePivotLosNaranjales6bT3 + " " + NameSpecieCornSouthShort + " " + NameSeason;
-        public static String NameCropIrrigationWeatherLosNaranjalesPivot5aT5_S1718 = NamePivotLosNaranjales5aT5 + " " + NameSpecieFescueForageSouthMedium + " " + NameSeason;
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot5aT5_S1718 = NamePivotLosNaranjales5aT5 + " " + NameSpecieFescueForageSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherLosNaranjalesPivot5bT5_S1718 = NamePivotLosNaranjales5bT5 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         #endregion
         #region Santa Emilia
