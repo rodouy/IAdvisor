@@ -74,9 +74,9 @@ namespace IrrigationAdvisor.Controllers.Reports
                 lDailyRecordList = drc.GetDailyRecordsListDataUntilDateBy(ciwId, Utils.GetDateOfReference().Value);
 
                 #region get ciw
-                List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
-                List<long> lListciw = new List<long>();
-                lListciw.Add(ciwId);
+                //List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+                //List<long> lListciw = new List<long>();
+                //lListciw.Add(ciwId);
 
                 //lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw, Utils.GetDateOfReference().Value);
 
