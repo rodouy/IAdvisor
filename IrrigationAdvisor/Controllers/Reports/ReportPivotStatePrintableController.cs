@@ -68,18 +68,18 @@ namespace IrrigationAdvisor.Controllers.Reports
 
                 lDailyRecordList = drc.GetDailyRecordsListDataUntilDateBy(ciwId, Utils.GetDateOfReference().Value);
 
-                #region get ciw
-                List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
-                List<long> lListciw = new List<long>();
-                lListciw.Add(ciwId);
+                //#region get ciw
+                //List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+                //List<long> lListciw = new List<long>();
+                //lListciw.Add(ciwId);
 
-                lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw, Utils.GetDateOfReference().Value);
+                //lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw, Utils.GetDateOfReference().Value);
 
-                foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
-                {
-                    lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
-                }
-                #endregion
+                //foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+                //{
+                //    lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
+                //}
+                //#endregion
 
                 foreach (DailyRecord item in lDailyRecordList)
                 {
@@ -91,6 +91,7 @@ namespace IrrigationAdvisor.Controllers.Reports
 
                     lSumTotalEvapotranspirationCrop = item.TotalEvapotranspirationCrop;
                     lCropIrrigationWeatherTitle = item.CropIrrigationWeather.ToString();
+                    lHydricBalancePercentage = item.PercentageOfHydricBalance;
                 }
                 vm.TotalEffectiveRain = lSumTotalEffectiveRain;
                 vm.TotalEffectiveInputWater = lSumTotalEffectiveInputWater;

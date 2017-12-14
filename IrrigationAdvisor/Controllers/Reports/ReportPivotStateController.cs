@@ -74,16 +74,16 @@ namespace IrrigationAdvisor.Controllers.Reports
                 lDailyRecordList = drc.GetDailyRecordsListDataUntilDateBy(ciwId, Utils.GetDateOfReference().Value);
 
                 #region get ciw
-                List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
-                List<long> lListciw = new List<long>();
-                lListciw.Add(ciwId);
+                //List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+                //List<long> lListciw = new List<long>();
+                //lListciw.Add(ciwId);
 
-                lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw, Utils.GetDateOfReference().Value);
+                //lCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherByIds(lListciw, Utils.GetDateOfReference().Value);
 
-                foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
-                {
-                    lHydricBalancePercentage = lCropIrrigationWeather.GetPercentageOfHydricBalance();
-                }
+                //foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+                //{
+                //lHydricBalancePercentage = lDailyRecordList.p .GetPercentageOfHydricBalance();
+               //}
                 #endregion
 
 
@@ -97,6 +97,7 @@ namespace IrrigationAdvisor.Controllers.Reports
 
                     lSumTotalEvapotranspirationCrop = item.TotalEvapotranspirationCrop;
                     lCropIrrigationWeatherTitle = item.CropIrrigationWeather.ToString();
+                    lHydricBalancePercentage = item.PercentageOfHydricBalance;
                 }
                 vm.TotalEffectiveRain = lSumTotalEffectiveRain;
                 vm.TotalEffectiveInputWater = lSumTotalEffectiveInputWater;
