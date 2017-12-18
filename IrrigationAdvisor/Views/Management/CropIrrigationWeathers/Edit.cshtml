@@ -1,8 +1,8 @@
-﻿@model IrrigationAdvisor.Models.Management.CropIrrigationWeather
+﻿@model IrrigationAdvisor.ViewModels.Management.CropIrrigationWeatherViewModel
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "Management";
+    
 }
 
 <h2>Edit</h2>
@@ -211,7 +211,12 @@
                 @Html.ValidationMessageFor(model => model.OutPut, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.MainWeatherStationId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MainWeatherStationId, Model.MainWeatherStation, "-- Seleccione Rol --")
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />

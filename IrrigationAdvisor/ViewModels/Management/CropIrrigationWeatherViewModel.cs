@@ -34,6 +34,11 @@ namespace IrrigationAdvisor.ViewModels.Management
 
         #region Weather
         public long MainWeatherStationId { get; set; }
+        public List<System.Web.Mvc.SelectListItem> MainWeatherStation { get; set; }
+        public Double TotalEvapotranspirationCropFromLastWaterInput { get; set; }
+        public int DaysAfterSowing  { get; set; }
+        public int DaysAfterSowingModified { get; set; }
+
 
         public long AlternativeWeatherStationId { get; set; }
         #endregion
