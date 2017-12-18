@@ -171,7 +171,7 @@ namespace IrrigationAdvisor.Controllers
         public ActionResult Home(LoginViewModel pLoginViewModel)
         {
             Authentication lAuthentication;
-            HomeViewModel lHVM;
+            HomeViewModel lHomeViewModel;
 
             #region Configuration Variables
             UserConfiguration uc;
@@ -422,7 +422,7 @@ namespace IrrigationAdvisor.Controllers
                 lCropIrrigationWeatherVM.AddRange(lCropIrrigationWeatherList);
 
                 //Demo - One Pivot
-                lHVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
+                lHomeViewModel = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference,
                     lFarmViewModel, lCurrentFarmLatitude, lCurrentFarmLongitude, lCropIrrigationWeatherVM,
                     lDailyRecordViewModelList, lRainViewModelList, lIrrigationViewModelList,
                     lMinDateOfReference, lMaxDateOfReference);
@@ -430,14 +430,19 @@ namespace IrrigationAdvisor.Controllers
                 trace = 130;
                 //Create View Model of Home
                 //HVM = new HomeViewModel(lLoggedUser, lFarmViewModelList, lDateOfReference);
-                lHVM.DateOfReference = lDateOfReference;
+                lHomeViewModel.DateOfReference = lDateOfReference;
                 
-                lHVM.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
+                //Set User as Administrator
+                lHomeViewModel.IsUserAdministrator = (lLoggedUser.RoleId == (int)Utils.UserRoles.Administrator);
+
+                //Set User as Intermediate
+                lHomeViewModel.IsUserIntermediate = (lLoggedUser.RoleId == (int)Utils.UserRoles.Intermediate);
+
                 trace = 140;
-                ManageSession.SetHomeViewModel(lHVM);
+                ManageSession.SetHomeViewModel(lHomeViewModel);
 
                 trace = 150;
-                return View(lHVM);
+                return View(lHomeViewModel);
 
             }
             catch (NullReferenceException ex)

@@ -102,7 +102,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Email = "riegopgw@googlegroups.com",
                 UserName = Utils.NameUserTesting,
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "riego"),
-                RoleId = 1,
+                RoleId = 2,
             };
             var lTestAdmin = new User()
             {
