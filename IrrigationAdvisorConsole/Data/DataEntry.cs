@@ -668,7 +668,7 @@ namespace IrrigationAdvisorConsole
 
         #endregion
         #region GMO - La Palma
-        public static String WeatherStationMainName_GMOLaPalma_2017 = Utils.NameWeatherStationLaEstanzuela;
+        public static String WeatherStationMainName_GMOLaPalma_2017 = Utils.NameWeatherStationSaltoGrande;
         public static String WeatherStationAlternativeName_GMOLaPalma_2017 = Utils.NameWeatherStationViveroSanFrancisco;
 
         public static DateTime SowingDate_SoyaNorth_GMOLaPalmaPivot1_2017 = new DateTime(2017, 11, 21);
@@ -804,7 +804,7 @@ namespace IrrigationAdvisorConsole
 
         #endregion
         #region LN - Los Naranjos
-        public static String WeatherStationMainName_LosNaranjales_2017 = Utils.NameWeatherStationLaEstanzuela;
+        public static String WeatherStationMainName_LosNaranjales_2017 = Utils.NameWeatherStationLasBrujas;
         public static String WeatherStationAlternativeName_LosNaranjales_2017 = Utils.NameWeatherStationViveroSanFrancisco;
 
         public static DateTime SowingDate_CornSouth_LosNaranjalesPivot6aT3_2017 = new DateTime(2017, 10, 20);
