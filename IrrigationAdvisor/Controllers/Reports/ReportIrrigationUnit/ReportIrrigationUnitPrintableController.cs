@@ -38,6 +38,7 @@ namespace IrrigationAdvisor.Controllers.Reports.ReportIrrigationUnit
         {
             try
             {
+               
                 DailyRecordConfiguration drc = new DailyRecordConfiguration();
 
                 List<DailyRecord> lDailyRecordList = new List<DailyRecord>();
@@ -64,36 +65,6 @@ namespace IrrigationAdvisor.Controllers.Reports.ReportIrrigationUnit
        }
 
         
-      /// <summary>
-      /// Allow export and download info abaout CIW
-      /// </summary>
-      /// <returns>stream to save file</returns>
-        public FileStreamResult CreateAndDownloadFileXLS() 
-        {
-            try
-            {
-                CropIrrigationWeatherConfiguration ciwc = new CropIrrigationWeatherConfiguration();
-
-                string lDate = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
-                string lOutPut = ciwc.GetOutputByCropIrrigationWeatherId(ciwId);
-                string lFileName = ciwc.GetNameByCropIrrigationWeatherId(ciwId);
-
-                lFileName = lFileName + "_" + ".csv";
-
-                var byteArray = Encoding.ASCII.GetBytes(lOutPut);
-                var stream = new MemoryStream(byteArray);
-
-                return File(stream, "application/vnd.ms-excel", lFileName);
-            }
-            catch (Exception ex)
-            {
-                Utils.LogError(ex, "Exception in ReportIrrigationUnitPrintable.CreateAndDownloadFileXLS \n {0} ");
-                return null;
-            }
-        }
-
-
-
         [ChildActionOnly]
         public PartialViewResult ReportIrrigationUnitHeaderPartial()
         {

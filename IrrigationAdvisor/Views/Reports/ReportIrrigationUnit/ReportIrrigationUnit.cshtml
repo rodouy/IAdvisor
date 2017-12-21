@@ -1,5 +1,41 @@
 ﻿@model IrrigationAdvisor.ViewModels.Reports.ReportIrrigationUnitViewModel
 
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    $("#btnExport").click(function(e) {
+        //getting values of current time for generating the file name
+        var dt = new Date();
+        var day = dt.getDate();
+        var month = dt.getMonth() + 1;
+        var year = dt.getFullYear();
+        var hour = dt.getHours();
+        var mins = dt.getMinutes();
+        var postfix = day + "." + month + "." + year + "_" + hour + "." + mins;
+        //creating a temporary HTML link element (they support setting file names)
+        var a = document.createElement('a');
+        //getting data from our div that contains the HTML table
+        var data_type = 'data:application/vnd.ms-excel';
+
+        var htmltable = document.getElementById('cp');
+        var html = htmltable.outerHTML.replace(/ /g, '%20');;
+
+
+        alert("b")
+        alert(htmltable)
+        alert(html)
+        a.href = data_type + ', ' + html;
+        //setting the file name
+        
+        a.download = $("#TitleName").val().trim()+'_report_' + postfix + '.xls';
+        //triggering the function
+        a.click();
+        //just in case, prevent default behaviour
+        e.preventDefault();
+    });
+});
+
+    </script>
 <section class="content-bar ps-container">
     <div class="container">
         <div class="col-md-11">
@@ -13,15 +49,18 @@
 
     </div>
 </section>
-
+<input id="TitleName" type="hidden" value="@Html.DisplayFor(model => model.Title)">
 <section class="profile">
     <div class="container">
         <div class="col-md-12" style="padding-left:0">
             <div class="tab-content" border="0">
-                <table style="width:200px" align="right">
+                <table style="width:250px" align="right">
                     <tr>
-                         <td align="center" style="border-color:white">
+                        <td align="center" style="border-color:white">
                              <a title="Imprimir reporte" href="../ReportIrrigationUnitPrintable?ciw=@Model.CropIrrigationWeatherId" onclick="window.open('../ReportIrrigationUnitPrintable?ciw=@Model.CropIrrigationWeatherId', 'newwindow', 'width=1020,height=800'); return false;">Imprimir</a>
+                        </td>
+                        <td align="center" style="border-color:white">
+                            <a title="Descargar reporte formato excel" id="btnExport" href="#" return false;">Descargar xls</a>
                         </td>
                         <td align="center" style="border-color:white">
                             <a title="Volver a la página anterior" href="javascript:window.history.back();">  Volver  </a>
@@ -33,7 +72,7 @@
                         <td align="center" style="border-color:white">
                            
                                 <!--table-->
-                                <table class="main-table-advisor" border="1" style="table-layout:fixed; width:1000px" align="center">
+                                <table class="main-table-advisor" border="1" style="table-layout:fixed; width:1000px" align="center" id="cp">
                                     <thead>
                                         <tr>
                                             @{ Html.RenderAction("ReportIrrigationUnitHeaderPartial", "ReportIrrigationUnit", new { area = "" }); }
