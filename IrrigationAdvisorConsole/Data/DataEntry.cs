@@ -636,7 +636,8 @@ namespace IrrigationAdvisorConsole
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot12_2017 = 14;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot13_2017 = new DateTime(2017, 10, 11); //13
         public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot13_2017 = new DateTime(2018, 04, 20);
-        public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2017 = 14;
+        //20171221 change IrrigationQuantity 14 to 12
+        public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2017 = 12;
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot14_2017 = new DateTime(2017, 11, 30); //14
         public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot14_2017 = new DateTime(2018, 04, 28);
         public static Double PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot14_2017 = 14;
@@ -815,7 +816,8 @@ namespace IrrigationAdvisorConsole
         public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot6bT3_2017 = 10;
         public static DateTime SowingDate_FescueForageSouth_LosNaranjalesPivot5aT5_2017 = new DateTime(2017, 03, 27);
         public static DateTime HarvestDate_FescueForageSouth_LosNaranjalesPivot5aT5_2017 = new DateTime(2018, 06, 20);
-        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot5aT5_2017 = 14;
+        //20171221 change IrrigationQuantity 14 to 10
+        public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot5aT5_2017 = 10;
         public static DateTime SowingDate_CornSouth_LosNaranjalesPivot5bT5_2017 = new DateTime(2017, 10, 24);
         public static DateTime HarvestDate_CornSouth_LosNaranjalesPivot5bT5_2017 = new DateTime(2018, 04, 10);
         public static Double PredeterminatedIrrigationQuantity_LosNaranjalesPivot5bT5_2017 = 10;
