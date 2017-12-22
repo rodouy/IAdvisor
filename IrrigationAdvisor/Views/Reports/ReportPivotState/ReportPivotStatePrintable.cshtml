@@ -81,16 +81,16 @@
                 <tr>
                     <td style ="border-color:white">
                                 
-                        <table cellspacing="0" border="1" style="width:500px;" align="center">
+                        <table cellspacing="0" border="1" style="table-layout:fixed; width:500px" align="center">
                             <thead>
-                                @{ Html.RenderAction("ReportPivotStateHeaderPartial", "ReportPivotState"); }
+                                @{ Html.RenderAction("ReportPivotStateHeaderPartial", "ReportPivotState", new { area = "" }); }
                             </thead>
                             <tbody>
-                                @{ Html.RenderAction("ReportPivotStatePartial", "ReportPivotState"); }
+                                @{ Html.RenderAction("ReportPivotStatePartial", "ReportPivotState", new { area = "" }); }
                             </tbody>
                             <tbody>
                                 <tr>
-                                    <td colspan="2"><b>TOTAL:</b></td>
+                                    <td colspan="2" align="center"><b>TOTAL:</b></td>
 
                                     <td align="right"><b>@Html.DisplayFor(model => model.TotalEffectiveRain)</b></td>
                                     <td align="right"><b>@Html.DisplayFor(model => model.TotalEffectiveInputWater)</b></td>

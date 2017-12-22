@@ -227,8 +227,10 @@
     <Compile Include="Controllers\Management\DailyRecordsController.cs" />
     <Compile Include="Controllers\Management\MessagesController.cs" />
     <Compile Include="Controllers\Management\TitlesController.cs" />
-    <Compile Include="Controllers\Reports\ReportPivotStatePrintableController.cs" />
-    <Compile Include="Controllers\Reports\ReportPivotStateController.cs" />
+    <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitController.cs" />
+    <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintableController.cs" />
+    <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStatePrintableController.cs" />
+    <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStateController.cs" />
     <Compile Include="Controllers\Security\AccessesController.cs" />
     <Compile Include="Controllers\Security\MenusController.cs" />
     <Compile Include="Controllers\Security\RolesController.cs" />
@@ -372,6 +374,10 @@
     <Compile Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.Designer.cs">
       <DependentUpon>201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs" />
+    <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.Designer.cs">
+      <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -414,7 +420,8 @@
     <Compile Include="Models\Management\IrrigationCalculus.cs" />
     <Compile Include="Models\Management\Message.cs" />
     <Compile Include="Models\Management\Title.cs" />
-    <Compile Include="Models\Reports\GridDailyRecordIrrigationResume.cs" />
+    <Compile Include="Models\Reports\ReportIrrigationUnit\GridReportIrrigationUnit.cs" />
+    <Compile Include="Models\Reports\ReportPivotState\GridReportPivotState.cs" />
     <Compile Include="Models\Security\UserAccess.cs" />
     <Compile Include="Models\Security\UserFarm.cs" />
     <Compile Include="Models\Utilities\OutputFileCSV.cs" />
@@ -436,6 +443,7 @@
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />
@@ -918,12 +926,16 @@
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Wizard\FarmBomb\Wizard.cshtml" />
-    <Content Include="Views\ReportPivotState\ReportPivotState.cshtml" />
-    <Content Include="Views\ReportPivotState\_ReportPivotStatePartial.cshtml" />
-    <Content Include="Views\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
+    <Content Include="Views\Reports\ReportPivotState\ReportPivotState.cshtml" />
+    <Content Include="Views\Reports\ReportPivotState\_ReportPivotStatePartial.cshtml" />
+    <Content Include="Views\Reports\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
-    <Content Include="Views\ReportPivotState\ReportPivotStatePrintable.cshtml" />
+    <Content Include="Views\Reports\ReportPivotState\ReportPivotStatePrintable.cshtml" />
     <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
+    <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnit.cshtml" />
+    <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintable.cshtml" />
+    <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitHeaderPartial.cshtml" />
+    <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -997,6 +1009,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.resx">
       <DependentUpon>201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.resx">
+      <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

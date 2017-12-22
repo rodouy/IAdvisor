@@ -40,6 +40,9 @@ namespace IrrigationAdvisor.Models.Localization
     ///     - weatherStation WeatherStation
     ///     - irrigationUnitList List<IrrigationUnit>
     ///     - userList List<User>
+    ///     - irrigationUnitReportShowTemperature bool
+    ///     - irrigationUnitReportShowEvapotranspiration bool
+    ///     - irrigationUnitReportShowAvailableWater bool
     /// 
     /// Methods:
     ///     - Farm()      -- constructor
@@ -67,6 +70,9 @@ namespace IrrigationAdvisor.Models.Localization
         private List<IrrigationUnit> irrigationUnitList;
         private long cityId;
         private List<UserFarm> userFarmList;
+        private bool irrigationUnitReportShowTemperature;
+        private bool irrigationUnitReportShowEvapotranspiration;
+        private bool irrigationUnitReportShowAvailableWater;
 
         #endregion
 
@@ -167,6 +173,24 @@ namespace IrrigationAdvisor.Models.Localization
             get;
             set;
         }
+        public bool IrrigationUnitReportShowTemperature
+        {
+            get { return irrigationUnitReportShowTemperature; }
+            set { irrigationUnitReportShowTemperature = value; }
+        }
+
+
+        public bool IrrigationUnitReportShowEvapotranspiration
+        {
+            get { return irrigationUnitReportShowEvapotranspiration; }
+            set { irrigationUnitReportShowEvapotranspiration = value; }
+        }
+
+        public bool IrrigationUnitReportShowAvailableWater
+        {
+            get { return irrigationUnitReportShowAvailableWater; }
+            set { irrigationUnitReportShowAvailableWater = value; }
+        }
 
         #endregion
 
@@ -189,6 +213,9 @@ namespace IrrigationAdvisor.Models.Localization
             this.IrrigationUnitList = new List<IrrigationUnit>();
             this.CityId = 0;
             this.UserFarmList = new List<UserFarm>();
+            this.IrrigationUnitReportShowTemperature = false;
+            this.IrrigationUnitReportShowEvapotranspiration = false;
+            this.IrrigationUnitReportShowAvailableWater = false;
         }
 
         /// <summary>
