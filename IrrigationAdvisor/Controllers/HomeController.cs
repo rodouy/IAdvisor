@@ -1424,7 +1424,7 @@ namespace IrrigationAdvisor.Controllers
             DateTime lDateResult;
             DateTime lReferenceDate;
 
-            IrrigationAdvisorContext lContext;
+            IrrigationAdvisorContext lIrrigationAdvisorContext;
             IrrigationUnitConfiguration lIrrigationUnitConfiguration;
             CropIrrigationWeatherConfiguration lCropIrrigationWeatherConfiguration;
             IrrigationUnit lIrrigationUnit = null;
@@ -1450,7 +1450,8 @@ namespace IrrigationAdvisor.Controllers
                       
                 lDateResult = new DateTime(pYear, pMonth, pDay);
                 lReferenceDate = Utils.GetDateOfReference().Value;
-                lContext = IrrigationAdvisorContext.Instance();
+
+                lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
                 lIrrigationUnitConfiguration = new IrrigationUnitConfiguration();
                 lCropIrrigationWeatherConfiguration = new CropIrrigationWeatherConfiguration();
 
@@ -1461,43 +1462,43 @@ namespace IrrigationAdvisor.Controllers
                 
                 if (pIrrigationUnitId > -1)
                 {
-                    lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
+                    lIrrigationUnit = lIrrigationAdvisorContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == pIrrigationUnitId).FirstOrDefault();
                     lCropIrrigationWeatherList = lIrrigationUnitConfiguration.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
 
                     foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
                         lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), 
                                                                                 lIsExtraIrrigation, Utils.NoIrrigationReason.Other, "Add Irrigation OK.");
-                        lSaveChanges = lContext.SaveChanges();
+                        lSaveChanges = lIrrigationAdvisorContext.SaveChanges();
                         
                         if (pMilimeters >= 0)
                         {
-                            lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
-                            lSaveChanges = lContext.SaveChanges();
+                            lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
+                            lSaveChanges = lIrrigationAdvisorContext.SaveChanges();
                         }
                     }
-                    lSaveChanges = lContext.SaveChanges();
+                    lSaveChanges = lIrrigationAdvisorContext.SaveChanges();
                 }
                 else if (!ignoreSession)
                 {
                     foreach (IrrigationUnitViewModel lIrrigationUnitViewModel in lHomeViewModel.IrrigationUnitViewModelList)
                     {
-                        lIrrigationUnit = lContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == lIrrigationUnitViewModel.IrrigationUnitId).FirstOrDefault();
+                        lIrrigationUnit = lIrrigationAdvisorContext.IrrigationUnits.Where(iu => iu.IrrigationUnitId == lIrrigationUnitViewModel.IrrigationUnitId).FirstOrDefault();
                         lCropIrrigationWeatherList = lIrrigationUnitConfiguration.GetCropIrrigationWeatherListBy(lIrrigationUnit, lReferenceDate);
 
                         foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                         {
                             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation),
                                                                                 lIsExtraIrrigation, Utils.NoIrrigationReason.Other, "Add Irrigation OK.");
-                            lSaveChanges = lContext.SaveChanges();
+                            lSaveChanges = lIrrigationAdvisorContext.SaveChanges();
 
                             if (pMilimeters > 0)
                             {
-                                lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lContext);
-                                lSaveChanges = lContext.SaveChanges();
+                                lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
+                                lSaveChanges = lIrrigationAdvisorContext.SaveChanges();
                             }
                         }
-                        lSaveChanges = lContext.SaveChanges();
+                        lSaveChanges = lIrrigationAdvisorContext.SaveChanges();
                     }
                 }
 
@@ -1665,11 +1666,11 @@ namespace IrrigationAdvisor.Controllers
 
         [HttpGet]
         public ActionResult AddNoIrrigation(DateTime pDateFrom, DateTime pDateTo,
-                                            string pCIW, int pReasonId, String pObservations)
+                                            String pCropIrrigationWeatherList, int pReasonId, 
+                                            String pObservations, bool ignoreSession = false)
         {
-            // TODO: Cuando es otro es obligatoria las observaciones
             #region local variables
-            HomeViewModel lHomeViewModel;
+            HomeViewModel lHomeViewModel = null;
             string lSomeData = string.Empty;
             Utils.NoIrrigationReason lReason;
             DateTime lReferenceDate;
@@ -1679,20 +1680,24 @@ namespace IrrigationAdvisor.Controllers
             List<long> lSelectedCropIrrigationWeather;
             List<CropIrrigationWeather> lFilteredCropIrrigationWeather;
             int lDatabaseChangeResult;
-            string lFarm;
+            string lFarmIdFromURL;
             long lFarmId;
             DateTime lCalculateFrom;
+            DateTime lCalculateTo;
+
             #endregion
 
             try
             {
-                lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
-                lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
-                lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
-                
-                lHomeViewModel = ManageSession.GetHomeViewModel();
+                if (!ignoreSession)
+                {
+                    lSomeData = lSomeData + " UserName: " + ManageSession.GetUserName() + "-";
+                    lSomeData = lSomeData + " NavigationDate: " + ManageSession.GetNavigationDate() + "-";
+                    lSomeData = lSomeData + " DefaultFarmName: " + ManageSession.GetHomeViewModel().DefaultFarmViewModel.Name + "-";
 
-                // DateTime lDateResult = new DateTime(pYear, pMonth, pDay);
+                    lHomeViewModel = ManageSession.GetHomeViewModel();
+                }
+
                 lReferenceDate = Utils.GetDateOfReference().Value;
                 lReason = (Utils.NoIrrigationReason)pReasonId;
 
@@ -1702,7 +1707,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lDatabaseChangeResult = 0;
 
-                lSelectedCropIrrigationWeather = (from p in pCIW.Split(',').ToList()
+                lSelectedCropIrrigationWeather = (from p in pCropIrrigationWeatherList.Split(',').ToList()
                                                  select Convert.ToInt64(p)).ToList();
 
                 lFilteredCropIrrigationWeather = lCropIrrigationWeatherConfiguration.GetCropIrrigationWeatherByIds(lSelectedCropIrrigationWeather, lReferenceDate);
@@ -1713,25 +1718,19 @@ namespace IrrigationAdvisor.Controllers
                     lDatabaseChangeResult = lIrrigationAdvisorContext.SaveChanges();
                 }
 
-                //lDatabaseChangeResult = lContext.SaveChanges();
-
-                // Change navigation date of reference
-                // When the user add an irrigation the navigation date changes by the date of reference from the database
-
-                lFarm = Utils.GetUrlParameter("farm");
+                lFarmIdFromURL = Utils.GetUrlParameter("farm");
 
                 lFarmId = 0;
 
-                if (lFarm != null)
+                if (lFarmIdFromURL != null)
                 {
-                    lFarmId = Convert.ToInt32(lFarm);
+                    lFarmId = Convert.ToInt32(lFarmIdFromURL);
                 }
                 else
                 {
                     lFarmId = GetFarmsByUserAsList().First().FarmId;
                 }
-
-                lCalculateFrom = DateTime.Now;
+                //Date not to be later than Date of Reference
                 if(pDateFrom < lReferenceDate)
                 {
                     lCalculateFrom = pDateFrom;
@@ -1740,11 +1739,27 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lCalculateFrom = lReferenceDate;
                 }
+
+                //Date not to be later than Date of Reference
+                if (pDateTo < lReferenceDate)
+                {
+                    lCalculateTo = pDateTo;
+                }
+                else
+                {
+                    lCalculateTo = lReferenceDate;
+                }
+
                 foreach (CropIrrigationWeather lCropIrrigationWeather in lFilteredCropIrrigationWeather)
                 {
-                    this.CalculateCropIrrigationWeather(lCropIrrigationWeather.CropIrrigationWeatherId, lCalculateFrom, DateTime.Now);
+                    this.CalculateCropIrrigationWeather(lCropIrrigationWeather.CropIrrigationWeatherId, lCalculateFrom, lCalculateTo);
                 }
-                ManageSession.SetNavigationDate(lReferenceDate);
+                // Change navigation date of reference
+                // When the user add an irrigation the navigation date changes by the date of reference from the database
+                if (!ignoreSession)
+                {
+                    ManageSession.SetNavigationDate(lReferenceDate);
+                }
             }
             catch (Exception ex)
             {
