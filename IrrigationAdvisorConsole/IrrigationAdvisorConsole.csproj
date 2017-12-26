@@ -150,7 +150,9 @@
     <Compile Include="Data\DataEntryDataTemperatures.cs" />
     <Compile Include="Data\DataEntryWeatherData.cs" />
     <Compile Include="Data\IrrigationData.cs" />
+    <Compile Include="Data\IrrigationData2016.cs" />
     <Compile Include="Data\RainData.cs" />
+    <Compile Include="Data\RainData2016.cs" />
     <Compile Include="Insert\01-Data\DataInsert.cs" />
     <Compile Include="Insert\02-Language\LanguageInsert.cs" />
     <Compile Include="Insert\03-Security\SecurityInsert.cs" />

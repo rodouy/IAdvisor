@@ -1978,7 +1978,7 @@ namespace IrrigationAdvisor.Models.Utilities
 
         #region Irrigation Predeterminated Quantity
         /// <summary>
-        /// Predeterminated Irrigation Quantity
+        /// Predeterminated Irrigation Quantity for All Irrigation Units
         /// 
         /// Changes:
         /// 2016:02:18 - From 20 -> 15

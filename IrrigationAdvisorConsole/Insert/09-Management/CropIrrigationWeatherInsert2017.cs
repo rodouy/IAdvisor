@@ -2274,7 +2274,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2439,7 +2439,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2604,7 +2604,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2769,7 +2769,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2931,7 +2931,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW Del Lago - San Pedro Pivot 5 2017
                     var lCIWDelLagoSanPedroPivot5_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoSanPedroPivot5,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoSanPedroPivot5_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -3097,7 +3097,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW Del Lago - San Pedro Pivot 6 2017
                     var lCIWDelLagoSanPedroPivot6_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoSanPedroPivot6,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoSanPedroPivot6_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -3264,7 +3264,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW Del Lago - San Pedro Pivot 7 2017
                     var lCIWDelLagoSanPedroPivot7_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoSanPedroPivot7,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoSanPedroPivot7_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -11656,7 +11656,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -11824,7 +11824,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
