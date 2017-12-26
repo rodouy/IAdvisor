@@ -528,10 +528,10 @@ namespace IrrigationAdvisorConsole
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot1_2017 = 14;
         public static DateTime SowingDate_CornSouth_DCASanJosePivot2_2017 = new DateTime(2017, 09, 26);
         public static DateTime HarvestDate_CornSouth_DCASanJosePivot2_2017 = new DateTime(2018, 02, 10);
-        public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot2_2017 = 10;
+        public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot2_2017 = 14;
         public static DateTime SowingDate_CornSouth_DCASanJosePivot3_2017 = new DateTime(2017, 09, 26);
         public static DateTime HarvestDate_CornSouth_DCASanJosePivot3_2017 = new DateTime(2018, 02, 10);
-        public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot3_2017 = 10;
+        public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot3_2017 = 14;
         public static DateTime SowingDate_CornSouth_DCASanJosePivot4_2017 = new DateTime(2017, 11, 24);
         public static DateTime HarvestDate_CornSouth_DCASanJosePivot4_2017 = new DateTime(2018, 04, 05);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot4_2017 = 14;
