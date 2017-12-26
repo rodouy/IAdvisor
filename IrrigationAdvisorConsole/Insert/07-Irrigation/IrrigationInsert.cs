@@ -3744,7 +3744,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
                         Radius = 10,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
