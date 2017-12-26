@@ -1478,6 +1478,7 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
         }
 
         public static void AddRainDataDCASanJosePivot2_2017(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -1637,6 +1638,7 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
         }
 
         public static void AddRainDataDCASanJosePivot3_2017(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -1796,6 +1798,8 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
         }
 
         public static void AddRainDataDCASanJosePivot4_2017(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -1955,6 +1959,7 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
         }
 
         #endregion
@@ -2081,6 +2086,7 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
         }
         public static void AddRainDataDelLagoSanPedroPivot2_2017(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {

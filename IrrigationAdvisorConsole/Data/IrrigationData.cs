@@ -18729,6 +18729,7 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
             }
             #endregion
+
         }
 
         /// <summary>
@@ -19292,7 +19293,7 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
-                lObservations = "Cant Irrigate. Se mueve el riego para el 24-Dic-17.";
+                lObservations = "Cant Irrigate. Se mueve el riego para el 26-Dic-17.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -19312,7 +19313,7 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
-                lObservations = "Cant Irrigate. Se mueve el riego para el 24-Dic-17.";
+                lObservations = "Cant Irrigate. Se mueve el riego para el 26-Dic-17.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -19332,7 +19333,7 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
-                lObservations = "Cant Irrigate. Se mueve el riego para el 24-Dic-17.";
+                lObservations = "Cant Irrigate. Se mueve el riego para el 26-Dic-17.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -19352,7 +19353,7 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
-                lObservations = "Cant Irrigate. Se mueve el riego para el 24-Dic-17.";
+                lObservations = "Cant Irrigate. Se mueve el riego para el 26-Dic-17.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -19372,7 +19373,7 @@ namespace IrrigationAdvisorConsole.Data
                 lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
-                lObservations = "Cant Irrigate. Se mueve el riego para el 24-Dic-17.";
+                lObservations = "Cant Irrigate. Se mueve el riego para el 26-Dic-17.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -19384,15 +19385,15 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
             }
             #endregion
-            #region Irrigation 2017/12/27 14 mm - Calculated Irrigation
+            #region Irrigation 2017/12/25 00 mm - Can't Irrigate
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Irrigation
-                lIrrigationDate = new DateTime(2017, 12, 27);
-                lIrrigationQuantity = 14;
+                lIrrigationDate = new DateTime(2017, 12, 25);
+                lIrrigationQuantity = 0;
                 lIsExtraIrrigation = true;
-                lReason = Utils.NoIrrigationReason.Other;
-                lObservations = "Calculated Irrigation.";
+                lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
+                lObservations = "Cant Irrigate. Se mueve el riego para el 26-Dic-17.";
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lIrrigationList = (from ilist in context.Irrigations
                                    where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -19400,7 +19401,7 @@ namespace IrrigationAdvisorConsole.Data
                 lRainList = (from rlist in context.Rains
                              where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
                              select rlist).ToList<Rain>();
-                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, Utils.WaterInputType.Irrigation);
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, Utils.WaterInputType.CantIrrigate);
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
             }
             #endregion
@@ -19424,12 +19425,12 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
             }
             #endregion
-            #region Irrigation 2017/12/28 14 mm - Calculated Irrigation
+            #region Irrigation 2017/12/28 15 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2017, 12, 28);
-                lIrrigationQuantity = 14;
+                lIrrigationQuantity = 15;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.Other;
                 lObservations = "Calculated Irrigation.";
