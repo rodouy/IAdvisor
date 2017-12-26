@@ -10,6 +10,9 @@ using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Management;
 
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.DBContext.Security;
+using IrrigationAdvisor.DBContext.Weather;
+using IrrigationAdvisor.Models.Weather;
 
 namespace IrrigationAdvisor.Controllers.Management
 {
@@ -20,12 +23,18 @@ namespace IrrigationAdvisor.Controllers.Management
         // GET: CropIrrigationWeathers
         public ActionResult Index()
         {
-            return View(db.CropIrrigationWeathers.ToList());
+            //return View(db.CropIrrigationWeathers.ToList());
+            IrrigationAdvisorContext.Refresh();
+            var lCropIrrigationWeathers = db.CropIrrigationWeathers.Include(m => m.MainWeatherStation)
+                .Include(a => a.AlternativeWeatherStation);
+
+            return View("~/Views/Management/CropIrrigationWeathers/Index.cshtml", lCropIrrigationWeathers.ToList());
         }
 
         // GET: CropIrrigationWeathers/Details/5
         public ActionResult Details(long? id)
         {
+            IrrigationAdvisorContext.Refresh();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -35,7 +44,8 @@ namespace IrrigationAdvisor.Controllers.Management
             {
                 return HttpNotFound();
             }
-            return View(cropIrrigationWeather);
+
+            return View("~/Views/Management/CropIrrigationWeathers/Details.cshtml", cropIrrigationWeather);
         }
 
         // GET: CropIrrigationWeathers/Create
@@ -64,6 +74,7 @@ namespace IrrigationAdvisor.Controllers.Management
         // GET: CropIrrigationWeathers/Edit/5
         public ActionResult Edit(long? id)
         {
+            IrrigationAdvisorContext.Refresh();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -73,7 +84,9 @@ namespace IrrigationAdvisor.Controllers.Management
             {
                 return HttpNotFound();
             }
-            return View(cropIrrigationWeather);
+            ViewBag.MainWeatherStation = this.LoadMainWeatherStation(cropIrrigationWeather.MainWeatherStationId, cropIrrigationWeather);
+            // userVM.Roles = this.LoadRoles(user.RoleId, user);
+            return View("~/Views/Management/CropIrrigationWeathers/EditShort.cshtml", cropIrrigationWeather);
         }
 
         // POST: CropIrrigationWeathers/Edit/5
@@ -125,6 +138,35 @@ namespace IrrigationAdvisor.Controllers.Management
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private List<System.Web.Mvc.SelectListItem> LoadMainWeatherStation(long? weatherStationId = null, CropIrrigationWeather cropIrrigationWeather = null)
+        {
+            WeatherStationConfiguration wsc = new WeatherStationConfiguration();
+
+
+            List<WeatherStation> farms = wsc.GetAllWeatherStations();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in farms)
+            {
+                bool isSelected = false;
+                if (cropIrrigationWeather != null && weatherStationId.HasValue)
+                {
+                    isSelected = (cropIrrigationWeather.MainWeatherStationId == weatherStationId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.WeatherStationId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
+            }
+
+            return result;
         }
     }
 }

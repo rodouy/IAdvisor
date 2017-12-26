@@ -443,6 +443,7 @@
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Management\CropIrrigationWeatherShortViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
@@ -936,6 +937,7 @@
     <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintable.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitHeaderPartial.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitPartial.cshtml" />
+    <Content Include="Views\Management\CropIrrigationWeathers\EditShort.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
