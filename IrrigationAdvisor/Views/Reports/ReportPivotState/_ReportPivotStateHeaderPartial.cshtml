@@ -1,4 +1,4 @@
-﻿@model List<IrrigationAdvisor.Models.Reports.GridDailyRecordIrrigationResume>
+﻿@model List<IrrigationAdvisor.Models.Reports.ReportPivotState.GridReportPivotState>
 
 @{
     ViewBag.Title = "Pivot State Reports";
@@ -9,7 +9,7 @@
 <th>Siembra</th>
 <th>Fen.</th>*@
 
-@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.GridDailyRecordIrrigationResume grid)
+@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.ReportPivotState.GridReportPivotState grid)
 {
     <th>@grid.Day</th>
     <th>@grid.DailyRecordDate </th>

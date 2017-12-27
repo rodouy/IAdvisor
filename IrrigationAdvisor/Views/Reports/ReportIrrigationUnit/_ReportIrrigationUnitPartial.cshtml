@@ -1,0 +1,55 @@
+﻿@model List<IrrigationAdvisor.Models.Reports.ReportIrrigationUnit.GridReportIrrigationUnit>
+
+@{
+    ViewBag.Title = "Pivot Irrigation";
+}
+
+@foreach (var item in Model)
+{
+    @CustomRenderingOfColumn(item)
+}
+
+@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.ReportIrrigationUnit.GridReportIrrigationUnit grid)
+{
+    <tr>
+        <td  align="center">@grid.Day</td>
+        <td  align="center">@grid.DailyRecordDate</td>
+        <td  align="right">@grid.EffectiveInputWater</td>
+        <td align="right">@grid.EffectiveRain</td>
+        @{ if (grid.ShowTemperatureColumn || grid.ShowAdministratorColumn)
+             {
+            <td  align="right">@grid.Temperature</td>
+             }
+        }
+
+        @{ if (grid.ShowEvapotranspirationColumn || grid.ShowAdministratorColumn)
+             {
+                <td  align="right">@grid.Evapotranspiration</td>
+             }
+        }
+
+
+        @{ if (grid.ShowAvailableWaterColumn || grid.ShowAdministratorColumn)
+             {
+                <td align="right">@grid.AvailableWater</td>
+             }
+        }
+
+       @{if (grid.ShowAdministratorColumn)
+            {
+                <td align="center">@grid.Phenology</td>
+            }
+        }
+        @{if (grid.ShowAdministratorColumn)
+        {
+            <td align="right">@grid.CropCoefficient</td>
+            }
+        }
+      
+    </tr>
+}
+
+
+
+
+
