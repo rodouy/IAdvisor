@@ -6794,6 +6794,10 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(352), 23.2, 414.6, 28.8, 17.5, 5.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(353), 25.8, 665.9, 33.6, 18.0, 6.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-12-20
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(354), 28.7, 500.9, 35.4, 22.0, 5.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(355), 30.6, 650.9, 37.0, 24.1, 7.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(356), 24.8, 407.2, 28.6, 21.0, 4.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(357), 21.1, 703.5, 28.6, 13.6, 5.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(358), 24.8, 688.3, 33.2, 16.3, 6.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-12-25
 
             #endregion
 

@@ -1700,7 +1700,17 @@ namespace IrrigationAdvisor.Models.Management
                 && (lHaveIrrigation == null || lHaveIrrigation.Type == Utils.WaterInputType.IrrigationWasNotDecided 
                                             || lHaveIrrigation.ExtraInput == 0))
             {
-                if (lIrrigationByHydricBalance)
+                if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByHydricBalance)
+                {
+                    lReturn.First = lHaveIrrigation.Input;
+                    lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
+                }
+                else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByETCAcumulated)
+                {
+                    lReturn.First = lHaveIrrigation.Input;
+                    lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
+                }
+                else if (lIrrigationByHydricBalance)
                 {
                     lReturn.First = lPredeterminatedIrrigationQuantity;
                     lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
@@ -1730,7 +1740,7 @@ namespace IrrigationAdvisor.Models.Management
                         }
                     }
                 }
-                else //Always we consider to have a Irrigation Type
+                else  //Always we consider to have a Irrigation Type
                 {
                     lReturn.First = 0;
                     lReturn.Second = Utils.WaterInputType.IrrigationWasNotDecided;
