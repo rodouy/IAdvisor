@@ -1,51 +1,38 @@
-﻿using IrrigationAdvisor.Models.Agriculture;
-using IrrigationAdvisor.Models.Water;
-using IrrigationAdvisor.Models.Irrigation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using IrrigationAdvisor.Models.Management;
+using System.ComponentModel.DataAnnotations;
 
 namespace IrrigationAdvisor.ViewModels.Management
 {
     public class CropIrrigationWeatherShortViewModel
     {
 
-        #region Consts
-        #endregion
-
-        #region Fields
-        #endregion
-
-        #region Properties
 
         public long CropIrrigationWeatherId { get; set; }
 
+        [Required]
+        [Display(Name = "Nombre")]
         public String CropIrrigationWeatherName { get; set; }
 
-
-        #region Weather
+   
         public long MainWeatherStationId { get; set; }
 
+        [Required]
+        [Display(Name = "Estación meteorolígica principal")]
+        public List<System.Web.Mvc.SelectListItem> MainWeatherStation { get; set; }
+
+
         public long AlternativeWeatherStationId { get; set; }
-        #endregion
+        [Required]
+        [Display(Name = "Estación meteorolígica alternativa")]
+        public List<System.Web.Mvc.SelectListItem> AlternativeWeatherStation { get; set; }
 
-        #endregion
-
-        #region Construction
-
-        #endregion
-
-        #region Private Helpers
-        #endregion
-
-        #region Public Methods
-
-        #endregion
-
-        #region Overrides
-        #endregion
-
+        public CropIrrigationWeatherShortViewModel()
+        {
+            this.MainWeatherStation = new List<System.Web.Mvc.SelectListItem>();
+            this.AlternativeWeatherStation = new List<System.Web.Mvc.SelectListItem>();
+        }
     }
 }

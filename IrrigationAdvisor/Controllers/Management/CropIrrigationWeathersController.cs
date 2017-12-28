@@ -13,6 +13,7 @@ using IrrigationAdvisor.DBContext;
 using IrrigationAdvisor.DBContext.Security;
 using IrrigationAdvisor.DBContext.Weather;
 using IrrigationAdvisor.Models.Weather;
+using IrrigationAdvisor.ViewModels.Management;
 
 namespace IrrigationAdvisor.Controllers.Management
 {
@@ -72,21 +73,26 @@ namespace IrrigationAdvisor.Controllers.Management
         }
 
         // GET: CropIrrigationWeathers/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult EditShort(long? id)
         {
             IrrigationAdvisorContext.Refresh();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CropIrrigationWeather cropIrrigationWeather = db.CropIrrigationWeathers.Find(id);
-            if (cropIrrigationWeather == null)
+            CropIrrigationWeatherShortViewModel ciwS = new CropIrrigationWeatherShortViewModel();
+
+            CropIrrigationWeather ciw = db.CropIrrigationWeathers.Find(id);
+            if (ciw == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MainWeatherStation = this.LoadMainWeatherStation(cropIrrigationWeather.MainWeatherStationId, cropIrrigationWeather);
+            //ViewBag.MainWeatherStation = this.LoadMainWeatherStation(cropIrrigationWeather.MainWeatherStationId, cropIrrigationWeather);
             // userVM.Roles = this.LoadRoles(user.RoleId, user);
-            return View("~/Views/Management/CropIrrigationWeathers/EditShort.cshtml", cropIrrigationWeather);
+            ciwS.MainWeatherStation = this.LoadMainWeatherStation(ciw.MainWeatherStationId, ciw);
+            ciwS.AlternativeWeatherStation = this.LoadAlternativeWeatherStation(ciw.AlternativeWeatherStationId, ciw);
+            ciwS.CropIrrigationWeatherName = ciw.CropIrrigationWeatherName;
+            return View("~/Views/Management/CropIrrigationWeathers/EditShort.cshtml", ciwS);
         }
 
         // POST: CropIrrigationWeathers/Edit/5
@@ -143,29 +149,49 @@ namespace IrrigationAdvisor.Controllers.Management
         private List<System.Web.Mvc.SelectListItem> LoadMainWeatherStation(long? weatherStationId = null, CropIrrigationWeather cropIrrigationWeather = null)
         {
             WeatherStationConfiguration wsc = new WeatherStationConfiguration();
-
-
-            List<WeatherStation> farms = wsc.GetAllWeatherStations();
+            List<WeatherStation> ws = wsc.GetAllWeatherStations();
             List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
 
-            foreach (var item in farms)
+            foreach (var item in ws)
             {
                 bool isSelected = false;
                 if (cropIrrigationWeather != null && weatherStationId.HasValue)
                 {
                     isSelected = (cropIrrigationWeather.MainWeatherStationId == weatherStationId);
                 }
-
                 SelectListItem sl = new SelectListItem()
                 {
                     Value = item.WeatherStationId.ToString(),
                     Text = item.Name,
                     Selected = isSelected
                 };
-
                 result.Add(sl);
             }
+            return result;
+        }
 
+        private List<System.Web.Mvc.SelectListItem> LoadAlternativeWeatherStation(long? weatherStationId = null, CropIrrigationWeather cropIrrigationWeather = null)
+        {
+            WeatherStationConfiguration wsc = new WeatherStationConfiguration();
+
+            List<WeatherStation> ws = wsc.GetAllWeatherStations();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in ws)
+            {
+                bool isSelected = false;
+                if (cropIrrigationWeather != null && weatherStationId.HasValue)
+                {
+                    isSelected = (cropIrrigationWeather.AlternativeWeatherStationId == weatherStationId);
+                }
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.WeatherStationId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+                result.Add(sl);
+            }
             return result;
         }
     }

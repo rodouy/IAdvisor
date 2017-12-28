@@ -25,7 +25,12 @@
                 @Html.ValidationMessageFor(model => model.CropIrrigationWeatherName, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.MainWeatherStation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MainWeatherStationId, Model.MainWeatherStation, "-- Seleccione estación --")
+            </div>
+        </div>
 
 
         <div class="form-group">
