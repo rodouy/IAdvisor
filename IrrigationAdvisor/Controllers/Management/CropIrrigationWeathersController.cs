@@ -87,11 +87,13 @@ namespace IrrigationAdvisor.Controllers.Management
             {
                 return HttpNotFound();
             }
-            //ViewBag.MainWeatherStation = this.LoadMainWeatherStation(cropIrrigationWeather.MainWeatherStationId, cropIrrigationWeather);
-            // userVM.Roles = this.LoadRoles(user.RoleId, user);
+
+            ciwS.CropIrrigationWeatherName = ciw.CropIrrigationWeatherName;
+            ciwS.MainWeatherStationId = ciw.MainWeatherStationId;
+            ciwS.AlternativeWeatherStationId = ciw.AlternativeWeatherStationId;
             ciwS.MainWeatherStation = this.LoadMainWeatherStation(ciw.MainWeatherStationId, ciw);
             ciwS.AlternativeWeatherStation = this.LoadAlternativeWeatherStation(ciw.AlternativeWeatherStationId, ciw);
-            ciwS.CropIrrigationWeatherName = ciw.CropIrrigationWeatherName;
+
             return View("~/Views/Management/CropIrrigationWeathers/EditShort.cshtml", ciwS);
         }
 
