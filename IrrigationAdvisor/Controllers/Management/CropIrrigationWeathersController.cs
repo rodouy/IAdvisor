@@ -100,6 +100,9 @@ namespace IrrigationAdvisor.Controllers.Management
         [HttpGet]
         public ActionResult EditShort1(long? pCropIrrigationWeatherId, long? pMainWeatherStationId, long? pAlternativeWeatherStationId)
         {
+
+            
+            
             IrrigationAdvisorContext.Refresh();
             var lCropIrrigationWeathers = db.CropIrrigationWeathers.Include(m => m.MainWeatherStation)
                 .Include(a => a.AlternativeWeatherStation);
