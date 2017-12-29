@@ -88,6 +88,7 @@ namespace IrrigationAdvisor.Controllers.Management
                 return HttpNotFound();
             }
 
+            ciwS.CropIrrigationWeatherId = ciw.CropIrrigationWeatherId;
             ciwS.CropIrrigationWeatherName = ciw.CropIrrigationWeatherName;
             ciwS.MainWeatherStationId = ciw.MainWeatherStationId;
             ciwS.AlternativeWeatherStationId = ciw.AlternativeWeatherStationId;
@@ -96,6 +97,16 @@ namespace IrrigationAdvisor.Controllers.Management
 
             return View("~/Views/Management/CropIrrigationWeathers/EditShort.cshtml", ciwS);
         }
+        [HttpGet]
+        public ActionResult EditShort1(long? pCropIrrigationWeatherId, long? pMainWeatherStationId, long? pAlternativeWeatherStationId)
+        {
+            IrrigationAdvisorContext.Refresh();
+            var lCropIrrigationWeathers = db.CropIrrigationWeathers.Include(m => m.MainWeatherStation)
+                .Include(a => a.AlternativeWeatherStation);
+
+            return View("~/Views/Management/CropIrrigationWeathers/Index.cshtml", lCropIrrigationWeathers.ToList());
+        }
+
 
         // POST: CropIrrigationWeathers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

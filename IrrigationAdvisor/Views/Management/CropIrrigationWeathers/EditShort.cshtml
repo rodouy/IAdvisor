@@ -4,34 +4,60 @@
     ViewBag.Title = "EditShort";
 }
 
-<script js>
-    $(document).ready(function () {
-        //custom validation rule - checkAge
-        $.validator.addMethod("checkMainWeatherStation",
-           function (value, element) {
-               var result = true;
-               if ($('#AlternativeWeatherStation').val() == $('#MainWeatherStation').val())
-                   result = false;
-               return result;
 
-           });
-        //validation implementation will go here.
-        $('#myform').validate({
-            rules: {
-                MainWeatherStationd: {
-                    required: true,
-                    checkMainWeatherStation: true,
+<script type="text/javascript">
+    $(document).ready(function () {
+        var saveRainBtn = $('#SaveBtn');
+
+        saveRainBtn.click(function () {
+
+
+                var mainWeatherStationId = $('#MainWeatherStationId').val();
+                var alternativeWeatherStationId = $('#AlternativeWeatherStationId').val()
+                alert($('#CropIrrigationWeatherId').val())
+               // $('#rainMilimetersError').html('');
+                if (mainWeatherStationId != alternativeWeatherStationId) {
+                    //showLoading();
+                    saveFunction($('#CropIrrigationWeatherId').val(),
+                                    mainWeatherStationId, alternativeWeatherStationId);
+                } else {
+
+                  //  rainMilimeters.addClass('input-red-border');
+                  //  $('#rainMilimetersError').html(MILIMETERS_ERROR);
                 }
-            },
-            messages: {
-                MainWeatherStation: {
-                    required: "aaa",
-                    checkMainWeatherStation: "Age range is 18 to 30."
-                }
-            }
+
         });
-    })
- 
+
+        var saveFunction = function (pCropIrrigationWeatherId, pMainWeatherStationId, pAlternativeWeatherStationId) {
+            var pUrl = '../EditShort1?pCropIrrigationWeatherId=' + pCropIrrigationWeatherId +
+                        '&pMainWeatherStationId=' + pMainWeatherStationId +
+                        '&pAlternativeWeatherStationId=' + pAlternativeWeatherStationId;
+
+           // $('#floatingCirclesG').show();
+            $.ajax({
+                type: 'GET',
+                url: pUrl,
+                success: function (data) {
+                    if (data == "Ok") {
+                        location.href = "./home?farm=" + lstFarms.val();
+   
+                       
+                    }
+                    else {
+                       
+                       // hideLoading();
+                    }
+
+
+                },
+                error: function (data) {
+                  //  hideLoading();
+                  
+                }
+            });
+
+        }
+    });
 </script>
 
 <h2>Edit</h2>
@@ -71,6 +97,8 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Guardar" class="btn btn-default" />
+                <input type="button" value="Guardar1" class="btn btn-default" id="Submit" />
+                <button id="SaveBtn" class="btn  btn-style-2" >Guardar</button>
             </div>
         </div>
     </div>
