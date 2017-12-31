@@ -5525,6 +5525,15 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(351), 15.6, 748.2, 22.0, 09.2, 5.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(352), 15.5, 222.6, 16.8, 14.2, 2.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(353), 22.2, 760.7, 29.2, 15.2, 6.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-12-20
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(354), 25.5, 512.0, 31.6, 19.4, 5.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(355), 26.1, 691.7, 32.2, 20.0, 6.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(356), 20.2, 283.7, 23.8, 16.6, 3.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(357), 17.6, 764.8, 23.4, 11.8, 5.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(358), 21.7, 756.8, 31.2, 12.2, 7.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2017-12-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(359), 25.3, 748.4, 32.4, 18.2, 7.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(360), 24.2, 617.9, 29.0, 19.4, 5.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(361), 27.0, 719.5, 34.2, 19.8, 6.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(362), 26.4, 752.0, 33.2, 19.6, 7.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
 
             #endregion
             //From Las Brujas - To Replace

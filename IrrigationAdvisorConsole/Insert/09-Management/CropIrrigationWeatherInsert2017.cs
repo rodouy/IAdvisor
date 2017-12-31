@@ -3116,7 +3116,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -5616,7 +5616,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7121,7 +7121,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7289,7 +7289,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7454,7 +7454,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7619,7 +7619,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7785,7 +7785,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7953,7 +7953,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8118,7 +8118,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8283,7 +8283,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8464,7 +8464,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8631,7 +8631,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8797,7 +8797,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8962,7 +8962,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -13375,7 +13375,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = true,
+                        AdjustableIrrigationQuantity = false,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
