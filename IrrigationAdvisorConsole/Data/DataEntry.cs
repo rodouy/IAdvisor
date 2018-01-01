@@ -1362,7 +1362,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -1567,7 +1567,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -1769,7 +1769,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -1971,7 +1971,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -2173,7 +2173,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -2375,7 +2375,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -2577,7 +2577,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -2779,7 +2779,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -2981,7 +2981,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -3183,7 +3183,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -3385,7 +3385,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -3590,7 +3590,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -3792,7 +3792,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -3994,7 +3994,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -4196,7 +4196,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -4404,7 +4404,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i >= 87)
+                if (Program.StopOnDebug && i >= 87)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -4606,7 +4606,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -4808,7 +4808,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -5008,7 +5008,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -5210,7 +5210,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -5412,7 +5412,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -5613,7 +5613,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -5815,7 +5815,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -6017,7 +6017,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -6219,7 +6219,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -6421,7 +6421,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -6623,7 +6623,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -6825,7 +6825,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -7027,7 +7027,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -7229,7 +7229,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -7431,7 +7431,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -7633,7 +7633,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -7835,7 +7835,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i >= 87)
+                if (Program.StopOnDebug && i >= 87)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -8037,7 +8037,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -8239,7 +8239,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -8439,7 +8439,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -8644,7 +8644,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -8846,7 +8846,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -9048,7 +9048,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -9250,7 +9250,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -9455,7 +9455,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -9657,7 +9657,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i >= 48)
+                if (Program.StopOnDebug && i >= 48)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -9859,7 +9859,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -10061,7 +10061,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i >= 48)
+                if (Program.StopOnDebug && i >= 48)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -10264,7 +10264,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 63 || i == 73)
+                if (Program.StopOnDebug && (i == 63 || i == 73))
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -10466,7 +10466,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -10668,7 +10668,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -10870,7 +10870,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -11072,7 +11072,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -11274,7 +11274,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -11476,7 +11476,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -11678,7 +11678,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -11880,7 +11880,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -12085,7 +12085,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -12286,7 +12286,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -12487,7 +12487,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -12688,7 +12688,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -12892,7 +12892,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -13093,7 +13093,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -13294,7 +13294,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -13495,7 +13495,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -13906,7 +13906,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -14111,7 +14111,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -14313,7 +14313,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -14515,7 +14515,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -14717,7 +14717,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -14919,7 +14919,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -15121,9 +15121,13 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
+                }
+                if (Program.StopOnDebug && lFromDate.AddDays(i).Date == new DateTime(2017, 12, 18).Date)
+                {
+                    System.Diagnostics.Debugger.Break();
                 }
                 #endregion
 
@@ -15323,7 +15327,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -15525,7 +15529,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -15727,7 +15731,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -15929,7 +15933,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -16134,7 +16138,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -16336,7 +16340,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -16538,7 +16542,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -16740,7 +16744,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -16945,7 +16949,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i >= 87)
+                if (Program.StopOnDebug && i >= 87)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -17147,7 +17151,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -17349,7 +17353,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -17549,7 +17553,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -17751,7 +17755,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -17953,7 +17957,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -18154,7 +18158,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -18356,7 +18360,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -18558,7 +18562,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -18760,7 +18764,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -18962,7 +18966,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -19164,7 +19168,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -19366,7 +19370,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -19568,7 +19572,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -19770,7 +19774,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -19972,7 +19976,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -20174,7 +20178,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -20379,7 +20383,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i >= 87)
+                if (Program.StopOnDebug && i >= 87)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -20581,7 +20585,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -20783,7 +20787,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -20983,7 +20987,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -21185,7 +21189,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -21387,7 +21391,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -21588,7 +21592,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -21790,7 +21794,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -21992,7 +21996,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -22194,7 +22198,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -22396,7 +22400,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -22598,7 +22602,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -22800,7 +22804,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -23002,7 +23006,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -23204,7 +23208,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -23406,7 +23410,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -23608,7 +23612,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -23810,7 +23814,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i >= 87)
+                if (Program.StopOnDebug && i >= 87)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -24012,7 +24016,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -24214,7 +24218,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -24414,7 +24418,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -24620,7 +24624,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -24822,7 +24826,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -25024,7 +25028,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -25226,7 +25230,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -25428,7 +25432,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -25630,7 +25634,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -25832,7 +25836,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -26034,7 +26038,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -26240,7 +26244,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -26442,7 +26446,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i >= 48)
+                if (Program.StopOnDebug && i >= 48)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -26644,7 +26648,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -26846,7 +26850,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i >= 48)
+                if (Program.StopOnDebug && i >= 48)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -27049,7 +27053,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 63 || i == 73)
+                if (Program.StopOnDebug && i == 63 || i == 73)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -27251,7 +27255,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -27453,7 +27457,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -27655,7 +27659,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -27857,7 +27861,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -28059,7 +28063,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -28261,7 +28265,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 39)
+                if (Program.StopOnDebug && i == 39)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -28463,7 +28467,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -28665,7 +28669,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -28870,7 +28874,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -29071,7 +29075,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -29272,7 +29276,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -29473,7 +29477,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -29677,7 +29681,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -29878,7 +29882,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -30079,7 +30083,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -30280,7 +30284,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -30484,7 +30488,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -30685,7 +30689,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -30889,7 +30893,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -31091,7 +31095,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -31295,7 +31299,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -31496,7 +31500,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -31698,7 +31702,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -31899,7 +31903,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -32102,7 +32106,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -32304,7 +32308,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }
@@ -32505,7 +32509,7 @@ namespace IrrigationAdvisorConsole
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (i == 15)
+                if (Program.StopOnDebug && i == 15)
                 {
                     //System.Diagnostics.Debugger.Break();
                 }

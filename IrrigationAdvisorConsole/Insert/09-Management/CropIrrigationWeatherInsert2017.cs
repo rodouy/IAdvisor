@@ -13583,9 +13583,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
 
                     Console.Write(" - DCA - El Paraiso");
-                    DataEntry.AddInformationToIrrigationUnitsDCAElParaisoPivot1_2017(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCAElParaisoPivot2_2017(context, Program.DateOfReference);
-                    context.SaveChanges();
+                    //DataEntry.AddInformationToIrrigationUnitsDCAElParaisoPivot1_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsDCAElParaisoPivot2_2017(context, Program.DateOfReference);
+                    //context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
             }
