@@ -935,7 +935,7 @@ $(document).ready(function () {
 
         var pUrl = './AddNoIrrigation?pDateFrom=' + pDateFrom +
                 '&pDateTo=' + pDateTo +
-                '&pCIW=' + pCIW +
+                '&pCropIrrigationWeatherList=' + pCIW +
                 '&pReasonId=' + pReasonId +
                 '&pObservations=' + pObservations +
                 '&farm=' + lstFarms.val();
