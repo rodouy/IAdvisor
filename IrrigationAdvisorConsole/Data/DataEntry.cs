@@ -15127,7 +15127,7 @@ namespace IrrigationAdvisorConsole
                 }
                 if (Program.StopOnDebug && lFromDate.AddDays(i).Date == new DateTime(2017, 12, 18).Date)
                 {
-                    System.Diagnostics.Debugger.Break();
+                    //System.Diagnostics.Debugger.Break();
                 }
                 #endregion
 
