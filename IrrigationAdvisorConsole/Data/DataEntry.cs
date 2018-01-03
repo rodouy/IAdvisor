@@ -786,7 +786,7 @@ namespace IrrigationAdvisorConsole
 
         public static DateTime SowingDate_CornSouth_ElRinconPivot1a_2017 = new DateTime(2017, 10, 07);
         public static DateTime HarvestDate_CornSouth_ElRinconPivot1a_2017 = new DateTime(2018, 03, 10);
-        public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1a_2017 = 14;
+        public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1a_2017 = 13.5;
         public static DateTime SowingDate_SoyaSouth_ElRinconPivot1b_2017 = new DateTime(2017, 11, 07);
         public static DateTime HarvestDate_SoyaSouth_ElRinconPivot1b_2017 = new DateTime(2018, 04, 10);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1b_2017 = 10;
