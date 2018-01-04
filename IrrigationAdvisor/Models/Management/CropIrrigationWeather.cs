@@ -1974,11 +1974,11 @@ namespace IrrigationAdvisor.Models.Management
         {
             Stage lReturn = null;
 
-            if(this.Crop != null && this.Crop.StageList.Any())
+            if(this.Crop != null && this.Crop.PhenologicalStageList.Any())
             {
-                lReturn = this.Crop.StageList
-                                .Where(stage => stage.ShortName.Contains(pShortName))
-                                .FirstOrDefault();
+                lReturn = this.Crop.PhenologicalStageList
+                                .Where(PhenologicalStage => PhenologicalStage.Stage.ShortName.Contains(pShortName))
+                                .FirstOrDefault().Stage;
             }
             return lReturn;
         }
