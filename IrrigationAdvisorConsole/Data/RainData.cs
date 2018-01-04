@@ -2609,7 +2609,7 @@ namespace IrrigationAdvisorConsole.Data
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
-                lRainDate = new DateTime(2018, 12, 31);
+                lRainDate = new DateTime(2017, 12, 31);
                 lRainQuantity = 2;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
@@ -2739,7 +2739,7 @@ namespace IrrigationAdvisorConsole.Data
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
-                lRainDate = new DateTime(2018, 12, 31);
+                lRainDate = new DateTime(2017, 12, 31);
                 lRainQuantity = 2;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
@@ -2869,7 +2869,7 @@ namespace IrrigationAdvisorConsole.Data
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
-                lRainDate = new DateTime(2018, 12, 31);
+                lRainDate = new DateTime(2017, 12, 31);
                 lRainQuantity = 2;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
