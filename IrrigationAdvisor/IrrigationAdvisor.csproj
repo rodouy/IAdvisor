@@ -227,6 +227,7 @@
     <Compile Include="Controllers\Management\DailyRecordsController.cs" />
     <Compile Include="Controllers\Management\MessagesController.cs" />
     <Compile Include="Controllers\Management\TitlesController.cs" />
+    <Compile Include="Controllers\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveController.cs" />
     <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitController.cs" />
     <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintableController.cs" />
     <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStatePrintableController.cs" />
