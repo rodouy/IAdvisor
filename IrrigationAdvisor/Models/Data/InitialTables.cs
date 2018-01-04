@@ -64,7 +64,8 @@ namespace IrrigationAdvisor.Models.Data
         public const int DAYS_PREVIOUS_TO_CHANGE_PHENOLOGICAL_STAGE = 7;
         public const int MAX_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE = 2;
         public const int MIN_SELECTABLE_STAGE_TO_CHANGE_PHENOLOGICAL_STAGE = 2;
-        public const double PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE = 70;
+        public const double PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE_AFTER_STAGE = 70;
+        public const double PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE_BEFORE_STAGE = 60;
 
         #endregion
 
@@ -131,6 +132,9 @@ namespace IrrigationAdvisor.Models.Data
 
         public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_CORN = "V7";
         public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SOYA = "V7";
+
+        public const String STAGE_FOR_PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE_FOR_CORN = "R7";
+        public const String STAGE_FOR_PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE_FOR_SOYA = "R1";
 
         public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_CORN = "R5";
         public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SOYA = "R7";

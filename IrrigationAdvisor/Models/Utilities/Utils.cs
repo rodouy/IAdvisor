@@ -1937,6 +1937,8 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Crop
         //2016-11-12 rodouy Change Max/Min ET to Irrigate from 30/25 to 35/30
         //Changes respect the year (ninia or ninio) 
+
+        //To change Min or Max go to PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE_AFTER_R1 to see references
         public static int MaxEvapotranspirationToIrrigate_Corn = 35;
         public static int MinEvapotranspirationToIrrigate_Corn = 30;
         public static int MaxEvapotranspirationToIrrigate_Soya = 35;
