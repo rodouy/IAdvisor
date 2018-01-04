@@ -1973,12 +1973,17 @@ namespace IrrigationAdvisor.Models.Management
         private Stage getStageByShortName(String pShortName)
         {
             Stage lReturn = null;
+            PhenologicalStage lPhenologicalStage;
 
             if(this.Crop != null && this.Crop.PhenologicalStageList.Any())
             {
-                lReturn = this.Crop.PhenologicalStageList
+                lPhenologicalStage = this.Crop.PhenologicalStageList
                                 .Where(PhenologicalStage => PhenologicalStage.Stage.ShortName.Contains(pShortName))
-                                .FirstOrDefault().Stage;
+                                .FirstOrDefault();
+                if(lPhenologicalStage != null)
+                {
+                    lReturn = lPhenologicalStage.Stage;
+                }
             }
             return lReturn;
         }

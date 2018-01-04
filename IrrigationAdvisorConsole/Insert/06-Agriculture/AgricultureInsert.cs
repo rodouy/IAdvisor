@@ -12891,7 +12891,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 using (var context = new IrrigationAdvisorContext())
                 {
                     lFarm = (from far in context.Farms
-                             where far.Name == Utils.NameFarmDCAElParaiso
+                             where far.Name == Utils.NameFarmGMOLaPalma
                              select far).FirstOrDefault();
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
