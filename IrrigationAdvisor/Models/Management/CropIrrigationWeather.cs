@@ -1796,7 +1796,7 @@ namespace IrrigationAdvisor.Models.Management
             bool lReturn = false;
             Double lMaxEvapotrranspirationToIrrigate;
             Double lEvapotranspirationAcumulated;
-            int lStageOrderForR1 = 0;
+            int lStageOrderForPercentageOfMaxET = 0;
             String lShortNameForCrop = "";
 
             if (this.WeatherEventType == Utils.WeatherEventType.LaNinia)
@@ -1815,14 +1815,14 @@ namespace IrrigationAdvisor.Models.Management
                 {
                     lShortNameForCrop = "R1";
                 }
-                lStageOrderForR1 = this.getStageOrderByShortName(lShortNameForCrop);
+                lStageOrderForPercentageOfMaxET = this.getStageOrderByShortName(lShortNameForCrop);
                 //**************************************************************************************
                 
                 if(this.PhenologicalStage.StageId >= this.Crop.MinStageToConsiderETinHBCalculationId)
                 {
                     //**************************************************************************************
                     //2018-01-02 If the stage is bigger than R1 consider MinET
-                    if (lStageOrderForR1 > 0 && this.PhenologicalStage.Stage.Order >= lStageOrderForR1)
+                    if (lStageOrderForPercentageOfMaxET > 0 && this.PhenologicalStage.Stage.Order >= lStageOrderForPercentageOfMaxET)
                     {
                         lMaxEvapotrranspirationToIrrigate = Math.Round(this.Crop.MaxEvapotranspirationToIrrigate *
                             InitialTables.PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE_AFTER_STAGE / 100, 2);
