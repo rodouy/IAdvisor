@@ -936,6 +936,7 @@
     <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintable.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitHeaderPartial.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitPartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
