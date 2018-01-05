@@ -1432,7 +1432,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     RainData.AddRainDataDelLagoSanPedroPivot5_2017(context, Program.DateOfReference);
                     RainData.AddRainDataDelLagoSanPedroPivot6_2017(context, Program.DateOfReference);
                     RainData.AddRainDataDelLagoSanPedroPivot7_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataDelLagoSanPedroPivot8_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataDelLagoSanPedroPivot8_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoSanPedroPivot9_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoSanPedroPivot10_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataDelLagoSanPedroPivot11_2017(context, Program.DateOfReference);
@@ -1701,7 +1701,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     IrrigationData.AddIrrigationDataDelLagoSanPedroPivot5_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataDelLagoSanPedroPivot6_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataDelLagoSanPedroPivot7_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataDelLagoSanPedroPivot8_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataDelLagoSanPedroPivot8_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoSanPedroPivot9_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoSanPedroPivot10_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataDelLagoSanPedroPivot11_2017(context, Program.DateOfReference);

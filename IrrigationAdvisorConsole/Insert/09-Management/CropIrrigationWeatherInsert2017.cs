@@ -380,7 +380,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DCAElParaisoPivot1_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -545,7 +545,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DCAElParaisoPivot2_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -725,7 +725,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lCropDate = DateTime.Now;
                     //if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot1_2017 == 0)
                     //{
-                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     //}
                     //else
                     //{
@@ -1387,7 +1387,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot6_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -1884,7 +1884,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot10b_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -2049,7 +2049,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot15_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -3349,7 +3349,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
 
                     #endregion
-                    #if false
                     #region Del Lago - San Pedro Pivot 8 2017
 
                     #region Farm ////////////////////////////////////////////////////////////////////
@@ -3404,7 +3403,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot8_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -3430,7 +3429,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #region New CIW Del Lago - San Pedro Pivot 8 2017
                     var lCIWDelLagoSanPedroPivot8_2017 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoSanPedroPivot8,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherDelLagoSanPedroPivot8_S1718,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -3515,7 +3514,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
 
                     #endregion
-#endif
+
                 }
                 #endregion
                 #region Del Lago - El Mirador
@@ -4580,7 +4579,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot7_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -6400,7 +6399,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1b_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -6565,7 +6564,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2b_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -6730,7 +6729,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3b_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -6895,7 +6894,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4b_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -10253,7 +10252,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot1_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -10420,7 +10419,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lCropDate = Program.DateOfReference;
                     //if (DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot2_2017 == 0)
                     //{
-                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     //}
                     //else
                     //{
@@ -10587,7 +10586,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lCropDate = DateTime.Now;
                     //if (DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot3_2017 == 0)
                     //{
-                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     //}
                     //else
                     //{
@@ -10752,7 +10751,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lCropDate = DateTime.Now;
                     //if (DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot4_2017 == 0)
                     //{
-                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     //}
                     //else
                     //{
@@ -10932,7 +10931,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //lCropDate = DateTime.Now;
                     //if (DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot1_2017 == 0)
                     //{
-                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                    //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     //}
                     //else
                     //{
@@ -11099,7 +11098,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = Program.DateOfReference;
                     if (DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot2_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -11266,7 +11265,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot3_1_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -11431,7 +11430,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot13_1_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -12994,7 +12993,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = DateTime.Now;
                     if (DataEntry.PredeterminatedIrrigationQuantity_SantaEmiliaPivot1_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -13161,7 +13160,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lCropDate = Program.DateOfReference;
                     if (DataEntry.PredeterminatedIrrigationQuantity_SantaEmiliaPivot2_2017 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
@@ -13651,7 +13650,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot5_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot6_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot7_2017(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot8_2017(context, Program.DateOfReference);
+                    DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot8_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot9_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot10_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsDelLagoSanPedroPivot11_2017(context, Program.DateOfReference);

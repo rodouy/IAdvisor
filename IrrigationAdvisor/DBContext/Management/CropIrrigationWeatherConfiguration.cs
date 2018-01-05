@@ -362,6 +362,8 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.Crop.Region.EffectiveRainList)
                     .Include(ciw => ciw.Crop.Region.TemperatureDataList)
                     .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList.Select(ps => ps.Stage))
+                    .Include(ciw => ciw.Crop.StageList)
                     .Include(ciw => ciw.Crop.CropCoefficient)
                     .Include(ciw => ciw.Crop.CropCoefficient.KCList)
                     .Include(ciw => ciw.Soil)
@@ -516,6 +518,8 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.Crop.Region.EffectiveRainList)
                     .Include(ciw => ciw.Crop.Region.TemperatureDataList)
                     .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList.Select(ps => ps.Stage))
+                    .Include(ciw => ciw.Crop.StageList)
                     .Include(ciw => ciw.Crop.CropCoefficient)
                     .Include(ciw => ciw.Crop.CropCoefficient.KCList)
                     .Include(ciw => ciw.Soil)
@@ -693,6 +697,8 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.Crop.Region.EffectiveRainList)
                     .Include(ciw => ciw.Crop.Region.TemperatureDataList)
                     .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList.Select(ps => ps.Stage))
+                    .Include(ciw => ciw.Crop.StageList)
                     .Include(ciw => ciw.Crop.CropCoefficient)
                     .Include(ciw => ciw.Crop.CropCoefficient.KCList)
                     .Include(ciw => ciw.Soil)
@@ -736,6 +742,8 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.Crop.Region.EffectiveRainList)
                     .Include(ciw => ciw.Crop.Region.TemperatureDataList)
                     .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList.Select(ps => ps.Stage))
+                    .Include(ciw => ciw.Crop.StageList)
                     .Include(ciw => ciw.Crop.CropCoefficient)
                     .Include(ciw => ciw.Crop.CropCoefficient.KCList)
                     .Include(ciw => ciw.Soil)
@@ -811,5 +819,6 @@ namespace IrrigationAdvisor.DBContext.Management
 
             return lReturn;
         }
+
     }
 }

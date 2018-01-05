@@ -561,8 +561,8 @@ namespace IrrigationAdvisorConsole
         public static DateTime SowingDate_CornSouth_DelLagoSanPedroPivot7_2017 = new DateTime(2017, 11, 02); //7
         public static DateTime HarvestDate_CornSouth_DelLagoSanPedroPivot7_2017 = new DateTime(2018, 04, 10);
         public static Double PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot7_2017 = 12;
-        public static DateTime SowingDate_CornSouth_DelLagoSanPedroPivot8_2017 = new DateTime(2017, 12, 15); //8
-        public static DateTime HarvestDate_CornSouth_DelLagoSanPedroPivot8_2017 = new DateTime(2018, 04, 10);
+        public static DateTime SowingDate_CornSouth_DelLagoSanPedroPivot8_2017 = new DateTime(2017, 12, 13); //8
+        public static DateTime HarvestDate_CornSouth_DelLagoSanPedroPivot8_2017 = new DateTime(2018, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot8_2017 = 12;
         //public static DateTime SowingDate_CornSouth_DelLagoSanPedroPivot9_2017 = new DateTime(2017, 10, 13); //9
         //public static DateTime HarvestDate_CornSouth_DelLagoSanPedroPivot9_2017 = new DateTime(2018, 04, 10);
