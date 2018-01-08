@@ -3271,6 +3271,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         IrrigationUnit = lIrrigationUnit,
                         MainWeatherStationId = lWeatherStationMain.WeatherStationId,
                         MainWeatherStation = lWeatherStationMain,
+ 
+                        WeatherEventType = Utils.WeatherEventType.LaNinia,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -3436,6 +3438,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         IrrigationUnit = lIrrigationUnit,
                         MainWeatherStationId = lWeatherStationMain.WeatherStationId,
                         MainWeatherStation = lWeatherStationMain,
+
+                        WeatherEventType = Utils.WeatherEventType.LaNinia,
 
                         AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
                         AlternativeWeatherStation = lWeatherStationAlternative,
@@ -5615,7 +5619,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
                                                  Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
                                                           Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
-                        AdjustableIrrigationQuantity = false,
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop

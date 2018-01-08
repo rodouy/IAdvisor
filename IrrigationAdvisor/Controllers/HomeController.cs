@@ -2245,10 +2245,12 @@ namespace IrrigationAdvisor.Controllers
                     if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
                     {
                         lForcastIrrigationQuantity += lDailyRecord.Irrigation.Input;
+                        lIrrigationQuantity = lDailyRecord.Irrigation.Input;
                     }
                     else if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.ExtraInput > 0)
                     {
                         lForcastIrrigationQuantity += lDailyRecord.Irrigation.ExtraInput;
+                        lIrrigationQuantity = lDailyRecord.Irrigation.ExtraInput;
                     }
                 }
                 #endregion
@@ -2268,14 +2270,15 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.Rain;
                 }
-                else if (lIrrigationQuantity > 0 && lIrrigationQuantity > lRainQuantity)
-                {
-                    lIrrigationStatus = Utils.IrrigationStatus.Irrigated;
-                }
                 else if (lForcastIrrigationQuantity > 0 && lForcastIrrigationQuantity > lRainQuantity)
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.NextIrrigation;
                 }
+                else if (lIrrigationQuantity > 0 && lIrrigationQuantity > lRainQuantity)
+                {
+                    lIrrigationStatus = Utils.IrrigationStatus.Irrigated;
+                }
+
                 else if (lDailyRecord != null && (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Type == Utils.WaterInputType.CantIrrigate))
                 {
                     lIrrigationStatus = Utils.IrrigationStatus.CantIrrigate;
