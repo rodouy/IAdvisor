@@ -1046,7 +1046,7 @@ namespace IrrigationAdvisorConsole.Data
                                where iu.Name == Utils.NamePivotDCALaPerdiz3
                                select iu).FirstOrDefault();
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2016
+                                   where ws.Name == Utils.NameWeatherStationLasBrujas
                                    select ws).FirstOrDefault();
 
 

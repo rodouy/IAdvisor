@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 using IrrigationAdvisor.Models.Agriculture;
 using IrrigationAdvisor.Models.Data;
 using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.Models.Utilities;
+
+using IrrigationAdvisorConsole.Data;
 
 using IrrigationAdvisor.DBContext;
 using NLog;
@@ -115,8 +116,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieCornSouthShort,
                     ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_CornSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_CornSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_CornSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_CornSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
 
@@ -135,8 +136,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieCornSouthMedium,
                     ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_CornSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_CornSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_CornSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_CornSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
 
@@ -156,8 +157,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSoyaSouthShort,
                     ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SoyaSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SoyaSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SoyaSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
 
@@ -176,8 +177,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSoyaSouthMedium,
                     ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SoyaSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SoyaSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SoyaSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
 
@@ -197,8 +198,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSorghumForageSouthShort,
                     ShortName = "Sorgo Forrajero",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SorghumForageSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SorghumForageSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SorghumForageSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SorghumForageSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -217,8 +218,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSorghumGrainSouthShort,
                     ShortName = "Sorgo Granifero",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SorghumGrainSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SorghumGrainSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SorghumGrainSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SorghumGrainSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -238,8 +239,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieAlfalfaSouthShort,
                     ShortName = "Alfalfa",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_AlfalfaSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_AlfalfaSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_AlfalfaSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_AlfalfaSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -259,8 +260,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieRedCloverForageSouthShort,
                     ShortName = "Trebol Rojo Forraje",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_RedCloverForageSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_RedCloverForageSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_RedCloverForageSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_RedCloverForageSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -279,8 +280,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieRedCloverSeedSouthShort,
                     ShortName = "Trebol Rojo Semilla",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_RedCloverSeedSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_RedCloverSeedSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_RedCloverSeedSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_RedCloverSeedSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -300,8 +301,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieFescueForageSouthShort,
                     ShortName = "Festuca Forraje",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_FescueForageSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_FescueForageSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_FescueForageSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_FescueForageSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -320,8 +321,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieFescueSeedSouthShort,
                     ShortName = "Festuca Semilla",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_FescueSeedSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_FescueSeedSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_FescueSeedSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_FescueSeedSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -344,8 +345,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieCornNorthShort,
                     ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_CornNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_CornNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_CornNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_CornNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lCornNorthShort);
@@ -362,8 +363,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieCornNorthMedium,
                     ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_CornNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_CornNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_CornNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_CornNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lCornNorthMedium);
@@ -382,8 +383,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSoyaNorthShort,
                     ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SoyaNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SoyaNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SoyaNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SoyaNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lSoyaNorthShort);
@@ -401,8 +402,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSoyaNorthMedium,
                     ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SoyaNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SoyaNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SoyaNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SoyaNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lSoyaNorthMedium);
@@ -421,8 +422,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieAlfalfaNorthShort,
                     ShortName = "Alfalfa",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_AlfalfaNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_AlfalfaNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_AlfalfaNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_AlfalfaNorth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -442,8 +443,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieFescueForageNorthShort,
                     ShortName = "Festuca Forraje",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_FescueForageNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_FescueForageNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_FescueForageNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_FescueForageNorth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -462,8 +463,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieFescueSeedNorthShort,
                     ShortName = "Festuca Semilla",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_FescueSeedNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_FescueSeedNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_FescueSeedNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_FescueSeedNorth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 

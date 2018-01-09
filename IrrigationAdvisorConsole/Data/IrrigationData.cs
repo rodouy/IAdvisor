@@ -17093,8 +17093,8 @@ namespace IrrigationAdvisorConsole.Data
                 lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, Utils.WaterInputType.Irrigation);
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
             }
-            #endregion                    }
-
+            #endregion
+        }
         /// <summary>
         /// Add IrrigationQuantity Data to GMO La Palma Pivot 1.1 for 2017-2018
         /// </summary>

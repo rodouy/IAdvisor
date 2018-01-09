@@ -13,6 +13,8 @@ using IrrigationAdvisor.Models.Security;
 using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Weather;
 
+using IrrigationAdvisorConsole.Data;
+
 using IrrigationAdvisor.DBContext;
 
 namespace IrrigationAdvisorConsole.Insert._04_Localization
@@ -1885,7 +1887,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     String lWeatherStationName = DataEntry.WeatherStationMainName_SantaLucia_2017;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
-                        lWeatherStationName = DataEntry.WeatherStationMainName_SantaLucia_2016;
+                        lWeatherStationName = DataEntry2016.WeatherStationMainName_SantaLucia_2016;
                     }
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
@@ -1933,7 +1935,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 String lWeatherStationName = DataEntry.WeatherStationMainName_DCAElParaiso_2017;
                 if(Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                 {
-                    lWeatherStationName = DataEntry.WeatherStationMainName_DCAElParaiso_2016;
+                    lWeatherStationName = DataEntry2016.WeatherStationMainName_DCAElParaiso_2016;
                 }
                 if(Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                 {
@@ -1984,7 +1986,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     String lWeatherStationName = DataEntry.WeatherStationMainName_DCALaPerdiz_2017;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
-                        lWeatherStationName = DataEntry.WeatherStationMainName_DCALaPerdiz_2016;
+                        lWeatherStationName = DataEntry2016.WeatherStationMainName_DCALaPerdiz_2016;
                     }
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
@@ -2033,7 +2035,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     String lWeatherStationName = DataEntry.WeatherStationMainName_DCASanJose_2017;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
-                        lWeatherStationName = DataEntry.WeatherStationMainName_DCASanJose_2016;
+                        lWeatherStationName = DataEntry2016.WeatherStationMainName_DCASanJose_2016;
                     }
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
@@ -2083,7 +2085,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     String lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoSanPedro_2017;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
-                        lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoSanPedro_2016;
+                        lWeatherStationName = DataEntry2016.WeatherStationMainName_DelLagoSanPedro_2016;
                     }
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
@@ -2132,7 +2134,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     String lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoElMirador_2017;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
-                        lWeatherStationName = DataEntry.WeatherStationMainName_DelLagoElMirador_2016;
+                        lWeatherStationName = DataEntry2016.WeatherStationMainName_DelLagoElMirador_2016;
                     }
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
@@ -2182,7 +2184,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     String lWeatherStationName = DataEntry.WeatherStationMainName_GMOLaPalma_2017;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
-                        lWeatherStationName = DataEntry.WeatherStationMainName_GMOLaPalma_2016;
+                        lWeatherStationName = DataEntry2016.WeatherStationMainName_GMOLaPalma_2016;
                     }
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
@@ -2231,7 +2233,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     String lWeatherStationName = DataEntry.WeatherStationMainName_GMOElTacuru_2017;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
-                        lWeatherStationName = DataEntry.WeatherStationMainName_GMOElTacuru_2016;
+                        lWeatherStationName = DataEntry2016.WeatherStationMainName_GMOElTacuru_2016;
                     }
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
@@ -2280,7 +2282,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     String lWeatherStationName = DataEntry.WeatherStationMainName_TresMarias_2017;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
-                        lWeatherStationName = DataEntry.WeatherStationMainName_TresMarias_2016;
+                        lWeatherStationName = DataEntry2016.WeatherStationMainName_TresMarias_2016;
                     }
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
@@ -2328,7 +2330,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     String lWeatherStationName = DataEntry.WeatherStationMainName_LaRinconada_2017;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
-                        lWeatherStationName = DataEntry.WeatherStationMainName_LaRinconada_2016;
+                        lWeatherStationName = DataEntry2016.WeatherStationMainName_LaRinconada_2016;
                     }
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
