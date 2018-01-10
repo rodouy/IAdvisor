@@ -578,6 +578,37 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 }
             }
             #endregion
+            #region Bomb Gran Molino
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionFarmGranMolino
+                                 select pos).FirstOrDefault();
+
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NamePositionFarmGranMolino
+                             select far).FirstOrDefault();
+
+                    var lBombGranMolino = new Bomb
+                    {
+                        Name = Utils.NameBombGranMolino,
+                        ShortName = Utils.NameBombGranMolino,
+                        SerialNumber = "111111111",
+                        PurchaseDate = Utils.MIN_DATETIME,
+                        ServiceDate = Utils.MIN_DATETIME,
+                        PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
+                    };
+                    context.Bombs.Add(lBombGranMolino);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
 
             using (var context = new IrrigationAdvisorContext())
             {
@@ -4014,6 +4045,148 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 }
             }
             #endregion
+            #region Pivots Gran Molino
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmGranMolino
+                             select f).FirstOrDefault();
+
+                    #region Pivot 1
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGranMolino
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino1
+                                 select pos).FirstOrDefault();
+
+                    var lGranMolinoPivot1 = new Pivot
+                    {
+                        Name = Utils.NamePivotGranMolino1,
+                        ShortName = "Pivot 1",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 25,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 12,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGranMolino
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino2
+                                 select pos).FirstOrDefault();
+
+                    var lGranMolinoPivot2 = new Pivot
+                    {
+                        Name = Utils.NamePivotGranMolino2,
+                        ShortName = "Pivot 2",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 23,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 11,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGranMolino
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino3
+                                 select pos).FirstOrDefault();
+
+                    var lGranMolinoPivot3 = new Pivot
+                    {
+                        Name = Utils.NamePivotGranMolino3,
+                        ShortName = "Pivot 3",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 30,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 12,
+                        Radius = 15,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGranMolino
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino4
+                                 select pos).FirstOrDefault();
+
+                    var lGranMolinoPivot4 = new Pivot
+                    {
+                        Name = Utils.NamePivotGranMolino4,
+                        ShortName = "Pivot 4",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 30,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 15,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombGranMolino
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino5
+                                 select pos).FirstOrDefault();
+
+                    var lGranMolinoPivot5 = new Pivot
+                    {
+                        Name = Utils.NamePivotGranMolino5,
+                        ShortName = "Pivot 5",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 6,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 3,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+
+                    context.Pivots.Add(lGranMolinoPivot1);
+                    context.Pivots.Add(lGranMolinoPivot2);
+                    context.Pivots.Add(lGranMolinoPivot3);
+                    context.Pivots.Add(lGranMolinoPivot4);
+                    context.Pivots.Add(lGranMolinoPivot5);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
 
         }
 
@@ -4142,6 +4315,13 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmSantaEmilia();
+            }
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+            {
+                LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmGranMolino();
             }
         }
 

@@ -518,6 +518,21 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
             };
             #endregion
 
+            #region Gran Molino
+            var lGranMolinoPJimenez = new User()
+            {
+                Name = "Pablo",
+                Surname = "Jimenez",
+                Phone = "+598 99 146 616",
+                Address = "Ruta 1, km 45",
+                Email = "pjimenezdearechaga@gmail.com",
+                UserName = Utils.NameUserGM1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GM2018"),
+                RoleId = 3,
+            };
+
+            #endregion
+
             using (var context = new IrrigationAdvisorContext())
             {
                 //context.Users.Add(lBase);
@@ -557,6 +572,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lLosNaranjalesSScarlato);
                 context.Users.Add(lSantaEmiliaDSilveyra);
                 context.Users.Add(lSantaEmiliaSMontero);
+                context.Users.Add(lGranMolinoPJimenez);
                 context.SaveChanges();
             }
 
@@ -1164,6 +1180,41 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmSantaEmilia
+                             select farm).FirstOrDefault();
+                    lUserList = (from user in context.Users
+                                 where lUserNames.Contains(user.UserName)
+                                 select user).ToList();
+                    foreach (User lUser in lUserList)
+                    {
+                        var lUserFarm = new UserFarm()
+                        {
+                            UserId = lUser.UserId,
+                            FarmId = lFarm.FarmId,
+                            Name = lUser.Name + lFarm.Name,
+                            StartDate = DateTime.Now,
+                        };
+
+                        context.UserFarms.Add(lUserFarm);
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
+
+                #region Gran Molino SRL - Gran Molino - GM
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+                {
+                    lUserNames = new String[] { Utils.NameUserGM1,
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin, Utils.NameUserCristian,
+                                                Utils.NameUserCPalo, Utils.NameUserMCarle,
+                                                Utils.NameUserROlivera, Utils.NameUserDemo,
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
+
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmGranMolino
                              select farm).FirstOrDefault();
                     lUserList = (from user in context.Users
                                  where lUserNames.Contains(user.UserName)

@@ -1550,6 +1550,22 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 }
                 #endregion
 
+                #region Gran Molino
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+                {
+
+                    RainData.AddRainDataGranMolinoPivot1_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGranMolinoPivot2_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGranMolinoPivot3_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGranMolinoPivot4_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGranMolinoPivot5_2017(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
             }
 
             #endregion
@@ -1836,6 +1852,25 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     //IrrigationData.AddIrrigationDataSantaEmiliaPivot3_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataSantaEmiliaPivot4_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataSantaEmiliaPivot5_2017(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Gran Molino
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData.AddIrrigationDataGranMolinoPivot1_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGranMolinoPivot2_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGranMolinoPivot3_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGranMolinoPivot4_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGranMolinoPivot5_2017(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
