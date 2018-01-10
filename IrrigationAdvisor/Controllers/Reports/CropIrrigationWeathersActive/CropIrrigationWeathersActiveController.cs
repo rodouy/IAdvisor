@@ -148,43 +148,6 @@ namespace IrrigationAdvisor.Controllers
         }
 
 
- 
- 
-
-        /// <summary>
-        /// TODO: define function
-        /// </summary>
-        /// <param name="pCropIrrigationWeatherList"></param>
-        /// <param name="pDateFrom"></param>
-        /// <returns></returns>
-       
-
-        /// <summary>
-        /// Calculate Active CropIrrigationWeather by id from a Date
-        /// A CropIrrigationWeather is Active when Date of Reference is between Date of Sowing and Date of Harvest
-        /// </summary>
-        /// <param name="pCropIrrigationWeatherId"></param>
-        /// <param name="pDateOfReference"></param>
-        /// <param name="pDateFrom"></param>
-        /// <returns></returns>
-
-
-        /// <summary>
-        /// Calculate All Active CropIrrigationWeather by Farm from a Date
-        /// A CropIrrigationWeather is Active when Date of Reference is between Date of Sowing and Date of Harvest
-        /// </summary>
-        /// <param name="pFarmId"></param>
-        /// <param name="pDateOfReference"></param>
-        /// <param name="pDateFrom"></param>
-        /// <returns></returns>
-
-
-        /// <summary>
-        /// Calculate All CropIrrigationWeather by Date Of Reference to Now (System Date)
-        /// </summary>
-        /// <param name="pDateOfReference"></param>
-        /// <returns></returns>
-
         /// <summary>
         /// Get WeatherStation list, without repeating it.
         /// One for all CropIrrigationWeather in list parameter.
@@ -284,13 +247,15 @@ namespace IrrigationAdvisor.Controllers
         [ChildActionOnly]
         public PartialViewResult FrontPagePartial()
         {
-            return PartialView("_FrontPagePartial", GetGridPivotHome());
+            return PartialView("~/Views/Reports/CropIrrigationWeathersActive/_FrontPagePartial.cshtml", GetGridPivotHome());
         }
 
         [ChildActionOnly]
         public PartialViewResult FrontPageHeaderPartial()
         {
-            return PartialView("_FrontPageHeaderPartial", GetGridPivotHomeTitles());
+            
+            
+            return PartialView("~/Views/Reports/CropIrrigationWeathersActive/_FrontPageHeaderPartial.cshtml", GetGridPivotHomeTitles());
         }
 
  
@@ -390,7 +355,7 @@ namespace IrrigationAdvisor.Controllers
             FarmViewModel lFarmViewModel;
             User lLoggedUser;
             List<Farm> lFarmList;
-            Farm lCurrentFarm;
+           // Farm lCurrentFarm;
             List<IrrigationUnit> lIrrigationUnitList;
             List<CropIrrigationWeather> lCropIrrigationWeatherList;
             String lFirstPivotName = "";
@@ -438,103 +403,107 @@ namespace IrrigationAdvisor.Controllers
 
                 //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
-
-                lCurrentFarm = GetCurrentFarm(lFarmList);
-                lSomeData = lSomeData + "Farm: " + lCurrentFarm.Name + "-";
-                lFarmViewModel = new FarmViewModel(lCurrentFarm);
-                lIrrigationUnitList = lIrrigationUnitConfiguration.GetIrrigationUnitListBy(lCurrentFarm);
-
-                lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
-                lDailyRecordList = new List<DailyRecord>();
-
-                foreach (var lIrrigationUnit in lIrrigationUnitList)
+                foreach (Farm lCurrentFarm in lFarmList)
                 {
-                    lCropIrrigationWeatherList = lIrrigationUnitConfiguration.GetCropIrrigationWeatherListIncludeCropMainWeatherStationRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
 
-                    lFirstPivotName = "";
-                    lETcList = new List<Double>();
-                    foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+
+                    lSomeData = lSomeData + "Farm: " + lCurrentFarm.Name + "-";
+                    lFarmViewModel = new FarmViewModel(lCurrentFarm);
+                   
+                    lIrrigationUnitList = lIrrigationUnitConfiguration.GetIrrigationUnitListBy(lCurrentFarm);
+
+                    lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+                    lDailyRecordList = new List<DailyRecord>();
+
+                    foreach (var lIrrigationUnit in lIrrigationUnitList)
                     {
-                        lSomeData = lSomeData + "CropIrrigationWeather: " + lCropIrrigationWeather.CropIrrigationWeatherName + "-";
+                        lCropIrrigationWeatherList = lIrrigationUnitConfiguration.GetCropIrrigationWeatherListIncludeCropMainWeatherStationRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
 
-                        lDailyRecordList = lCropIrrigationWeatherConfiguration.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lCropIrrigationWeather.Crop);
-
-                        lRainList = lCropIrrigationWeather.RainList;
-                        lIrrigationList = lCropIrrigationWeather.IrrigationList;
-                        lSowingDate = lCropIrrigationWeather.SowingDate.Day.ToString()
-                                + "/" + lCropIrrigationWeather.SowingDate.Month.ToString();
-                        //Grid of irrigation data
-                        lGridIrrigationUnitDetailRow = new List<GridPivotDetailHome>();
-
-                        lCropCoefficient = String.Empty;
-                        lPhenologicalStageToday = String.Empty;
-                        lHydricBalancePercentage = 0;
-
-                        for (int i = -InitialTables.MIN_DAY_SHOW_IN_GRID_BEFORE_TODAY; i <= InitialTables.MAX_DAY_SHOW_IN_GRID_AFTER_TODAY; i++)
+                        lFirstPivotName = "";
+                        lETcList = new List<Double>();
+                        foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                         {
-                            //Day i
-                            lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(i), lIrrigationList, lRainList, lDailyRecordList);
-                            lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
-                            if (i == 0) //TODAY
-                            {
-                                //Obtain All data for today from DailyRecord
-                                lPhenologicalStageToday = lGridIrrigationUnitRow.Phenology;
-                                lDailyRecord = lGridIrrigationUnitRow.DailyRecord;
-                                if (lDailyRecord != null)
-                                {
-                                    lCropCoefficient = lDailyRecord.CropCoefficient.ToString();
-                                    lPhenologicalStageToday = lDailyRecord.PhenologicalStage.Stage.ShortName;
-                                    lHydricBalancePercentage = lDailyRecord.PercentageOfHydricBalance;
+                            lSomeData = lSomeData + "CropIrrigationWeather: " + lCropIrrigationWeather.CropIrrigationWeatherName + "-";
 
-                                }
-                            }
-                            if (lGridIrrigationUnitRow.DailyRecord == null)
+                            lDailyRecordList = lCropIrrigationWeatherConfiguration.GetDailyRecordListIncludeDailyRecordListBy(lIrrigationUnit, lDateOfReference, lCropIrrigationWeather.Crop);
+
+                            lRainList = lCropIrrigationWeather.RainList;
+                            lIrrigationList = lCropIrrigationWeather.IrrigationList;
+                            lSowingDate = lCropIrrigationWeather.SowingDate.Day.ToString()
+                                    + "/" + lCropIrrigationWeather.SowingDate.Month.ToString();
+                            //Grid of irrigation data
+                            lGridIrrigationUnitDetailRow = new List<GridPivotDetailHome>();
+
+                            lCropCoefficient = String.Empty;
+                            lPhenologicalStageToday = String.Empty;
+                            lHydricBalancePercentage = 0;
+
+                            for (int i = -InitialTables.MIN_DAY_SHOW_IN_GRID_BEFORE_TODAY; i <= InitialTables.MAX_DAY_SHOW_IN_GRID_AFTER_TODAY; i++)
                             {
-                                if (lCropIrrigationWeather.MainWeatherStationId > 0)
+                                //Day i
+                                lGridIrrigationUnitRow = AddGridIrrigationUnit(lDateOfReference, lDateOfReference.AddDays(i), lIrrigationList, lRainList, lDailyRecordList);
+                                lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
+                                if (i == 0) //TODAY
                                 {
-                                    lETcItem = lIrrigationAdvisorContext.WeatherDatas
-                                                    .Where(wd => wd.Date == lGridIrrigationUnitRow.DateOfData.Date
-                                                        && wd.WeatherStationId == lCropIrrigationWeather.MainWeatherStationId)
-                                                        .Select(wd => wd.Evapotranspiration).FirstOrDefault();
+                                    //Obtain All data for today from DailyRecord
+                                    lPhenologicalStageToday = lGridIrrigationUnitRow.Phenology;
+                                    lDailyRecord = lGridIrrigationUnitRow.DailyRecord;
+                                    if (lDailyRecord != null)
+                                    {
+                                        lCropCoefficient = lDailyRecord.CropCoefficient.ToString();
+                                        lPhenologicalStageToday = lDailyRecord.PhenologicalStage.Stage.ShortName;
+                                        lHydricBalancePercentage = lDailyRecord.PercentageOfHydricBalance;
+
+                                    }
+                                }
+                                if (lGridIrrigationUnitRow.DailyRecord == null)
+                                {
+                                    if (lCropIrrigationWeather.MainWeatherStationId > 0)
+                                    {
+                                        lETcItem = lIrrigationAdvisorContext.WeatherDatas
+                                                        .Where(wd => wd.Date == lGridIrrigationUnitRow.DateOfData.Date
+                                                            && wd.WeatherStationId == lCropIrrigationWeather.MainWeatherStationId)
+                                                            .Select(wd => wd.Evapotranspiration).FirstOrDefault();
+                                    }
+                                    else
+                                    {
+                                        lETcItem = lIrrigationAdvisorContext.WeatherDatas
+                                                        .Where(wd => wd.Date == lGridIrrigationUnitRow.DateOfData.Date
+                                                            && wd.WeatherStationId == lCropIrrigationWeather.AlternativeWeatherStationId)
+                                                            .Select(wd => wd.Evapotranspiration).FirstOrDefault();
+                                    }
                                 }
                                 else
                                 {
-                                    lETcItem = lIrrigationAdvisorContext.WeatherDatas
-                                                    .Where(wd => wd.Date == lGridIrrigationUnitRow.DateOfData.Date
-                                                        && wd.WeatherStationId == lCropIrrigationWeather.AlternativeWeatherStationId)
-                                                        .Select(wd => wd.Evapotranspiration).FirstOrDefault();
+                                    lETcItem = Math.Round(lGridIrrigationUnitRow.DailyRecord.EvapotranspirationCrop.Output / lGridIrrigationUnitRow.DailyRecord.CropCoefficient, 2);
                                 }
+                                lETcList.Add(Math.Round(lETcItem, 2));
                             }
-                            else
+                            if (String.IsNullOrEmpty(lFirstPivotName))
                             {
-                                lETcItem = Math.Round(lGridIrrigationUnitRow.DailyRecord.EvapotranspirationCrop.Output / lGridIrrigationUnitRow.DailyRecord.CropCoefficient, 2);
+                                lFirstPivotName = lCropIrrigationWeather.IrrigationUnit.ShortName;
                             }
-                            lETcList.Add(Math.Round(lETcItem, 2));
-                        }
-                        if (String.IsNullOrEmpty(lFirstPivotName))
-                        {
-                            lFirstPivotName = lCropIrrigationWeather.IrrigationUnit.ShortName;
-                        }
-                        else if (lFirstPivotName == lCropIrrigationWeather.IrrigationUnit.ShortName)
-                        {
-                            lFirstPivotName = "";
-                        }
+                            else if (lFirstPivotName == lCropIrrigationWeather.IrrigationUnit.ShortName)
+                            {
+                                lFirstPivotName = "";
+                            }
 
-                        lHomeViewModel = ManageSession.GetHomeViewModel();
+                            lHomeViewModel = ManageSession.GetHomeViewModel();
 
-                        //Add all the days for the IrrigationUnit
-                        lGridIrrigationUnit = new GridPivotHome(lFirstPivotName,
-                                                                lCropIrrigationWeather.Crop.ShortName,
-                                                                lSowingDate,
-                                                                lPhenologicalStageToday,
-                                                                lHydricBalancePercentage.ToString() + " %",
-                                                                lCropCoefficient,
-                                                                lHomeViewModel.IsUserAdministrator,
-                                                                lETcList,
-                                                                lGridIrrigationUnitDetailRow,
-                                                                lCropIrrigationWeather.CropIrrigationWeatherId);
+                            //Add all the days for the IrrigationUnit
+                            lGridIrrigationUnit = new GridPivotHome(lCurrentFarm.Name + " | " + lFirstPivotName,
+                                                                    lCropIrrigationWeather.Crop.ShortName,
+                                                                    lSowingDate,
+                                                                    lPhenologicalStageToday,
+                                                                    lHydricBalancePercentage.ToString() + " %",
+                                                                    lCropCoefficient,
+                                                                    lHomeViewModel.IsUserAdministrator,
+                                                                    lETcList,
+                                                                    lGridIrrigationUnitDetailRow,
+                                                                    lCropIrrigationWeather.CropIrrigationWeatherId);
 
-                        lGridIrrigationUnitList.Add(lGridIrrigationUnit);
+                            lGridIrrigationUnitList.Add(lGridIrrigationUnit);
+                        }
                     }
                 }
 

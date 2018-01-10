@@ -1,4 +1,4 @@
-﻿@model IrrigationAdvisor.ViewModels.Home.HomeViewModel
+﻿@model IrrigationAdvisor.ViewModels.Home.CropIrrigationWeathersActiveViewModel
 @using IrrigationAdvisor.Models.Utilities
 
 <link rel="stylesheet" type="text/css" href="../css/flatWeatherPlugin.css">
@@ -96,11 +96,11 @@
                                                     <table cellspacing="10" class="main-table-advisor">
                                                         <thead>
                                                             <tr>
-                                                                @{ Html.RenderAction("FrontPageHeaderPartial", "Home"); }
+                                                                @{ Html.RenderAction("FrontPageHeaderPartial", "CropIrrigationWeathersActive"); }
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @{ Html.RenderAction("FrontPagePartial", "Home"); }
+                                                            @{ Html.RenderAction("FrontPagePartial", "CropIrrigationWeathersActive"); }
                                                         </tbody>
                                                     </table>
                                                 </div>
