@@ -941,6 +941,8 @@
     <Content Include="Views\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActive.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPageHeaderPartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
