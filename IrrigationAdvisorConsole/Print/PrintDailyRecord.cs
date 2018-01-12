@@ -12,6 +12,8 @@ using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Water;
 using IrrigationAdvisor.Models.Weather;
 
+using IrrigationAdvisorConsole.Data;
+
 using IrrigationAdvisor.DBContext;
 
 namespace IrrigationAdvisorConsole.Print
@@ -6486,10 +6488,10 @@ namespace IrrigationAdvisorConsole.Print
                              where farm.Name == Utils.NameFarmDelLagoElMirador
                              select farm).FirstOrDefault();
                     lWeatherStationMain = (from ws in context.WeatherStations
-                                           where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2016b
+                                           where ws.Name == DataEntry2016.WeatherStationMainName_DelLagoElMirador_2016b
                                            select ws).FirstOrDefault();
                     lWeatherStationAlternative = (from ws in context.WeatherStations
-                                                  where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2016b
+                                                  where ws.Name == DataEntry2016.WeatherStationAlternativeName_DelLagoElMirador_2016b
                                                   select ws).FirstOrDefault();
 
                     lCrop = (from crop in context.Crops

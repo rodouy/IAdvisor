@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 using IrrigationAdvisor.Models.Agriculture;
 using IrrigationAdvisor.Models.Data;
 using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.Models.Utilities;
+
+using IrrigationAdvisorConsole.Data;
 
 using IrrigationAdvisor.DBContext;
 using NLog;
@@ -115,8 +116,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieCornSouthShort,
                     ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_CornSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_CornSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_CornSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_CornSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
 
@@ -135,8 +136,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieCornSouthMedium,
                     ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_CornSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_CornSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_CornSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_CornSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
 
@@ -156,8 +157,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSoyaSouthShort,
                     ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SoyaSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SoyaSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SoyaSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
 
@@ -176,8 +177,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSoyaSouthMedium,
                     ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SoyaSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SoyaSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SoyaSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
 
@@ -197,8 +198,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSorghumForageSouthShort,
                     ShortName = "Sorgo Forrajero",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SorghumForageSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SorghumForageSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SorghumForageSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SorghumForageSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -217,8 +218,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSorghumGrainSouthShort,
                     ShortName = "Sorgo Granifero",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SorghumGrainSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SorghumGrainSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SorghumGrainSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SorghumGrainSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -238,8 +239,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieAlfalfaSouthShort,
                     ShortName = "Alfalfa",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_AlfalfaSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_AlfalfaSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_AlfalfaSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_AlfalfaSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -259,8 +260,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieRedCloverForageSouthShort,
                     ShortName = "Trebol Rojo Forraje",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_RedCloverForageSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_RedCloverForageSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_RedCloverForageSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_RedCloverForageSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -279,8 +280,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieRedCloverSeedSouthShort,
                     ShortName = "Trebol Rojo Semilla",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_RedCloverSeedSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_RedCloverSeedSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_RedCloverSeedSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_RedCloverSeedSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -300,8 +301,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieFescueForageSouthShort,
                     ShortName = "Festuca Forraje",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_FescueForageSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_FescueForageSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_FescueForageSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_FescueForageSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -320,8 +321,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieFescueSeedSouthShort,
                     ShortName = "Festuca Semilla",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_FescueSeedSouth_2016,
-                    StressTemperature = DataEntry.StressTemperature_FescueSeedSouth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_FescueSeedSouth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_FescueSeedSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -344,8 +345,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieCornNorthShort,
                     ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_CornNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_CornNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_CornNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_CornNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lCornNorthShort);
@@ -362,8 +363,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieCornNorthMedium,
                     ShortName = "Maíz",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_CornNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_CornNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_CornNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_CornNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lCornNorthMedium);
@@ -382,8 +383,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSoyaNorthShort,
                     ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SoyaNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SoyaNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SoyaNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SoyaNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lSoyaNorthShort);
@@ -401,8 +402,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieSoyaNorthMedium,
                     ShortName = "Soja",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_SoyaNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_SoyaNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_SoyaNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_SoyaNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
                 };
                 context.Species.Add(lSoyaNorthMedium);
@@ -421,8 +422,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieAlfalfaNorthShort,
                     ShortName = "Alfalfa",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_AlfalfaNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_AlfalfaNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_AlfalfaNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_AlfalfaNorth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -442,8 +443,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieFescueForageNorthShort,
                     ShortName = "Festuca Forraje",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_FescueForageNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_FescueForageNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_FescueForageNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_FescueForageNorth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -462,8 +463,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     Name = Utils.NameSpecieFescueSeedNorthShort,
                     ShortName = "Festuca Semilla",
                     SpecieCycleId = lSpecieCycle.SpecieCycleId,
-                    BaseTemperature = DataEntry.BaseTemperature_FescueSeedNorth_2016,
-                    StressTemperature = DataEntry.StressTemperature_FescueSeedNorth_2016,
+                    BaseTemperature = DataEntry2016.BaseTemperature_FescueSeedNorth_2016,
+                    StressTemperature = DataEntry2016.StressTemperature_FescueSeedNorth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
                 };
 
@@ -10283,6 +10284,242 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
+            #region Horizons Gran Molino
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+            {
+
+                #region Pivot 1
+                var lGranMolinoPivot_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 30,
+                    Sand = 15,
+                    Limo = 50,
+                    Clay = 35,
+                    OrganicMatter = 3.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lGranMolinoPivot_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "Bt1",
+                    HorizonLayerDepth = 17,
+                    Sand = 12,
+                    Limo = 49,
+                    Clay = 39,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.24,
+                };
+                var lGranMolinoPivot_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "Bt2",
+                    HorizonLayerDepth = 22,
+                    Sand = 11,
+                    Limo = 47,
+                    Clay = 42,
+                    OrganicMatter = 2.1,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+                #region Pivot 2
+                var lGranMolinoPivot_2_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino2 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 30,
+                    Sand = 15,
+                    Limo = 50,
+                    Clay = 35,
+                    OrganicMatter = 3.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lGranMolinoPivot_2_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino2 + " 2",
+                    Order = 2,
+                    HorizonLayer = "Bt1",
+                    HorizonLayerDepth = 17,
+                    Sand = 12,
+                    Limo = 49,
+                    Clay = 39,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.24,
+                };
+                var lGranMolinoPivot_2_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino2 + " 3",
+                    Order = 3,
+                    HorizonLayer = "Bt2",
+                    HorizonLayerDepth = 22,
+                    Sand = 11,
+                    Limo = 47,
+                    Clay = 42,
+                    OrganicMatter = 2.1,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+                #region Pivot 3
+                var lGranMolinoPivot_3_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino3 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 30,
+                    Sand = 15,
+                    Limo = 50,
+                    Clay = 35,
+                    OrganicMatter = 3.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lGranMolinoPivot_3_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino3 + " 2",
+                    Order = 2,
+                    HorizonLayer = "Bt1",
+                    HorizonLayerDepth = 17,
+                    Sand = 12,
+                    Limo = 49,
+                    Clay = 39,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.24,
+                };
+                var lGranMolinoPivot_3_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino3 + " 3",
+                    Order = 3,
+                    HorizonLayer = "Bt2",
+                    HorizonLayerDepth = 22,
+                    Sand = 11,
+                    Limo = 47,
+                    Clay = 42,
+                    OrganicMatter = 2.1,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+                #region Pivot 4
+                var lGranMolinoPivot_4_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino4 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 30,
+                    Sand = 15,
+                    Limo = 50,
+                    Clay = 35,
+                    OrganicMatter = 3.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lGranMolinoPivot_4_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino4 + " 2",
+                    Order = 2,
+                    HorizonLayer = "Bt1",
+                    HorizonLayerDepth = 17,
+                    Sand = 12,
+                    Limo = 49,
+                    Clay = 39,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.24,
+                };
+                var lGranMolinoPivot_4_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino4 + " 3",
+                    Order = 3,
+                    HorizonLayer = "Bt2",
+                    HorizonLayerDepth = 22,
+                    Sand = 11,
+                    Limo = 47,
+                    Clay = 42,
+                    OrganicMatter = 2.1,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+                #region Pivot 5
+                var lGranMolinoPivot_5_1 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino5 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 30,
+                    Sand = 15,
+                    Limo = 50,
+                    Clay = 35,
+                    OrganicMatter = 3.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.2,
+                };
+                var lGranMolinoPivot_5_2 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino5 + " 2",
+                    Order = 2,
+                    HorizonLayer = "Bt1",
+                    HorizonLayerDepth = 17,
+                    Sand = 12,
+                    Limo = 49,
+                    Clay = 39,
+                    OrganicMatter = 3.2,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.24,
+                };
+                var lGranMolinoPivot_5_3 = new Horizon
+                {
+                    Name = Utils.NamePivotGranMolino5 + " 3",
+                    Order = 3,
+                    HorizonLayer = "Bt2",
+                    HorizonLayerDepth = 22,
+                    Sand = 11,
+                    Limo = 47,
+                    Clay = 42,
+                    OrganicMatter = 2.1,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.3,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons Gran Molino
+                    context.Horizons.Add(lGranMolinoPivot_1_1);
+                    context.Horizons.Add(lGranMolinoPivot_1_2);
+                    context.Horizons.Add(lGranMolinoPivot_1_3);
+                    context.Horizons.Add(lGranMolinoPivot_2_1);
+                    context.Horizons.Add(lGranMolinoPivot_2_2);
+                    context.Horizons.Add(lGranMolinoPivot_2_3);
+                    context.Horizons.Add(lGranMolinoPivot_3_1);
+                    context.Horizons.Add(lGranMolinoPivot_3_2);
+                    context.Horizons.Add(lGranMolinoPivot_3_3);
+                    context.Horizons.Add(lGranMolinoPivot_4_1);
+                    context.Horizons.Add(lGranMolinoPivot_4_2);
+                    context.Horizons.Add(lGranMolinoPivot_4_3);
+                    context.Horizons.Add(lGranMolinoPivot_5_1);
+                    context.Horizons.Add(lGranMolinoPivot_5_2);
+                    context.Horizons.Add(lGranMolinoPivot_5_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
 
             #region Horizons
 
@@ -12891,7 +13128,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 using (var context = new IrrigationAdvisorContext())
                 {
                     lFarm = (from far in context.Farms
-                             where far.Name == Utils.NameFarmDCAElParaiso
+                             where far.Name == Utils.NameFarmGMOLaPalma
                              select far).FirstOrDefault();
                     #region Pivot 1
                     lPosition = (from pos in context.Positions
@@ -14328,6 +14565,173 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Soils.Add(lSantaEmiliaPivot3);
                     context.Soils.Add(lSantaEmiliaPivot4);
                     context.Soils.Add(lSantaEmiliaPivot5);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+            #region Gran Molino Soils
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmGranMolino
+                             select far).FirstOrDefault();
+
+                    #region Pivot 1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino1 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGranMolinoPivot1 = new Soil
+                    {
+                        Name = Utils.NamePivotGranMolino1,
+                        Description = "Suelo del Pivot 1 en Gran Molino. "
+                         + "Grupos 10.8a y 10.8b. Franco arcillo limosos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 01, 02),
+                        DepthLimit = 69,
+                        ShortName = Utils.NamePivotGranMolino1,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGranMolinoPivot1.HorizonList.Add(lHorizon1);
+                    lGranMolinoPivot1.HorizonList.Add(lHorizon2);
+                    lGranMolinoPivot1.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 2
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino2
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino2 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino2 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino2 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGranMolinoPivot2 = new Soil
+                    {
+                        Name = Utils.NamePivotGranMolino2,
+                        Description = "Suelo del Pivot 1b en Gran Molino. "
+                         + "Grupos 10.8a y 10.8b. Franco arcillo limosos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 01, 02),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotGranMolino2,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGranMolinoPivot2.HorizonList.Add(lHorizon1);
+                    lGranMolinoPivot2.HorizonList.Add(lHorizon2);
+                    lGranMolinoPivot2.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 3
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino3
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino3 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino3 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino3 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGranMolinoPivot3 = new Soil
+                    {
+                        Name = Utils.NamePivotGranMolino3,
+                        Description = "Suelo del Pivot 3 en Gran Molino. "
+                         + "Grupos 10.8a y 10.8b. Franco arcillo limosos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 01, 02),
+                        DepthLimit = 69,
+                        ShortName = Utils.NamePivotGranMolino3,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGranMolinoPivot3.HorizonList.Add(lHorizon1);
+                    lGranMolinoPivot3.HorizonList.Add(lHorizon2);
+                    lGranMolinoPivot3.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 4
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino4
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino4 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino4 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino4 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGranMolinoPivot4 = new Soil
+                    {
+                        Name = Utils.NamePivotGranMolino4,
+                        Description = "Suelo del Pivot 4 en Gran Molino. "
+                         + "Grupos 10.8a y 10.8b. Franco arcillo limosos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 01, 02),
+                        DepthLimit = 69,
+                        ShortName = Utils.NamePivotGranMolino4,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGranMolinoPivot4.HorizonList.Add(lHorizon1);
+                    lGranMolinoPivot4.HorizonList.Add(lHorizon2);
+                    lGranMolinoPivot4.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 5
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotGranMolino5
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino5 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino5 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotGranMolino5 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lGranMolinoPivot5 = new Soil
+                    {
+                        Name = Utils.NamePivotGranMolino5,
+                        Description = "Suelo del Pivot 5 en Gran Molino. "
+                         + "Grupos 10.8a y 10.8b. Franco arcillo limosos.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 01, 02),
+                        DepthLimit = 69,
+                        ShortName = Utils.NamePivotGranMolino5,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lGranMolinoPivot5.HorizonList.Add(lHorizon1);
+                    lGranMolinoPivot5.HorizonList.Add(lHorizon2);
+                    lGranMolinoPivot5.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    context.Soils.Add(lGranMolinoPivot1);
+                    context.Soils.Add(lGranMolinoPivot2);
+                    context.Soils.Add(lGranMolinoPivot3);
+                    context.Soils.Add(lGranMolinoPivot4);
+                    context.Soils.Add(lGranMolinoPivot5);
                     context.SaveChanges();
                 }
             }

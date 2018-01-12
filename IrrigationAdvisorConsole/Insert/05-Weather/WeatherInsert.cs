@@ -517,6 +517,8 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
 
                 DataEntryDataTemperatures.DataTemperatures_South_2017(context, lRegion);
 
+                //DataEntryDataTemperatures.DataTemperatures_South_2018(context, lRegion);
+
                 #endregion
 
                 #region North
@@ -532,6 +534,8 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 DataEntryDataTemperatures.DataTemperatures_North_2016(context, lRegion);
 
                 DataEntryDataTemperatures.DataTemperatures_North_2017(context, lRegion);
+
+                //DataEntryDataTemperatures.DataTemperatures_North_2018(context, lRegion);
 
                 #endregion
 
@@ -672,31 +676,34 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 #endregion
             }
 
-            #region LasBrujas 2016-2017
+            #region LasBrujas 2016-2018
             using (var context = new IrrigationAdvisorContext())
             {
                 DataEntryWeatherData.WeatherDataLasBrujas_2016(context);
                 DataEntryWeatherData.WeatherDataLasBrujas_2017(context);
+                DataEntryWeatherData.WeatherDataLasBrujas_2018(context);
                 DataEntryWeatherData.WeatherDataLasBrujas_Prediction(context);
                 context.SaveChanges();
             }
             #endregion
 
-            #region LaEstuanzuela 2016-2017
+            #region LaEstuanzuela 2016-2018
             using (var context = new IrrigationAdvisorContext())
             {
                 DataEntryWeatherData.WeatherDataLaEstanzuela_2016(context);
                 DataEntryWeatherData.WeatherDataLaEstanzuela_2017(context);
+                DataEntryWeatherData.WeatherDataLaEstanzuela_2018(context);
                 DataEntryWeatherData.WeatherDataLaEstanzuela_Prediction(context);
                 context.SaveChanges();
             }
             #endregion
 
-            #region SaltoGrande 2016-2017
+            #region SaltoGrande 2016-2018
             using (var context = new IrrigationAdvisorContext())
             {
                 DataEntryWeatherData.WeatherDataSaltoGrande_2016(context);
                 DataEntryWeatherData.WeatherDataSaltoGrande_2017(context);
+                DataEntryWeatherData.WeatherDataSaltoGrande_2018(context);
                 DataEntryWeatherData.WeatherDataSaltoGrande_Prediction(context);
                 context.SaveChanges();
             }
