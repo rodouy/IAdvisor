@@ -426,6 +426,7 @@
     <Compile Include="Models\Security\UserAccess.cs" />
     <Compile Include="Models\Security\UserFarm.cs" />
     <Compile Include="Models\Utilities\OutputFileCSV.cs" />
+    <Compile Include="Models\Utilities\Triple.cs" />
     <Compile Include="Models\Water\EffectiveRain.cs" />
     <Compile Include="Models\Water\EvapotranspirationCrop.cs" />
     <Compile Include="Models\Water\Irrigation.cs" />

@@ -930,12 +930,12 @@ $(document).ready(function () {
 
     }
 
-    var addNoIrrigation = function (pDateFrom, pDateTo, pCIW, pReasonId, pObservations) {
+    var addNoIrrigation = function (pDateFrom, pDateTo, pCropIrrigationWeatherList, pReasonId, pObservations) {
 
 
         var pUrl = './AddNoIrrigation?pDateFrom=' + pDateFrom +
                 '&pDateTo=' + pDateTo +
-                '&pCIW=' + pCIW +
+                '&pCropIrrigationWeatherList=' + pCropIrrigationWeatherList +
                 '&pReasonId=' + pReasonId +
                 '&pObservations=' + pObservations +
                 '&farm=' + lstFarms.val();

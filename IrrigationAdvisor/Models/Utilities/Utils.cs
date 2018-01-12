@@ -667,6 +667,12 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             SantaEmilia,
 
+            /// <summary>
+            /// Gran Molino Farm
+            /// Gran Molino SRL
+            /// </summary>
+            GranMolino,
+
         }
 
 
@@ -803,6 +809,12 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             SantaEmilia,
 
+            /// <summary>
+            /// Gran Molino Farm
+            /// Gran Molino SRL
+            /// </summary>
+            GranMolino,
+
         }
 
         /// <summary>
@@ -875,6 +887,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCityPuntasDeValdez = "Puntas de Valdez";
         public static String NameCitySanGabriel = "San Gabriel";
         public static String NameCityPalmitas = "Palmitas";
+        public static String NameCityLibertad = "Libertad";
         public static String NameCity = "";
         #endregion
         #region Farms
@@ -896,6 +909,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameFarmElDesafio = "El Desafio";
         public static String NameFarmLosNaranjales = "Los Naranjales";
         public static String NameFarmSantaEmilia = "Santa Emilia";
+        public static String NameFarmGranMolino = "Gran Molino";
         #endregion
         #region Weather
         public static String NameWeatherStationLasBrujas = "Las Brujas";
@@ -1186,6 +1200,13 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilSantaEmilia4 = NameFarmSantaEmilia + " Pivot 4";
         public static String NameSoilSantaEmilia5 = NameFarmSantaEmilia + " Pivot 5";
         #endregion
+        #region Gran Molino
+        public static String NameSoilGranMolino1 = NameFarmGranMolino + " Pivot 1";
+        public static String NameSoilGranMolino2 = NameFarmGranMolino + " Pivot 2";
+        public static String NameSoilGranMolino3 = NameFarmGranMolino + " Pivot 3";
+        public static String NameSoilGranMolino4 = NameFarmGranMolino + " Pivot 4";
+        public static String NameSoilGranMolino5 = NameFarmGranMolino + " Pivot 5";
+        #endregion
         #endregion
         #endregion
         #region Data
@@ -1211,6 +1232,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameBombElDesafio = NameFarmElDesafio + " Bomba";
         public static String NameBombLosNaranjales = NameFarmLosNaranjales + " Bomba";
         public static String NameBombSantaEmilia = NameFarmSantaEmilia + " Bomba";
+        public static String NameBombGranMolino = NameFarmGranMolino + " Bomba";
         #endregion
         #region Pivots
         #region Demo
@@ -1382,6 +1404,13 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotSantaEmilia3 = NameFarmSantaEmilia + " Pivot 3";
         public static String NamePivotSantaEmilia4 = NameFarmSantaEmilia + " Pivot 4";
         public static String NamePivotSantaEmilia5 = NameFarmSantaEmilia + " Pivot 5";
+        #endregion
+        #region Gran Molino
+        public static String NamePivotGranMolino1 = NameFarmGranMolino + " Pivot 1";
+        public static String NamePivotGranMolino2 = NameFarmGranMolino + " Pivot 2";
+        public static String NamePivotGranMolino3 = NameFarmGranMolino + " Pivot 3";
+        public static String NamePivotGranMolino4 = NameFarmGranMolino + " Pivot 4";
+        public static String NamePivotGranMolino5 = NameFarmGranMolino + " Pivot 5";
         #endregion
         public static String NamePivot = "";
         #endregion
@@ -1651,6 +1680,13 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherSantaEmiliaPivot4_S1718 = NamePivotSantaEmilia4 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherSantaEmiliaPivot5_S1718 = NamePivotSantaEmilia5 + " " + NameSpecieCornSouthShort + " " + NameSeason;
         #endregion
+        #region Gran Molino
+        public static String NameCropIrrigationWeatherGranMolinoPivot1_S1718 = NamePivotGranMolino1 + " " + NameSpecieSoyaSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherGranMolinoPivot2_S1718 = NamePivotGranMolino2 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherGranMolinoPivot3_S1718 = NamePivotGranMolino3 + " " + NameSpecieSoyaSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherGranMolinoPivot4_S1718 = NamePivotGranMolino4 + " " + NameSpecieAlfalfaSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherGranMolinoPivot5_S1718 = NamePivotGranMolino5 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        #endregion
         #endregion
         #endregion
         #region Security
@@ -1691,6 +1727,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserLN4 = "sscarlato";
         public static String NameUserSE1 = "dsilveyra";
         public static String NameUserSE2 = "smontero";
+        public static String NameUserGM1 = "pjimenez";
         #endregion
         #region Utilities
         #endregion
@@ -1714,6 +1751,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionCityPuntasDeValdez = NameCityPuntasDeValdez;
         public static String NamePositionCitySanGabriel = NameCitySanGabriel;
         public static String NamePositionCityPalmitas = NameCityPalmitas;
+        public static String NamePositionCityLibertad = NameCityLibertad;
         public static String NamePositionCity = NameCity;
         #endregion
         #region PositionsFarms
@@ -1735,6 +1773,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionFarmElDesafio = NameFarmElDesafio;
         public static String NamePositionFarmLosNaranjales = NameFarmLosNaranjales;
         public static String NamePositionFarmSantaEmilia = NameFarmSantaEmilia;
+        public static String NamePositionFarmGranMolino = NameFarmGranMolino;
         #endregion
         #region PositionsWeatherStations
         public static String NamePositionWeatherStationLasBrujas = NameWeatherStationLasBrujas;
@@ -1926,6 +1965,13 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotSantaEmilia4 = NamePivotSantaEmilia4;
         public static String NamePositionPivotSantaEmilia5 = NamePivotSantaEmilia5;
         #endregion
+        #region Gran Molino
+        public static String NamePositionPivotGranMolino1 = NamePivotGranMolino1;
+        public static String NamePositionPivotGranMolino2 = NamePivotGranMolino2;
+        public static String NamePositionPivotGranMolino3 = NamePivotGranMolino3;
+        public static String NamePositionPivotGranMolino4 = NamePivotGranMolino4;
+        public static String NamePositionPivotGranMolino5 = NamePivotGranMolino5;
+        #endregion
         public static String NamePositionPivot = "";
         #endregion
         public static String NamePosition = "";
@@ -1937,6 +1983,8 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Crop
         //2016-11-12 rodouy Change Max/Min ET to Irrigate from 30/25 to 35/30
         //Changes respect the year (ninia or ninio) 
+
+        //To change Min or Max go to PERCENTAGE_OF_MAX_EVAPOTRANSPIRATION_TO_IRRIGATE_AFTER_R1 to see references
         public static int MaxEvapotranspirationToIrrigate_Corn = 35;
         public static int MinEvapotranspirationToIrrigate_Corn = 30;
         public static int MaxEvapotranspirationToIrrigate_Soya = 35;

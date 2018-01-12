@@ -147,6 +147,7 @@
   <ItemGroup>
     <Compile Include="Data\DataEntry.cs" />
     <Compile Include="Data\DataEntry2015.cs" />
+    <Compile Include="Data\DataEntry2016.cs" />
     <Compile Include="Data\DataEntryDataTemperatures.cs" />
     <Compile Include="Data\DataEntryWeatherData.cs" />
     <Compile Include="Data\IrrigationData.cs" />

@@ -47,6 +47,8 @@ namespace IrrigationAdvisorConsole
         public static DateTime DateOfReference = System.DateTime.Now; //.AddMonths(-9);
 
         public static bool AddWeatherInformation = true;
+
+        public static bool StopOnDebug = true;
         
         static void Main(string[] args)
         {
