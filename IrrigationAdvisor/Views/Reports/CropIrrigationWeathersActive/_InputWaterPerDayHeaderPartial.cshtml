@@ -11,6 +11,7 @@
 
 @helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.ReportPivotState.GridReportPivotState grid)
 {
+    <th>@grid.Name</th>
     <th>@grid.Day</th>
     <th>@grid.DailyRecordDate </th>
     <th>@grid.EffectiveRain (mm)</th>

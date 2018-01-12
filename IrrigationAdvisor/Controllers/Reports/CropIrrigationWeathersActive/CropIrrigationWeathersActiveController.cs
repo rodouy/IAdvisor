@@ -91,7 +91,7 @@ namespace IrrigationAdvisor.Controllers
                 uc = new UserConfiguration();
                 #endregion
 
-                lGridDailyRecordIrrigationResume = new GridReportPivotState("Día", "Fecha", "Riego", "Lluvia");
+                lGridDailyRecordIrrigationResume = new GridReportPivotState("Nombre", "Día", "Fecha", "Riego", "Lluvia");
                 lGridDailyRecordIrrigationResumeList.Add(lGridDailyRecordIrrigationResume);
 
             }
@@ -121,15 +121,17 @@ namespace IrrigationAdvisor.Controllers
             List<GridReportPivotState> lGridIrrigationUnitList = new List<GridReportPivotState>();
             List<GridReportPivotState> lGridDailyRecordIrrigationResumeList = new List<GridReportPivotState>();
             GridReportPivotState lGridDailyRecordIrrigationResume = null;
-
+            DateTime lDateOfReference;
 
 
             List<DailyRecord> lDailyRecordList;
             DailyRecordConfiguration lDailyRecordConfiguration;
             List<IrrigationUnit> lIrrigationUnitList;
+            List<CropIrrigationWeather> lCropIrrigationWeatherList;
             List<Farm> lFarmList;
             FarmConfiguration lFarmConfiguration;
             UserConfiguration lUserConfiguration;
+            IrrigationUnitConfiguration lIrrigationUnitConfiguration;
             User lLoggedUser;
             #endregion
 
@@ -140,47 +142,62 @@ namespace IrrigationAdvisor.Controllers
             #endregion
             try
             {
+                lDateOfReference = Utils.GetDateOfReference().Value;
+                lIrrigationUnitConfiguration = new IrrigationUnitConfiguration();
                 lDailyRecordConfiguration = new DailyRecordConfiguration();
 
 
                 lLoggedUser = lUserConfiguration.GetUserByName(ManageSession.GetUserName());
                 lFarmList = lFarmConfiguration.GetFarmWithActiveCropIrrigationWeathersListBy(lLoggedUser);
 
+
                 //Create IrrigationQuantity Units List
                 lIrrigationUnitList = new List<IrrigationUnit>();
                 foreach (Farm lCurrentFarm in lFarmList)
                 {
 
-                    lDailyRecordList = lDailyRecordConfiguration.GetDailyRecordsListDataUntilDateBy(8, Utils.GetDateOfReference().Value);
+                    lIrrigationUnitList = lIrrigationUnitConfiguration.GetIrrigationUnitListBy(lCurrentFarm);
 
-
-                    foreach (var lDailyRecordUnit in lDailyRecordList)
+                    foreach (var lIrrigationUnit in lIrrigationUnitList)
                     {
-                        lEffectiveRain = "";
-                        lEffectiveInputWater = "";
-                        lEffectiveRainDouble = 0;
-                        lEffectiveInputWaterDouble = 0;
 
-                        if (lDailyRecordUnit.Rain != null)
+                        lCropIrrigationWeatherList = lIrrigationUnitConfiguration.GetCropIrrigationWeatherListIncludeCropMainWeatherStationRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
+                        foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                         {
-                            lEffectiveRainDouble = lDailyRecordUnit.Rain.ExtraInput + lDailyRecordUnit.Rain.Input;
-                        }
 
-                        if (lDailyRecordUnit.Irrigation != null)
-                        {
-                            lEffectiveInputWaterDouble = lDailyRecordUnit.Irrigation.ExtraInput + lDailyRecordUnit.Irrigation.Input;
-                        }
-                        if (lEffectiveRainDouble + lEffectiveInputWaterDouble > 0) // not input
-                        {
-                            if (lEffectiveRainDouble != 0)
-                                lEffectiveRain = lEffectiveRainDouble.ToString();
 
-                            if (lEffectiveInputWaterDouble != 0)
-                                lEffectiveInputWater = lEffectiveInputWaterDouble.ToString();
+                            lDailyRecordList = lDailyRecordConfiguration.GetDailyRecordsListDataUntilDateBy(lCropIrrigationWeather.CropIrrigationWeatherId, lDateOfReference);
 
-                            lGridDailyRecordIrrigationResume = new GridReportPivotState(lDailyRecordUnit.DaysAfterSowing.ToString(), lDailyRecordUnit.DailyRecordDateTime.ToShortDateString(), lEffectiveRain, lEffectiveInputWater);
-                            lGridDailyRecordIrrigationResumeList.Add(lGridDailyRecordIrrigationResume);
 
+                            foreach (var lDailyRecordUnit in lDailyRecordList)
+                            {
+                                lEffectiveRain = "";
+                                lEffectiveInputWater = "";
+                                lEffectiveRainDouble = 0;
+                                lEffectiveInputWaterDouble = 0;
+
+                                if (lDailyRecordUnit.Rain != null)
+                                {
+                                    lEffectiveRainDouble = lDailyRecordUnit.Rain.ExtraInput + lDailyRecordUnit.Rain.Input;
+                                }
+
+                                if (lDailyRecordUnit.Irrigation != null)
+                                {
+                                    lEffectiveInputWaterDouble = lDailyRecordUnit.Irrigation.ExtraInput + lDailyRecordUnit.Irrigation.Input;
+                                }
+                                if (lEffectiveRainDouble + lEffectiveInputWaterDouble > 0) // not input
+                                {
+                                    if (lEffectiveRainDouble != 0)
+                                        lEffectiveRain = lEffectiveRainDouble.ToString();
+
+                                    if (lEffectiveInputWaterDouble != 0)
+                                        lEffectiveInputWater = lEffectiveInputWaterDouble.ToString();
+
+                                    lGridDailyRecordIrrigationResume = new GridReportPivotState(lCurrentFarm.Name + " | " + lCropIrrigationWeather.IrrigationUnit.ShortName, lDailyRecordUnit.DaysAfterSowing.ToString(), lDailyRecordUnit.DailyRecordDateTime.ToShortDateString(), lEffectiveRain, lEffectiveInputWater);
+                                    lGridDailyRecordIrrigationResumeList.Add(lGridDailyRecordIrrigationResume);
+
+                                }
+                            }
                         }
                     }
                 }
@@ -364,8 +381,6 @@ namespace IrrigationAdvisor.Controllers
                 lIrrigationUnitList = new List<IrrigationUnit>();
                 foreach (Farm lCurrentFarm in lFarmList)
                 {
-
-
                     lSomeData = lSomeData + "Farm: " + lCurrentFarm.Name + "-";
                     lFarmViewModel = new FarmViewModel(lCurrentFarm);
                    
