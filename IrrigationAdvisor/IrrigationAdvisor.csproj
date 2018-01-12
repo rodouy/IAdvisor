@@ -227,6 +227,7 @@
     <Compile Include="Controllers\Management\DailyRecordsController.cs" />
     <Compile Include="Controllers\Management\MessagesController.cs" />
     <Compile Include="Controllers\Management\TitlesController.cs" />
+    <Compile Include="Controllers\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveController.cs" />
     <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitController.cs" />
     <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintableController.cs" />
     <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStatePrintableController.cs" />
@@ -444,6 +445,7 @@
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
@@ -937,6 +939,11 @@
     <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintable.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitHeaderPartial.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitPartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActive.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPageHeaderPartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />

@@ -1,0 +1,52 @@
+﻿@model List<IrrigationAdvisor.Models.GridHome.GridPivotHome>
+
+@{
+    ViewBag.Title = "Pivot Irrigation";
+}
+
+@*<th>Nombre</th>
+<th>Cultivo</th>
+<th>Siembra</th>
+<th>Fen.</th>*@
+
+@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.GridHome.GridPivotHome gridPivotItem)
+{
+    <th>@gridPivotItem.IrrigationUnitName</th>
+    <th>@gridPivotItem.CropName</th>
+    <th>@gridPivotItem.SowingDate</th>
+    <th>@gridPivotItem.PhenologyName</th>
+    if (gridPivotItem.IsAdministrator)
+    {
+        <th>@gridPivotItem.CropCoefficient</th>
+        <th>@gridPivotItem.HydricBalance</th>
+    }
+
+}
+
+
+@foreach (var item in Model)
+{
+    @CustomRenderingOfColumn(item)
+}
+
+@foreach (var detail in Model.First().ListGridPivotDetailHome)
+{
+
+    if (detail.IsToday)
+    {
+        <th title='@detail.DateOfData.Date'>@detail.Day</th>
+    }
+    else
+    {
+        <th class="color-day" title='@detail.DateOfData.Date'>@detail.Day</th>
+    }
+
+}
+
+
+
+
+
+
+
+
