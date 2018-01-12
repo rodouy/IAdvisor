@@ -21,7 +21,6 @@ using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Water;
 using IrrigationAdvisor.Models.Weather;
 using IrrigationAdvisor.ViewModels.Agriculture;
-using IrrigationAdvisor.ViewModels.Errors;
 using IrrigationAdvisor.ViewModels.Home;
 using IrrigationAdvisor.ViewModels.Irrigation;
 using IrrigationAdvisor.ViewModels.Localization;
@@ -31,7 +30,6 @@ using IrrigationAdvisor.ViewModels.Weather;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
@@ -53,19 +51,17 @@ namespace IrrigationAdvisor.Controllers
         #region  Render Grid CIW water input
 
         [ChildActionOnly]
-        public PartialViewResult ReportIrrigationUnitHeaderPartial()
+        public PartialViewResult InputWaterPerDayHeaderPartial()
         {
             return PartialView("~/Views/Reports/CropIrrigationWeathersActive/_InputWaterPerDayHeaderPartial.cshtml", GetGridDailyRecordIrrigationResumeTitles());
         }
 
         [ChildActionOnly]
-        public PartialViewResult ReportIrrigationUnitPartial()
+        public PartialViewResult InputWaterPerDayPartial()
         {
             return PartialView("~/Views/Reports/CropIrrigationWeathersActive/_InputWaterPerDayPartial.cshtml", GetGridDailyRecordIrrigationResume());
         }
         #endregion
-
-
         #region Grid CIW water input
 
         /// <summary>
@@ -216,8 +212,6 @@ namespace IrrigationAdvisor.Controllers
         #endregion
 
 
-
-
         #region  Render Grid Pivot Irrigation
 
         [ChildActionOnly]
@@ -234,8 +228,6 @@ namespace IrrigationAdvisor.Controllers
             return PartialView("~/Views/Reports/CropIrrigationWeathersActive/_FrontPageHeaderPartial.cshtml", GetGridPivotHomeTitles());
         }
         #endregion
-
-
         #region Grid Pivot Irrigation
 
         private readonly List<GridPivotHome> gridIrrigationUnitHomeList = new List<GridPivotHome>();
