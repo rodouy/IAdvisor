@@ -1010,6 +1010,7 @@ namespace IrrigationAdvisor.Models.Management
             Double lAmountOfIrrigationNotUsed = 0;
             int lDaysBetweenIrrigations = 0;
             Double lEffectiveRain = 0;
+            Double lEffectiveInputWaterFromLastDays = 0;
 
             if (pDailyRecord.Rain != null)
             {
@@ -1056,7 +1057,8 @@ namespace IrrigationAdvisor.Models.Management
                     //for last day to DAYS_BETWEEN_TWO_PARTIAL_BIG_WATER_INPUT, see if the input water is bigger than CONSIDER_WATER_TO_INITIALIZE_ETC_ACUMULATED
                     for (int lDay = 1; lDay < InitialTables.DAYS_BETWEEN_TWO_PARTIAL_BIG_WATER_INPUT; lDay++)
                     {
-                        if ((lEffectiveIrrigationTotal + this.GetEffectiveInputWaterFromLastDays(lDay))
+                        lEffectiveInputWaterFromLastDays = this.getEffectiveInputWaterFromLastDays(lDay);
+                        if ((lEffectiveIrrigationTotal + lEffectiveInputWaterFromLastDays)
                                                             > InitialTables.CONSIDER_WATER_TO_INITIALIZE_ETC_ACUMULATED_BY_DAYS)
                         {
                             this.TotalEvapotranspirationCropFromLastWaterInput = 0;
@@ -1064,6 +1066,10 @@ namespace IrrigationAdvisor.Models.Management
                             //This irrigation is the last Partial Water
                             this.LastPartialWaterInput = lEffectiveIrrigationTotal + lEffectiveRain;
                             this.LastPartialWaterInputDate = pDailyRecord.DailyRecordDateTime;
+                        }
+                        else 
+                        {
+                            lEffectiveIrrigationTotal += lEffectiveInputWaterFromLastDays;
                         }
                     }
                 }
@@ -1116,11 +1122,13 @@ namespace IrrigationAdvisor.Models.Management
         {
             Double lReturn;
             Double lRealRain = 0;
+            Double lTotalEffectiveRain = 0;
             Double lEffectiveRain = 0;
             Double lAmountOfRainNotUsed = 0;
             int lDaysBetweenRains = 0;
             Double lEffectiveIrrigationTotal = 0;
             Double lIrrigationEfficiency = 0;
+            Double lEffectiveRainsFromLastDays = 0;
             
             if(pDailyRecord.Irrigation != null)
             {
@@ -1172,7 +1180,7 @@ namespace IrrigationAdvisor.Models.Management
                 if (this.HydricBalance >= pFieldCapacity)
                 {
                     //Rains higher than 3 mm do consider as BigWaterInput
-                    if (lRealRain > InitialTables.MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT)
+                    if (lRealRain > InitialTables.MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT_AFTER_REACH_FIELD_CAPACITY)
                     {
                         //We have to save the date to keep the hydric balance unchangable
                         this.LastBigWaterInputDate = pDailyRecord.DailyRecordDateTime;
@@ -1183,6 +1191,32 @@ namespace IrrigationAdvisor.Models.Management
                     lAmountOfRainNotUsed = this.HydricBalance - pFieldCapacity;
                     this.HydricBalance = pFieldCapacity;
                     this.TotalEffectiveRain -= lAmountOfRainNotUsed;
+                }
+                //Rains higher than 50 mm do consider as BigWaterInput
+                else if (lRealRain >= InitialTables.MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT)
+                {
+                    //We have to save the date to keep the hydric balance unchangable
+                    this.LastBigWaterInputDate = pDailyRecord.DailyRecordDateTime;
+                }
+                //If rains between 3 days (DAYS_BETWEEN_TWO_BIG_WATER_INPUT_BY_RAIN) are bigger than MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT 50 mm then set LastBigWaterInputDate
+                else if (lDaysBetweenRains <= InitialTables.DAYS_BETWEEN_TWO_BIG_WATER_INPUT_BY_RAIN)
+                {
+                    lTotalEffectiveRain = lEffectiveRain;
+                    //for last day to DAYS_BETWEEN_TWO_BIG_WATER_INPUT_BY_RAIN, see if the input water is bigger than MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT
+                    for (int lDay = 1; lDay < InitialTables.DAYS_BETWEEN_TWO_BIG_WATER_INPUT_BY_RAIN; lDay++)
+                    {
+                        lEffectiveRainsFromLastDays = this.getEffectiveRainFromLastDays(lDay);
+                        if ((lTotalEffectiveRain + lEffectiveRainsFromLastDays)
+                                                            >= InitialTables.MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT)
+                        {
+                            //We have to save the date to keep the hydric balance unchangable
+                            this.LastBigWaterInputDate = pDailyRecord.DailyRecordDateTime;
+                        }
+                        else
+                        {
+                            lTotalEffectiveRain += lEffectiveRainsFromLastDays;
+                        }
+                    }
                 }
             }
 
@@ -1342,7 +1376,17 @@ namespace IrrigationAdvisor.Models.Management
             if (this.TotalEvapotranspirationCropFromLastWaterInput != 0 
                 && lPercentageOfHydricBalance >= InitialTables.HYDRIC_BALANCE_PERCENTAGE_TO_CONSIDER_INCREASE)
             {
-                if (lDaysAfterBigGapWaterInput <= InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_LARGE_INCREASE)
+                if(this.WeatherEventType == Utils.WeatherEventType.LaNinia && 
+                    lDaysAfterBigGapWaterInput <= InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_LARGE_INCREASE_NINIA)
+                {
+                    this.TotalEvapotranspirationCropFromLastWaterInput = 0;
+                }
+                else if (this.WeatherEventType == Utils.WeatherEventType.ElNinio &&
+                    lDaysAfterBigGapWaterInput <= InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_LARGE_INCREASE_NINIO)
+                {
+                    this.TotalEvapotranspirationCropFromLastWaterInput = 0;
+                }
+                else if (lDaysAfterBigGapWaterInput <= InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_LARGE_INCREASE)
                 {
                     this.TotalEvapotranspirationCropFromLastWaterInput = 0;
                 }
@@ -1370,7 +1414,17 @@ namespace IrrigationAdvisor.Models.Management
             //After a big RAIN input, the Hydric Balance keep its value = FieldCapacity for X days
             //LastBigWaterInputDate it will be inicialized after rain Adjunstment
             lDaysAfterBigInputWater = Utilities.Utils.GetDaysDifference(this.LastBigWaterInputDate, pDailyRecord.DailyRecordDateTime);
-            if (lDaysAfterBigInputWater <= InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_BIG_WATER_INPUT)
+            if(this.WeatherEventType == Utils.WeatherEventType.LaNinia &&
+                lDaysAfterBigInputWater <= InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_BIG_WATER_INPUT_NINIA)
+            {
+                this.HydricBalance = lFieldCapacity;
+            }
+            else if (this.WeatherEventType == Utils.WeatherEventType.ElNinio &&
+                lDaysAfterBigInputWater <= InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_BIG_WATER_INPUT_NINIO)
+            {
+                this.HydricBalance = lFieldCapacity;
+            }
+            else if (lDaysAfterBigInputWater <= InitialTables.DAYS_HYDRIC_BALANCE_UNCHANGABLE_AFTER_BIG_WATER_INPUT)
             {
                 this.HydricBalance = lFieldCapacity;
             }
@@ -2270,7 +2324,7 @@ namespace IrrigationAdvisor.Models.Management
         /// </summary>
         /// <param name="pDaysToLookFor"></param>
         /// <returns></returns>
-        private Double GetEffectiveInputWaterFromLastDays(Double pDaysToLookFor)
+        private Double getEffectiveInputWaterFromLastDays(Double pDaysToLookFor)
         {
             Double lReturn = 0;
             long lDaysToLookFor = (long)Math.Round(pDaysToLookFor);
@@ -2286,6 +2340,39 @@ namespace IrrigationAdvisor.Models.Management
                     if (lDays > 0)
                     {
                         lReturn += this.DailyRecordList[lDay].TotalEffectiveInputWater;
+                        lDays -= 1;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            return lReturn;
+        }
+
+
+        /// <summary>
+        /// Return the Effective Rain from the last DaysToLookFor days.
+        /// </summary>
+        /// <param name="pDaysToLookFor"></param>
+        /// <returns></returns>
+        private Double getEffectiveRainFromLastDays(Double pDaysToLookFor)
+        {
+            Double lReturn = 0;
+            long lDaysToLookFor = (long)Math.Round(pDaysToLookFor);
+            long lDays = Math.Min(lDaysToLookFor, this.DailyRecordList.Count());
+            if (lDays == 1)
+            {
+                lReturn = this.DailyRecordList[0].TotalEffectiveRain;
+            }
+            else if (lDays > 1)
+            {
+                for (int lDay = this.DailyRecordList.Count() - 1; lDay > 0; lDay--)
+                {
+                    if (lDays > 0)
+                    {
+                        lReturn += this.DailyRecordList[lDay].TotalEffectiveRain;
                         lDays -= 1;
                     }
                     else
