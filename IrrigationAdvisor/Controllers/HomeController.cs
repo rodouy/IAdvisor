@@ -1415,14 +1415,20 @@ namespace IrrigationAdvisor.Controllers
         /// <param name="ignoreSession"></param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult AddIrrigation(double pMilimeters, int pIrrigationUnitId,
-                                            int pDay, int pMonth, int pYear, bool ignoreSession = false)
+        public ActionResult AddIrrigation(double pMilimeters, 
+                                          int pIrrigationUnitId,
+                                          int pDay, 
+                                          int pMonth, 
+                                          int pYear, 
+                                          bool pIsFertigation, 
+                                          bool ignoreSession = false)
         {
             #region local variables
             String lSomeData = "";
             bool lIsExtraIrrigation = true;
             DateTime lDateResult;
             DateTime lReferenceDate;
+            string lObservations = pIsFertigation ? "Fertigation" : "Add Irrigation OK.";
 
             IrrigationAdvisorContext lIrrigationAdvisorContext;
             IrrigationUnitConfiguration lIrrigationUnitConfiguration;
@@ -1468,7 +1474,7 @@ namespace IrrigationAdvisor.Controllers
                     foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
                         lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation), 
-                                                                                lIsExtraIrrigation, Utils.NoIrrigationReason.Other, "Add Irrigation OK.");
+                                                                                lIsExtraIrrigation, Utils.NoIrrigationReason.Other, lObservations);
                         lSaveChanges = lIrrigationAdvisorContext.SaveChanges();
                         
                         if (pMilimeters >= 0)
@@ -1489,7 +1495,7 @@ namespace IrrigationAdvisor.Controllers
                         foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                         {
                             lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(pMilimeters, Utils.WaterInputType.Irrigation),
-                                                                                lIsExtraIrrigation, Utils.NoIrrigationReason.Other, "Add Irrigation OK.");
+                                                                                lIsExtraIrrigation, Utils.NoIrrigationReason.Other, lObservations);
                             lSaveChanges = lIrrigationAdvisorContext.SaveChanges();
 
                             if (pMilimeters > 0)
