@@ -132,7 +132,7 @@ namespace IrrigationAdvisor.WebApi.Controllers
 
                 foreach (var irrigationUnitId in values.IrrigationUnitId)
                 {
-                    home.AddIrrigation(values.Milimeters, irrigationUnitId, values.Date.Day, values.Date.Month, values.Date.Year, true);
+                    home.AddIrrigation(values.Milimeters, irrigationUnitId, values.Date.Day, values.Date.Month, values.Date.Year, false, true);
                 }
                 
                 result.IsOk = true;    
