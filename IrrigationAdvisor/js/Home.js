@@ -56,6 +56,7 @@ $(document).ready(function () {
     var dateToMove = $('#dateToMove');
     var selectedWaterInput = $('#selectedWaterInput');
     var cancelMoveIrrigation = $('#CancelMoveIrrigation');
+    var isFertigation = $('#isFertigation');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -689,7 +690,8 @@ $(document).ready(function () {
                 modalIrrigation.modal('hide');
                 addIrrigation(irrigationMilimeters.val(),
                                 $('#IrrigationUnitIrrigation :selected').val(),
-                                irrigationDate);
+                                irrigationDate,
+                                isFertigation.val());
 
             }else
             {
@@ -873,14 +875,21 @@ $(document).ready(function () {
     }
 
 
-    var addIrrigation = function (pMilimiters, pIrrigationUnitId, pDate) {
+    var addIrrigation = function (pMilimiters, pIrrigationUnitId, pDate, pIsFertigation) {
 
+        var fertigationBool = false;
+
+        if (pIsFertigation == "on")
+        {
+            fertigationBool = true;
+        }
 
         var pUrl = './AddIrrigation?pMilimeters=' + pMilimiters +
                 '&pIrrigationUnitId=' + pIrrigationUnitId +
                 '&pDay=' + pDate.date() +
                 '&pMonth=' + (pDate.month() + 1) +
-                '&pYear=' + pDate.year();
+                '&pYear=' + pDate.year() + 
+                '&pIsFertigation=' + fertigationBool;
 
         
         $.ajax({
