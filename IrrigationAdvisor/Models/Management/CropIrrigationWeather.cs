@@ -1128,7 +1128,7 @@ namespace IrrigationAdvisor.Models.Management
             int lDaysBetweenRains = 0;
             Double lEffectiveIrrigationTotal = 0;
             Double lIrrigationEfficiency = 0;
-            Double lEffectiveRainsFromLastDays = 0;
+            Double lEffectiveInputWaterFromLastDays = 0;
             
             if(pDailyRecord.Irrigation != null)
             {
@@ -1205,8 +1205,8 @@ namespace IrrigationAdvisor.Models.Management
                     //for last day to DAYS_BETWEEN_TWO_BIG_WATER_INPUT_BY_RAIN, see if the input water is bigger than MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT
                     for (int lDay = 1; lDay < InitialTables.DAYS_BETWEEN_TWO_BIG_WATER_INPUT_BY_RAIN; lDay++)
                     {
-                        lEffectiveRainsFromLastDays = this.getEffectiveRainFromLastDays(lDay);
-                        if ((lTotalEffectiveRain + lEffectiveRainsFromLastDays)
+                        lEffectiveInputWaterFromLastDays = this.getEffectiveRainFromLastDays(lDay);
+                        if ((lTotalEffectiveRain + lEffectiveInputWaterFromLastDays)
                                                             >= InitialTables.MIN_RAIN_TO_CONSIDER_BIG_WATER_INPUT)
                         {
                             //We have to save the date to keep the hydric balance unchangable
@@ -1214,7 +1214,7 @@ namespace IrrigationAdvisor.Models.Management
                         }
                         else
                         {
-                            lTotalEffectiveRain += lEffectiveRainsFromLastDays;
+                            lTotalEffectiveRain += lEffectiveInputWaterFromLastDays;
                         }
                     }
                 }
