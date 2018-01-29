@@ -3959,7 +3959,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
                         Radius = 10,
-                        Show = false,
+                        Show = true,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -4035,12 +4035,36 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
+                    #region Pivot 7
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombSantaEmilia
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotSantaEmilia5
+                                 select pos).FirstOrDefault();
 
+                    var lSantaEmiliaPivot7 = new Pivot
+                    {
+                        Name = Utils.NamePivotSantaEmilia7,
+                        ShortName = "Pivot 7",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.75,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 75,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 12,
+                        Radius = 37,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
                     context.Pivots.Add(lSantaEmiliaPivot1);
                     context.Pivots.Add(lSantaEmiliaPivot2);
                     context.Pivots.Add(lSantaEmiliaPivot3);
                     context.Pivots.Add(lSantaEmiliaPivot4);
                     context.Pivots.Add(lSantaEmiliaPivot5);
+                    context.Pivots.Add(lSantaEmiliaPivot7);
                     context.SaveChanges();
                 }
             }
