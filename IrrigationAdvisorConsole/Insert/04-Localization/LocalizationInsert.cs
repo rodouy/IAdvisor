@@ -1203,6 +1203,12 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Latitude = -33.4572,
                 Longitude = -57.6705,
             };
+            var lSantaEmiliaPivot7 = new Position()
+            {
+                Name = Utils.NamePositionPivotSantaEmilia7,
+                Latitude = -33.4572,
+                Longitude = -57.6705,
+            };
             #endregion
             #region Pivots Gran Molino #5
             var lGranMolinoPivot1 = new Position()
@@ -1442,12 +1448,13 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosNaranjalesPivot2a);
                 context.Positions.Add(lLosNaranjalesPivot2b);
                 #endregion
-                #region Pivots - Santa Emilia #5
+                #region Pivots - Santa Emilia #6
                 context.Positions.Add(lSantaEmiliaPivot1);
                 context.Positions.Add(lSantaEmiliaPivot2);
                 context.Positions.Add(lSantaEmiliaPivot3);
                 context.Positions.Add(lSantaEmiliaPivot4);
                 context.Positions.Add(lSantaEmiliaPivot5);
+                context.Positions.Add(lSantaEmiliaPivot7);
                 #endregion
                 #region Pivots - Gran Molino #5
                 context.Positions.Add(lGranMolinoPivot1);
