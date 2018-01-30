@@ -1542,10 +1542,11 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 {
 
                     //RainData.AddRainDataSantaEmiliaPivot1_2017(context, Program.DateOfReference);
-                    //RainData.AddRainDataSantaEmiliaPivot2_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataSantaEmiliaPivot2_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataSantaEmiliaPivot3_2017(context, Program.DateOfReference);
                     //RainData.AddRainDataSantaEmiliaPivot4_2017(context, Program.DateOfReference);
                     RainData.AddRainDataSantaEmiliaPivot5_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataSantaEmiliaPivot7_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -1848,10 +1849,11 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 using (var context = new IrrigationAdvisorContext())
                 {
                     //IrrigationData.AddIrrigationDataSantaEmiliaPivot1_2017(context, Program.DateOfReference);
-                    //IrrigationData.AddIrrigationDataSantaEmiliaPivot2_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataSantaEmiliaPivot2_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataSantaEmiliaPivot3_2017(context, Program.DateOfReference);
                     //IrrigationData.AddIrrigationDataSantaEmiliaPivot4_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataSantaEmiliaPivot5_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataSantaEmiliaPivot7_2017(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
