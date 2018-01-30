@@ -1,0 +1,168 @@
+﻿@model IrrigationAdvisor.ViewModels.Home.CropIrrigationWeathersActiveViewModel
+@using IrrigationAdvisor.Models.Utilities
+
+<link rel="stylesheet" type="text/css" href="../css/flatWeatherPlugin.css">
+<link rel="stylesheet" type="text/css" href="../css/modal.css">
+<link rel="stylesheet" type="text/css" href="../css/style-1.css">
+<link rel="stylesheet" type="text/css" href="../css/md-font.css">
+<link href="~/css/shared.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/js/Home.js"></script>
+@*<script src="~/Scripts/moment.js"></script>*@
+
+<div class="modal fade" tabindex="-1" role="dialog" id="loading">
+    <div class="modal-dialog" role="document">
+
+        <!-- Content Bar -->
+        <div id="floatingCirclesG">
+            <div class="f_circleG" id="frotateG_01"></div>
+            <div class="f_circleG" id="frotateG_02"></div>
+            <div class="f_circleG" id="frotateG_03"></div>
+            <div class="f_circleG" id="frotateG_04"></div>
+            <div class="f_circleG" id="frotateG_05"></div>
+            <div class="f_circleG" id="frotateG_06"></div>
+            <div class="f_circleG" id="frotateG_07"></div>
+            <div class="f_circleG" id="frotateG_08"></div>
+        </div>
+
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@{
+   
+}
+
+<input type="hidden" value="" id="farm-info" />
+<input type="hidden" value="" id="irrigationUnitRainMail" />
+<input type="hidden" value="" id="irrigationUnitIrrigationMail" />
+<input type="hidden" id="selectedWaterInput" />
+
+<!-- Grid Pivots -->
+<section class="profile">
+
+    <div class="container">
+                <div class="row">
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="padding-left:0">
+                        <div class="avatar-acount">
+                            <div class="info-acount">
+                                <h3 class="fa fa-dashboard fa-2x"> Pivots </h3>
+                                <div>
+                                    <div class="col-md-7">
+
+                                    </div>
+                                </div>
+                                <div class="">
+
+
+                                    <div style="color:black" class="btn-md">
+                                        <div class="col-xs-8 col-md-5 col-lg-5" id="dv-for-txtDateOfReference-dateOfReferenceBtn2">                                      
+                                            
+
+                                        </div>
+                                        <div style="float:right">
+                                            
+
+                                        </div>
+                                        <div style="float:right">
+                                            
+                                        </div>
+                                        <div style="float:right">
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        
+                                    </div>
+
+
+                                </div>
+                                <!-- Grid -->
+                                <div class="table-asignment">
+                                    <!-- Table -->
+                                    <div class="tab-content">
+                                        <!-- table header -->
+                                        <div class="tab-pane fade in active">
+                                            <div class="table-wrap">
+                                                <!-- table head -->
+                                                <!-- End Grid Head -->
+                                                <!-- Table -->
+                                                <div class="table-body">
+                                                    <!--table-->
+                                                    <table cellspacing="10" class="main-table-advisor">
+                                                        <thead>
+                                                            <tr>
+                                                                @{ Html.RenderAction("FrontPageHeaderPartial", "CropIrrigationWeathersActive"); }
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @{ Html.RenderAction("FrontPagePartial", "CropIrrigationWeathersActive"); }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Table -->
+                                </div>
+                                <!-- End Grid Pivot -->
+                         <!--
+                            
+                               </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" style="padding-left: 0">
+                                    <div class="mod-reference">
+                                        <div class="title-reference">
+                                            <h3 class="fa fa-list fa-2x"> Referencias</h3>
+                                            <div class="regado col-md-3"><h5>Campo regado</h5></div>
+                                            <div class="proximo-riego col-md-3"><h5>Próximo riego</h5></div>
+                                            <div class="lluvia-registrada col-md-3"><h5>Lluvia</h5></div>
+                                            <div class="no-riego col-md-3"><h5>No riego</h5></div>
+                                            <div class="por-defecto col-md-3"><h5>Sin Riego</h5></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="table-asignment">
+                                -->
+                                <!-- Table -->
+                                <h3 class="fa fa-dashboard fa-2x">Registros diarios</h3>
+                                <div class="tab-content">
+                                    <!-- table header -->
+                                    <div class="tab-pane fade in active">
+                                        <div class="table-wrap">
+                                            <!-- table head -->
+                                            <!-- End Grid Head -->
+                                            <!-- Table -->
+                                            <div class="table-body">
+                                                <!--table-->
+                                                <table cellspacing="10" class="main-table-advisor">
+                                                    <thead>
+                                                        <tr>
+                                                            @{ Html.RenderAction("InputWaterPerDayHeaderPartial", "CropIrrigationWeathersActive"); }
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @{ Html.RenderAction("InputWaterPerDayPartial", "CropIrrigationWeathersActive"); }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Table -->
+                            </div>
+
+                            </div>
+                        </div>
+        </div>
+    </div>
+
+</section>
+

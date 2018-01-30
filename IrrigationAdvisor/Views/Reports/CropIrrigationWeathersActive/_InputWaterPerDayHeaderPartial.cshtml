@@ -1,0 +1,37 @@
+﻿@model List<IrrigationAdvisor.Models.Reports.ReportPivotState.GridReportPivotState>
+
+@{
+    ViewBag.Title = "Pivot State Reports";
+}
+
+@*<th>Nombre</th>
+<th>Cultivo</th>
+<th>Siembra</th>
+<th>Fen.</th>*@
+
+@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Reports.ReportPivotState.GridReportPivotState grid)
+{
+    <th>@grid.Name</th>
+    <th>@grid.Day</th>
+    <th>@grid.DailyRecordDate </th>
+    <th>@grid.EffectiveRain (mm)</th>
+    <th>@grid.EffectiveInputWater (mm)</th>   
+
+}
+
+
+
+
+@foreach (var item in Model)
+{
+    @CustomRenderingOfColumn(item)
+}
+
+
+
+
+
+
+
+
+
