@@ -14721,7 +14721,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmSantaEmilia
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieCornSouthShort
+                     where crop.Name == Utils.NameSpecieSoyaSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotSantaEmilia2
@@ -15612,7 +15612,6 @@ namespace IrrigationAdvisorConsole.Data
 
 
         }
-
 
         public static void AddRainDataSantaEmiliaPivot7_2017(IrrigationAdvisorContext context, DateTime pDateOfReference)
         {

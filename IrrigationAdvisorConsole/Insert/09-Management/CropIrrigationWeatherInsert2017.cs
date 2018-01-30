@@ -14817,6 +14817,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //DataEntry.AddInformationToIrrigationUnitsSantaEmiliaPivot3_2017(context, Program.DateOfReference);
                     //DataEntry.AddInformationToIrrigationUnitsSantaEmiliaPivot4_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsSantaEmiliaPivot5_2017(context, Program.DateOfReference);
+                    //DataEntry.AddInformationToIrrigationUnitsSantaEmiliaPivot6_2017(context, Program.DateOfReference);
                     DataEntry.AddInformationToIrrigationUnitsSantaEmiliaPivot7_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");

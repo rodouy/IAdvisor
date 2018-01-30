@@ -3954,11 +3954,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.75,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 20,
+                        Surface = 75,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        PredeterminatedIrrigationQuantity = 10,
-                        Radius = 10,
+                        PredeterminatedIrrigationQuantity = 15,
+                        Radius = 32,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -4029,9 +4029,33 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Surface = 75,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        PredeterminatedIrrigationQuantity = 12,
+                        PredeterminatedIrrigationQuantity = 15,
                         Radius = 37,
                         Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 6
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombSantaEmilia
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotSantaEmilia6
+                                 select pos).FirstOrDefault();
+
+                    var lSantaEmiliaPivot6 = new Pivot
+                    {
+                        Name = Utils.NamePivotSantaEmilia5,
+                        ShortName = "Pivot 6",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.75,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 75,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 15,
+                        Radius = 37,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -4053,7 +4077,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Surface = 75,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        PredeterminatedIrrigationQuantity = 12,
+                        PredeterminatedIrrigationQuantity = 15,
                         Radius = 37,
                         Show = true,
                         FarmId = lFarm.FarmId,
@@ -4064,6 +4088,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     context.Pivots.Add(lSantaEmiliaPivot3);
                     context.Pivots.Add(lSantaEmiliaPivot4);
                     context.Pivots.Add(lSantaEmiliaPivot5);
+                    context.Pivots.Add(lSantaEmiliaPivot6);
                     context.Pivots.Add(lSantaEmiliaPivot7);
                     context.SaveChanges();
                 }
