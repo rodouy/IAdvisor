@@ -4045,7 +4045,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
 
                     var lSantaEmiliaPivot6 = new Pivot
                     {
-                        Name = Utils.NamePivotSantaEmilia5,
+                        Name = Utils.NamePivotSantaEmilia6,
                         ShortName = "Pivot 6",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.75,
