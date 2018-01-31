@@ -215,9 +215,9 @@ namespace IrrigationAdvisor.Controllers
         #region  Render Grid Pivot Irrigation
 
         [ChildActionOnly]
-        public PartialViewResult FrontPagePartial()
+        public PartialViewResult FrontPagePartial(string p)
         {
-            return PartialView("~/Views/Reports/CropIrrigationWeathersActive/_FrontPagePartial.cshtml", GetGridPivotHome());
+            return PartialView("~/Views/Reports/CropIrrigationWeathersActive/_FrontPagePartial.cshtml", GetGridPivotHome(p));
         }
 
         [ChildActionOnly]
@@ -311,8 +311,10 @@ namespace IrrigationAdvisor.Controllers
         /// Return Grid Irrigation Unit for Home
         /// </summary>
         /// <returns></returns>
-        public List<GridPivotHome> GetGridPivotHome()
+        public List<GridPivotHome> GetGridPivotHome(string p)
         {
+
+            string a = p;
             #region Local Variables
             String lSomeData = "";
             List<GridPivotHome> lGridIrrigationUnitList = new List<GridPivotHome>();
