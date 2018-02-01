@@ -12,8 +12,9 @@ using IrrigationAdvisor.ViewModels.Water;
 using IrrigationAdvisor.ViewModels.Agriculture;
 using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Irrigation;
+using IrrigationAdvisor.Models.Localization;
 
-namespace IrrigationAdvisor.ViewModels.Home
+namespace IrrigationAdvisor.ViewModels.Reports
 {
     public class CropIrrigationWeathersActiveViewModel
     {
@@ -22,12 +23,16 @@ namespace IrrigationAdvisor.ViewModels.Home
         #endregion
 
         #region Fields
-
+        private List<Farm> farmList;
         #endregion
 
         #region Properties
 
-
+        public List<Farm> FarmList
+        {
+            get { return farmList; }
+            set { farmList = value; }
+        }
 
         #endregion
 

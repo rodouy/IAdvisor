@@ -299,7 +299,7 @@ namespace IrrigationAdvisor.Controllers.Reports.ReportPivotState
                 uc = new UserConfiguration();
                 #endregion
 
-                lGridDailyRecordIrrigationResume = new GridReportPivotState("","Día", "Fecha", "Riego", "Lluvia");
+                lGridDailyRecordIrrigationResume = new GridReportPivotState("Día", "Fecha", "Riego", "Lluvia");
                 lGridDailyRecordIrrigationResumeList.Add(lGridDailyRecordIrrigationResume);
 
             }
@@ -365,7 +365,7 @@ namespace IrrigationAdvisor.Controllers.Reports.ReportPivotState
                         if (lEffectiveInputWaterDouble != 0)
                             lEffectiveInputWater = lEffectiveInputWaterDouble.ToString();
 
-                        lGridDailyRecordIrrigationResume = new GridReportPivotState("",lDailyRecordUnit.DaysAfterSowing.ToString(), lDailyRecordUnit.DailyRecordDateTime.ToShortDateString(), lEffectiveRain, lEffectiveInputWater);
+                        lGridDailyRecordIrrigationResume = new GridReportPivotState(lDailyRecordUnit.DaysAfterSowing.ToString(), lDailyRecordUnit.DailyRecordDateTime.ToShortDateString(), lEffectiveRain, lEffectiveInputWater);
                         lGridDailyRecordIrrigationResumeList.Add(lGridDailyRecordIrrigationResume);
 
                     }
