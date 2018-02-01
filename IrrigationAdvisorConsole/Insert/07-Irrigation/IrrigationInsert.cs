@@ -1183,7 +1183,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
                         Radius = 35,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId
                     };
                     #endregion
@@ -1206,7 +1206,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         Radius = 35,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1370,7 +1370,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         Radius = 70,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1485,7 +1485,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         Radius = 64,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1600,7 +1600,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         Radius = 41,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -1715,7 +1715,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         Radius = 50,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -2460,7 +2460,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -2725,7 +2725,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -2749,7 +2749,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -2773,7 +2773,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -2797,7 +2797,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 30,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -3449,7 +3449,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
                         Radius = 41,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -3547,7 +3547,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                              where f.Name == Utils.NameFarmLaRinconada
                              select f).FirstOrDefault();
 
-                    #region Pivot 1
+                    #region Pivot 01
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombLaRinconada
                              select b).FirstOrDefault();
@@ -3571,7 +3571,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
-                    #region Pivot 2
+                    #region Pivot 02
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombLaRinconada
                              select b).FirstOrDefault();
@@ -3591,7 +3591,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 26,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -3615,7 +3615,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 29,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -3639,7 +3639,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
                         Radius = 24,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
