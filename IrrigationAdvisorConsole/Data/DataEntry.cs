@@ -515,19 +515,19 @@ namespace IrrigationAdvisorConsole.Data
 
         public static DateTime SowingDate_SoyaSouth_GranMolinoPivot1_2017 = new DateTime(2017, 12, 05);
         public static DateTime HarvestDate_SoyaSouth_GranMolinoPivot1_2017 = new DateTime(2018, 05, 15);
-        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot1_2017 = 14;
+        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot1_2017 = 20;
         public static DateTime SowingDate_CornSouth_GranMolinoPivot2_2017 = new DateTime(2017, 10, 22);
         public static DateTime HarvestDate_CornSouth_GranMolinoPivot2_2017 = new DateTime(2018, 03, 15);
-        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot2_2017 = 14;
+        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot2_2017 = 20;
         public static DateTime SowingDate_SoyaSouth_GranMolinoPivot3_2017 = new DateTime(2017, 12, 05);
         public static DateTime HarvestDate_SoyaSouth_GranMolinoPivot3_2017 = new DateTime(2018, 05, 15);
-        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot3_2017 = 14;
+        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot3_2017 = 20;
         public static DateTime SowingDate_AlfalfaSouth_GranMolinoPivot4_2017 = new DateTime(2017, 10, 15);
         public static DateTime HarvestDate_AlfalfaSouth_GranMolinoPivot4_2017 = new DateTime(2018, 05, 30);
-        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot4_2017 = 14;
+        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot4_2017 = 20;
         public static DateTime SowingDate_CornSouth_GranMolinoPivot5_2017 = new DateTime(2017, 10, 22);
         public static DateTime HarvestDate_CornSouth_GranMolinoPivot5_2017 = new DateTime(2018, 03, 15);
-        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot5_2017 = 14;
+        public static Double PredeterminatedIrrigationQuantity_GranMolinoPivot5_2017 = 20;
 
         #endregion
         #endregion
