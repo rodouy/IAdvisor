@@ -1733,6 +1733,14 @@ namespace IrrigationAdvisor.Models.Management
                 lReturn.Third = true;
                 return lReturn;
             }
+            //when arrives to final Stage, do not add new irrigation
+            else if (this.PhenologicalStage.Stage.Order >= this.Crop.StopIrrigationStageOrder)
+            {
+                lReturn.First = 0;
+                lReturn.Second = Utils.WaterInputType.CantIrrigate;
+                lReturn.Third = true;
+                return lReturn;
+            }
             //We have a Cant Irrigate the day before and an Irrigation tha day
             else if (lHaveIrrigation != null  && lHaveIrrigation.Type != Utils.WaterInputType.IrrigationWasNotDecided
                                               && lHaveIrrigation.Type != Utils.WaterInputType.CantIrrigate
@@ -1740,15 +1748,6 @@ namespace IrrigationAdvisor.Models.Management
             {
                 lReturn.First = lHaveIrrigation.Input;
                 lReturn.Second = lHaveIrrigation.Type;
-                lReturn.Third = false;
-                return lReturn;
-            }
-
-            //when arrives to final Stage, do not add new irrigation
-            if (this.PhenologicalStage.Stage.Order > this.Crop.StopIrrigationStageOrder)
-            {
-                lReturn.First = 0;
-                lReturn.Second = Utils.WaterInputType.IrrigationWasNotDecided;
                 lReturn.Third = false;
                 return lReturn;
             }
