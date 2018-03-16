@@ -246,6 +246,21 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeController.cs" />
+    <Compile Include="DataAccess\ConfigurationManagerEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigurationManagerEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ConfigurationManagerEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigurationManagerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ConfigurationManagerEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigurationManagerEntities.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\IrrigationAdvisor.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -260,6 +275,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>IrrigationAdvisor.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\Role.cs">
+      <DependentUpon>IrrigationAdvisor.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\User.cs">
       <DependentUpon>IrrigationAdvisor.tt</DependentUpon>
@@ -282,6 +300,16 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DataAccess\ConfigurationManagerEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ConfigurationManagerEntities.edmx</DependentUpon>
+      <LastGenOutput>ConfigurationManagerEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataAccess\ConfigurationManagerEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ConfigurationManagerEntities.edmx</DependentUpon>
+      <LastGenOutput>ConfigurationManagerEntities.cs</LastGenOutput>
+    </Content>
     <Content Include="DataAccess\IrrigationAdvisor.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>IrrigationAdvisor.edmx</DependentUpon>
@@ -325,6 +353,13 @@
     </EntityDeploy>
     <Content Include="DataAccess\IrrigationAdvisor.edmx.diagram">
       <DependentUpon>IrrigationAdvisor.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="DataAccess\ConfigurationManagerEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ConfigurationManagerEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DataAccess\ConfigurationManagerEntities.edmx.diagram">
+      <DependentUpon>ConfigurationManagerEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -395,6 +430,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IrrigationAdvisor.CommonUtils\IrrigationAdvisor.CommonUtils.csproj">
+      <Project>{C3AF5C70-8505-4527-AF42-F86C701F2339}</Project>
+      <Name>IrrigationAdvisor.CommonUtils</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

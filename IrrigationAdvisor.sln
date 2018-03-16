@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrrigationAdvisor.WebApi", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManager", "ConfigurationManager\ConfigurationManager.csproj", "{B576FE9F-37FD-42E5-95A2-A4486F1E8D93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrrigationAdvisor.CommonUtils", "IrrigationAdvisor.CommonUtils\IrrigationAdvisor.CommonUtils.csproj", "{C3AF5C70-8505-4527-AF42-F86C701F2339}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{B576FE9F-37FD-42E5-95A2-A4486F1E8D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B576FE9F-37FD-42E5-95A2-A4486F1E8D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B576FE9F-37FD-42E5-95A2-A4486F1E8D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3AF5C70-8505-4527-AF42-F86C701F2339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3AF5C70-8505-4527-AF42-F86C701F2339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3AF5C70-8505-4527-AF42-F86C701F2339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3AF5C70-8505-4527-AF42-F86C701F2339}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

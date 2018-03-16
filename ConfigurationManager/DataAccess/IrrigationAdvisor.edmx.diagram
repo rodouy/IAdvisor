@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b717f9c6b8254cffbb3794b28cc05b63" Name="Diagram1">
         <EntityTypeShape EntityType="IrrigationAdvisorModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorModel.Role" Width="1.5" PointX="0.75" PointY="5.25" />
+        <AssociationConnector Association="IrrigationAdvisorModel.FK_dbo_User_dbo_Role_RoleId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

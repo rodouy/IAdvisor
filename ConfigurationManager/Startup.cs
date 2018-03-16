@@ -6,6 +6,8 @@ using Owin;
 using ConfigurationManager.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using ConfigurationManager.DataAccess;
+using IrrigationAdvisor.CommonUtils;
 
 [assembly: OwinStartup(typeof(ConfigurationManager.Startup))]
 
@@ -28,50 +30,46 @@ namespace ConfigurationManager
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
+            IrrigationAdvisorEntities irrigationAdvisorEntities = new IrrigationAdvisorEntities();
+            
 
-            // In Startup iam creating first Admin Role and creating a default Admin User   
-            if (!roleManager.RoleExists("Admin"))
+            var roles = irrigationAdvisorEntities.Roles.ToList();
+            var users = irrigationAdvisorEntities.Users.ToList();
+
+            foreach (var role in roles)
             {
-
-                // first we create Admin rool  
-                var role = new IdentityRole();
-                role.Name = "Admin";
-                roleManager.Create(role);
-
-                //Here we create a Admin super user who will maintain the website                 
-
-                var user = new ApplicationUser();
-                user.UserName = "shanu";
-                user.Email = "syedshanumcain@gmail.com";
-
-                string userPWD = "A@Z200711";
-
-                var chkUser = UserManager.Create(user, userPWD);
-
-                //Add default User to Role Admin  
-                if (chkUser.Succeeded)
+                // In Startup iam creating first Admin Role and creating a default Admin User   
+                if (!roleManager.RoleExists(role.Name))
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "Admin");
-
+                    // first we create Admin rool  
+                    var identityRole = new IdentityRole();
+                    identityRole.Name = role.Name;
+                    roleManager.Create(identityRole);                
                 }
             }
 
-            // creating Creating Manager role   
-            if (!roleManager.RoleExists("Manager"))
+            foreach (var user in users)
             {
-                var role = new IdentityRole();
-                role.Name = "Manager";
-                roleManager.Create(role);
+                if (!UserManager.Users.Where(u => u.UserName == user.Name).Any())
+                {
+                    //Here we create a Admin super user who will maintain the website                 
 
-            }
+                    var applicationUser = new ApplicationUser();
+                    applicationUser.UserName = user.Name;
+                    applicationUser.Email = user.Email;
 
-            // creating Creating Employee role   
-            if (!roleManager.RoleExists("Employee"))
-            {
-                var role = new IdentityRole();
-                role.Name = "Employee";
-                roleManager.Create(role);
+                    // string userPWD = "A@Z200711";
 
+                    var chkUser = UserManager.Create(applicationUser);
+
+                    //Add default User to Role Admin  
+                    if (chkUser.Succeeded)
+                    {
+                        string roleName = irrigationAdvisorEntities.Roles.Single(n => n.RoleId == user.RoleId).Name;
+
+                        var result1 = UserManager.AddToRole(applicationUser.Id, roleName);
+                    }
+                }
             }
         }
     }
