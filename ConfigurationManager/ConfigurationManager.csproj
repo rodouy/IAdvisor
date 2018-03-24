@@ -261,6 +261,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConfigurationManagerEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\DecimalValues.cs">
+      <DependentUpon>ConfigurationManagerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\IntegerValues.cs">
+      <DependentUpon>ConfigurationManagerEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\IrrigationAdvisor.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -279,20 +285,29 @@
     <Compile Include="DataAccess\Role.cs">
       <DependentUpon>IrrigationAdvisor.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\StringValues.cs">
+      <DependentUpon>ConfigurationManagerEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\User.cs">
       <DependentUpon>IrrigationAdvisor.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\DecimalValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\IntegerValuesController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DecimalValuesViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IntegerValuesViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
+    <Compile Include="Models\StringValuesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Controllers\StringValuesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -416,6 +431,21 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Views\DecimalValues\Create.cshtml" />
+    <Content Include="Views\DecimalValues\Delete.cshtml" />
+    <Content Include="Views\DecimalValues\Details.cshtml" />
+    <Content Include="Views\DecimalValues\Edit.cshtml" />
+    <Content Include="Views\DecimalValues\Index.cshtml" />
+    <Content Include="Views\IntegerValues\Create.cshtml" />
+    <Content Include="Views\IntegerValues\Delete.cshtml" />
+    <Content Include="Views\IntegerValues\Details.cshtml" />
+    <Content Include="Views\IntegerValues\Edit.cshtml" />
+    <Content Include="Views\IntegerValues\Index.cshtml" />
+    <Content Include="Views\StringValues\Create.cshtml" />
+    <Content Include="Views\StringValues\Delete.cshtml" />
+    <Content Include="Views\StringValues\Details.cshtml" />
+    <Content Include="Views\StringValues\Edit.cshtml" />
+    <Content Include="Views\StringValues\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

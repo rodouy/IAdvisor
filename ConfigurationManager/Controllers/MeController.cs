@@ -44,7 +44,7 @@ namespace ConfigurationManager.Controllers
         public GetViewModel Get()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());
-            return new GetViewModel() { Hometown = user.Hometown };
+            return new GetViewModel() { Hometown = user.Hometown, UserName = user.UserName };
         }
     }
 }

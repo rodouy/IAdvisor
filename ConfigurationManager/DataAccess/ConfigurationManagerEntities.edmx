@@ -4,20 +4,121 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ConfigurationManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="ConfigurationManagerModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="ConfigurationManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DecimalValues">
+          <Key>
+            <PropertyRef Name="DecimalValuesId" />
+          </Key>
+          <Property Name="DecimalValuesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModificationBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IntegerValues">
+          <Key>
+            <PropertyRef Name="IntegerValuesId" />
+          </Key>
+          <Property Name="IntegerValuesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="bigint" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModificationBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StringValues">
+          <Key>
+            <PropertyRef Name="StringValuesId" />
+          </Key>
+          <Property Name="StringValuesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="varchar(max)" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModificationBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ConfigurationManagerModelStoreContainer">
+          <EntitySet Name="DecimalValues" EntityType="Self.DecimalValues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IntegerValues" EntityType="Self.IntegerValues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StringValues" EntityType="Self.StringValues" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ConfigurationManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="ConfigurationManagerEntities" annotation:LazyLoadingEnabled="true" />
+        <EntityContainer Name="ConfigurationManagerEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="DecimalValues" EntityType="ConfigurationManagerModel.DecimalValues" />
+          <EntitySet Name="IntegerValues" EntityType="ConfigurationManagerModel.IntegerValues" />
+          <EntitySet Name="StringValues" EntityType="ConfigurationManagerModel.StringValues" />
+        </EntityContainer>
+        <EntityType Name="DecimalValues">
+          <Key>
+            <PropertyRef Name="DecimalValuesId" />
+          </Key>
+          <Property Name="DecimalValuesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Decimal" Nullable="false" Precision="9" Scale="5" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModificationBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IntegerValues">
+          <Key>
+            <PropertyRef Name="IntegerValuesId" />
+          </Key>
+          <Property Name="IntegerValuesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Int64" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModificationBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StringValues">
+          <Key>
+            <PropertyRef Name="StringValuesId" />
+          </Key>
+          <Property Name="StringValuesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModificationBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ConfigurationManagerModelStoreContainer" CdmEntityContainer="ConfigurationManagerEntities" />
+        <EntityContainerMapping StorageEntityContainer="ConfigurationManagerModelStoreContainer" CdmEntityContainer="ConfigurationManagerEntities" >
+          <EntitySetMapping Name="DecimalValues">
+            <EntityTypeMapping TypeName="ConfigurationManagerModel.DecimalValues">
+              <MappingFragment StoreEntitySet="DecimalValues">
+                <ScalarProperty Name="LastModificationBy" ColumnName="LastModificationBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DecimalValuesId" ColumnName="DecimalValuesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IntegerValues">
+            <EntityTypeMapping TypeName="ConfigurationManagerModel.IntegerValues">
+              <MappingFragment StoreEntitySet="IntegerValues">
+                <ScalarProperty Name="LastModificationBy" ColumnName="LastModificationBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IntegerValuesId" ColumnName="IntegerValuesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StringValues">
+            <EntityTypeMapping TypeName="ConfigurationManagerModel.StringValues">
+              <MappingFragment StoreEntitySet="StringValues">
+                <ScalarProperty Name="LastModificationBy" ColumnName="LastModificationBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StringValuesId" ColumnName="StringValuesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -31,7 +132,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

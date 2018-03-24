@@ -48,27 +48,44 @@ namespace ConfigurationManager
                 }
             }
 
-            foreach (var user in users)
+            //foreach (var user in users)
+            //{
+            //    if (!UserManager.Users.Where(u => u.UserName == user.Name).Any())
+            //    {
+            //        //Here we create a Admin super user who will maintain the website                 
+
+            //        var applicationUser = new ApplicationUser();
+            //        applicationUser.UserName = user.Name;
+            //        applicationUser.Email = user.Email;
+
+            //        // string userPWD = "A@Z200711";
+
+            //        var chkUser = UserManager.Create(applicationUser);
+
+            //        //Add default User to Role Admin  
+            //        if (chkUser.Succeeded)
+            //        {
+            //            string roleName = irrigationAdvisorEntities.Roles.Single(n => n.RoleId == user.RoleId).Name;
+
+            //            var result1 = UserManager.AddToRole(applicationUser.Id, roleName);
+            //        }
+            //    }
+            //}
+
+            string userName = "Admin1234";
+            string password = "123456";
+            string roleName;
+            if (!UserManager.Users.Where(u => u.UserName == userName).Any())
             {
-                if (!UserManager.Users.Where(u => u.UserName == user.Name).Any())
+                var toTestUser = new ApplicationUser();
+                toTestUser.UserName = userName;
+                toTestUser.Email = "mail@mail.com";
+                var okUser = UserManager.Create(toTestUser, password);
+
+                if (okUser.Succeeded)
                 {
-                    //Here we create a Admin super user who will maintain the website                 
-
-                    var applicationUser = new ApplicationUser();
-                    applicationUser.UserName = user.Name;
-                    applicationUser.Email = user.Email;
-
-                    // string userPWD = "A@Z200711";
-
-                    var chkUser = UserManager.Create(applicationUser);
-
-                    //Add default User to Role Admin  
-                    if (chkUser.Succeeded)
-                    {
-                        string roleName = irrigationAdvisorEntities.Roles.Single(n => n.RoleId == user.RoleId).Name;
-
-                        var result1 = UserManager.AddToRole(applicationUser.Id, roleName);
-                    }
+                    roleName = irrigationAdvisorEntities.Roles.Single(n => n.RoleId == 1).Name;
+                    UserManager.AddToRole(toTestUser.Id, roleName);
                 }
             }
         }
