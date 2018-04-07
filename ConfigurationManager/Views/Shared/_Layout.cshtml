@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Configuration Manager", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -25,7 +25,8 @@
                     <li>@Html.ActionLink("String Values", "Index", "StringValues")</li>
                     <li>@Html.ActionLink("Decimal Values", "Index", "DecimalValues")</li>
                     <li>@Html.ActionLink("Integer Values", "Index", "IntegerValues")</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
+                    <li>@Html.ActionLink("Enumeration Values", "Index", "EnumValues")</li>
+                    @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

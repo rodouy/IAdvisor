@@ -295,6 +295,7 @@
       <DependentUpon>IrrigationAdvisor.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\DecimalValuesController.cs" />
+    <Compile Include="Controllers\EnumValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -449,6 +450,11 @@
     <Content Include="Views\StringValues\Details.cshtml" />
     <Content Include="Views\StringValues\Edit.cshtml" />
     <Content Include="Views\StringValues\Index.cshtml" />
+    <Content Include="Views\EnumValues\Create.cshtml" />
+    <Content Include="Views\EnumValues\Delete.cshtml" />
+    <Content Include="Views\EnumValues\Details.cshtml" />
+    <Content Include="Views\EnumValues\Edit.cshtml" />
+    <Content Include="Views\EnumValues\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
