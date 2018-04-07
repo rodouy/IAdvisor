@@ -15,6 +15,17 @@
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="LastModificationBy" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="EnumValues">
+          <Key>
+            <PropertyRef Name="EnumValuesId" />
+          </Key>
+          <Property Name="EnumValuesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModificationBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="IntegerValues">
           <Key>
             <PropertyRef Name="IntegerValuesId" />
@@ -37,6 +48,7 @@
         </EntityType>
         <EntityContainer Name="ConfigurationManagerModelStoreContainer">
           <EntitySet Name="DecimalValues" EntityType="Self.DecimalValues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EnumValues" EntityType="Self.EnumValues" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IntegerValues" EntityType="Self.IntegerValues" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StringValues" EntityType="Self.StringValues" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -48,6 +60,7 @@
           <EntitySet Name="DecimalValues" EntityType="ConfigurationManagerModel.DecimalValues" />
           <EntitySet Name="IntegerValues" EntityType="ConfigurationManagerModel.IntegerValues" />
           <EntitySet Name="StringValues" EntityType="ConfigurationManagerModel.StringValues" />
+          <EntitySet Name="EnumValues" EntityType="ConfigurationManagerModel.EnumValues" />
         </EntityContainer>
         <EntityType Name="DecimalValues">
           <Key>
@@ -76,6 +89,17 @@
           <Property Name="StringValuesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModificationBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EnumValues">
+          <Key>
+            <PropertyRef Name="EnumValuesId" />
+          </Key>
+          <Property Name="EnumValuesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="LastModificationBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -115,6 +139,18 @@
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="StringValuesId" ColumnName="StringValuesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EnumValues">
+            <EntityTypeMapping TypeName="ConfigurationManagerModel.EnumValues">
+              <MappingFragment StoreEntitySet="EnumValues">
+                <ScalarProperty Name="LastModificationBy" ColumnName="LastModificationBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="EnumValuesId" ColumnName="EnumValuesId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

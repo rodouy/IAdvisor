@@ -72,6 +72,9 @@
     <Compile Include="DecimalValues.cs">
       <DependentUpon>ConfigurationManager.tt</DependentUpon>
     </Compile>
+    <Compile Include="EnumValues.cs">
+      <DependentUpon>ConfigurationManager.tt</DependentUpon>
+    </Compile>
     <Compile Include="IntegerValues.cs">
       <DependentUpon>ConfigurationManager.tt</DependentUpon>
     </Compile>

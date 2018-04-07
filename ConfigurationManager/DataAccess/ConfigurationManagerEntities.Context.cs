@@ -28,7 +28,6 @@ namespace ConfigurationManager.DataAccess
         public virtual DbSet<DecimalValues> DecimalValues { get; set; }
         public virtual DbSet<IntegerValues> IntegerValues { get; set; }
         public virtual DbSet<StringValues> StringValues { get; set; }
-
-        public System.Data.Entity.DbSet<ConfigurationManager.Models.DecimalValuesViewModel> DecimalValuesViewModels { get; set; }
+        public virtual DbSet<EnumValues> EnumValues { get; set; }
     }
 }

@@ -264,6 +264,9 @@
     <Compile Include="DataAccess\DecimalValues.cs">
       <DependentUpon>ConfigurationManagerEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\EnumValues.cs">
+      <DependentUpon>ConfigurationManagerEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\IntegerValues.cs">
       <DependentUpon>ConfigurationManagerEntities.tt</DependentUpon>
     </Compile>
