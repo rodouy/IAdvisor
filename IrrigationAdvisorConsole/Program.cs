@@ -145,6 +145,7 @@ namespace IrrigationAdvisorConsole
                 Console.WriteLine("  - InsertStages");
                 AgricultureInsert.InsertStagesCorn();
                 AgricultureInsert.InsertStagesSoya();
+                AgricultureInsert.InsertStagesOat();
                 AgricultureInsert.InsertStagesSorghumForage();
                 AgricultureInsert.InsertStagesSorghumGrain();
                 AgricultureInsert.InsertStagesAlfalfa();
@@ -175,6 +176,10 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium();
 
 
+                AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2017();
+                AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2017();
+                AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2017();
 
                 AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2017();
                 AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2017();
