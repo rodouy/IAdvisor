@@ -1356,6 +1356,10 @@ namespace IrrigationAdvisor.Models.Management
             {
                 this.TotalEvapotranspirationCrop += pDailyRecord.EvapotranspirationCrop.GetTotalOutput();
                 this.HydricBalance -= pDailyRecord.EvapotranspirationCrop.GetTotalOutput();
+                if(this.HydricBalance < 0)
+                {
+                    this.HydricBalance = 0;
+                }
             }
 
             //Percentage of Water (Hydric Balance / Field Capacity * 100) 
@@ -3578,9 +3582,15 @@ namespace IrrigationAdvisor.Models.Management
             lHydricBalance = this.HydricBalance;
             lFieldCapacity = this.GetSoilFieldCapacity();
             //lPermanentWiltingPoint = this.GetSoilPermanentWiltingPoint();
-
-            lPercentageOfWater = Math.Round(((lHydricBalance) * 100)
-                                           / (lFieldCapacity), 2);
+            if (lHydricBalance < 0)
+            {
+                lPercentageOfWater = 0;
+            }
+            else
+            {
+                lPercentageOfWater = Math.Round(((lHydricBalance) * 100)
+                                               / (lFieldCapacity), 2);
+            }
 
             lReturn = lPercentageOfWater;
             return lReturn;
@@ -3601,9 +3611,15 @@ namespace IrrigationAdvisor.Models.Management
             lHydricBalance = this.HydricBalance;
             lFieldCapacity = this.GetSoilFieldCapacity();
             lPermanentWiltingPoint = this.GetSoilPermanentWiltingPoint();
-
-            lPercentageOfAvailableWater = Math.Round(((lHydricBalance - lPermanentWiltingPoint) * 100)
-                                                    / (lFieldCapacity - lPermanentWiltingPoint), 2);
+            if (lHydricBalance < 0)
+            {
+                lPercentageOfAvailableWater = 0;
+            }
+            else
+            {
+                lPercentageOfAvailableWater = Math.Round(((lHydricBalance - lPermanentWiltingPoint) * 100)
+                                                        / (lFieldCapacity - lPermanentWiltingPoint), 2);
+            }
 
             lReturn = lPercentageOfAvailableWater;
             return lReturn;
