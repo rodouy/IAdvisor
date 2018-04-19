@@ -957,6 +957,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSpecieSoyaNorthMedium = "Soja " + NameSpecieCycleNorthMedium;
         public static String NameSpecieSoyaNorthLong = "Soja " + NameSpecieCycleNorthLong;
         #endregion
+        #region Oat
+        public static String NameSpecieOatSouthShort = "Avena " + NameSpecieCycleSouthShort;
+        public static String NameSpecieOatSouthMedium = "Avena " + NameSpecieCycleSouthMedium;
+        public static String NameSpecieOatNorthShort = "Avena " + NameSpecieCycleNorthShort;
+        public static String NameSpecieOatNorthMedium = "Avena " + NameSpecieCycleNorthShort;
+        #endregion
         #region Sorghum Forage
         public static String NameSpecieSorghumForageSouthShort = "Sorgo Forraje " + NameSpecieCycleSouthShort;
         public static String NameSpecieSorghumForageSouthMedium = "Sorgo Forraje " + NameSpecieCycleSouthMedium;
@@ -1010,6 +1016,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Stages
         public static String NameStagesCorn = "Maiz";
         public static String NameStagesSoya = "Soja";
+        public static String NameStagesOat = "Avena";
         public static String NameStagesSorghumForage = "Sorgo Forrajero";
         public static String NameStagesSorghumGrain = "Sorgo Granifero";
         public static String NameStagesAlfalfa = "Alfalfa";
@@ -1208,6 +1215,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilGranMolino3 = NameFarmGranMolino + " Pivot 3";
         public static String NameSoilGranMolino4 = NameFarmGranMolino + " Pivot 4";
         public static String NameSoilGranMolino5 = NameFarmGranMolino + " Pivot 5";
+        public static String NameSoilGranMolino2b = NameFarmGranMolino + " Pivot 2b";
+        public static String NameSoilGranMolino5b = NameFarmGranMolino + " Pivot 5b";
         #endregion
         #endregion
         #endregion
@@ -1415,6 +1424,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotGranMolino3 = NameFarmGranMolino + " Pivot 3";
         public static String NamePivotGranMolino4 = NameFarmGranMolino + " Pivot 4";
         public static String NamePivotGranMolino5 = NameFarmGranMolino + " Pivot 5";
+        public static String NamePivotGranMolino2b = NameFarmGranMolino + " Pivot 2b";
+        public static String NamePivotGranMolino5b = NameFarmGranMolino + " Pivot 5b";
         #endregion
         public static String NamePivot = "";
         #endregion
@@ -1692,6 +1703,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherGranMolinoPivot3_S1718 = NamePivotGranMolino3 + " " + NameSpecieSoyaSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherGranMolinoPivot4_S1718 = NamePivotGranMolino4 + " " + NameSpecieAlfalfaSouthShort + " " + NameSeason;
         public static String NameCropIrrigationWeatherGranMolinoPivot5_S1718 = NamePivotGranMolino5 + " " + NameSpecieCornSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherGranMolinoPivot2b_S1718 = NamePivotGranMolino2b + " " + NameSpecieOatSouthShort + " " + NameSeason;
+        public static String NameCropIrrigationWeatherGranMolinoPivot5b_S1718 = NamePivotGranMolino5b + " " + NameSpecieOatSouthShort + " " + NameSeason;
         #endregion
         #endregion
         #endregion
@@ -1979,6 +1992,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotGranMolino3 = NamePivotGranMolino3;
         public static String NamePositionPivotGranMolino4 = NamePivotGranMolino4;
         public static String NamePositionPivotGranMolino5 = NamePivotGranMolino5;
+        public static String NamePositionPivotGranMolino2b = NamePivotGranMolino2b;
+        public static String NamePositionPivotGranMolino5b = NamePivotGranMolino5b;
         #endregion
         public static String NamePositionPivot = "";
         #endregion
@@ -1997,7 +2012,9 @@ namespace IrrigationAdvisor.Models.Utilities
         public static int MinEvapotranspirationToIrrigate_Corn = 30;
         public static int MaxEvapotranspirationToIrrigate_Soya = 35;
         public static int MinEvapotranspirationToIrrigate_Soya = 30;
-        
+
+        public static int MaxEvapotranspirationToIrrigate_Oat = 30;
+        public static int MinEvapotranspirationToIrrigate_Oat = 25;
         public static int MaxEvapotranspirationToIrrigate_SorghumForage = 30;
         public static int MinEvapotranspirationToIrrigate_SorghumForage = 25;
         public static int MaxEvapotranspirationToIrrigate_SorghumGrain = 30;
@@ -2017,6 +2034,7 @@ namespace IrrigationAdvisor.Models.Utilities
 
         public static int CropDensity_Corn = 0;
         public static int CropDensity_Soya = 0;
+        public static int CropDensity_Oat = 0;
         public static int CropDensity_SorghumForage = 0;
         public static int CropDensity_SorghumGrain = 0;
         public static int CropDensity_Alfalfa = 0;

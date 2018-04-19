@@ -1216,7 +1216,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -57.6705,
             };
             #endregion
-            #region Pivots Gran Molino #5
+            #region Pivots Gran Molino #7
             var lGranMolinoPivot1 = new Position()
             {
                 Name = Utils.NamePositionPivotGranMolino1,
@@ -1244,6 +1244,18 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             var lGranMolinoPivot5 = new Position()
             {
                 Name = Utils.NamePositionPivotGranMolino5,
+                Latitude = -34.6445,
+                Longitude = -56.5333,
+            };
+            var lGranMolinoPivot2b = new Position()
+            {
+                Name = Utils.NamePositionPivotGranMolino2b,
+                Latitude = -34.6577,
+                Longitude = -56.5497,
+            };
+            var lGranMolinoPivot5b = new Position()
+            {
+                Name = Utils.NamePositionPivotGranMolino5b,
                 Latitude = -34.6445,
                 Longitude = -56.5333,
             };
@@ -1307,7 +1319,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosOlivos);
                 context.Positions.Add(lViveroSanFrancisco);
                 #endregion
-                #region Pivots #135
+                #region Pivots #137
                 #region Pivots - Demo #14
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1463,12 +1475,14 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lSantaEmiliaPivot6);
                 context.Positions.Add(lSantaEmiliaPivot7);
                 #endregion
-                #region Pivots - Gran Molino #5
+                #region Pivots - Gran Molino #7
                 context.Positions.Add(lGranMolinoPivot1);
                 context.Positions.Add(lGranMolinoPivot2);
                 context.Positions.Add(lGranMolinoPivot3);
                 context.Positions.Add(lGranMolinoPivot4);
                 context.Positions.Add(lGranMolinoPivot5);
+                context.Positions.Add(lGranMolinoPivot2b);
+                context.Positions.Add(lGranMolinoPivot5b);
                 #endregion
                 #endregion
                 context.SaveChanges();
