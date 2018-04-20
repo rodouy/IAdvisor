@@ -1563,6 +1563,8 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     RainData.AddRainDataGranMolinoPivot3_2017(context, Program.DateOfReference);
                     RainData.AddRainDataGranMolinoPivot4_2017(context, Program.DateOfReference);
                     RainData.AddRainDataGranMolinoPivot5_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGranMolinoPivot2b_2017(context, Program.DateOfReference);
+                    RainData.AddRainDataGranMolinoPivot5b_2017(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -1873,6 +1875,8 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     IrrigationData.AddIrrigationDataGranMolinoPivot3_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGranMolinoPivot4_2017(context, Program.DateOfReference);
                     IrrigationData.AddIrrigationDataGranMolinoPivot5_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGranMolinoPivot2b_2017(context, Program.DateOfReference);
+                    IrrigationData.AddIrrigationDataGranMolinoPivot5b_2017(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
