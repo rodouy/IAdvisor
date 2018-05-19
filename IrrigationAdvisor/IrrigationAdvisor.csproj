@@ -956,6 +956,8 @@
     <Content Include="Views\Reports\ReportPivotState\_ReportPivotStatePartial.cshtml" />
     <Content Include="Views\Reports\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
+    <Content Include="Views\ReportPivotState\ReportPivotStatePrintable.cshtml" />
+    <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
     <Content Include="Views\Reports\ReportPivotState\ReportPivotStatePrintable.cshtml" />
     <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnit.cshtml" />

@@ -39,18 +39,18 @@ namespace IrrigationAdvisor.ViewModels.Wizard
 
         public List<System.Web.Mvc.SelectListItem> City { get; set; }
 
-        
+
         public List<System.Web.Mvc.SelectListItem> WeatherStation { get; set; }
-     
+
         public string BombsHidden { get; set; }
 
         public WizardFarmViewModel()
         {
             this.WeatherStation = new List<System.Web.Mvc.SelectListItem>();
             this.City = new List<System.Web.Mvc.SelectListItem>();
-            
+
         }
-      
+
 
     }
 

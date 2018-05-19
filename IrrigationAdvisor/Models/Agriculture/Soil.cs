@@ -30,6 +30,7 @@ namespace IrrigationAdvisor.Models.Agriculture
     /// Fields of Class:
     ///     - soilId long
     ///     - name String
+    ///     - shortName String 
     ///     - description String
     ///     - positionId PositionId
     ///     - horizonList List<Horizon>
@@ -49,16 +50,16 @@ namespace IrrigationAdvisor.Models.Agriculture
     public class Soil
     {
         #region Consts
-
-
-
+        
+     
+        
         enum SoilLayer
         {
             AvailableWater,
             FieldCapacity,
             PermanentWiltingPoint,
         }
-
+        
 
         #endregion
 
@@ -66,12 +67,12 @@ namespace IrrigationAdvisor.Models.Agriculture
 
         private long soilId;
         private String name;
+        private String shortName;
         private String description;
         private long positionId;
         private List<Horizon> horizonList;
         private DateTime testDate;
         private double depthLimit;
-        private String shortName;
         private long farmId;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -98,13 +99,13 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return description; }
             set { description = value; }
         }
-
+       
         public long PositionId
         {
             get { return positionId; }
             set { positionId = value; }
         }
-
+        
         public List<Horizon> HorizonList
         {
             get { return horizonList; }
@@ -151,8 +152,8 @@ namespace IrrigationAdvisor.Models.Agriculture
         #endregion
 
         #region Construction
-
-        public Soil()
+        
+        public Soil() 
         {
             this.SoilId = 0;
             this.Name = "noname";
@@ -178,7 +179,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.DepthLimit = pDepthLimit;
             this.FarmId = pFarmId;
         }
-
+        
         #endregion
 
         #region Private Helpers
@@ -251,7 +252,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             {
                 logger.Error(ex, "Exception in Soil.getLayerCapacityByProrationOfHorizon " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
-
+                
             }
             return lReturnLayerWaterSum;
         }
@@ -333,8 +334,8 @@ namespace IrrigationAdvisor.Models.Agriculture
             {
                 if (this.HorizonList.Count > 0)
                 {
-                    lReturn += this.HorizonList.Max(ho => ho.HorizonId);
-                }
+                lReturn += this.HorizonList.Max(ho => ho.HorizonId);
+            }
 
             }
             return lReturn;
@@ -375,7 +376,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <returns></returns>
         public Horizon AddHorizon(String pName, int pOrder,
                         String pHorizonLayer, double pHorizonLayerDepth, double pSand,
-                        double pLimo, double pClay, double pOrganicMatter,
+                        double pLimo, double pClay, double pOrganicMatter, 
                         double pNitrogenAnalysis, double pBulkDensitySoil)
         {
             Horizon lReturn = null;
@@ -474,8 +475,8 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         /// <param name="pDepth"></param>
         /// <returns></returns>
-        public double GetAvailableWaterCapacity(double pDepth)
-        {
+         public double GetAvailableWaterCapacity(double pDepth)
+         {
             double lAvailableWaterCapacity;
             double lDepth = pDepth;
             if (pDepth > this.DepthLimit)
@@ -510,9 +511,9 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             string lReturn = Environment.NewLine + Environment.NewLine + this.Name + Environment.NewLine;
             foreach (Horizon lHorizon in this.HorizonList)
-            {
+               {
                 lReturn += lHorizon.ToString() + Environment.NewLine;
-            }
+               }
             return lReturn;
 
         }

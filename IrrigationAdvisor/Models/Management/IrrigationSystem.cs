@@ -961,10 +961,12 @@ namespace IrrigationAdvisor.Models.Management
         /// TODO add description
         /// </summary>
         /// <param name="pName"></param>
+        /// <param name="pShortName"></param>
         /// <param name="pSerialNumber"></param>
         /// <param name="pServiceDate"></param>
         /// <param name="pPurchaseDate"></param>
         /// <param name="pLocation"></param>
+        /// <param name="pFarmId"></param>
         /// <returns></returns>
         public Bomb UpdateBomb(String pName, String pShortName, String pSerialNumber, DateTime pServiceDate,
                             DateTime pPurchaseDate, long pPositionId, long pFarmId)
