@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ConfigurationManager.Models;
+using ConfigurationManager.DataAccess;
+using IrrigationAdvisor.CommonUtils;
+using System.Security.Cryptography;
 
 namespace ConfigurationManager.Controllers
 {
@@ -84,6 +87,24 @@ namespace ConfigurationManager.Controllers
             {
                 return View(model);
             }
+
+            //IrrigationAdvisorEntities irrigationAdvisor = new IrrigationAdvisorEntities();
+
+            //var user = irrigationAdvisor.Users.Where(n => n.UserName == model.UserName).FirstOrDefault();
+
+            //MD5 md5Hash = MD5.Create();
+
+            //var passwordHash = Cryptography.GetMd5Hash(md5Hash, model.Password);
+
+            //if (!String.IsNullOrEmpty(user.Password) && Cryptography.VerifyMd5Hash(md5Hash, model.Password, user.Password))
+            //{
+            //    return RedirectToLocal(returnUrl);
+            //}               
+            //else
+            //{
+            //    ModelState.AddModelError("", "Invalid login attempt.");
+            //    return View(model);
+            //}
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
