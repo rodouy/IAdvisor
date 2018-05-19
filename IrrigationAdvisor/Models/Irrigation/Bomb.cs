@@ -109,17 +109,6 @@ namespace IrrigationAdvisor.Models.Irrigation
             set;
         }
 
-        public string ShortName
-        {
-            get { return shortName; }
-            set { shortName = value; }
-        }
-        public virtual Position Position
-        {
-            get;
-            set;
-        }
-
         public long FarmId
         {
             get { return farmId; }
