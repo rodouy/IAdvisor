@@ -24,6 +24,7 @@ namespace IrrigationAdvisor.Models.Irrigation
     /// Fields of Class:
     ///     - bombId long
     ///     - name String
+    ///     - shortName String
     ///     - serialNumber int
     ///     - serviceDate DateTime
     ///     - purchaseDate DateTime
@@ -47,11 +48,11 @@ namespace IrrigationAdvisor.Models.Irrigation
 
         private long bombId;
         private String name;
+        private String shortName;
         private String serialNumber;
         private DateTime serviceDate;
         private DateTime purchaseDate;
         private long positionId;
-        private String shortName;
         private long farmId;
 
 
@@ -59,7 +60,7 @@ namespace IrrigationAdvisor.Models.Irrigation
 
         #region Properties
 
-
+        
         public long BombId
         {
             get { return bombId; }
@@ -70,6 +71,12 @@ namespace IrrigationAdvisor.Models.Irrigation
         {
             get { return name; }
             set { name = value; }
+        }
+
+        public string ShortName
+        {
+            get { return shortName; }
+            set { shortName = value; }
         }
 
         public String SerialNumber
@@ -107,6 +114,11 @@ namespace IrrigationAdvisor.Models.Irrigation
             get { return shortName; }
             set { shortName = value; }
         }
+        public virtual Position Position
+        {
+            get;
+            set;
+        }
 
         public long FarmId
         {
@@ -131,6 +143,7 @@ namespace IrrigationAdvisor.Models.Irrigation
         {
             this.BombId = 0;
             this.Name = "noname";
+            this.ShortName = "noshortname";
             this.SerialNumber = "0";
             this.ServiceDate = DateTime.Now;
             this.PurchaseDate = DateTime.Now;

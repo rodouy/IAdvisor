@@ -374,7 +374,7 @@ namespace IrrigationAdvisor.Models.Localization
             Soil lReturn = null;
             long lIdSoil = this.GetNewSoilListId();
             Soil lSoil = new Soil(lIdSoil, pName, pShortName, pDescription, pPositionId, pTestDate, pDepthLimit, pFarmId);
-            if (ExistSoil(lSoil) == null)
+            if(ExistSoil(lSoil) == null)
             {
                 this.SoilList.Add(lSoil);
                 lReturn = lSoil;
