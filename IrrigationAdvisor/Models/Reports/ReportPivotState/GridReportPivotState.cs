@@ -5,12 +5,12 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
- 
 
-namespace IrrigationAdvisor.Models.Reports
+
+namespace IrrigationAdvisor.Models.Reports.ReportPivotState
 {
 
-    public class GridDailyRecordIrrigationResume 
+    public class GridReportPivotState 
     {
         #region Consts
         #endregion
@@ -30,7 +30,6 @@ namespace IrrigationAdvisor.Models.Reports
         #endregion
 
         #region Properties
-
         public String Day
         {
             get { return day; }
@@ -65,7 +64,7 @@ namespace IrrigationAdvisor.Models.Reports
         #endregion
 
 
-        public GridDailyRecordIrrigationResume(String pDay, String pDailyRecordDate, String pEffectiveInputWater, String pEffectiveRain)
+        public GridReportPivotState(String pDay, String pDailyRecordDate, String pEffectiveInputWater, String pEffectiveRain)
         {
             this.day = pDay;
             this.dailyRecordDate = pDailyRecordDate;

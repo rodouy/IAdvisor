@@ -63,12 +63,12 @@ namespace IrrigationAdvisor.DBContext.Management
         }
         
         /// <summary>
-        /// Get Last 30 days DailyRecords List with Rains and Irrigation
+        /// Get DailyRecords List with Rains and Irrigation To 
         /// </summary>
         /// <param name="pCropIrrigationWeatherId"></param>
         /// <param name="pDateOfReference"></param>
         /// <returns></returns>
-        public List<DailyRecord> GetLast30DaysDailyRecordsListDataBy(long cropIrrigationWeatherId, DateTime pDateOfReference)
+        public List<DailyRecord> GetDailyRecordsListDataUntilDateBy(long cropIrrigationWeatherId, DateTime pDateOfReference)
         {
             List<DailyRecord> lReturn = null;
             List<DailyRecord> lDailyRecordList = null;
@@ -80,9 +80,61 @@ namespace IrrigationAdvisor.DBContext.Management
                     lDailyRecordList = db.DailyRecords
                                 .Include(d => d.Rain)
                                 .Include(d => d.Irrigation)
+                               
                                 .Where(d => d.CropIrrigationWeatherId == cropIrrigationWeatherId &&
-                                        d.DailyRecordDateTime <= pDateOfReference &&
-                                        d.DailyRecordDateTime >= ldt).ToList();
+                                        d.DailyRecordDateTime <= pDateOfReference).ToList();
+
+                    lReturn = lDailyRecordList;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception in DailyRecord.GetDailyRecordsListDataBy " + "\n" + ex.Message + "\n" + ex.StackTrace);
+            }
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get DailyRecords List with Rains and Irrigation To 
+        /// </summary>
+        /// <param name="pCropIrrigationWeatherId"></param>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public List<DailyRecord> GetDailyRecordsListWithTemperatureDataUntilDateBy(long cropIrrigationWeatherId, DateTime pDateOfReference)
+        {
+            List<DailyRecord> lReturn = null;
+            List<DailyRecord> lDailyRecordList = null;
+            DateTime ldt = pDateOfReference.AddMonths(-1);
+            try
+            {
+                if (cropIrrigationWeatherId > 0)
+                {
+                    lDailyRecordList = db.DailyRecords
+                                .Include(d => d.Rain)
+                                .Include(d => d.Irrigation)
+                                .Include(d => d.PhenologicalStage)
+                                .Include(d => d.MainWeatherData)
+                                .Where(d => d.CropIrrigationWeatherId == cropIrrigationWeatherId &&
+                                        d.DailyRecordDateTime <= pDateOfReference).ToList();
+
+
+                    //lDailyRecordList = (from dr in db.DailyRecords
+                    //                    join ciw in db.CropIrrigationWeathers
+                    //                        on dr.CropIrrigationWeatherId equals ciw.CropIrrigationWeatherId
+                    //                    join ws in db.WeatherStations
+                    //                      on ciw.MainWeatherStationId equals ws.WeatherStationId
+                    //                    join wsd in db.WeatherDatas
+                    //                        on ws.WeatherStationId equals wsd.WeatherDataId
+                    //                    where dr.CropIrrigationWeatherId == cropIrrigationWeatherId &&
+                    //                dr.DailyRecordDateTime <= pDateOfReference
+                    //                    select dr).Include(dr => dr.Rain)
+                    //                              .Include(dr => dr.Irrigation)
+                    //                              .Include(dr => dr.PhenologicalStage)
+                                                   
+                    //                              .ToList();
+                        
+ 
 
                     lReturn = lDailyRecordList;
                 }

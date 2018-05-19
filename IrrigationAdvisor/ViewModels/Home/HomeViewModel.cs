@@ -51,6 +51,8 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         public bool IsUserAdministrator { get; set; }
 
+        public bool IsUserIntermediate { get; set; }
+
         public DateTime DateOfReference { get; set; }
 
         public DateTime MinDateOfReference { get; set; }

@@ -122,6 +122,14 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web.DataVisualization">
+      <HintPath>..\packages\Microsoft.Chart.Controls.3.5.30729\lib\net35\System.Web.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization.Design">
+      <HintPath>..\packages\Microsoft.Chart.Controls.3.5.30729\lib\net35\System.Web.DataVisualization.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -159,6 +167,14 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Windows.Forms.DataVisualization">
+      <HintPath>..\packages\Microsoft.Chart.Controls.3.5.30729\lib\net35\System.Windows.Forms.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization.Design">
+      <HintPath>..\packages\Microsoft.Chart.Controls.3.5.30729\lib\net35\System.Windows.Forms.DataVisualization.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -212,8 +228,11 @@
     <Compile Include="Controllers\Management\DailyRecordsController.cs" />
     <Compile Include="Controllers\Management\MessagesController.cs" />
     <Compile Include="Controllers\Management\TitlesController.cs" />
-    <Compile Include="Controllers\Reports\ReportPivotStatePrintableController.cs" />
-    <Compile Include="Controllers\Reports\ReportPivotStateController.cs" />
+    <Compile Include="Controllers\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveController.cs" />
+    <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitController.cs" />
+    <Compile Include="Controllers\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintableController.cs" />
+    <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStatePrintableController.cs" />
+    <Compile Include="Controllers\Reports\ReportPivotState\ReportPivotStateController.cs" />
     <Compile Include="Controllers\Security\AccessesController.cs" />
     <Compile Include="Controllers\Security\MenusController.cs" />
     <Compile Include="Controllers\Security\RolesController.cs" />
@@ -230,6 +249,7 @@
     <Compile Include="Controllers\Weather\WeatherDatasController.cs" />
     <Compile Include="Controllers\Weather\WeatherInformationsController.cs" />
     <Compile Include="Controllers\Weather\WeatherStationsController.cs" />
+    <Compile Include="Controllers\Wizard\WizardSoilHorizonController.cs" />
     <Compile Include="Controllers\Wizard\WizardFarmBombController.cs" />
     <Compile Include="DBContext\Agriculture\CropCoefficientConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
@@ -357,6 +377,18 @@
     <Compile Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.Designer.cs">
       <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs" />
+    <Compile Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.Designer.cs">
+      <DependentUpon>201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs" />
+    <Compile Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.Designer.cs">
+      <DependentUpon>201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs" />
+    <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.Designer.cs">
+      <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201711070152223_AddCountryToRegion.cs" />
     <Compile Include="Migrations\201711070152223_AddCountryToRegion.Designer.cs">
       <DependentUpon>201711070152223_AddCountryToRegion.cs</DependentUpon>
@@ -406,10 +438,12 @@
     <Compile Include="Models\Management\IrrigationCalculus.cs" />
     <Compile Include="Models\Management\Message.cs" />
     <Compile Include="Models\Management\Title.cs" />
-    <Compile Include="Models\Reports\GridDailyRecordIrrigationResume.cs" />
+    <Compile Include="Models\Reports\ReportIrrigationUnit\GridReportIrrigationUnit.cs" />
+    <Compile Include="Models\Reports\ReportPivotState\GridReportPivotState.cs" />
     <Compile Include="Models\Security\UserAccess.cs" />
     <Compile Include="Models\Security\UserFarm.cs" />
     <Compile Include="Models\Utilities\OutputFileCSV.cs" />
+    <Compile Include="Models\Utilities\Triple.cs" />
     <Compile Include="Models\Water\EffectiveRain.cs" />
     <Compile Include="Models\Water\EvapotranspirationCrop.cs" />
     <Compile Include="Models\Water\Irrigation.cs" />
@@ -429,7 +463,10 @@
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Models\Weather\Season.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
+    <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />
     <Compile Include="ViewModels\Weather\GridWeather.cs" />
     <Compile Include="Models\Weather\TemperatureData.cs" />
@@ -506,6 +543,7 @@
     <Content Include="DataQueries\All CropInformationByDates - Query.sql" />
     <Content Include="DataQueries\All CropIrrigationWeathers - Query.sql" />
     <Content Include="DataQueries\All Crops - Query.sql" />
+    <Content Include="DataQueries\All DailyRecords - Query for Report.sql" />
     <Content Include="DataQueries\All Farms - Query.sql" />
     <Content Include="DataQueries\All Horizons - Query.sql" />
     <Content Include="DataQueries\All IrrigationUnits - Query.sql" />
@@ -517,6 +555,9 @@
     <Content Include="DataQueries\All SpecieCycle - Query.sql" />
     <Content Include="DataQueries\All Stages- Query.sql" />
     <Content Include="DataQueries\All Users - Query.sql" />
+    <Content Include="DataQueries\All WaterInputs - Query.sql" />
+    <Content Include="DataQueries\All WaterOututs - Query.sql" />
+    <Content Include="DataQueries\All WeatherData - Query by WeatherStation.sql" />
     <Content Include="DataQueries\All WeatherData - Query.sql" />
     <Content Include="DataQueries\All WeatherStations - Query.sql" />
     <Content Include="DataQueries\CIW-DR Queries Test.sql" />
@@ -911,10 +952,21 @@
     <Content Include="Views\Weather\Seasons\Edit.cshtml" />
     <Content Include="Views\Weather\Seasons\Index.cshtml" />
     <Content Include="Views\Wizard\FarmBomb\Wizard.cshtml" />
-    <Content Include="Views\ReportPivotState\ReportPivotState.cshtml" />
-    <Content Include="Views\ReportPivotState\_ReportPivotStatePartial.cshtml" />
-    <Content Include="Views\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
+    <Content Include="Views\Reports\ReportPivotState\ReportPivotState.cshtml" />
+    <Content Include="Views\Reports\ReportPivotState\_ReportPivotStatePartial.cshtml" />
+    <Content Include="Views\Reports\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
+    <Content Include="Views\Reports\ReportPivotState\ReportPivotStatePrintable.cshtml" />
+    <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
+    <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnit.cshtml" />
+    <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnitPrintable.cshtml" />
+    <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitHeaderPartial.cshtml" />
+    <Content Include="Views\Reports\ReportIrrigationUnit\_ReportIrrigationUnitPartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActive.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPageHeaderPartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
+    <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
     <Content Include="Views\ReportPivotState\ReportPivotStatePrintable.cshtml" />
     <Content Include="Views\Agriculture\DryMasses\Create.cshtml" />
     <Content Include="Views\Agriculture\DryMasses\Delete.cshtml" />
@@ -991,6 +1043,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.resx">
       <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.resx">
+      <DependentUpon>201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.resx">
+      <DependentUpon>201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.resx">
+      <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711070152223_AddCountryToRegion.resx">
       <DependentUpon>201711070152223_AddCountryToRegion.cs</DependentUpon>

@@ -87,7 +87,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 GrowingDegreeDaysModified = 0,
 
                 IrrigationUnitId = 0,
-                PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity,
+                PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart,
 
                 PositionId = 0,
 
@@ -126,8 +126,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 //if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 //    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
                 //{
-                //    lWeatherStationMainName = DataEntry.WeatherStationAlternativeName_SantaLucia_2016;
-                //    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_SantaLucia_2016;
+                //    lWeatherStationMainName = DataEntry2016.WeatherStationAlternativeName_SantaLucia_2016;
+                //    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_SantaLucia_2016;
 
                 //    #region Santa Lucia Pivot 1 2016
                 //    //////////////////////////////////////////////////////////////////////
@@ -174,16 +174,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 //                    where horizon.Name.StartsWith(Utils.NamePivotSantaLucia1)
                 //                    select horizon)
                 //                    .ToList<Horizon>();
-                //    lSowingDate = DataEntry.SowingDate_CornSouth_SantaLuciaPivot1_2016;
+                //    lSowingDate = DataEntry2016.SowingDate_CornSouth_SantaLuciaPivot1_2016;
                 //    lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
                 //    lCropDate = DateTime.Now;
-                //    if (DataEntry.PredeterminatedIrrigationQuantity_SantaLuciaPivot1_2016 == 0)
+                //    if (DataEntry2016.PredeterminatedIrrigationQuantity_SantaLuciaPivot1_2016 == 0)
                 //    {
                 //        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                 //    }
                 //    else
                 //    {
-                //        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_SantaLuciaPivot1_2016;
+                //        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_SantaLuciaPivot1_2016;
                 //    }
                 //    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
                 //                            join weatherstation in context.WeatherStations
@@ -216,7 +216,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 //        PositionId = lFarm.PositionId,
                 //        SoilId = lSoil.SoilId,
                 //        Soil = lSoil,
-
+                
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                 //        PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                 //        //Set the initial Phenological Stage for the Crop
@@ -309,8 +313,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
                 {
-                    lWeatherStationMainName = DataEntry.WeatherStationMainName_DCAElParaiso_2016;
-                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DCAElParaiso_2016;
+                    lWeatherStationMainName = DataEntry2016.WeatherStationMainName_DCAElParaiso_2016;
+                    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_DCAElParaiso_2016;
 
                     #region DCA - El Paraiso Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -360,16 +364,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCAElParaiso1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCAElParaisoPivot1_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCAElParaisoPivot1_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaSouth_DCAElParaisoPivot1_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaSouth_DCAElParaisoPivot1_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCAElParaisoPivot1_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCAElParaisoPivot1_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCAElParaisoPivot1_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCAElParaisoPivot1_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -407,6 +411,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -522,16 +530,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCAElParaiso2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCAElParaisoPivot2_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCAElParaisoPivot2_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaSouth_DCAElParaisoPivot2_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaSouth_DCAElParaisoPivot2_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCAElParaisoPivot2_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCAElParaisoPivot2_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCAElParaisoPivot2_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCAElParaisoPivot2_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -569,6 +577,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -645,8 +657,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                     {
-                        lWeatherStationMainName = DataEntry.WeatherStationMainName_DCALaPerdiz_2016;
-                        lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2016;
+                        lWeatherStationMainName = DataEntry2016.WeatherStationMainName_DCALaPerdiz_2016;
+                        lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_DCALaPerdiz_2016;
                     
                     #region DCA - La Perdiz Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -696,16 +708,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCALaPerdiz1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DCALaPerdizPivot1_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DCALaPerdizPivot1_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DCALaPerdizPivot1_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DCALaPerdizPivot1_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot1_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot1_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot1_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot1_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -743,6 +755,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -858,16 +874,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCALaPerdiz2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCALaPerdizPivot2_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCALaPerdizPivot2_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaSouth_DCALaPerdizPivot2_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaSouth_DCALaPerdizPivot2_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot2_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot2_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot2_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot2_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -905,6 +921,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1020,16 +1040,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCALaPerdiz3)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCALaPerdizPivot3_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCALaPerdizPivot3_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaSouth_DCALaPerdizPivot3_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaSouth_DCALaPerdizPivot3_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot3_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot3_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot3_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot3_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -1067,6 +1087,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1182,16 +1206,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCALaPerdiz5)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCALaPerdizPivot5_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCALaPerdizPivot5_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaSouth_DCALaPerdizPivot5_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaSouth_DCALaPerdizPivot5_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot5_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot5_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot5_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot5_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -1229,6 +1253,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1344,16 +1372,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCALaPerdiz6)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DCALaPerdizPivot6_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DCALaPerdizPivot6_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DCALaPerdizPivot6_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DCALaPerdizPivot6_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot6_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot6_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot6_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot6_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -1391,6 +1419,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1506,16 +1538,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCALaPerdiz7)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCALaPerdizPivot7_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCALaPerdizPivot7_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaSouth_DCALaPerdizPivot7_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaSouth_DCALaPerdizPivot7_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot7_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot7_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot7_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot7_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -1553,6 +1585,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1668,16 +1704,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCALaPerdiz10b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DCALaPerdizPivot10b_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DCALaPerdizPivot10b_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DCALaPerdizPivot10b_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DCALaPerdizPivot10b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot10b_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot10b_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot10b_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot10b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -1715,6 +1751,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1830,16 +1870,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCALaPerdiz14)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCALaPerdizPivot14_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCALaPerdizPivot14_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaSouth_DCALaPerdizPivot14_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaSouth_DCALaPerdizPivot14_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot14_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot14_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot14_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot14_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -1877,6 +1917,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -1992,16 +2036,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCALaPerdiz15)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DCALaPerdizPivot15_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DCALaPerdizPivot15_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DCALaPerdizPivot15_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DCALaPerdizPivot15_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot15_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot15_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCALaPerdizPivot15_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCALaPerdizPivot15_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -2039,6 +2083,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2115,8 +2163,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
-                    lWeatherStationMainName = DataEntry.WeatherStationMainName_DCASanJose_2016;
-                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DCASanJose_2016;
+                    lWeatherStationMainName = DataEntry2016.WeatherStationMainName_DCASanJose_2016;
+                    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_DCASanJose_2016;
 
                     #region DCA - San Jose Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -2166,16 +2214,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCASanJose1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DCASanJosePivot1_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DCASanJosePivot1_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DCASanJosePivot1_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DCASanJosePivot1_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot1_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCASanJosePivot1_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot1_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCASanJosePivot1_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -2213,6 +2261,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2328,16 +2380,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCASanJose2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCASanJosePivot2_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCASanJosePivot2_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaSouth_DCASanJosePivot2_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaSouth_DCASanJosePivot2_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot2_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCASanJosePivot2_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot2_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCASanJosePivot2_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -2375,6 +2427,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2490,16 +2546,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCASanJose3)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaSouth_DCASanJosePivot3_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaSouth_DCASanJosePivot3_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaSouth_DCASanJosePivot3_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaSouth_DCASanJosePivot3_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot3_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCASanJosePivot3_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot3_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCASanJosePivot3_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -2537,6 +2593,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2652,16 +2712,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDCASanJose4)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DCASanJosePivot4_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DCASanJosePivot4_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DCASanJosePivot4_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DCASanJosePivot4_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot4_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DCASanJosePivot4_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DCASanJosePivot4_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DCASanJosePivot4_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -2699,6 +2759,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -2775,8 +2839,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
                 {
-                    lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoSanPedro_2016;
-                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2016;
+                    lWeatherStationMainName = DataEntry2016.WeatherStationMainName_DelLagoSanPedro_2016;
+                    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_DelLagoSanPedro_2016;
 
 
                     #region Del Lago - San Pedro Pivot 5 2016
@@ -2827,16 +2891,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotDelLagoSanPedro5)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoSanPedroPivot5_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoSanPedroPivot5_2016;
                     //lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
                     //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot5_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot5_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot5_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot5_2016;
                     //}
                     //#endregion
                     //#region Weather Data
@@ -2873,7 +2937,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                        
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -2990,16 +3058,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotDelLagoSanPedro6)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoSanPedroPivot6_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoSanPedroPivot6_2016;
                     //lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
                     //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot6_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot6_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot6_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot6_2016;
                     //}
                     //#endregion
                     //#region Weather Data
@@ -3036,7 +3104,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                    
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -3154,16 +3226,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotDelLagoSanPedro7)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoSanPedroPivot7_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoSanPedroPivot7_2016;
                     //lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
                     //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot7_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot7_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot7_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot7_2016;
                     //}
                     //#endregion
                     //#region Weather Data 
@@ -3198,7 +3270,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                    
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -3316,16 +3392,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotDelLagoSanPedro8)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoSanPedroPivot8_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoSanPedroPivot8_2016;
                     //lHarvestDate = lSowingDate.AddDays(InitialTables.DAYS_TO_STOP_CROP_GROWS);
                     //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot8_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot8_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot8_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoSanPedroPivot8_2016;
                     //}
                     //#endregion
                     //#region Weather Data
@@ -3360,7 +3436,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                    
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -3437,8 +3517,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
-                    lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoElMirador_2016;
-                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2016;
+                    lWeatherStationMainName = DataEntry2016.WeatherStationMainName_DelLagoElMirador_2016;
+                    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_DelLagoElMirador_2016;
 
                     #region Del Lago - El Mirador Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -3488,16 +3568,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot1_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot1_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot1_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot1_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -3535,6 +3615,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -3649,16 +3733,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot2_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot2_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot2_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot2_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -3696,6 +3780,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -3810,16 +3898,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador3)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot3_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot3_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot3_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot3_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -3857,6 +3945,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -3971,16 +4063,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador4)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot4_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot4_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot4_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot4_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -4018,6 +4110,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4132,16 +4228,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador5)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot5_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot5_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot5_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot5_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot5_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot5_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot5_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot5_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -4179,6 +4275,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4293,16 +4393,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador6)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot6_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot6_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot6_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot6_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot6_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot6_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot6_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot6_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -4340,6 +4440,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4454,16 +4558,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador7)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot7_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot7_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot7_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot7_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot7_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot7_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot7_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot7_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -4501,6 +4605,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4615,16 +4723,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador8)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot8_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot8_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot8_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot8_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot8_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot8_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot8_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot8_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -4662,6 +4770,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4776,16 +4888,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador9)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot9_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot9_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot9_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot9_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot9_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot9_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot9_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot9_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -4823,6 +4935,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -4937,16 +5053,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador10)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot10_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot10_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot10_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot10_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot10_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot10_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot10_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot10_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -4984,6 +5100,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -5098,16 +5218,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador11)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot11_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot11_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot11_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot11_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot11_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot11_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot11_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot11_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -5145,6 +5265,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -5259,16 +5383,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador12)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot12_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot12_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot12_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot12_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot12_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot12_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot12_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot12_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -5306,6 +5430,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -5420,16 +5548,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador13)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot13_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot13_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot13_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot13_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot13_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -5467,6 +5595,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -5581,16 +5713,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador14)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot14_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot14_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot14_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot14_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot14_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot14_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot14_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot14_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -5628,6 +5760,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -5742,16 +5878,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador15)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot15_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot15_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot15_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot15_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot15_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -5789,6 +5925,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -5903,16 +6043,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMiradorChaja1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivotChaja1_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivotChaja1_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivotChaja1_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivotChaja1_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja1_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja1_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja1_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja1_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -5950,6 +6090,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -6064,16 +6208,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMiradorChaja2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivotChaja2_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivotChaja2_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivotChaja2_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivotChaja2_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja2_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja2_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja2_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivotChaja2_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -6111,6 +6255,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -6178,8 +6326,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #endregion
 
-                    lWeatherStationMainName = DataEntry.WeatherStationMainName_DelLagoElMirador_2016b;
-                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2016b;
+                    lWeatherStationMainName = DataEntry2016.WeatherStationMainName_DelLagoElMirador_2016b;
+                    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_DelLagoElMirador_2016b;
 
                     #region Del Lago - El Mirador Pivot 1b 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -6229,16 +6377,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador1b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot1b_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot1b_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot1b_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot1b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1b_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1b_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1b_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot1b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -6276,6 +6424,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -6390,16 +6542,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador2b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot2b_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot2b_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot2b_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot2b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2b_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2b_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2b_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot2b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -6437,6 +6589,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -6551,16 +6707,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador3b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot3b_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot3b_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot3b_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot3b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3b_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3b_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3b_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot3b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -6598,6 +6754,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -6712,16 +6872,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotDelLagoElMirador4b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_DelLagoElMiradorPivot4b_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_DelLagoElMiradorPivot4b_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_DelLagoElMiradorPivot4b_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_DelLagoElMiradorPivot4b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4b_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4b_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4b_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_DelLagoElMiradorPivot4b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -6759,6 +6919,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -6834,8 +6998,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
-                    lWeatherStationMainName = DataEntry.WeatherStationMainName_GMOLaPalma_2016;
-                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_GMOLaPalma_2016;
+                    lWeatherStationMainName = DataEntry2016.WeatherStationMainName_GMOLaPalma_2016;
+                    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_GMOLaPalma_2016;
 
                     #region GMO - La Palma Pivot 1 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
@@ -6885,16 +7049,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma1)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot1_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot1_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_CornSouth_GMOLaPalmaPivot1_2016;
+                    //lHarvestDate = DataEntry2016.HarvestDate_CornSouth_GMOLaPalmaPivot1_2016;
                     //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot1_2016;
                     //}
                     //#endregion
                     //#region Weather Data
@@ -6932,7 +7096,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                    
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -7048,16 +7216,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot2_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot2_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_GMOLaPalmaPivot2_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_GMOLaPalmaPivot2_2016;
                     lCropDate = Program.DateOfReference;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot2_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -7097,6 +7265,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7211,16 +7383,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma3)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot3_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot3_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_GMOLaPalmaPivot3_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_GMOLaPalmaPivot3_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot3_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -7258,6 +7430,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7372,16 +7548,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOLaPalma4)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_GMOLaPalmaPivot4_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_GMOLaPalmaPivot4_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_GMOLaPalmaPivot4_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_GMOLaPalmaPivot4_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOLaPalmaPivot4_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -7419,6 +7595,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7495,8 +7675,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
-                    lWeatherStationMainName = DataEntry.WeatherStationMainName_GMOElTacuru_2016;
-                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_GMOElTacuru_2016;
+                    lWeatherStationMainName = DataEntry2016.WeatherStationMainName_GMOElTacuru_2016;
+                    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_GMOElTacuru_2016;
 
                     #region GMO - El Tacuru Pivot 1a 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
@@ -7546,16 +7726,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru1a)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_AlfalfaNorth_GMOElTacuruPivot1a_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_AlfalfaNorth_GMOElTacuruPivot1a_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_AlfalfaNorth_GMOElTacuruPivot1a_2016;
+                    //lHarvestDate = DataEntry2016.HarvestDate_AlfalfaNorth_GMOElTacuruPivot1a_2016;
                     //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot1a_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot1a_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot1a_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot1a_2016;
                     //}
                     //#endregion
                     //#region Weather Data
@@ -7593,7 +7773,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                    
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -7709,16 +7893,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru1b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOElTacuruPivot1b_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOElTacuruPivot1b_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_GMOElTacuruPivot1b_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_GMOElTacuruPivot1b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot1b_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot1b_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot1b_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot1b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -7757,6 +7941,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -7872,16 +8060,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru2a)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOElTacuruPivot2a_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOElTacuruPivot2a_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornNorth_GMOElTacuruPivot2a_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornNorth_GMOElTacuruPivot2a_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot2a_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot2a_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot2a_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot2a_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -7919,6 +8107,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8033,16 +8225,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru2b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOElTacuruPivot2b_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOElTacuruPivot2b_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_GMOElTacuruPivot2b_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_GMOElTacuruPivot2b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot2b_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot2b_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot2b_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot2b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -8080,6 +8272,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8194,16 +8390,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru3a)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOElTacuruPivot3a_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOElTacuruPivot3a_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornNorth_GMOElTacuruPivot3a_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornNorth_GMOElTacuruPivot3a_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot3a_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot3a_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot3a_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot3a_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -8241,6 +8437,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8355,16 +8555,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru3b)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOElTacuruPivot3b_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOElTacuruPivot3b_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_GMOElTacuruPivot3b_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_GMOElTacuruPivot3b_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot3b_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot3b_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot3b_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot3b_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -8402,6 +8602,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8516,16 +8720,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru4)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornNorth_GMOElTacuruPivot4_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornNorth_GMOElTacuruPivot4_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornNorth_GMOElTacuruPivot4_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornNorth_GMOElTacuruPivot4_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot4_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot4_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot4_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot4_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -8563,6 +8767,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8677,16 +8885,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru5)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOElTacuruPivot5_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOElTacuruPivot5_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_GMOElTacuruPivot5_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_GMOElTacuruPivot5_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot5_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot5_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot5_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot5_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -8724,6 +8932,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8838,16 +9050,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru8)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOElTacuruPivot8_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOElTacuruPivot8_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_GMOElTacuruPivot8_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_GMOElTacuruPivot8_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot8_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot8_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot8_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot8_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -8885,6 +9097,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -8999,16 +9215,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru9)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOElTacuruPivot9_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOElTacuruPivot9_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_GMOElTacuruPivot9_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_GMOElTacuruPivot9_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot9_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot9_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot9_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot9_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -9046,6 +9262,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -9160,16 +9380,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotGMOElTacuru10)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_GMOElTacuruPivot10_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_GMOElTacuruPivot10_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_GMOElTacuruPivot10_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_GMOElTacuruPivot10_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot10_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot10_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_GMOElTacuruPivot10_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_GMOElTacuruPivot10_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -9207,6 +9427,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -9281,8 +9505,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
                 {
-                    lWeatherStationMainName = DataEntry.WeatherStationMainName_TresMarias_2016;
-                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_TresMarias_2016;
+                    lWeatherStationMainName = DataEntry2016.WeatherStationMainName_TresMarias_2016;
+                    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_TresMarias_2016;
 
                     #region Tres Marias Pivot 1 2016
                     #region Farm //////////////////////////////////////////////////////////////////////
@@ -9332,16 +9556,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotTresMarias1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_CornSouth_TresMariasPivot1_2016;
-                    lHarvestDate = DataEntry.HarvestDate_CornSouth_TresMariasPivot1_2016;
+                    lSowingDate = DataEntry2016.SowingDate_CornSouth_TresMariasPivot1_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_CornSouth_TresMariasPivot1_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot1_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_TresMariasPivot1_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot1_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_TresMariasPivot1_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -9380,6 +9604,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -9495,16 +9723,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotTresMarias2)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_TresMariasPivot2_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_CornSouth_TresMariasPivot2_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_CornSouth_TresMariasPivot2_2016;
+                    //lHarvestDate = DataEntry2016.HarvestDate_CornSouth_TresMariasPivot2_2016;
                     //lCropDate = Program.DateOfReference;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot2_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_TresMariasPivot2_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot2_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_TresMariasPivot2_2016;
                     //}
                     //#endregion
                     //#region Weather Data
@@ -9543,7 +9771,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                    
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -9658,16 +9890,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotTresMarias3)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_TresMariasPivot3_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_CornSouth_TresMariasPivot3_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_CornSouth_TresMariasPivot3_2016;
+                    //lHarvestDate = DataEntry2016.HarvestDate_CornSouth_TresMariasPivot3_2016;
                     //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot3_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_TresMariasPivot3_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot3_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_TresMariasPivot3_2016;
                     //}
                     //#endregion
                     //#region Weather Data
@@ -9704,7 +9936,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                    
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -9819,16 +10055,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotTresMarias4)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_CornSouth_TresMariasPivot4_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_CornSouth_TresMariasPivot4_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_CornSouth_TresMariasPivot4_2016;
+                    //lHarvestDate = DataEntry2016.HarvestDate_CornSouth_TresMariasPivot4_2016;
                     //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot4_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_TresMariasPivot4_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_TresMariasPivot4_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_TresMariasPivot4_2016;
                     //}
                     //#endregion
                     //#region Weather Data
@@ -9865,7 +10101,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                    
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -9941,8 +10181,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
                 {
-                    lWeatherStationMainName = DataEntry.WeatherStationMainName_LaRinconada_2016;
-                    lWeatherStationAlternativeName = DataEntry.WeatherStationAlternativeName_LaRinconada_2016;
+                    lWeatherStationMainName = DataEntry2016.WeatherStationMainName_LaRinconada_2016;
+                    lWeatherStationAlternativeName = DataEntry2016.WeatherStationAlternativeName_LaRinconada_2016;
 
                     #region La Rinconada Pivot 1 2016
                     //#region Farm //////////////////////////////////////////////////////////////////////
@@ -9992,16 +10232,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //                where horizon.Name.StartsWith(Utils.NamePivotLaRinconada1)
                     //                select horizon)
                     //                .ToList<Horizon>();
-                    //lSowingDate = DataEntry.SowingDate_SoyaNorth_LaRinconadaPivot1_2016;
-                    //lHarvestDate = DataEntry.HarvestDate_SoyaNorth_LaRinconadaPivot1_2016;
+                    //lSowingDate = DataEntry2016.SowingDate_SoyaNorth_LaRinconadaPivot1_2016;
+                    //lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_LaRinconadaPivot1_2016;
                     //lCropDate = DateTime.Now;
-                    //if (DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot1_2016 == 0)
+                    //if (DataEntry2016.PredeterminatedIrrigationQuantity_LaRinconadaPivot1_2016 == 0)
                     //{
                     //    lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
                     //}
                     //else
                     //{
-                    //    lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot1_2016;
+                    //    lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_LaRinconadaPivot1_2016;
                     //}
                     //#endregion
                     //#region Weather Data
@@ -10039,7 +10279,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //    PositionId = lFarm.PositionId,
                     //    SoilId = lSoil.SoilId,
                     //    Soil = lSoil,
-
+                    
+                        //MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart, 
+                        //                         Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                        //                                  Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        //AdjustableIrrigationQuantity = true,
                     //    PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                     //    //Set the initial Phenological Stage for the Crop
@@ -10155,16 +10399,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotLaRinconada2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_LaRinconadaPivot2_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_LaRinconadaPivot2_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_LaRinconadaPivot2_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_LaRinconadaPivot2_2016;
                     lCropDate = Program.DateOfReference;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot2_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_LaRinconadaPivot2_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot2_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_LaRinconadaPivot2_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -10204,6 +10448,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -10318,16 +10566,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotLaRinconada3_1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_LaRinconadaPivot3_1_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_LaRinconadaPivot3_1_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_LaRinconadaPivot3_1_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_LaRinconadaPivot3_1_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot3_1_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_LaRinconadaPivot3_1_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot3_1_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_LaRinconadaPivot3_1_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -10365,6 +10613,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -10479,16 +10731,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotLaRinconada13_1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry.SowingDate_SoyaNorth_LaRinconadaPivot13_1_2016;
-                    lHarvestDate = DataEntry.HarvestDate_SoyaNorth_LaRinconadaPivot13_1_2016;
+                    lSowingDate = DataEntry2016.SowingDate_SoyaNorth_LaRinconadaPivot13_1_2016;
+                    lHarvestDate = DataEntry2016.HarvestDate_SoyaNorth_LaRinconadaPivot13_1_2016;
                     lCropDate = DateTime.Now;
-                    if (DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot13_1_2016 == 0)
+                    if (DataEntry2016.PredeterminatedIrrigationQuantity_LaRinconadaPivot13_1_2016 == 0)
                     {
-                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity;
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry.PredeterminatedIrrigationQuantity_LaRinconadaPivot13_1_2016;
+                        lPredeterminatedIrrigationQuantity = DataEntry2016.PredeterminatedIrrigationQuantity_LaRinconadaPivot13_1_2016;
                     }
                     #endregion
                     #region Weather Data
@@ -10526,6 +10778,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         SoilId = lSoil.SoilId,
                         Soil = lSoil,
 
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = true,
                         PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
 
                         //Set the initial Phenological Stage for the Crop
@@ -10725,8 +10981,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
-                    DataEntry.AddInformationToIrrigationUnitsDCAElParaisoPivot1_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCAElParaisoPivot2_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCAElParaisoPivot1_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCAElParaisoPivot2_2016(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("DCA - El Paraiso - Completed.");
                 }
@@ -10741,15 +10997,15 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot1_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot2_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot3_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot5_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot6_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot7_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot10b_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot14_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCALaPerdizPivot1_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCALaPerdizPivot2_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCALaPerdizPivot3_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCALaPerdizPivot5_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCALaPerdizPivot6_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCALaPerdizPivot7_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCALaPerdizPivot10b_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCALaPerdizPivot14_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2016(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("DCA - La Perdiz - Completed.");
                 }
@@ -10764,10 +11020,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot1_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot2_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot3_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDCASanJosePivot4_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCASanJosePivot1_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCASanJosePivot2_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCASanJosePivot3_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDCASanJosePivot4_2016(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("DCA - San Jose - Completed.");
                 }
@@ -10796,28 +11052,28 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot5_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot6_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot14_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot5_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot6_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot14_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2016(context, Program.DateOfReference);
 
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1b_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2b_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3b_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4b_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1b_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2b_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3b_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4b_2016(context, Program.DateOfReference);
 
                     context.SaveChanges();
                     Console.WriteLine("Del Lago - El Mirador - Completed.");
@@ -10833,10 +11089,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
-                    DataEntry.AddInformationToIrrigationUnitsTresMariasPivot1_2016(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsTresMariasPivot2_2016(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsTresMariasPivot3_2016(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsTresMariasPivot4_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsTresMariasPivot1_2016(context, Program.DateOfReference);
+                    //DataEntry2016.AddInformationToIrrigationUnitsTresMariasPivot2_2016(context, Program.DateOfReference);
+                    //DataEntry2016.AddInformationToIrrigationUnitsTresMariasPivot3_2016(context, Program.DateOfReference);
+                    //DataEntry2016.AddInformationToIrrigationUnitsTresMariasPivot4_2016(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("Tres Marias - Completed.");
                 }
@@ -10852,11 +11108,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2016(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOLaPalmaPivot5_2016(context, Program.DateOfReference);
+                    //DataEntry2016.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2016(context, Program.DateOfReference);
+                    //DataEntry2016.AddInformationToIrrigationUnitsGMOLaPalmaPivot5_2016(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("GMO - La Palma - Completed.");
                 }
@@ -10875,19 +11131,19 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot1a_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot1b_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot2a_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot2b_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot3a_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot3b_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot4_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot5_2016(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot6_2016(context, Program.DateOfReference);
-                    //DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot7_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot8_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot9_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsGMOElTacuruPivot10_2016(context, Program.DateOfReference);
+                    //DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot1a_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot1b_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot2a_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot2b_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot3a_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot3b_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot4_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot5_2016(context, Program.DateOfReference);
+                    //DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot6_2016(context, Program.DateOfReference);
+                    //DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot7_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot8_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot9_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsGMOElTacuruPivot10_2016(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("GMO - El Tacuru - Completed.");
                 }
@@ -10902,10 +11158,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
-                    //DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot1_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot2_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot3_1_2016(context, Program.DateOfReference);
-                    DataEntry.AddInformationToIrrigationUnitsLaRinconadaPivot13_1_2016(context, Program.DateOfReference);
+                    //DataEntry2016.AddInformationToIrrigationUnitsLaRinconadaPivot1_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsLaRinconadaPivot2_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsLaRinconadaPivot3_1_2016(context, Program.DateOfReference);
+                    DataEntry2016.AddInformationToIrrigationUnitsLaRinconadaPivot13_1_2016(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine("La Rinconada - Completed.");
                 }

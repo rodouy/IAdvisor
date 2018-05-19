@@ -1,0 +1,141 @@
+﻿@model IEnumerable<IrrigationAdvisor.Models.Localization.Farm>
+@using IrrigationAdvisor.Models.Utilities
+
+<link rel="stylesheet" type="text/css" href="../css/flatWeatherPlugin.css">
+<link rel="stylesheet" type="text/css" href="../css/modal.css">
+<link rel="stylesheet" type="text/css" href="../css/style-1.css">
+<link rel="stylesheet" type="text/css" href="../css/md-font.css">
+<link href="~/css/shared.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/js/Home.js"></script>
+@*<script src="~/Scripts/moment.js"></script>*@
+
+<div class="modal fade" tabindex="-1" role="dialog" id="loading">
+    <div class="modal-dialog" role="document">
+
+        <!-- Content Bar -->
+        <div id="floatingCirclesG">
+            <div class="f_circleG" id="frotateG_01"></div>
+            <div class="f_circleG" id="frotateG_02"></div>
+            <div class="f_circleG" id="frotateG_03"></div>
+            <div class="f_circleG" id="frotateG_04"></div>
+            <div class="f_circleG" id="frotateG_05"></div>
+            <div class="f_circleG" id="frotateG_06"></div>
+            <div class="f_circleG" id="frotateG_07"></div>
+            <div class="f_circleG" id="frotateG_08"></div>
+        </div>
+
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@{
+
+}
+
+<input type="hidden" value="" id="farm-info" />
+<input type="hidden" value="" id="irrigationUnitRainMail" />
+<input type="hidden" value="" id="irrigationUnitIrrigationMail" />
+<input type="hidden" id="selectedWaterInput" />
+
+<!-- Grid Pivots -->
+<section class="profile">
+    @foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="padding-left:0">
+                    <div class="avatar-acount">
+                        <div class="info-acount">
+        
+                              <div class="col-md-11">
+                            <div class="col-md-11">
+                                           
+                                        <a> <em class="icon md-flag"></em> Establecimiento: "@item.Name" </a> 
+                            </div>
+                        </div>
+                            <!-- Grid -->
+                            <div class="table-asignment">
+                                <!-- Table -->
+                                <div class="tab-content">
+                                    <!-- table header -->
+                                    <div class="tab-pane fade in active">
+                                        <div class="table-wrap">
+                                            <!-- table head -->
+                                            <!-- End Grid Head -->
+                                            <!-- Table -->
+                                            <div class="table-body">
+                                                <!--table-->
+
+                                                <table cellspacing="10" class="main-table-advisor">
+                                                    <thead>
+                                                        <tr>
+                                                            @{ Html.RenderAction("FrontPageHeaderPartial", "CropIrrigationWeathersActive"); }
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @{ Html.RenderAction("FrontPagePartial", "CropIrrigationWeathersActive", new { pFarm = item }); }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Table -->
+                            </div>
+                            <!-- End Grid Pivot -->
+                            <!-- Table -->
+                                 @CustomRenderingOfColumn(item)
+                            <!-- End Table -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>
+
+@helper CustomRenderingOfColumn(IrrigationAdvisor.Models.Localization.Farm p)
+{
+    foreach (var item in @p.IrrigationUnitList.Where(i => i.Show))
+    {
+       
+            <div class="col-md-11">
+                <div class="col-md-11">
+                    &nbsp;
+                </div>
+            </div>
+            <table style="width:500px;border-top-color:transparent" align="center">
+                <tr>
+                    <td align="left"><a> <em class="icon md-crop"></em> @item.Name </a></td>
+                </tr>
+            </table>
+    
+            <div class="tab-content">
+                <!-- table header -->
+                <div class="tab-pane fade in active">
+                    <div class="table-wrap">
+                        <!-- table head -->
+                        <!-- End Grid Head -->
+                        <!-- Table -->
+                        <div class="table-body">
+
+                             <table cellspacing="10" class="main-table-advisor" style="width:500px" align="center">
+                                 <thead>
+                                    <tr>
+                                        @{ Html.RenderAction("InputWaterPerDayHeaderPartial", "CropIrrigationWeathersActive"); }
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ Html.RenderAction("InputWaterPerDayPartial", "CropIrrigationWeathersActive", new { pIrrigationUnit = item }); }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       <!-- End Table -->
+    }
+}

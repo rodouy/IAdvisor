@@ -100,7 +100,6 @@ namespace IrrigationAdvisor.Models.Management
         private Double gapPercentageOfHydricBalance;
         
         private long evapotranspirationCropId;
-
         #endregion
 
         #region Crop State
@@ -300,7 +299,7 @@ namespace IrrigationAdvisor.Models.Management
             get;
             set;
         }
-        
+
         #endregion
 
         /// <summary>

@@ -338,7 +338,7 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             #endregion
 
             #region 19.  Create Bomb
-            testBomb = testIrrigationSystem.AddBomb("Bomba Santa Lucia", "1234", DateTime.Now, DateTime.Now, testPositionSantaLucia.PositionId);
+            testBomb = testIrrigationSystem.AddBomb("Bomba Santa Lucia", "Bomba Santa Lucia", "1234", DateTime.Now, DateTime.Now, testPositionSantaLucia.PositionId, 0);
             #endregion
 
             #region 20.  Create Weather Station
@@ -462,19 +462,19 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             testIrrigationUnit_CropList_Pivot_2 = new List<Crop>();
             testIU_Pivot_2 = testIrrigationSystem.AddIrrigationUnit("Pivot 2", "Pivot 2", lType, testEfficiency_Pivot_2,
                                testIrrigationUnit_IrrigationList_Pivot_2, testSurface_Pivot_2,
-                               testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity);
+                               testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity_SecondPart);
             
             testIrrigationUnit_IrrigationList_Pivot_3_4 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_3_4 = new List<Crop>();
             testIU_Pivot_3_4 = testIrrigationSystem.AddIrrigationUnit("Pivot 3 y 4", "Pivot 3 y 4", lType, testEfficiency_Pivot_3_4,
                             testIrrigationUnit_IrrigationList_Pivot_3_4, testSurface_Pivot_3_4,
-                            testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity);
+                            testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity_SecondPart);
             
             testIrrigationUnit_IrrigationList_Pivot_5 = new List<Pair<DateTime, double>>();
             testIrrigationUnit_CropList_Pivot_5 = new List<Crop>();
             testIU_Pivot_5 = testIrrigationSystem.AddIrrigationUnit("Pivot 5", "Pivot 5", lType, testEfficiency_Pivot_5,
                             testIrrigationUnit_IrrigationList_Pivot_5, testSurface_Pivot_5,
-                            testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity);
+                            testBomb.BombId, testPositionSantaLucia.PositionId, Utils.PredeterminatedIrrigationQuantity_SecondPart);
 
         }
 
@@ -733,10 +733,10 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
         {
 
             //Suelos
-            testSoil_Pivot_1 = testIrrigationSystem.AddSoil("Suelo Pivot 1", "Suelo Pivot 1", testPositionSantaLucia.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_1_DepthLimit);
-            testSoil_Pivot_2 = testIrrigationSystem.AddSoil("Suelo Pivot 2", "Suelo Pivot 2", testPositionSantaLucia.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_2_DepthLimit);
-            testSoil_Pivot_3_4 = testIrrigationSystem.AddSoil("Suelo Pivot 3_4", "Suelo Pivot 3_4", testPositionSantaLucia.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_3_4_DepthLimit);
-            testSoil_Pivot_5 = testIrrigationSystem.AddSoil("Suelo Pivot 5", "Suelo Pivot 5", testPositionSantaLucia.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_5_DepthLimit);
+            testSoil_Pivot_1 = testIrrigationSystem.AddSoil("Suelo Pivot 1", "Suelo Pivot 1", "Suelo Pivot 1", testPositionSantaLucia.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_1_DepthLimit, 0);
+            testSoil_Pivot_2 = testIrrigationSystem.AddSoil("Suelo Pivot 2", "Suelo Pivot 2", "Suelo Pivot 2", testPositionSantaLucia.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_2_DepthLimit, 0);
+            testSoil_Pivot_3_4 = testIrrigationSystem.AddSoil("Suelo Pivot 3_4", "Suelo Pivot 3_4", "Suelo Pivot 3_4", testPositionSantaLucia.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_3_4_DepthLimit, 0);
+            testSoil_Pivot_5 = testIrrigationSystem.AddSoil("Suelo Pivot 5", "Suelo Pivot 5", "Suelo Pivot 5", testPositionSantaLucia.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_5_DepthLimit, 0);
 
             // horizon_1A = new Horizon(1,"Horizonte A - Suelo 1", 1, "A",)
             Horizon horizon_2A = new Horizon(1, "A", 0, "A", 14, 19, 53, 28, 4.4, 0, 1.2);

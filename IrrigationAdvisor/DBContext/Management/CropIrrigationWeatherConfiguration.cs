@@ -115,6 +115,19 @@ namespace IrrigationAdvisor.DBContext.Management
 
         }
 
+        /// <summary>
+        /// Get MAX irrigation list id (next IrrigationList Id)
+        /// </summary>
+        /// <param name="pDateOfReference"></param>
+        /// <returns></returns>
+        public long GetMaxIrrigationListId(DateTime pDateOfReference)
+        {
+            long lReturn = 0;
+
+            lReturn = db.Irrigations.Max(table => table.WaterInputId);
+
+            return lReturn;
+        }
 
         /// <summary>
         /// Get a MAX date of reference in CropIrrigationWeather list 
@@ -349,6 +362,8 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.Crop.Region.EffectiveRainList)
                     .Include(ciw => ciw.Crop.Region.TemperatureDataList)
                     .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList.Select(ps => ps.Stage))
+                    .Include(ciw => ciw.Crop.StageList)
                     .Include(ciw => ciw.Crop.CropCoefficient)
                     .Include(ciw => ciw.Crop.CropCoefficient.KCList)
                     .Include(ciw => ciw.Soil)
@@ -503,6 +518,8 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.Crop.Region.EffectiveRainList)
                     .Include(ciw => ciw.Crop.Region.TemperatureDataList)
                     .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList.Select(ps => ps.Stage))
+                    .Include(ciw => ciw.Crop.StageList)
                     .Include(ciw => ciw.Crop.CropCoefficient)
                     .Include(ciw => ciw.Crop.CropCoefficient.KCList)
                     .Include(ciw => ciw.Soil)
@@ -523,7 +540,8 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
                     .Where(ciw => ciw.SowingDate <= pDateOfReference
-                        && ciw.HarvestDate >= pDateOfReference).ToList();
+                               && ciw.HarvestDate >= pDateOfReference)
+                    .ToList();
             }
 
             return lReturn;
@@ -593,7 +611,8 @@ namespace IrrigationAdvisor.DBContext.Management
                                                 .Include(ciw => ciw.MainWeatherStation)
                                                 .Include(ciw => ciw.MainWeatherStation.WeatherDataList)
                                                 .Include(ciw => ciw.AlternativeWeatherStation)
-                                                .Include(ciw => ciw.AlternativeWeatherStation.WeatherDataList).ToList();
+                                                .Include(ciw => ciw.AlternativeWeatherStation.WeatherDataList)
+                                                .ToList();
                     lReturn = lCropIrrigationWeaterList;
                 }
             }
@@ -661,7 +680,9 @@ namespace IrrigationAdvisor.DBContext.Management
         /// <returns></returns>
         public List<CropIrrigationWeather> GetCropIrrigationWeatherByFarm(long farmId, DateTime pDateOfReference)
         {
-            var q = (from ciw in db.CropIrrigationWeathers
+            List<CropIrrigationWeather> lReturn;
+
+            lReturn = (from ciw in db.CropIrrigationWeathers
                      join iu in db.IrrigationUnits
                      on ciw.IrrigationUnitId equals iu.IrrigationUnitId
                      join f in db.Farms
@@ -676,44 +697,8 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.Crop.Region.EffectiveRainList)
                     .Include(ciw => ciw.Crop.Region.TemperatureDataList)
                     .Include(ciw => ciw.Crop.PhenologicalStageList)
-                    .Include(ciw => ciw.Crop.CropCoefficient)
-                    .Include(ciw => ciw.Crop.CropCoefficient.KCList)
-                    .Include(ciw => ciw.Soil)
-                    .Include(ciw => ciw.Soil.HorizonList)
-                    .Include(ciw => ciw.CropInformationByDate)
-                    .Include(ciw => ciw.MainWeatherStation)
-                    .Include(ciw => ciw.MainWeatherStation.WeatherDataList)
-                    .Include(ciw => ciw.AlternativeWeatherStation)
-                    .Include(ciw => ciw.AlternativeWeatherStation.WeatherDataList)
-                    .Include(ciw => ciw.RainList)
-                    .Include(ciw => ciw.IrrigationList)
-                    .Include(ciw => ciw.EvapotranspirationCropList)
-                    .Include(ciw => ciw.DailyRecordList)
-                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.MainWeatherData))
-                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.AlternativeWeatherData))
-                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.PhenologicalStage))
-                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Rain))
-                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
-                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop));
-
-            return q.ToList();
-        }
-
-        /// <summary>
-        /// Return al cr
-        /// </summary>
-        /// <param name="cropIrrigationWeatherIds"></param>
-        /// <returns></returns>
-        public List<CropIrrigationWeather> GetCropIrrigationWeatherByIds(List<long> cropIrrigationWeatherIds)
-        {
-            return db.CropIrrigationWeathers
-                   .Where(n => cropIrrigationWeatherIds.Contains(n.CropIrrigationWeatherId))
-                    .Include(ciw => ciw.Crop)
-                    .Include(ciw => ciw.Crop.Specie)
-                    .Include(ciw => ciw.Crop.Region)
-                    .Include(ciw => ciw.Crop.Region.EffectiveRainList)
-                    .Include(ciw => ciw.Crop.Region.TemperatureDataList)
-                    .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList.Select(ps => ps.Stage))
+                    .Include(ciw => ciw.Crop.StageList)
                     .Include(ciw => ciw.Crop.CropCoefficient)
                     .Include(ciw => ciw.Crop.CropCoefficient.KCList)
                     .Include(ciw => ciw.Soil)
@@ -734,6 +719,53 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
                     .ToList();
+
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Return al cr
+        /// </summary>
+        /// <param name="pCropIrrigationWeatherIds"></param>
+        /// <returns></returns>
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherByIds(List<long> pCropIrrigationWeatherIds, DateTime pDateOfReference)
+        {
+            List<CropIrrigationWeather> lReturn;
+
+            lReturn = db.CropIrrigationWeathers
+                   .Where(ciw => pCropIrrigationWeatherIds.Contains(ciw.CropIrrigationWeatherId) &&
+                                ciw.SowingDate <= pDateOfReference &&
+                                ciw.HarvestDate >= pDateOfReference)
+                    .Include(ciw => ciw.Crop)
+                    .Include(ciw => ciw.Crop.Specie)
+                    .Include(ciw => ciw.Crop.Region)
+                    .Include(ciw => ciw.Crop.Region.EffectiveRainList)
+                    .Include(ciw => ciw.Crop.Region.TemperatureDataList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList)
+                    .Include(ciw => ciw.Crop.PhenologicalStageList.Select(ps => ps.Stage))
+                    .Include(ciw => ciw.Crop.StageList)
+                    .Include(ciw => ciw.Crop.CropCoefficient)
+                    .Include(ciw => ciw.Crop.CropCoefficient.KCList)
+                    .Include(ciw => ciw.Soil)
+                    .Include(ciw => ciw.Soil.HorizonList)
+                    .Include(ciw => ciw.CropInformationByDate)
+                    .Include(ciw => ciw.MainWeatherStation)
+                    .Include(ciw => ciw.MainWeatherStation.WeatherDataList)
+                    .Include(ciw => ciw.AlternativeWeatherStation)
+                    .Include(ciw => ciw.AlternativeWeatherStation.WeatherDataList)
+                    .Include(ciw => ciw.RainList)
+                    .Include(ciw => ciw.IrrigationList)
+                    .Include(ciw => ciw.EvapotranspirationCropList)
+                    .Include(ciw => ciw.DailyRecordList)
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.MainWeatherData))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.AlternativeWeatherData))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.PhenologicalStage))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Rain))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
+                    .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
+                    .ToList();
+
+            return lReturn;
         }
 
         public String GetOutputByCropIrrigationWeatherId(long pCropIrrigationWeatherId)
@@ -787,5 +819,6 @@ namespace IrrigationAdvisor.DBContext.Management
 
             return lReturn;
         }
+
     }
 }

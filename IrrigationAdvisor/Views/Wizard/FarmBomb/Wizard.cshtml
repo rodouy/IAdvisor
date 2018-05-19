@@ -195,64 +195,64 @@
 
 
             moveStep = function (step, direction, event, checkStep) {
-            var that = this, canMove = true,
-            steps = that.$element.find('.steps > li'),
-            triggerEnd = false;
+                var that = this, canMove = true,
+                steps = that.$element.find('.steps > li'),
+                triggerEnd = false;
 
-            checkStep = checkStep === false ? false : true;
+                checkStep = checkStep === false ? false : true;
 
-            /////////////////////////////////////////////
-            canMove = customValidation(that.currentStep, direction);
-   
-            /////////////////////////////////////////////
+                /////////////////////////////////////////////
+                canMove = customValidation(that.currentStep, direction);
 
-            // check we can move
-            if (checkStep && typeof that.options.checkStep == 'function') {
-                canMove = that.options.checkStep(that, direction, event);
-            }
+                /////////////////////////////////////////////
 
-            if (!canMove) return;
-
-            if (step) {
-                that.currentStep = parseInt(step);
-            } else {
-                if (direction) {
-                    that.currentStep++;
-                } else {
-                    that.currentStep--;
+                // check we can move
+                if (checkStep && typeof that.options.checkStep == 'function') {
+                    canMove = that.options.checkStep(that, direction, event);
                 }
-            }
 
-            that.$element.triggerHandler('step_changed.wizardByGiro');
+                if (!canMove) return;
 
-            if (that.currentStep < 0) that.currentStep = 0;
-            if (that.currentStep > steps.length) {
-                that.currentStep = steps.length;
-                triggerEnd = true;
-            }
+                if (step) {
+                    that.currentStep = parseInt(step);
+                } else {
+                    if (direction) {
+                        that.currentStep++;
+                    } else {
+                        that.currentStep--;
+                    }
+                }
 
-            checkStatus.call(that);
+                that.$element.triggerHandler('step_changed.wizardByGiro');
 
-            if (triggerEnd) {
+                if (that.currentStep < 0) that.currentStep = 0;
+                if (that.currentStep > steps.length) {
+                    that.currentStep = steps.length;
+                    triggerEnd = true;
+                }
 
-                var form = that.$element.closest('form');
+                checkStatus.call(that);
 
-                
-                if (form.length) form.submit();
+                if (triggerEnd) {
 
-                //if (typeof that.options.onCompleted == 'function') {
-                //    alert("1")
-                //    that.options.onCompleted(that);
-                //} else if (that.options.autoSubmit) {
-                //    // search if wizard is inside a form and submit it.
-                //    alert("2")
-                //    var form = that.$element.closest('form');
-                //    if (form.length) form.submit();
-                //}
-                //else
-                //alert("3")
-            }
-        },
+                    var form = that.$element.closest('form');
+
+
+                    if (form.length) form.submit();
+
+                    //if (typeof that.options.onCompleted == 'function') {
+                    //    alert("1")
+                    //    that.options.onCompleted(that);
+                    //} else if (that.options.autoSubmit) {
+                    //    // search if wizard is inside a form and submit it.
+                    //    alert("2")
+                    //    var form = that.$element.closest('form');
+                    //    if (form.length) form.submit();
+                    //}
+                    //else
+                    //alert("3")
+                }
+            },
 
         methods = {
             init: function (element, options) {
@@ -433,9 +433,9 @@
 
         function hasValidation() {
             if ($("#Has").val().trim() === "") {
-                    $("#HasMessage").html("<span class=text-danger>Ingrese las hectareas</span>");
-                    return false;
-                }
+                $("#HasMessage").html("<span class=text-danger>Ingrese las hectareas</span>");
+                return false;
+            }
             else {
                 if (!isNaN($("#Has").val())) {
                     $("#HasMessage").html("<span class=text-danger></span>");
@@ -470,15 +470,15 @@
             }
         }
 
-        function bombNameValidation() {
-           
-            if ($("#BombName").val().trim() === "") {
-                $("#BombNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
+        function bombShortNameValidation() {
+
+            if ($("#BombShortName").val().trim() === "") {
+                $("#BombShortNameMessage").html("<span class=text-danger>Ingrese el nombre</span>");
                 return false;
             }
             else {
-              
-                $("#BombNameMessage").html("<span class=text-danger></span>");
+
+                $("#BombShortNameMessage").html("<span class=text-danger></span>");
                 return true;
             }
         }
@@ -511,7 +511,7 @@
                 move = nameValidation() && companyValidation() && phoneValidation() && latitudeValidation() && longitudeValidation() && hasValidation() && cityIdValidation() && weatherStationIdValidation()
 
                 if (move) {
-                   
+
                     $("#BombLatitude").val($("#Latitude").val().trim());
                     $("#BombLongitude").val($("#Longitude").val().trim());
                 }
@@ -519,7 +519,7 @@
 
             if (direction) {//se mueve hacia adelante
                 if (currentStep == "2") {
-                   //la validacione del nombre nomber de bomba y campos requeridos se hace al agregar un item en la tabla...
+                    //la validacione del nombre nomber de bomba y campos requeridos se hace al agregar un item en la tabla...
                     move = parseInt($("#BombsQuantity").val()) > 0;
 
 
@@ -538,12 +538,11 @@
                         $("#CityIdConfirmation").html($("#CityId").find('option:selected').text());
 
                         $("#NotBombMessage").html("<span class=text-danger></span>");
-                       // jsonData.items.push({ "id": "", "bombName": "", "serialNumber": "", "serviceDate": "", "purchaseDate": "", "bombLatitude": "", "bombLongitude": "" });
                     }
                     {
                         $("#NotBombMessage").html("<span class=text-danger>Debe agregar por lo menos una bomba</span>");
                     }
-    
+
                 }
             }
             return move;
@@ -591,7 +590,7 @@
             $("#Phone").focusout(function () {
                 phoneValidation()
             });
-           
+
             $("#Latitude").focusout(function () {
                 latitudeValidation()
             });
@@ -601,7 +600,7 @@
             });
 
             $("#Has").focusout(function () {
-               hasValidation()
+                hasValidation()
             });
 
             $("#CityId").change(function () {
@@ -612,8 +611,8 @@
                 weatherStationIdValidation()
             });
 
-            $("#BombName").focusout(function () {
-                bombNameValidation()
+            $("#BombShortName").focusout(function () {
+                bombShortNameValidation()
             });
 
             $("#BombLatitude").focusout(function () {
@@ -626,14 +625,13 @@
             ////END ACTIV VALIDATION///////////////////
 
             ///CP: ACTIV BOMBS TABLE
-            
+
             var jsonData = { "items": [] };
             var cont = 0;
 
             $("#add-row").click(function () {
-                if (bombNameValidation() && bombNameValidation() && bombNameValidation())
-                {
-                    var bombName = $("#BombName").val();
+                if (bombShortNameValidation() && bombShortNameValidation() && bombShortNameValidation()) {
+                    var bombShortName = $("#BombShortName").val();
                     var serialNumber = $("#SerialNumber").val();
                     var serviceDate = $("#ServiceDate").val();
                     var purchaseDate = $("#PurchaseDate").val();
@@ -641,12 +639,11 @@
                     var bombLongitude = $("#BombLongitude").val();
 
                     debugger;
-                    jsonData.items.push({ "id": cont, "bombName": bombName, "serialNumber": serialNumber, "serviceDate": serviceDate, "purchaseDate": purchaseDate, "bombLatitude": bombLatitude, "bombLongitude": bombLongitude });
+                    jsonData.items.push({ "id": cont, "bombShortName": bombShortName, "serialNumber": serialNumber, "serviceDate": serviceDate, "purchaseDate": purchaseDate, "bombLatitude": bombLatitude, "bombLongitude": bombLongitude });
                     cont++;
 
-                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>";
-                    $("#BombsTable").append("<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
-       //             $("#BombsTableConfirmation").append("<tr><td>" + bombName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
+                    var markup = "<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombShortName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>";
+                    $("#BombsTable").append("<tr><td><input type='checkbox'  id='record|" + cont + "' name='record|" + cont + "'></td><td>" + bombShortName + "</td><td>" + serialNumber + "</td><td>" + serviceDate + "</td><td>" + purchaseDate + "</td><td>" + bombLatitude + "</td><td>" + bombLongitude + "</td></tr>")
                     $("#BombsHidden").val(JSON.stringify(jsonData));
 
                     $("#BombsQuantity").val(parseInt($("#BombsQuantity").val()) + 1);
@@ -670,7 +667,7 @@
                         var a = $("#BombsQuantity").val();
                         $("#BombsQuantity").val(parseInt($("#BombsQuantity").val()) - 1);
                     }
-                   
+
                     $("#BombsHidden").val(JSON.stringify(jsonData));
 
                 });
@@ -694,12 +691,12 @@
 
     });
 </script>
-@using (Html.BeginForm("Create","WizardFarmBomb"))
+@using (Html.BeginForm("Create", "WizardFarmBomb"))
 {
     @Html.AntiForgeryToken()
 
-<input id="BombsHidden" name="BombsHidden" type="hidden">
-<input id="BombsQuantity" name="BombsQuantity" type="hidden" value="0">
+    <input id="BombsHidden" name="BombsHidden" type="hidden">
+    <input id="BombsQuantity" name="BombsQuantity" type="hidden" value="0">
     <div class="container-fluid">
         <div data-wizard-init>
             <ul class="steps">
@@ -709,8 +706,8 @@
             </ul>
             @Html.ValidationSummary(true, "Error", new { @class = "text-danger" })
             @*@Html.ValidationMessageFor(model => model.wizardFarmViewModel., "", new { @class = "text-danger" })
-            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-                *@
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            *@
             <div class="steps-content">
                 <div data-step="1">
                     <h4>Establecimiento</h4>
@@ -722,7 +719,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Compañia</label>
-                            <input maxlength="50" id="Company" name="Company" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese apellido">
+                            <input maxlength="50" id="Company" name="Company" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese compañia">
                             <span id="CompanyMessage"></span>
                         </div>
                         <div class="form-group">
@@ -750,15 +747,15 @@
                             <label class="control-label">Hectareas</label>
                             <input maxlength="50" id="Has" name="Has" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese las hectareas">
                             <span id="HasMessage"></span>
-                        </div>                    
+                        </div>
                         <div class="form-group">
                             <label class="control-label">Estación</label>
                             <select id="WeatherStationId" name="WeatherStationId" class="form-control">
                                 <option value="">-- Seleccione Estación --</option>
-                                
+
                                 @foreach (var item in Model.WeatherStation)
-                                        {
-                                            <option value=@item.Value>@item.Text</option>
+                                {
+                                    <option value=@item.Value>@item.Text</option>
                                 }
                             </select>
                             <span id="WeatherStationIdMessage"></span>
@@ -770,33 +767,33 @@
                                 @foreach (var item in Model.City)
                                 {
                                     <option value=@item.Value>@item.Text</option>
-                               } 
+                                }
                             </select>
                             <span id="CityIdMessage"></span>
                         </div>
-                           
+
                     </p>
                 </div>
                 <div data-step="2">
                     <h4>Bombas</h4>
                     <p>
- 
+
                         <div class="form-group">
                             <label class="control-label">Nombre</label>
-                            <input maxlength="50" id="BombName" name="BombName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
-                            <span id="BombNameMessage"></span>
+                            <input maxlength="50" id="BombShortName" name="BombShortName" type="text" required="required" class="form-control text-box single-line" placeholder="Ingrese el nombre">
+                            <span id="BombShortNameMessage"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Número de serie</label>
-                            <input maxlength="50" id="SerialNumber" name="SerialNumber" type="text"  class="form-control text-box single-line">
+                            <input maxlength="50" id="SerialNumber" name="SerialNumber" type="text" class="form-control text-box single-line">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Fecha de compra</label>
                             <input maxlength="50" id="PurchaseDate" name="PurchaseDate" type="date" class="form-control text-box single-line">
-                        </div>                       
-                         <div class="form-group">
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">Fecha de servicio</label>
-                             <input maxlength="50" id="ServiceDate" name="ServiceDate" type="date" class="form-control text-box single-line">
+                            <input maxlength="50" id="ServiceDate" name="ServiceDate" type="date" class="form-control text-box single-line">
                             <span id="PhoneMessage"></span>
                         </div>
 
@@ -812,9 +809,9 @@
                             <span id="BombLongitudeMessage"></span>
                         </div>
                         <div class="form-group">
-                         
+
                             <input type="button" class="btn btn-success" id="add-row" value="Agregar bomba"> <span id="NotBombMessage"></span>
-                        </div> 
+                        </div>
                         <table id="BombsTable" class="main-table-advisor" cellpadding="10">
                             <thead>
                                 <tr style="height:40px">
@@ -830,12 +827,12 @@
                             <tbody>
                                 <tr></tr>
                             </tbody>
-                        </table>  
+                        </table>
                         <br>
                         <div class="form-group">
                             <input type="button" class="btn btn-success" id="delete-row" value="Quitar bomba">
-                        </div> 
-</p>
+                        </div>
+                    </p>
                 </div>
                 <div data-step="3">
                     <h4>Confirmar</h4>
@@ -891,7 +888,7 @@
                             <tbody>
                                 <tr></tr>
                             </tbody>
-                        </table>   
+                        </table>
                     </p>
                 </div>
 

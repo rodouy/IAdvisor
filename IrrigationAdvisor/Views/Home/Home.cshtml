@@ -124,7 +124,7 @@
                                     }
                                     else
                                     {
-                                        if (Model.IsUserAdministrator)
+                                        if (Model.IsUserAdministrator || Model.IsUserIntermediate)
                                         {
                                             <input type="date" id="txtDateOfReference" class="form-control" value="@Model.DateOfReferenceAsLocal()" style="display:inline-block" />
                                             <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
@@ -356,7 +356,7 @@
                                                 
                                                 <br />
                                             </div>
-
+                                            ¿Es Fertirriego?&nbsp;<input type="checkbox" id="isFertigation"/>
                                         </div>
                                     </form>
                                 </div>

@@ -41,8 +41,11 @@ namespace POCInia
         static void Main(string[] args)
         {
             try
-            {              
-                using (IWebDriver driver = new FirefoxDriver())
+            {
+                FirefoxBinary ffBinary = new FirefoxBinary(Convert.ToString(ConfigurationManager.AppSettings["firefox"]));
+                FirefoxProfile firefoxProfile = new FirefoxProfile();
+
+                using (IWebDriver driver = new FirefoxDriver(ffBinary, firefoxProfile))
                 {
                     List<string> weatherStationsId = LoadIniaWeatherStations();
 
@@ -80,7 +83,7 @@ namespace POCInia
                             logger.Error(ex, "Falló en el momento de seleccionar estación y/o datos. StationId = {0} || " + ex.Message, station);
                             continue;
                         }
-                        
+
                         wait.Until(d => d.FindElement(By.Name("Button")));
 
                         IWebElement buttom = driver.FindElement(By.Name("Button"));
@@ -88,7 +91,7 @@ namespace POCInia
                         buttom.Click();
 
                         // Parse logic        
-                        ProcessIniaData(driver, station);                      
+                        ProcessIniaData(driver, station);
                     }
 
                     // Carga correcta de Weather Data

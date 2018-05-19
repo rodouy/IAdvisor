@@ -35,10 +35,12 @@ namespace IrrigationAdvisor.Models.Agriculture
     ///     - horizonList List<Horizon>
     ///     - testDate DateTime
     ///     - depthLimit double
-    /// 
+    ///     - shortName String 
+    ///     - farmId ling
+    ///      
     /// Methods:
     ///     - Soil()      -- constructor
-    ///     - Soil(name, description, PositionId, testDate, depthLimit)  -- consturctor with parameters
+    ///     - Soil(name, shortname, description, PositionId, testDate, depthLimit,farmid)  -- consturctor with parameters
     ///     - GetSoilFieldCapacity(double: RootDepth)
     ///     - GetPermanentWiltingPoint(double: RootDepth)
     ///     - GetAvailableWaterCapacity(double: RootDepth)
@@ -47,16 +49,16 @@ namespace IrrigationAdvisor.Models.Agriculture
     public class Soil
     {
         #region Consts
-        
-     
-        
+
+
+
         enum SoilLayer
         {
             AvailableWater,
             FieldCapacity,
             PermanentWiltingPoint,
         }
-        
+
 
         #endregion
 
@@ -69,6 +71,8 @@ namespace IrrigationAdvisor.Models.Agriculture
         private List<Horizon> horizonList;
         private DateTime testDate;
         private double depthLimit;
+        private String shortName;
+        private long farmId;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -94,13 +98,13 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return description; }
             set { description = value; }
         }
-       
+
         public long PositionId
         {
             get { return positionId; }
             set { positionId = value; }
         }
-        
+
         public List<Horizon> HorizonList
         {
             get { return horizonList; }
@@ -119,33 +123,62 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { depthLimit = value; }
         }
 
+        public virtual Position Position
+        {
+            get;
+            set;
+        }
+
+        public String ShortName
+        {
+            get { return shortName; }
+            set { shortName = value; }
+        }
+
+        public long FarmId
+        {
+            get { return farmId; }
+            set { farmId = value; }
+        }
+
+
+        public virtual Farm Farm
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region Construction
-        
-        public Soil() 
+
+        public Soil()
         {
-            //this.SoilId = 0;
-            this.Name= "noname";
+            this.SoilId = 0;
+            this.Name = "noname";
+            this.ShortName = "noshortname";
             this.Description = "";
             this.PositionId = 0;
             this.HorizonList = new List<Horizon>();
             this.TestDate = Utilities.Utils.MIN_DATETIME;
             this.DepthLimit = 0;
+            this.FarmId = 0;
         }
 
-        public Soil(long pIdSoil, String pName, String pDescription,
-            long pPositionId, DateTime pTestDate, double pDepthLimit)
+        public Soil(long pIdSoil, String pName, String pShortName, String pDescription,
+            long pPositionId, DateTime pTestDate, double pDepthLimit, long pFarmId)
         {
             this.SoilId = pIdSoil;
             this.Name = pName;
+            this.ShortName = pShortName;
             this.Description = pDescription;
             this.PositionId = pPositionId;
             this.HorizonList = new List<Horizon>();
             this.TestDate = pTestDate;
             this.DepthLimit = pDepthLimit;
+            this.FarmId = pFarmId;
         }
-        
+
         #endregion
 
         #region Private Helpers
@@ -218,7 +251,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             {
                 logger.Error(ex, "Exception in Soil.getLayerCapacityByProrationOfHorizon " + "\n" + ex.Message + "\n" + ex.StackTrace);
                 throw ex;
-                
+
             }
             return lReturnLayerWaterSum;
         }
@@ -233,7 +266,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             Horizon pReturn = new Horizon();
             foreach (Horizon lHorizon in this.horizonList)
             {
-                if(pOrder == lHorizon.Order)
+                if (pOrder == lHorizon.Order)
                 {
                     pReturn = lHorizon;
                     return lHorizon;
@@ -251,7 +284,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             /// rehacer ordenando por horizon.order
             Horizon lReturn = null;
-            double lRootDepthSum =0;
+            double lRootDepthSum = 0;
 
             IEnumerable<Horizon> query = this.horizonList.OrderBy(lHorizon => lHorizon.Order);
             foreach (Horizon lHorizon in query)
@@ -298,7 +331,11 @@ namespace IrrigationAdvisor.Models.Agriculture
             long lReturn = 1;
             if (this.HorizonList != null)
             {
-                lReturn += this.HorizonList.Max(ho => ho.HorizonId);
+                if (this.HorizonList.Count > 0)
+                {
+                    lReturn += this.HorizonList.Max(ho => ho.HorizonId);
+                }
+
             }
             return lReturn;
         }
@@ -313,7 +350,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             Horizon lReturn = null;
             foreach (Horizon item in HorizonList)
             {
-                if(item.Equals(pHorizon))
+                if (item.Equals(pHorizon))
                 {
                     lReturn = item;
                     break;
@@ -338,7 +375,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <returns></returns>
         public Horizon AddHorizon(String pName, int pOrder,
                         String pHorizonLayer, double pHorizonLayerDepth, double pSand,
-                        double pLimo, double pClay, double pOrganicMatter, 
+                        double pLimo, double pClay, double pOrganicMatter,
                         double pNitrogenAnalysis, double pBulkDensitySoil)
         {
             Horizon lReturn = null;
@@ -402,7 +439,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         /// <param name="pDepth"></param>
         /// <returns></returns>
-        public double  GetFieldCapacity(double pDepth)
+        public double GetFieldCapacity(double pDepth)
         {
             double lReturnFieldCapacity = 0;
             double lDepth = pDepth;
@@ -437,8 +474,8 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// </summary>
         /// <param name="pDepth"></param>
         /// <returns></returns>
-         public double GetAvailableWaterCapacity(double pDepth)
-         {
+        public double GetAvailableWaterCapacity(double pDepth)
+        {
             double lAvailableWaterCapacity;
             double lDepth = pDepth;
             if (pDepth > this.DepthLimit)
@@ -460,7 +497,7 @@ namespace IrrigationAdvisor.Models.Agriculture
                 return false;
             }
             Soil lSoil = obj as Soil;
-            return (this.Name.Equals(lSoil.Name)&&
+            return (this.Name.Equals(lSoil.Name) &&
                 this.PositionId.Equals(lSoil.PositionId));
         }
 
@@ -472,10 +509,10 @@ namespace IrrigationAdvisor.Models.Agriculture
         public override string ToString()
         {
             string lReturn = Environment.NewLine + Environment.NewLine + this.Name + Environment.NewLine;
-               foreach(Horizon lHorizon in this.HorizonList)
-               {
-                   lReturn += lHorizon.ToString()+ Environment.NewLine;
-               }
+            foreach (Horizon lHorizon in this.HorizonList)
+            {
+                lReturn += lHorizon.ToString() + Environment.NewLine;
+            }
             return lReturn;
 
         }

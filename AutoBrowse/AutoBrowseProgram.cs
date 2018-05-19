@@ -18,13 +18,17 @@ namespace AutoBrowse
         {
             try
             {
+
+                string lUser = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["pUserName"]);
+                string lPassword = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["pPassword"]);
+
                 string url = args[0];
                 MyWebClient wc = new MyWebClient();
                 
                 NameValueCollection values = new NameValueCollection()
                 {
-                    { "pUserName" , "Admin"},
-                    { "pPassword" , "Irrigation4dvis0r" }
+                    { "pUserName" , lUser },
+                    { "pPassword" , lPassword }
                 };
 
                 byte[] raw = wc.UploadValues(url, values);
