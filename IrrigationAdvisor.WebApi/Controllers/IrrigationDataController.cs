@@ -92,7 +92,7 @@ namespace IrrigationAdvisor.WebApi.Controllers
                         {
                             var irrigation = context.WaterInputs.SingleOrDefault(n => n.WaterInputId == daily.IrrigationId);
 
-                            if (irrigation != null && (irrigation.Input > 0 || irrigation.Input > 0))
+                            if (irrigation != null && (irrigation.Input > 0 || irrigation.ExtraInput > 0))
                             {
                                 irrigationRow.Advices.Add(new AdviceViewModel()
                                 {
