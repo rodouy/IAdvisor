@@ -74,6 +74,8 @@
           <Property Name="Density" Type="float" Nullable="false" />
           <Property Name="LastDayOfGrowingDegreeDays" Type="datetime" Nullable="false" />
           <Property Name="GrowingDegreeDaysExtraGap" Type="float" Nullable="false" />
+          <Property Name="MaxIrrigationQuantity" Type="float" Nullable="false" />
+          <Property Name="AdjustableIrrigationQuantity" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DailyRecord">
           <Key>
@@ -133,6 +135,9 @@
           <Property Name="Has" Type="int" Nullable="false" />
           <Property Name="WeatherStationId" Type="bigint" Nullable="false" />
           <Property Name="CityId" Type="bigint" Nullable="false" />
+          <Property Name="IrrigationUnitReportShowTemperature" Type="bit" Nullable="false" />
+          <Property Name="IrrigationUnitReportShowEvapotranspiration" Type="bit" Nullable="false" />
+          <Property Name="IrrigationUnitReportShowAvailableWater" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Irrigation">
           <Key>
@@ -715,6 +720,8 @@
           <NavigationProperty Name="WaterInputs" Relationship="Self.FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="WaterInput" />
           <NavigationProperty Name="WaterOutputs" Relationship="Self.FK_dbo_WaterOutput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" FromRole="CropIrrigationWeather" ToRole="WaterOutput" />
           <Property Name="GrowingDegreeDaysExtraGap" Type="Double" Nullable="false" />
+          <Property Name="MaxIrrigationQuantity" Type="Double" Nullable="false" />
+          <Property Name="AdjustableIrrigationQuantity" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="DailyRecord">
           <Key>
@@ -780,6 +787,9 @@
           <Property Name="CityId" Type="Int64" Nullable="false" />
           <NavigationProperty Name="IrrigationUnits" Relationship="Self.FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId" FromRole="Farm" ToRole="IrrigationUnit" />
           <NavigationProperty Name="UserFarms" Relationship="Self.FK_dbo_UserFarm_dbo_Farm_FarmId" FromRole="Farm" ToRole="UserFarm" />
+          <Property Name="IrrigationUnitReportShowTemperature" Type="Boolean" Nullable="false" />
+          <Property Name="IrrigationUnitReportShowEvapotranspiration" Type="Boolean" Nullable="false" />
+          <Property Name="IrrigationUnitReportShowAvailableWater" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Irrigation">
           <Key>
@@ -1328,6 +1338,8 @@
           <EntitySetMapping Name="CropIrrigationWeathers">
             <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.CropIrrigationWeather">
               <MappingFragment StoreEntitySet="CropIrrigationWeather">
+                <ScalarProperty Name="AdjustableIrrigationQuantity" ColumnName="AdjustableIrrigationQuantity" />
+                <ScalarProperty Name="MaxIrrigationQuantity" ColumnName="MaxIrrigationQuantity" />
                 <ScalarProperty Name="GrowingDegreeDaysExtraGap" ColumnName="GrowingDegreeDaysExtraGap" />
                 <ScalarProperty Name="CropIrrigationWeatherId" ColumnName="CropIrrigationWeatherId" />
                 <ScalarProperty Name="CropIrrigationWeatherName" ColumnName="CropIrrigationWeatherName" />
@@ -1428,6 +1440,9 @@
           <EntitySetMapping Name="Farms">
             <EntityTypeMapping TypeName="IrrigationAdvisorWebApiModel.Farm">
               <MappingFragment StoreEntitySet="Farm">
+                <ScalarProperty Name="IrrigationUnitReportShowAvailableWater" ColumnName="IrrigationUnitReportShowAvailableWater" />
+                <ScalarProperty Name="IrrigationUnitReportShowEvapotranspiration" ColumnName="IrrigationUnitReportShowEvapotranspiration" />
+                <ScalarProperty Name="IrrigationUnitReportShowTemperature" ColumnName="IrrigationUnitReportShowTemperature" />
                 <ScalarProperty Name="FarmId" ColumnName="FarmId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Company" ColumnName="Company" />
