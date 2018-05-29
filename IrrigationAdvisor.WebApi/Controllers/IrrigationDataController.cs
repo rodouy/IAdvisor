@@ -53,7 +53,7 @@ namespace IrrigationAdvisor.WebApi.Controllers
                                                     Stage = s}).ToList();
 
                 foreach (var row in irrigationRows)
-                {
+                {                  
                     IrrigationRow irrigationRow = new IrrigationRow()
                     {
                         IrrigationUnitId = row.IrrigationUnit.IrrigationUnitId,
@@ -71,6 +71,9 @@ namespace IrrigationAdvisor.WebApi.Controllers
                     var dailyRecords = context.DailyRecords.Where(n => n.CropIrrigationWeatherId == row.CropIrrigationWeather.CropIrrigationWeatherId && 
                                                                  (n.DailyRecordDateTime <= mayorDate && 
                                                                  n.DailyRecordDateTime >= minorDate)).Distinct().ToList();
+                    irrigationRow.Kc = dailyRecords
+                                        .OrderByDescending(n => n.DailyRecordDateTime)
+                                        .First().CropCoefficient;
 
                     foreach (var daily in dailyRecords)
                     {
@@ -93,7 +96,7 @@ namespace IrrigationAdvisor.WebApi.Controllers
                             var irrigation = context.WaterInputs.SingleOrDefault(n => n.WaterInputId == daily.IrrigationId);
 
                             if (irrigation != null && (irrigation.Input > 0 || irrigation.ExtraInput > 0))
-                            {
+                            {                               
                                 irrigationRow.Advices.Add(new AdviceViewModel()
                                 {
                                     Date = daily.DailyRecordDateTime,
