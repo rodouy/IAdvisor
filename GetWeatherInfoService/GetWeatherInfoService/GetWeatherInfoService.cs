@@ -445,16 +445,16 @@ namespace GetWeatherInfoService
                     endMessage = endMessage + item ;
                 }
 
-                SendEmails("Carga correcta de Weather Data",
-                                endMessage);
+                //SendEmails("Carga correcta de Weather Data",
+                //                endMessage);
 
                 Stop();
             }
             catch (Exception ex)
             {
                 logger.Error(ex, ex.Message + "\n" + ex.StackTrace);
-                SendEmails("Error en el carga de Weather Data",
-                            ex.Message + " | " + ex.StackTrace);
+                //SendEmails("Error en el carga de Weather Data",
+                //            ex.Message + " | " + ex.StackTrace);
                 Stop();
             }
         }
