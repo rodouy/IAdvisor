@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MeteoblueWeatherData">
+          <Key>
+            <PropertyRef Name="MeteoblueWeatherDataId" />
+          </Key>
+          <Property Name="MeteoblueWeatherDataId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeatherStationId" Type="bigint" Nullable="false" />
+          <Property Name="WeatherDate" Type="datetime" Nullable="false" />
+          <Property Name="UvIndex" Type="int" />
+          <Property Name="TemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="TemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="TemperatureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="FeltTemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="FeltTemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="WindDirection" Type="int" Nullable="false" />
+          <Property Name="PrecipitationProbability" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="Rainspot" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="PredictabilityClass" Type="int" Nullable="false" />
+          <Property Name="Predictability" Type="int" Nullable="false" />
+          <Property Name="Precipitation" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SnowFraction" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SealevelPressureMax" Type="int" Nullable="false" />
+          <Property Name="SealevelPressureMin" Type="int" Nullable="false" />
+          <Property Name="SealevelPressureMean" Type="int" Nullable="false" />
+          <Property Name="WindSpeedMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="WindSpeedMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="WindSpeedMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="RelativeHumidityMax" Type="int" Nullable="false" />
+          <Property Name="RelativeHumidityMin" Type="int" Nullable="false" />
+          <Property Name="RelativehumidityMean" Type="int" Nullable="false" />
+          <Property Name="ConvectivePrecipitation" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="PrecipitationHours" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="HumidityGreater90Hours" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilTemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilTemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilTemperatureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilMoistureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilMoistureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilMoistureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SkinTemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SkinTemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SkinTemperatureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="Evapotranspiration" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="LeafWetnessIndex" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="PotentialEvapotranspiration" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="DewPointTemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="DewPointTemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="DewPointTemperatureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="ReferenceEvapotranspirationFao" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SensibleHeatFlux" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionId" />
+          </Key>
+          <Property Name="PositionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeatherStation">
+          <Key>
+            <PropertyRef Name="WeatherStationId" />
+          </Key>
+          <Property Name="WeatherStationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Model" Type="nvarchar(max)" />
+          <Property Name="StationType" Type="int" Nullable="false" />
+          <Property Name="DateOfInstallation" Type="datetime" Nullable="false" />
+          <Property Name="DateOfService" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="WirelessTransmission" Type="int" Nullable="false" />
+          <Property Name="PositionId" Type="bigint" Nullable="false" />
+          <Property Name="GiveET" Type="bit" Nullable="false" />
+          <Property Name="WeatherDataType" Type="int" Nullable="false" />
+          <Property Name="WebAddress" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="MeteoblueWeatherData" EntityType="Self.MeteoblueWeatherData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeatherStation" EntityType="Self.WeatherStation" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MeteoblueWeatherData">
+          <Key>
+            <PropertyRef Name="MeteoblueWeatherDataId" />
+          </Key>
+          <Property Name="MeteoblueWeatherDataId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeatherStationId" Type="Int64" Nullable="false" />
+          <Property Name="WeatherDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UvIndex" Type="Int32" />
+          <Property Name="TemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="TemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="TemperatureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="FeltTemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="FeltTemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="WindDirection" Type="Int32" Nullable="false" />
+          <Property Name="PrecipitationProbability" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="Rainspot" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="PredictabilityClass" Type="Int32" Nullable="false" />
+          <Property Name="Predictability" Type="Int32" Nullable="false" />
+          <Property Name="Precipitation" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SnowFraction" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SealevelPressureMax" Type="Int32" Nullable="false" />
+          <Property Name="SealevelPressureMin" Type="Int32" Nullable="false" />
+          <Property Name="SealevelPressureMean" Type="Int32" Nullable="false" />
+          <Property Name="WindSpeedMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="WindSpeedMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="WindSpeedMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="RelativeHumidityMax" Type="Int32" Nullable="false" />
+          <Property Name="RelativeHumidityMin" Type="Int32" Nullable="false" />
+          <Property Name="RelativehumidityMean" Type="Int32" Nullable="false" />
+          <Property Name="ConvectivePrecipitation" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="PrecipitationHours" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="HumidityGreater90Hours" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilTemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilTemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilTemperatureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilMoistureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilMoistureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SoilMoistureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SkinTemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SkinTemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SkinTemperatureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="Evapotranspiration" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="LeafWetnessIndex" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="PotentialEvapotranspiration" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="DewPointTemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="DewPointTemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="DewPointTemperatureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="ReferenceEvapotranspirationFao" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="SensibleHeatFlux" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MeteoblueWeatherDatas" EntityType="Self.MeteoblueWeatherData" />
+          <EntitySet Name="Positions" EntityType="Model.Position" />
+          <EntitySet Name="WeatherStations" EntityType="Model.WeatherStation" />
+        </EntityContainer>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionId" />
+          </Key>
+          <Property Name="PositionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="Double" Nullable="false" />
+          <Property Name="Longitude" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeatherStation">
+          <Key>
+            <PropertyRef Name="WeatherStationId" />
+          </Key>
+          <Property Name="WeatherStationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StationType" Type="Int32" Nullable="false" />
+          <Property Name="DateOfInstallation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateOfService" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WirelessTransmission" Type="Int32" Nullable="false" />
+          <Property Name="PositionId" Type="Int64" Nullable="false" />
+          <Property Name="GiveET" Type="Boolean" Nullable="false" />
+          <Property Name="WeatherDataType" Type="Int32" Nullable="false" />
+          <Property Name="WebAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="MeteoblueWeatherDatas">
+            <EntityTypeMapping TypeName="Model.MeteoblueWeatherData">
+              <MappingFragment StoreEntitySet="MeteoblueWeatherData">
+                <ScalarProperty Name="MeteoblueWeatherDataId" ColumnName="MeteoblueWeatherDataId" />
+                <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
+                <ScalarProperty Name="WeatherDate" ColumnName="WeatherDate" />
+                <ScalarProperty Name="UvIndex" ColumnName="UvIndex" />
+                <ScalarProperty Name="TemperatureMax" ColumnName="TemperatureMax" />
+                <ScalarProperty Name="TemperatureMin" ColumnName="TemperatureMin" />
+                <ScalarProperty Name="TemperatureMean" ColumnName="TemperatureMean" />
+                <ScalarProperty Name="FeltTemperatureMax" ColumnName="FeltTemperatureMax" />
+                <ScalarProperty Name="FeltTemperatureMin" ColumnName="FeltTemperatureMin" />
+                <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+                <ScalarProperty Name="PrecipitationProbability" ColumnName="PrecipitationProbability" />
+                <ScalarProperty Name="Rainspot" ColumnName="Rainspot" />
+                <ScalarProperty Name="PredictabilityClass" ColumnName="PredictabilityClass" />
+                <ScalarProperty Name="Predictability" ColumnName="Predictability" />
+                <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+                <ScalarProperty Name="SnowFraction" ColumnName="SnowFraction" />
+                <ScalarProperty Name="SealevelPressureMax" ColumnName="SealevelPressureMax" />
+                <ScalarProperty Name="SealevelPressureMin" ColumnName="SealevelPressureMin" />
+                <ScalarProperty Name="SealevelPressureMean" ColumnName="SealevelPressureMean" />
+                <ScalarProperty Name="WindSpeedMax" ColumnName="WindSpeedMax" />
+                <ScalarProperty Name="WindSpeedMean" ColumnName="WindSpeedMean" />
+                <ScalarProperty Name="WindSpeedMin" ColumnName="WindSpeedMin" />
+                <ScalarProperty Name="RelativeHumidityMax" ColumnName="RelativeHumidityMax" />
+                <ScalarProperty Name="RelativeHumidityMin" ColumnName="RelativeHumidityMin" />
+                <ScalarProperty Name="RelativehumidityMean" ColumnName="RelativehumidityMean" />
+                <ScalarProperty Name="ConvectivePrecipitation" ColumnName="ConvectivePrecipitation" />
+                <ScalarProperty Name="PrecipitationHours" ColumnName="PrecipitationHours" />
+                <ScalarProperty Name="HumidityGreater90Hours" ColumnName="HumidityGreater90Hours" />
+                <ScalarProperty Name="SoilTemperatureMax" ColumnName="SoilTemperatureMax" />
+                <ScalarProperty Name="SoilTemperatureMin" ColumnName="SoilTemperatureMin" />
+                <ScalarProperty Name="SoilTemperatureMean" ColumnName="SoilTemperatureMean" />
+                <ScalarProperty Name="SoilMoistureMax" ColumnName="SoilMoistureMax" />
+                <ScalarProperty Name="SoilMoistureMin" ColumnName="SoilMoistureMin" />
+                <ScalarProperty Name="SoilMoistureMean" ColumnName="SoilMoistureMean" />
+                <ScalarProperty Name="SkinTemperatureMax" ColumnName="SkinTemperatureMax" />
+                <ScalarProperty Name="SkinTemperatureMin" ColumnName="SkinTemperatureMin" />
+                <ScalarProperty Name="SkinTemperatureMean" ColumnName="SkinTemperatureMean" />
+                <ScalarProperty Name="Evapotranspiration" ColumnName="Evapotranspiration" />
+                <ScalarProperty Name="LeafWetnessIndex" ColumnName="LeafWetnessIndex" />
+                <ScalarProperty Name="PotentialEvapotranspiration" ColumnName="PotentialEvapotranspiration" />
+                <ScalarProperty Name="DewPointTemperatureMax" ColumnName="DewPointTemperatureMax" />
+                <ScalarProperty Name="DewPointTemperatureMin" ColumnName="DewPointTemperatureMin" />
+                <ScalarProperty Name="DewPointTemperatureMean" ColumnName="DewPointTemperatureMean" />
+                <ScalarProperty Name="ReferenceEvapotranspirationFao" ColumnName="ReferenceEvapotranspirationFao" />
+                <ScalarProperty Name="SensibleHeatFlux" ColumnName="SensibleHeatFlux" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="Model.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeatherStations">
+            <EntityTypeMapping TypeName="Model.WeatherStation">
+              <MappingFragment StoreEntitySet="WeatherStation">
+                <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+                <ScalarProperty Name="WeatherDataType" ColumnName="WeatherDataType" />
+                <ScalarProperty Name="GiveET" ColumnName="GiveET" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="WirelessTransmission" ColumnName="WirelessTransmission" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="DateOfService" ColumnName="DateOfService" />
+                <ScalarProperty Name="DateOfInstallation" ColumnName="DateOfInstallation" />
+                <ScalarProperty Name="StationType" ColumnName="StationType" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
