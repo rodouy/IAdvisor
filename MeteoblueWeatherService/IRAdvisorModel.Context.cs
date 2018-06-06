@@ -25,8 +25,8 @@ namespace MeteoblueWeatherService
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<WeatherStation> WeatherStations { get; set; }
+        public virtual DbSet<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
     }
 }

@@ -13,47 +13,47 @@
           <Property Name="WeatherStationId" Type="bigint" Nullable="false" />
           <Property Name="WeatherDate" Type="datetime" Nullable="false" />
           <Property Name="UvIndex" Type="int" />
-          <Property Name="TemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="TemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="TemperatureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="FeltTemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="FeltTemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="WindDirection" Type="int" Nullable="false" />
-          <Property Name="PrecipitationProbability" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="Rainspot" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="PredictabilityClass" Type="int" Nullable="false" />
-          <Property Name="Predictability" Type="int" Nullable="false" />
-          <Property Name="Precipitation" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SnowFraction" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SealevelPressureMax" Type="int" Nullable="false" />
-          <Property Name="SealevelPressureMin" Type="int" Nullable="false" />
-          <Property Name="SealevelPressureMean" Type="int" Nullable="false" />
-          <Property Name="WindSpeedMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="WindSpeedMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="WindSpeedMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="RelativeHumidityMax" Type="int" Nullable="false" />
-          <Property Name="RelativeHumidityMin" Type="int" Nullable="false" />
-          <Property Name="RelativehumidityMean" Type="int" Nullable="false" />
-          <Property Name="ConvectivePrecipitation" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="PrecipitationHours" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="HumidityGreater90Hours" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilTemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilTemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilTemperatureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilMoistureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilMoistureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilMoistureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SkinTemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SkinTemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SkinTemperatureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="Evapotranspiration" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="LeafWetnessIndex" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="PotentialEvapotranspiration" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="DewPointTemperatureMax" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="DewPointTemperatureMin" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="DewPointTemperatureMean" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="ReferenceEvapotranspirationFao" Type="decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SensibleHeatFlux" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="TemperatureMax" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="TemperatureMin" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="TemperatureMean" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="FeltTemperatureMax" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="FeltTemperatureMin" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="WindDirection" Type="int" />
+          <Property Name="PrecipitationProbability" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="Rainspot" Type="varchar" MaxLength="50" />
+          <Property Name="PredictabilityClass" Type="int" />
+          <Property Name="Predictability" Type="int" />
+          <Property Name="Precipitation" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="SnowFraction" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="SealevelPressureMax" Type="int" />
+          <Property Name="SealevelPressureMin" Type="int" />
+          <Property Name="SealevelPressureMean" Type="int" />
+          <Property Name="WindSpeedMax" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="WindSpeedMean" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="WindSpeedMin" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="RelativeHumidityMax" Type="int" />
+          <Property Name="RelativeHumidityMin" Type="int" />
+          <Property Name="RelativehumidityMean" Type="int" />
+          <Property Name="ConvectivePrecipitation" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="PrecipitationHours" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="HumidityGreater90Hours" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="SoilTemperatureMax" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="SoilTemperatureMin" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="SoilTemperatureMean" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="SoilMoistureMax" Type="int" />
+          <Property Name="SoilMoistureMin" Type="int" />
+          <Property Name="SoilMoistureMean" Type="int" />
+          <Property Name="SkinTemperatureMax" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="SkinTemperatureMin" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="SkinTemperatureMean" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="Evapotranspiration" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="LeafWetnessIndex" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="PotentialEvapotranspiration" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="DewPointTemperatureMax" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="DewPointTemperatureMin" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="DewPointTemperatureMean" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="ReferenceEvapotranspirationFao" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="SensibleHeatFlux" Type="decimal" Precision="9" Scale="2" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -90,60 +90,10 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="MeteoblueWeatherData">
-          <Key>
-            <PropertyRef Name="MeteoblueWeatherDataId" />
-          </Key>
-          <Property Name="MeteoblueWeatherDataId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WeatherStationId" Type="Int64" Nullable="false" />
-          <Property Name="WeatherDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UvIndex" Type="Int32" />
-          <Property Name="TemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="TemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="TemperatureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="FeltTemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="FeltTemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="WindDirection" Type="Int32" Nullable="false" />
-          <Property Name="PrecipitationProbability" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="Rainspot" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="PredictabilityClass" Type="Int32" Nullable="false" />
-          <Property Name="Predictability" Type="Int32" Nullable="false" />
-          <Property Name="Precipitation" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SnowFraction" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SealevelPressureMax" Type="Int32" Nullable="false" />
-          <Property Name="SealevelPressureMin" Type="Int32" Nullable="false" />
-          <Property Name="SealevelPressureMean" Type="Int32" Nullable="false" />
-          <Property Name="WindSpeedMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="WindSpeedMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="WindSpeedMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="RelativeHumidityMax" Type="Int32" Nullable="false" />
-          <Property Name="RelativeHumidityMin" Type="Int32" Nullable="false" />
-          <Property Name="RelativehumidityMean" Type="Int32" Nullable="false" />
-          <Property Name="ConvectivePrecipitation" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="PrecipitationHours" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="HumidityGreater90Hours" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilTemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilTemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilTemperatureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilMoistureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilMoistureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SoilMoistureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SkinTemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SkinTemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SkinTemperatureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="Evapotranspiration" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="LeafWetnessIndex" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="PotentialEvapotranspiration" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="DewPointTemperatureMax" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="DewPointTemperatureMin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="DewPointTemperatureMean" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="ReferenceEvapotranspirationFao" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="SensibleHeatFlux" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="MeteoblueWeatherDatas" EntityType="Self.MeteoblueWeatherData" />
           <EntitySet Name="Positions" EntityType="Model.Position" />
           <EntitySet Name="WeatherStations" EntityType="Model.WeatherStation" />
+          <EntitySet Name="MeteoblueWeatherDatas" EntityType="Model.MeteoblueWeatherData" />
         </EntityContainer>
         <EntityType Name="Position">
           <Key>
@@ -171,63 +121,62 @@
           <Property Name="WeatherDataType" Type="Int32" Nullable="false" />
           <Property Name="WebAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="MeteoblueWeatherData">
+          <Key>
+            <PropertyRef Name="MeteoblueWeatherDataId" />
+          </Key>
+          <Property Name="MeteoblueWeatherDataId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeatherStationId" Type="Int64" Nullable="false" />
+          <Property Name="WeatherDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UvIndex" Type="Int32" />
+          <Property Name="TemperatureMax" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="TemperatureMin" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="TemperatureMean" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="FeltTemperatureMax" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="FeltTemperatureMin" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="WindDirection" Type="Int32" />
+          <Property Name="PrecipitationProbability" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="Rainspot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PredictabilityClass" Type="Int32" />
+          <Property Name="Predictability" Type="Int32" />
+          <Property Name="Precipitation" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="SnowFraction" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="SealevelPressureMax" Type="Int32" />
+          <Property Name="SealevelPressureMin" Type="Int32" />
+          <Property Name="SealevelPressureMean" Type="Int32" />
+          <Property Name="WindSpeedMax" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="WindSpeedMean" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="WindSpeedMin" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="RelativeHumidityMax" Type="Int32" />
+          <Property Name="RelativeHumidityMin" Type="Int32" />
+          <Property Name="RelativehumidityMean" Type="Int32" />
+          <Property Name="ConvectivePrecipitation" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="PrecipitationHours" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="HumidityGreater90Hours" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="SoilTemperatureMax" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="SoilTemperatureMin" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="SoilTemperatureMean" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="SoilMoistureMax" Type="Int32" />
+          <Property Name="SoilMoistureMin" Type="Int32" />
+          <Property Name="SoilMoistureMean" Type="Int32" />
+          <Property Name="SkinTemperatureMax" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="SkinTemperatureMin" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="SkinTemperatureMean" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="Evapotranspiration" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="LeafWetnessIndex" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="PotentialEvapotranspiration" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="DewPointTemperatureMax" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="DewPointTemperatureMin" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="DewPointTemperatureMean" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="ReferenceEvapotranspirationFao" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="SensibleHeatFlux" Type="Decimal" Precision="9" Scale="2" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="MeteoblueWeatherDatas">
-            <EntityTypeMapping TypeName="Model.MeteoblueWeatherData">
-              <MappingFragment StoreEntitySet="MeteoblueWeatherData">
-                <ScalarProperty Name="MeteoblueWeatherDataId" ColumnName="MeteoblueWeatherDataId" />
-                <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
-                <ScalarProperty Name="WeatherDate" ColumnName="WeatherDate" />
-                <ScalarProperty Name="UvIndex" ColumnName="UvIndex" />
-                <ScalarProperty Name="TemperatureMax" ColumnName="TemperatureMax" />
-                <ScalarProperty Name="TemperatureMin" ColumnName="TemperatureMin" />
-                <ScalarProperty Name="TemperatureMean" ColumnName="TemperatureMean" />
-                <ScalarProperty Name="FeltTemperatureMax" ColumnName="FeltTemperatureMax" />
-                <ScalarProperty Name="FeltTemperatureMin" ColumnName="FeltTemperatureMin" />
-                <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
-                <ScalarProperty Name="PrecipitationProbability" ColumnName="PrecipitationProbability" />
-                <ScalarProperty Name="Rainspot" ColumnName="Rainspot" />
-                <ScalarProperty Name="PredictabilityClass" ColumnName="PredictabilityClass" />
-                <ScalarProperty Name="Predictability" ColumnName="Predictability" />
-                <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
-                <ScalarProperty Name="SnowFraction" ColumnName="SnowFraction" />
-                <ScalarProperty Name="SealevelPressureMax" ColumnName="SealevelPressureMax" />
-                <ScalarProperty Name="SealevelPressureMin" ColumnName="SealevelPressureMin" />
-                <ScalarProperty Name="SealevelPressureMean" ColumnName="SealevelPressureMean" />
-                <ScalarProperty Name="WindSpeedMax" ColumnName="WindSpeedMax" />
-                <ScalarProperty Name="WindSpeedMean" ColumnName="WindSpeedMean" />
-                <ScalarProperty Name="WindSpeedMin" ColumnName="WindSpeedMin" />
-                <ScalarProperty Name="RelativeHumidityMax" ColumnName="RelativeHumidityMax" />
-                <ScalarProperty Name="RelativeHumidityMin" ColumnName="RelativeHumidityMin" />
-                <ScalarProperty Name="RelativehumidityMean" ColumnName="RelativehumidityMean" />
-                <ScalarProperty Name="ConvectivePrecipitation" ColumnName="ConvectivePrecipitation" />
-                <ScalarProperty Name="PrecipitationHours" ColumnName="PrecipitationHours" />
-                <ScalarProperty Name="HumidityGreater90Hours" ColumnName="HumidityGreater90Hours" />
-                <ScalarProperty Name="SoilTemperatureMax" ColumnName="SoilTemperatureMax" />
-                <ScalarProperty Name="SoilTemperatureMin" ColumnName="SoilTemperatureMin" />
-                <ScalarProperty Name="SoilTemperatureMean" ColumnName="SoilTemperatureMean" />
-                <ScalarProperty Name="SoilMoistureMax" ColumnName="SoilMoistureMax" />
-                <ScalarProperty Name="SoilMoistureMin" ColumnName="SoilMoistureMin" />
-                <ScalarProperty Name="SoilMoistureMean" ColumnName="SoilMoistureMean" />
-                <ScalarProperty Name="SkinTemperatureMax" ColumnName="SkinTemperatureMax" />
-                <ScalarProperty Name="SkinTemperatureMin" ColumnName="SkinTemperatureMin" />
-                <ScalarProperty Name="SkinTemperatureMean" ColumnName="SkinTemperatureMean" />
-                <ScalarProperty Name="Evapotranspiration" ColumnName="Evapotranspiration" />
-                <ScalarProperty Name="LeafWetnessIndex" ColumnName="LeafWetnessIndex" />
-                <ScalarProperty Name="PotentialEvapotranspiration" ColumnName="PotentialEvapotranspiration" />
-                <ScalarProperty Name="DewPointTemperatureMax" ColumnName="DewPointTemperatureMax" />
-                <ScalarProperty Name="DewPointTemperatureMin" ColumnName="DewPointTemperatureMin" />
-                <ScalarProperty Name="DewPointTemperatureMean" ColumnName="DewPointTemperatureMean" />
-                <ScalarProperty Name="ReferenceEvapotranspirationFao" ColumnName="ReferenceEvapotranspirationFao" />
-                <ScalarProperty Name="SensibleHeatFlux" ColumnName="SensibleHeatFlux" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Positions">
             <EntityTypeMapping TypeName="Model.Position">
               <MappingFragment StoreEntitySet="Position">
@@ -253,6 +202,57 @@
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeteoblueWeatherDatas">
+            <EntityTypeMapping TypeName="Model.MeteoblueWeatherData">
+              <MappingFragment StoreEntitySet="MeteoblueWeatherData">
+                <ScalarProperty Name="SensibleHeatFlux" ColumnName="SensibleHeatFlux" />
+                <ScalarProperty Name="ReferenceEvapotranspirationFao" ColumnName="ReferenceEvapotranspirationFao" />
+                <ScalarProperty Name="DewPointTemperatureMean" ColumnName="DewPointTemperatureMean" />
+                <ScalarProperty Name="DewPointTemperatureMin" ColumnName="DewPointTemperatureMin" />
+                <ScalarProperty Name="DewPointTemperatureMax" ColumnName="DewPointTemperatureMax" />
+                <ScalarProperty Name="PotentialEvapotranspiration" ColumnName="PotentialEvapotranspiration" />
+                <ScalarProperty Name="LeafWetnessIndex" ColumnName="LeafWetnessIndex" />
+                <ScalarProperty Name="Evapotranspiration" ColumnName="Evapotranspiration" />
+                <ScalarProperty Name="SkinTemperatureMean" ColumnName="SkinTemperatureMean" />
+                <ScalarProperty Name="SkinTemperatureMin" ColumnName="SkinTemperatureMin" />
+                <ScalarProperty Name="SkinTemperatureMax" ColumnName="SkinTemperatureMax" />
+                <ScalarProperty Name="SoilMoistureMean" ColumnName="SoilMoistureMean" />
+                <ScalarProperty Name="SoilMoistureMin" ColumnName="SoilMoistureMin" />
+                <ScalarProperty Name="SoilMoistureMax" ColumnName="SoilMoistureMax" />
+                <ScalarProperty Name="SoilTemperatureMean" ColumnName="SoilTemperatureMean" />
+                <ScalarProperty Name="SoilTemperatureMin" ColumnName="SoilTemperatureMin" />
+                <ScalarProperty Name="SoilTemperatureMax" ColumnName="SoilTemperatureMax" />
+                <ScalarProperty Name="HumidityGreater90Hours" ColumnName="HumidityGreater90Hours" />
+                <ScalarProperty Name="PrecipitationHours" ColumnName="PrecipitationHours" />
+                <ScalarProperty Name="ConvectivePrecipitation" ColumnName="ConvectivePrecipitation" />
+                <ScalarProperty Name="RelativehumidityMean" ColumnName="RelativehumidityMean" />
+                <ScalarProperty Name="RelativeHumidityMin" ColumnName="RelativeHumidityMin" />
+                <ScalarProperty Name="RelativeHumidityMax" ColumnName="RelativeHumidityMax" />
+                <ScalarProperty Name="WindSpeedMin" ColumnName="WindSpeedMin" />
+                <ScalarProperty Name="WindSpeedMean" ColumnName="WindSpeedMean" />
+                <ScalarProperty Name="WindSpeedMax" ColumnName="WindSpeedMax" />
+                <ScalarProperty Name="SealevelPressureMean" ColumnName="SealevelPressureMean" />
+                <ScalarProperty Name="SealevelPressureMin" ColumnName="SealevelPressureMin" />
+                <ScalarProperty Name="SealevelPressureMax" ColumnName="SealevelPressureMax" />
+                <ScalarProperty Name="SnowFraction" ColumnName="SnowFraction" />
+                <ScalarProperty Name="Precipitation" ColumnName="Precipitation" />
+                <ScalarProperty Name="Predictability" ColumnName="Predictability" />
+                <ScalarProperty Name="PredictabilityClass" ColumnName="PredictabilityClass" />
+                <ScalarProperty Name="Rainspot" ColumnName="Rainspot" />
+                <ScalarProperty Name="PrecipitationProbability" ColumnName="PrecipitationProbability" />
+                <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+                <ScalarProperty Name="FeltTemperatureMin" ColumnName="FeltTemperatureMin" />
+                <ScalarProperty Name="FeltTemperatureMax" ColumnName="FeltTemperatureMax" />
+                <ScalarProperty Name="TemperatureMean" ColumnName="TemperatureMean" />
+                <ScalarProperty Name="TemperatureMin" ColumnName="TemperatureMin" />
+                <ScalarProperty Name="TemperatureMax" ColumnName="TemperatureMax" />
+                <ScalarProperty Name="UvIndex" ColumnName="UvIndex" />
+                <ScalarProperty Name="WeatherDate" ColumnName="WeatherDate" />
+                <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
+                <ScalarProperty Name="MeteoblueWeatherDataId" ColumnName="MeteoblueWeatherDataId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
