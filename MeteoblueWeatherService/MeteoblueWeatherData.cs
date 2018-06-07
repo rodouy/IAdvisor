@@ -59,5 +59,10 @@ namespace MeteoblueWeatherService
         public Nullable<decimal> DewPointTemperatureMean { get; set; }
         public Nullable<decimal> ReferenceEvapotranspirationFao { get; set; }
         public Nullable<decimal> SensibleHeatFlux { get; set; }
+        public System.DateTime LastModificationDate { get; set; }
+        public string BasicJson { get; set; }
+        public string BasicUrl { get; set; }
+        public string AgroJson { get; set; }
+        public string AgroUrl { get; set; }
     }
 }
