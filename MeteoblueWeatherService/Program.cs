@@ -18,25 +18,7 @@ namespace MeteoblueWeatherService
         static void Main(string[] args)
         {
             const string basicData = "basic-day";
-            const string agroData = "agro-day";
-            
-            ////if (false)
-            ////{
-            ////    string text = System.IO.File.ReadAllText(@"C:\Users\Lenovo\Documents\RodoUY\MeteoblueWeatherService\Examples\BasicData.txt");
-
-            ////    BasicData m = JsonConvert.DeserializeObject<BasicData>(text);
-
-            ////    Console.Write(m.data_day.felttemperature_max);
-            ////    Console.ReadLine();
-
-            ////    text = System.IO.File.ReadAllText(@"C:\Users\Lenovo\Documents\RodoUY\MeteoblueWeatherService\Examples\AgroData.txt");
-
-            ////    AgroData b = JsonConvert.DeserializeObject<AgroData>(text);
-
-            ////    Console.Write(b.data_day.dewpointtemperature_max);
-            ////    Console.ReadLine();
-            ////}
-            
+            const string agroData = "agro-day";         
 
             WebClient client = new WebClient();
 

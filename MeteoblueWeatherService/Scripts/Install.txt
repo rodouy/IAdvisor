@@ -1,0 +1,65 @@
+﻿CREATE TABLE [dbo].[MeteoblueWeatherData](
+	[MeteoblueWeatherDataId] [bigint] IDENTITY(1,1) NOT NULL,
+	[WeatherStationId] [bigint] NOT NULL,
+	[WeatherDate] [datetime] NOT NULL,
+	[UvIndex] [int] NULL,
+	[TemperatureMax] [decimal](9, 2) NULL,
+	[TemperatureMin] [decimal](9, 2) NULL,
+	[TemperatureMean] [decimal](9, 2) NULL,
+	[FeltTemperatureMax] [decimal](9, 2) NULL,
+	[FeltTemperatureMin] [decimal](9, 2) NULL,
+	[WindDirection] [int] NULL,
+	[PrecipitationProbability] [decimal](9, 2) NULL,
+	[Rainspot] [varchar](50) NULL,
+	[PredictabilityClass] [int] NULL,
+	[Predictability] [int] NULL,
+	[Precipitation] [decimal](9, 2) NULL,
+	[SnowFraction] [decimal](9, 2) NULL,
+	[SealevelPressureMax] [int] NULL,
+	[SealevelPressureMin] [int] NULL,
+	[SealevelPressureMean] [int] NULL,
+	[WindSpeedMax] [decimal](9, 2) NULL,
+	[WindSpeedMean] [decimal](9, 2) NULL,
+	[WindSpeedMin] [decimal](9, 2) NULL,
+	[RelativeHumidityMax] [int] NULL,
+	[RelativeHumidityMin] [int] NULL,
+	[RelativehumidityMean] [int] NULL,
+	[ConvectivePrecipitation] [decimal](9, 2) NULL,
+	[PrecipitationHours] [decimal](9, 2) NULL,
+	[HumidityGreater90Hours] [decimal](9, 2) NULL,
+	[SoilTemperatureMax] [decimal](9, 2) NULL,
+	[SoilTemperatureMin] [decimal](9, 2) NULL,
+	[SoilTemperatureMean] [decimal](9, 2) NULL,
+	[SoilMoistureMax] [int] NULL,
+	[SoilMoistureMin] [int] NULL,
+	[SoilMoistureMean] [int] NULL,
+	[SkinTemperatureMax] [decimal](9, 2) NULL,
+	[SkinTemperatureMin] [decimal](9, 2) NULL,
+	[SkinTemperatureMean] [decimal](9, 2) NULL,
+	[Evapotranspiration] [decimal](9, 2) NULL,
+	[LeafWetnessIndex] [decimal](9, 2) NULL,
+	[PotentialEvapotranspiration] [decimal](9, 2) NULL,
+	[DewPointTemperatureMax] [decimal](9, 2) NULL,
+	[DewPointTemperatureMin] [decimal](9, 2) NULL,
+	[DewPointTemperatureMean] [decimal](9, 2) NULL,
+	[ReferenceEvapotranspirationFao] [decimal](9, 2) NULL,
+	[SensibleHeatFlux] [decimal](9, 2) NULL,
+	[BasicJson] [varchar](max) NULL,
+	[BasicUrl] [varchar](200) NULL,
+	[AgroJson] [varchar](max) NULL,
+	[AgroUrl] [varchar](200) NULL,
+	[LastModificationDate] [datetime] NOT NULL,
+ CONSTRAINT [PK_MeteoblueWeatherData] PRIMARY KEY CLUSTERED 
+(
+	[MeteoblueWeatherDataId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[MeteoblueWeatherData] ADD  CONSTRAINT [DF_MeteoblueWeatherData_LastModificationDate]  DEFAULT (getdate()) FOR [LastModificationDate]
+GO
+

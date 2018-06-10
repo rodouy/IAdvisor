@@ -84,6 +84,7 @@
     <Compile Include="MeteoblueWeatherData.cs">
       <DependentUpon>IRAdvisorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AgroData.cs" />
     <Compile Include="Model\AgroDataDay.cs" />
     <Compile Include="Model\AgroDataMetadata.cs" />
@@ -125,6 +126,7 @@
       <DependentUpon>IRAdvisorModel.edmx</DependentUpon>
       <LastGenOutput>IRAdvisorModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\Install.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
