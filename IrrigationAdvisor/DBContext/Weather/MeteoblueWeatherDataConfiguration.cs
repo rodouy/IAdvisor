@@ -18,7 +18,7 @@ namespace IrrigationAdvisor.DBContext.Weather
                 .IsRequired();
 
             Property(w => w.WeatherDate).IsRequired();
-
+            
             Property(w => w.TemperatureMax).HasColumnType("decimal").HasPrecision(9,2);
             Property(w => w.TemperatureMin).HasColumnType("decimal").HasPrecision(9, 2);
             Property(w => w.TemperatureMean).HasColumnType("decimal").HasPrecision(9, 2);
@@ -61,6 +61,7 @@ namespace IrrigationAdvisor.DBContext.Weather
 
             Property(w => w.AgroJson).HasColumnType("varchar(max)");
             Property(w => w.BasicJson).HasColumnType("varchar(max)");
+            
         }
     }
 }

@@ -14,6 +14,12 @@ namespace MeteoblueWeatherService
     
     public partial class WeatherStation
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public WeatherStation()
+        {
+            this.MeteoblueWeatherDatas = new HashSet<MeteoblueWeatherData>();
+        }
+    
         public long WeatherStationId { get; set; }
         public string Name { get; set; }
         public string Model { get; set; }
@@ -26,5 +32,8 @@ namespace MeteoblueWeatherService
         public bool GiveET { get; set; }
         public int WeatherDataType { get; set; }
         public string WebAddress { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
     }
 }

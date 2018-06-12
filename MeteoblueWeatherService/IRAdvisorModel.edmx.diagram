@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="Model.Position" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="Model.WeatherStation" Width="1.5" PointX="3.375" PointY="3.75" />
         <EntityTypeShape EntityType="Model.MeteoblueWeatherData" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="Model.FK_MeteoblueWeatherData_WeatherStation" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

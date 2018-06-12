@@ -64,5 +64,7 @@ namespace MeteoblueWeatherService
         public string BasicUrl { get; set; }
         public string AgroJson { get; set; }
         public string AgroUrl { get; set; }
+    
+        public virtual WeatherStation WeatherStation { get; set; }
     }
 }
