@@ -4,12 +4,106 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script>
+    $(document).ready(function () {
 
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+      
+        var dateFrom = $('#dateFrom');
+        var dateTo = $('#dateTo');
+        var btnSearch = $('#btnSearch');
+        var monthValue;
+
+        if ((moment().month() + 1) < 10)
+        {
+            monthValue = '0' + (moment().month() + 1);
+        }
+        else
+        {
+            monthValue = (moment().month() + 1);
+        }
+        
+        var today = moment().year() + '-' + monthValue + '-' + moment().date();
+        //yyyy-MM-dd
+
+        var startDate = getUrlParameter('dateFrom');
+        
+        var endDate = getUrlParameter('dateTo');
+        
+        var weatherStation = getUrlParameter('weatherStationId');
+
+        if (startDate && endDate)
+        {
+            $('#dateFrom').val(startDate);
+            $('#dateTo').val(endDate);
+        }
+        else
+        {
+            $('#dateFrom').val(today);
+            $('#dateTo').val(today);
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: './WeatherDatas/GetAllWeatherStations',
+            success: function (data) {
+
+                var values = JSON.stringify(data);
+                var ele = $('#weatherStations');
+
+                ele.empty();
+                ele.append('<option value="0">Todas</option>');
+                $.each($.parseJSON(values), function (key, value) {
+                    ele.append('<option value="' + value.WeatherStationId + '">' + value.Name + '</option>');
+                });
+
+                if (weatherStation) {
+                    $('#weatherStations').val(weatherStation);
+                }
+            },
+            error: function (data) {
+               
+                console.log(data);
+            }
+        });
+
+        btnSearch.click(function ()
+        {
+            location.href = 'MeteoblueWeatherDatas?dateFrom=' + dateFrom.val() + '&dateTo=' + dateTo.val() + '&weatherStationId=' + $('#weatherStations').val();
+        });
+    })
+</script>
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<table class="table">
+    <tr>
+        <td>
+            Fecha desde: <input type="date" id="dateFrom" />
+        </td>
+        <td>
+            Fecha hasta: <input type="date" id="dateTo" />
+        </td>
+        <td>
+            Weather Station: <select id="weatherStations"></select>&nbsp;&nbsp; <button id="btnSearch">Buscar</button>
+        </td>
+    </tr>
+</table>
 <table class="table">
     <tr>
         <th>

@@ -17,9 +17,27 @@ namespace IrrigationAdvisor.Views
         private IrrigationAdvisorContext db = new IrrigationAdvisorContext();
 
         // GET: MeteoblueWeatherDatas
-        public ActionResult Index()
+        public ActionResult Index(DateTime? dateFrom, DateTime? dateTo, int weatherStationId = 0)
         {
-            return View(db.MeteoblueWeatherDatas.Include(n => n.WeatherStation).ToList());
+            if (!dateFrom.HasValue && !dateTo.HasValue && weatherStationId == 0)
+            {
+                return View(db.MeteoblueWeatherDatas
+                            .Include(n => n.WeatherStation).ToList());
+            }
+            else
+            {
+                var query = db.MeteoblueWeatherDatas
+                        .Include(n => n.WeatherStation)
+                        .Where(n => n.WeatherDate >= dateFrom &&
+                                    n.WeatherDate <= dateTo);
+
+                if (weatherStationId > 0)
+                {
+                    query = query.Where(n => n.WeatherStationId == weatherStationId);
+                }
+
+                return View(query.ToList());
+            }  
         }
 
         // GET: MeteoblueWeatherDatas/Details/5

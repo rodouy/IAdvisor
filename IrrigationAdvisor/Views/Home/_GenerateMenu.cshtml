@@ -12,12 +12,16 @@
 @{
     if (Model.IsAdministrator)
     {
-
         <li>
-            <a href="../Weatherdatas">Datos del clima</a>
-        </li>
-        <li>
-            <a href="../MeteoblueWeatherDatas">Meteoblue</a>
+            <a href="#">Datos del clima</a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="../MeteoblueWeatherDatas">Meteoblue</a>
+                </li>
+                <li>
+                    <a href="../Weatherdatas">Otros</a>
+                </li>
+            </ul>
         </li>
         <li>
             <a href="#">Mantenimiento</a>
