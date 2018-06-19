@@ -111,6 +111,9 @@
     <None Include="IRAdvisorModel.edmx.diagram">
       <DependentUpon>IRAdvisorModel.edmx</DependentUpon>
     </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +133,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IrrigationAdvisor\IrrigationAdvisor.csproj">
+      <Project>{5B9DDB8D-8420-4D0E-851A-584DB79DAF16}</Project>
+      <Name>IrrigationAdvisor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

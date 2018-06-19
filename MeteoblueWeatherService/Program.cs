@@ -1,4 +1,5 @@
-﻿using MeteoblueWeatherService.Model;
+﻿using IrrigationAdvisor.Models.Utilities;
+using MeteoblueWeatherService.Model;
 using Newtonsoft.Json;
 using NLog;
 using System;
@@ -42,14 +43,73 @@ namespace MeteoblueWeatherService
 
                         string basicUrl = string.Format(ConfigurationManager.AppSettings["Url"], basicData, position.Latitude, position.Longitude);
 
-                        string result = client.DownloadString(basicUrl);
+                        string result = string.Empty;
+
+                        int count = 0;
+                        int maxRetry = 3;
+
+                        bool reTryFlag = true;
+                        while (reTryFlag)
+                        {
+                            try
+                            {
+                                result = client.DownloadString(basicUrl);
+                                break;
+                            }
+                            catch (Exception ex)
+                            {
+                                count++;
+
+                                if (count == maxRetry)
+                                {
+                                    logger.Error(ex, "[BasicData] WeatherStationId: " + identifier + " | " + ex.Message + " | " + ex.StackTrace);
+                                    reTryFlag = false;
+                                }                             
+                            }
+                        }
+
+                        if (!reTryFlag)
+                        {
+                            continue;
+                        }
+
+                        reTryFlag = true;
 
                         BasicData basicDataValues = JsonConvert.DeserializeObject<BasicData>(result);
 
                         string agroUrl = string.Format(ConfigurationManager.AppSettings["Url"], agroData, position.Latitude, position.Longitude);
 
-                        string agroResult = client.DownloadString(agroUrl);
+                        string agroResult = string.Empty;
 
+                        count = 0;
+
+                        while (reTryFlag)
+                        {
+                            try
+                            {
+                                agroResult = client.DownloadString(agroUrl);
+                                break;
+                            }
+                            catch (Exception ex)
+                            {
+                                count++;
+
+                                if (count == maxRetry)
+                                {
+                                    logger.Error(ex, "[AgroData] WeatherStationId: " + identifier + " | " + ex.Message + " | " + ex.StackTrace);
+                                    reTryFlag = false;
+                                    break;                                 
+                                }                         
+                            }
+                        }
+
+                        if (!reTryFlag)
+                        {
+                            continue;
+                        }
+
+                        count = 0;
+                                           
                         AgroData agroDataValues = JsonConvert.DeserializeObject<AgroData>(agroResult);
 
                         var meteoblueWeatherDatas = context.MeteoblueWeatherDatas.Where(n => n.WeatherStationId == identifier).ToList();
@@ -180,8 +240,7 @@ namespace MeteoblueWeatherService
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.ReadLine();
+                logger.Error(ex, ex.Message);
             }           
         }
 
