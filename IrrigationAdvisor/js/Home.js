@@ -991,5 +991,7 @@ $(document).ready(function () {
 
     });
 
-
+    $('.td-pheno').dblclick(function () {
+        alert("Handler for .dblclick() called.");
+    });
 });

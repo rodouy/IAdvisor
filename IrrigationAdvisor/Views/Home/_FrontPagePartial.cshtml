@@ -80,7 +80,15 @@
         <td><a href="../ReportPivotState?ciw=@gridPivotItem.CropIrrigationWeatherId" title="Reporte de estado del pivot">@gridPivotItem.IrrigationUnitName</a></td>
         <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.SowingDate</td>
-        <td>@gridPivotItem.PhenologyName</td>
+        <td class="td-pheno">
+            <input type="hidden" value="@gridPivotItem.CropIrrigationWeatherId" class="ciw-@gridPivotItem.CropIrrigationWeatherId" />
+            @gridPivotItem.PhenologyName
+            <select ide="select-pheno-stage-@gridPivotItem.CropIrrigationWeatherId">
+                <option>VT</option>
+                <option>V13</option>
+                <option>V11</option>
+            </select>
+        </td>
         @if (gridPivotItem.IsAdministrator)
         {
             <td>@gridPivotItem.CropCoefficient</td>
