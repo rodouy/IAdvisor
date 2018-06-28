@@ -11,6 +11,7 @@ namespace IrrigationAdvisor.DBContext.Localization
     public class CountryConfiguration:
         EntityTypeConfiguration<Country>
     {
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
         public CountryConfiguration()
         {
             ToTable("Country");
@@ -24,6 +25,10 @@ namespace IrrigationAdvisor.DBContext.Localization
             Property(l => l.CapitalId)
                 .IsRequired();
             
+        }
+        public List<Country> GetAllCountries()
+        {
+            return db.Countries.ToList();
         }
     }
 }

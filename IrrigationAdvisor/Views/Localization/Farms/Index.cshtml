@@ -1,33 +1,38 @@
 ﻿@model IEnumerable<IrrigationAdvisor.Models.Localization.Farm>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "Localization";
+    ViewBag.Title = "Establecientos";
+    //Layout = "Localization";
 }
 
-<h2>Index</h2>
+<h2>Establecientos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Wizard")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
+            Dirección
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Phone)
+            Ciudad
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Has)
+          Teléfono
+        </th>
+        <th>
+           Hectáreas
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
+    if (item.IsActive)
+    { 
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -36,17 +41,22 @@
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.City.Name)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Has)
         </td>
+
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FarmId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FarmId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FarmId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.FarmId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.FarmId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.FarmId })
         </td>
     </tr>
+    }
 }
 
 </table>

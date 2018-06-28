@@ -9,6 +9,11 @@
 
 <script js>
     var bg = bg || false;
+   
+    var expresionLatitudeLongitud = /^(-([1-8]?[1-9]|[1-9]0)\,{1}\d{1,6})/;
+
+    var invalid_latlng = 'Latitude and Longitude are not correctly typed';
+
     if (!bg) {
         if (typeof jQuery != 'undefined') {
             bg = jQuery;
@@ -416,8 +421,16 @@
                 return false;
             }
             else {
-                $("#LatitudeMessage").html("<span class=text-danger></span>");
-                return true;
+                if (!expresionLatitudeLongitud.test($("#Latitude").val()))
+                {
+                    $("#LatitudeMessage").html("<span class=text-danger>La latitud no esta correctamente ingresada (Ej: -45,4455)</span>");
+                    return false;
+                }
+                else
+                    {
+                        $("#LatitudeMessage").html("<span class=text-danger></span>");
+                        return true;
+                    }
             }
         }
         function longitudeValidation() {
@@ -426,8 +439,15 @@
                 return false;
             }
             else {
-                $("#LongitudeMessage").html("<span class=text-danger></span>");
-                return true;
+                if (!expresionLatitudeLongitud.test($("#Longitude").val())) {
+                    $("#LongitudeMessage").html("<span class=text-danger>La longitud no esta correctamente ingresada (Ej: -45,4455)</span>");
+                    return false;
+                }
+                else
+                   {
+                    $("#LongitudeMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
             }
         }
 
@@ -489,8 +509,14 @@
                 return false;
             }
             else {
-                $("#BombLatitudeMessage").html("<span class=text-danger></span>");
-                return true;
+                if (!expresionLatitudeLongitud.test($("#BombLatitude").val())) {
+                    $("#BombLatitudeMessage").html("<span class=text-danger>La latitud no esta correctamente ingresada (Ej: -45,4455)</span>");
+                    return false;
+                }
+                else {
+                    $("#BombLatitudeMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
             }
         }
         function bombLongitudeValidation() {
@@ -499,8 +525,14 @@
                 return false;
             }
             else {
-                $("#BombLatitudeMessage").html("<span class=text-danger></span>");
-                return true;
+                if (!expresionLatitudeLongitud.test($("#BombLongitude").val())) {
+                    $("#BombLongitudeMessage").html("<span class=text-danger>La longitud no esta correctamente ingresada (Ej: -45,4455)</span>");
+                    return false;
+                }
+                else {
+                    $("#BombLatitudeMessage").html("<span class=text-danger></span>");
+                    return true;
+                }
             }
         }
 
@@ -734,13 +766,13 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Latitud</label>
-                            <input maxlength="50" id="Latitude" name="Latitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese latitud">
+                            <input maxlength="50" id="Latitude" name="Latitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese latitud. Ej: -45,124456">
                             <span id="LatitudeMessage"></span>
                             @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label class="control-label">Longitud</label>
-                            <input maxlength="50" id="Longitude" name="Longitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese longitud">
+                            <input maxlength="50" id="Longitude" name="Longitude" type="text" class="form-control text-box single-line" required="required" placeholder="Ingrese longitud. Ej: -45,124456">
                             <span id="LongitudeMessage"></span>
                         </div>
                         <div class="form-group">
@@ -894,6 +926,13 @@
 
             </div>
         </div>
-    </div>
+        <p></p>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
+                </div>
+            </div>
+        <p>&nbsp;</p>
+</div>
 
 }
