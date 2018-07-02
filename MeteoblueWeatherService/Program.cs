@@ -248,6 +248,9 @@ namespace MeteoblueWeatherService
         {
             List<string> lines = new List<string>();
 
+            string data = Convert.ToString(ConfigurationManager.AppSettings["dataToShow"]);
+            string[] dataToShow = data.Split(',');
+
             using (var context = new Entities())
             {
                 foreach (var item in weatherData)
@@ -259,7 +262,7 @@ namespace MeteoblueWeatherService
 
                     foreach (var prop in item.GetType().GetProperties())
                     {
-                        if (prop.Name != "BasicJson" && prop.Name != "AgroJson")
+                        if (dataToShow.Contains(prop.Name))
                         {
                             lines.Add(prop.Name + ": " + prop.GetValue(item, null)?.ToString());
                         }                     
