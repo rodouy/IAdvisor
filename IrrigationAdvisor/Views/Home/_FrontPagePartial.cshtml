@@ -80,7 +80,7 @@
         <td><a href="../ReportPivotState?ciw=@gridPivotItem.CropIrrigationWeatherId" title="Reporte de estado del pivot">@gridPivotItem.IrrigationUnitName</a></td>
         <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.SowingDate</td>
-        <td class="td-pheno">   
+        <td class="td-pheno" style="cursor:pointer">   
             <!-- No change childrens. It will broke the javascript.-->       
             <input type="hidden" value="@gridPivotItem.CropIrrigationWeatherId" class="ciw-@gridPivotItem.CropIrrigationWeatherId" />
             <span id="selected-pheno-name-@gridPivotItem.CropIrrigationWeatherId">@gridPivotItem.PhenologyName</span>
