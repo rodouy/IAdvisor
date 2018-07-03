@@ -991,7 +991,71 @@ $(document).ready(function () {
 
     });
 
-    $('.td-pheno').dblclick(function () {
-        alert("Handler for .dblclick() called.");
+    $('.td-pheno').dblclick(function (e, f) {
+
+        var ciw = e.currentTarget.children[0].value;
+
+        var pUrl = './GetStagesBy?pCropIrrigationWeatherId=' + ciw;
+
+        var comboStages = $('#select-pheno-stage-' + ciw);
+        var ok = $('#pheno-ok-' + ciw);
+        var cancel = $('#pheno-cancel-' + ciw);
+        var phenoClock = $('#pheno-clock-' + ciw);
+        var selectedPheno = $('#selected-pheno-name-' + ciw);
+        selectedPheno.hide();
+        phenoClock.show();
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+
+                var values = JSON.stringify(data);
+
+                comboStages.empty();
+                $.each($.parseJSON(values), function (key, value) {
+                    if (selectedPheno.text() == value.ShortName)
+                    {
+                        comboStages.append('<option value="' + value.StageId + '" selected>' + value.ShortName + '</option>');
+                    }
+                    else
+                    {
+                        comboStages.append('<option value="' + value.StageId + '">' + value.ShortName + '</option>');
+                    }
+                   
+                });
+                
+                comboStages.show();
+                ok.show();
+                cancel.show();
+                phenoClock.hide();
+
+            },
+            error: function (data) {
+                hideLoading();
+                //sendMail("Error al cargar No Riego", data);
+                console.log(data);
+            }
+        });
+    });
+
+    $('.pheno-ok').click(function (e, f) {
+        var ciw = e.currentTarget.parentElement.children[0].value;
+
+    });
+
+    $('.pheno-cancel').click(function (e, f) {
+        var ciw = e.currentTarget.parentElement.children[0].value;
+        
+        var comboStages = $('#select-pheno-stage-' + ciw);
+        var ok = $('#pheno-ok-' + ciw);
+        var cancel = $('#pheno-cancel-' + ciw);
+        var selectedPheno = $('#selected-pheno-name-' + ciw);
+
+        comboStages.hide();
+        ok.hide();
+        cancel.hide();
+     
+        selectedPheno.show();
     });
 });

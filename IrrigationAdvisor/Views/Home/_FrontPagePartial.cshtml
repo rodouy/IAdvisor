@@ -80,14 +80,16 @@
         <td><a href="../ReportPivotState?ciw=@gridPivotItem.CropIrrigationWeatherId" title="Reporte de estado del pivot">@gridPivotItem.IrrigationUnitName</a></td>
         <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.SowingDate</td>
-        <td class="td-pheno">
+        <td class="td-pheno">   
+            <!-- No change childrens. It will broke the javascript.-->       
             <input type="hidden" value="@gridPivotItem.CropIrrigationWeatherId" class="ciw-@gridPivotItem.CropIrrigationWeatherId" />
-            @gridPivotItem.PhenologyName
-            <select ide="select-pheno-stage-@gridPivotItem.CropIrrigationWeatherId">
-                <option>VT</option>
-                <option>V13</option>
-                <option>V11</option>
+            <span id="selected-pheno-name-@gridPivotItem.CropIrrigationWeatherId">@gridPivotItem.PhenologyName</span>
+            <select id="select-pheno-stage-@gridPivotItem.CropIrrigationWeatherId" style="display:none">
+                
             </select>
+            <span class="glyphicon glyphicon-ok pheno-ok" style="display:none; color:forestgreen; cursor:pointer" id="pheno-ok-@gridPivotItem.CropIrrigationWeatherId"></span>
+            <span class="glyphicon glyphicon-remove pheno-cancel" style="display:none; color:red; cursor:pointer" id="pheno-cancel-@gridPivotItem.CropIrrigationWeatherId"></span>
+            <span class="glyphicon glyphicon-time" id="pheno-clock-@gridPivotItem.CropIrrigationWeatherId" style="display:none"></span>
         </td>
         @if (gridPivotItem.IsAdministrator)
         {
