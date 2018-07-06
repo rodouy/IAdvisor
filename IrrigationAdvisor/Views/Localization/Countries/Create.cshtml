@@ -1,8 +1,8 @@
-﻿@model IrrigationAdvisor.Models.Localization.Country
+﻿@model IrrigationAdvisor.ViewModels.Localization.CountryViewModel
 
 @{
     ViewBag.Title = "Create";
-    Layout = "Localization";
+    //Layout = "Localization";
 }
 
 <h2>Create</h2>
@@ -33,18 +33,19 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CapitalId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CityId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CapitalId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CapitalId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.CityId, Model.City, new { @class = "form-control" })
             </div>
+        </div>
+        <div class="cf footer">
+            <p>
+                <input type="button" class="btn btn-style-2" id="CancelCity" value="Cancelar">
+            </p>
+            <input type="submit" value="Create" class="btn btn-default" />
+
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
     </div>
 }
 

@@ -9,18 +9,22 @@ using System.Web.Mvc;
 using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Localization;
 
+using IrrigationAdvisor.Models.Language;
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.ViewModels.Localization;
+using IrrigationAdvisor.DBContext.Language;
 
 namespace IrrigationAdvisor.Controllers.Localization
 {
     public class CountriesController : Controller
     {
         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
-
+        
         // GET: Countries
         public ActionResult Index()
-        {
-            return View(db.Countries.ToList());
+        {          
+            return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
         }
 
         // GET: Countries/Details/5
@@ -41,7 +45,13 @@ namespace IrrigationAdvisor.Controllers.Localization
         // GET: Countries/Create
         public ActionResult Create()
         {
-            return View();
+
+            CountryViewModel vm = new CountryViewModel();
+
+            vm.City = this.LoadCities();
+            vm.Language = this.LoadLanguages ();
+            return View("~/Views/Localization/Countries/Create.cshtml", vm);
+
         }
 
         // POST: Countries/Create
@@ -118,13 +128,69 @@ namespace IrrigationAdvisor.Controllers.Localization
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
+
+        private List<System.Web.Mvc.SelectListItem> LoadCities(long? cityId = null, Country country = null)
         {
-            if (disposing)
+            CityConfiguration cc = new CityConfiguration();
+
+            List<City> cities = cc.GetAllCities();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in cities)
             {
-                db.Dispose();
+
+                bool isSelected = false;
+                if (country != null && cityId.HasValue)
+                {
+                    isSelected = (country.CapitalId == cityId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.CityId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
             }
-            base.Dispose(disposing);
+
+            return result;
+        }
+        private List<System.Web.Mvc.SelectListItem> LoadLanguages(long? languageId = null, Country country = null)
+        {
+             LanguageConfiguration lc = new LanguageConfiguration();
+            List<IrrigationAdvisor.Models.Language.Language> roles = lc.GetAllLanguages();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in roles)
+            {
+
+                bool isSelected = false;
+                if (country != null && languageId.HasValue)
+                {
+                    isSelected = (country.LanguageId == languageId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.LanguageId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
+            }
+
+            return result;
         }
     }
 }
