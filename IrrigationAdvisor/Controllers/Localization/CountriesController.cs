@@ -39,7 +39,13 @@ namespace IrrigationAdvisor.Controllers.Localization
             {
                 return HttpNotFound();
             }
-            return View(country);
+
+            CountryViewModel vm = new CountryViewModel();
+
+            vm.Capital = this.LoadCities();
+            vm.Language = this.LoadLanguages();
+            return View("~/Views/Localization/Countries/Details.cshtml",vm);
+
         }
 
         // GET: Countries/Create

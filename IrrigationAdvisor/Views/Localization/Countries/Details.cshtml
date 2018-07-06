@@ -1,43 +1,43 @@
-﻿@model IrrigationAdvisor.Models.Localization.Country
+﻿@model IrrigationAdvisor.ViewModels.Localization.CountryViewModel
 
 @{
     ViewBag.Title = "Details";
    // Layout = "Localization";
 }
 
-<h2>Details</h2>
+<script src="~/js/Home.js"></script>
+<h2>Detalle</h2>
+<h4>Paises</h4>
+<hr />
+<div class="horizontal">
+    <table id="mytable">
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.Name)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Name)</td>
+        </tr>
 
-<div>
-    <h4>Country</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.LanguageId)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Language)</td>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LanguageId)
-        </dt>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.CapitalId)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Capital)</td>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.LanguageId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CapitalId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CapitalId)
-        </dd>
-
-    </dl>
+        <tr>
+            <td id="myTdHead"></td>
+            <td id="myTdBody">@Html.ActionLink("   Editar   ", "Edit", new { id = Model.CountryId }, new { @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+        </tr>
+    </table>
 </div>
+
+
+
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CountryId }) |
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </p>
