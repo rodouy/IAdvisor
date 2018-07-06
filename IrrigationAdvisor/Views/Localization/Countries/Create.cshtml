@@ -5,13 +5,60 @@
     //Layout = "Localization";
 }
 
+<script js>
+    $(document).ready(function () {
+        var saveCountryBtn = $('#SaveCountryBtn');
+
+
+        saveCountryBtn.click(function ()
+        {
+            var validateForm = true;
+            
+            if ($('#Name').val().trim() != '') {
+                $('#NameError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#NameError').html('Ingrese el nombre');
+                validateForm = false;
+            }
+
+            if (validateForm == true) {
+                if ($('#CapitalId').val().trim() != '') {
+                    $('#CapitalIdError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#CapitalIdError').html('Seleccione la capital');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#LanguageId').val().trim() != '') {
+                    $('#LanguageIdError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#LanguageIdError').html('Seleccione el idioma');
+                    validateForm = false;
+                }
+            }
+            if (validateForm == true) {
+                myForm.submit();
+            }
+
+        });
+
+    });
+    </script>
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Countries", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Country</h4>
         <hr />
@@ -19,38 +66,44 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese el nombre" } })
+                <span id="NameError" class="red-color"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CapitalId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CapitalId, Model.Capital,"-- Selecione la capital --", new { @class = "form-control" })
+                <span id="CapitalIdError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.LanguageId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.LanguageId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.LanguageId, Model.Language, "-- Selecione el idioma --", new { @class = "form-control" })
+
+                <span id="LanguageIdError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CityId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CityId, Model.City, new { @class = "form-control" })
-            </div>
+            <label class="control-label col-md-2"></label>
         </div>
         <div class="cf footer">
-            <p>
-                <input type="button" class="btn btn-style-2" id="CancelCity" value="Cancelar">
-            </p>
-            <input type="submit" value="Create" class="btn btn-default" />
+            <label class="control-label col-md-2" for="CapitalId"></label>
 
+            <input type="button" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveCountryBtn" class="btn btn-default" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
         </div>
 
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+   &nbsp;
 </div>
 
 @section Scripts {

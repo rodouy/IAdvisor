@@ -23,9 +23,9 @@ namespace IrrigationAdvisor.ViewModels.Localization
 
         [Required]
         [Display(Name = "Capital")]
-        public long CityId { get; set; }
+        public long CapitalId { get; set; }
 
-        public List<System.Web.Mvc.SelectListItem> City { get; set; }
+        public List<System.Web.Mvc.SelectListItem> Capital { get; set; }
 
         [Required]        
         [Display(Name = "Idioma")]
@@ -45,11 +45,11 @@ namespace IrrigationAdvisor.ViewModels.Localization
         {
             this.Name = country.Name;
             this.CountryId = country.CountryId;
-            this.CityId = country.CapitalId;
+            this.CapitalId = country.CapitalId;
             this.LanguageId = country.LanguageId;
 
 
-            this.City = new List<System.Web.Mvc.SelectListItem>();
+            this.Capital = new List<System.Web.Mvc.SelectListItem>();
             this.Language = new List<System.Web.Mvc.SelectListItem>();
 
         }
