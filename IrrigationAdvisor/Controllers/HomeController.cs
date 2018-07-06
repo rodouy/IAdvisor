@@ -2173,6 +2173,63 @@ namespace IrrigationAdvisor.Controllers
             return lReturn;
         }
 
+        public void ChangePhenology(int pCropIrrigationWeatherId, int pNewPhenologicalStageId)
+        {
+            var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
+
+            StageConfiguration st = new StageConfiguration();
+
+            var lCropIrrigationWeather = lIrrigationAdvisorContext.CropIrrigationWeathers
+                                         .Include(n => n.Crop)
+                                         .Where(n => n.CropIrrigationWeatherId == pCropIrrigationWeatherId)
+                                         .First();
+
+            // var lStageResult = st.GetStageBy(lCropIrrigationWeather.Crop.SpecieId, foundStage.Order);
+
+            throw new NotImplementedException("Pending");
+        }
+
+        private void ChangePhenology(int pCropIrrigationWeatherId, 
+                                     int pDailyRecordId, 
+                                     int pPhenologicalStageId)
+        {
+            string lSomeData = string.Format("pCropIrrigationWeatherId: {0}, pDailyRecordId: {1}, pPhenologicalStageId: {2}", 
+                                                pCropIrrigationWeatherId, 
+                                                pDailyRecordId, 
+                                                pPhenologicalStageId);
+            try
+            {
+                var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
+
+                var lDailyRecord = lIrrigationAdvisorContext.DailyRecords
+                                    .Where(n => n.DailyRecordId == pDailyRecordId)
+                                    .First();
+
+                var lCropIrrigationWeather = lIrrigationAdvisorContext.PhenologicalStages
+                                             .Where(n => n.PhenologicalStageId == pPhenologicalStageId)
+                                             .First();
+
+                var lPhenologicalStage = lIrrigationAdvisorContext.PhenologicalStages
+                                         .Where(n => n.PhenologicalStageId == pPhenologicalStageId)
+                                         .First();
+
+                double lGrowingDegreeDays = (lPhenologicalStage.MaxDegree - lPhenologicalStage.MinDegree) / 2;
+
+                lDailyRecord.PhenologicalStageId = pPhenologicalStageId;
+                lDailyRecord.GrowingDegreeDaysModified = lGrowingDegreeDays;
+                lDailyRecord.GrowingDegreeDaysAccumulated = lGrowingDegreeDays;
+
+                lCropIrrigationWeather.PhenologicalStageId = pPhenologicalStageId;
+
+                lIrrigationAdvisorContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.ChangePhenology \n {0} ", lSomeData);
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// Add Grid Irrigation Unit with all columns data
         /// Using DailyRecords for obtain Irrigation, Rain information.
