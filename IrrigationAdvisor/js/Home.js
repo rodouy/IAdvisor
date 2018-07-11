@@ -1042,6 +1042,35 @@ $(document).ready(function () {
     $('.pheno-ok').click(function (e, f) {
         var ciw = e.currentTarget.parentElement.children[0].value;
 
+        var selected = $('#select-pheno-stage-' + ciw).val();
+
+        var pUrl = './ChangePhenology?pCropIrrigationWeatherId=' + ciw + '&pNewPhenologicalStageId=' + selected;
+
+        var comboStages = $('#select-pheno-stage-' + ciw);
+        var ok = $('#pheno-ok-' + ciw);
+        var cancel = $('#pheno-cancel-' + ciw);
+        var selectedPheno = $('#selected-pheno-name-' + ciw);
+        var phenoClock = $('#pheno-clock-' + ciw);
+
+        comboStages.hide();
+        ok.hide();
+        cancel.hide();
+        phenoClock.show();
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+
+                selectedPheno.show();
+                phenoClock.hide();
+            },
+            error: function (data) {
+                alert(data);
+                sendMail("Error al cambiar fenologia", data);
+                console.log(data);
+            }
+        });
     });
 
     $('.pheno-cancel').click(function (e, f) {
