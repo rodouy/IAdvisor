@@ -74,7 +74,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.LanguageId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.LanguageId, Model.Language, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.LanguageId, Model.Languages, new { @class = "form-control" })
                 <span id="LanguageIdError" class="red-color"></span>
             </div>
         </div>
@@ -82,7 +82,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CapitalId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CapitalId, Model.Capital, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.CapitalId, Model.Capitals, new { @class = "form-control" })
               <span id="CapitalIdError" class="red-color"></span>
             </div>
         </div>

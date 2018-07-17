@@ -9,6 +9,7 @@
 <h2>Detalle</h2>
 <h4>Paises</h4>
 <hr />
+
 <div class="horizontal">
     <table id="mytable">
         <tr>
@@ -18,13 +19,13 @@
 
         <tr>
             <td id="myTdHead">@Html.DisplayNameFor(model => model.LanguageId)</td>
-            <td id="myTdBody">@Html.DisplayFor(model => model.Language)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Language.Name)</td>
         </tr>
 
 
         <tr>
             <td id="myTdHead">@Html.DisplayNameFor(model => model.CapitalId)</td>
-            <td id="myTdBody">@Html.DisplayFor(model => model.Capital)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Capital.Name)</td>
         </tr>
 
         <tr>

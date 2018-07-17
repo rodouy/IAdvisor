@@ -41,9 +41,12 @@ namespace IrrigationAdvisor.Controllers.Localization
             }
 
             CountryViewModel vm = new CountryViewModel();
+            vm.CountryId = country.CountryId;
+            vm.Name = country.Name;
+            //vm.Capital = "ACA"country.Capital;
+            vm.Language = country.Language;
 
-            vm.Capital = this.LoadCities();
-            vm.Language = this.LoadLanguages();
+            vm.Languages = this.LoadLanguages();
             return View("~/Views/Localization/Countries/Details.cshtml",vm);
 
         }
@@ -54,8 +57,8 @@ namespace IrrigationAdvisor.Controllers.Localization
 
             CountryViewModel vm = new CountryViewModel();
 
-            vm.Capital = this.LoadCities();
-            vm.Language = this.LoadLanguages ();
+            vm.Capitals = this.LoadCities();
+            vm.Languages = this.LoadLanguages ();
             return View("~/Views/Localization/Countries/Create.cshtml", vm);
 
         }
@@ -65,23 +68,41 @@ namespace IrrigationAdvisor.Controllers.Localization
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CountryId,Name,LanguageId,CapitalId")] Country country)
+        public ActionResult Create([Bind(Include = "CountryId,Name,LanguageId,CapitalId, CapitalName, CapitalLatitude, CapitalLongitude")] CountryViewModel countryMapped)
         {
             if (ModelState.IsValid)
             {
-                Country countryMapped = new Country();
-                countryMapped.Name = country.Name;
-                countryMapped.CapitalId = country.CapitalId;
-                countryMapped.LanguageId = country.LanguageId;
+                Country country = new Country();
+                City lCity;
+                if (countryMapped.CapitalId == -1) //es una nueva ciudad, se debe ingresar.
+                {
+                    Position lPosition = new Position();
+                    lCity = new City();
+                    lCity.Name = countryMapped.CapitalName;
+                    lPosition.Name = countryMapped.CapitalName;
+                    lPosition.Latitude = double.Parse(countryMapped.CapitalLatitude);
+                    lPosition.Longitude = double.Parse(countryMapped.CapitalLongitude);
+                    db.Positions.Add(lPosition);
+                    db.Cities.Add(lCity);
 
-                db.Countries.Add(countryMapped);
+                }
+                else
+                {
+                    lCity = db.Cities.Find(countryMapped.CapitalId);
+                }
+               // country.Capital = lCity; 
+                country.Name = countryMapped.Name;
+                country.CapitalId = countryMapped.CapitalId;
+                country.LanguageId = countryMapped.LanguageId;
+                db.Cities.Add(lCity);
+                db.Countries.Add(country);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             CountryViewModel vm = new CountryViewModel();
 
-            vm.Capital = this.LoadCities();
-            vm.Language = this.LoadLanguages();
+            vm.Capitals = this.LoadCities();
+            vm.Languages = this.LoadLanguages();
             return View("~/Views/Localization/Countries/Create.cshtml", vm);
         }
 
@@ -99,8 +120,8 @@ namespace IrrigationAdvisor.Controllers.Localization
             }
 
             CountryViewModel vm = new CountryViewModel(country);
-            vm.Capital = this.LoadCities();
-            vm.Language = this.LoadLanguages();
+            vm.Capitals = this.LoadCities();
+            vm.Languages = this.LoadLanguages();
             return View("~/Views/Localization/Countries/Edit.cshtml", vm);
         }
 
@@ -114,18 +135,19 @@ namespace IrrigationAdvisor.Controllers.Localization
             if (ModelState.IsValid)
             {
                 Country countryMapped = db.Countries.Find(country.CountryId);
+                City capitalMapped = db.Cities.Find(country.CapitalId);
                 countryMapped.Name = country.Name;
                 countryMapped.CapitalId = country.CapitalId;
                 countryMapped.LanguageId = country.LanguageId;
-
+               // ACA countryMapped.Capital = capitalMapped;
                 db.Entry(countryMapped).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             CountryViewModel vm = new CountryViewModel();
 
-            vm.Capital = this.LoadCities();
-            vm.Language = this.LoadLanguages();
+            vm.Capitals = this.LoadCities();
+            vm.Languages = this.LoadLanguages();
             return View("~/Views/Localization/Countries/Edit.cshtml", vm);
 
         }
@@ -144,8 +166,8 @@ namespace IrrigationAdvisor.Controllers.Localization
             }
 
             CountryViewModel vm = new CountryViewModel(country);
-            vm.Capital = this.LoadCities();
-            vm.Language = this.LoadLanguages();
+            vm.Capitals = this.LoadCities();
+            vm.Languages = this.LoadLanguages();
             return View("~/Views/Localization/Countries/Delete.cshtml", vm);
 
         }
@@ -158,7 +180,7 @@ namespace IrrigationAdvisor.Controllers.Localization
             Country country = db.Countries.Find(id);
             db.Countries.Remove(country);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
         }
 
         //protected override void Dispose(bool disposing)

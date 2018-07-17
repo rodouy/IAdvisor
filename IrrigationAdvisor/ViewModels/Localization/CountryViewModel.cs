@@ -1,4 +1,5 @@
-﻿using IrrigationAdvisor.Models.Localization;
+﻿using IrrigationAdvisor.Models.Language;
+using IrrigationAdvisor.Models.Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -25,13 +26,20 @@ namespace IrrigationAdvisor.ViewModels.Localization
         [Display(Name = "Capital")]
         public long CapitalId { get; set; }
 
-        public List<System.Web.Mvc.SelectListItem> Capital { get; set; }
+        public List<System.Web.Mvc.SelectListItem> Capitals { get; set; }
 
         [Required]        
         [Display(Name = "Idioma")]
         public long LanguageId { get; set; }
 
-        public List<System.Web.Mvc.SelectListItem> Language { get; set; }
+        public List<System.Web.Mvc.SelectListItem> Languages { get; set; }
+
+        public City Capital { get; set; }
+        public Language Language { get; set; }
+
+        public string CapitalName { get; set; }
+        public string CapitalLatitude { get; set; }
+        public string CapitalLongitude{ get; set; }
 
 
         #region Properties
@@ -47,10 +55,11 @@ namespace IrrigationAdvisor.ViewModels.Localization
             this.CountryId = country.CountryId;
             this.CapitalId = country.CapitalId;
             this.LanguageId = country.LanguageId;
+            //ACA this.Capital = country.Capital;
+            this.Language = country.Language;
 
-
-            this.Capital = new List<System.Web.Mvc.SelectListItem>();
-            this.Language = new List<System.Web.Mvc.SelectListItem>();
+            this.Capitals = new List<System.Web.Mvc.SelectListItem>();
+            this.Languages = new List<System.Web.Mvc.SelectListItem>();
 
         }
         #endregion

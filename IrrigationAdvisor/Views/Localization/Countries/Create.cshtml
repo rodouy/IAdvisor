@@ -4,11 +4,18 @@
     ViewBag.Title = "Create";
     //Layout = "Localization";
 }
+<link rel="stylesheet" type="text/css" href="~/css/modal.css">
+<script src="~/js/Home.js"></script>
 
 <script js>
     $(document).ready(function () {
         var saveCountryBtn = $('#SaveCountryBtn');
-
+        var modalCity = $('#modal-city');
+        var addCityModal = $('#addCityModal');
+        var cancelCity = $('#CancelCity');
+        var saveCityBtn = $('#SaveCity');
+        var cityName = $('#CityName');
+        var expresionLatitudeLongitud = /^(-([1-8]?[1-9]|[1-9]0)\,{1}\d{1,6})/;
 
         saveCountryBtn.click(function ()
         {
@@ -49,10 +56,100 @@
             }
 
         });
+        var init = function () {
+            var initModal = { backdrop: false, show: false };
+            modalCity.modal(initModal);
+        };
+
+        var addClasses = function () {
+            addCityModal.css("background-color", "#00a1d3");
+        }
+
+        $(window).resize(function () {
+
+            var width = $(window).width();
+            var height = $(window).height();
+
+            if (width <= 760) {
+                removeClasses();
+            }
+            else {
+                addClasses();
+            }
+        });
+        $("#addCityModal").click(function () {
+            modalCity.modal('show');
+            $('.modal-content').draggable();
+        });
+        cancelCity.click(function () {
+            modalCity.modal('hide');
+        });
+        $.getScript("https://code.jquery.com/ui/1.12.0/jquery-ui.js", function () {
+            var addCityModal = $('#addCityModal');
+            var width = $(window).width();
+            var height = $(window).height();
+        });
+
+        saveCityBtn.click(function ()
+        {
+            var validateForm = true;
+    
+            if ($('#CityName').val().trim() != '') {
+                $('#CityNameError').html(''); 
+                validateForm = true;
+            }
+            else {
+                $('#CityNameError').html('Ingrese el nombre');
+                validateForm = false;
+            }
+
+            if (validateForm == true) {
+                if ($('#CapitalLatitude').val().trim() != '') {
+                    if (!expresionLatitudeLongitud.test($("#CapitalLatitude").val())) {
+                        $("#CapitalLatitudeError").html("La latitud no esta correctamente ingresada (Ej: -45,4455)");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#CapitalLatitudeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#CapitalLatitudeError').html('Ingrese latitud');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#CapitalLongitude').val().trim() != '') {
+                    if (!expresionLatitudeLongitud.test($("#CapitalLongitude").val())) {
+                        $("#CapitalLongitudeError").html("La longitud no esta correctamente ingresada (Ej: -45,4455)");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#CapitalLongitudeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#CapitalLongitudeError').html('Ingrese longitud');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true)
+            {
+                modalCity.modal('hide');
+                saveCityBtn.attr('disabled', true);
+               
+                $("#CapitalId").append('<option value="-1" selected>' + $('#CityName').val().trim() + '</option>');
+                
+            }
+        });
 
     });
     </script>
-<h2>Create</h2>
+<h2>Nuevo</h2>
 
 
 @using (Html.BeginForm("Create", "Countries", FormMethod.Post, new { id = "myForm" }))
@@ -74,15 +171,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CapitalId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CapitalId, Model.Capital,"-- Selecione la capital --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.CapitalId, Model.Capitals,"-- Selecione la capital --", new { @class = "form-control" })
                 <span id="CapitalIdError" class="red-color"></span>
+                <a id="addCityModal" href="#" return false;">Agregar ciudad</a>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.LanguageId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.LanguageId, Model.Language, "-- Selecione el idioma --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.LanguageId, Model.Languages, "-- Selecione el idioma --", new { @class = "form-control" })
 
                 <span id="LanguageIdError" class="red-color"></span>
             </div>
@@ -100,6 +198,51 @@
         </div>
 
     </div>
+
+            <!--NuevaCiudad-->
+    <div id="modal-city" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="header">
+                    <h2>Nueva ciudad</h2>
+                </div>
+                
+                    <p>  </p>
+
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                Nombre
+                                <input type="text" placeholder="Ingrese nombre" class="form-control" id="CityName" name="CapitalName" min="1" max="50" />
+
+                                <span id="CityNameError" class="red-color"></span>
+                            </div>
+
+                            <br /><br /><br /><br />
+                            <div class="col-md-10">
+                                Latitud
+                                <input type="text" placeholder="Ingrese latitud. Ej: -45,124456" class="form-control" id="CapitalLatitude" name="CapitalLatitude" min="1" max="50" />
+                                <span id="CapitalLatitudeError" class="red-color"></span>
+                            </div>
+                            <br /><br /><br /><br />
+                            <div class="col-md-10">
+                                Longitud
+                                <input type="text" placeholder="Ingrese longitud. Ej: -45,124456 " class="form-control" id="CapitalLongitude" name="CapitalLongitude" min="1" max="50" />
+                                <span id="CapitalLongitudeError" class="red-color"></span>
+                            </div>
+                            <br />
+                        </div>
+                  
+                <table id="mytable">
+                    <tr><td id="myTdHead"><input type="button" class="btn btn-default" id="CancelCity" value="Cancelar">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default" id="SaveCity" value="&nbsp;&nbsp;Guardar&nbsp;&nbsp;">&nbsp;&nbsp;</td></tr>
+                </table> 
+
+
+            </div>
+        </div>
+    </div>
+        <!--EndNuevaCiudad-->
+
 }
 
 <div>
