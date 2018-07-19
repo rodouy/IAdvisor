@@ -55,9 +55,8 @@ namespace IrrigationAdvisor.ViewModels.Localization
             this.CountryId = country.CountryId;
             this.CapitalId = country.CapitalId;
             this.LanguageId = country.LanguageId;
-            //ACA this.Capital = country.Capital;
+            this.Capital = country.Capital;
             this.Language = country.Language;
-
             this.Capitals = new List<System.Web.Mvc.SelectListItem>();
             this.Languages = new List<System.Web.Mvc.SelectListItem>();
 
