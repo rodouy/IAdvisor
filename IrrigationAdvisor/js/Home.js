@@ -1063,6 +1063,7 @@ $(document).ready(function () {
             success: function (data) {
 
                 selectedPheno.show();
+                // selectedPheno.text($('#select-pheno-stage-' + ciw).text()); TO:DO : Actualizar fenologia al actualizar en la pantalla.
                 phenoClock.hide();
             },
             error: function (data) {
