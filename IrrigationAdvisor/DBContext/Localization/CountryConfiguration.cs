@@ -29,6 +29,15 @@ namespace IrrigationAdvisor.DBContext.Localization
         }
 
 
+        /// <summary>
+        /// Get all cities
+        /// </summary>
+        /// <returns></returns>
+        public List<Country> GetAllCountries()
+        {
+            return db.Countries.ToList();
+        }
+
         public long GetMaxCountryId(){
             return db.Countries.Max(table => table.CountryId);
             

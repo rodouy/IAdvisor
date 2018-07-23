@@ -90,23 +90,21 @@ namespace IrrigationAdvisor.Controllers.Localization
                 City lCity;
                 if (countryMapped.CapitalId == -1) //es una nueva ciudad, se debe ingresar.
                 {
-
                     CityConfiguration lCityConfiguration;
                     lCityConfiguration = new CityConfiguration();
-
 
                     Position lPosition = new Position();
                     lCity = new City();
                     lCity.Name = countryMapped.CapitalName;
-                    lPosition.Name = countryMapped.CapitalName;
+                    lPosition.Name = countryMapped.CapitalName + " - Ciudad";
                     lPosition.Latitude = double.Parse(countryMapped.CapitalLatitude);
                     lPosition.Longitude = double.Parse(countryMapped.CapitalLongitude);
                     lCity.Country = country;
+                    lCity.CountryId = lLastCountryId;
                     db.Positions.Add(lPosition);
                     db.Cities.Add(lCity);
                     db.SaveChanges();
                     lLastCityId = lCityConfiguration.GetMaxCityId();
-
                 }
                 else
                 {
@@ -120,13 +118,9 @@ namespace IrrigationAdvisor.Controllers.Localization
                 db.Entry(country).State = EntityState.Modified;
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+              
             }
-            CountryViewModel vm = new CountryViewModel();
-
-            vm.Capitals = this.LoadCities();
-            vm.Languages = this.LoadLanguages();
-            return View("~/Views/Localization/Countries/Create.cshtml", vm);
+            return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
         }
 
         // GET: Countries/Edit/5
@@ -167,13 +161,9 @@ namespace IrrigationAdvisor.Controllers.Localization
                 countryMapped.Capital = capitalMapped;
                 db.Entry(countryMapped).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                
             }
-            CountryViewModel vm = new CountryViewModel();
-
-            vm.Capitals = this.LoadCities();
-            vm.Languages = this.LoadLanguages();
-            return View("~/Views/Localization/Countries/Edit.cshtml", vm);
+            return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
 
         }
 

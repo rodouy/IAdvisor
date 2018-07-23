@@ -1,14 +1,158 @@
-﻿@model IrrigationAdvisor.Models.Localization.City
+﻿@model IrrigationAdvisor.ViewModels.Localization.CityViewModel
+
 
 @{
     ViewBag.Title = "Create";
-    Layout = "Localization";
+    //Layout = "Localization";
 }
+<link rel="stylesheet" type="text/css" href="~/css/modal.css">
+<script src="~/js/Home.js"></script>
+<h2>Nueva</h2>
+<script js>
+    $(document).ready(function () {
+        var saveCityBtn = $('#SaveCityBtn');
+        var modalCountry = $('#modal-country');
+        var addCountryModal = $('#addCountryModal');
 
-<h2>Create</h2>
+        var cancelCountry = $('#CancelCountry');
+        var saveCountryBtn = $('#SaveCountry');
+        var cityName = $('#CityName');
+        var expresionLatitudeLongitud = /^(-([1-8]?[1-9]|[1-9]0)\,{1}\d{1,6})/;
+
+        saveCityBtn.click(function () {
+            var validateForm = true;
+
+            if ($('#Name').val().trim() != '') {
+                $('#NameError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#NameError').html('Ingrese el nombre');
+                validateForm = false;
+            }
+
+            if (validateForm == true) {
+                if ($('#Latitude').val().trim() != '') {
+                    if (!expresionLatitudeLongitud.test($("#Latitude").val())) {
+                        $("#LatitudeError").html("La latitud no esta correctamente ingresada (Ej: -45,4455)");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#LatitudeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#LatitudeError').html('Ingrese latitud');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Longitude').val().trim() != '') {
+                    if (!expresionLatitudeLongitud.test($("#Longitude").val())) {
+                        $("#LongitudeError").html("La longitud no esta correctamente ingresada (Ej: -45,4455)");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#LongitudeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#LongitudeError').html('Ingrese longitud');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#CountryId').val().trim() != '') {
+                    $('#CountryIdError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#CountryIdError').html('Seleccione el país');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                myForm.submit();
+            }
+
+        });
+        var init = function () {
+            var initModal = { backdrop: false, show: false };
+            modalCountry.modal(initModal);
+        };
+
+        var addClasses = function () {
+            addCountryModal.css("background-color", "#00a1d3");
+        }
+
+        $(window).resize(function () {
+
+            var width = $(window).width();
+            var height = $(window).height();
+
+            if (width <= 760) {
+                removeClasses();
+            }
+            else {
+                addClasses();
+            }
+        });
+        $("#addCountryModal").click(function () {
+            modalCountry.modal('show');
+            $('.modal-content').draggable();
+        });
+        cancelCountry.click(function () {
+            modalCountry.modal('hide');
+        });
+        $.getScript("https://code.jquery.com/ui/1.12.0/jquery-ui.js", function () {
+            var addCountryModal = $('#addCountryModal');
+            var width = $(window).width();
+            var height = $(window).height();
+        });
+
+        saveCountryBtn.click(function () {
+            var validateForm = true;
+
+            if ($('#CountryName').val().trim() != '') {
+                $('#CountryNameError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#CountryNameError').html('Ingrese el nombre');
+                validateForm = false;
+            }
+
+            if (validateForm == true) {
+                if ($('#CountryLanguageId').val().trim() != '') {
+                    $('#CountryLanguageIdError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#CountryLanguageIdError').html('Seleccione el idioma');
+                    validateForm = false;
+                }
+            }
+ 
+            if (validateForm == true) {
+                modalCountry.modal('hide');
+                saveCountryBtn.attr('disabled', true);
+
+                $("#CountryId").append('<option value="-1" selected>' + $('#CountryName').val().trim() + '</option>');
+
+            }
+        });
+
+    });
+</script>
 
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm("Create", "Cities", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
     
@@ -19,32 +163,94 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese el nombre" } })
+                <span id="NameError" class="red-color"></span>
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.PositionId, "PositionId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Latitud</label>
             <div class="col-md-10">
-                @Html.DropDownList("PositionId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.PositionId, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese latitud. Ej: -45,124456" class="form-control" id="Latitude" name="Latitude" min="1" max="50" />
+                <span id="LatitudeError" class="red-color"></span>
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="control-label col-md-2">Longitud</label>
+            <div class="col-md-10">
+                <input type="text" placeholder="Ingrese longitud. Ej: -45,124456 " class="form-control" id="Longitude" name="Longitude" min="1" max="50" />
+                <span id="LongitudeError" class="red-color"></span>
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.CountryId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CountryId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.CountryId, Model.Countries, "-- Selecione el país --", new { @class = "form-control" })
+                <a id="addCountryModal" href="#" return false;">Agregar País</a>
+                &nbsp;&nbsp;&nbsp;&nbsp; <span id="CountryIdError" class="red-color"></span>
+
             </div>
         </div>
 
+
+
+
+
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        <div class="cf footer">
+            <div class="cf footer">
+                <label class="control-label col-md-2" for="CapitalId"></label>
+
+                <input type="button" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveCityBtn" class="btn btn-default" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
             </div>
         </div>
+        </div>
+
+        <!--NuevaPais-->
+        <div id="modal-country" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="header">
+                        <h2>Nuevo País</h2>
+                    </div>
+                    <p>  </p>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            Nombre
+                            <input type="text" placeholder="Ingrese nombre" class="form-control" id="CountryName" name="CountryName" min="1" max="50" />
+                            <span id="CountryNameError" class="red-color"></span>
+                        </div>
+
+                        <br /><br /><br /><br />
+                        <div class="col-md-10">
+                            Idioma
+                            <select id="CountryLanguageId" name="CountryLanguageId" class="form-control">
+                                <option value="-1">-- Seleccione País --</option>
+                                @foreach (var item in Model.Languages)
+                                {
+                                    <option value=@item.Value>@item.Text</option>
+                                }
+
+                            </select>
+                            <span id="CountryLanguageIdError" class="red-color"></span>    
+                        </div>
+                        <br /><br /><br /><br />
+
+                    </div>
+
+                    <table id="mytable">
+                        <tr><td id="myTdHead"><input type="button" class="btn btn-default" id="CancelCountry" value="Cancelar">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default" id="SaveCountry" value="&nbsp;&nbsp;Guardar&nbsp;&nbsp;">&nbsp;&nbsp;</td></tr>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+        <!--EndNuevoPais -->
+
+
+
     </div>
 }
 
