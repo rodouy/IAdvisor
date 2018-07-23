@@ -50,7 +50,8 @@ namespace IrrigationAdvisor.Controllers.Localization
             vm.CountryId = city.CountryId;
 
             Country lCountry = db.Countries.Find(city.CountryId);
-            vm.CountryName = lCountry.Name;
+            if (lCountry != null)
+                vm.CountryName = lCountry.Name;
 
             return View("~/Views/Localization/Cities/Details.cshtml", vm);
 
@@ -190,7 +191,8 @@ namespace IrrigationAdvisor.Controllers.Localization
             vm.CountryId = city.CountryId;
 
             Country lCountry = db.Countries.Find(city.CountryId);
-            vm.CountryName = lCountry.Name;
+            if (lCountry != null)
+                vm.CountryName = lCountry.Name;
 
             return View("~/Views/Localization/Cities/Delete.cshtml", vm);
         }
