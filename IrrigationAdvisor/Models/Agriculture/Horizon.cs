@@ -86,7 +86,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private double nitrogenAnalysis;
         //TODO Horizon.bulkDensitySoil question to be calculated?
         private double bulkDensitySoil;
-
+        private long soilId;
         #endregion
 
         #region Properties
@@ -157,7 +157,18 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return bulkDensitySoil; }
             set { bulkDensitySoil = value; }
         }
-        
+
+        public long SoilId
+        {
+            get { return soilId; }
+            set { soilId = value; }
+        }
+
+        public virtual Soil Soil
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Construction
