@@ -1,5 +1,4 @@
-﻿using IrrigationAdvisor.Models.Management;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -52,7 +51,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private long stageId;
         private long phenologicalStageId;
         private String observation;
-        private long cropIrrigationWeatherId;
+
         
         #endregion
 
@@ -72,12 +71,6 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             get { return name; }
             set { name = value; }
-        }
-
-        public long CropIrrigationWeatherId
-        {
-            get { return cropIrrigationWeatherId; }
-            set { cropIrrigationWeatherId = value; }
         }
 
         public long CropId
@@ -114,11 +107,6 @@ namespace IrrigationAdvisor.Models.Agriculture
         {
             get { return observation; }
             set { observation = value; }
-        }
-
-        public virtual CropIrrigationWeather CropIrrigationWeather
-        {
-            get; set;
         }
 
         #endregion

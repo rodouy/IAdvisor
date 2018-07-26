@@ -2230,17 +2230,6 @@ namespace IrrigationAdvisor.Controllers
 
                 pCropIrrigationWeather.PhenologicalStageId = pPhenologicalStage.PhenologicalStageId;
 
-                var adjustment = new PhenologicalStageAdjustment()
-                {
-                    CropId = pCropIrrigationWeather.CropId,
-                    DateOfChange = ManageSession.GetNavigationDate(),
-                    PhenologicalStageId = pPhenologicalStage.PhenologicalStageId,
-                    StageId = pPhenologicalStage.StageId,
-                    CropIrrigationWeatherId = pCropIrrigationWeather.CropIrrigationWeatherId
-                };
-
-                lIrrigationAdvisorContext.PhenologicalStageAdjustments.Add(adjustment);
-
                 lIrrigationAdvisorContext.SaveChanges();
             }
             catch (Exception ex)
