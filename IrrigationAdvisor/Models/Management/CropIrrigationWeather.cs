@@ -888,7 +888,8 @@ namespace IrrigationAdvisor.Models.Management
             this.StartAdvisorDate = pStartAdvisorDate;
             this.DaysForHydricBalanceUnchangableAfterSowing = pDaysForHydricBalanceUnchangableAfterSowing;
 
-            this.PhenologicalStageId = pPhenologicalStageId;
+            //this.PhenologicalStageId = pPhenologicalStageId;
+            this.PhenologicalStageId = 18;
             this.HydricBalance = pHydricBalance;
             this.SoilHydricVolume = pSoilHydricVolume;
             this.TotalEvapotranspirationCropFromLastWaterInput = pTotalEvapotranspirationCropFromLastWaterInput;
@@ -1255,6 +1256,8 @@ namespace IrrigationAdvisor.Models.Management
                     }
                 }
             }
+
+            lDailyRecordByGrowingDegreeDaysAccumulated.PhenologicalStageId = 18;
 
             lRetrun = lDailyRecordByGrowingDegreeDaysAccumulated;
             return lRetrun;
@@ -2233,6 +2236,7 @@ namespace IrrigationAdvisor.Models.Management
             if (lDailyRecordBeforeRecordToDelete != null)
             {
                 this.PhenologicalStageId = lDailyRecordBeforeRecordToDelete.PhenologicalStageId;
+                //this.PhenologicalStageId = 18;
                 this.HydricBalance = lDailyRecordBeforeRecordToDelete.HydricBalance;
 
                 this.DaysAfterSowingModified = lDailyRecordBeforeRecordToDelete.DaysAfterSowingModified;
@@ -2287,7 +2291,9 @@ namespace IrrigationAdvisor.Models.Management
 
             if (lDailyRecordBeforeRecordToDelete != null)
             {
-                this.PhenologicalStageId = lDailyRecordBeforeRecordToDelete.PhenologicalStageId;
+                // cambiado.
+                // this.PhenologicalStageId = lDailyRecordBeforeRecordToDelete.PhenologicalStageId;
+                this.PhenologicalStageId = 18;
                 this.HydricBalance = lDailyRecordBeforeRecordToDelete.HydricBalance;
 
                 this.DaysAfterSowingModified = lDailyRecordBeforeRecordToDelete.DaysAfterSowingModified;
@@ -5372,6 +5378,7 @@ namespace IrrigationAdvisor.Models.Management
                 if (lDailyRecord == null)
                 {
                     lDailyRecord = this.getDailyRecordByGrowingDegreeDaysAccumulated(this.GrowingDegreeDaysModified);
+                    this.PhenologicalStageId = 18;
                 }
                 else
                 {
@@ -5382,6 +5389,7 @@ namespace IrrigationAdvisor.Models.Management
                     this.LastPartialWaterInput = lDailyRecord.LastPartialWaterInput;
                     this.LastPartialWaterInputDate = lDailyRecord.LastPartialWaterInputDate;
                     this.PhenologicalStageId = lDailyRecord.PhenologicalStageId;
+                    //this.PhenologicalStageId = 18;
                     this.HydricBalance = lDailyRecord.HydricBalance;
                     this.SoilHydricVolume = lDailyRecord.SoilHydricVolume;
                     this.TotalEvapotranspirationCrop = lDailyRecord.TotalEvapotranspirationCrop;
@@ -5969,6 +5977,7 @@ namespace IrrigationAdvisor.Models.Management
                     this.LastPartialWaterInput = lDailyRecord.LastPartialWaterInput;
                     this.LastPartialWaterInputDate = lDailyRecord.LastPartialWaterInputDate;
                     this.PhenologicalStageId = lDailyRecord.PhenologicalStageId;
+                    //this.PhenologicalStageId = 18;
                     this.HydricBalance = lDailyRecord.HydricBalance;
                     this.SoilHydricVolume = lDailyRecord.SoilHydricVolume;
                     this.TotalEvapotranspirationCrop = lDailyRecord.TotalEvapotranspirationCrop;

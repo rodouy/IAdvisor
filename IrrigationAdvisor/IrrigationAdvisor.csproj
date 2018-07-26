@@ -379,6 +379,10 @@
     <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.Designer.cs">
       <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807180148155_ciwInPhenologicalStageAdjustment.cs" />
+    <Compile Include="Migrations\201807180148155_ciwInPhenologicalStageAdjustment.Designer.cs">
+      <DependentUpon>201807180148155_ciwInPhenologicalStageAdjustment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -1022,6 +1026,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.resx">
       <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180148155_ciwInPhenologicalStageAdjustment.resx">
+      <DependentUpon>201807180148155_ciwInPhenologicalStageAdjustment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
