@@ -1044,7 +1044,7 @@ $(document).ready(function () {
 
         var selected = $('#select-pheno-stage-' + ciw).val();
 
-        var pUrl = './ChangePhenology?pCropIrrigationWeatherId=' + ciw + '&pNewPhenologicalStageId=' + selected;
+        var pUrl = './ChangePhenology?pCropIrrigationWeatherId=' + ciw + '&pStageId=' + selected;
 
         var comboStages = $('#select-pheno-stage-' + ciw);
         var ok = $('#pheno-ok-' + ciw);
@@ -1063,7 +1063,7 @@ $(document).ready(function () {
             success: function (data) {
 
                 selectedPheno.show();
-                // selectedPheno.text($('#select-pheno-stage-' + ciw).text()); TO:DO : Actualizar fenologia al actualizar en la pantalla.
+                selectedPheno.text($('#select-pheno-stage-' + ciw + ' :selected').text()); 
                 phenoClock.hide();
             },
             error: function (data) {
