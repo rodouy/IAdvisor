@@ -215,6 +215,7 @@
     <Compile Include="Controllers\Irrigation\BombsController.cs" />
     <Compile Include="Controllers\Irrigation\DripsController.cs" />
     <Compile Include="Controllers\Irrigation\PivotsController.cs" />
+    <Compile Include="Controllers\Irrigation\IrrigationUnitController.cs" />
     <Compile Include="Controllers\Irrigation\SprinklersController.cs" />
     <Compile Include="Controllers\Language\LanguagesController.cs" />
     <Compile Include="Controllers\Localization\CitiesController.cs" />
@@ -378,6 +379,10 @@
     <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs" />
     <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.Designer.cs">
       <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807271533587_addFKInIrrigationUnitToPosition.cs" />
+    <Compile Include="Migrations\201807271533587_addFKInIrrigationUnitToPosition.Designer.cs">
+      <DependentUpon>201807271533587_addFKInIrrigationUnitToPosition.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -946,6 +951,11 @@
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Index.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Create.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Delete.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Details.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -1022,6 +1032,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.resx">
       <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807271533587_addFKInIrrigationUnitToPosition.resx">
+      <DependentUpon>201807271533587_addFKInIrrigationUnitToPosition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

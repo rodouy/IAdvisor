@@ -134,6 +134,11 @@ namespace IrrigationAdvisor.Models.Irrigation
             set { positionId = value; }
         }
 
+        public virtual Position Position
+        {
+            get;
+            set;
+        }
         public Double PredeterminatedIrrigationQuantity
         {
             get { return predeterminatedIrrigationQuantity; }
