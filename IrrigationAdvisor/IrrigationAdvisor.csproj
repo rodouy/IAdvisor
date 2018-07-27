@@ -449,6 +449,7 @@
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Agriculture\HorizonViewModel.cs" />
     <Compile Include="ViewModels\Agriculture\SoilViewModel.cs" />
     <Compile Include="ViewModels\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />

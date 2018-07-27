@@ -1,14 +1,200 @@
-﻿@model IrrigationAdvisor.Models.Agriculture.Horizon
+﻿@model IrrigationAdvisor.ViewModels.Agriculture.HorizonViewModel
 
 @{
     ViewBag.Title = "Create";
-    Layout = "Agriculture";
+    //Layout = "Agriculture";
 }
+<script src="~/js/Home.js"></script>
+<script js>
+    $(document).ready(function () {
+        var saveBtn = $('#SaveBtn');
+       
+        var validationNuber = /^[0-9]{1,10}$/;
 
+        function isNumber(n) {
+            'use strict';
+            n = n.replace(/\./g, '').replace(',', '.');
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        saveBtn.click(function ()
+        {
+            var validateForm = true;
+
+  
+            if ($('#SoilId').val().trim() != '') {
+                $('#SoilIdError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#SoilIdError').html('Seleccione el suelo');
+                validateForm = false;
+            }
+            
+            if (validateForm == true) {
+                if ($('#Name').val().trim() != '') {
+                    $('#NameError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#NameError').html('Ingrese el nombre');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Order').val().trim() != '' || $('#Order').val().trim() != '0') {
+                    if (!isNumber($("#Order").val())) {
+                        $("#OrderError").html("En el Orden ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#OrderError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#OrderError').html('Ingrese el Order');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#HorizonLayerDepth').val().trim() != '' || $('#Order').val().trim() != '0') {
+                    if (!isNumber($("#HorizonLayerDepth").val())) {
+                        $("#HorizonLayerDepthError").html("En la Profundidad de la capa ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#HorizonLayerDepthError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#HorizonLayerDepthError').html('Ingrese la Profundidad de la capa');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Sand').val().trim() != '' || $('#Order').val().trim() != '0') {
+                    if (!isNumber($("#Sand").val())) {
+                        $("#SandError").html("En la Arena ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#SandError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#SandError').html('Ingrese la Arena');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Limo').val().trim() != '' || $('#Order').val().trim() != '0') {
+                    if (!isNumber($("#Limo").val())) {
+                        $("#LimoError").html("En el Barro (limo) ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#LimoError').html('');
+                        validateForm = true;
+                    }
+                }       
+                else {
+                    $('#LimoError').html('Ingrese el Barro (limo)');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Clay').val().trim() != '' || $('#Order').val().trim() != '0') {
+                    if (!isNumber($("#Clay").val())) {
+                        $("#ClayError").html("En la Arsilla ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#ClayError').html('');
+                        validateForm = true;
+                    }
+
+                }
+                else {
+                    $('#ClayError').html('Ingrese la Arsilla');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#OrganicMatter').val().trim() != '' || $('#Order').val().trim() != '0') {
+                    if (!isNumber($("#OrganicMatter").val())) {
+                        $("#OrganicMatterError").html("En la Materia orgánica ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#OrganicMatterError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#OrganicMatterError').html('Ingrese la Materia orgánica');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#NitrogenAnalysis').val().trim() != '' || $('#Order').val().trim() != '0') {
+                    if (!isNumber($("#NitrogenAnalysis").val())) {
+                        $("#NitrogenAnalysisError").html("En el Análisis de nitrógeno ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#NitrogenAnalysisError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#NitrogenAnalysisError').html('Ingrese el Análisis de nitrógeno orgánica');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#BulkDensitySoil').val().trim() != '' || $('#Order').val().trim() != '0') {
+                    if (!isNumber($("#BulkDensitySoil").val())) {
+                        $("#BulkDensitySoilError").html("En la Densidad  ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#BulkDensitySoilError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#BulkDensitySoilError').html('Ingrese la Densidad');
+                    validateForm = false;
+                }
+            }
+
+
+
+
+
+            if (validateForm == true) {
+                myForm.submit();
+            }
+
+        });
+
+    });
+</script>
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Horizons", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
     
@@ -17,95 +203,103 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SoilId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.SoilId, Model.Soils, "-- Selecione el Suelo --", new { @class = "form-control" })
+                <span id="SoilIdError" class="red-color"></span>
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" placeholder="Ingrese nombre" class="form-control" id="Name" name="Name" min="1" max="50" />
+                <span id="NameError" class="red-color"></span>
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese orden (Ejemplo: 7)" class="form-control" id="Order" name="Order" min="1" max="50" />
+                <span id="OrderError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.HorizonLayer, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HorizonLayer, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HorizonLayer, "", new { @class = "text-danger" })
+                <input type="text"  class="form-control" id="HorizonLayer" name="HorizonLayer" min="1" max="50" />
+                <span id="HorizonLayerError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.HorizonLayerDepth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HorizonLayerDepth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HorizonLayerDepth, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese profundidad (Ejemplo: 3,5)" class="form-control" id="HorizonLayerDepth" name="HorizonLayerDepth" min="1" max="50" />
+                <span id="HorizonLayerDepthError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Sand, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Sand, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sand, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese la arena (Ejemplo: 3,5)" class="form-control" id="Sand" name="Sand" min="1" max="50" />
+               <span id="SandError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Limo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Limo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Limo, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese barro (limo) (Ejemplo: 3,5)" class="form-control" id="Limo" name="Limo" min="1" max="50" />
+                <span id="LimoError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Clay, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clay, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Clay, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese arcilla (Ejemplo: 3,5)" class="form-control" id="Clay" name="Clay" min="1" max="50" />
+                <span id="ClayError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.OrganicMatter, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OrganicMatter, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrganicMatter, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese materia orgánica (Ejemplo: 3,5)" class="form-control" id="OrganicMatter" name="OrganicMatter" min="1" max="50" />
+                <span id="OrganicMatterError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.NitrogenAnalysis, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NitrogenAnalysis, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NitrogenAnalysis, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese análisis de nitrógeno (Ejemplo: 12,5)" class=" form-control" id="NitrogenAnalysis" name="NitrogenAnalysis" min="1" max="50" />
+                <span id="NitrogenAnalysisError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.BulkDensitySoil, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BulkDensitySoil, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BulkDensitySoil, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese densidad (Ejemplo: 12,5)" class=" form-control" id="BulkDensitySoil" name="BulkDensitySoil" min="1" max="50" />
+                <span id="BulkDensitySoilError" class="red-color"></span>
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+        <div class="cf footer">
+            <label class="control-label col-md-2" for="CapitalId"></label>
+
+            <input type="button" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveBtn" class="btn btn-default" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </div>
 
 @section Scripts {

@@ -11,6 +11,8 @@ namespace IrrigationAdvisor.DBContext.Agriculture
     public class SoilConfiguration:
         EntityTypeConfiguration<Soil>
     {
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
         public SoilConfiguration()
         {
             ToTable("Soil");
@@ -24,6 +26,14 @@ namespace IrrigationAdvisor.DBContext.Agriculture
             Property(s => s.DepthLimit)
                 .IsRequired();
 
+        }
+        /// <summary>
+        /// Get all soils
+        /// </summary>
+        /// <returns></returns>
+        public List<Soil> GetAllSoils()
+        {
+            return db.Soils.ToList();
         }
     }
 }

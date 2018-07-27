@@ -200,8 +200,6 @@ namespace IrrigationAdvisor.Controllers.Agriculture
                 db.Horizons.Remove(h);
             }
             
-           
-            
             db.Soils.Remove(soil);
             db.SaveChanges();
             var lSoilList = db.Soils.Include(b => b.Farm);
