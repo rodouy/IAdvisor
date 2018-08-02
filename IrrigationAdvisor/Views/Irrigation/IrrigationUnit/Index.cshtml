@@ -2,44 +2,54 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "Irrigation";
+    //Layout = "Irrigation";
 }
 
-<h2>Index</h2>
+<h2>Unidades de riego</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create", "IrrigationUnit")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Establecimiento
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IrrigationType)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IrrigationEfficiency)
+            Eficiencia
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Surface)
+            Superficie
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Width)
+            Bomba
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Length)
+            mm. predeterminado
+        </th>
+        <th>
+            Pos. latitud
+        </th>
+        <th>
+            Pos. longitud
+        </th>
+        <th>
+            Visible
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model) 
+{
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.Farm.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IrrigationType)
+            @Html.DisplayFor(modelItem => item.ShortName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IrrigationEfficiency)
@@ -48,16 +58,27 @@
             @Html.DisplayFor(modelItem => item.Surface)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Width)
+            @Html.DisplayFor(modelItem => item.Bomb.ShortName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Length)
+            @Html.DisplayFor(modelItem => item.PredeterminatedIrrigationQuantity)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IrrigationUnitId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IrrigationUnitId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IrrigationUnitId })
+            @Html.DisplayFor(modelItem => item.Position.Latitude)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Show)
+        </td>
+
+            <td>
+                @Html.ActionLink(linkText: "Editar",   actionName: "Edit", controllerName: item.IrrigationType.ToString()+'s', routeValues: new  {id = item.IrrigationUnitId}, htmlAttributes: null) |
+                @Html.ActionLink(linkText: "Detalle", actionName: "Details", controllerName: item.IrrigationType.ToString() + 's', routeValues: new { id = item.IrrigationUnitId}, htmlAttributes: null) |
+                @Html.ActionLink(linkText: "Eliminar", actionName: "Delete", controllerName: item.IrrigationType.ToString() + 's', routeValues: new { id = item.IrrigationUnitId}, htmlAttributes: null)
+            </td>
+
     </tr>
 }
 

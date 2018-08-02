@@ -10,6 +10,11 @@ using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Irrigation;
 
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.Models.Localization;
+using IrrigationAdvisor.ViewModels.Irrigation;
+using IrrigationAdvisor.DBContext.Irrigation;
+using IrrigationAdvisor.Models.Utilities;
 
 namespace IrrigationAdvisor.Controllers.Irrigation
 {
@@ -20,7 +25,9 @@ namespace IrrigationAdvisor.Controllers.Irrigation
         // GET: Sprinklers
         public ActionResult Index()
         {
-            return View(db.Sprinklers.ToList());
+            var lList = db.IrrigationUnits.Include(f => f.Farm);
+            return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
+           
         }
 
         // GET: Sprinklers/Details/5
@@ -38,10 +45,13 @@ namespace IrrigationAdvisor.Controllers.Irrigation
             return View(sprinkler);
         }
 
-        // GET: Sprinklers/Create
+        
         public ActionResult Create()
         {
-            return View();
+            IrrigationUnitViewModel vm = new IrrigationUnitViewModel();
+            vm.Farms = this.LoadFarm();
+            vm.IrrigationTypes = this.LoadIrrigationType();
+            return View("~/Views/Irrigation/IrrigationUnit/Create.cshtml", vm);
         }
 
         // POST: Sprinklers/Create
@@ -49,31 +59,24 @@ namespace IrrigationAdvisor.Controllers.Irrigation
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IrrigationUnitId,Name,IrrigationType,IrrigationEfficiency,Surface,Width,Length")] Sprinkler sprinkler)
+        public ActionResult Create([Bind(Include = "IrrigationUnitId,ShortName,IrrigationType,IrrigationEfficiency,PredeterminatedIrrigationQuantity, Surface,FarmId, BombId, Latitude,Longitude, Show")] IrrigationUnitViewModel irrigationUnitViewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Sprinklers.Add(sprinkler);
-                db.SaveChanges();
+              
                 return RedirectToAction("Index");
             }
 
-            return View(sprinkler);
+            var lList = db.IrrigationUnits.Include(f => f.Farm);
+            return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
         }
 
         // GET: Sprinklers/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(long? id, string modelType)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Sprinkler sprinkler = db.Sprinklers.Find(id);
-            if (sprinkler == null)
-            {
-                return HttpNotFound();
-            }
-            return View(sprinkler);
+                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
+           
+
         }
 
         // POST: Sprinklers/Edit/5
@@ -118,13 +121,79 @@ namespace IrrigationAdvisor.Controllers.Irrigation
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        private List<System.Web.Mvc.SelectListItem> LoadFarm(long? farmId = null, IrrigationUnit irrigationUnit = null)
         {
-            if (disposing)
+            FarmConfiguration rc = new FarmConfiguration();
+            List<Farm> farmConfiguration = rc.GetAllFarms();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in farmConfiguration)
             {
-                db.Dispose();
+
+                bool isSelected = false;
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.FarmId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
             }
-            base.Dispose(disposing);
+
+            return result;
         }
+        private List<System.Web.Mvc.SelectListItem> LoadIrrigationType(Utils.IrrigationUnitType? irrigationType = null, IrrigationUnit irrigationUnit = null)
+        {
+            Array irrigationUnitTypes = System.Enum.GetValues(typeof(Utils.IrrigationUnitType));
+
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in irrigationUnitTypes)
+            {
+
+                bool isSelected = false;
+                if (irrigationUnit != null && irrigationType != null)
+                {
+                    isSelected = (irrigationUnit.IrrigationType == irrigationType);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.ToString(),
+                    Text = item.ToString(),
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
+            }
+
+            return result;
+        }
+        [AcceptVerbs(HttpVerbs.Get)]
+        public JsonResult GetBombsByFarmId(string farmId)
+        {
+
+            Farm farm = db.Farms.Find(int.Parse(farmId));
+            BombConfiguration bc = new BombConfiguration();
+            var phyList = bc.GetBombListBy(farm);
+
+            var phyData = phyList.Select(m => new SelectListItem()
+            {
+                Text = m.Name,
+                Value = m.BombId.ToString(),
+            });
+            return Json(phyData, JsonRequestBehavior.AllowGet);
+        }
+
+        [AcceptVerbs(HttpVerbs.Get)]
+        public JsonResult GetLatitudByFarmId(string farmId)
+        {
+            Farm farm = db.Farms.Find(int.Parse(farmId));
+            var phyData = farm.Position;
+            return Json(phyData, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

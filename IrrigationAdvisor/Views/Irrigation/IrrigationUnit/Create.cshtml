@@ -1,81 +1,398 @@
-﻿@model IrrigationAdvisor.Models.Irrigation.Drip
+﻿@model IrrigationAdvisor.ViewModels.Irrigation.IrrigationUnitViewModel
 
 @{
     ViewBag.Title = "Create";
-    Layout = "Irrigation";
+    //Layout = "Irrigation";
 }
+<link rel="stylesheet" type="text/css" href="~/css/modal.css">
+<script src="~/js/Home.js"></script>
+<h2>Nuevo</h2>
+<script js>
+    $(document).ready(function () {
+        var saveBtn = $('#SaveBtn');
+        var expresionLatitudeLongitud = /^(-([1-8]?[1-9]|[1-9]0)\,{1}\d{1,6})/;
 
-<h2>Create</h2>
+        function isNumber(n) {
+            'use strict';
+            n = n.replace(/\./g, '').replace(',', '.');
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        saveBtn.click(function () {
+            var validateForm = true;
+
+            if ($('#ShortName').val().trim() != '') {
+                $('#ShortNameError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#ShortNameError').html('Ingrese el nombre');
+                validateForm = false;
+            }
+
+            if (validateForm == true) {
+                if ($('#IrrigationEfficiency').val().trim() != '' || $('#IrrigationEfficiency').val().trim() != '0') {
+                    if (!isNumber($("#IrrigationEfficiency").val())) {
+                        $("#IrrigationEfficiencyError").html("En la Eficiencia ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#IrrigationEfficiencyError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#IrrigationEfficiencyError').html('Ingrese la eficiencia');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Surface').val().trim() != '' || $('#Surface').val().trim() != '0') {
+                    if (!isNumber($("#Surface").val())) {
+                        $("#SurfaceError").html("En la Superficie ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#SurfaceError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#Surface').html('Ingrese la superficie');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#PredeterminatedIrrigationQuantity').val().trim() != '' || $('#PredeterminatedIrrigationQuantity').val().trim() != '0') {
+                    if (!isNumber($("#PredeterminatedIrrigationQuantity").val())) {
+                        $("#PredeterminatedIrrigationQuantityError").html("En la Cantidad predeterminada ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#PredeterminatedIrrigationQuantityError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#PredeterminatedIrrigationQuantity').html('Ingrese la cantidad predeterminada');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#FarmId').val().trim() != '') {
+                    $('#FarmIdError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#FarmIdError').html('Seleccione el Establecimiento');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Latitude').val().trim() != '') {
+                    if (!expresionLatitudeLongitud.test($("#Latitude").val())) {
+                        $("#LatitudeError").html("La latitud no esta correctamente ingresada (Ej: -45,4455)");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#LatitudeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#LatitudeError').html('Ingrese latitud');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Longitude').val().trim() != '') {
+                    if (!expresionLatitudeLongitud.test($("#Longitude").val())) {
+                        $("#LongitudeError").html("La longitud no esta correctamente ingresada (Ej: -45,4455)");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#LongitudeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#LongitudeError').html('Ingrese longitud');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#BombId').val().trim() != '' || $('#BombId').val() == "0") {
+                    $('#BombIdError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#BombIdError').html('Seleccione la Bomba');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                var value = $('#IrrigationType').val();
+                var url;
+
+                if (value == "Pivot") {
+                    url = '@Url.Action("Create", "Pivots")';
+                    if ($('#Radius').val().trim() != '' || $('#Radius').val().trim() != '0') {
+                        if (!isNumber($("#Radius").val())) {
+                            $("#RadiusError").html("En el Radio ingrese solo números");
+                            validateForm = false;
+                        }
+                        else {
+                            $('#RadiusError').html('');
+                            validateForm = true;
+                        }
+                    }
+                    else {
+                        $('#RadiusError').html('Ingrese el radio');
+                        validateForm = false;
+                    }
+
+                }
+                else if (value == "Sprinkler") {
+                    url = '@Url.Action("Create", "Sprinklers")';
+                    if ($('#Width').val().trim() != '' || $('#Width').val().trim() != '0') {
+                        if (!isNumber($("#Radius").val())) {
+                            $("#WidthError").html("En el Ancho ingrese solo números");
+                            validateForm = false;
+                        }
+                        else {
+                            $('#WidthError').html('');
+                            validateForm = true;
+                        }
+                    }
+                    else {
+                        $('#WidthError').html('Ingrese el ancho');
+                        validateForm = false;
+                    }
+                    if ($('#Length').val().trim() != '' || $('#Length').val().trim() != '0') {
+                        if (!isNumber($("#Length").val())) {
+                            $("#LengthError").html("En el Largo ingrese solo números");
+                            validateForm = false;
+                        }
+                        else {
+                            $('#LengthError').html('');
+                            validateForm = true;
+                        }
+                    }
+                    else {
+                        $('#LengthError').html('Ingrese el largo');
+                        validateForm = false;
+                    }
+
+                }
+                else if (value == "Drip") {
+                    url = '@Url.Action("Create", "Drips")';
+                }
+            }
+
+            if (validateForm == true) {
+                $('#myForm').prop('action', url);
+                $('#myForm').submit();
+            }
+        });
 
 
-@using (Html.BeginForm()) 
+
+
+
+        $('#FarmId').on('change', function (value) {
+            var select = $("#BombId");
+            select.empty();
+            $('#Latitude').val('');
+            $('#Longitude').val('');
+            var pFarmId = $('#FarmId').val();
+            if (pFarmId != "") {
+                $.getJSON("/IrrigationUnit/GetBombsByFarmId", { farmId: pFarmId },
+                       function (data) {
+
+                           select.append($('<option/>', {
+                               value: 0,
+                               text: "-- Seleccion la bomba --"
+                           }));
+                           $.each(data, function (index, itemData) {
+                               select.append($('<option/>', {
+                                   value: itemData.Value,
+                                   text: itemData.Text
+                               }));
+                           });
+                       });
+                $.getJSON("/IrrigationUnit/GetLatitudByFarmId", { farmId: pFarmId },
+                function (data) {
+                    var a = data.Latitude.toString().replace('.', ',');
+                    var b = data.Longitude.toString().replace('.', ',');
+                    $('#Latitude').val(a);
+                    $('#Longitude').val(b);
+                });
+
+
+
+            }
+
+
+        });
+
+        $('#IrrigationType').on('change', function () {
+            var value = $('#IrrigationType').val();
+            var IrrigationTypeDrip = document.getElementById("IrrigationTypeDrip");
+            var IrrigationTypePivot = document.getElementById("IrrigationTypePivot");
+            var IrrigationTypeDrip1 = document.getElementById("IrrigationTypeDrip1");
+            $('#Radius').val('');
+            $('#Width').val('');
+            $('#Length').val('');
+
+            if (value == "Pivot") {
+                IrrigationTypePivot.style.display = "block"
+                IrrigationTypeDrip.style.display = "none"
+                IrrigationTypeDrip1.style.display = "none"
+            }
+            else {
+                IrrigationTypePivot.style.display = "none"
+                IrrigationTypeDrip.style.display = "block"
+                IrrigationTypeDrip1.style.display = "block"
+            }
+        });
+
+    });
+</script>
+
+@using (Html.BeginForm("Create", "IrrigationUnit", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Drip</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Nombre</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese el nombre" class="form-control" id="ShortName" name="ShortName" min="1" max="50" />
+
+                <span id="ShortNameError" class="red-color"></span>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label class="control-label col-md-2">Eficiencia</label>
+            <div class="col-md-10">
+                <input type="text" placeholder="Ingrese la eficiencia" class="form-control" id="IrrigationEfficiency" name="IrrigationEfficiency" min="1" max="50" />
+                 <span id="IrrigationEfficiencyError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IrrigationType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Superficie</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IrrigationType, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IrrigationType, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese la superficie" class="form-control" id="Surface" name="Surface" min="1" max="50" />
+                <span id="SurfaceError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Riego predeterminado</label>
+            <div class="col-md-10">
+                <input type="text" placeholder="Ingrese cantidad de agua predeterminado" class="form-control" id="PredeterminatedIrrigationQuantity" name="PredeterminatedIrrigationQuantity" min="1" max="50" />
+                <span id="PredeterminatedIrrigationQuantityError" class="red-color"></span>
+            </div>
+        </div>      
+        <div class="form-group">
+            <label class="control-label col-md-2">Visible</label>
+            <div class="col-md-10">
+                <input type="checkbox"  id="Show" name="Show"  />
+                
+            </div>
+        </div>      
+        <div class="form-group">
+            <label class="control-label col-md-2">Establecimiento</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FarmId, Model.Farms, "-- Selecione establecimiento --", new { @class = "form-control", @onchange = "onChangeFarm(this.value)" })
+                <span id="FarmIdError" class="red-color"></span>
+
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IrrigationEfficiency, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Latitud</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IrrigationEfficiency, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IrrigationEfficiency, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese latitud. Ej: -45,124456 " class="form-control" id="Latitude" name="Latitude" min="1" max="50" />
+                <span id="LatitudeError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Surface, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Longitud</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Surface, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Surface, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese longitud. Ej: -45,124456 " class="form-control" id="Longitude" name="Longitude" min="1" max="50" />
+                <span id="LongitudeError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Bomba</label>
+            <div class="col-md-10">
+                <select id="BombId" name="BombId" class="form-control">
+                    <option value="">-- Seleccione la bomba --</option>
+
+                </select>
+                <span id="BombIdError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Width, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Tipo de riego</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.IrrigationType, Model.IrrigationTypes, "-- Selecione tipo de riego --", new { @class = "form-control", @onchange = "onChangeFarm(this.value)" })
+                
+                <span id="IrrigationTypeError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group" id="IrrigationTypePivot">
+            <label class="control-label col-md-2">Radio</label>
+            <div class="col-md-10">
+                <input type="text" placeholder="Ingrese Radio " class="form-control" id="Radius" name="Radius" min="1" max="50" />
+                <span id="RadiusError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group" id="IrrigationTypeDrip" style="display:none">
+            <label class="control-label col-md-2">Ancho</label>
+            <div class="col-md-10">
+                <input type="text" placeholder="Ingrese ancho" class="form-control" id="Width" name="Width" min="1" max="50" />
+                <span id="WidthError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group" id="IrrigationTypeDrip1" style="display:none">
+            <label class="control-label col-md-2">Largo</label>
+            <div class="col-md-10">
+                <input type="text" placeholder="Ingrese largo" class="form-control" id="Length" name="Length" min="1" max="50" />
+                <span id="LengthError" class="red-color"></span>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Length, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Length, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Length, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <div class="cf footer">
+            <label class="control-label col-md-2" for="CapitalId"></label>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+            <input type="button" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveBtn" class="btn btn-default" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
+            
         </div>
     </div>
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+            <div>
+                &nbsp;
+            </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
