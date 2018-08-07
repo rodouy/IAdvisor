@@ -383,6 +383,14 @@
     <Compile Include="Migrations\201806281200048_AddFieldIsActiveToFarm.Designer.cs">
       <DependentUpon>201806281200048_AddFieldIsActiveToFarm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808031431359_addRelationWeatherStationPosition.cs" />
+    <Compile Include="Migrations\201808031431359_addRelationWeatherStationPosition.Designer.cs">
+      <DependentUpon>201808031431359_addRelationWeatherStationPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071747519_addFieldEnabledToWeatherStation.cs" />
+    <Compile Include="Migrations\201808071747519_addFieldEnabledToWeatherStation.Designer.cs">
+      <DependentUpon>201808071747519_addFieldEnabledToWeatherStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -1030,6 +1038,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281200048_AddFieldIsActiveToFarm.resx">
       <DependentUpon>201806281200048_AddFieldIsActiveToFarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808031431359_addRelationWeatherStationPosition.resx">
+      <DependentUpon>201808031431359_addRelationWeatherStationPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071747519_addFieldEnabledToWeatherStation.resx">
+      <DependentUpon>201808071747519_addFieldEnabledToWeatherStation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
