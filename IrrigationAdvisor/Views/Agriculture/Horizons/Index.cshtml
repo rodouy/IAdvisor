@@ -2,51 +2,57 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "Agriculture";
+   // Layout = "Agriculture";
 }
 
-<h2>Index</h2>
+<h2>Horizontes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Suelo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Order)
+            Nombre horizonte
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorizonLayer)
+            Orden
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorizonLayerDepth)
+            Capa
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Sand)
+            Profundidad de capa
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Limo)
+            Arena
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Clay)
+            Barro (limo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OrganicMatter)
+           Arcilla
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NitrogenAnalysis)
+            Materia orgánica
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BulkDensitySoil)
+            Análisis de nitrógeno
+        </th>
+        <th>
+            Densidad
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soil.Name)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
@@ -78,9 +84,9 @@
             @Html.DisplayFor(modelItem => item.BulkDensitySoil)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.HorizonId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.HorizonId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.HorizonId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.HorizonId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.HorizonId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.HorizonId })
         </td>
     </tr>
 }
