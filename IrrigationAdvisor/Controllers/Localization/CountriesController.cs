@@ -194,9 +194,17 @@ namespace IrrigationAdvisor.Controllers.Localization
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Country country = db.Countries.Find(id);
-            db.Countries.Remove(country);
-            db.SaveChanges();
+            try
+            {
+                Country country = db.Countries.Find(id);
+                db.Countries.Remove(country);
+                db.SaveChanges();
+            }
+                
+            catch (Exception ex)
+            {
+                
+            }
             return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
         }
 
