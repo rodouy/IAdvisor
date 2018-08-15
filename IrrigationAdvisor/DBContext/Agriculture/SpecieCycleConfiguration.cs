@@ -11,6 +11,7 @@ namespace IrrigationAdvisor.DBContext.Agriculture
     public class SpecieCycleConfiguration:
         EntityTypeConfiguration<SpecieCycle>
     {
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
         public SpecieCycleConfiguration()
         {
             ToTable("SpecieCycle");
@@ -20,7 +21,12 @@ namespace IrrigationAdvisor.DBContext.Agriculture
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(s => s.Name)
                 .IsRequired().HasMaxLength(50);
+            Property(l => l.RegionId).IsOptional();
             
+        }
+        public List<SpecieCycle> GetAllSpecieCycles()
+        {
+            return db.SpecieCycles.OrderBy(m => m.Name).ToList();
         }
     }
 }

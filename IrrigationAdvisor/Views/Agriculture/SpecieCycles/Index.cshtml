@@ -2,21 +2,24 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "Agriculture";
+    //Layout = "Agriculture";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Duration)
+            Duración
+        </th>
+        <th>
+            Región
         </th>
         <th></th>
     </tr>
@@ -30,9 +33,12 @@
             @Html.DisplayFor(modelItem => item.Duration)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SpecieCycleId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SpecieCycleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SpecieCycleId })
+            @Html.DisplayFor(modelItem => item.Region.Name)
+        </td>
+        <td width="20%">
+            @Html.ActionLink("Editar", "Edit", new { id = item.SpecieCycleId }) |
+            @Html.ActionLink("Detalle", "Details", new { id = item.SpecieCycleId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.SpecieCycleId })
         </td>
     </tr>
 }

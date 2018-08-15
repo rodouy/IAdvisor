@@ -10,6 +10,10 @@ using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Agriculture;
 
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.Models.Localization;
+using IrrigationAdvisor.ViewModels.Agriculture;
+using IrrigationAdvisor.DBContext.Agriculture;
 
 namespace IrrigationAdvisor.Controllers.Agriculture
 {
@@ -20,8 +24,10 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // GET: Species
         public ActionResult Index()
         {
-            var species = db.Species.Include(s => s.SpecieCycle);
-            return View(species.ToList());
+            var lSpecie = db.Species
+                            .Include(s => s.SpecieCycle)
+                            .Include(s => s.Region);
+            return View("~/Views/Agriculture/Species/Index.cshtml", lSpecie.ToList());
         }
 
         // GET: Species/Details/5
@@ -31,19 +37,34 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Specie specie = db.Species.Find(id);
-            if (specie == null)
+            Specie s = db.Species.Find(id);
+            if (s == null)
             {
                 return HttpNotFound();
             }
-            return View(specie);
+            SpecieViewModel vm = new SpecieViewModel();
+            vm.SpecieId = s.SpecieId;
+            vm.ShortName = s.ShortName;
+            vm.BaseTemperature = s.BaseTemperature;
+            vm.StressTemperature = s.StressTemperature;
+            vm.SpecieType = s.SpecieType;
+            vm.RegionId = s.RegionId;
+            vm.SpecieCycleId = s.SpecieCycleId;
+            vm.RegionName = s.Region.Name;
+            vm.SpecieCycleName = s.SpecieCycle.Name;
+            return View("~/Views/Agriculture/Species/Details.cshtml", vm);
         }
 
         // GET: Species/Create
         public ActionResult Create()
         {
-            ViewBag.SpecieCycleId = new SelectList(db.SpecieCycles, "SpecieCycleId", "Name");
-            return View();
+ //           ViewBag.SpecieCycleId = new SelectList(db.SpecieCycles, "SpecieCycleId", "Name");
+   //         return View();
+
+            SpecieViewModel vm = new SpecieViewModel();
+            vm.Regions = this.LoadRegion();
+            vm.SpecieCycles = this.LoadSpecieCycles();
+            return View("~/Views/Agriculture/Species/Create.cshtml", vm);
         }
 
         // POST: Species/Create
@@ -51,17 +72,27 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SpecieId,Name,SpecieCycleId,BaseTemperature,StressTemperature")] Specie specie)
+        public ActionResult Create([Bind(Include = "SpecieId,ShortName,SpecieCycleId,BaseTemperature,StressTemperature,RegionId, SpecieType")] SpecieViewModel svm)
         {
             if (ModelState.IsValid)
-            {
+            {            
+                SpecieCycle specieCycle = db.SpecieCycles.Find(svm.SpecieCycleId);
+                Specie specie = new Specie();
+                specie.Name = svm.ShortName + " " + specieCycle.Name;
+                specie.SpecieCycleId = svm.SpecieCycleId;
+                specie.ShortName = svm.ShortName;
+                specie.BaseTemperature = svm.BaseTemperature;
+                specie.StressTemperature = svm.StressTemperature;
+                specie.RegionId = svm.RegionId;
+                specie.SpecieType = svm.SpecieType;
+
                 db.Species.Add(specie);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-
-            ViewBag.SpecieCycleId = new SelectList(db.SpecieCycles, "SpecieCycleId", "Name", specie.SpecieCycleId);
-            return View(specie);
+            var lSpecie = db.Species
+                            .Include(s => s.SpecieCycle)
+                            .Include(s => s.Region);
+            return View("~/Views/Agriculture/Species/Index.cshtml", lSpecie.ToList());
         }
 
         // GET: Species/Edit/5
@@ -71,13 +102,24 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Specie specie = db.Species.Find(id);
-            if (specie == null)
+            Specie s = db.Species.Find(id);
+            if (s == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.SpecieCycleId = new SelectList(db.SpecieCycles, "SpecieCycleId", "Name", specie.SpecieCycleId);
-            return View(specie);
+            SpecieViewModel vm = new SpecieViewModel();
+            vm.SpecieId = s.SpecieId;
+            vm.ShortName = s.ShortName;
+            vm.BaseTemperature = s.BaseTemperature;
+            vm.StressTemperature = s.StressTemperature;
+            vm.SpecieType = s.SpecieType;
+            vm.RegionId = s.RegionId;
+            vm.SpecieCycleId = s.SpecieCycleId;
+
+            vm.Regions = this.LoadRegion(s.RegionId, s);
+            vm.SpecieCycles = this.LoadSpecieCycles(s.SpecieCycleId,s);
+            return View("~/Views/Agriculture/Species/Edit.cshtml", vm);
+
         }
 
         // POST: Species/Edit/5
@@ -85,16 +127,35 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SpecieId,Name,SpecieCycleId,BaseTemperature,StressTemperature")] Specie specie)
+        public ActionResult Edit([Bind(Include = "SpecieId,ShortName,SpecieCycleId,BaseTemperature,StressTemperature, RegionId, ")] SpecieViewModel svm)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(specie).State = EntityState.Modified;
+                SpecieCycle specieCycle = db.SpecieCycles.Find(svm.SpecieCycleId);
+              
+              
+
+                Specie updatedSpecie = db.Species.Find(svm.SpecieId);
+                if (updatedSpecie == null)
+                {
+                    return HttpNotFound();
+                }
+                updatedSpecie.Name = svm.ShortName + " " + specieCycle.Name;
+                updatedSpecie.ShortName = svm.ShortName;
+                updatedSpecie.BaseTemperature = svm.BaseTemperature;
+                updatedSpecie.StressTemperature = svm.StressTemperature;
+                updatedSpecie.SpecieCycleId = svm.SpecieCycleId;
+                updatedSpecie.RegionId = svm.RegionId;
+                updatedSpecie.SpecieType = svm.SpecieType;
+
+                db.Entry(updatedSpecie).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
             }
-            ViewBag.SpecieCycleId = new SelectList(db.SpecieCycles, "SpecieCycleId", "Name", specie.SpecieCycleId);
-            return View(specie);
+            var lSpecie = db.Species
+                            .Include(s => s.SpecieCycle)
+                            .Include(s => s.Region);
+            return View("~/Views/Agriculture/Species/Index.cshtml", lSpecie.ToList());
         }
 
         // GET: Species/Delete/5
@@ -104,12 +165,22 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Specie specie = db.Species.Find(id);
-            if (specie == null)
+            Specie s = db.Species.Find(id);
+            if (s == null)
             {
                 return HttpNotFound();
             }
-            return View(specie);
+            SpecieViewModel vm = new SpecieViewModel();
+            vm.SpecieId = s.SpecieId;
+            vm.ShortName = s.ShortName;
+            vm.BaseTemperature = s.BaseTemperature;
+            vm.StressTemperature = s.StressTemperature;
+            vm.SpecieType = s.SpecieType;
+            vm.RegionId = s.RegionId;
+            vm.SpecieCycleId = s.SpecieCycleId;
+            vm.RegionName = s.Region.Name;
+            vm.SpecieCycleName = s.SpecieCycle.Name;
+            return View("~/Views/Agriculture/Species/Delete.cshtml", vm);
         }
 
         // POST: Species/Delete/5
@@ -118,18 +189,73 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         public ActionResult DeleteConfirmed(long id)
         {
             Specie specie = db.Species.Find(id);
+            if (specie == null)
+            {
+                return HttpNotFound();
+            }
             db.Species.Remove(specie);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            var lSpecie = db.Species
+                            .Include(s => s.SpecieCycle)
+                            .Include(s => s.Region);
+            return View("~/Views/Agriculture/Species/Index.cshtml", lSpecie.ToList());
+        }
+        private List<System.Web.Mvc.SelectListItem> LoadRegion(long? regionId = null, Specie specie = null)
+        {
+            RegionConfiguration sc = new RegionConfiguration();
+
+            List<Region> regions = sc.GetAllRegions();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in regions)
+            {
+
+                bool isSelected = false;
+                if (specie != null && regionId.HasValue)
+                {
+                    isSelected = (specie.RegionId == regionId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.RegionId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
+            }
+
+            return result;
         }
 
-        protected override void Dispose(bool disposing)
+        private List<System.Web.Mvc.SelectListItem> LoadSpecieCycles(long? specieCycleId = null, Specie specie = null)
         {
-            if (disposing)
+            SpecieCycleConfiguration sc = new SpecieCycleConfiguration();
+
+            List<SpecieCycle> specieCycle = sc.GetAllSpecieCycles();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in specieCycle)
             {
-                db.Dispose();
+
+                bool isSelected = false;
+                if (specie != null && specieCycleId.HasValue)
+                {
+                    isSelected = (specie.SpecieCycleId == specieCycleId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.SpecieCycleId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
             }
-            base.Dispose(disposing);
+
+            return result;
         }
     }
 }

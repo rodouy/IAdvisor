@@ -10,6 +10,9 @@ using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Agriculture;
 
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.ViewModels.Agriculture;
+using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.Models.Localization;
 
 namespace IrrigationAdvisor.Controllers.Agriculture
 {
@@ -20,7 +23,9 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // GET: SpecieCycles
         public ActionResult Index()
         {
-            return View(db.SpecieCycles.ToList());
+
+            var lSpecieCyclesList = db.SpecieCycles.Include(b => b.Region);
+            return View("~/Views/Agriculture/SpecieCycles/Index.cshtml", lSpecieCyclesList.ToList());
         }
 
         // GET: SpecieCycles/Details/5
@@ -30,18 +35,28 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SpecieCycle specieCycle = db.SpecieCycles.Find(id);
-            if (specieCycle == null)
+            SpecieCycle sc = db.SpecieCycles.Find(id);
+            if (sc == null)
             {
                 return HttpNotFound();
             }
-            return View(specieCycle);
+            SpecieCycleViewModel vm = new SpecieCycleViewModel();
+            vm.SpecieCycleId = sc.SpecieCycleId;
+            vm.Name = sc.Name;
+            vm.Duration = sc.Duration;
+            vm.RegionId = sc.RegionId;
+            vm.RegionName = sc.Region.Name;
+            return View("~/Views/Agriculture/SpecieCycles/Details.cshtml", vm);
         }
 
         // GET: SpecieCycles/Create
         public ActionResult Create()
         {
-            return View();
+            SpecieCycleViewModel vm = new SpecieCycleViewModel();
+            vm.Regions = this.LoadRegion();
+
+            return View("~/Views/Agriculture/SpecieCycles/Create.cshtml", vm);
+
         }
 
         // POST: SpecieCycles/Create
@@ -49,16 +64,22 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SpecieCycleId,Name,Duration")] SpecieCycle specieCycle)
+        public ActionResult Create([Bind(Include = "SpecieCycleId,Name,Duration,RegionId")] SpecieCycleViewModel svm)
         {
             if (ModelState.IsValid)
             {
+                SpecieCycle specieCycle = new SpecieCycle();;
+                specieCycle.Name = svm.Name;
+                specieCycle.RegionId = svm.RegionId;
+                specieCycle.Duration = svm.Duration;
+
                 db.SpecieCycles.Add(specieCycle);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
             }
 
-            return View(specieCycle);
+            var lSpecieCyclesList = db.SpecieCycles.Include(b => b.Region);
+            return View("~/Views/Agriculture/SpecieCycles/Index.cshtml", lSpecieCyclesList.ToList());
         }
 
         // GET: SpecieCycles/Edit/5
@@ -68,12 +89,18 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SpecieCycle specieCycle = db.SpecieCycles.Find(id);
-            if (specieCycle == null)
+            SpecieCycle sc = db.SpecieCycles.Find(id);
+            if (sc == null)
             {
                 return HttpNotFound();
             }
-            return View(specieCycle);
+            SpecieCycleViewModel vm = new SpecieCycleViewModel();
+            vm.SpecieCycleId = sc.SpecieCycleId;
+            vm.Name = sc.Name;
+            vm.Duration = sc.Duration;
+            vm.RegionId = sc.RegionId;
+            vm.Regions = this.LoadRegion(sc.RegionId, sc);
+            return View("~/Views/Agriculture/SpecieCycles/Edit.cshtml", vm);
         }
 
         // POST: SpecieCycles/Edit/5
@@ -81,15 +108,26 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SpecieCycleId,Name,Duration")] SpecieCycle specieCycle)
+        public ActionResult Edit([Bind(Include = "SpecieCycleId,Name,Duration,RegionId")] SpecieCycleViewModel scvm)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(specieCycle).State = EntityState.Modified;
+                SpecieCycle updatedSpecieCycle = db.SpecieCycles.Find(scvm.SpecieCycleId);
+                if (updatedSpecieCycle == null)
+                {
+                    return HttpNotFound();
+                }
+
+                updatedSpecieCycle.Name = scvm.Name;
+                updatedSpecieCycle.Duration = scvm.Duration;
+                updatedSpecieCycle.RegionId = scvm.RegionId;
+
+                db.Entry(updatedSpecieCycle).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
             }
-            return View(specieCycle);
+            var lSpecieCyclesList = db.SpecieCycles.Include(b => b.Region);
+            return View("~/Views/Agriculture/SpecieCycles/Index.cshtml", lSpecieCyclesList.ToList());
         }
 
         // GET: SpecieCycles/Delete/5
@@ -99,12 +137,18 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SpecieCycle specieCycle = db.SpecieCycles.Find(id);
-            if (specieCycle == null)
+            SpecieCycle sc = db.SpecieCycles.Find(id);
+            if (sc == null)
             {
                 return HttpNotFound();
             }
-            return View(specieCycle);
+            SpecieCycleViewModel vm = new SpecieCycleViewModel();
+            vm.SpecieCycleId = sc.SpecieCycleId;
+            vm.Name = sc.Name;
+            vm.Duration = sc.Duration;
+            vm.RegionId = sc.RegionId;
+            vm.RegionName = sc.Region.Name;
+            return View("~/Views/Agriculture/SpecieCycles/Delete.cshtml", vm);
         }
 
         // POST: SpecieCycles/Delete/5
@@ -112,19 +156,47 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
+
             SpecieCycle specieCycle = db.SpecieCycles.Find(id);
+            if (specieCycle == null)
+            {
+                return HttpNotFound();
+            }
             db.SpecieCycles.Remove(specieCycle);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            db.SaveChanges();         
+            var lSpecieCyclesList = db.SpecieCycles.Include(b => b.Region);
+            return View("~/Views/Agriculture/SpecieCycles/Index.cshtml", lSpecieCyclesList.ToList());
+
         }
 
-        protected override void Dispose(bool disposing)
+        private List<System.Web.Mvc.SelectListItem> LoadRegion(long? regionId = null, SpecieCycle specieCycle = null)
         {
-            if (disposing)
+            RegionConfiguration sc = new RegionConfiguration();
+
+            List<Region> regions = sc.GetAllRegions();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in regions)
             {
-                db.Dispose();
+
+                bool isSelected = false;
+                if (specieCycle != null && regionId.HasValue)
+                {
+                    isSelected = (specieCycle.RegionId == regionId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.RegionId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
             }
-            base.Dispose(disposing);
+
+            return result;
         }
+
     }
 }

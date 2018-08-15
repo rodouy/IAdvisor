@@ -63,7 +63,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private Double baseTemperature;
         private Double stressTemperature;
         private Utils.SpecieType specieType;
-       
+        private long regionId;
         #endregion
 
         #region Properties
@@ -116,7 +116,16 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return specieType; }
             set { specieType = value; }
         }
-        
+        public long RegionId
+        {
+            get { return regionId; }
+            set { regionId = value; }
+        }
+        public virtual Region Region
+        {
+            get;
+            set;
+        }
         #endregion
        
         #region Construction

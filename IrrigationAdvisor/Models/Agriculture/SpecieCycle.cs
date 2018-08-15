@@ -1,7 +1,7 @@
-﻿using NLog;
+﻿using IrrigationAdvisor.Models.Localization;
+using NLog;
 using System;
 using System.Collections.Generic;
-
 using System.Linq;
 using System.Web;
 
@@ -50,7 +50,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private long specieCycleId;
         private string name;
         private double duration;
-
+        private long regionId;
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
 
@@ -82,6 +82,16 @@ namespace IrrigationAdvisor.Models.Agriculture
           set { duration = value; }
         }
 
+        public long RegionId
+        {
+            get { return regionId; }
+            set { regionId = value; }
+        }
+        public virtual Region Region
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Construction

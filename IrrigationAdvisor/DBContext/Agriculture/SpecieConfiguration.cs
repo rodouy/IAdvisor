@@ -19,7 +19,7 @@ namespace IrrigationAdvisor.DBContext.Agriculture
                 .IsRequired()
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(s => s.Name).IsRequired().HasMaxLength(50);
-            
+            Property(l => l.RegionId).IsOptional();
         }
     }
 }

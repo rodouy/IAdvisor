@@ -2,27 +2,30 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "Agriculture";
+    //Layout = "Agriculture";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SpecieCycle.Name)
+            Ciclo de especie
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BaseTemperature)
+            Temperatura base
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StressTemperature)
+            Temperatura stress            
+        </th>
+        <th>
+            Región
         </th>
         <th></th>
     </tr>
@@ -33,7 +36,7 @@
             @Html.DisplayFor(modelItem => item.SpecieCycle.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.ShortName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BaseTemperature)
@@ -42,9 +45,12 @@
             @Html.DisplayFor(modelItem => item.StressTemperature)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SpecieId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SpecieId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SpecieId })
+            @Html.DisplayFor(modelItem => item.Region.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.SpecieId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.SpecieId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.SpecieId })
         </td>
     </tr>
 }
