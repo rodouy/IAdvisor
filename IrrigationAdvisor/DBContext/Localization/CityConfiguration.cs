@@ -63,5 +63,11 @@ namespace IrrigationAdvisor.DBContext.Localization
         {
             return db.Cities.ToList();
         }
+
+        public long GetMaxCityId()
+        {
+            return db.Cities.Max(table => table.CityId);
+
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace IrrigationAdvisor.DBContext.Localization
     public class CountryConfiguration:
         EntityTypeConfiguration<Country>
     {
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
         public CountryConfiguration()
         {
             ToTable("Country");
@@ -21,8 +23,23 @@ namespace IrrigationAdvisor.DBContext.Localization
             Property(c => c.Name)
                 .IsRequired()
                 .HasMaxLength(50);
-            Property(l => l.CapitalId)
-                .IsRequired();
+            Property(l => l.CapitalId).
+                IsOptional();
+            
+        }
+
+
+        /// <summary>
+        /// Get all cities
+        /// </summary>
+        /// <returns></returns>
+        public List<Country> GetAllCountries()
+        {
+            return db.Countries.ToList();
+        }
+
+        public long GetMaxCountryId(){
+            return db.Countries.Max(table => table.CountryId);
             
         }
     }
