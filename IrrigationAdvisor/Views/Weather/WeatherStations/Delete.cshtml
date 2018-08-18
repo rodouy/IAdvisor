@@ -1,89 +1,88 @@
-﻿@model IrrigationAdvisor.Models.Weather.WeatherStation
+﻿@model IrrigationAdvisor.ViewModels.Weather.WeatherStationViewModel
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "Weather";
+   // Layout = "Weather";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Confirma la eliminación?</h3>
 <div>
-    <h4>WeatherStation</h4>
+    <h4>Soil</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfInstallation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfInstallation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfService)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfService)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdateTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WirelessTransmission)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WirelessTransmission)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GiveET)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GiveET)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WeatherDataType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WeatherDataType)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="horizontal">
+            <table id="mytable">
+                <tr>
+                    <td id="myTdHead">Nombre</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Name)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Modelo</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Model)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Fecha instalación</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.DateOfInstallation)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Fecha servicio</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.DateOfService)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Fecha actualización</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.UpdateTime)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Trans. wireless</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.WirelessTransmission)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Dirección web</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.WebAddress)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Tipo de estación</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.StationType)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Tipo de datos</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.WeatherDataType)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Brinda ET</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.GiveET)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Habilitada</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Enabled)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Latitud</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Latitude)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Longitud</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Longitude)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Establecimientos</td>
+                    <td id="myTdBody">
+                        @foreach (var item in Model.Farms)
+                        {
+                            @(item.Text)<br>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td id="myTdHead"></td>
+                    <td id="myTdBody"><input type="submit" value="&nbsp;&nbsp;&nbsp;Borrar&nbsp;&nbsp;&nbsp;" class="btn btn-default" />&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+                </tr>
+            </table>
         </div>
+
     }
 </div>

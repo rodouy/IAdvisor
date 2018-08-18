@@ -2,7 +2,7 @@
 using NLog;
 using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -111,7 +111,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return horizonList; }
             set { horizonList = value; }
         }
-
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)] 
         public DateTime TestDate
         {
             get { return testDate; }
@@ -383,7 +383,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             long lIdHorizon = this.GetNewHorizonListId();
             Horizon lHorizon = new Horizon(lIdHorizon, pName, pOrder,
                 pHorizonLayer, pHorizonLayerDepth, pSand, pLimo,
-                pClay, pOrganicMatter, pNitrogenAnalysis, pBulkDensitySoil);
+                pClay, pOrganicMatter, pNitrogenAnalysis, pBulkDensitySoil,this.SoilId);
             if (this.ExistHorizon(lHorizon) == null)
             {
                 this.HorizonList.Add(lHorizon);
@@ -415,7 +415,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             long lIdHorizon = this.GetNewHorizonListId();
             Horizon lHorizon = new Horizon(lIdHorizon, pName, pOrder,
                 pHorizonLayer, pHorizonLayerDepth, pSand, pLimo,
-                pClay, pOrganicMatter, pNitrogenAnalysis, pBulkDensitySoil);
+                pClay, pOrganicMatter, pNitrogenAnalysis, pBulkDensitySoil,this.SoilId);
             lReturn = this.ExistHorizon(lHorizon);
             if (lReturn != null)
             {

@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel.DataAnnotations.Schema;
 using IrrigationAdvisor.Models.Weather;
+using IrrigationAdvisor.Models.Localization;
 
 
 namespace IrrigationAdvisor.DBContext.Weather
@@ -27,7 +28,6 @@ namespace IrrigationAdvisor.DBContext.Weather
             
         }
 
-
         /// <summary>
         /// Get all Weather Stations
         /// </summary>
@@ -36,5 +36,16 @@ namespace IrrigationAdvisor.DBContext.Weather
         {
             return db.WeatherStations.ToList();
         }
+        /// <summary>
+        /// Get max Weather Stations id
+        /// </summary>
+        /// <returns></returns>
+        public long GetMaxWeatherStationId()
+        {
+            return db.WeatherStations.Max(s => s.WeatherStationId);
+        }
+
+
+
     }
 }

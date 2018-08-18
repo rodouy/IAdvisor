@@ -86,6 +86,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private double nitrogenAnalysis;
         //TODO Horizon.bulkDensitySoil question to be calculated?
         private double bulkDensitySoil;
+        private long soilId;
 
         #endregion
 
@@ -157,7 +158,17 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return bulkDensitySoil; }
             set { bulkDensitySoil = value; }
         }
-        
+        public long SoilId
+        {
+            get { return soilId; }
+            set { soilId = value; }
+        }
+
+        public virtual Soil Soil
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Construction
@@ -178,6 +189,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.OrganicMatter = 0;
             this.NitrogenAnalysis = 0;
             this.BulkDensitySoil = 0;
+            this.SoilId = 0;
         }
 
         /// <summary>
@@ -194,10 +206,11 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pOrganicMatter"></param>
         /// <param name="pNitrogenAnalysis"></param>
         /// <param name="pBulkDensitySoil"></param>
+        /// <param name="pSoilId"></param>
         public Horizon(long pIdHorizon, String pName, int pOrder, String pHorizonLayer,
             double pHorizonLayerDepth, double pSand, double pLimo,
             double pClay, double pOrganicMatter, double pNitrogenAnalysis,
-             double pBulkDensitySoil)
+             double pBulkDensitySoil, long pSoilId)
         {
             this.HorizonId = pIdHorizon;
             this.Name = pName;
@@ -210,6 +223,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.OrganicMatter = pOrganicMatter;
             this.NitrogenAnalysis = pNitrogenAnalysis;
             this.BulkDensitySoil = pBulkDensitySoil;
+            this.SoilId = pSoilId;
         }
 
         #endregion

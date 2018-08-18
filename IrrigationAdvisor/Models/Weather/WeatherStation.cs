@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.ComponentModel.DataAnnotations;
 using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Data;
 using NLog;
 using IrrigationAdvisor.DBContext;
+using System.ComponentModel;
 
 namespace IrrigationAdvisor.Models.Weather
 {
@@ -62,6 +63,7 @@ namespace IrrigationAdvisor.Models.Weather
         ///     - wirelessTransmission int
         ///     - location Location
         ///     - giveET bool
+        ///     - enabled bool
         /// </summary>
         private long weatherStationId;
         private String name;
@@ -76,7 +78,7 @@ namespace IrrigationAdvisor.Models.Weather
         private List<WeatherData> weatherDataList;
         private Utils.WeatherDataType weatherDataType;
         private String webAddress;
-
+        private bool enabled;
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         #endregion
@@ -102,42 +104,47 @@ namespace IrrigationAdvisor.Models.Weather
             set { weatherStationId = value; }
         }
 
+        [Display(Name = "Nombre")]
         public String Name
         {
             get { return name; }
             set { name = value; }
         }
-
+        [Display(Name = "Modelo")]
         public String Model
         {
             get { return model; }
             set { model = value; }
         }
-
+        [Display(Name = "Tipo")]
         public Utils.WeatherStationType StationType
         {
             get { return stationType; }
             set { stationType = value; }
         }
         
+        [Display(Name = "Fecha instalación")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfInstallation
         {
             get { return dateOfInstallation; }
             set { dateOfInstallation = value; }
         }
-
+        [Display(Name = "Fecha servicio")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfService
         {
             get { return dateOfService; }
             set { dateOfService = value; }
         }
-        
+        [Display(Name = "Fecha actualización")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime UpdateTime
         {
             get { return updateTime; }
             set { updateTime = value; }
         }
-
+        [Display(Name = "Trans. wireless")]
         public int WirelessTransmission
         {
             get { return wirelessTransmission; }
@@ -149,7 +156,7 @@ namespace IrrigationAdvisor.Models.Weather
             get { return positionId; }
             set { positionId = value; }
         }
-
+        [Display(Name = "Brinda ET")]
         public bool GiveET
         {
             get { return giveET; }
@@ -161,19 +168,30 @@ namespace IrrigationAdvisor.Models.Weather
             get { return weatherDataList; }
             set { weatherDataList = value; }
         }
-
+        [Display(Name = "Tipo de datos")]
         public Utils.WeatherDataType WeatherDataType
         {
             get { return weatherDataType; }
             set { weatherDataType = value; }
         }
-
+        [Display(Name = "Dirección web")]
         public String WebAddress
         {
             get { return webAddress; }
             set { webAddress = value; }
         }
-
+        public virtual Position Position
+        {
+            get;
+            set;
+        }
+        [Display(Name = "Habilitada")]
+        [DefaultValue(true)]
+        public bool Enabled
+        {
+            get { return enabled; }
+            set { enabled = value; }
+        }
         #endregion
 
         #region Construction
@@ -196,6 +214,7 @@ namespace IrrigationAdvisor.Models.Weather
             this.WeatherDataList = new List<WeatherData>();
             this.WeatherDataType = Utils.WeatherDataType.AllData;
             this.WebAddress = "";
+            this.Enabled = true;
         }
 
         /// <summary>
@@ -232,6 +251,7 @@ namespace IrrigationAdvisor.Models.Weather
             this.WeatherDataList = pWeatherDataList;
             this.WeatherDataType = pWeatherDataType;
             this.WebAddress = pWebAddress;
+            this.Enabled = true;
         }
 
         #endregion
