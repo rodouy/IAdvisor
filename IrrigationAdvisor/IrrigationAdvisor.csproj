@@ -400,6 +400,14 @@
     <Compile Include="Migrations\201808081443300_addRelationSoilHorizon.Designer.cs">
       <DependentUpon>201808081443300_addRelationSoilHorizon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806102344332_meteoblue.cs" />
+    <Compile Include="Migrations\201806102344332_meteoblue.Designer.cs">
+      <DependentUpon>201806102344332_meteoblue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806120039530_meteoblue3.cs" />
+    <Compile Include="Migrations\201806120039530_meteoblue3.Designer.cs">
+      <DependentUpon>201806120039530_meteoblue3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201807271533587_addFKInIrrigationUnitToPosition.cs" />
     <Compile Include="Migrations\201807271533587_addFKInIrrigationUnitToPosition.Designer.cs">
       <DependentUpon>201807271533587_addFKInIrrigationUnitToPosition.cs</DependentUpon>
@@ -976,6 +984,11 @@
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Create.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Delete.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Details.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Edit.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Index.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Index.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Create.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Delete.cshtml" />
@@ -1072,6 +1085,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808081443300_addRelationSoilHorizon.resx">
       <DependentUpon>201808081443300_addRelationSoilHorizon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806102344332_meteoblue.resx">
+      <DependentUpon>201806102344332_meteoblue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806120039530_meteoblue3.resx">
+      <DependentUpon>201806120039530_meteoblue3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807271533587_addFKInIrrigationUnitToPosition.resx">
       <DependentUpon>201807271533587_addFKInIrrigationUnitToPosition.cs</DependentUpon>
