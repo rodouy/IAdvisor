@@ -1,0 +1,43 @@
+﻿{
+	"metadata": 
+	{
+		"name": "Montevideo", 
+		"latitude": 34.86, 
+		"longitude": 56.18, 
+		"height": 713, 
+		"timezone_abbrevation": "Montevideo", 
+		"utc_timeoffset": 0.00, 
+		"modelrun_utc": "2018-06-03 12:00", 
+		"modelrun_updatetime_utc": "2018-06-03 17:30"
+	}, 
+	"units": 
+	{
+		"time": "YYYY-MM-DD hh:mm", 
+		"leafwetness": "fraction", 
+		"soilmoisture": "volumetric percent", 
+		"sensibleheatflux": "Wm-2", 
+		"temperature": "C", 
+		"transpiration": "mm"
+	}, 
+	"data_day": 
+	{
+		"time": ["2018-06-04", "2018-06-05", "2018-06-06", "2018-06-07", "2018-06-08", "2018-06-09", "2018-06-10"], 
+		"soiltemperature_0to10cm_max": [43.19, 44.70, 47.93, 47.55, 44.00, 41.26, 37.33], 
+		"soiltemperature_0to10cm_min": [24.47, 23.87, 26.64, 25.90, 27.40, 26.63, 24.51], 
+		"soiltemperature_0to10cm_mean": [33.81, 34.90, 37.16, 37.04, 35.51, 33.51, 31.41], 
+		"soilmoisture_0to10cm_max": [15, 15, 14, 14, 13, 13, 13], 
+		"soilmoisture_0to10cm_min": [15, 14, 14, 13, 13, 13, 12], 
+		"soilmoisture_0to10cm_mean": [15, 14, 14, 13, 13, 13, 12], 
+		"skintemperature_max": [49.38, 51.31, 55.62, 54.75, 50.11, 46.66, 43.04], 
+		"skintemperature_min": [20.19, 19.11, 22.51, 20.84, 23.46, 22.98, 18.91], 
+		"skintemperature_mean": [34.31, 36.15, 38.32, 38.12, 36.02, 33.70, 30.84], 
+		"evapotranspiration": [0.62, 0.65, 0.55, 0.52, 0.47, 0.38, 0.29], 
+		"leafwetnessindex": [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00], 
+		"potentialevapotranspiration": [14.95, 17.94, 17.34, 19.40, 20.24, 18.61, 15.58], 
+		"dewpointtemperature_max": [12.10, 12.98, 11.77, 14.39, 11.38, 13.43, 16.58], 
+		"dewpointtemperature_min": [5.50, -0.25, -4.65, -5.72, 1.10, 2.83, 7.82], 
+		"dewpointtemperature_mean": [8.06, 3.78, 1.87, 3.27, 5.16, 7.51, 12.33], 
+		"referenceevapotranspiration_fao": [7.87, 10.62, 9.29, 10.25, 10.97, 10.20, 9.13], 
+		"sensibleheatflux": [149.71, 134.25, 127.67, 128.17, 149.92, 148.21, 134.75]
+	}
+}
