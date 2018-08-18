@@ -197,8 +197,9 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2017();
 
                 Console.WriteLine("  - Insert Horizons - Soils - CropCoefficient");
+                AgricultureInsert.InsertSoils(); 
                 AgricultureInsert.InsertHorizons();
-                AgricultureInsert.InsertSoils();
+
                 AgricultureInsert.InsertCropCoefficients();
                 Console.WriteLine("Agriculture - Completed.");
                 #endif

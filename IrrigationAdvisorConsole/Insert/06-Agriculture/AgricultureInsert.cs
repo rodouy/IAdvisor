@@ -5200,6 +5200,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
         public static void InsertHorizons()
         {
+            Soil lSoil= null;
             #region Base
             var lBase = new Horizon
             {
@@ -5220,176 +5221,210 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
             {
-                #region Pivot 11
-                var lDemo1Pivot_11_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo11 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo1Pivot_11_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo11 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo1Pivot_11_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo11 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
+                 using (var context = new IrrigationAdvisorContext())
+                {               
+                    #region Pivot 11
+
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo11
+                             select far).FirstOrDefault();
+                    var lDemo1Pivot_11_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo11 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo1Pivot_11_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo11 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo1Pivot_11_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo11 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                
                 #endregion
 
-                #region Pivot 12
-                var lDemo1Pivot_12_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo12 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo1Pivot_12_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo12 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo1Pivot_12_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo12 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
+                    #region Pivot 12
+  
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo12
+                             select far).FirstOrDefault();
+                    var lDemo1Pivot_12_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo12 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo1Pivot_12_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo12 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo1Pivot_12_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo12 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                
                 #endregion
 
-                #region Pivot 13
-                var lDemo1Pivot_13_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo13 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo1Pivot_13_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo13 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo1Pivot_13_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo13 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
+                    #region Pivot 13
+
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo12
+                             select far).FirstOrDefault();
+
+                    var lDemo1Pivot_13_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo13 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo1Pivot_13_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo13 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo1Pivot_13_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo13 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                
                 #endregion
 
-                #region Pivot 15
-                var lDemo1Pivot_15_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo15 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo1Pivot_15_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo15 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo1Pivot_15_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo15 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
+                    #region Pivot 15
+
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo15
+                             select far).FirstOrDefault();
+                    var lDemo1Pivot_15_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo15 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo1Pivot_15_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo15 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo1Pivot_15_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo15 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                
                 #endregion
 
-                using (var context = new IrrigationAdvisorContext())
-                {
+ 
                     #region Horizons Demo1
                     context.Horizons.Add(lDemo1Pivot_11_1);
                     context.Horizons.Add(lDemo1Pivot_11_2);
@@ -5412,193 +5447,228 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
             {
-                #region Pivot 21
-                var lDemo2Pivot_21_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo21 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 14,
-                    Sand = 19,
-                    Limo = 53,
-                    Clay = 28,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lDemo2Pivot_21_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo21 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 23,
-                    Sand = 18,
-                    Limo = 45,
-                    Clay = 37,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lDemo2Pivot_21_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo21 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 19,
-                    Limo = 37,
-                    Clay = 44,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                #endregion
-
-                #region Pivot 22
-                var lDemo2Pivot_22_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo22 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo2Pivot_22_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo22 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDemo2Pivot_22_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo22 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-
-                #region Pivot 23
-                var lDemo2Pivot_23_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo23 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 0,
-                    Sand = 0,
-                    Limo = 0,
-                    Clay = 0,
-                    OrganicMatter = 0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 0,
-                };
-                var lDemo2Pivot_23_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo23 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                #endregion
-
-                #region Pivot 24
-                var lDemo2Pivot_24_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo24 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 33,
-                    Limo = 40,
-                    Clay = 26,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lDemo2Pivot_24_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo24 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-
-                #region Pivot 25
-                var lDemo2Pivot_25_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo25 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 14,
-                    Sand = 19,
-                    Limo = 53,
-                    Clay = 28,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lDemo2Pivot_25_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo25 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 23,
-                    Sand = 18,
-                    Limo = 45,
-                    Clay = 37,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lDemo2Pivot_25_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo25 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 19,
-                    Limo = 37,
-                    Clay = 44,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+
+                    #region Pivot 21
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo21
+                             select far).FirstOrDefault();
+
+                    var lDemo2Pivot_21_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo21 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 14,
+                        Sand = 19,
+                        Limo = 53,
+                        Clay = 28,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo2Pivot_21_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo21 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 23,
+                        Sand = 18,
+                        Limo = 45,
+                        Clay = 37,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo2Pivot_21_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo21 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 19,
+                        Limo = 37,
+                        Clay = 44,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 22
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo22
+                             select far).FirstOrDefault();
+
+                    var lDemo2Pivot_22_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo22 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo2Pivot_22_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo22 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo2Pivot_22_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo22 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 23
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo23
+                             select far).FirstOrDefault();
+
+                    var lDemo2Pivot_23_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo23 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 0,
+                        Sand = 0,
+                        Limo = 0,
+                        Clay = 0,
+                        OrganicMatter = 0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 0,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo2Pivot_23_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo23 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 24
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo24
+                             select far).FirstOrDefault();
+
+                    var lDemo2Pivot_24_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo24 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 33,
+                        Limo = 40,
+                        Clay = 26,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo2Pivot_24_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo24 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+
+                    #region Pivot 25
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo25
+                             select far).FirstOrDefault();
+
+                    var lDemo2Pivot_25_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo25 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 14,
+                        Sand = 19,
+                        Limo = 53,
+                        Clay = 28,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo2Pivot_25_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo25 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 23,
+                        Sand = 18,
+                        Limo = 45,
+                        Clay = 37,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo2Pivot_25_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo25 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 19,
+                        Limo = 37,
+                        Clay = 44,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+
                     #region Horizons Demo
                     context.Horizons.Add(lDemo2Pivot_21_1);
                     context.Horizons.Add(lDemo2Pivot_21_2);
@@ -5622,153 +5692,185 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All 
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
             {
-                #region Pivot 31
-                var lDemo3Pivot_31_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo31 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
-                };
-                var lDemo3Pivot_31_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo31 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
-                };
-                #endregion
-
-                #region Pivot 32
-                var lDemo3Pivot_32A_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo32A + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
-                };
-                var lDemo3Pivot_32A_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo32A + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
-                };
-                #endregion
-
-                #region Pivot 33
-                var lDemo3Pivot_33_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo33 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
-                };
-                var lDemo3Pivot_33_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo33 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
-                };
-                #endregion
-
-                #region Pivot 34
-                var lDemo3Pivot_34_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo34 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
-                };
-                var lDemo3Pivot_34_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo34 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
-                };
-                #endregion
-
-                #region Pivot 35
-                var lDemo3Pivot_35_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo35 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 13,
-                    Sand = 43,
-                    Limo = 31,
-                    Clay = 26,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.30,
-                };
-                var lDemo3Pivot_35_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDemo35 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 60,
-                    Sand = 31,
-                    Limo = 25,
-                    Clay = 44,
-                    OrganicMatter = 1.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.39,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+
+                    #region Pivot 31
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo31
+                             select far).FirstOrDefault();
+
+                    var lDemo3Pivot_31_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo31 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 13,
+                        Sand = 43,
+                        Limo = 31,
+                        Clay = 26,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.30,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo3Pivot_31_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo31 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 60,
+                        Sand = 31,
+                        Limo = 25,
+                        Clay = 44,
+                        OrganicMatter = 1.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.39,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 32
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo32A
+                             select far).FirstOrDefault();
+
+                    var lDemo3Pivot_32A_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo32A + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 13,
+                        Sand = 43,
+                        Limo = 31,
+                        Clay = 26,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.30,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo3Pivot_32A_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo32A + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 60,
+                        Sand = 31,
+                        Limo = 25,
+                        Clay = 44,
+                        OrganicMatter = 1.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.39,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 33
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo33
+                             select far).FirstOrDefault();
+
+                    var lDemo3Pivot_33_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo33 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 13,
+                        Sand = 43,
+                        Limo = 31,
+                        Clay = 26,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.30,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo3Pivot_33_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo33 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 60,
+                        Sand = 31,
+                        Limo = 25,
+                        Clay = 44,
+                        OrganicMatter = 1.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.39,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 34
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo34
+                             select far).FirstOrDefault();
+
+                    var lDemo3Pivot_34_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo34 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 13,
+                        Sand = 43,
+                        Limo = 31,
+                        Clay = 26,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.30,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo3Pivot_34_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo34 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 60,
+                        Sand = 31,
+                        Limo = 25,
+                        Clay = 44,
+                        OrganicMatter = 1.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.39,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 35
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDemo35
+                             select far).FirstOrDefault();
+
+                    var lDemo3Pivot_35_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo35 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 13,
+                        Sand = 43,
+                        Limo = 31,
+                        Clay = 26,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.30,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDemo3Pivot_35_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDemo35 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 60,
+                        Sand = 31,
+                        Limo = 25,
+                        Clay = 44,
+                        OrganicMatter = 1.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.39,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+
                     #region Horizons Demo
                     context.Horizons.Add(lDemo3Pivot_31_1);
                     context.Horizons.Add(lDemo3Pivot_31_2);
@@ -5791,192 +5893,225 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2015
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
             {
-                #region Pivot 1
-                var lSantaLuciaPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia1 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 14,
-                    Sand = 19,
-                    Limo = 53,
-                    Clay = 28,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lSantaLuciaPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia1 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 23,
-                    Sand = 18,
-                    Limo = 45,
-                    Clay = 37,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lSantaLuciaPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia1 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 19,
-                    Limo = 37,
-                    Clay = 44,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                #endregion
-
-                #region Pivot 2
-                var lSantaLuciaPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia2 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lSantaLuciaPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia2 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lSantaLuciaPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia2 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-
-                #region Pivot 3
-                var lSantaLuciaPivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia3 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 0,
-                    Sand = 0,
-                    Limo = 0,
-                    Clay = 0,
-                    OrganicMatter = 0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 0,
-                };
-                var lSantaLuciaPivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia3 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                #endregion
-
-                #region Pivot 4
-                var lSantaLuciaPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia4 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 33,
-                    Limo = 40,
-                    Clay = 26,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lSantaLuciaPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia4 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                #endregion
-
-                #region Pivot 5
-                var lSantaLuciaPivot_5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia5 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 14,
-                    Sand = 19,
-                    Limo = 53,
-                    Clay = 28,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lSantaLuciaPivot_5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia5 + " 2",
-                    Order = 1,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 23,
-                    Sand = 18,
-                    Limo = 45,
-                    Clay = 37,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lSantaLuciaPivot_5_3 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaLucia5 + " 3",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 19,
-                    Limo = 37,
-                    Clay = 44,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaLucia1
+                             select far).FirstOrDefault();
+
+                    var lSantaLuciaPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia1 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 14,
+                        Sand = 19,
+                        Limo = 53,
+                        Clay = 28,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId=lSoil.SoilId,
+                    };
+                    var lSantaLuciaPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia1 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 23,
+                        Sand = 18,
+                        Limo = 45,
+                        Clay = 37,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaLuciaPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia1 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 19,
+                        Limo = 37,
+                        Clay = 44,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaLucia2
+                             select far).FirstOrDefault(); 
+
+                    var lSantaLuciaPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia2 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaLuciaPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia2 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaLuciaPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia2 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaLucia3
+                             select far).FirstOrDefault();
+                
+                    var lSantaLuciaPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia3 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 0,
+                        Sand = 0,
+                        Limo = 0,
+                        Clay = 0,
+                        OrganicMatter = 0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 0,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaLuciaPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia3 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                    };
+                    #endregion
+
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaLucia4
+                             select far).FirstOrDefault();
+
+                    var lSantaLuciaPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia4 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 33,
+                        Limo = 40,
+                        Clay = 26,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaLuciaPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia4 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaLucia5
+                             select far).FirstOrDefault();
+
+                    var lSantaLuciaPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia5 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 14,
+                        Sand = 19,
+                        Limo = 53,
+                        Clay = 28,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaLuciaPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia5 + " 2",
+                        Order = 1,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 23,
+                        Sand = 18,
+                        Limo = 45,
+                        Clay = 37,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaLuciaPivot_5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaLucia5 + " 3",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 19,
+                        Limo = 37,
+                        Clay = 44,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+
                     #region Horizons Santa Lucia
                     context.Horizons.Add(lSantaLuciaPivot_1_1);
                     context.Horizons.Add(lSantaLuciaPivot_1_2);
@@ -6005,257 +6140,304 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
             {
-                #region Pivot 1
-                var lDCAElParaisoPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 24,
-                    Limo = 45,
-                    Clay = 31,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDCAElParaisoPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 46,
-                    Clay = 34,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDCAElParaisoPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "BC",
-                    HorizonLayerDepth = 20,
-                    Sand = 12,
-                    Limo = 48,
-                    Clay = 40,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                #endregion
-                #region Pivot 2
-                var lDCAElParaisoPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso2 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 24,
-                    Limo = 45,
-                    Clay = 31,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDCAElParaisoPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso2 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 46,
-                    Clay = 34,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDCAElParaisoPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso2 + " 3",
-                    Order = 3,
-                    HorizonLayer = "BC",
-                    HorizonLayerDepth = 20,
-                    Sand = 12,
-                    Limo = 48,
-                    Clay = 40,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                #endregion
-                #region Pivot 3
-                var lDCAElParaisoPivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso3 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 24,
-                    Limo = 45,
-                    Clay = 31,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDCAElParaisoPivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso3 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 46,
-                    Clay = 34,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDCAElParaisoPivot_3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso3 + " 3",
-                    Order = 3,
-                    HorizonLayer = "BC",
-                    HorizonLayerDepth = 20,
-                    Sand = 12,
-                    Limo = 48,
-                    Clay = 40,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                #endregion
-                #region Pivot 4
-                var lDCAElParaisoPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso4 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 24,
-                    Limo = 45,
-                    Clay = 31,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDCAElParaisoPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso4 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 46,
-                    Clay = 34,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDCAElParaisoPivot_4_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso4 + " 3",
-                    Order = 3,
-                    HorizonLayer = "BC",
-                    HorizonLayerDepth = 20,
-                    Sand = 12,
-                    Limo = 48,
-                    Clay = 40,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                #endregion
-                #region Pivot 5
-                var lDCAElParaisoPivot_5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso5 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 10,
-                    Sand = 25,
-                    Limo = 45,
-                    Clay = 30,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lDCAElParaisoPivot_5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso5 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 22,
-                    Limo = 46,
-                    Clay = 32,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 6
-                var lDCAElParaisoPivot_6_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso6 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 10,
-                    Sand = 25,
-                    Limo = 45,
-                    Clay = 30,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lDCAElParaisoPivot_6_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso6 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 22,
-                    Limo = 46,
-                    Clay = 32,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 7
-                var lDCAElParaisoPivot_7_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso7 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 10,
-                    Sand = 25,
-                    Limo = 45,
-                    Clay = 30,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lDCAElParaisoPivot_7_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCAElParaiso7 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 22,
-                    Limo = 46,
-                    Clay = 32,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
 
                 using (var context = new IrrigationAdvisorContext())
-                {
+                {         
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCAElParaiso1
+                             select far).FirstOrDefault();
+
+                    var lDCAElParaisoPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 24,
+                        Limo = 45,
+                        Clay = 31,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 46,
+                        Clay = 34,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "BC",
+                        HorizonLayerDepth = 20,
+                        Sand = 12,
+                        Limo = 48,
+                        Clay = 40,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCAElParaiso2
+                             select far).FirstOrDefault();
+
+                    var lDCAElParaisoPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 24,
+                        Limo = 45,
+                        Clay = 31,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 46,
+                        Clay = 34,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "BC",
+                        HorizonLayerDepth = 20,
+                        Sand = 12,
+                        Limo = 48,
+                        Clay = 40,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCAElParaiso3
+                             select far).FirstOrDefault();
+
+                    var lDCAElParaisoPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 24,
+                        Limo = 45,
+                        Clay = 31,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 46,
+                        Clay = 34,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "BC",
+                        HorizonLayerDepth = 20,
+                        Sand = 12,
+                        Limo = 48,
+                        Clay = 40,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCAElParaiso4
+                             select far).FirstOrDefault();
+
+                    var lDCAElParaisoPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso4 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 24,
+                        Limo = 45,
+                        Clay = 31,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso4 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 46,
+                        Clay = 34,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso4 + " 3",
+                        Order = 3,
+                        HorizonLayer = "BC",
+                        HorizonLayerDepth = 20,
+                        Sand = 12,
+                        Limo = 48,
+                        Clay = 40,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCAElParaiso5
+                             select far).FirstOrDefault();
+
+                    var lDCAElParaisoPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso5 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 10,
+                        Sand = 25,
+                        Limo = 45,
+                        Clay = 30,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso5 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 22,
+                        Limo = 46,
+                        Clay = 32,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 6
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCAElParaiso6
+                             select far).FirstOrDefault();
+
+                    var lDCAElParaisoPivot_6_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso6 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 10,
+                        Sand = 25,
+                        Limo = 45,
+                        Clay = 30,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_6_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso6 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 22,
+                        Limo = 46,
+                        Clay = 32,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 7
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCAElParaiso7
+                             select far).FirstOrDefault();
+
+                    var lDCAElParaisoPivot_7_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso7 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 10,
+                        Sand = 25,
+                        Limo = 45,
+                        Clay = 30,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId=lSoil.SoilId,
+                    };
+                    var lDCAElParaisoPivot_7_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCAElParaiso7 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 22,
+                        Limo = 46,
+                        Clay = 32,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
                     #region Horizons DCA El Paraiso
                     context.Horizons.Add(lDCAElParaisoPivot_1_1);
                     context.Horizons.Add(lDCAElParaisoPivot_1_2);
@@ -6288,173 +6470,201 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
             {
-                #region Pivot 1
-                var lDCASanJosePivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 21,
-                    Limo = 43,
-                    Clay = 33,
-                    OrganicMatter = 4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCASanJosePivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 23,
-                    Sand = 18,
-                    Limo = 46,
-                    Clay = 36,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCASanJosePivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 28,
-                    Sand = 10,
-                    Limo = 48,
-                    Clay = 42,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 2
-                var lDCASanJosePivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose2 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 21,
-                    Limo = 43,
-                    Clay = 33,
-                    OrganicMatter = 4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCASanJosePivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose2 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 23,
-                    Sand = 18,
-                    Limo = 46,
-                    Clay = 36,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCASanJosePivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose2 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 28,
-                    Sand = 10,
-                    Limo = 48,
-                    Clay = 42,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 3
-                var lDCASanJosePivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose3 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 21,
-                    Limo = 43,
-                    Clay = 33,
-                    OrganicMatter = 4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCASanJosePivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose3 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 23,
-                    Sand = 18,
-                    Limo = 46,
-                    Clay = 36,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCASanJosePivot_3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose3 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 28,
-                    Sand = 10,
-                    Limo = 48,
-                    Clay = 42,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 4
-                var lDCASanJosePivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose4 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 21,
-                    Limo = 43,
-                    Clay = 33,
-                    OrganicMatter = 4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCASanJosePivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose4 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 23,
-                    Sand = 18,
-                    Limo = 46,
-                    Clay = 36,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCASanJosePivot_4_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCASanJose4 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 28,
-                    Sand = 10,
-                    Limo = 48,
-                    Clay = 42,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
+                 using (var context = new IrrigationAdvisorContext())
+                {  
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCASanJose1
+                             select far).FirstOrDefault();
 
-                using (var context = new IrrigationAdvisorContext())
-                {
+                    var lDCASanJosePivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 21,
+                        Limo = 43,
+                        Clay = 33,
+                        OrganicMatter = 4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCASanJosePivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 23,
+                        Sand = 18,
+                        Limo = 46,
+                        Clay = 36,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCASanJosePivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 28,
+                        Sand = 10,
+                        Limo = 48,
+                        Clay = 42,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCASanJose2
+                             select far).FirstOrDefault();
+
+                    var lDCASanJosePivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 21,
+                        Limo = 43,
+                        Clay = 33,
+                        OrganicMatter = 4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCASanJosePivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 23,
+                        Sand = 18,
+                        Limo = 46,
+                        Clay = 36,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCASanJosePivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 28,
+                        Sand = 10,
+                        Limo = 48,
+                        Clay = 42,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCASanJose3
+                             select far).FirstOrDefault();
+
+                    var lDCASanJosePivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 21,
+                        Limo = 43,
+                        Clay = 33,
+                        OrganicMatter = 4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCASanJosePivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 23,
+                        Sand = 18,
+                        Limo = 46,
+                        Clay = 36,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCASanJosePivot_3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 28,
+                        Sand = 10,
+                        Limo = 48,
+                        Clay = 42,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCASanJose4
+                             select far).FirstOrDefault();
+
+                    var lDCASanJosePivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose4 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 21,
+                        Limo = 43,
+                        Clay = 33,
+                        OrganicMatter = 4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId=lSoil.SoilId,
+                    };
+                    var lDCASanJosePivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose4 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 23,
+                        Sand = 18,
+                        Limo = 46,
+                        Clay = 36,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCASanJosePivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCASanJose4 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 28,
+                        Sand = 10,
+                        Limo = 48,
+                        Clay = 42,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
                     #region Horizons DCA San Jose
                     context.Horizons.Add(lDCASanJosePivot_1_1);
                     context.Horizons.Add(lDCASanJosePivot_1_2);
@@ -6481,561 +6691,665 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
-                #region Pivot 1
-                var lDCALaPerdizPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 2
-                var lDCALaPerdizPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz2 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz2 + " 2",
-                    Order = 2,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz2 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 3
-                var lDCALaPerdizPivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz3 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz3 + " 2",
-                    Order = 2,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz3 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 4
-                var lDCALaPerdizPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz4 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz4 + " 2",
-                    Order = 2,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_4_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz4 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 5
-                var lDCALaPerdizPivot_5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz5 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz5 + " 2",
-                    Order = 2,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_5_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz5 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 6
-                var lDCALaPerdizPivot_6_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz6 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_6_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz6 + " 2",
-                    Order = 2,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_6_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz6 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 7
-                var lDCALaPerdizPivot_7_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz7 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 12,
-                    Sand = 30,
-                    Limo = 36,
-                    Clay = 34,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_7_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz7 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 28,
-                    Sand = 25,
-                    Limo = 38,
-                    Clay = 37,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 8
-                var lDCALaPerdizPivot_8_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz8 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 12,
-                    Sand = 30,
-                    Limo = 36,
-                    Clay = 34,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_8_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz8 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 28,
-                    Sand = 25,
-                    Limo = 38,
-                    Clay = 37,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 9
-                var lDCALaPerdizPivot_9_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz9 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 12,
-                    Sand = 30,
-                    Limo = 36,
-                    Clay = 34,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_9_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz9 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 28,
-                    Sand = 25,
-                    Limo = 38,
-                    Clay = 37,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 10a
-                var lDCALaPerdizPivot_10a_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz10a + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_10a_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz10a + " 2",
-                    Order = 2,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_10a_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz10a + " 3",
-                    Order = 3,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 10b
-                var lDCALaPerdizPivot_10b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz10b + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 12,
-                    Sand = 30,
-                    Limo = 36,
-                    Clay = 34,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_10b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz10b + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 28,
-                    Sand = 25,
-                    Limo = 38,
-                    Clay = 37,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 11
-                var lDCALaPerdizPivot_11_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz11 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 12,
-                    Sand = 30,
-                    Limo = 36,
-                    Clay = 34,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_11_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz11 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 28,
-                    Sand = 25,
-                    Limo = 38,
-                    Clay = 37,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 12
-                var lDCALaPerdizPivot_12_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz12 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 12,
-                    Sand = 30,
-                    Limo = 36,
-                    Clay = 34,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_12_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz12 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 28,
-                    Sand = 25,
-                    Limo = 38,
-                    Clay = 37,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 13
-                var lDCALaPerdizPivot_13_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz13 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 12,
-                    Sand = 30,
-                    Limo = 36,
-                    Clay = 34,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_13_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz13 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 28,
-                    Sand = 25,
-                    Limo = 38,
-                    Clay = 37,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 14
-                var lDCALaPerdizPivot_14_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz14 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 12,
-                    Sand = 30,
-                    Limo = 36,
-                    Clay = 34,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_14_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz14 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 28,
-                    Sand = 25,
-                    Limo = 38,
-                    Clay = 37,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-                #region Pivot 15
-                var lDCALaPerdizPivot_15_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz15 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_15_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz15 + " 2",
-                    Order = 2,
-                    HorizonLayer = "AB",
-                    HorizonLayerDepth = 20,
-                    Sand = 25,
-                    Limo = 36,
-                    Clay = 39,
-                    OrganicMatter = 3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDCALaPerdizPivot_15_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDCALaPerdiz15 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 25,
-                    Sand = 19,
-                    Limo = 35,
-                    Clay = 46,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz1
+                             select far).FirstOrDefault(); 
+                
+                    var lDCALaPerdizPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz2
+                             select far).FirstOrDefault();
+                
+                        var lDCALaPerdizPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz3
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz4
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz4 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz4 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz4 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz5
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz5 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz5 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz5 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 6
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz6
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_6_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz6 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_6_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz6 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_6_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz6 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 7
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz7
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_7_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz7 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 12,
+                        Sand = 30,
+                        Limo = 36,
+                        Clay = 34,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_7_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz7 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 28,
+                        Sand = 25,
+                        Limo = 38,
+                        Clay = 37,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 8
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz8
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_8_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz8 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 12,
+                        Sand = 30,
+                        Limo = 36,
+                        Clay = 34,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_8_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz8 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 28,
+                        Sand = 25,
+                        Limo = 38,
+                        Clay = 37,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 9
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz8
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_9_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz9 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 12,
+                        Sand = 30,
+                        Limo = 36,
+                        Clay = 34,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_9_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz9 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 28,
+                        Sand = 25,
+                        Limo = 38,
+                        Clay = 37,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 10a
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz10a
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_10a_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz10a + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_10a_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz10a + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_10a_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz10a + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 10b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz10b
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_10b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz10b + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 12,
+                        Sand = 30,
+                        Limo = 36,
+                        Clay = 34,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_10b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz10b + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 28,
+                        Sand = 25,
+                        Limo = 38,
+                        Clay = 37,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 11
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz11
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_11_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz11 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 12,
+                        Sand = 30,
+                        Limo = 36,
+                        Clay = 34,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_11_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz11 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 28,
+                        Sand = 25,
+                        Limo = 38,
+                        Clay = 37,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 12
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz12
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_12_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz12 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 12,
+                        Sand = 30,
+                        Limo = 36,
+                        Clay = 34,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_12_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz12 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 28,
+                        Sand = 25,
+                        Limo = 38,
+                        Clay = 37,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 13
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz13
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_13_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz13 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 12,
+                        Sand = 30,
+                        Limo = 36,
+                        Clay = 34,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_13_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz13 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 28,
+                        Sand = 25,
+                        Limo = 38,
+                        Clay = 37,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 14
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz14
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_14_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz14 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 12,
+                        Sand = 30,
+                        Limo = 36,
+                        Clay = 34,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_14_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz14 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 28,
+                        Sand = 25,
+                        Limo = 38,
+                        Clay = 37,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 15
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDCALaPerdiz15
+                             select far).FirstOrDefault();
+
+                    var lDCALaPerdizPivot_15_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz15 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId=lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_15_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz15 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 20,
+                        Sand = 25,
+                        Limo = 36,
+                        Clay = 39,
+                        OrganicMatter = 3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDCALaPerdizPivot_15_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDCALaPerdiz15 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 25,
+                        Sand = 19,
+                        Limo = 35,
+                        Clay = 46,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
                     #region Horizons DCA La Perdiz
                     context.Horizons.Add(lDCALaPerdizPivot_1_1);
                     context.Horizons.Add(lDCALaPerdizPivot_1_2);
@@ -7091,501 +7405,604 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
-                #region Pivot 1
-                var lDelLagoSanPedroPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro1 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro1 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 2
-                var lDelLagoSanPedroPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro2 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro2 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 3
-                var lDelLagoSanPedroPivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro3 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro3 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 4
-                var lDelLagoSanPedroPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro4 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro4 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 5
-                var lDelLagoSanPedroPivot_5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro5 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro5 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 6
-                var lDelLagoSanPedroPivot_6_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro6 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_6_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro6 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 7
-                var lDelLagoSanPedroPivot_7_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro7 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_7_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro7 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 8
-                var lDelLagoSanPedroPivot_8_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro8 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_8_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro8 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                #endregion
-                #region Pivot 9
-                var lDelLagoSanPedroPivot_9_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro9 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_9_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro9 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 10
-                var lDelLagoSanPedroPivot_10_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro10 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_10_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro10 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 11
-                var lDelLagoSanPedroPivot_11_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro11 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_11_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro11 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 12
-                var lDelLagoSanPedroPivot_12_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro12 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_12_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro12 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 13
-                var lDelLagoSanPedroPivot_13_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro13 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_13_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro13 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 14
-                var lDelLagoSanPedroPivot_14_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro14 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_14_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro14 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 15
-                var lDelLagoSanPedroPivot_15_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro15 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_15_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro15 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 16
-                var lDelLagoSanPedroPivot_16_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro16 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_16_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro16 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-                #region Pivot 17
-                var lDelLagoSanPedroPivot_17_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro17 + " 1",
-                    Order = 0,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 21,
-                    Sand = 31,
-                    Limo = 31,
-                    Clay = 38,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lDelLagoSanPedroPivot_17_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoSanPedro17 + " 2",
-                    Order = 1,
-                    HorizonLayer = "B",
-                    HorizonLayerDepth = 20,
-                    Sand = 20,
-                    Limo = 28,
-                    Clay = 52,
-                    OrganicMatter = 4.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
-                {
+                { 
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro1
+                             select far).FirstOrDefault(); 
+                
+                    var lDelLagoSanPedroPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro1 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro1 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro2
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro2 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro2 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro3
+                             select far).FirstOrDefault(); 
+
+                    var lDelLagoSanPedroPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro3 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro3 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro4
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro4 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro4 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro5
+                             select far).FirstOrDefault(); 
+
+                    var lDelLagoSanPedroPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro5 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro5 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 6
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro6
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_6_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro6 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_6_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro6 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 7
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro7
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_7_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro7 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_7_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro7 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 8
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro8
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_8_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro8 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_8_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro8 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 9
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro9
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_9_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro9 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_9_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro9 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 10
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro10
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_10_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro10 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_10_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro10 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 11
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro11
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_11_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro11 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_11_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro11 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 12
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro12
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_12_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro12 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_12_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro12 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 13
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro13
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_13_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro13 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_13_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro13 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 14
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro14
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_14_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro14 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_14_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro14 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 15
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro15
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_15_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro15 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_15_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro15 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 16
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro16
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_16_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro16 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_16_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro16 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 17
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoSanPedro17
+                             select far).FirstOrDefault();
+
+                    var lDelLagoSanPedroPivot_17_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro17 + " 1",
+                        Order = 0,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 21,
+                        Sand = 31,
+                        Limo = 31,
+                        Clay = 38,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId =lSoil.SoilId,
+                    };
+                    var lDelLagoSanPedroPivot_17_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoSanPedro17 + " 2",
+                        Order = 1,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 20,
+                        Sand = 20,
+                        Limo = 28,
+                        Clay = 52,
+                        OrganicMatter = 4.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+
+
                     #region Horizons Del Lago - San Pedro
                     context.Horizons.Add(lDelLagoSanPedroPivot_1_1);
                     context.Horizons.Add(lDelLagoSanPedroPivot_1_2);
@@ -7634,1146 +8051,1314 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
-
-                #region Pivot 1
-                var lDelLagoElMiradorPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador1 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador1 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador1 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_1_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador1 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 2
-                var lDelLagoElMiradorPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador2 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador2 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador2 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_2_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador2 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 3
-                var lDelLagoElMiradorPivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador3 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador3 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador3 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_3_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador3 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 4
-                var lDelLagoElMiradorPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador4 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador4 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_4_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador4 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_4_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador4 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 5
-                var lDelLagoElMiradorPivot_5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador5 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador5 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_5_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador5 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_5_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador5 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 6
-                var lDelLagoElMiradorPivot_6_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador6 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_6_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador6 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_6_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador6 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_6_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador6 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 7
-                var lDelLagoElMiradorPivot_7_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador7 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_7_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador7 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_7_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador7 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_7_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador7 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 8
-                var lDelLagoElMiradorPivot_8_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador8 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_8_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador8 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_8_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador8 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_8_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador8 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 9
-                var lDelLagoElMiradorPivot_9_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador9 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_9_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador9 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_9_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador9 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_9_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador9 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 10
-                var lDelLagoElMiradorPivot_10_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador10 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_10_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador10 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_10_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador10 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_10_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador10 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 11
-                var lDelLagoElMiradorPivot_11_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador11 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_11_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador11 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_11_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador11 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_11_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador11 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 12
-                var lDelLagoElMiradorPivot_12_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador12 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_12_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador12 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_12_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador12 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_12_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador12 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 13
-                var lDelLagoElMiradorPivot_13_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador13 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_13_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador13 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_13_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador13 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_13_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador13 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 14
-                var lDelLagoElMiradorPivot_14_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador14 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_14_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador14 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_14_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador14 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_14_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador14 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 15
-                var lDelLagoElMiradorPivot_15_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador15 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_15_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador15 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_15_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador15 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_15_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador15 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot Chaja 1
-                var lDelLagoElMiradorPivotChaja_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMiradorChaja1 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivotChaja_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMiradorChaja1 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivotChaja_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMiradorChaja1 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivotChaja_1_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMiradorChaja1 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot Chaja 2
-                var lDelLagoElMiradorPivotChaja_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMiradorChaja2 + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivotChaja_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMiradorChaja2 + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivotChaja_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMiradorChaja2 + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivotChaja_2_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMiradorChaja2 + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-
-                #region Pivot 1b
-                var lDelLagoElMiradorPivot_1b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador1b + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_1b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador1b + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_1b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador1b + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_1b_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador1b + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 2b
-                var lDelLagoElMiradorPivot_2b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador2b + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_2b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador2b + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_2b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador2b + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_2b_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador2b + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 3b
-                var lDelLagoElMiradorPivot_3b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador3b + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_3b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador3b + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_3b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador3b + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_3b_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador3b + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-                #region Pivot 4b
-                var lDelLagoElMiradorPivot_4b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador4b + " A",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 26,
-                    Sand = 22,
-                    Limo = 44,
-                    Clay = 34,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.16,
-                };
-                var lDelLagoElMiradorPivot_4b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador4b + " Bt",
-                    Order = 2,
-                    HorizonLayer = "Bt",
-                    HorizonLayerDepth = 58,
-                    Sand = 14,
-                    Limo = 29,
-                    Clay = 57,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lDelLagoElMiradorPivot_4b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador4b + " BCk",
-                    Order = 3,
-                    HorizonLayer = "BCk",
-                    HorizonLayerDepth = 80,
-                    Sand = 13,
-                    Limo = 28,
-                    Clay = 59,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lDelLagoElMiradorPivot_4b_4 = new Horizon
-                {
-                    Name = Utils.NamePivotDelLagoElMirador4b + " Ck",
-                    Order = 4,
-                    HorizonLayer = "Ck",
-                    HorizonLayerDepth = 120,
-                    Sand = 19,
-                    Limo = 29,
-                    Clay = 52,
-                    OrganicMatter = 0.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                #endregion
-
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador1
+                             select far).FirstOrDefault(); 
+                
+                    var lDelLagoElMiradorPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_1_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador2
+                             select far).FirstOrDefault();
+                    
+                    var lDelLagoElMiradorPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_2_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador3
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_3_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador4
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_4_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador5
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador5 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador5 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador5 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_5_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador5 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 6
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador6
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_6_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador6 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_6_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador6 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_6_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador6 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_6_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador6 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 7
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador7
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_7_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador7 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_7_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador7 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_7_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador7 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_7_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador7 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 8
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador8
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_8_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador8 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_8_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador8 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_8_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador8 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_8_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador8 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 9
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador9
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_9_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador9 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_9_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador9 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_9_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador9 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_9_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador9 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 10
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador10
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_10_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador10 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_10_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador10 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_10_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador10 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_10_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador10 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 11
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador11
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_11_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador11 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_11_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador11 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_11_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador11 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_11_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador11 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 12
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador12
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_12_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador12 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_12_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador12 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_12_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador12 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_12_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador12 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 13
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador13
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_13_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador13 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_13_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador13 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_13_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador13 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_13_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador13 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 14
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador14
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_14_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador14 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_14_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador14 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_14_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador14 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_14_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador14 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 15
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador15
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_15_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador15 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_15_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador15 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_15_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador15 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_15_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador15 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot Chaja 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMiradorChaja1
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivotChaja_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMiradorChaja1 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivotChaja_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMiradorChaja1 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivotChaja_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMiradorChaja1 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivotChaja_1_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMiradorChaja1 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot Chaja 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMiradorChaja2
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivotChaja_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMiradorChaja2 + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivotChaja_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMiradorChaja2 + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivotChaja_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMiradorChaja2 + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivotChaja_2_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMiradorChaja2 + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 1b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador1b
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_1b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1b + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_1b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1b + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_1b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1b + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_1b_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador1b + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador2b
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_2b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2b + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_2b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2b + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_2b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2b + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_2b_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador2b + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador3b
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_3b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3b + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_3b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3b + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_3b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3b + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_3b_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador3b + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 4b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilDelLagoElMirador4b
+                             select far).FirstOrDefault();
+
+                    var lDelLagoElMiradorPivot_4b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4b + " A",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 26,
+                        Sand = 22,
+                        Limo = 44,
+                        Clay = 34,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.16,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_4b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4b + " Bt",
+                        Order = 2,
+                        HorizonLayer = "Bt",
+                        HorizonLayerDepth = 58,
+                        Sand = 14,
+                        Limo = 29,
+                        Clay = 57,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_4b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4b + " BCk",
+                        Order = 3,
+                        HorizonLayer = "BCk",
+                        HorizonLayerDepth = 80,
+                        Sand = 13,
+                        Limo = 28,
+                        Clay = 59,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lDelLagoElMiradorPivot_4b_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotDelLagoElMirador4b + " Ck",
+                        Order = 4,
+                        HorizonLayer = "Ck",
+                        HorizonLayerDepth = 120,
+                        Sand = 19,
+                        Limo = 29,
+                        Clay = 52,
+                        OrganicMatter = 0.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+
+
                     #region Horizons Del Lago - El Mirador
                     context.Horizons.Add(lDelLagoElMiradorPivot_1_1);
                     context.Horizons.Add(lDelLagoElMiradorPivot_1_2);
@@ -8875,445 +9460,509 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
 
-                #region Pivot 1
-                var lGMOLaPalmaPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 36,
-                    Limo = 11,
-                    Clay = 53,
-                    OrganicMatter = 4.3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGMOLaPalmaPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 15,
-                    Sand = 32,
-                    Limo = 13,
-                    Clay = 55,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGMOLaPalmaPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 25,
-                    Sand = 28,
-                    Limo = 15,
-                    Clay = 57,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                var lGMOLaPalmaPivot_1_4 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma1 + " 4",
-                    Order = 4,
-                    HorizonLayer = "B3",
-                    HorizonLayerDepth = 30,
-                    Sand = 21,
-                    Limo = 19,
-                    Clay = 60,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                #endregion
-                #region Pivot 2
-                var lGMOLaPalmaPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma2 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 36,
-                    Limo = 11,
-                    Clay = 53,
-                    OrganicMatter = 4.3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGMOLaPalmaPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma2 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 15,
-                    Sand = 32,
-                    Limo = 13,
-                    Clay = 55,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGMOLaPalmaPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma2 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 25,
-                    Sand = 28,
-                    Limo = 15,
-                    Clay = 57,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                var lGMOLaPalmaPivot_2_4 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma2 + " 4",
-                    Order = 4,
-                    HorizonLayer = "B3",
-                    HorizonLayerDepth = 30,
-                    Sand = 21,
-                    Limo = 19,
-                    Clay = 60,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                #endregion
-                #region Pivot 3
-                var lGMOLaPalmaPivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma3 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 25,
-                    Sand = 42,
-                    Limo = 33,
-                    Clay = 25,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.15,
-                };
-                var lGMOLaPalmaPivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma3 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 35,
-                    Limo = 35,
-                    Clay = 30,
-                    OrganicMatter = 2.0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lGMOLaPalmaPivot_3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma3 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 30,
-                    Sand = 29,
-                    Limo = 37,
-                    Clay = 34,
-                    OrganicMatter = 1.3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-
-                #endregion
-                #region Pivot 4
-                var lGMOLaPalmaPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma4 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 36,
-                    Limo = 11,
-                    Clay = 53,
-                    OrganicMatter = 4.3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGMOLaPalmaPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma4 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 15,
-                    Sand = 32,
-                    Limo = 13,
-                    Clay = 55,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGMOLaPalmaPivot_4_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma4 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 25,
-                    Sand = 28,
-                    Limo = 15,
-                    Clay = 57,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                var lGMOLaPalmaPivot_4_4 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma4 + " 4",
-                    Order = 4,
-                    HorizonLayer = "B3",
-                    HorizonLayerDepth = 30,
-                    Sand = 21,
-                    Limo = 19,
-                    Clay = 60,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                #endregion
-                #region Pivot 5
-                var lGMOLaPalmaPivot_5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma5 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 25,
-                    Sand = 23,
-                    Limo = 45,
-                    Clay = 32,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lGMOLaPalmaPivot_5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma5 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 17,
-                    Limo = 48,
-                    Clay = 35,
-                    OrganicMatter = 3.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                var lGMOLaPalmaPivot_5_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma5 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 30,
-                    Sand = 10,
-                    Limo = 52,
-                    Clay = 38,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 1.1
-                var lGMOLaPalmaPivot_1_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma1_1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 36,
-                    Limo = 11,
-                    Clay = 53,
-                    OrganicMatter = 4.3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGMOLaPalmaPivot_1_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma1_1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 15,
-                    Sand = 32,
-                    Limo = 13,
-                    Clay = 55,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGMOLaPalmaPivot_1_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma1_1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 25,
-                    Sand = 28,
-                    Limo = 15,
-                    Clay = 57,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                var lGMOLaPalmaPivot_1_1_4 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma1_1 + " 4",
-                    Order = 4,
-                    HorizonLayer = "B3",
-                    HorizonLayerDepth = 30,
-                    Sand = 21,
-                    Limo = 19,
-                    Clay = 60,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                #endregion
-                #region Pivot 2.1
-                var lGMOLaPalmaPivot_2_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma2_1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 36,
-                    Limo = 11,
-                    Clay = 53,
-                    OrganicMatter = 4.3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGMOLaPalmaPivot_2_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma2_1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 15,
-                    Sand = 32,
-                    Limo = 13,
-                    Clay = 55,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGMOLaPalmaPivot_2_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma2_1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 25,
-                    Sand = 28,
-                    Limo = 15,
-                    Clay = 57,
-                    OrganicMatter = 2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                var lGMOLaPalmaPivot_2_1_4 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma2_1 + " 4",
-                    Order = 4,
-                    HorizonLayer = "B3",
-                    HorizonLayerDepth = 30,
-                    Sand = 21,
-                    Limo = 19,
-                    Clay = 60,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                #endregion
-                #region Pivot 3.1
-                var lGMOLaPalmaPivot_3_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma3_1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 25,
-                    Sand = 42,
-                    Limo = 33,
-                    Clay = 25,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.15,
-                };
-                var lGMOLaPalmaPivot_3_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma3_1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 35,
-                    Limo = 35,
-                    Clay = 30,
-                    OrganicMatter = 2.0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lGMOLaPalmaPivot_3_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma3_1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 30,
-                    Sand = 29,
-                    Limo = 37,
-                    Clay = 34,
-                    OrganicMatter = 1.3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-
-                #endregion
-                #region Pivot 4.1
-                var lGMOLaPalmaPivot_4_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma4_1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 25,
-                    Sand = 42,
-                    Limo = 33,
-                    Clay = 25,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.15,
-                };
-                var lGMOLaPalmaPivot_4_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma4_1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 35,
-                    Limo = 35,
-                    Clay = 30,
-                    OrganicMatter = 2.0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lGMOLaPalmaPivot_4_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOLaPalma4_1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 30,
-                    Sand = 29,
-                    Limo = 37,
-                    Clay = 34,
-                    OrganicMatter = 1.3,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOLaPalma1
+                             select far).FirstOrDefault(); 
+
+                    var lGMOLaPalmaPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 36,
+                        Limo = 11,
+                        Clay = 53,
+                        OrganicMatter = 4.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 15,
+                        Sand = 32,
+                        Limo = 13,
+                        Clay = 55,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 25,
+                        Sand = 28,
+                        Limo = 15,
+                        Clay = 57,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_1_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma1 + " 4",
+                        Order = 4,
+                        HorizonLayer = "B3",
+                        HorizonLayerDepth = 30,
+                        Sand = 21,
+                        Limo = 19,
+                        Clay = 60,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOLaPalma2
+
+                             select far).FirstOrDefault(); 
+                    var lGMOLaPalmaPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 36,
+                        Limo = 11,
+                        Clay = 53,
+                        OrganicMatter = 4.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 15,
+                        Sand = 32,
+                        Limo = 13,
+                        Clay = 55,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 25,
+                        Sand = 28,
+                        Limo = 15,
+                        Clay = 57,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_2_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma2 + " 4",
+                        Order = 4,
+                        HorizonLayer = "B3",
+                        HorizonLayerDepth = 30,
+                        Sand = 21,
+                        Limo = 19,
+                        Clay = 60,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOLaPalma3
+                             select far).FirstOrDefault(); 
+
+                    var lGMOLaPalmaPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 25,
+                        Sand = 42,
+                        Limo = 33,
+                        Clay = 25,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.15,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 35,
+                        Limo = 35,
+                        Clay = 30,
+                        OrganicMatter = 2.0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 30,
+                        Sand = 29,
+                        Limo = 37,
+                        Clay = 34,
+                        OrganicMatter = 1.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOLaPalma4
+                             select far).FirstOrDefault(); 
+                    var lGMOLaPalmaPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma4 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 36,
+                        Limo = 11,
+                        Clay = 53,
+                        OrganicMatter = 4.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma4 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 15,
+                        Sand = 32,
+                        Limo = 13,
+                        Clay = 55,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma4 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 25,
+                        Sand = 28,
+                        Limo = 15,
+                        Clay = 57,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_4_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma4 + " 4",
+                        Order = 4,
+                        HorizonLayer = "B3",
+                        HorizonLayerDepth = 30,
+                        Sand = 21,
+                        Limo = 19,
+                        Clay = 60,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOLaPalma5
+                             select far).FirstOrDefault(); 
+
+                    var lGMOLaPalmaPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma5 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 25,
+                        Sand = 23,
+                        Limo = 45,
+                        Clay = 32,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma5 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 17,
+                        Limo = 48,
+                        Clay = 35,
+                        OrganicMatter = 3.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma5 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 30,
+                        Sand = 10,
+                        Limo = 52,
+                        Clay = 38,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 1.1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOLaPalma1_1
+                             select far).FirstOrDefault(); 
+
+                    var lGMOLaPalmaPivot_1_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma1_1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 36,
+                        Limo = 11,
+                        Clay = 53,
+                        OrganicMatter = 4.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_1_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma1_1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 15,
+                        Sand = 32,
+                        Limo = 13,
+                        Clay = 55,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_1_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma1_1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 25,
+                        Sand = 28,
+                        Limo = 15,
+                        Clay = 57,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_1_1_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma1_1 + " 4",
+                        Order = 4,
+                        HorizonLayer = "B3",
+                        HorizonLayerDepth = 30,
+                        Sand = 21,
+                        Limo = 19,
+                        Clay = 60,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2.1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOLaPalma2_1
+                             select far).FirstOrDefault(); 
+                    var lGMOLaPalmaPivot_2_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma2_1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 36,
+                        Limo = 11,
+                        Clay = 53,
+                        OrganicMatter = 4.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_2_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma2_1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 15,
+                        Sand = 32,
+                        Limo = 13,
+                        Clay = 55,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_2_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma2_1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 25,
+                        Sand = 28,
+                        Limo = 15,
+                        Clay = 57,
+                        OrganicMatter = 2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_2_1_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma2_1 + " 4",
+                        Order = 4,
+                        HorizonLayer = "B3",
+                        HorizonLayerDepth = 30,
+                        Sand = 21,
+                        Limo = 19,
+                        Clay = 60,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3.1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOLaPalma3_1
+                             select far).FirstOrDefault(); 
+                    var lGMOLaPalmaPivot_3_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma3_1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 25,
+                        Sand = 42,
+                        Limo = 33,
+                        Clay = 25,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.15,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_3_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma3_1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 35,
+                        Limo = 35,
+                        Clay = 30,
+                        OrganicMatter = 2.0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOLaPalmaPivot_3_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma3_1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 30,
+                        Sand = 29,
+                        Limo = 37,
+                        Clay = 34,
+                        OrganicMatter = 1.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 4.1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOLaPalma4_1
+                             select far).FirstOrDefault(); 
+                    var lGMOLaPalmaPivot_4_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma4_1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 25,
+                        Sand = 42,
+                        Limo = 33,
+                        Clay = 25,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.15,
+                        SoilId = lSoil.SoilId ,
+                    };
+                    var lGMOLaPalmaPivot_4_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma4_1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 35,
+                        Limo = 35,
+                        Clay = 30,
+                        OrganicMatter = 2.0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId ,
+                    };
+                    var lGMOLaPalmaPivot_4_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOLaPalma4_1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 30,
+                        Sand = 29,
+                        Limo = 37,
+                        Clay = 34,
+                        OrganicMatter = 1.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId ,
+                    };
+                    #endregion
+
                     #region Horizons La Palma
                     context.Horizons.Add(lGMOLaPalmaPivot_1_1);
                     context.Horizons.Add(lGMOLaPalmaPivot_1_2);
@@ -9360,556 +10009,646 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
-
-                #region Pivot 1a
-                var lGMOElTacuruPivot_1a_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru1a + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_1a_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru1a + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_1a_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru1a + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 1b
-                var lGMOElTacuruPivot_1b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru1b + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_1b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru1b + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_1b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru1b + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 2a
-                var lGMOElTacuruPivot_2a_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru2a + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_2a_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru2a + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_2a_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru2a + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 2b
-                var lGMOElTacuruPivot_2b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru2b + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_2b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru2b + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_2b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru2b + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 3a
-                var lGMOElTacuruPivot_3a_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru3a + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_3a_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru3a + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_3a_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru3a + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 3b
-                var lGMOElTacuruPivot_3b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru3b + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_3b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru3b + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_3b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru3b + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 4
-                var lGMOElTacuruPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru4 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru4 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_4_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru4 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 5
-                var lGMOElTacuruPivot_5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru5 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru5 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_5_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru5 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 6
-                var lGMOElTacuruPivot_6_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru6 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_6_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru6 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_6_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru6 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 7
-                var lGMOElTacuruPivot_7_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru7 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_7_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru7 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_7_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru7 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 8
-                var lGMOElTacuruPivot_8_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru8 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_8_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru8 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_8_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru8 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 9
-                var lGMOElTacuruPivot_9_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru9 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_9_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru9 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_9_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru9 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-                #region Pivot 10
-                var lGMOElTacuruPivot_10_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru10 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 19,
-                    Sand = 13.1,
-                    Limo = 46.3,
-                    Clay = 40.6,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.11,
-                };
-                var lGMOElTacuruPivot_10_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru10 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 51,
-                    Sand = 7.4,
-                    Limo = 27.4,
-                    Clay = 65.2,
-                    OrganicMatter = 1.81,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lGMOElTacuruPivot_10_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGMOElTacuru10 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 78,
-                    Sand = 7.1,
-                    Limo = 28.4,
-                    Clay = 64.5,
-                    OrganicMatter = 1.01,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1a
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru1a
+                             select far).FirstOrDefault(); 
+
+                    var lGMOElTacuruPivot_1a_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru1a + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_1a_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru1a + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_1a_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru1a + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 1b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru1b
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_1b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru1b + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_1b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru1b + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_1b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru1b + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 2a
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru2a
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_2a_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru2a + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_2a_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru2a + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_2a_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru2a + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 2b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru2b
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_2b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru2b + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_2b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru2b + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_2b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru2b + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 3a
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru3a
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_3a_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru3a + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_3a_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru3a + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_3a_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru3a + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 3b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru3b
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_3b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru3b + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_3b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru3b + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_3b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru3b + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru4
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru4 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru4 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru4 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru5
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru5 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru5 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru5 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 6
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru6
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_6_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru6 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_6_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru6 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_6_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru6 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 7
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru7
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_7_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru7 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_7_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru7 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_7_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru7 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 8
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru8
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_8_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru8 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_8_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru8 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_8_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru8 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 9
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru9
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_9_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru9 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_9_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru9 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_9_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru9 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 10
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGMOElTacuru10
+                             select far).FirstOrDefault();
+
+                    var lGMOElTacuruPivot_10_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru10 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 19,
+                        Sand = 13.1,
+                        Limo = 46.3,
+                        Clay = 40.6,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.11,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_10_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru10 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 51,
+                        Sand = 7.4,
+                        Limo = 27.4,
+                        Clay = 65.2,
+                        OrganicMatter = 1.81,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGMOElTacuruPivot_10_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGMOElTacuru10 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 78,
+                        Sand = 7.1,
+                        Limo = 28.4,
+                        Clay = 64.5,
+                        OrganicMatter = 1.01,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+
                     #region Horizons El Tacuru
                     context.Horizons.Add(lGMOElTacuruPivot_1a_1);
                     context.Horizons.Add(lGMOElTacuruPivot_1a_2);
@@ -9963,174 +10702,201 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
             {
-
-                #region Pivot 1
-                var lTresMariasPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 41.4,
-                    Limo = 33.5,
-                    Clay = 25.1,
-                    OrganicMatter = 2.71,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lTresMariasPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 18,
-                    Sand = 29.7,
-                    Limo = 30.8,
-                    Clay = 39.5,
-                    OrganicMatter = 1.58,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lTresMariasPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 9,
-                    Sand = 25,
-                    Limo = 29,
-                    Clay = 46,
-                    OrganicMatter = 1.15,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 2
-                var lTresMariasPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias2 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 41.4,
-                    Limo = 33.5,
-                    Clay = 25.1,
-                    OrganicMatter = 2.71,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lTresMariasPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias2 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 18,
-                    Sand = 29.7,
-                    Limo = 30.8,
-                    Clay = 39.5,
-                    OrganicMatter = 1.58,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lTresMariasPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias2 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 9,
-                    Sand = 25,
-                    Limo = 29,
-                    Clay = 46,
-                    OrganicMatter = 1.15,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 3
-                var lTresMariasPivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias3 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 41.4,
-                    Limo = 33.5,
-                    Clay = 25.1,
-                    OrganicMatter = 2.71,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lTresMariasPivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias3 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 18,
-                    Sand = 29.7,
-                    Limo = 30.8,
-                    Clay = 39.5,
-                    OrganicMatter = 1.58,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lTresMariasPivot_3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias3 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 9,
-                    Sand = 25,
-                    Limo = 29,
-                    Clay = 46,
-                    OrganicMatter = 1.15,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 4
-                var lTresMariasPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias4 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 15,
-                    Sand = 41.4,
-                    Limo = 33.5,
-                    Clay = 25.1,
-                    OrganicMatter = 2.71,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lTresMariasPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias4 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 18,
-                    Sand = 29.7,
-                    Limo = 30.8,
-                    Clay = 39.5,
-                    OrganicMatter = 1.58,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lTresMariasPivot_4_3 = new Horizon
-                {
-                    Name = Utils.NamePivotTresMarias4 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 9,
-                    Sand = 25,
-                    Limo = 29,
-                    Clay = 46,
-                    OrganicMatter = 1.15,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilTresMarias1
+                             select far).FirstOrDefault();
+
+                    var lTresMariasPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 41.4,
+                        Limo = 33.5,
+                        Clay = 25.1,
+                        OrganicMatter = 2.71,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lTresMariasPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 18,
+                        Sand = 29.7,
+                        Limo = 30.8,
+                        Clay = 39.5,
+                        OrganicMatter = 1.58,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lTresMariasPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 9,
+                        Sand = 25,
+                        Limo = 29,
+                        Clay = 46,
+                        OrganicMatter = 1.15,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilTresMarias2
+                             select far).FirstOrDefault();
+
+                    var lTresMariasPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 41.4,
+                        Limo = 33.5,
+                        Clay = 25.1,
+                        OrganicMatter = 2.71,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lTresMariasPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 18,
+                        Sand = 29.7,
+                        Limo = 30.8,
+                        Clay = 39.5,
+                        OrganicMatter = 1.58,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lTresMariasPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 9,
+                        Sand = 25,
+                        Limo = 29,
+                        Clay = 46,
+                        OrganicMatter = 1.15,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilTresMarias3
+                             select far).FirstOrDefault();
+
+                    var lTresMariasPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 41.4,
+                        Limo = 33.5,
+                        Clay = 25.1,
+                        OrganicMatter = 2.71,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lTresMariasPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 18,
+                        Sand = 29.7,
+                        Limo = 30.8,
+                        Clay = 39.5,
+                        OrganicMatter = 1.58,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lTresMariasPivot_3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 9,
+                        Sand = 25,
+                        Limo = 29,
+                        Clay = 46,
+                        OrganicMatter = 1.15,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilTresMarias4
+                             select far).FirstOrDefault();
+
+                    var lTresMariasPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias4 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 15,
+                        Sand = 41.4,
+                        Limo = 33.5,
+                        Clay = 25.1,
+                        OrganicMatter = 2.71,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lTresMariasPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias4 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 18,
+                        Sand = 29.7,
+                        Limo = 30.8,
+                        Clay = 39.5,
+                        OrganicMatter = 1.58,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lTresMariasPivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotTresMarias4 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 9,
+                        Sand = 25,
+                        Limo = 29,
+                        Clay = 46,
+                        OrganicMatter = 1.15,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
                     #region Horizons Tres Marias
                     context.Horizons.Add(lTresMariasPivot_1_1);
                     context.Horizons.Add(lTresMariasPivot_1_2);
@@ -10156,188 +10922,218 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
             {
-
-                #region Pivot 1
-                var lLaRinconadaPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 18,
-                    Sand = 39,
-                    Limo = 27,
-                    Clay = 34,
-                    OrganicMatter = 6.0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lLaRinconadaPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 14,
-                    Sand = 38,
-                    Limo = 24,
-                    Clay = 38,
-                    OrganicMatter = 4.6,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lLaRinconadaPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 10,
-                    Sand = 35,
-                    Limo = 15,
-                    Clay = 50,
-                    OrganicMatter = 3.9,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                #endregion
-                #region Pivot 2
-                var lLaRinconadaPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada2 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 18,
-                    Sand = 39,
-                    Limo = 27,
-                    Clay = 34,
-                    OrganicMatter = 6.0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lLaRinconadaPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada2 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 14,
-                    Sand = 38,
-                    Limo = 24,
-                    Clay = 38,
-                    OrganicMatter = 4.6,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lLaRinconadaPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada2 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 10,
-                    Sand = 35,
-                    Limo = 15,
-                    Clay = 50,
-                    OrganicMatter = 3.9,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                #endregion
-                #region Pivot 3.1
-                var lLaRinconadaPivot_3_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada3_1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 18,
-                    Sand = 39,
-                    Limo = 27,
-                    Clay = 34,
-                    OrganicMatter = 6.0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lLaRinconadaPivot_3_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada3_1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 14,
-                    Sand = 38,
-                    Limo = 24,
-                    Clay = 38,
-                    OrganicMatter = 4.6,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lLaRinconadaPivot_3_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada3_1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 10,
-                    Sand = 35,
-                    Limo = 15,
-                    Clay = 50,
-                    OrganicMatter = 3.9,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-
-                #endregion
-                #region Pivot 13.1
-                var lLaRinconadaPivot_13_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada13_1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 18,
-                    Sand = 63,
-                    Limo = 20,
-                    Clay = 17,
-                    OrganicMatter = 4.0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.15,
-                };
-                var lLaRinconadaPivot_13_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada13_1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "BA",
-                    HorizonLayerDepth = 20,
-                    Sand = 55,
-                    Limo = 12,
-                    Clay = 33,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lLaRinconadaPivot_13_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada13_1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 09,
-                    Sand = 42,
-                    Limo = 20,
-                    Clay = 38,
-                    OrganicMatter = 1.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                var lLaRinconadaPivot_13_1_4 = new Horizon
-                {
-                    Name = Utils.NamePivotLaRinconada13_1 + " 4",
-                    Order = 4,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 13,
-                    Sand = 39,
-                    Limo = 17,
-                    Clay = 48,
-                    OrganicMatter = 0.9,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilLaRinconada1
+                             select far).FirstOrDefault();
+
+                    var lLaRinconadaPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 18,
+                        Sand = 39,
+                        Limo = 27,
+                        Clay = 34,
+                        OrganicMatter = 6.0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+
+                    };
+                    var lLaRinconadaPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 14,
+                        Sand = 38,
+                        Limo = 24,
+                        Clay = 38,
+                        OrganicMatter = 4.6,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaRinconadaPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 10,
+                        Sand = 35,
+                        Limo = 15,
+                        Clay = 50,
+                        OrganicMatter = 3.9,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilLaRinconada2
+                             select far).FirstOrDefault();
+
+                    var lLaRinconadaPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 18,
+                        Sand = 39,
+                        Limo = 27,
+                        Clay = 34,
+                        OrganicMatter = 6.0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaRinconadaPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 14,
+                        Sand = 38,
+                        Limo = 24,
+                        Clay = 38,
+                        OrganicMatter = 4.6,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaRinconadaPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 10,
+                        Sand = 35,
+                        Limo = 15,
+                        Clay = 50,
+                        OrganicMatter = 3.9,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3.1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilLaRinconada3_1
+                             select far).FirstOrDefault();
+
+
+                    var lLaRinconadaPivot_3_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada3_1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 18,
+                        Sand = 39,
+                        Limo = 27,
+                        Clay = 34,
+                        OrganicMatter = 6.0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaRinconadaPivot_3_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada3_1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 14,
+                        Sand = 38,
+                        Limo = 24,
+                        Clay = 38,
+                        OrganicMatter = 4.6,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaRinconadaPivot_3_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada3_1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 10,
+                        Sand = 35,
+                        Limo = 15,
+                        Clay = 50,
+                        OrganicMatter = 3.9,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+
+                    #endregion
+                    #region Pivot 13.1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilLaRinconada13_1
+                             select far).FirstOrDefault();
+
+                    var lLaRinconadaPivot_13_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada13_1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 18,
+                        Sand = 63,
+                        Limo = 20,
+                        Clay = 17,
+                        OrganicMatter = 4.0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.15,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaRinconadaPivot_13_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada13_1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "BA",
+                        HorizonLayerDepth = 20,
+                        Sand = 55,
+                        Limo = 12,
+                        Clay = 33,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaRinconadaPivot_13_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada13_1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 09,
+                        Sand = 42,
+                        Limo = 20,
+                        Clay = 38,
+                        OrganicMatter = 1.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaRinconadaPivot_13_1_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaRinconada13_1 + " 4",
+                        Order = 4,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 13,
+                        Sand = 39,
+                        Limo = 17,
+                        Clay = 48,
+                        OrganicMatter = 0.9,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
                     #region Horizons La Rinconada
                     context.Horizons.Add(lLaRinconadaPivot_1_1);
                     context.Horizons.Add(lLaRinconadaPivot_1_2);
@@ -10364,92 +11160,103 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
             {
-
-                #region Pivot 1a
-                var lElRinconPivot_1a_1 = new Horizon
-                {
-                    Name = Utils.NamePivotElRincon1a + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 16.67,
-                    Limo = 72.19,
-                    Clay = 11.14,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lElRinconPivot_1a_2 = new Horizon
-                {
-                    Name = Utils.NamePivotElRincon1a + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 15.73,
-                    Limo = 73.72,
-                    Clay = 10.55,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lElRinconPivot_1a_3 = new Horizon
-                {
-                    Name = Utils.NamePivotElRincon1a + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 20,
-                    Sand = 15.08,
-                    Limo = 68.22,
-                    Clay = 16.7,
-                    OrganicMatter = 1.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                #endregion
-                #region Pivot 1b
-                var lElRinconPivot_1b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotElRincon1b + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 30.01,
-                    Limo = 58.59,
-                    Clay = 11.4,
-                    OrganicMatter = 3.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.31,
-                };
-                var lElRinconPivot_1b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotElRincon1b + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 25.5,
-                    Limo = 57.92,
-                    Clay = 16.58,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.5,
-                };
-                var lElRinconPivot_1b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotElRincon1b + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 20,
-                    Sand = 27.07,
-                    Limo = 50.61,
-                    Clay = 27.32,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1a
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilElRincon1a
+                             select far).FirstOrDefault(); 
+                    var lElRinconPivot_1a_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon1a + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 16.67,
+                        Limo = 72.19,
+                        Clay = 11.14,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElRinconPivot_1a_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon1a + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 15.73,
+                        Limo = 73.72,
+                        Clay = 10.55,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElRinconPivot_1a_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon1a + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 15.08,
+                        Limo = 68.22,
+                        Clay = 16.7,
+                        OrganicMatter = 1.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 1b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilElRincon1b
+                             select far).FirstOrDefault(); 
+                    var lElRinconPivot_1b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon1b + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 30.01,
+                        Limo = 58.59,
+                        Clay = 11.4,
+                        OrganicMatter = 3.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.31,
+                        SoilId = lSoil.SoilId,
+                   };
+                    var lElRinconPivot_1b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon1b + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 25.5,
+                        Limo = 57.92,
+                        Clay = 16.58,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElRinconPivot_1b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon1b + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 27.07,
+                        Limo = 50.61,
+                        Clay = 27.32,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
                     #region Horizons El Rincon
                     context.Horizons.Add(lElRinconPivot_1a_1);
                     context.Horizons.Add(lElRinconPivot_1a_2);
@@ -10468,92 +11275,104 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElDesafio)
             {
-
-                #region Pivot 1
-                var lElDesafioPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotElDesafio1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 16.67,
-                    Limo = 72.19,
-                    Clay = 11.14,
-                    OrganicMatter = 3.99,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.48,
-                };
-                var lElDesafioPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotElDesafio1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 15.73,
-                    Limo = 73.72,
-                    Clay = 10.55,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.51,
-                };
-                var lElDesafioPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotElDesafio1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 20,
-                    Sand = 15.08,
-                    Limo = 68.22,
-                    Clay = 16.7,
-                    OrganicMatter = 1.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.40,
-                };
-                #endregion
-                #region Pivot 2
-                var lElDesafioPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotElDesafio2 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 30.01,
-                    Limo = 58.59,
-                    Clay = 11.4,
-                    OrganicMatter = 3.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.44,
-                };
-                var lElDesafioPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotElDesafio2 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 25.5,
-                    Limo = 57.92,
-                    Clay = 16.58,
-                    OrganicMatter = 2.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.46,
-                };
-                var lElDesafioPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotElDesafio2 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 20,
-                    Sand = 27.07,
-                    Limo = 50.61,
-                    Clay = 27.32,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.47,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                            where far.Name == Utils.NameSoilElDesafio1
+                            select far).FirstOrDefault();
+                    var lElDesafioPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotElDesafio1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 16.67,
+                        Limo = 72.19,
+                        Clay = 11.14,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.48,
+                         SoilId = lSoil.SoilId,
+                    };
+                    var lElDesafioPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotElDesafio1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 15.73,
+                        Limo = 73.72,
+                        Clay = 10.55,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.51,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElDesafioPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotElDesafio1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 15.08,
+                        Limo = 68.22,
+                        Clay = 16.7,
+                        OrganicMatter = 1.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.40,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                     lSoil = (from far in context.Soils
+                            where far.Name == Utils.NameSoilElDesafio2
+                            select far).FirstOrDefault();
+                    var lElDesafioPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotElDesafio2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 30.01,
+                        Limo = 58.59,
+                        Clay = 11.4,
+                        OrganicMatter = 3.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElDesafioPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotElDesafio2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 25.5,
+                        Limo = 57.92,
+                        Clay = 16.58,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.46,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElDesafioPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotElDesafio2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 27.07,
+                        Limo = 50.61,
+                        Clay = 27.32,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.47,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+
                     #region Horizons El Desafio
                     context.Horizons.Add(lElDesafioPivot_1_1);
                     context.Horizons.Add(lElDesafioPivot_1_2);
@@ -10572,174 +11391,201 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
             {
-
-                #region Pivot 6aT3
-                var lLosNaranjalesPivot_6aT3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales6aT3 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 39,
-                    Limo = 40,
-                    Clay = 21,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                var lLosNaranjalesPivot_6aT3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales6aT3 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 37,
-                    Limo = 40,
-                    Clay = 23,
-                    OrganicMatter = 2.4,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                var lLosNaranjalesPivot_6aT3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales6aT3 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 20,
-                    Sand = 35,
-                    Limo = 37,
-                    Clay = 28,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.35,
-                };
-                #endregion
-                #region Pivot 6bT3
-                var lLosNaranjalesPivot_6bT3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales6bT3 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 42,
-                    Limo = 35,
-                    Clay = 23,
-                    OrganicMatter = 3.0,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.4,
-                };
-                var lLosNaranjalesPivot_6bT3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales6bT3 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 40,
-                    Limo = 30,
-                    Clay = 30,
-                    OrganicMatter = 2.7,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.42,
-                };
-                var lLosNaranjalesPivot_6bT3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales6bT3 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 20,
-                    Sand = 36,
-                    Limo = 26,
-                    Clay = 38,
-                    OrganicMatter = 2.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                #endregion
-                #region Pivot 5aT5
-                var lLosNaranjalesPivot_5aT5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales5aT5 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 42,
-                    Limo = 21,
-                    Clay = 37,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.37,
-                };
-                var lLosNaranjalesPivot_5aT5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales5aT5 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 44,
-                    Limo = 23,
-                    Clay = 33,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                var lLosNaranjalesPivot_5aT5_3 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales5aT5 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 20,
-                    Sand = 40,
-                    Limo = 30,
-                    Clay = 30,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 5bT5
-                var lLosNaranjalesPivot_5bT5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales5bT5 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 20,
-                    Sand = 42,
-                    Limo = 21,
-                    Clay = 37,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.37,
-                };
-                var lLosNaranjalesPivot_5bT5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales5bT5 + " 2",
-                    Order = 2,
-                    HorizonLayer = "B1",
-                    HorizonLayerDepth = 20,
-                    Sand = 44,
-                    Limo = 23,
-                    Clay = 33,
-                    OrganicMatter = 2.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.38,
-                };
-                var lLosNaranjalesPivot_5bT5_3 = new Horizon
-                {
-                    Name = Utils.NamePivotLosNaranjales5bT5 + " 3",
-                    Order = 3,
-                    HorizonLayer = "B2",
-                    HorizonLayerDepth = 20,
-                    Sand = 40,
-                    Limo = 30,
-                    Clay = 30,
-                    OrganicMatter = 1.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 6aT3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilLosNaranjales6aT3
+                             select far).FirstOrDefault(); 
+                
+                    var lLosNaranjalesPivot_6aT3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales6aT3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 39,
+                        Limo = 40,
+                        Clay = 21,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLosNaranjalesPivot_6aT3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales6aT3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 37,
+                        Limo = 40,
+                        Clay = 23,
+                        OrganicMatter = 2.4,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLosNaranjalesPivot_6aT3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales6aT3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 35,
+                        Limo = 37,
+                        Clay = 28,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.35,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 6bT3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilLosNaranjales6bT3
+                             select far).FirstOrDefault();
+
+                    var lLosNaranjalesPivot_6bT3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales6bT3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 42,
+                        Limo = 35,
+                        Clay = 23,
+                        OrganicMatter = 3.0,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLosNaranjalesPivot_6bT3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales6bT3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 40,
+                        Limo = 30,
+                        Clay = 30,
+                        OrganicMatter = 2.7,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.42,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLosNaranjalesPivot_6bT3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales6bT3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 36,
+                        Limo = 26,
+                        Clay = 38,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5aT5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilLosNaranjales5aT5
+                             select far).FirstOrDefault();
+
+                    var lLosNaranjalesPivot_5aT5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales5aT5 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 42,
+                        Limo = 21,
+                        Clay = 37,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.37,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLosNaranjalesPivot_5aT5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales5aT5 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 44,
+                        Limo = 23,
+                        Clay = 33,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLosNaranjalesPivot_5aT5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales5aT5 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 40,
+                        Limo = 30,
+                        Clay = 30,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5bT5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilLosNaranjales5bT5
+                             select far).FirstOrDefault();
+
+                    var lLosNaranjalesPivot_5bT5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales5bT5 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 42,
+                        Limo = 21,
+                        Clay = 37,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.37,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLosNaranjalesPivot_5bT5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales5bT5 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 44,
+                        Limo = 23,
+                        Clay = 33,
+                        OrganicMatter = 2.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.38,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLosNaranjalesPivot_5bT5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLosNaranjales5bT5 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 40,
+                        Limo = 30,
+                        Clay = 30,
+                        OrganicMatter = 1.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
                     #region Horizons Los Naranjales
                     context.Horizons.Add(lLosNaranjalesPivot_6aT3_1);
                     context.Horizons.Add(lLosNaranjalesPivot_6aT3_2);
@@ -10764,255 +11610,297 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
             {
-
-                #region Pivot 1
-                var lSantaEmiliaPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "Ap",
-                    HorizonLayerDepth = 23,
-                    Sand = 30,
-                    Limo = 35,
-                    Clay = 35,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lSantaEmiliaPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 24,
-                    Sand = 30,
-                    Limo = 25,
-                    Clay = 45,
-                    OrganicMatter = 3.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lSantaEmiliaPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 20,
-                    Limo = 25,
-                    Clay = 55,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                #endregion
-                #region Pivot 2
-                var lSantaEmiliaPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia2 + " 1",
-                    Order = 1,
-                    HorizonLayer = "Ap",
-                    HorizonLayerDepth = 23,
-                    Sand = 30,
-                    Limo = 35,
-                    Clay = 35,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lSantaEmiliaPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia2 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 24,
-                    Sand = 30,
-                    Limo = 25,
-                    Clay = 45,
-                    OrganicMatter = 3.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lSantaEmiliaPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia2 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 20,
-                    Limo = 25,
-                    Clay = 55,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                #endregion
-                #region Pivot 3
-                var lSantaEmiliaPivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia3 + " 1",
-                    Order = 1,
-                    HorizonLayer = "Ap",
-                    HorizonLayerDepth = 23,
-                    Sand = 30,
-                    Limo = 35,
-                    Clay = 35,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lSantaEmiliaPivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia3 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 24,
-                    Sand = 30,
-                    Limo = 25,
-                    Clay = 45,
-                    OrganicMatter = 3.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lSantaEmiliaPivot_3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia3 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 20,
-                    Limo = 25,
-                    Clay = 55,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                #endregion
-                #region Pivot 4
-                var lSantaEmiliaPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia4 + " 1",
-                    Order = 1,
-                    HorizonLayer = "Ap",
-                    HorizonLayerDepth = 23,
-                    Sand = 30,
-                    Limo = 35,
-                    Clay = 35,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lSantaEmiliaPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia4 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 24,
-                    Sand = 30,
-                    Limo = 25,
-                    Clay = 45,
-                    OrganicMatter = 3.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lSantaEmiliaPivot_4_3 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia4 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 20,
-                    Limo = 25,
-                    Clay = 55,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                #endregion
-                #region Pivot 5
-                var lSantaEmiliaPivot_5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia5 + " 1",
-                    Order = 1,
-                    HorizonLayer = "Ap",
-                    HorizonLayerDepth = 23,
-                    Sand = 30,
-                    Limo = 35,
-                    Clay = 35,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lSantaEmiliaPivot_5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia5 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 24,
-                    Sand = 30,
-                    Limo = 25,
-                    Clay = 45,
-                    OrganicMatter = 3.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lSantaEmiliaPivot_5_3 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia5 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 20,
-                    Limo = 25,
-                    Clay = 55,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                #endregion
-                #region Pivot 7
-                var lSantaEmiliaPivot_7_1 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia7 + " 1",
-                    Order = 1,
-                    HorizonLayer = "Ap",
-                    HorizonLayerDepth = 23,
-                    Sand = 30,
-                    Limo = 35,
-                    Clay = 35,
-                    OrganicMatter = 4.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lSantaEmiliaPivot_7_2 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia7 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 24,
-                    Sand = 30,
-                    Limo = 25,
-                    Clay = 45,
-                    OrganicMatter = 3.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.25,
-                };
-                var lSantaEmiliaPivot_7_3 = new Horizon
-                {
-                    Name = Utils.NamePivotSantaEmilia7 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 20,
-                    Limo = 25,
-                    Clay = 55,
-                    OrganicMatter = 1.5,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.34,
-                };
-                #endregion
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaEmilia1
+                             select far).FirstOrDefault(); 
+
+                    var lSantaEmiliaPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "Ap",
+                        HorizonLayerDepth = 23,
+                        Sand = 30,
+                        Limo = 35,
+                        Clay = 35,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 24,
+                        Sand = 30,
+                        Limo = 25,
+                        Clay = 45,
+                        OrganicMatter = 3.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 20,
+                        Limo = 25,
+                        Clay = 55,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaEmilia2
+                             select far).FirstOrDefault();
+
+                    var lSantaEmiliaPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "Ap",
+                        HorizonLayerDepth = 23,
+                        Sand = 30,
+                        Limo = 35,
+                        Clay = 35,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 24,
+                        Sand = 30,
+                        Limo = 25,
+                        Clay = 45,
+                        OrganicMatter = 3.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 20,
+                        Limo = 25,
+                        Clay = 55,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaEmilia3
+                             select far).FirstOrDefault();
+
+                    var lSantaEmiliaPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "Ap",
+                        HorizonLayerDepth = 23,
+                        Sand = 30,
+                        Limo = 35,
+                        Clay = 35,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 24,
+                        Sand = 30,
+                        Limo = 25,
+                        Clay = 45,
+                        OrganicMatter = 3.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 20,
+                        Limo = 25,
+                        Clay = 55,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaEmilia4
+                             select far).FirstOrDefault();
+
+                    var lSantaEmiliaPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia4 + " 1",
+                        Order = 1,
+                        HorizonLayer = "Ap",
+                        HorizonLayerDepth = 23,
+                        Sand = 30,
+                        Limo = 35,
+                        Clay = 35,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia4 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 24,
+                        Sand = 30,
+                        Limo = 25,
+                        Clay = 45,
+                        OrganicMatter = 3.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia4 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 20,
+                        Limo = 25,
+                        Clay = 55,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaEmilia5
+                             select far).FirstOrDefault();
+
+                    var lSantaEmiliaPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia5 + " 1",
+                        Order = 1,
+                        HorizonLayer = "Ap",
+                        HorizonLayerDepth = 23,
+                        Sand = 30,
+                        Limo = 35,
+                        Clay = 35,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia5 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 24,
+                        Sand = 30,
+                        Limo = 25,
+                        Clay = 45,
+                        OrganicMatter = 3.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia5 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 20,
+                        Limo = 25,
+                        Clay = 55,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 7
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilSantaEmilia7
+                             select far).FirstOrDefault();
+
+                    var lSantaEmiliaPivot_7_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia7 + " 1",
+                        Order = 1,
+                        HorizonLayer = "Ap",
+                        HorizonLayerDepth = 23,
+                        Sand = 30,
+                        Limo = 35,
+                        Clay = 35,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_7_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia7 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 24,
+                        Sand = 30,
+                        Limo = 25,
+                        Clay = 45,
+                        OrganicMatter = 3.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_7_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmilia7 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 20,
+                        Limo = 25,
+                        Clay = 55,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
                     #region Horizons Santa Emilia
                     context.Horizons.Add(lSantaEmiliaPivot_1_1);
                     context.Horizons.Add(lSantaEmiliaPivot_1_2);
@@ -11043,298 +11931,347 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
             {
-
-                #region Pivot 1
-                var lGranMolinoPivot_1_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino1 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 15,
-                    Limo = 50,
-                    Clay = 35,
-                    OrganicMatter = 3.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGranMolinoPivot_1_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino1 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 17,
-                    Sand = 12,
-                    Limo = 49,
-                    Clay = 39,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGranMolinoPivot_1_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino1 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 11,
-                    Limo = 47,
-                    Clay = 42,
-                    OrganicMatter = 2.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 2
-                var lGranMolinoPivot_2_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino2 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 15,
-                    Limo = 50,
-                    Clay = 35,
-                    OrganicMatter = 3.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGranMolinoPivot_2_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino2 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 17,
-                    Sand = 12,
-                    Limo = 49,
-                    Clay = 39,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGranMolinoPivot_2_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino2 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 11,
-                    Limo = 47,
-                    Clay = 42,
-                    OrganicMatter = 2.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 3
-                var lGranMolinoPivot_3_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino3 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 15,
-                    Limo = 50,
-                    Clay = 35,
-                    OrganicMatter = 3.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGranMolinoPivot_3_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino3 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 17,
-                    Sand = 12,
-                    Limo = 49,
-                    Clay = 39,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGranMolinoPivot_3_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino3 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 11,
-                    Limo = 47,
-                    Clay = 42,
-                    OrganicMatter = 2.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 4
-                var lGranMolinoPivot_4_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino4 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 15,
-                    Limo = 50,
-                    Clay = 35,
-                    OrganicMatter = 3.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGranMolinoPivot_4_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino4 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 17,
-                    Sand = 12,
-                    Limo = 49,
-                    Clay = 39,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGranMolinoPivot_4_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino4 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 11,
-                    Limo = 47,
-                    Clay = 42,
-                    OrganicMatter = 2.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 5
-                var lGranMolinoPivot_5_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino5 + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 15,
-                    Limo = 50,
-                    Clay = 35,
-                    OrganicMatter = 3.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGranMolinoPivot_5_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino5 + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 17,
-                    Sand = 12,
-                    Limo = 49,
-                    Clay = 39,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGranMolinoPivot_5_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino5 + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 11,
-                    Limo = 47,
-                    Clay = 42,
-                    OrganicMatter = 2.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-
-                #region Pivot 2b
-                var lGranMolinoPivot_2b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino2b + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 15,
-                    Limo = 50,
-                    Clay = 35,
-                    OrganicMatter = 3.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGranMolinoPivot_2b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino2b + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 17,
-                    Sand = 12,
-                    Limo = 49,
-                    Clay = 39,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGranMolinoPivot_2b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino2b + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 11,
-                    Limo = 47,
-                    Clay = 42,
-                    OrganicMatter = 2.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-                #region Pivot 5b
-                var lGranMolinoPivot_5b_1 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino5b + " 1",
-                    Order = 1,
-                    HorizonLayer = "A",
-                    HorizonLayerDepth = 30,
-                    Sand = 15,
-                    Limo = 50,
-                    Clay = 35,
-                    OrganicMatter = 3.8,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.2,
-                };
-                var lGranMolinoPivot_5b_2 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino5b + " 2",
-                    Order = 2,
-                    HorizonLayer = "Bt1",
-                    HorizonLayerDepth = 17,
-                    Sand = 12,
-                    Limo = 49,
-                    Clay = 39,
-                    OrganicMatter = 3.2,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.24,
-                };
-                var lGranMolinoPivot_5b_3 = new Horizon
-                {
-                    Name = Utils.NamePivotGranMolino5b + " 3",
-                    Order = 3,
-                    HorizonLayer = "Bt2",
-                    HorizonLayerDepth = 22,
-                    Sand = 11,
-                    Limo = 47,
-                    Clay = 42,
-                    OrganicMatter = 2.1,
-                    NitrogenAnalysis = 0,
-                    BulkDensitySoil = 1.3,
-                };
-                #endregion
-
                 using (var context = new IrrigationAdvisorContext())
                 {
+                    #region Pivot 1
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGranMolino1
+                             select far).FirstOrDefault();
+
+                    var lGranMolinoPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 15,
+                        Limo = 50,
+                        Clay = 35,
+                        OrganicMatter = 3.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 17,
+                        Sand = 12,
+                        Limo = 49,
+                        Clay = 39,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 11,
+                        Limo = 47,
+                        Clay = 42,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGranMolino2
+                             select far).FirstOrDefault();
+
+                    var lGranMolinoPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 15,
+                        Limo = 50,
+                        Clay = 35,
+                        OrganicMatter = 3.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 17,
+                        Sand = 12,
+                        Limo = 49,
+                        Clay = 39,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 11,
+                        Limo = 47,
+                        Clay = 42,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGranMolino3
+                             select far).FirstOrDefault();
+
+                    var lGranMolinoPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 15,
+                        Limo = 50,
+                        Clay = 35,
+                        OrganicMatter = 3.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 17,
+                        Sand = 12,
+                        Limo = 49,
+                        Clay = 39,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 11,
+                        Limo = 47,
+                        Clay = 42,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGranMolino4
+                             select far).FirstOrDefault();
+
+                    var lGranMolinoPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino4 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 15,
+                        Limo = 50,
+                        Clay = 35,
+                        OrganicMatter = 3.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino4 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 17,
+                        Sand = 12,
+                        Limo = 49,
+                        Clay = 39,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino4 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 11,
+                        Limo = 47,
+                        Clay = 42,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGranMolino5
+                             select far).FirstOrDefault();
+
+
+                    var lGranMolinoPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino5 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 15,
+                        Limo = 50,
+                        Clay = 35,
+                        OrganicMatter = 3.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino5 + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 17,
+                        Sand = 12,
+                        Limo = 49,
+                        Clay = 39,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino5 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 11,
+                        Limo = 47,
+                        Clay = 42,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Pivot 2b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGranMolino2b
+                             select far).FirstOrDefault();
+
+                    var lGranMolinoPivot_2b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino2b + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 15,
+                        Limo = 50,
+                        Clay = 35,
+                        OrganicMatter = 3.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_2b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino2b + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 17,
+                        Sand = 12,
+                        Limo = 49,
+                        Clay = 39,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_2b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino2b + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 11,
+                        Limo = 47,
+                        Clay = 42,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5b
+                    lSoil = (from far in context.Soils
+                             where far.Name == Utils.NameSoilGranMolino5b
+                             select far).FirstOrDefault();
+
+                    var lGranMolinoPivot_5b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino5b + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 30,
+                        Sand = 15,
+                        Limo = 50,
+                        Clay = 35,
+                        OrganicMatter = 3.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_5b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino5b + " 2",
+                        Order = 2,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 17,
+                        Sand = 12,
+                        Limo = 49,
+                        Clay = 39,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.24,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lGranMolinoPivot_5b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotGranMolino5b + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 22,
+                        Sand = 11,
+                        Limo = 47,
+                        Clay = 42,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.3,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
                     #region Horizons Gran Molino
                     context.Horizons.Add(lGranMolinoPivot_1_1);
                     context.Horizons.Add(lGranMolinoPivot_1_2);
