@@ -291,6 +291,7 @@
     <Compile Include="DBContext\Water\RainConfiguration.cs" />
     <Compile Include="DBContext\Water\WaterInputConfiguration.cs" />
     <Compile Include="DBContext\Water\WaterOutputConfiguration.cs" />
+    <Compile Include="DBContext\Weather\MeteoblueWeatherDataConfiguration.cs" />
     <Compile Include="DBContext\Weather\TemperatureDataConfiguration.cs" />
     <Compile Include="DBContext\Weather\WeatherDataConfiguration.cs" />
     <Compile Include="DBContext\Weather\WeatherInformationConfiguration.cs" />
@@ -379,6 +380,14 @@
     <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.Designer.cs">
       <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806102344332_meteoblue.cs" />
+    <Compile Include="Migrations\201806102344332_meteoblue.Designer.cs">
+      <DependentUpon>201806102344332_meteoblue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806120039530_meteoblue3.cs" />
+    <Compile Include="Migrations\201806120039530_meteoblue3.Designer.cs">
+      <DependentUpon>201806120039530_meteoblue3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -444,6 +453,7 @@
     <Compile Include="Models\Utilities\Utils.cs" />
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
+    <Compile Include="Models\Weather\MeteoblueWeatherData.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
     <Compile Include="ViewModels\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
@@ -498,6 +508,7 @@
     <Compile Include="ViewModels\Water\WaterOutputViewModel.cs" />
     <Compile Include="ViewModels\Weather\WeatherStationViewModel.cs" />
     <Compile Include="ViewModels\Weather\WUndergroundGeolookupResultToCSharp.cs" />
+    <Compile Include="Controllers\Weather\MeteoblueWeatherDatasController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -944,6 +955,11 @@
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Create.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Delete.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Details.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Edit.cshtml" />
+    <Content Include="Views\MeteoblueWeatherDatas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -1020,6 +1036,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.resx">
       <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806102344332_meteoblue.resx">
+      <DependentUpon>201806102344332_meteoblue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806120039530_meteoblue3.resx">
+      <DependentUpon>201806120039530_meteoblue3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
