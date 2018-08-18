@@ -215,6 +215,7 @@
     <Compile Include="Controllers\Irrigation\BombsController.cs" />
     <Compile Include="Controllers\Irrigation\DripsController.cs" />
     <Compile Include="Controllers\Irrigation\PivotsController.cs" />
+    <Compile Include="Controllers\Irrigation\IrrigationUnitController.cs" />
     <Compile Include="Controllers\Irrigation\SprinklersController.cs" />
     <Compile Include="Controllers\Language\LanguagesController.cs" />
     <Compile Include="Controllers\Localization\CitiesController.cs" />
@@ -399,6 +400,10 @@
     <Compile Include="Migrations\201808081443300_addRelationSoilHorizon.Designer.cs">
       <DependentUpon>201808081443300_addRelationSoilHorizon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807271533587_addFKInIrrigationUnitToPosition.cs" />
+    <Compile Include="Migrations\201807271533587_addFKInIrrigationUnitToPosition.Designer.cs">
+      <DependentUpon>201807271533587_addFKInIrrigationUnitToPosition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -465,6 +470,8 @@
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Irrigation\SprinklerViewModel.cs" />
+    <Compile Include="ViewModels\Irrigation\DripViewModel.cs" />
     <Compile Include="ViewModels\Localization\FarmEditViewModel.cs" />
     <Compile Include="ViewModels\Agriculture\HorizonViewModel.cs" />
     <Compile Include="ViewModels\Agriculture\SoilViewModel.cs" />
@@ -969,6 +976,11 @@
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Index.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Create.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Delete.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Details.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -1060,6 +1072,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808081443300_addRelationSoilHorizon.resx">
       <DependentUpon>201808081443300_addRelationSoilHorizon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807271533587_addFKInIrrigationUnitToPosition.resx">
+      <DependentUpon>201807271533587_addFKInIrrigationUnitToPosition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
