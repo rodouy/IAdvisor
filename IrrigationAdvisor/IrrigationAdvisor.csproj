@@ -383,6 +383,18 @@
     <Compile Include="Migrations\201807171658174_RemoveRequiredCapitalIdInCountry.Designer.cs">
       <DependentUpon>201807171658174_RemoveRequiredCapitalIdInCountry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806281200048_AddFieldIsActiveToFarm.cs" />
+    <Compile Include="Migrations\201806281200048_AddFieldIsActiveToFarm.Designer.cs">
+      <DependentUpon>201806281200048_AddFieldIsActiveToFarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808031431359_addRelationWeatherStationPosition.cs" />
+    <Compile Include="Migrations\201808031431359_addRelationWeatherStationPosition.Designer.cs">
+      <DependentUpon>201808031431359_addRelationWeatherStationPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071747519_addFieldEnabledToWeatherStation.cs" />
+    <Compile Include="Migrations\201808071747519_addFieldEnabledToWeatherStation.Designer.cs">
+      <DependentUpon>201808071747519_addFieldEnabledToWeatherStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -449,6 +461,7 @@
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Localization\FarmEditViewModel.cs" />
     <Compile Include="ViewModels\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
@@ -1026,6 +1039,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.resx">
       <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281200048_AddFieldIsActiveToFarm.resx">
+      <DependentUpon>201806281200048_AddFieldIsActiveToFarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808031431359_addRelationWeatherStationPosition.resx">
+      <DependentUpon>201808031431359_addRelationWeatherStationPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071747519_addFieldEnabledToWeatherStation.resx">
+      <DependentUpon>201808071747519_addFieldEnabledToWeatherStation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807171658174_RemoveRequiredCapitalIdInCountry.resx">
       <DependentUpon>201807171658174_RemoveRequiredCapitalIdInCountry.cs</DependentUpon>

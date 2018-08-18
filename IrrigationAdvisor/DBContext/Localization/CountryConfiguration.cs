@@ -40,7 +40,7 @@ namespace IrrigationAdvisor.DBContext.Localization
 
         public long GetMaxCountryId(){
             return db.Countries.Max(table => table.CountryId);
-            
+
         }
     }
 }
