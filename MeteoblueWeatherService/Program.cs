@@ -264,7 +264,7 @@ namespace MeteoblueWeatherService
                     {
                         if (dataToShow.Contains(prop.Name))
                         {
-                            lines.Add(prop.Name + ": " + prop.GetValue(item, null)?.ToString());
+                            lines.Add(prop.Name + ": " + prop.GetValue(item, null)==null ? "": prop.GetValue(item, null).ToString());
                         }                     
                     }
 
