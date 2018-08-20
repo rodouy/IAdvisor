@@ -111,9 +111,10 @@ namespace IrrigationAdvisor.Controllers.Agriculture
 
                 ////return RedirectToAction("Index");
             }
+            return Redirect("/Soils");
 
-            var lSoilList = db.Soils.Include(b => b.Farm);
-            return View("~/Views/Agriculture/Soils/Index.cshtml", lSoilList.ToList());
+            //var lSoilList = db.Soils.Include(b => b.Farm);
+            //return View("~/Views/Agriculture/Soils/Index.cshtml", lSoilList.ToList());
         }
 
         // GET: Soils/Edit/5
@@ -163,8 +164,9 @@ namespace IrrigationAdvisor.Controllers.Agriculture
                 db.SaveChanges();
 
             }
-            var lSoilList = db.Soils.Include(b => b.Farm);
-            return View("~/Views/Agriculture/Soils/Index.cshtml", lSoilList.ToList());
+            return Redirect("/Soils");
+            //var lSoilList = db.Soils.Include(b => b.Farm);
+            //return View("~/Views/Agriculture/Soils/Index.cshtml", lSoilList.ToList());
         }
 
         // GET: Soils/Delete/5

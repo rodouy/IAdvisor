@@ -110,8 +110,9 @@ namespace IrrigationAdvisor.Controllers.Irrigation
                 db.SaveChanges();
 
             }
-            var lList = db.IrrigationUnits.Include(f => f.Farm);
-            return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
+            return Redirect("/IrrigationUnit");
+            //var lList = db.IrrigationUnits.Include(f => f.Farm);
+            //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
         }
 
         // GET: Sprinklers/Edit/5
@@ -187,8 +188,9 @@ namespace IrrigationAdvisor.Controllers.Irrigation
                 db.Entry(lSprinkler).State = EntityState.Modified;
                 db.SaveChanges();
             }
-            var lList = db.IrrigationUnits.Include(f => f.Farm);
-            return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
+            return Redirect("/IrrigationUnit");
+            //var lList = db.IrrigationUnits.Include(f => f.Farm);
+            //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
         }
         // GET: Sprinklers/Delete/5
         public ActionResult Delete(long? id)
@@ -232,9 +234,9 @@ namespace IrrigationAdvisor.Controllers.Irrigation
             lSprinkler.Show = false;
             db.Entry(lSprinkler).State = EntityState.Modified;
             db.SaveChanges();
-
-            var lList = db.IrrigationUnits.Include(f => f.Farm);
-            return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
+            return Redirect("/IrrigationUnit");
+            //var lList = db.IrrigationUnits.Include(f => f.Farm);
+            //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
         }
 
         private long GetPositionId(double pLatitude, double pLongitude)

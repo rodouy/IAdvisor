@@ -110,9 +110,9 @@ namespace IrrigationAdvisor.Controllers.Irrigation
                 db.SaveChanges();
             }
 
-
-            var lList = db.IrrigationUnits.Include(f => f.Farm);
-            return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
+            return Redirect("/IrrigationUnit");
+            //var lList = db.IrrigationUnits.Include(f => f.Farm);
+            //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
         }
 
         // GET: Drips/Edit/5
@@ -189,8 +189,10 @@ namespace IrrigationAdvisor.Controllers.Irrigation
                 db.Entry(lDrip).State = EntityState.Modified;
                 db.SaveChanges();
             }
-            var lList = db.IrrigationUnits.Include(f => f.Farm);
-            return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
+
+            return Redirect("/IrrigationUnit");
+            //var lList = db.IrrigationUnits.Include(f => f.Farm);
+            //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
         }
         // GET: Drips/Delete/5
         public ActionResult Delete(long? id)

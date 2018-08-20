@@ -7,14 +7,14 @@ namespace IrrigationAdvisor.Migrations
     {
         public override void Up()
         {
-            CreateIndex("dbo.WeatherStation", "PositionId");
-            AddForeignKey("dbo.WeatherStation", "PositionId", "dbo.Position", "PositionId");
+        //    CreateIndex("dbo.WeatherStation", "PositionId");
+        //    AddForeignKey("dbo.WeatherStation", "PositionId", "dbo.Position", "PositionId");
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.WeatherStation", "PositionId", "dbo.Position");
-            DropIndex("dbo.WeatherStation", new[] { "PositionId" });
+        //    DropForeignKey("dbo.WeatherStation", "PositionId", "dbo.Position");
+        //    DropIndex("dbo.WeatherStation", new[] { "PositionId" });
         }
     }
 }

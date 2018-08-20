@@ -7,12 +7,12 @@ namespace IrrigationAdvisor.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.WeatherStation", "Enabled", c => c.Boolean(nullable: false, defaultValue: true));
+           // AddColumn("dbo.WeatherStation", "Enabled", c => c.Boolean(nullable: false, defaultValue: true));
         }
 
         public override void Down()
         {
-            DropColumn("dbo.WeatherStation", "Enabled");
+           // DropColumn("dbo.WeatherStation", "Enabled");
         }
     }
 }

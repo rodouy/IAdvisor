@@ -123,7 +123,8 @@ namespace IrrigationAdvisor.Controllers.Weather
                     db.SaveChanges();
                 }
             }
-            return View("~/Views/Weather/WeatherStations/Index.cshtml", db.WeatherStations.ToList());
+            return Redirect("/WeatherStations");
+           // return View("~/Views/Weather/WeatherStations/Index.cshtml", db.WeatherStations.ToList());
         }
 
         // GET: WeatherStations/Edit/5
@@ -216,8 +217,8 @@ namespace IrrigationAdvisor.Controllers.Weather
 
 
             }
-
-            return View("~/Views/Weather/WeatherStations/Index.cshtml", db.WeatherStations.ToList());
+            return Redirect("/WeatherStations");
+            //return View("~/Views/Weather/WeatherStations/Index.cshtml", db.WeatherStations.ToList());
         }
 
         // GET: WeatherStations/Delete/5
@@ -263,7 +264,8 @@ namespace IrrigationAdvisor.Controllers.Weather
             ws.Enabled = false;
             db.Entry(ws).State = EntityState.Modified;
             db.SaveChanges();
-            return View("~/Views/Weather/WeatherStations/Index.cshtml", db.WeatherStations.ToList());
+            return Redirect("/WeatherStations");
+           // return View("~/Views/Weather/WeatherStations/Index.cshtml", db.WeatherStations.ToList());
         }
 
         private List<System.Web.Mvc.SelectListItem> LoadFarms(long? farmId = null, User user = null)

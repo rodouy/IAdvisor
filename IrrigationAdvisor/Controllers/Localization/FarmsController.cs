@@ -176,7 +176,8 @@ namespace IrrigationAdvisor.Controllers.Localization
 
 
             }
-            return View("~/Views/Localization/Farms/Index.cshtml", db.Farms.ToList());
+            return Redirect("/Farms");
+            //return View("~/Views/Localization/Farms/Index.cshtml", db.Farms.ToList());
 
         }
 

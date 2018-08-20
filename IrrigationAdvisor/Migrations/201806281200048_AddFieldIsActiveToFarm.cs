@@ -7,12 +7,12 @@ namespace IrrigationAdvisor.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Farm", "IsActive", c => c.Boolean(nullable: true));
+            //AddColumn("dbo.Farm", "IsActive", c => c.Boolean(nullable: true));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Farm", "IsActive");
+           // DropColumn("dbo.Farm", "IsActive");
         }
     }
 }

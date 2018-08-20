@@ -8,14 +8,14 @@ namespace IrrigationAdvisor.Migrations
         public override void Up()
         {
 
-            CreateIndex("dbo.IrrigationUnit", "PositionId");
-            AddForeignKey("dbo.IrrigationUnit", "PositionId", "dbo.Position", "PositionId");
+            //CreateIndex("dbo.IrrigationUnit", "PositionId");
+            //AddForeignKey("dbo.IrrigationUnit", "PositionId", "dbo.Position", "PositionId");
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.IrrigationUnit", "PositionId", "dbo.Position");
-            DropIndex("dbo.IrrigationUnit", new[] { "PositionId" });
+            //DropForeignKey("dbo.IrrigationUnit", "PositionId", "dbo.Position");
+            //DropIndex("dbo.IrrigationUnit", new[] { "PositionId" });
 
         }
     }

@@ -79,8 +79,9 @@ namespace IrrigationAdvisor.Controllers.Agriculture
                 db.SaveChanges();
 
             }
-            var lHorizonList = db.Horizons.Include(s => s.Soil);
-            return View("~/Views/Agriculture/Horizons/Index.cshtml", lHorizonList.ToList());
+            return Redirect("/Horizons");
+            //var lHorizonList = db.Horizons.Include(s => s.Soil);
+            //return View("~/Views/Agriculture/Horizons/Index.cshtml", lHorizonList.ToList());
         }
 
         // GET: Horizons/Edit/5
@@ -129,8 +130,9 @@ namespace IrrigationAdvisor.Controllers.Agriculture
                 db.Entry(updatedHorizon).State = EntityState.Modified;
                 db.SaveChanges();
             }
-            var lHorizonList = db.Horizons.Include(s => s.Soil);
-            return View("~/Views/Agriculture/Horizons/Index.cshtml", lHorizonList.ToList());
+            return Redirect("/Horizons");
+            //var lHorizonList = db.Horizons.Include(s => s.Soil);
+            //return View("~/Views/Agriculture/Horizons/Index.cshtml", lHorizonList.ToList());
         }
 
         // GET: Horizons/Delete/5
@@ -157,8 +159,9 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             Horizon horizon = db.Horizons.Find(id);
             db.Horizons.Remove(horizon);
             db.SaveChanges();
-            var lHorizonList = db.Horizons.Include(s => s.Soil);
-            return View("~/Views/Agriculture/Horizons/Index.cshtml", lHorizonList.ToList());
+            return Redirect("/Horizons");
+        //    var lHorizonList = db.Horizons.Include(s => s.Soil);
+        //    return View("~/Views/Agriculture/Horizons/Index.cshtml", lHorizonList.ToList());
         }
 
         private List<System.Web.Mvc.SelectListItem> LoadSoils(long? soilId = null, Horizon horizon = null)

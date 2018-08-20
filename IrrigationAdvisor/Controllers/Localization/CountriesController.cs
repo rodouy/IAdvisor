@@ -120,7 +120,8 @@ namespace IrrigationAdvisor.Controllers.Localization
 
               
             }
-            return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
+            return Redirect("/Countries");
+            //return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
         }
 
         // GET: Countries/Edit/5
@@ -163,7 +164,8 @@ namespace IrrigationAdvisor.Controllers.Localization
                 db.SaveChanges();
                 
             }
-            return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
+            return Redirect("/Countries");
+            //return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
 
         }
 
@@ -205,7 +207,8 @@ namespace IrrigationAdvisor.Controllers.Localization
             {
                 
             }
-            return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
+            return Redirect("/Countries");
+            //return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());
         }
 
         //protected override void Dispose(bool disposing)

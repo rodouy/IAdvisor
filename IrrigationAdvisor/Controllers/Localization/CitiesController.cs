@@ -116,8 +116,8 @@ namespace IrrigationAdvisor.Controllers.Localization
                 db.SaveChanges();
 
             }
-
-            return View("~/Views/Localization/Cities/Index.cshtml", db.Cities.ToList());
+            return Redirect("/Cities");
+            //return View("~/Views/Localization/Cities/Index.cshtml", db.Cities.ToList());
         }
 
         // GET: Cities/Edit/5
@@ -167,7 +167,8 @@ namespace IrrigationAdvisor.Controllers.Localization
                 db.SaveChanges();
 
             }
-            return View("~/Views/Localization/Cities/Index.cshtml", db.Cities.ToList());
+            return Redirect("/Cities");
+           // return View("~/Views/Localization/Cities/Index.cshtml", db.Cities.ToList());
         }
 
         // GET: Cities/Delete/5
