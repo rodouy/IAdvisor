@@ -292,6 +292,7 @@
     <Compile Include="DBContext\Water\RainConfiguration.cs" />
     <Compile Include="DBContext\Water\WaterInputConfiguration.cs" />
     <Compile Include="DBContext\Water\WaterOutputConfiguration.cs" />
+    <Compile Include="DBContext\Weather\MeteoblueWeatherDataConfiguration.cs" />
     <Compile Include="DBContext\Weather\TemperatureDataConfiguration.cs" />
     <Compile Include="DBContext\Weather\WeatherDataConfiguration.cs" />
     <Compile Include="DBContext\Weather\WeatherInformationConfiguration.cs" />
@@ -383,10 +384,16 @@
     <Compile Include="Migrations\201807171658174_RemoveRequiredCapitalIdInCountry.cs" />
     <Compile Include="Migrations\201807171658174_RemoveRequiredCapitalIdInCountry.Designer.cs">
       <DependentUpon>201807171658174_RemoveRequiredCapitalIdInCountry.cs</DependentUpon>
+    <Compile Include="Migrations\201806102344332_meteoblue.cs" />
+    <Compile Include="Migrations\201806102344332_meteoblue.Designer.cs">
+      <DependentUpon>201806102344332_meteoblue.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201806281200048_AddFieldIsActiveToFarm.cs" />
     <Compile Include="Migrations\201806281200048_AddFieldIsActiveToFarm.Designer.cs">
       <DependentUpon>201806281200048_AddFieldIsActiveToFarm.cs</DependentUpon>
+    <Compile Include="Migrations\201806120039530_meteoblue3.cs" />
+    <Compile Include="Migrations\201806120039530_meteoblue3.Designer.cs">
+      <DependentUpon>201806120039530_meteoblue3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201808031431359_addRelationWeatherStationPosition.cs" />
     <Compile Include="Migrations\201808031431359_addRelationWeatherStationPosition.Designer.cs">
@@ -481,6 +488,7 @@
     <Compile Include="Models\Utilities\Utils.cs" />
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
+    <Compile Include="Models\Weather\MeteoblueWeatherData.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
     <Compile Include="ViewModels\Irrigation\SprinklerViewModel.cs" />
     <Compile Include="ViewModels\Irrigation\DripViewModel.cs" />
@@ -540,6 +548,7 @@
     <Compile Include="ViewModels\Water\WaterOutputViewModel.cs" />
     <Compile Include="ViewModels\Weather\WeatherStationViewModel.cs" />
     <Compile Include="ViewModels\Weather\WUndergroundGeolookupResultToCSharp.cs" />
+    <Compile Include="Controllers\Weather\MeteoblueWeatherDatasController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -1077,9 +1086,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281200048_AddFieldIsActiveToFarm.resx">
       <DependentUpon>201806281200048_AddFieldIsActiveToFarm.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806102344332_meteoblue.resx">
+      <DependentUpon>201806102344332_meteoblue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808031431359_addRelationWeatherStationPosition.resx">
       <DependentUpon>201808031431359_addRelationWeatherStationPosition.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806120039530_meteoblue3.resx">
+      <DependentUpon>201806120039530_meteoblue3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808071747519_addFieldEnabledToWeatherStation.resx">
       <DependentUpon>201808071747519_addFieldEnabledToWeatherStation.cs</DependentUpon>
