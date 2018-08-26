@@ -384,16 +384,10 @@
     <Compile Include="Migrations\201807171658174_RemoveRequiredCapitalIdInCountry.cs" />
     <Compile Include="Migrations\201807171658174_RemoveRequiredCapitalIdInCountry.Designer.cs">
       <DependentUpon>201807171658174_RemoveRequiredCapitalIdInCountry.cs</DependentUpon>
-    <Compile Include="Migrations\201806102344332_meteoblue.cs" />
-    <Compile Include="Migrations\201806102344332_meteoblue.Designer.cs">
-      <DependentUpon>201806102344332_meteoblue.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201806281200048_AddFieldIsActiveToFarm.cs" />
     <Compile Include="Migrations\201806281200048_AddFieldIsActiveToFarm.Designer.cs">
       <DependentUpon>201806281200048_AddFieldIsActiveToFarm.cs</DependentUpon>
-    <Compile Include="Migrations\201806120039530_meteoblue3.cs" />
-    <Compile Include="Migrations\201806120039530_meteoblue3.Designer.cs">
-      <DependentUpon>201806120039530_meteoblue3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201808031431359_addRelationWeatherStationPosition.cs" />
     <Compile Include="Migrations\201808031431359_addRelationWeatherStationPosition.Designer.cs">
@@ -1086,13 +1080,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281200048_AddFieldIsActiveToFarm.resx">
       <DependentUpon>201806281200048_AddFieldIsActiveToFarm.cs</DependentUpon>
-    <EmbeddedResource Include="Migrations\201806102344332_meteoblue.resx">
-      <DependentUpon>201806102344332_meteoblue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808031431359_addRelationWeatherStationPosition.resx">
       <DependentUpon>201808031431359_addRelationWeatherStationPosition.cs</DependentUpon>
-    <EmbeddedResource Include="Migrations\201806120039530_meteoblue3.resx">
-      <DependentUpon>201806120039530_meteoblue3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808071747519_addFieldEnabledToWeatherStation.resx">
       <DependentUpon>201808071747519_addFieldEnabledToWeatherStation.cs</DependentUpon>
