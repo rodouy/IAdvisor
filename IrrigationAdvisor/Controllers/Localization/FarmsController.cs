@@ -30,7 +30,7 @@ namespace IrrigationAdvisor.Controllers.Localization
         public ActionResult Index()
         {
 
-            return View("~/Views/Localization/Farms/Index.cshtml", db.Farms.ToList());
+            return View("~/Views/Localization/Farms/Index.cshtml", db.Farms.ToList().Where(f => f.IsActive== true));
 
         }
 
@@ -240,32 +240,25 @@ namespace IrrigationAdvisor.Controllers.Localization
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            //Farm farm = db.Farms.Find(id);
-            //db.Farms.Remove(farm);
-            //db.SaveChanges();
             Farm updatedFarm = db.Farms.Find(id);
             if (updatedFarm == null)
             {
                 return HttpNotFound();
             }
-            updatedFarm.IsActive = false;
 
-            db.Entry(updatedFarm).State = EntityState.Modified;
+            FarmConfiguration fc = new FarmConfiguration();
+            Farm farm = db.Farms.Find(id);
+
+            fc.Disable(farm);
             db.SaveChanges();
-          
-            
+            //updatedFarm.IsActive = false;
+
+            //db.Entry(updatedFarm).State = EntityState.Modified;
+            //db.SaveChanges();
+                 
             return RedirectToAction("Index");
         }
 
-        /*        protected override void Dispose(bool disposing)
-                {
-                    if (disposing)
-                    {
-                        db.Dispose();
-                    }
-                    base.Dispose(disposing);
-                }
-         * */
         private List<System.Web.Mvc.SelectListItem> LoadWeatherStation(long? weatherStationId = null, Farm farm = null)
         {
             WeatherStationConfiguration rc = new WeatherStationConfiguration();

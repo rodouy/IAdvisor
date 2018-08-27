@@ -46,6 +46,18 @@ namespace IrrigationAdvisor.DBContext.Agriculture
 
             return lReturn;
         }
+        /// <summary>
+        /// Logical elimination
+        /// </summary>
+        /// <param name="pHorizon"></param>
+        public void Disable(Horizon pHorizon)
+        {
+            pHorizon.Enabled = false;
+
+            db.Entry(pHorizon).State = EntityState.Modified;
+            //db.SaveChanges();
+
+        }
     }
 }
 

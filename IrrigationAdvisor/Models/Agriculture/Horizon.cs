@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 
 using IrrigationAdvisor.Models.Data;
+using System.ComponentModel;
 
 
 namespace IrrigationAdvisor.Models.Agriculture
@@ -87,7 +88,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         //TODO Horizon.bulkDensitySoil question to be calculated?
         private double bulkDensitySoil;
         private long soilId;
-
+        private bool enabled;
         #endregion
 
         #region Properties
@@ -169,6 +170,13 @@ namespace IrrigationAdvisor.Models.Agriculture
             get;
             set;
         }
+
+        [DefaultValue(true)]
+        public bool Enabled
+        {
+            get { return enabled; }
+            set { enabled = value; }
+        }
         #endregion
 
         #region Construction
@@ -190,6 +198,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.NitrogenAnalysis = 0;
             this.BulkDensitySoil = 0;
             this.SoilId = 0;
+            this.Enabled = true;
         }
 
         /// <summary>
@@ -224,6 +233,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.NitrogenAnalysis = pNitrogenAnalysis;
             this.BulkDensitySoil = pBulkDensitySoil;
             this.SoilId = pSoilId;
+            this.Enabled = true;
         }
 
         #endregion

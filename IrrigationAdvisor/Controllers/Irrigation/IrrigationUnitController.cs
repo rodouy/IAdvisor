@@ -25,7 +25,7 @@ namespace IrrigationAdvisor.Controllers.Irrigation
         // GET: Sprinklers
         public ActionResult Index()
         {
-            var lList = db.IrrigationUnits.Include(f => f.Farm);
+            var lList = db.IrrigationUnits.Include(f => f.Farm).Where(i=> i.Enabled==true);
             return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
            
         }
@@ -115,9 +115,9 @@ namespace IrrigationAdvisor.Controllers.Irrigation
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Sprinkler sprinkler = db.Sprinklers.Find(id);
-            db.Sprinklers.Remove(sprinkler);
-            db.SaveChanges();
+            //Sprinkler sprinkler = db.Sprinklers.Find(id);
+            //db.Sprinklers.Remove(sprinkler);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 

@@ -14,6 +14,7 @@ using IrrigationAdvisor.ViewModels.Irrigation;
 using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.DBContext.Localization;
 using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.DBContext.Irrigation;
 
 namespace IrrigationAdvisor.Controllers.Irrigation
 {
@@ -93,8 +94,14 @@ namespace IrrigationAdvisor.Controllers.Irrigation
                     irrigationUnit.PositionId = positionId;
                 }
 
+                Farm farm = db.Farms.Find(pivotViewModel.FarmId);
+                if (farm == null)
+                {
+                    return HttpNotFound();
+                }
+
                 irrigationUnit.ShortName = pivotViewModel.ShortName;
-                irrigationUnit.Name = pivotViewModel.Farm.Name + " - " + pivotViewModel.ShortName;
+                irrigationUnit.Name = farm.Name + " - " + pivotViewModel.ShortName;
                 irrigationUnit.BombId = pivotViewModel.BombId;
                 irrigationUnit.FarmId = pivotViewModel.FarmId;
                 irrigationUnit.IrrigationEfficiency = pivotViewModel.IrrigationEfficiency;
@@ -226,13 +233,17 @@ namespace IrrigationAdvisor.Controllers.Irrigation
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            if (ModelState.IsValid)
-            {
-                Pivot lPivot = db.Pivots.Find(id);
-                lPivot.Show = false;
-                db.Entry(lPivot).State = EntityState.Modified;
-                db.SaveChanges();
-            }
+
+            //Pivot lPivot = db.Pivots.Find(id);
+            //lPivot.Show = false;
+            //db.Entry(lPivot).State = EntityState.Modified;
+            //db.SaveChanges();
+
+            IrrigationUnitConfiguration fc = new IrrigationUnitConfiguration();
+            IrrigationUnit irrigationUnit = db.IrrigationUnits.Find(id);
+            fc.Disable(irrigationUnit);
+            db.SaveChanges();
+  
             return Redirect("/IrrigationUnit");
             //var lList = db.IrrigationUnits.Include(f => f.Farm);
             //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());

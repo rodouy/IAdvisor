@@ -9,6 +9,10 @@ using IrrigationAdvisor.Models.Security;
 using System.Data.Entity;
 using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Weather;
+using IrrigationAdvisor.DBContext.Agriculture;
+using IrrigationAdvisor.Models.Agriculture;
+using IrrigationAdvisor.DBContext.Irrigation;
+using IrrigationAdvisor.Models.Irrigation;
 
 namespace IrrigationAdvisor.DBContext.Localization
 {
@@ -207,6 +211,38 @@ namespace IrrigationAdvisor.DBContext.Localization
                        where ul.WeatherStationId != pWeatherStation.WeatherStationId
                        select f).OrderBy(f => f.Name).ToList();
             return lReturn;
+        }
+
+
+        /// <summary>
+        ///  Logical elimination
+        /// </summary>
+        /// <param name="pFarm"></param>
+        /// <returns></returns>
+        public void Disable(Farm pFarm)
+        {
+            SoilConfiguration sc = new SoilConfiguration();
+            IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
+            List<Soil> listSoil = pFarm.SoilList;
+            List<IrrigationUnit> listIrrigationUnit = pFarm.IrrigationUnitList;          
+
+            foreach (Soil soil in listSoil)
+            {
+                
+                sc.Disable(soil);
+            }
+
+            foreach (IrrigationUnit irrigationUnit in listIrrigationUnit)
+            {
+                iuc.Disable(irrigationUnit);
+                
+            }
+
+            pFarm.IsActive = false;
+
+            db.Entry(pFarm).State = EntityState.Modified;
+            //db.SaveChanges();
+
         }
 
     }

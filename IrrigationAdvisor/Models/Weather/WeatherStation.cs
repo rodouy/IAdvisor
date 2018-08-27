@@ -186,7 +186,7 @@ namespace IrrigationAdvisor.Models.Weather
             set;
         }
         [Display(Name = "Habilitada")]
-        [DefaultValue(true)]
+
         public bool Enabled
         {
             get { return enabled; }

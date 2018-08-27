@@ -44,11 +44,7 @@ namespace IrrigationAdvisorConsole
         
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
-        public static DateTime DateOfReference = System.DateTime.Now; //.AddMonths(-9);
-
-        public static bool AddWeatherInformation = true;
-
-        public static bool StopOnDebug = true;
+        public static DateTime DateOfReference = System.DateTime.Now;
         
         static void Main(string[] args)
         {
@@ -105,17 +101,14 @@ namespace IrrigationAdvisorConsole
                 #region Localization
                 #if true
                 Console.WriteLine("Add Information of Localization.");
-
-                Console.WriteLine("  - Insert Region-Cities-Countries");
+                
                 LocalizationInsert.InsertPositions();
                 LocalizationInsert.InsertRegions();
                 LocalizationInsert.InsertCapitals();
                 LocalizationInsert.InsertCountry();
                 LocalizationInsert.InsertCities();
-                Console.WriteLine("  - InsertWeatherStations");
                 WeatherInsert.InsertWeatherStationsINIA();
                 WeatherInsert.InsertWeatherStationsWeatherLink();
-                Console.WriteLine("  - InsertFarms");
                 LocalizationInsert.InsertFarms();
                 SecurityInsert.InsertUserFarms();
                 #endif
@@ -126,41 +119,22 @@ namespace IrrigationAdvisorConsole
                 Console.WriteLine("Add Information of Agriculture.");
                 
                 AgricultureInsert.InsertSpecieCycles();
-                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2015
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
-                {
-                    AgricultureInsert.InsertSpecies_2016();
-                }
-                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
-                {
-                    AgricultureInsert.InsertSpecies_2017();
-                }
-                else
-                {
-                    AgricultureInsert.InsertSpecies_2017();
-                }
+                AgricultureInsert.InsertSpecies();
                 AgricultureInsert.UpdateCountryRegionWithSpeciesSpeciesCycles();
-                Console.WriteLine("  - InsertStages");
                 AgricultureInsert.InsertStagesCorn();
                 AgricultureInsert.InsertStagesSoya();
-                AgricultureInsert.InsertStagesOat();
                 AgricultureInsert.InsertStagesSorghumForage();
                 AgricultureInsert.InsertStagesSorghumGrain();
                 AgricultureInsert.InsertStagesAlfalfa();
-                AgricultureInsert.InsertStagesSudanGrass();
                 AgricultureInsert.InsertStagesRedCloverForage();
                 AgricultureInsert.InsertStagesRedCloverSeed();
                 AgricultureInsert.InsertStagesFescueForage();
                 AgricultureInsert.InsertStagesFescueSeed();
 
-                Console.WriteLine("  - InsertEffectiveRains");
                 WaterInsert.InsertEffectiveRainsSouth();
                 WaterInsert.InsertEffectiveRainsNorth();
                 WaterInsert.UpdateRegionSetEffectiveRainList();
 
-                Console.WriteLine("  - InsertPhenologicalStages");
                 AgricultureInsert.InsertPhenologicalStagesCornSouthMedium();
                 //AgricultureInsert.InsertPhenologicalStagesCornSouthShort();
                 AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2017();
@@ -175,46 +149,21 @@ namespace IrrigationAdvisorConsole
                 //AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2017();
                 AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium();
 
-
-                AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2017();
-                AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2017();
-
-                AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2017();
-                AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2017();
-
-                AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2017();
-                AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2017();
-
-                AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2017();
-                AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2017();
-
-                Console.WriteLine("  - Insert Horizons - Soils - CropCoefficient");
-                AgricultureInsert.InsertSoils(); 
                 AgricultureInsert.InsertHorizons();
-
+                AgricultureInsert.InsertSoils();
                 AgricultureInsert.InsertCropCoefficients();
-                Console.WriteLine("Agriculture - Completed.");
                 #endif
                 #endregion
 
                 #region Irrigation
                 #if true
-                Console.Write("Add Information of Irrigation.");
-
+                Console.WriteLine("Add Information of Irrigation.");
+                
                 IrrigationInsert.InsertBombs();
                 IrrigationInsert.InsertIrrigationUnits();
                 IrrigationInsert.UpdateSoilsBombsIrrigationUnitsUsersByFarm();
                 IrrigationInsert.InsertCrops();
                 IrrigationInsert.InsertCropsInformationByDate();
-                Console.WriteLine(" - Completed.");
 
                 #endif
                 #endregion
@@ -224,21 +173,11 @@ namespace IrrigationAdvisorConsole
                 Console.WriteLine("Add Information of Weather.");
                 
                 WeatherInsert.InsertTemperatureData();
-                Console.WriteLine("  - InsertTemperatureData");
                 WeatherInsert.AddTemperatureDataToRegion();
-                Console.WriteLine("  - AddTemperatureDataToRegion");
                 WeatherInsert.WetherStationsAddInformationOfWeather();
-                Console.WriteLine("  - WetherStationsAddInformationOfWeather");
-                Console.WriteLine("Weather - Completed.");
 
-                if (AddWeatherInformation 
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
-                {
-                    Console.WriteLine(" ------------------------------------------------ ");
-                    Console.WriteLine("Add Information of WeatherLink and press enter.");
-                    Console.ReadLine();
-                }
+                Console.WriteLine("Add Information of WeatherLink and press enter.");
+                Console.ReadLine();
 
                 #endif
                 #endregion
@@ -249,72 +188,31 @@ namespace IrrigationAdvisorConsole
                 
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
-                    Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2015.InsertCropIrrigationWeather2015();
-                    Console.WriteLine(" ");
-                    Console.WriteLine(" Management - InsertCropIrrigationWeather. - Completed.");
-                    Console.Write(" Management - Add/Update Rain, Irrigation & Phenology Information.");
+                    Console.WriteLine("Management - Add/Update Rain, Irrigation & Phenology Information.");
                     WaterInsert.UpdateInformationOfRain2015();
                     WaterInsert.UpdateInformationOfIrrigation2015();
                     CropIrrigationWeatherInsert2015.AddPhenologicalStageAdjustements2015();
-                    Console.WriteLine(" - Completed.");
-                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
+                    Console.WriteLine("Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2015.AddInformationToIrrigationUnits2015();
-                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
                 }
-                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                else
                 {
-                    Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2016.InsertCropIrrigationWeather2016();
-                    Console.WriteLine(" ");
-                    Console.WriteLine(" Management - InsertCropIrrigationWeather. - Completed.");
-                    Console.Write(" Management - Add/Update Rain, Irrigation & Phenology Information.");
+                    Console.WriteLine("Management - Add/Update Rain, Irrigation & Phenology Information.");
                     WaterInsert.UpdateInformationOfRain2016();
                     WaterInsert.UpdateInformationOfIrrigation2016();
                     CropIrrigationWeatherInsert2016.AddPhenologicalStageAdjustements2016();
-                    Console.WriteLine(" - Completed.");
-                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
+                    Console.WriteLine("Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2016.AddInformationToIrrigationUnits2016();
-                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
                 }
-                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
-                {
-                    Console.WriteLine(" Management - InsertCropIrrigationWeather.");
-                    CropIrrigationWeatherInsert2017.InsertCropIrrigationWeather2017();
-                    Console.WriteLine(" ");
-                    Console.WriteLine(" Management - InsertCropIrrigationWeather. - Completed.");
-                    Console.Write(" Management - Add/Update Rain, Irrigation & Phenology Information.");
-                    WaterInsert.UpdateInformationOfRain2017();
-                    WaterInsert.UpdateInformationOfIrrigation2017();
-                    CropIrrigationWeatherInsert2017.AddPhenologicalStageAdjustements2017();
-                    Console.WriteLine(" - Completed.");
-                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
-                    CropIrrigationWeatherInsert2017.AddInformationToIrrigationUnits2017();
-                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
-                }
-                //When we select only a Farm or group of farm
-                else
-                {
-                    Console.WriteLine(" Management - InsertCropIrrigationWeather.");
-                    CropIrrigationWeatherInsert2017.InsertCropIrrigationWeather2017();
-                    Console.WriteLine(" ");
-                    Console.WriteLine(" Management - InsertCropIrrigationWeather. - Completed.");
-                    Console.Write(" Management - Add/Update Rain, Irrigation & Phenology Information.");
-                    WaterInsert.UpdateInformationOfRain2017();
-                    WaterInsert.UpdateInformationOfIrrigation2017();
-                    CropIrrigationWeatherInsert2017.AddPhenologicalStageAdjustements2017();
-                    Console.WriteLine(" - Completed.");
-                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
-                    CropIrrigationWeatherInsert2017.AddInformationToIrrigationUnits2017();
-                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
-                }
+                
                 #endif
                 #endregion
 
                 if (PrintFarm != Utils.IrrigationAdvisorOutputFiles.NONE)
                 {
-                    Console.WriteLine("Start Layout process.");
+                    Console.WriteLine("If it corresponds Layout process.");
                 }
                 
                 PrintDailyRecord.LayoutDailyRecords();
@@ -326,10 +224,7 @@ namespace IrrigationAdvisorConsole
 
                 #endif
 
-                Console.WriteLine("  ");
                 Console.WriteLine("Ended with successful!! Great job :)");
-                Console.WriteLine("  ");
-                Console.WriteLine(" ------------------**********************-------------------- ");
                 
                 Console.ReadLine();
             }
@@ -344,18 +239,13 @@ namespace IrrigationAdvisorConsole
             catch(System.Data.SqlClient.SqlException ex)
             {
                 logger.Info(ex, "Exception in Program.SqlException " + "\n" + ex.Message + "\n" + ex.StackTrace);
-                Console.WriteLine("DB is OPEN, close all connections. OR the model changes (Add or Update Migration) ");
+                Console.WriteLine("DB is OPEN, close all connections. OR the model changes ");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
                 //IF the Model changes:
                 //go to nuget console, select IrrigationAdvisor Project
                 //add-migration Description
                 //ex add-migration AddColumnToWeatherData
-
-                //PM > Update - Database - TargetMigration AnyMigrationName
-                // It updates database to a migration named "AnyMigrationName"
-                // This will apply migrations if the target hasn't been applied 
-                //   or roll back migrations if it has
             }
             catch (Exception ex)
             {
@@ -369,7 +259,7 @@ namespace IrrigationAdvisorConsole
 
         /////////////////////////////////******************************/////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////
-#region Steps for a New Client
+        #region Steps for a New Client
 
         /* 1.- Position
          *   Cities
@@ -445,11 +335,11 @@ namespace IrrigationAdvisorConsole
          * InsertCropIrrigationWeather()
          */
 
-#endregion
+        #endregion
         /////////////////////////////////******************************/////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////
 
-#region Print
+        #region Print
 
         /// <summary>
         /// Print Weather Data List
@@ -466,7 +356,7 @@ namespace IrrigationAdvisorConsole
             return lReturn;
         }
 
-#endregion
+        #endregion
 
     }
 
