@@ -298,8 +298,8 @@ namespace IrrigationAdvisor.Controllers
             #endregion
 
             #region Configuration Variables
-            UserConfiguration lUserConfiguration;
-            FarmConfiguration lFarmConfiguration;
+            //UserConfiguration lUserConfiguration;
+            //FarmConfiguration lFarmConfiguration;
             IrrigationUnitConfiguration lIrrigationUnitConfiguration;
             CropIrrigationWeatherConfiguration lCropIrrigationWeatherConfiguration;
             IrrigationAdvisorContext lIrrigationAdvisorContext;
