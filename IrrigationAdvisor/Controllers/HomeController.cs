@@ -907,14 +907,13 @@ namespace IrrigationAdvisor.Controllers
                                     " - Today=" + pToday + "");
                         lCIW.AddInformationToIrrigationUnits(pDateOfReference, pToday, lContext);
                         lDatabaseChangeResult = lContext.SaveChanges();
-
                     }
                     catch (Exception ex)
                     {
                         Utils.LogError(ex, "Exception in HomeController.CalculateAllActiveCropIrrigationWeather ");
                         continue;
                     }
-                } 
+                }              
             }
             else
             {
@@ -2178,7 +2177,7 @@ namespace IrrigationAdvisor.Controllers
         /// </summary>
         /// <param name="pCropIrrigationWeatherId"></param>
         /// <param name="pStageId"></param>
-        public void ChangePhenology(long pCropIrrigationWeatherId, long pStageId)
+        public void ChangePhenology(long pCropIrrigationWeatherId, long pStageId, DateTime pDate)
         {
             var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
 
@@ -2187,7 +2186,7 @@ namespace IrrigationAdvisor.Controllers
                                          .Where(n => n.CropIrrigationWeatherId == pCropIrrigationWeatherId)
                                          .First();
 
-            DateTime referenceDate = ManageSession.GetNavigationDate().Date;
+            DateTime referenceDate = pDate;
 
             var lDailyRecord = lIrrigationAdvisorContext
                                 .DailyRecords
@@ -2202,10 +2201,16 @@ namespace IrrigationAdvisor.Controllers
                                     .First();
 
             var phenologicalStage = lIrrigationAdvisorContext.PhenologicalStages.First(n => n.StageId == stage.StageId && n.SpecieId == crop.SpecieId);
-
+            
             ChangePhenology(lCropIrrigationWeather, 
                             lDailyRecord,
-                            phenologicalStage);        
+                            phenologicalStage);
+
+            lCropIrrigationWeather.AdjustmentPhenology(stage, referenceDate);
+            lIrrigationAdvisorContext.SaveChanges();
+
+            lCropIrrigationWeather.AddInformationToIrrigationUnits(referenceDate, referenceDate, lIrrigationAdvisorContext);
+            lIrrigationAdvisorContext.SaveChanges();
         }
 
         /// <summary>
@@ -2226,7 +2231,7 @@ namespace IrrigationAdvisor.Controllers
             {
                 var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
 
-                double lGrowingDegreeDays = (pPhenologicalStage.MaxDegree + pPhenologicalStage.MinDegree) / 2;
+                /*double lGrowingDegreeDays = (pPhenologicalStage.MaxDegree + pPhenologicalStage.MinDegree) / 2;
 
                 pDailyRecord.PhenologicalStageId = pPhenologicalStage.PhenologicalStageId;
                 pDailyRecord.GrowingDegreeDaysModified = lGrowingDegreeDays;
@@ -2234,7 +2239,7 @@ namespace IrrigationAdvisor.Controllers
 
                 pCropIrrigationWeather.GrowingDegreeDaysAccumulated = lGrowingDegreeDays;
                 pCropIrrigationWeather.GrowingDegreeDaysModified = lGrowingDegreeDays;
-                pCropIrrigationWeather.PhenologicalStageId = pPhenologicalStage.PhenologicalStageId;
+                pCropIrrigationWeather.PhenologicalStageId = pPhenologicalStage.PhenologicalStageId;*/
 
                 var adjustment = new PhenologicalStageAdjustment()
                 {

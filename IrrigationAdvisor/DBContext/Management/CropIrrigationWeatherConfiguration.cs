@@ -718,6 +718,7 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Rain))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
+                    .Include(ciw => ciw.PhenologicalStageAdjustmentList)
                     .ToList();
 
             return lReturn;

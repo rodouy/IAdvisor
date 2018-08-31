@@ -28,7 +28,11 @@ $(document).ready(function () {
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
-    var modalMoveIrrigation = $('#modal-move-irrigation')
+    var modalMoveIrrigation = $('#modal-move-irrigation');
+    var modalChangePheno = $('#modal-change-pheno');
+    var datePhenoChange = $('#datePhenoChange');
+    var cancelChangePheno = $('#cancelChangePheno');
+    var saveChangePheno = $('#SaveChangePheno');
     var modalNoIrrigation = $('#modal-no-irrigation');
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
@@ -244,6 +248,7 @@ $(document).ready(function () {
         modalPheno.modal(initModal);
         modalNoIrrigation.modal(initModal);
         modalMoveIrrigation.modal(initModal);
+        modalChangePheno.modal(initModal);
         loadUserFarms();
         loadDates();
         if (modalLoadStatus) {
@@ -1040,7 +1045,17 @@ $(document).ready(function () {
     });
 
     $('.pheno-ok').click(function (e, f) {
+
         var ciw = e.currentTarget.parentElement.children[0].value;
+
+        var selected = $('#select-pheno-stage-' + ciw).val();
+
+        $('#stage-selected-pheno').val(selected);
+        $('#ciw-selected-pheno').val(ciw);
+
+        modalChangePheno.modal('show');
+
+        /*var ciw = e.currentTarget.parentElement.children[0].value;
 
         var selected = $('#select-pheno-stage-' + ciw).val();
 
@@ -1071,9 +1086,69 @@ $(document).ready(function () {
                 sendMail("Error al cambiar fenologia", data);
                 console.log(data);
             }
-        });
+        });*/
     });
 
+    $('#SaveChangePheno').click(function (e, f) {
+     
+        var selected = $('#stage-selected-pheno').val();
+        var ciw = $('#ciw-selected-pheno').val();
+
+        var date = $('#datePhenoChange').val();
+        var pUrl = './ChangePhenology?pCropIrrigationWeatherId=' + ciw + '&pStageId=' + selected + '&pDate=' + date;
+
+       var comboStages = $('#select-pheno-stage-' + ciw);
+       var ok = $('#pheno-ok-' + ciw);
+       var cancel = $('#pheno-cancel-' + ciw);
+       var selectedPheno = $('#selected-pheno-name-' + ciw);
+       var phenoClock = $('#pheno-clock-' + ciw);
+
+       comboStages.hide();
+       ok.hide();
+       cancel.hide();
+       phenoClock.show();
+
+       $('#SaveChangePheno').prop('disabled', true);
+
+       $('#save-pheno-span').hide();
+       $('#save-pheno-clock-1').show();
+
+       showLoading();
+       $.ajax({
+           type: 'GET',
+           url: pUrl,
+           success: function (data) {
+
+               selectedPheno.show();
+               selectedPheno.text($('#select-pheno-stage-' + ciw + ' :selected').text()); 
+               phenoClock.hide();
+               modalChangePheno.modal('hide');
+               hideLoading();
+             
+               $('#SaveChangePheno').prop('disabled', false);
+
+               $('#save-pheno-span').show();
+               $('#save-pheno-clock-1').hide();
+           },
+           error: function (data) {
+               alert(data);
+               sendMail("Error al cambiar fenologia", data);
+               console.log(data);
+               modalChangePheno.modal('hide');
+
+               $('#save-pheno-span').show();
+               $('#save-pheno-clock-1').hide();
+
+               hideLoading();
+
+               $('#SaveChangePheno').prop('disabled', false);
+           }
+       });
+
+       
+    });
+
+   
     $('.pheno-cancel').click(function (e, f) {
         var ciw = e.currentTarget.parentElement.children[0].value;
         
@@ -1087,5 +1162,9 @@ $(document).ready(function () {
         cancel.hide();
      
         selectedPheno.show();
+    });
+
+    $('#cancelChangePheno').click(function (e, f) {
+        modalChangePheno.modal('hide');
     });
 });
