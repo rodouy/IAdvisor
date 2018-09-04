@@ -888,6 +888,9 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCitySanGabriel = "San Gabriel";
         public static String NameCityPalmitas = "Palmitas";
         public static String NameCityLibertad = "Libertad";
+        public static String NameCitySaucedo = "Saucedo";
+        public static String NameCityDolores = "Dolores";
+        public static String NameCityConchillas = "Conchillas";
         public static String NameCity = "";
         #endregion
         #region Farms
@@ -910,6 +913,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameFarmLosNaranjales = "Los Naranjales";
         public static String NameFarmSantaEmilia = "Santa Emilia";
         public static String NameFarmGranMolino = "Gran Molino";
+        public static String NameFarmLaPortuguesa = "La Portuguesa";
+        public static String NameFarmCassarinoLaPerdiz = "Cassarino - La Perdiz";
+        public static String NameFarmSantoDomingo = "Santo Domingo";
+
         #endregion
         #region Weather
         public static String NameWeatherStationLasBrujas = "Las Brujas";
@@ -1218,6 +1225,19 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilGranMolino2b = NameFarmGranMolino + " Pivot 2b";
         public static String NameSoilGranMolino5b = NameFarmGranMolino + " Pivot 5b";
         #endregion
+        #region La Portuguesa
+        public static String NameSoilLaPortuguesa1 = NameFarmLaPortuguesa + " Pivot 1";
+        public static String NameSoilLaPortuguesa2 = NameFarmLaPortuguesa + " Pivot 2";
+        #endregion
+        #region Cassarino - La Perdiz
+        public static String NameSoilCassarinoLaPerdiz11 = NameFarmCassarinoLaPerdiz + " Pivot 1.1";
+        public static String NameSoilCassarinoLaPerdiz12 = NameFarmCassarinoLaPerdiz + " Pivot 1.2";
+        public static String NameSoilCassarinoLaPerdiz13 = NameFarmCassarinoLaPerdiz + " Pivot 1.3";
+        #endregion
+        #region Santo Domingo
+        public static String NameSoilSantoDomingo1 = NameFarmSantoDomingo + " Pivot 1";
+        public static String NameSoilSantoDomingo2 = NameFarmSantoDomingo + " Pivot 2";
+        #endregion
         #endregion
         #endregion
         #region Data
@@ -1244,6 +1264,9 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameBombLosNaranjales = NameFarmLosNaranjales + " Bomba";
         public static String NameBombSantaEmilia = NameFarmSantaEmilia + " Bomba";
         public static String NameBombGranMolino = NameFarmGranMolino + " Bomba";
+        public static String NameBombLaPortuguesa = NameFarmLaPortuguesa + " Bomba";
+        public static String NameBombCassarinoLaPerdiz = NameFarmCassarinoLaPerdiz + " Bomba";
+        public static String NameBombSantoDomingo = NameFarmSantoDomingo + " Bomba";
         #endregion
         #region Pivots
         #region Demo
@@ -1426,6 +1449,19 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotGranMolino5 = NameFarmGranMolino + " Pivot 5";
         public static String NamePivotGranMolino2b = NameFarmGranMolino + " Pivot 2b";
         public static String NamePivotGranMolino5b = NameFarmGranMolino + " Pivot 5b";
+        #endregion
+        #region La Portuguesa
+        public static String NamePivotLaPortuguesa1 = NameFarmLaPortuguesa + " Pivot 1";
+        public static String NamePivotLaPortuguesa2 = NameFarmLaPortuguesa + " Pivot 2";
+        #endregion
+        #region Cassarino - La Perdiz
+        public static String NamePivotCassarinoLaPerdiz11 = NameFarmCassarinoLaPerdiz + " Pivot 1.1";
+        public static String NamePivotCassarinoLaPerdiz12 = NameFarmCassarinoLaPerdiz + " Pivot 1.2";
+        public static String NamePivotCassarinoLaPerdiz13 = NameFarmCassarinoLaPerdiz + " Pivot 1.3";
+        #endregion
+        #region Santo Domingo
+        public static String NamePivotSantoDomingo1 = NameFarmSantoDomingo + " Pivot 1";
+        public static String NamePivotSantoDomingo2 = NameFarmSantoDomingo + " Pivot 2";
         #endregion
         public static String NamePivot = "";
         #endregion
@@ -1771,6 +1807,9 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionCitySanGabriel = NameCitySanGabriel;
         public static String NamePositionCityPalmitas = NameCityPalmitas;
         public static String NamePositionCityLibertad = NameCityLibertad;
+        public static String NamePositionCitySaucedo = NameCitySaucedo;
+        public static String NamePositionCityDolores = NameCityDolores;
+        public static String NamePositionCityConchillas = NameCityConchillas;
         public static String NamePositionCity = NameCity;
         #endregion
         #region PositionsFarms
@@ -1793,6 +1832,9 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionFarmLosNaranjales = NameFarmLosNaranjales;
         public static String NamePositionFarmSantaEmilia = NameFarmSantaEmilia;
         public static String NamePositionFarmGranMolino = NameFarmGranMolino;
+        public static String NamePositionFarmLaPortuguesa = NameFarmLaPortuguesa;
+        public static String NamePositionFarmCassarinoLaPerdiz = NameFarmCassarinoLaPerdiz;
+        public static String NamePositionFarmSantoDomingo = NameFarmSantoDomingo;
         #endregion
         #region PositionsWeatherStations
         public static String NamePositionWeatherStationLasBrujas = NameWeatherStationLasBrujas;
@@ -1994,6 +2036,19 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotGranMolino5 = NamePivotGranMolino5;
         public static String NamePositionPivotGranMolino2b = NamePivotGranMolino2b;
         public static String NamePositionPivotGranMolino5b = NamePivotGranMolino5b;
+        #endregion
+        #region La Portuguesa
+        public static String NamePositionPivotLaPortuguesa1 = NamePivotLaPortuguesa1;
+        public static String NamePositionPivotLaPortuguesa2 = NamePivotLaPortuguesa2;
+        #endregion
+        #region Cassarino - La Perdiz
+        public static String NamePositionPivotCassarinoLaPerdiz11 = NamePivotCassarinoLaPerdiz11;
+        public static String NamePositionPivotCassarinoLaPerdiz12 = NamePivotCassarinoLaPerdiz12;
+        public static String NamePositionPivotCassarinoLaPerdiz13 = NamePivotCassarinoLaPerdiz13;
+        #endregion
+        #region El Desafio
+        public static String NamePositionPivotSantoDomingo1 = NamePivotSantoDomingo1;
+        public static String NamePositionPivotSantoDomingo2 = NamePivotSantoDomingo2;
         #endregion
         public static String NamePositionPivot = "";
         #endregion

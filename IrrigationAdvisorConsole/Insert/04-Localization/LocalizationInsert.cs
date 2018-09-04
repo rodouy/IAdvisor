@@ -37,7 +37,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             };
             #endregion
 
-            #region Countries
+            #region Countries #1
             var lUruguay = new Position()
             {
                 Name = Utils.NamePositionUruguay,
@@ -45,7 +45,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -55.766
             };
             #endregion
-            #region Regions
+            #region Regions #2
 
             var lRegionSur = new Position()
             {
@@ -62,7 +62,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             };
 
             #endregion
-            #region Cities #13
+            #region Cities #16
             //1 - Montevideo
             var lMontevideo = new Position()
             {
@@ -155,9 +155,30 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -56.6192,
             };
 
-            //10 - 
+            var lSaucedo = new Position()
+            {
+                Name = Utils.NamePositionCitySaucedo,
+                Latitude = -31.1075,
+                Longitude = -57.5292,
+            };
+            //15 - Dolores
+            var lDolores = new Position()
+            {
+                Name = Utils.NamePositionCityDolores,
+                Latitude = -33.5312,
+                Longitude = -58.2190,
+            };
+
+            var lConchillas = new Position()
+            {
+                Name = Utils.NamePositionCityConchillas,
+                Latitude = -34.1645,
+                Longitude = -58.0335,
+            };
+
+            //20 - 
             #endregion
-            #region Farms #17
+            #region Farms #20
             #region 1 - Demo1, Demo2, Demo3; Santa Lucia;
             var lDemo1 = new Position()
             {
@@ -285,10 +306,30 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -56.5408,
             };
             #endregion
+            #region 5 - La Portuguesa; Cassarino - La Perdiz; Santo Domingo;
+            var lLaPortuguesa = new Position()
+            {
+                Name = Utils.NamePositionFarmLaPortuguesa,
+                Latitude = -31.1515,
+                Longitude = -58.4658,
+            }; 
+            var lCassarinoLaPerdiz = new Position()
+            {
+                Name = Utils.NamePositionFarmCassarinoLaPerdiz,
+                Latitude = -33.5942,
+                Longitude = -57.9714,
+            };
+            var lSantoDomingo = new Position()
+            {
+                Name = Utils.NamePositionFarmSantoDomingo,
+                Latitude = -34.0985,
+                Longitude = -58.1937,
+            };
+            #endregion
             #endregion
             #region WeatherStations #15
             #region INIA #5
-            
+
             var lLasBrujasWS = new Position()
             {
                 Name = Utils.NamePositionWeatherStationLasBrujas,
@@ -1260,6 +1301,54 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -56.5333,
             };
             #endregion
+            #region Pivots La Portuguesa #2
+            var lLaPortuguesaPivot1 = new Position()
+            {
+                Name = Utils.NamePositionPivotLaPortuguesa1,
+                Latitude = -31.12875,
+                Longitude = -57.45282,
+            };
+            var lLaPortuguesaPivot2 = new Position()
+            {
+                Name = Utils.NamePositionPivotLaPortuguesa2,
+                Latitude = -31.12875,
+                Longitude = -57.45282,
+            };
+            #endregion
+            #region Pivots Cassarino - La Perdiz #3
+            var lCassarinoLaPerdizPivot11 = new Position()
+            {
+                Name = Utils.NamePositionPivotCassarinoLaPerdiz11,
+                Latitude = -33.60335,
+                Longitude = -57.98332,
+            };
+            var lCassarinoLaPerdizPivot12 = new Position()
+            {
+                Name = Utils.NamePositionPivotCassarinoLaPerdiz12,
+                Latitude = -33.6076889,
+                Longitude = -57.9769166,
+            };
+            var lCassarinoLaPerdizPivot13 = new Position()
+            {
+                Name = Utils.NamePositionPivotCassarinoLaPerdiz13,
+                Latitude = -33.611922,
+                Longitude = -57.970702,
+            };
+            #endregion
+            #region Pivots Santo Domingo #2
+            var lSantoDomingoPivot1 = new Position()
+            {
+                Name = Utils.NamePositionPivotSantoDomingo1,
+                Latitude = -34.1030944,
+                Longitude = -58.2020305,
+            };
+            var lSantoDomingoPivot2 = new Position()
+            {
+                Name = Utils.NamePositionPivotSantoDomingo2,
+                Latitude = -34.1030944,
+                Longitude = -58.2020305,
+            };
+            #endregion
 
             using (var context = new IrrigationAdvisorContext())
             {
@@ -1267,7 +1356,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lUruguay);
                 context.Positions.Add(lRegionSur);
                 context.Positions.Add(lRegionNorte);
-                #region Cities #13
+                #region Cities #16
                 context.Positions.Add(lMontevideo);
                 context.Positions.Add(lMinas);
                 context.Positions.Add(lMercedes);
@@ -1281,8 +1370,11 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lSanGabriel);
                 context.Positions.Add(lPalmitas);
                 context.Positions.Add(lLibertad);
+                context.Positions.Add(lSaucedo);
+                context.Positions.Add(lDolores);
+                context.Positions.Add(lConchillas);
                 #endregion
-                #region Farms #17
+                #region Farms #20
                 context.Positions.Add(lDemo1);
                 context.Positions.Add(lDemo2);
                 context.Positions.Add(lDemo3);
@@ -1301,6 +1393,9 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosNaranjales);
                 context.Positions.Add(lSantaEmilia);
                 context.Positions.Add(lGranMolino);
+                context.Positions.Add(lLaPortuguesa);
+                context.Positions.Add(lCassarinoLaPerdiz);
+                context.Positions.Add(lSantoDomingo);
                 #endregion
                 #region Weather Stations #15
                 context.Positions.Add(lLasBrujasWS);
@@ -1319,7 +1414,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosOlivos);
                 context.Positions.Add(lViveroSanFrancisco);
                 #endregion
-                #region Pivots #137
+                #region Pivots #144
                 #region Pivots - Demo #14
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1483,6 +1578,19 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lGranMolinoPivot5);
                 context.Positions.Add(lGranMolinoPivot2b);
                 context.Positions.Add(lGranMolinoPivot5b);
+                #endregion
+                #region Pivots - La Portuguesa #2
+                context.Positions.Add(lLaPortuguesaPivot1);
+                context.Positions.Add(lLaPortuguesaPivot2);
+                #endregion
+                #region Pivots - Cassarino - La Perdiz #3
+                context.Positions.Add(lCassarinoLaPerdizPivot11);
+                context.Positions.Add(lCassarinoLaPerdizPivot12);
+                context.Positions.Add(lCassarinoLaPerdizPivot13);
+                #endregion
+                #region Pivots - Santo Domingo #2
+                context.Positions.Add(lSantoDomingoPivot1);
+                context.Positions.Add(lSantoDomingoPivot2);
                 #endregion
                 #endregion
                 context.SaveChanges();
