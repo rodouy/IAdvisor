@@ -12043,6 +12043,364 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             }
             #endregion
 
+
+            #region Horizons La Portuguesa
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
+            {
+
+                #region Pivot 1
+                var lLaPortuguesaPivot_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotLaPortuguesa1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 16.67,
+                    Limo = 72.19,
+                    Clay = 11.14,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.48,
+                };
+                var lLaPortuguesaPivot_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotLaPortuguesa1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.73,
+                    Limo = 73.72,
+                    Clay = 10.55,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.51,
+                };
+                var lLaPortuguesaPivot_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotLaPortuguesa1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.08,
+                    Limo = 68.22,
+                    Clay = 16.7,
+                    OrganicMatter = 1.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.40,
+                };
+                #endregion
+                #region Pivot 2
+                var lLaPortuguesaPivot_2_1 = new Horizon
+                {
+                    Name = Utils.NamePivotLaPortuguesa2 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 30.01,
+                    Limo = 58.59,
+                    Clay = 11.4,
+                    OrganicMatter = 3.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.44,
+                };
+                var lLaPortuguesaPivot_2_2 = new Horizon
+                {
+                    Name = Utils.NamePivotLaPortuguesa2 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 25.5,
+                    Limo = 57.92,
+                    Clay = 16.58,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.46,
+                };
+                var lLaPortuguesaPivot_2_3 = new Horizon
+                {
+                    Name = Utils.NamePivotLaPortuguesa2 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 27.07,
+                    Limo = 50.61,
+                    Clay = 27.32,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.47,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons La Portuguesa
+                    context.Horizons.Add(lLaPortuguesaPivot_1_1);
+                    context.Horizons.Add(lLaPortuguesaPivot_1_2);
+                    context.Horizons.Add(lLaPortuguesaPivot_1_3);
+                    context.Horizons.Add(lLaPortuguesaPivot_2_1);
+                    context.Horizons.Add(lLaPortuguesaPivot_2_2);
+                    context.Horizons.Add(lLaPortuguesaPivot_2_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+            #region Horizons Cassarino - La Perdiz
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.CassarinoLaPerdiz)
+            {
+
+                #region Pivot 1
+                var lCassarinoLaPerdizPivot_11_1 = new Horizon
+                {
+                    Name = Utils.NamePivotCassarinoLaPerdiz11 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 16.67,
+                    Limo = 72.19,
+                    Clay = 11.14,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.48,
+                };
+                var lCassarinoLaPerdizPivot_11_2 = new Horizon
+                {
+                    Name = Utils.NamePivotCassarinoLaPerdiz11 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.73,
+                    Limo = 73.72,
+                    Clay = 10.55,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.51,
+                };
+                var lCassarinoLaPerdizPivot_11_3 = new Horizon
+                {
+                    Name = Utils.NamePivotCassarinoLaPerdiz11 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.08,
+                    Limo = 68.22,
+                    Clay = 16.7,
+                    OrganicMatter = 1.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.40,
+                };
+                #endregion
+                #region Pivot 2
+                var lCassarinoLaPerdizPivot_12_1 = new Horizon
+                {
+                    Name = Utils.NamePivotCassarinoLaPerdiz12 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 30.01,
+                    Limo = 58.59,
+                    Clay = 11.4,
+                    OrganicMatter = 3.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.44,
+                };
+                var lCassarinoLaPerdizPivot_12_2 = new Horizon
+                {
+                    Name = Utils.NamePivotCassarinoLaPerdiz12 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 25.5,
+                    Limo = 57.92,
+                    Clay = 16.58,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.46,
+                };
+                var lCassarinoLaPerdizPivot_12_3 = new Horizon
+                {
+                    Name = Utils.NamePivotCassarinoLaPerdiz12 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 27.07,
+                    Limo = 50.61,
+                    Clay = 27.32,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.47,
+                };
+                #endregion
+                #region Pivot 1.3
+                var lCassarinoLaPerdizPivot_13_1 = new Horizon
+                {
+                    Name = Utils.NamePivotCassarinoLaPerdiz13 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 16.67,
+                    Limo = 72.19,
+                    Clay = 11.14,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.48,
+                };
+                var lCassarinoLaPerdizPivot_13_2 = new Horizon
+                {
+                    Name = Utils.NamePivotCassarinoLaPerdiz13 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.73,
+                    Limo = 73.72,
+                    Clay = 10.55,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.51,
+                };
+                var lCassarinoLaPerdizPivot_13_3 = new Horizon
+                {
+                    Name = Utils.NamePivotCassarinoLaPerdiz13 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.08,
+                    Limo = 68.22,
+                    Clay = 16.7,
+                    OrganicMatter = 1.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.40,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons Cassarino - La Perdiz
+                    context.Horizons.Add(lCassarinoLaPerdizPivot_11_1);
+                    context.Horizons.Add(lCassarinoLaPerdizPivot_11_2);
+                    context.Horizons.Add(lCassarinoLaPerdizPivot_11_3);
+                    context.Horizons.Add(lCassarinoLaPerdizPivot_12_1);
+                    context.Horizons.Add(lCassarinoLaPerdizPivot_12_2);
+                    context.Horizons.Add(lCassarinoLaPerdizPivot_12_3);
+                    context.Horizons.Add(lCassarinoLaPerdizPivot_13_1);
+                    context.Horizons.Add(lCassarinoLaPerdizPivot_13_2);
+                    context.Horizons.Add(lCassarinoLaPerdizPivot_13_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+            #region Horizons Santo Domingo
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantoDomingo)
+            {
+
+                #region Pivot 1
+                var lSantoDomingoPivot_1_1 = new Horizon
+                {
+                    Name = Utils.NamePivotSantoDomingo1 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 16.67,
+                    Limo = 72.19,
+                    Clay = 11.14,
+                    OrganicMatter = 3.99,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.48,
+                };
+                var lSantoDomingoPivot_1_2 = new Horizon
+                {
+                    Name = Utils.NamePivotSantoDomingo1 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.73,
+                    Limo = 73.72,
+                    Clay = 10.55,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.51,
+                };
+                var lSantoDomingoPivot_1_3 = new Horizon
+                {
+                    Name = Utils.NamePivotSantoDomingo1 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 15.08,
+                    Limo = 68.22,
+                    Clay = 16.7,
+                    OrganicMatter = 1.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.40,
+                };
+                #endregion
+                #region Pivot 2
+                var lSantoDomingoPivot_2_1 = new Horizon
+                {
+                    Name = Utils.NamePivotSantoDomingo2 + " 1",
+                    Order = 1,
+                    HorizonLayer = "A",
+                    HorizonLayerDepth = 20,
+                    Sand = 30.01,
+                    Limo = 58.59,
+                    Clay = 11.4,
+                    OrganicMatter = 3.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.44,
+                };
+                var lSantoDomingoPivot_2_2 = new Horizon
+                {
+                    Name = Utils.NamePivotSantoDomingo2 + " 2",
+                    Order = 2,
+                    HorizonLayer = "B1",
+                    HorizonLayerDepth = 20,
+                    Sand = 25.5,
+                    Limo = 57.92,
+                    Clay = 16.58,
+                    OrganicMatter = 2.8,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.46,
+                };
+                var lSantoDomingoPivot_2_3 = new Horizon
+                {
+                    Name = Utils.NamePivotSantoDomingo2 + " 3",
+                    Order = 3,
+                    HorizonLayer = "B2",
+                    HorizonLayerDepth = 20,
+                    Sand = 27.07,
+                    Limo = 50.61,
+                    Clay = 27.32,
+                    OrganicMatter = 1.5,
+                    NitrogenAnalysis = 0,
+                    BulkDensitySoil = 1.47,
+                };
+                #endregion
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Horizons Santo Domingo
+                    context.Horizons.Add(lSantoDomingoPivot_1_1);
+                    context.Horizons.Add(lSantoDomingoPivot_1_2);
+                    context.Horizons.Add(lSantoDomingoPivot_1_3);
+                    context.Horizons.Add(lSantoDomingoPivot_2_1);
+                    context.Horizons.Add(lSantoDomingoPivot_2_2);
+                    context.Horizons.Add(lSantoDomingoPivot_2_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
             #region Horizons
 
             using (var context = new IrrigationAdvisorContext())
