@@ -417,6 +417,10 @@
     <Compile Include="Migrations\201808181544040_test.Designer.cs">
       <DependentUpon>201808181544040_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808271518561_addRelationSpecieCicleToRegionAndSpecieToRegion.cs" />
+    <Compile Include="Migrations\201808271518561_addRelationSpecieCicleToRegionAndSpecieToRegion.Designer.cs">
+      <DependentUpon>201808271518561_addRelationSpecieCicleToRegionAndSpecieToRegion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -484,6 +488,8 @@
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Models\Weather\MeteoblueWeatherData.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Agriculture\SpecieCycleViewModel.cs" />
+    <Compile Include="ViewModels\Agriculture\PhenologicalStageViewModel.cs" />
     <Compile Include="ViewModels\Irrigation\SprinklerViewModel.cs" />
     <Compile Include="ViewModels\Irrigation\DripViewModel.cs" />
     <Compile Include="ViewModels\Localization\FarmEditViewModel.cs" />
@@ -1104,6 +1110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808181544040_test.resx">
       <DependentUpon>201808181544040_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808271518561_addRelationSpecieCicleToRegionAndSpecieToRegion.resx">
+      <DependentUpon>201808271518561_addRelationSpecieCicleToRegionAndSpecieToRegion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

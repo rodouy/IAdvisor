@@ -2,33 +2,32 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "Agriculture";
+   // Layout = "Agriculture";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Region.Name)
+            Region
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Specie.Name)
+            Especie
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Density)
+            Estadio max. riego
+        <th>
+            Max. ETC riego
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MaxEvapotranspirationToIrrigate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MinEvapotranspirationToIrrigate)
+            Min. ETC riego
         </th>
         <th></th>
     </tr>
@@ -42,10 +41,10 @@
             @Html.DisplayFor(modelItem => item.Specie.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.ShortName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Density)
+           @Html.DisplayFor(modelItem => item.StopIrrigationStage.ShortName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MaxEvapotranspirationToIrrigate)
@@ -54,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.MinEvapotranspirationToIrrigate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CropId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CropId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CropId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.CropId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.CropId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.CropId })
         </td>
     </tr>
 }

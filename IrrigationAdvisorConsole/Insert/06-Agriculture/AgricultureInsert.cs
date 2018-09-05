@@ -23,58 +23,73 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 #if true
 
         public static void InsertSpecieCycles()
-        {
-            #region Base
-            var lBase = new SpecieCycle
-            {
-                Name = Utils.NameBase,
-                Duration = 0,
-            };
-            #endregion
-
-            #region Sur
-            var lSurCorto = new SpecieCycle
-            {
-                Name = Utils.NameSpecieCycleSouthShort,
-                Duration = 145,
-            };
-
-            var lSurMedio = new SpecieCycle
-            {
-                Name = Utils.NameSpecieCycleSouthMedium,
-                Duration = 160,
-            };
-
-            var lSurLargo = new SpecieCycle
-            {
-                Name = Utils.NameSpecieCycleSouthLong,
-                Duration = 180,
-            };
-
-            #endregion
-
-            #region Norte
-            var lNorthShort = new SpecieCycle
-            {
-                Name = Utils.NameSpecieCycleNorthShort,
-                Duration = 160,
-            };
-
-            var lNorthMedium = new SpecieCycle
-            {
-                Name = Utils.NameSpecieCycleNorthMedium,
-                Duration = 180,
-            };
-
-            var lNorthLong = new SpecieCycle
-            {
-                Name = Utils.NameSpecieCycleNorthLong,
-                Duration = 200,
-            };
-            #endregion
-
+        {            
+            Region lRegion = null;
             using (var context = new IrrigationAdvisorContext())
             {
+                #region Base
+                var lBase = new SpecieCycle
+                {
+                    Name = Utils.NameBase,
+                    Duration = 0,
+                    Region = null,
+                };
+                #endregion
+
+                #region Sur
+                lRegion = (from pos in context.Regions
+                             where pos.Name == Utils.NameRegionSouth
+                             select pos).FirstOrDefault();
+                var lSurCorto = new SpecieCycle
+                {
+                    Name = Utils.NameSpecieCycleSouthShort,
+                    Duration = 145,
+                    RegionId = lRegion.RegionId,
+                };
+
+                var lSurMedio = new SpecieCycle
+                {
+                    Name = Utils.NameSpecieCycleSouthMedium,
+                    Duration = 160,
+                    RegionId = lRegion.RegionId,
+                };
+
+                var lSurLargo = new SpecieCycle
+                {
+                    Name = Utils.NameSpecieCycleSouthLong,
+                    Duration = 180,
+                    RegionId = lRegion.RegionId,
+                };
+
+                #endregion
+
+                #region Norte
+                lRegion = (from pos in context.Regions
+                           where pos.Name == Utils.NameRegionNorth
+                           select pos).FirstOrDefault();
+                var lNorthShort = new SpecieCycle
+                {
+                    Name = Utils.NameSpecieCycleNorthShort,
+                    Duration = 160,
+                    RegionId = lRegion.RegionId,
+                };
+
+                var lNorthMedium = new SpecieCycle
+                {
+                    Name = Utils.NameSpecieCycleNorthMedium,
+                    Duration = 180,
+                    RegionId = lRegion.RegionId,
+                };
+
+                var lNorthLong = new SpecieCycle
+                {
+                    Name = Utils.NameSpecieCycleNorthLong,
+                    Duration = 200,
+                    RegionId = lRegion.RegionId,
+                };
+                #endregion
+
+
                 //context.SpecieCycles.Add(lBase);
                 context.SpecieCycles.Add(lSurCorto);
                 context.SpecieCycles.Add(lSurMedio);
@@ -84,12 +99,13 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.SpecieCycles.Add(lNorthLong);
                 context.SaveChanges();
             }
+           
         }
 
         public static void InsertSpecies_2016()
         {
             SpecieCycle lSpecieCycle = null;
-
+            Region lRegion = null;
             #region Base
             var lBase = new Specie
             {
@@ -104,10 +120,13 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             #endregion
 
             #region South
-
-            #region CornSouthShort
             using (var context = new IrrigationAdvisorContext())
             {
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+            #region CornSouthShort
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -119,15 +138,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_CornSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_CornSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lCornSouthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region CornSouthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
@@ -139,16 +158,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_CornSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_CornSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lCornSouthMedium);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region SoyaSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -160,15 +179,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_SoyaSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_SoyaSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSoyaSouthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region SoyaSouthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
@@ -180,16 +199,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_SoyaSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_SoyaSouth_2016,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSoyaSouthMedium);
                 context.SaveChanges();
-            }
+           
             #endregion
 
             #region SorghumForageSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -201,15 +220,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_SorghumForageSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_SorghumForageSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSorghumForageSouthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region SorghumGrainSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -221,16 +240,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_SorghumGrainSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_SorghumGrainSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSorghumGrainSouthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
 
             #region AlfalfaSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -242,16 +261,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_AlfalfaSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_AlfalfaSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lAlfalfaSouthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region RedCloverForageSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -263,15 +282,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_RedCloverForageSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_RedCloverForageSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lRedCloverForageSouthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region RedCloverSeedSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -283,16 +302,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_RedCloverSeedSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_RedCloverSeedSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lRedCloverSeedSouthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region FescueForageSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -304,15 +323,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_FescueForageSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_FescueForageSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueForageSouthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region FescueSeedSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -324,20 +343,25 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_FescueSeedSouth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_FescueSeedSouth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueSeedSouthShort);
                 context.SaveChanges();
+            
+            #endregion
             }
             #endregion
 
-            #endregion
-
             #region North
-
-            #region Corn North Short
             using (var context = new IrrigationAdvisorContext())
             {
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+
+            #region Corn North Short
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
                 var lCornNorthShort = new Specie
@@ -348,14 +372,14 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_CornNorth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_CornNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
                 context.Species.Add(lCornNorthShort);
                 context.SaveChanges();
-            }
+                
             #endregion
             #region Corn North Medium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
                 var lCornNorthMedium = new Specie
@@ -366,15 +390,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_CornNorth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_CornNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
                 context.Species.Add(lCornNorthMedium);
                 context.SaveChanges();
-            }
+                
             #endregion
 
             #region Soya North Short
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -386,14 +410,14 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_SoyaNorth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_SoyaNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
                 context.Species.Add(lSoyaNorthShort);
                 context.SaveChanges();
-            }
+                
             #endregion
             #region Soya North Medium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
 
@@ -405,15 +429,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_SoyaNorth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_SoyaNorth_2016,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
                 context.Species.Add(lSoyaNorthMedium);
                 context.SaveChanges();
-            }
+                
             #endregion
 
             #region AlfalfaNorthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -425,16 +449,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_AlfalfaNorth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_AlfalfaNorth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lAlfalfaNorthShort);
                 context.SaveChanges();
-            }
             #endregion
 
             #region FescueForageNorthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -446,15 +469,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_FescueForageNorth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_FescueForageNorth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueForageNorthShort);
                 context.SaveChanges();
-            }
+                
             #endregion
             #region FescueSeedNorthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -466,26 +489,28 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry2016.BaseTemperature_FescueSeedNorth_2016,
                     StressTemperature = DataEntry2016.StressTemperature_FescueSeedNorth_2016,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueSeedNorthShort);
                 context.SaveChanges();
+                
+            #endregion
+
+            #endregion
+
+                //using (var context = new IrrigationAdvisorContext())
+                //{
+                //    //context.Species.Add(lBase);
+                //    context.SaveChanges();
+                //};
             }
-            #endregion
-
-            #endregion
-
-            using (var context = new IrrigationAdvisorContext())
-            {
-                //context.Species.Add(lBase);
-                context.SaveChanges();
-            };
         }
 
         public static void InsertSpecies_2017()
         {
             SpecieCycle lSpecieCycle = null;
-
+            Region lRegion = null;
             #region Base
             var lBase = new Specie
             {
@@ -500,10 +525,14 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             #endregion
 
             #region South
-
-            #region CornSouthShort
             using (var context = new IrrigationAdvisorContext())
-            {
+            {               
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                             select reg).FirstOrDefault();
+  
+            #region CornSouthShort
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -515,15 +544,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_CornSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_CornSouth_2017,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId= lRegion.RegionId,
                 };
 
                 context.Species.Add(lCornSouthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region CornSouthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
@@ -535,16 +564,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_CornSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_CornSouth_2017,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lCornSouthMedium);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region SoyaSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -556,15 +585,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_SoyaSouth_2017,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSoyaSouthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region SoyaSouthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
@@ -576,16 +605,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SoyaSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_SoyaSouth_2017,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSoyaSouthMedium);
                 context.SaveChanges();
-            }
+         
             #endregion
 
             #region OatSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -597,15 +626,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_OatSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_OatSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lOatSouthShort);
                 context.SaveChanges();
-            }
+          
             #endregion
             #region OatSouthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
@@ -617,16 +646,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_OatSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_OatSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lOatSouthMedium);
                 context.SaveChanges();
-            }
+           
             #endregion
 
             #region SorghumForageSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -638,15 +667,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SorghumForageSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_SorghumForageSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSorghumForageSouthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region SorghumGrainSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -658,16 +687,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SorghumGrainSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_SorghumGrainSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSorghumGrainSouthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region AlfalfaSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -679,15 +708,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_AlfalfaSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_AlfalfaSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lAlfalfaSouthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region AlfalfaSouthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
@@ -699,16 +728,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_AlfalfaSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_AlfalfaSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lAlfalfaSouthMedium);
                 context.SaveChanges();
-            }
+           
             #endregion
 
             #region SudanGrassSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -720,15 +749,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SudanGrassSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_SudanGrassSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSudanGrassSouthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region SudanGrassSouthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
@@ -740,16 +769,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SudanGrassSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_SudanGrassSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSudanGrassSouthMedium);
                 context.SaveChanges();
-            }
+           
             #endregion
 
             #region RedCloverForageSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -761,15 +790,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_RedCloverForageSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_RedCloverForageSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lRedCloverForageSouthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region RedCloverSeedSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -781,16 +810,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_RedCloverSeedSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_RedCloverSeedSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lRedCloverSeedSouthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region FescueForageSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -802,15 +831,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_FescueForageSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_FescueForageSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueForageSouthShort);
                 context.SaveChanges();
-            }
+          
             #endregion
             #region FescueForageSouthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+     
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
@@ -822,15 +851,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_FescueForageSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_FescueForageSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueForageSouthMedium);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region FescueSeedSouthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthShort);
 
@@ -842,15 +871,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_FescueSeedSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_FescueSeedSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueSeedSouthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region FescueSeedSouthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
 
@@ -862,20 +891,24 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_FescueSeedSouth_2017,
                     StressTemperature = DataEntry.StressTemperature_FescueSeedSouth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueSeedSouthMedium);
                 context.SaveChanges();
+            
+            #endregion
             }
             #endregion
 
-            #endregion
-
             #region North
-
-            #region Corn North Short
             using (var context = new IrrigationAdvisorContext())
-            {
+            {               
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                             select reg).FirstOrDefault();
+            #region Corn North Short
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
                 var lCornNorthShort = new Specie
@@ -886,14 +919,14 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_CornNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_CornNorth_2017,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
                 context.Species.Add(lCornNorthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region Corn North Medium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
                 var lCornNorthMedium = new Specie
@@ -904,15 +937,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_CornNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_CornNorth_2017,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
                 context.Species.Add(lCornNorthMedium);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region Soya North Short
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -924,14 +957,14 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SoyaNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_SoyaNorth_2017,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
                 context.Species.Add(lSoyaNorthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region Soya North Medium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
 
@@ -943,15 +976,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SoyaNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_SoyaNorth_2017,
                     SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
                 };
                 context.Species.Add(lSoyaNorthMedium);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region OatNorthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -963,15 +997,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_OatNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_OatNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lOatNorthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region OatNorthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
 
@@ -983,16 +1017,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_OatNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_OatNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lOatNorthMedium);
                 context.SaveChanges();
-            }
+           
             #endregion
 
             #region AlfalfaNorthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -1004,15 +1038,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_AlfalfaNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_AlfalfaNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lAlfalfaNorthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region AlfalfaNorthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
 
@@ -1024,16 +1058,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_AlfalfaNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_AlfalfaNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lAlfalfaNorthMedium);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region SudanGrassNorthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -1045,15 +1079,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SudanGrassNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_SudanGrassNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSudanGrassNorthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region SudanGrassNorthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
 
@@ -1065,16 +1099,16 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_SudanGrassNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_SudanGrassNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lSudanGrassNorthMedium);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #region FescueForageNorthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -1086,15 +1120,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_FescueForageNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_FescueForageNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueForageNorthShort);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region FescueForageNorthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
 
@@ -1106,15 +1140,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_FescueForageNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_FescueForageNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueForageNorthMedium);
                 context.SaveChanges();
-            }
+            
             #endregion
             #region FescueSeedNorthShort
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthShort);
 
@@ -1126,15 +1160,15 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_FescueSeedNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_FescueSeedNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueSeedNorthShort);
                 context.SaveChanges();
-            }
+           
             #endregion
             #region FescueSeedNorthMedium
-            using (var context = new IrrigationAdvisorContext())
-            {
+
                 lSpecieCycle = context.SpecieCycles.SingleOrDefault(
                                         sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
 
@@ -1146,19 +1180,20 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     BaseTemperature = DataEntry.BaseTemperature_FescueSeedNorth_2017,
                     StressTemperature = DataEntry.StressTemperature_FescueSeedNorth_2017,
                     SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
                 };
 
                 context.Species.Add(lFescueSeedNorthMedium);
                 context.SaveChanges();
-            }
+            
             #endregion
 
             #endregion
 
-            using (var context = new IrrigationAdvisorContext())
-            {
-                //context.Species.Add(lBase);
-                context.SaveChanges();
+            //using (var context = new IrrigationAdvisorContext())
+            //{
+            //    //context.Species.Add(lBase);
+            //    context.SaveChanges();
             };
         }
 

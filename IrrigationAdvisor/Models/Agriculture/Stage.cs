@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -71,24 +71,31 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { stageId = value; }
         }
 
+         
+        [Required]
+        [Display(Name = "Nombre")]
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
 
+        [Display(Name = "Nombre corto")]
         public String ShortName
         {
             get { return shortName; }
             set { shortName = value; }
         }
-        
+
+        [Display(Name = "Descirpción")]
         public string Description
         {
             get { return description; }
             set { description = value; }
         }
 
+                [Required]
+        [Display(Name = "Orden")]
         public int Order
         {
             get { return order; }

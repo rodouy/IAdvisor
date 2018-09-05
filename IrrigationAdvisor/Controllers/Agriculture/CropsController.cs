@@ -20,10 +20,12 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // GET: Crops
         public ActionResult Index()
         {
-            var crops = db.Crops
+            var lcrops = db.Crops
                 .Include(c => c.Region)
-                .Include(c => c.Specie);
-            return View(crops.ToList());
+                .Include(c => c.Specie)
+                .Include(c => c.StopIrrigationStage);
+            return View("~/Views/Agriculture/Crops/Index.cshtml", lcrops.ToList());
+
         }
 
         // GET: Crops/Details/5
