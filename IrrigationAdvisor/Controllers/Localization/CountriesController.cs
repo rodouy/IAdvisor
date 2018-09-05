@@ -205,7 +205,7 @@ namespace IrrigationAdvisor.Controllers.Localization
                 
             catch (Exception ex)
             {
-                
+                throw ex;
             }
             return Redirect("/Countries");
             //return View("~/Views/Localization/Countries/Index.cshtml", db.Countries.ToList());

@@ -16,7 +16,7 @@ namespace IrrigationAdvisor.ViewModels.Irrigation
         #endregion
 
         #region Properties
-        public long IrrigationUnitId {get; set;}
+        public new long IrrigationUnitId {get; set;}
         public Double Width { get; set; }
         public Double Length { get; set; }
         #endregion
