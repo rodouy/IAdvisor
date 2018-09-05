@@ -137,6 +137,11 @@ namespace IrrigationAdvisorConsole
                 {
                     AgricultureInsert.InsertSpecies_2017();
                 }
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                {
+                    AgricultureInsert.InsertSpecies_2017();
+                }
                 else
                 {
                     AgricultureInsert.InsertSpecies_2017();
