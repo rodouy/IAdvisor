@@ -171,6 +171,7 @@
     <Compile Include="Insert\09-Management\CropIrrigationWeatherInsert2015.cs" />
     <Compile Include="Insert\09-Management\CropIrrigationWeatherInsert2016.cs" />
     <Compile Include="Insert\09-Management\CropIrrigationWeatherInsert2017.cs" />
+    <Compile Include="Insert\09-Management\CropIrrigationWeatherInsert2018.cs" />
     <Compile Include="Print\PrintDailyRecord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
