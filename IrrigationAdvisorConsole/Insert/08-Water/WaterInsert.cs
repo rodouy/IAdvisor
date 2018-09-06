@@ -2173,6 +2173,44 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 }
                 #endregion
 
+                #region La Portuguesa
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
+                {
+
+                    RainData2018.AddRainDataLaPortuguesaPivot1_2018(context, Program.DateOfReference);
+                    //RainData2018.AddRainDataLaPortuguesaPivot2_2018(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Cassarino - La Perdiz
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.CassarinoLaPerdiz)
+                {
+
+                    RainData2018.AddRainDataCassarinoLaPerdizPivot1_2018(context, Program.DateOfReference);
+                    //RainData2018.AddRainDataCassarinoLaPerdizPivot2_2018(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Santo Domingo
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantoDomingo)
+                {
+
+                    RainData2018.AddRainDataSantoDomingoPivot1_2018(context, Program.DateOfReference);
+                    //RainData2018.AddRainDataSantoDomingoPivot2_2018(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
             }
 
             #endregion
