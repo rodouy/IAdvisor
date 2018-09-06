@@ -577,7 +577,7 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -631,7 +631,7 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -684,7 +684,7 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -786,10 +786,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCAElParaiso_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCAElParaiso_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCAElParaiso_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCAElParaiso_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -988,10 +988,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCAElParaiso_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCAElParaiso_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCAElParaiso_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCAElParaiso_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -1193,10 +1193,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -1395,10 +1395,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -1597,10 +1597,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -1799,10 +1799,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -2001,10 +2001,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -2203,10 +2203,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -2409,10 +2409,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -2611,10 +2611,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -2813,10 +2813,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -3015,10 +3015,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCALaPerdiz_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCALaPerdiz_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCALaPerdiz_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -3220,10 +3220,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCASanJose_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCASanJose_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCASanJose_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCASanJose_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -3422,10 +3422,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCASanJose_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCASanJose_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCASanJose_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCASanJose_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -3624,10 +3624,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCASanJose_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCASanJose_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCASanJose_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCASanJose_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -3826,10 +3826,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DCASanJose_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DCASanJose_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DCASanJose_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DCASanJose_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -4031,10 +4031,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -4233,10 +4233,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -4435,10 +4435,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -4635,10 +4635,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -4837,10 +4837,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -5039,10 +5039,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -5240,10 +5240,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -5442,10 +5442,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -5644,10 +5644,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -5846,10 +5846,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -6048,10 +6048,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -6250,10 +6250,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -6452,10 +6452,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -6654,10 +6654,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -6856,10 +6856,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -7058,10 +7058,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -7260,10 +7260,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoSanPedro_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoSanPedro_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoSanPedro_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -7465,10 +7465,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -7667,10 +7667,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -7869,10 +7869,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -8069,10 +8069,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -8271,10 +8271,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -8473,10 +8473,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -8674,10 +8674,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -8876,10 +8876,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -9078,10 +9078,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -9280,10 +9280,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -9482,10 +9482,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -9684,10 +9684,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -9886,10 +9886,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -10088,10 +10088,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -10290,10 +10290,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -10492,10 +10492,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -10694,10 +10694,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -10896,10 +10896,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017b
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017b
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017b
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017b
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -11098,10 +11098,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017b
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017b
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017b
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017b
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -11300,10 +11300,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017b
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017b
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017b
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017b
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -11500,10 +11500,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_DelLagoElMirador_2017b
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017b
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_DelLagoElMirador_2017b
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_DelLagoElMirador_2017b
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -11705,10 +11705,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOLaPalma_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOLaPalma_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -11908,10 +11908,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOLaPalma_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOLaPalma_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -12110,10 +12110,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOLaPalma_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOLaPalma_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -12312,10 +12312,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOLaPalma_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOLaPalma_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -12514,10 +12514,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOLaPalma_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOLaPalma_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -12716,10 +12716,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOLaPalma_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOLaPalma_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -12918,10 +12918,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOLaPalma_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOLaPalma_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -13120,10 +13120,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOLaPalma_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOLaPalma_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOLaPalma_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOLaPalma_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -13325,10 +13325,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -13528,10 +13528,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -13730,10 +13730,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -13932,10 +13932,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -14135,10 +14135,10 @@ namespace IrrigationAdvisorConsole.Data
             if (lIrrigationUnit == null) return;
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -14337,10 +14337,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -14539,10 +14539,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -14741,10 +14741,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -14943,10 +14943,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -15145,10 +15145,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -15347,10 +15347,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -15549,10 +15549,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -15751,10 +15751,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GMOElTacuru_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GMOElTacuru_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GMOElTacuru_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GMOElTacuru_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -15956,10 +15956,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_TresMarias_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_TresMarias_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_TresMarias_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_TresMarias_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -16157,10 +16157,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_TresMarias_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_TresMarias_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_TresMarias_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_TresMarias_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -16358,10 +16358,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_TresMarias_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_TresMarias_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_TresMarias_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_TresMarias_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -16559,10 +16559,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_TresMarias_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_TresMarias_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_TresMarias_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_TresMarias_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -16763,10 +16763,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_LaRinconada_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_LaRinconada_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_LaRinconada_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_LaRinconada_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -16964,10 +16964,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_LaRinconada_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_LaRinconada_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_LaRinconada_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_LaRinconada_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -17165,10 +17165,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_LaRinconada_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_LaRinconada_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_LaRinconada_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_LaRinconada_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -17366,10 +17366,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_LaRinconada_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_LaRinconada_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_LaRinconada_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_LaRinconada_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -17570,10 +17570,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_ElRincon_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_ElRincon_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_ElRincon_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_ElRincon_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -17771,10 +17771,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_ElRincon_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_ElRincon_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_ElRincon_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_ElRincon_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -17975,10 +17975,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_ElDesafio_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_ElDesafio_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_ElDesafio_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_ElDesafio_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -18176,10 +18176,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_ElDesafio_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_ElDesafio_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_ElDesafio_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_ElDesafio_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -18381,10 +18381,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_LosNaranjales_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_LosNaranjales_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_LosNaranjales_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_LosNaranjales_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -18582,10 +18582,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_LosNaranjales_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_LosNaranjales_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_LosNaranjales_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_LosNaranjales_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -18783,10 +18783,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_LosNaranjales_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_LosNaranjales_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_LosNaranjales_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_LosNaranjales_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -18985,10 +18985,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_LosNaranjales_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_LosNaranjales_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_LosNaranjales_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_LosNaranjales_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -19188,10 +19188,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_SantaEmilia_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_SantaEmilia_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_SantaEmilia_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_SantaEmilia_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -19389,10 +19389,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_SantaEmilia_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_SantaEmilia_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_SantaEmilia_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_SantaEmilia_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -19591,10 +19591,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_SantaEmilia_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_SantaEmilia_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_SantaEmilia_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_SantaEmilia_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -19792,10 +19792,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_SantaEmilia_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_SantaEmilia_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_SantaEmilia_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_SantaEmilia_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -19993,10 +19993,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_SantaEmilia_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_SantaEmilia_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_SantaEmilia_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_SantaEmilia_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -20197,10 +20197,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GranMolino_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GranMolino_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GranMolino_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GranMolino_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -20398,10 +20398,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GranMolino_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GranMolino_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GranMolino_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GranMolino_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -20600,10 +20600,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GranMolino_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GranMolino_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GranMolino_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GranMolino_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -20801,10 +20801,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GranMolino_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GranMolino_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GranMolino_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GranMolino_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -21002,10 +21002,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GranMolino_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GranMolino_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GranMolino_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GranMolino_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -21203,10 +21203,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GranMolino_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GranMolino_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GranMolino_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GranMolino_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
@@ -21405,10 +21405,10 @@ namespace IrrigationAdvisorConsole.Data
                                select iu).FirstOrDefault();
             if (lIrrigationUnit == null) return;
             lWeatherStationMain = (from ws in context.WeatherStations
-                                   where ws.Name == DataEntry.WeatherStationMainName_GranMolino_2017
+                                   where ws.Name == DataEntry2017.WeatherStationMainName_GranMolino_2017
                                    select ws).FirstOrDefault();
             lWeatherStationAlternative = (from ws in context.WeatherStations
-                                          where ws.Name == DataEntry.WeatherStationAlternativeName_GranMolino_2017
+                                          where ws.Name == DataEntry2017.WeatherStationAlternativeName_GranMolino_2017
                                           select ws).FirstOrDefault();
             lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
                                       where ciw.CropId == lCrop.CropId
