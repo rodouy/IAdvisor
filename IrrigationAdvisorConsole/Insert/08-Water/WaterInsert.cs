@@ -2181,7 +2181,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 {
 
                     RainData2018.AddRainDataLaPortuguesaPivot1_2018(context, Program.DateOfReference);
-                    //RainData2018.AddRainDataLaPortuguesaPivot2_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataLaPortuguesaPivot2_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -2193,8 +2193,9 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.CassarinoLaPerdiz)
                 {
 
-                    RainData2018.AddRainDataCassarinoLaPerdizPivot1_2018(context, Program.DateOfReference);
-                    //RainData2018.AddRainDataCassarinoLaPerdizPivot2_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataCassarinoLaPerdizPivot11_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataCassarinoLaPerdizPivot12_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataCassarinoLaPerdizPivot13_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -2207,7 +2208,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 {
 
                     RainData2018.AddRainDataSantoDomingoPivot1_2018(context, Program.DateOfReference);
-                    //RainData2018.AddRainDataSantoDomingoPivot2_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataSantoDomingoPivot2_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -2519,6 +2520,55 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     IrrigationData2018.AddIrrigationDataGranMolinoPivot5_2018(context, Program.DateOfReference);
                     IrrigationData2018.AddIrrigationDataGranMolinoPivot2b_2018(context, Program.DateOfReference);
                     IrrigationData2018.AddIrrigationDataGranMolinoPivot5b_2018(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region La Portuguesa
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2018.AddIrrigationDataLaPortuguesaPivot1_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataLaPortuguesaPivot2_2018(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Cassarino - La Perdiz
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.CassarinoLaPerdiz)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2018.AddIrrigationDataCassarinoLaPerdizPivot11_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataCassarinoLaPerdizPivot12_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataCassarinoLaPerdizPivot13_2018(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Santo Domingo
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantoDomingo)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2018.AddIrrigationDataSantoDomingoPivot1_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataSantoDomingoPivot2_2018(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
