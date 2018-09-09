@@ -27,9 +27,14 @@ namespace IrrigationAdvisorConsole.Data
         #region Config Data Crops 2018
 
         #region Specie
-        public static double BaseTemperature_CornSouth_2018 = 10;
+        /*
+         * Segun email Gonzalo Moreno 28/5/18
+         * Para el caso del maíz a su vez las temperaturas son las siguientes: 
+         * Tb: 8°C  TM: 32°C
+         */
+        public static double BaseTemperature_CornSouth_2018 = 8;
         public static double StressTemperature_CornSouth_2018 = 32;
-        public static double BaseTemperature_CornNorth_2018 = 10;
+        public static double BaseTemperature_CornNorth_2018 = 8;
         public static double StressTemperature_CornNorth_2018 = 32;
 
         public static double BaseTemperature_SoyaSouth_2018 = 10;
