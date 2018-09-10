@@ -11,6 +11,7 @@ namespace IrrigationAdvisor.DBContext.Agriculture
     public class CropCoefficientConfiguration
         : EntityTypeConfiguration<CropCoefficient>
     {
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
         public CropCoefficientConfiguration()
         {
             ToTable("CropCoefficient");
@@ -23,5 +24,25 @@ namespace IrrigationAdvisor.DBContext.Agriculture
 
             #endregion
         }
+
+        /// <summary>
+        /// Get List of CropCoefficient by Specie
+        /// </summary>
+        /// <param name="pRegion"></param>
+        /// <returns></returns>
+        public List<CropCoefficient> GetCropCoefficientListBy(Specie pSpecie)
+        {
+            List<CropCoefficient> lReturn = null;
+            Specie lSpecie = null;
+
+            if (pSpecie != null)
+            {
+                lReturn = db.CropCoefficients.Where (f => f.SpecieId == pSpecie.SpecieId).ToList();
+            }
+
+            return lReturn;
+        }
+
+    
     }
 }

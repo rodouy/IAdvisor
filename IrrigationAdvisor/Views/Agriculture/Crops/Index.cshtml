@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<IrrigationAdvisor.Models.Agriculture.Crop>
 
 @{
-    ViewBag.Title = "Index";
-   // Layout = "Agriculture";
+    ViewBag.Title = "Cultivos";
 }
 
 <h2>Index</h2>
@@ -21,8 +20,6 @@
         <th>
             Nombre
         </th>
-        <th>
-            Estadio max. riego
         <th>
             Max. ETC riego
         </th>
@@ -43,9 +40,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ShortName)
         </td>
-        <td>
-           @Html.DisplayFor(modelItem => item.StopIrrigationStage.ShortName)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.MaxEvapotranspirationToIrrigate)
         </td>
@@ -54,8 +49,8 @@
         </td>
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.CropId }) |
-            @Html.ActionLink("Detalle", "Details", new { id=item.CropId }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.CropId })
+            @Html.ActionLink("Detalle", "Details", new { id=item.CropId })
+
         </td>
     </tr>
 }

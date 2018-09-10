@@ -10,6 +10,10 @@ using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Agriculture;
 
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.Models.Localization;
+using IrrigationAdvisor.DBContext.Agriculture;
+using IrrigationAdvisor.ViewModels.Agriculture;
 
 namespace IrrigationAdvisor.Controllers.Agriculture
 {
@@ -35,20 +39,37 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Crop crop = db.Crops.Find(id);
-            if (crop == null)
+            Crop s = db.Crops.Find(id);
+            if (s == null)
             {
                 return HttpNotFound();
             }
-            return View(crop);
+            Stage stopIrrigationStage = db.Stages.Find(s.StopIrrigationStageId);
+            Stage minStageToConsiderETinHBCalculation = db.Stages.Find(s.MinStageToConsiderETinHBCalculationId);
+            CropViewModel vm = new CropViewModel();
+            vm.SpecieId = s.SpecieId;
+            vm.ShortName = s.ShortName;
+            vm.Name = s.Name;
+            vm.CropCoefficient = s.CropCoefficient;
+            vm.MaxEvapotranspirationToIrrigate = s.MaxEvapotranspirationToIrrigate;
+            vm.MinEvapotranspirationToIrrigate = s.MinEvapotranspirationToIrrigate;
+            vm.MinStageToConsiderETinHBCalculation = s.MinStageToConsiderETinHBCalculation;
+            vm.Region = s.Region;
+            vm.Specie = s.Specie;
+            ViewBag.StopIrrigationStageName = stopIrrigationStage.Name;
+            ViewBag.MinStageToConsiderETinHBCalculationName = minStageToConsiderETinHBCalculation.Name;
+           
+            vm.MinStageToConsiderETinHBCalculation = s.MinStageToConsiderETinHBCalculation;
+            return View("~/Views/Agriculture/Crops/Details.cshtml", vm);
         }
 
         // GET: Crops/Create
         public ActionResult Create()
         {
-            ViewBag.RegionId = new SelectList(db.Regions, "RegionId", "Name");
-            ViewBag.SpecieId = new SelectList(db.Species, "SpecieId", "Name");
-            return View();
+            CropViewModel vm = new CropViewModel();
+            vm.Regions = this.LoadRegions();
+            vm.Stages = this.LoadStages();
+            return View("~/Views/Agriculture/Crops/Create.cshtml", vm);
         }
 
         // POST: Crops/Create
@@ -56,18 +77,25 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CropId,Name,RegionId,SpecieId,Density,MaxEvapotranspirationToIrrigate,MinEvapotranspirationToIrrigate")] Crop crop)
+        public ActionResult Create([Bind(Include = "CropId, ShortNAme, MaxEvapotranspirationToIrrigate, MinEvapotranspirationToIrrigate, StopIrrigationStageId, MinStageToConsiderETinHBCalculationId,RegionId,SpecieId,CropCoefficientId")] CropViewModel cropViewModel)
         {
             if (ModelState.IsValid)
             {
+                Specie specie = db.Species.Find(cropViewModel.SpecieId);
+                Crop crop = new Crop();
+                crop.Name = cropViewModel.ShortName + " " + specie.Name;
+                crop.ShortName = cropViewModel.ShortName;
+                crop.MaxEvapotranspirationToIrrigate = cropViewModel.MaxEvapotranspirationToIrrigate;
+                crop.MinEvapotranspirationToIrrigate = cropViewModel.MinEvapotranspirationToIrrigate;
+                crop.StopIrrigationStageId = cropViewModel.StopIrrigationStageId;
+                crop.MinStageToConsiderETinHBCalculationId = cropViewModel.MinStageToConsiderETinHBCalculationId;
+                crop.RegionId = cropViewModel.RegionId;
+                crop.SpecieId = cropViewModel.SpecieId;
+                crop.CropCoefficientId = cropViewModel.CropCoefficientId;
                 db.Crops.Add(crop);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-
-            ViewBag.RegionId = new SelectList(db.Regions, "RegionId", "Name", crop.RegionId);
-            ViewBag.SpecieId = new SelectList(db.Species, "SpecieId", "Name", crop.SpecieId);
-            return View(crop);
+            return Redirect("/Crops");
         }
 
         // GET: Crops/Edit/5
@@ -82,9 +110,11 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return HttpNotFound();
             }
-            ViewBag.RegionId = new SelectList(db.Regions, "RegionId", "Name", crop.RegionId);
-            ViewBag.SpecieId = new SelectList(db.Species, "SpecieId", "Name", crop.SpecieId);
-            return View(crop);
+            CropViewModel vm = new CropViewModel(crop);
+            vm.Regions = this.LoadRegions();
+            vm.Stages = this.LoadStages(crop.StopIrrigationStageId, crop, "StopIrrigationStageId");
+            vm.Stages = this.LoadStages(crop.MinStageToConsiderETinHBCalculationId, crop, "MinStageToConsiderETinHBCalculationId");
+            return View("~/Views/Agriculture/Crops/Edit.cshtml", vm);
         }
 
         // POST: Crops/Edit/5
@@ -92,17 +122,30 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CropId,Name,RegionId,SpecieId,Density,MaxEvapotranspirationToIrrigate,MinEvapotranspirationToIrrigate")] Crop crop)
+        public ActionResult Edit([Bind(Include = "CropId, ShortNAme, MaxEvapotranspirationToIrrigate, MinEvapotranspirationToIrrigate, StopIrrigationStageId, MinStageToConsiderETinHBCalculationId,RegionId,SpecieId,CropCoefficientId")] CropViewModel cropViewModel)
         {
             if (ModelState.IsValid)
             {
+                Crop crop = db.Crops.Find(cropViewModel.CropId);
+                if (crop == null)
+                {
+                    return HttpNotFound();
+                }
+                crop.ShortName = cropViewModel.ShortName;
+                crop.MaxEvapotranspirationToIrrigate = cropViewModel.MaxEvapotranspirationToIrrigate;
+                crop.MinEvapotranspirationToIrrigate = cropViewModel.MinEvapotranspirationToIrrigate;
+                crop.StopIrrigationStageId = cropViewModel.StopIrrigationStageId;
+                crop.MinStageToConsiderETinHBCalculationId = cropViewModel.MinStageToConsiderETinHBCalculationId;
+                crop.RegionId = cropViewModel.RegionId;
+                crop.SpecieId = cropViewModel.SpecieId;
+                crop.CropCoefficientId = cropViewModel.CropCoefficientId;
+
                 db.Entry(crop).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
             }
-            ViewBag.RegionId = new SelectList(db.Regions, "RegionId", "Name", crop.RegionId);
-            ViewBag.SpecieId = new SelectList(db.Species, "SpecieId", "Name", crop.SpecieId);
-            return View(crop);
+            return Redirect("/Crops");
+
         }
 
         // GET: Crops/Delete/5
@@ -131,13 +174,94 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        private List<System.Web.Mvc.SelectListItem> LoadRegions(long? reguionId = null, Crop crop = null)
         {
-            if (disposing)
+            RegionConfiguration rc = new RegionConfiguration();
+            List<Region> regionConfiguration = rc.GetAllRegions();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in regionConfiguration)
             {
-                db.Dispose();
+
+                bool isSelected = false;
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.RegionId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
             }
-            base.Dispose(disposing);
+
+            return result;
+        }
+
+        private List<System.Web.Mvc.SelectListItem> LoadStages(long? stageId = null, Crop crop = null, string field = null)
+        {
+            StageConfiguration rc = new StageConfiguration();
+            List<Stage> stageConfiguration = rc.GetAllStage();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+            long stageIdToCompare;
+
+            if (field=="MinStageToConsiderETinHBCalculationId")
+                stageIdToCompare = crop.MinStageToConsiderETinHBCalculationId;
+            else
+                stageIdToCompare = crop.StopIrrigationStageId;
+
+            foreach (var item in stageConfiguration)
+            {
+
+                
+                bool isSelected = false;
+                if (crop != null && stageId.HasValue)
+                {
+                    isSelected = (stageIdToCompare == stageId);
+                }
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.StageId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
+            }
+
+            return result;
+        }
+
+        [AcceptVerbs(HttpVerbs.Get)]
+        public JsonResult GetSpeciesByRegionId(string regionId)
+        {
+
+            Region region = db.Regions.Find(int.Parse(regionId));
+            SpecieConfiguration bc = new SpecieConfiguration();
+            var phyList = bc.GetSpecieListBy(region);
+
+            var phyData = phyList.Select(m => new SelectListItem()
+            {
+                Text = m.Name,
+                Value = m.SpecieId.ToString(),
+            });
+            return Json(phyData, JsonRequestBehavior.AllowGet);
+        }
+
+        [AcceptVerbs(HttpVerbs.Get)]
+        public JsonResult GetCropCoefficientsBySpecieId(string specieId)
+        {
+
+            Specie specie = db.Species.Find(int.Parse(specieId));
+            CropCoefficientConfiguration bc = new CropCoefficientConfiguration();
+            var phyList = bc.GetCropCoefficientListBy(specie);
+
+            var phyData = phyList.Select(m => new SelectListItem()
+            {
+                Text = m.Name,
+                Value = m.CropCoefficientId.ToString(),
+            });
+            return Json(phyData, JsonRequestBehavior.AllowGet);
         }
     }
 }

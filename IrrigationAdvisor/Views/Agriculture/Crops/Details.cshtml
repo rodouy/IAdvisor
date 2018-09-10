@@ -1,67 +1,57 @@
-﻿@model IrrigationAdvisor.Models.Agriculture.Crop
+﻿@model IrrigationAdvisor.ViewModels.Agriculture.CropViewModel
 
 @{
     ViewBag.Title = "Details";
-    Layout = "Agriculture";
+    
+
 }
 
-<h2>Details</h2>
+<script src="~/js/Home.js"></script>
+<h2>Detalle</h2>
+<h4>Cultivos</h4>
+<hr />
+<div class="horizontal">
+    <table id="mytable">
 
-<div>
-    <h4>Crop</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Region.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Region.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Specie.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Specie.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Density)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Density)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaxEvapotranspirationToIrrigate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaxEvapotranspirationToIrrigate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MinEvapotranspirationToIrrigate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MinEvapotranspirationToIrrigate)
-        </dd>
-
-    </dl>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.ShortName)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.ShortName)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.MaxEvapotranspirationToIrrigate)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.MaxEvapotranspirationToIrrigate)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.MinEvapotranspirationToIrrigate)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.MinEvapotranspirationToIrrigate)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.StopIrrigationStageId)</td>
+            <td id="myTdBody">@ViewBag.StopIrrigationStageName</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.MinStageToConsiderETinHBCalculation)</td>
+            <td id="myTdBody">@ViewBag.MinStageToConsiderETinHBCalculationName</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.RegionId)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Region.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.SpecieId)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Specie.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.CropCoefficientId)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.CropCoefficient.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead"></td>
+            <td id="myTdBody">@Html.ActionLink("   Editar   ", "Edit", new { id = Model.CropId }, new { @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+        </tr>
+    </table>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CropId }) |
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </p>
