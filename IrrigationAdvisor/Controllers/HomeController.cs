@@ -2204,7 +2204,8 @@ namespace IrrigationAdvisor.Controllers
             
             ChangePhenology(lCropIrrigationWeather, 
                             lDailyRecord,
-                            phenologicalStage);
+                            phenologicalStage,
+                            referenceDate);
 
             lCropIrrigationWeather.AdjustmentPhenology(stage, referenceDate);
             lIrrigationAdvisorContext.SaveChanges();
@@ -2221,7 +2222,8 @@ namespace IrrigationAdvisor.Controllers
         /// <param name="pPhenologicalStage"></param>
         private void ChangePhenology(CropIrrigationWeather pCropIrrigationWeather, 
                                      DailyRecord pDailyRecord, 
-                                     PhenologicalStage pPhenologicalStage)
+                                     PhenologicalStage pPhenologicalStage,
+                                     DateTime pDate)
         {
             string lSomeData = string.Format("pCropIrrigationWeatherId: {0}, pDailyRecordId: {1}, pPhenologicalStageId: {2}", 
                                                 pCropIrrigationWeather.CropIrrigationWeatherId, 
@@ -2244,7 +2246,7 @@ namespace IrrigationAdvisor.Controllers
                 var adjustment = new PhenologicalStageAdjustment()
                 {
                     CropId = pCropIrrigationWeather.CropId,
-                    DateOfChange = ManageSession.GetNavigationDate(),
+                    DateOfChange = pDate,
                     PhenologicalStageId = pPhenologicalStage.PhenologicalStageId,
                     StageId = pPhenologicalStage.StageId,
                     CropIrrigationWeatherId = pCropIrrigationWeather.CropIrrigationWeatherId
