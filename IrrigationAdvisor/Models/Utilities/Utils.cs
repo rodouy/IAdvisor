@@ -418,7 +418,12 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// Input for IniaWeather Service
             /// </summary>
-            IniaWeatherService
+            IniaWeatherService,
+
+            /// <summary>
+            /// Input for meteoblue
+            /// </summary>
+            Meteoblue
         }
 
         /// <summary>
