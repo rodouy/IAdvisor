@@ -1123,12 +1123,14 @@ $(document).ready(function () {
                selectedPheno.text($('#select-pheno-stage-' + ciw + ' :selected').text()); 
                phenoClock.hide();
                modalChangePheno.modal('hide');
-               hideLoading();
+               //hideLoading();
              
                $('#SaveChangePheno').prop('disabled', false);
 
                $('#save-pheno-span').show();
                $('#save-pheno-clock-1').hide();
+
+               location.href = "./home?farm=" + lstFarms.val();
            },
            error: function (data) {
                alert(data);

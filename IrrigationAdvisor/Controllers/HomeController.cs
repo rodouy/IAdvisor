@@ -2243,16 +2243,29 @@ namespace IrrigationAdvisor.Controllers
                 pCropIrrigationWeather.GrowingDegreeDaysModified = lGrowingDegreeDays;
                 pCropIrrigationWeather.PhenologicalStageId = pPhenologicalStage.PhenologicalStageId;*/
 
-                var adjustment = new PhenologicalStageAdjustment()
-                {
-                    CropId = pCropIrrigationWeather.CropId,
-                    DateOfChange = pDate,
-                    PhenologicalStageId = pPhenologicalStage.PhenologicalStageId,
-                    StageId = pPhenologicalStage.StageId,
-                    CropIrrigationWeatherId = pCropIrrigationWeather.CropIrrigationWeatherId
-                };
+                var exist = lIrrigationAdvisorContext.PhenologicalStageAdjustments
+                            .FirstOrDefault(n => n.CropId == pCropIrrigationWeather.CropId && 
+                                            n.CropIrrigationWeatherId == pCropIrrigationWeather.CropIrrigationWeatherId && 
+                                            n.DateOfChange == pDate);
 
-                lIrrigationAdvisorContext.PhenologicalStageAdjustments.Add(adjustment);
+                if (exist != null)
+                {
+                    exist.PhenologicalStageId = pPhenologicalStage.PhenologicalStageId;
+                    exist.StageId = pPhenologicalStage.StageId;
+                }
+                else
+                {
+                    var adjustment = new PhenologicalStageAdjustment()
+                    {
+                        CropId = pCropIrrigationWeather.CropId,
+                        DateOfChange = pDate,
+                        PhenologicalStageId = pPhenologicalStage.PhenologicalStageId,
+                        StageId = pPhenologicalStage.StageId,
+                        CropIrrigationWeatherId = pCropIrrigationWeather.CropIrrigationWeatherId
+                    };
+
+                    lIrrigationAdvisorContext.PhenologicalStageAdjustments.Add(adjustment);
+                }
 
                 lIrrigationAdvisorContext.SaveChanges();
             }
