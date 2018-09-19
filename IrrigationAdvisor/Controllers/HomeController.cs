@@ -1523,7 +1523,7 @@ namespace IrrigationAdvisor.Controllers
 
             return Content("Ok");
         }
-
+        
         /// <summary>
         /// Add Rain to Irrigatoin Unit by Date and Milimiters of water
         /// </summary>
@@ -2312,6 +2312,52 @@ namespace IrrigationAdvisor.Controllers
             }
 
             return lReturn;
+        }
+
+        /// <summary>
+        /// Change hydric balance percentage.
+        /// </summary>
+        /// <param name="pCropIrrigationWeatherId"></param>
+        /// <param name="pPercentage"></param>
+        /// <param name="pDate"></param>
+        /// <returns></returns>
+        [HttpGet()]
+        public ActionResult ChangeHydricBalancePercentage(long pCropIrrigationWeatherId, double pPercentage, DateTime pDate)
+        {
+            try
+            {
+                CropIrrigationWeatherConfiguration lCropIrrigationWeatherConfiguration = new CropIrrigationWeatherConfiguration();
+
+                var lContext = IrrigationAdvisorContext.Refresh();
+
+                var lCropIrrigationWeather = lCropIrrigationWeatherConfiguration
+                                             .GetCropIrrigationWeatherByIds(new List<long>() { pCropIrrigationWeatherId },
+                                             ManageSession.GetNavigationDate())
+                                             .First();
+
+                var lDailyRecords = lContext.DailyRecords
+                                   .Where(n => n.CropIrrigationWeatherId == pCropIrrigationWeatherId && n.DailyRecordDateTime >= pDate)
+                                   .ToList();
+
+                double currentBalance = lCropIrrigationWeather.GetPercentageOfHydricBalance();
+                double fieldCapacity = lCropIrrigationWeather.GetSoilFieldCapacity();
+
+                double newHydricBalance = (pPercentage * fieldCapacity) / 100;
+
+                lCropIrrigationWeather.HydricBalance = newHydricBalance;
+
+                foreach (var item in lDailyRecords)
+                {
+                    item.HydricBalance = newHydricBalance;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.ChangeHydricBalancePercentage.");
+                throw ex;
+            }
+
+            return Content("Ok");
         }
 
         #endregion

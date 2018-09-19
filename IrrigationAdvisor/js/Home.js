@@ -28,7 +28,8 @@ $(document).ready(function () {
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
-    var modalMoveIrrigation = $('#modal-move-irrigation')
+    var modalMoveIrrigation = $('#modal-move-irrigation');
+    var modalChangeHydricbalance = $('#modal-change-hydricbalance');
     var modalNoIrrigation = $('#modal-no-irrigation');
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
@@ -57,6 +58,8 @@ $(document).ready(function () {
     var selectedWaterInput = $('#selectedWaterInput');
     var cancelMoveIrrigation = $('#CancelMoveIrrigation');
     var isFertigation = $('#isFertigation');
+    var btnConfirmHydricBalance = $('#btn-confirm-change-hydric-balance');
+    var btnCancelChangeHydricBalance = $('#btn-cancel-change-hydric-balance');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -244,6 +247,7 @@ $(document).ready(function () {
         modalPheno.modal(initModal);
         modalNoIrrigation.modal(initModal);
         modalMoveIrrigation.modal(initModal);
+        modalChangeHydricbalance.modal(initModal);
         loadUserFarms();
         loadDates();
         if (modalLoadStatus) {
@@ -991,5 +995,41 @@ $(document).ready(function () {
 
     });
 
+    var openModalChangeHydricBalance = function (pCropIrrigationWeatherId) {
+        modalChangeHydricbalance.modal('show');
+    };
+
+    var changeHydricBalance = function (pCropIrrigationWeatherId, pDate, pPercentage) {
+
+
+        var pUrl = './ChangeHydricBalancePercentage?pCropIrrigationWeatherId=' + pCropIrrigationWeatherId +
+                '&pPercentage=' + pPercentage +
+                '&pDate=' + pDate;
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+                if (data == "Ok") {
+                    location.href = "./home?farm=" + lstFarms.val();
+                }
+                else {
+                    sendMail("Error al cambiar balance hidrico", data);
+                    console.log(data);
+                    hideLoading();
+                }
+            },
+            error: function (data) {
+                hideLoading();
+                sendMail("Error al cambiar balance hidrico", data);
+                console.log(data);
+            }
+        });
+
+    };
+
+    btnConfirmHydricBalance.click(function (e, f) {
+        changeHydricBalance()
+    });
 
 });
