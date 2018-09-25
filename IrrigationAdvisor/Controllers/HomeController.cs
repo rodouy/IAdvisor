@@ -1404,6 +1404,78 @@ namespace IrrigationAdvisor.Controllers
             return Content("Ok");
         }
 
+        public ActionResult AddIrrigationAndRain(WebApiIrrigationRainViewModel pIrrigationValueViewModel)
+        {
+            if (pIrrigationValueViewModel != null)
+            {
+                var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
+                var lIrrigationUnitConfiguration = new IrrigationUnitConfiguration();
+                var lCropIrrigationWeatherConfiguration = new CropIrrigationWeatherConfiguration();
+
+                var lIrrigationUnitsForIrrigationIds = pIrrigationValueViewModel.Irrigations.Select(n => n.IrrigationUnitId);
+                var lIrrigationUnitsForRainsIds = pIrrigationValueViewModel.Rains.Select(n => n.IrrigationUnitId);
+
+                var lIrrigationUnitsUnion = lIrrigationUnitsForIrrigationIds
+                                             .Concat(lIrrigationUnitsForRainsIds)
+                                             .Distinct()
+                                             .ToList();
+
+                var lIrrigationUnits = lIrrigationAdvisorContext.IrrigationUnits
+                                        .Where(iu => lIrrigationUnitsUnion.Contains(iu.IrrigationUnitId))
+                                        .ToList();
+
+                DateTime lReferenceDate = Utils.GetDateOfReference().Value;
+
+                var lCiws = lIrrigationUnitConfiguration
+                            .GetCropIrrigationWeatherListBy(lIrrigationUnitsUnion, lReferenceDate);
+
+                foreach (var item in pIrrigationValueViewModel.Irrigations)
+                {
+                    DateTime lDateResult = item.Date;
+                    
+                    var lIrrigationUnit = lIrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
+
+                    var lCropIrrigationWeatherList = lCiws.Where(n => n.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId).ToList();
+
+                    foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+                    {
+                        lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lDateResult, new Pair<double, Utils.WaterInputType>(item.Milimeters, Utils.WaterInputType.Irrigation),
+                                                                                false, Utils.NoIrrigationReason.Other, string.Empty);
+
+                        lIrrigationAdvisorContext.SaveChanges();
+
+                        //if (item.Milimeters >= 0)
+                        //{
+                        //    lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
+                        //    lIrrigationAdvisorContext.SaveChanges();
+                        //}
+
+                        lIrrigationAdvisorContext.SaveChanges();
+                    }
+                }
+
+                foreach (var item in pIrrigationValueViewModel.Rains)
+                {
+                    DateTime lDateResult = item.Date;
+
+                    var lIrrigationUnit = lIrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
+
+                    var lCropIrrigationWeatherList = lCiws.Where(n => n.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId).ToList();
+
+                    foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+                    {
+                        lCropIrrigationWeather.AddRainDataToList(lDateResult, item.Milimeters);
+                        lIrrigationAdvisorContext.SaveChanges();
+
+                        //lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
+                        //lIrrigationAdvisorContext.SaveChanges();
+                    }
+                }
+            }
+
+            return Content("Ok");
+        }
+
         /// <summary>
         /// Add Irrigation to Irrigatoin Unit by Date and Milimiters of water
         /// </summary>
