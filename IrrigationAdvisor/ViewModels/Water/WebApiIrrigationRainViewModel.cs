@@ -7,6 +7,7 @@ namespace IrrigationAdvisor.ViewModels.Water
 {
     public class WebApiIrrigationRainViewModel
     {
+        public string Application { get; set; }
         public List<IrrigationValueViewModel> Irrigations { get; set; }
         public List<IrrigationValueViewModel> Rains { get; set; }
 

@@ -1444,11 +1444,22 @@ namespace IrrigationAdvisor.Controllers
 
                         lIrrigationAdvisorContext.SaveChanges();
 
-                        //if (item.Milimeters >= 0)
-                        //{
-                        //    lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
-                        //    lIrrigationAdvisorContext.SaveChanges();
-                        //}
+                        if (item.Milimeters >= 0)
+                        {
+                            //lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
+
+                            var calculationByCropIrrigationWeather = new CalculationByCropIrrigationWeather()
+                            {
+                                Application = pIrrigationValueViewModel.Application,
+                                CreationDate = DateTime.Now,
+                                CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId,
+                                IsCompleted = false
+                            };
+
+                            lIrrigationAdvisorContext.CalculationByCropIrrigationWeathers.Add(calculationByCropIrrigationWeather);
+
+                            lIrrigationAdvisorContext.SaveChanges();
+                        }
 
                         lIrrigationAdvisorContext.SaveChanges();
                     }
@@ -1467,8 +1478,18 @@ namespace IrrigationAdvisor.Controllers
                         lCropIrrigationWeather.AddRainDataToList(lDateResult, item.Milimeters);
                         lIrrigationAdvisorContext.SaveChanges();
 
+                        var calculationByCropIrrigationWeather = new CalculationByCropIrrigationWeather()
+                        {
+                            Application = pIrrigationValueViewModel.Application,
+                            CreationDate = DateTime.Now,
+                            CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId,
+                            IsCompleted = false
+                        };
+
+                        lIrrigationAdvisorContext.CalculationByCropIrrigationWeathers.Add(calculationByCropIrrigationWeather);
+
                         //lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
-                        //lIrrigationAdvisorContext.SaveChanges();
+                        lIrrigationAdvisorContext.SaveChanges();
                     }
                 }
             }
