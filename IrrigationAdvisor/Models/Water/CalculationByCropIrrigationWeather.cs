@@ -16,6 +16,7 @@ namespace IrrigationAdvisor.Models.Water
         public long CropIrrigationWeatherId { get; set; }
         public DateTime CreationDate { get; set; }
         public bool IsCompleted { get; set; }
+        public bool IsExecuting { get; set; }
         public string Application { get; set; }
         public string Details { get; set; }
         public virtual CropIrrigationWeather CropIrrigationWeather { get; set; }

@@ -409,6 +409,10 @@
     <Compile Include="Migrations\201809250201035_CalculationByCropIrrigationWeather2.Designer.cs">
       <DependentUpon>201809250201035_CalculationByCropIrrigationWeather2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809252303178_addExecutingColumn.cs" />
+    <Compile Include="Migrations\201809252303178_addExecutingColumn.Designer.cs">
+      <DependentUpon>201809252303178_addExecutingColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -1078,6 +1082,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809250201035_CalculationByCropIrrigationWeather2.resx">
       <DependentUpon>201809250201035_CalculationByCropIrrigationWeather2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809252303178_addExecutingColumn.resx">
+      <DependentUpon>201809252303178_addExecutingColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -74,7 +74,43 @@ namespace IrrigationAdvisor.DBContext.Irrigation
 
             return lReturn;
         }
-        
+
+        /// <summary>
+        /// Get List of CropIrrigationWeather with all related data
+        /// </summary>
+        /// <param name="pCropIrrigationWeatherIds"></param>
+        /// <returns></returns>
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherListBy(
+                                            List<long> pCropIrrigationWeatherIds)
+        {
+               return db.CropIrrigationWeathers
+                    .IncludeOptimized(ciw => ciw.Crop)
+                    .IncludeOptimized(ciw => ciw.Crop.Region)
+                    .IncludeOptimized(ciw => ciw.Crop.Region.EffectiveRainList)
+                    .IncludeOptimized(ciw => ciw.Crop.Region.TemperatureDataList)
+                    .IncludeOptimized(ciw => ciw.Crop.PhenologicalStageList)
+                    .IncludeOptimized(ciw => ciw.Crop.CropCoefficient)
+                    .IncludeOptimized(ciw => ciw.Crop.CropCoefficient.KCList)
+                    .IncludeOptimized(ciw => ciw.Soil)
+                    .IncludeOptimized(ciw => ciw.Soil.HorizonList)
+                    .IncludeOptimized(ciw => ciw.CropInformationByDate)
+                    .IncludeOptimized(ciw => ciw.MainWeatherStation)
+                    .IncludeOptimized(ciw => ciw.MainWeatherStation.WeatherDataList)
+                    .IncludeOptimized(ciw => ciw.AlternativeWeatherStation)
+                    .IncludeOptimized(ciw => ciw.AlternativeWeatherStation.WeatherDataList)
+                    .IncludeOptimized(ciw => ciw.RainList)
+                    .IncludeOptimized(ciw => ciw.IrrigationList)
+                    .IncludeOptimized(ciw => ciw.EvapotranspirationCropList)
+                    .IncludeOptimized(ciw => ciw.DailyRecordList)
+                    .IncludeOptimized(ciw => ciw.DailyRecordList.Select(dr => dr.MainWeatherData))
+                    .IncludeOptimized(ciw => ciw.DailyRecordList.Select(dr => dr.AlternativeWeatherData))
+                    .IncludeOptimized(ciw => ciw.DailyRecordList.Select(dr => dr.PhenologicalStage))
+                    .IncludeOptimized(ciw => ciw.DailyRecordList.Select(dr => dr.Rain))
+                    .IncludeOptimized(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
+                    .IncludeOptimized(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
+                    .Where(ciw => pCropIrrigationWeatherIds.Contains(ciw.CropIrrigationWeatherId)).ToList();
+        }
+
         /// <summary>
         /// Get List of CropIrrigationWeather with all related data
         /// </summary>
