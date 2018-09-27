@@ -1446,7 +1446,7 @@ namespace IrrigationAdvisor.Controllers
 
                         if (item.Milimeters >= 0)
                         {
-                            lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
+                            //lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
 
                             var calculationByCropIrrigationWeather = new CalculationByCropIrrigationWeather()
                             {
