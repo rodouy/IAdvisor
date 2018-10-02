@@ -18,14 +18,15 @@ namespace IrrigationAdvisor.ExecutePendingCalculations
 
         static void Main(string[] args)
         {
+            string config = System.Configuration.ConfigurationManager.AppSettings["Status"];
+
             try
             {
                 using (Entities entities = new Entities())
                 {
                     bool isExecuting = entities.CalculationByCropIrrigationWeathers
                                        .Any(n => n.IsExecuting);
-
-                    string config = System.Configuration.ConfigurationManager.AppSettings["Status"];
+                  
                     DateTime referenceDate = entities.Status.First(n => n.Name == config).DateOfReference;
 
                     if (!isExecuting)
@@ -50,8 +51,13 @@ namespace IrrigationAdvisor.ExecutePendingCalculations
 
                         var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
 
-                        foreach (var item in cropIrrigationWeathers)
+                        if (cropIrrigationWeathers.Any())
                         {
+                            Utils.SetStatusAsMaintenaince(config);
+                        }
+
+                        foreach (var item in cropIrrigationWeathers)
+                        {                          
                             var executionProcess = entities.CalculationByCropIrrigationWeathers
                                                    .Where(n => n.CropIrrigationWeatherId == item.CropIrrigationWeatherId)
                                                    .ToList();
@@ -84,13 +90,17 @@ namespace IrrigationAdvisor.ExecutePendingCalculations
                     else
                     {
                         logger.Log(LogLevel.Info, "No se puede comenzar un nuevo procesamiento ya que hay un procesamiento en ejecución.");
-                    }
+                    }                  
                 }
             }
             catch (Exception ex)
             {
                 logger.Log(LogLevel.Error, ex);
-            }
+            }     
+            finally
+            {
+                Utils.SetStatusAsOnline(config);
+            }      
         }
     }
 }
