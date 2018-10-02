@@ -383,6 +383,10 @@
     <Compile Include="Migrations\201807180148155_ciwInPhenologicalStageAdjustment.Designer.cs">
       <DependentUpon>201807180148155_ciwInPhenologicalStageAdjustment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810020038289_prueba32.cs" />
+    <Compile Include="Migrations\201810020038289_prueba32.Designer.cs">
+      <DependentUpon>201810020038289_prueba32.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -1029,6 +1033,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807180148155_ciwInPhenologicalStageAdjustment.resx">
       <DependentUpon>201807180148155_ciwInPhenologicalStageAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810020038289_prueba32.resx">
+      <DependentUpon>201810020038289_prueba32.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
