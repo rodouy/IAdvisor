@@ -240,7 +240,7 @@
                  {
                    <div class="row">
                     <!-- map-->
-                    <div class="col-md-6 hidden-xs">s
+                    <div class="col-md-6 hidden-xs">
                         <div id="embed-map-canvas">
                             <iframe  frameborder="0" style="width: 100%; height: 472px; margin-top: 10px"
                                     src="http://maps.google.com/maps?z=13&t=h&q=loc:@Model.GetDefaultFarmLatitude(),+@Model.GetDefaultFarmLongitude()&output=embed"></iframe>
@@ -693,7 +693,42 @@
                         </div>
                     </div>
                     <!-- end modal mover riego-->
+            </div>
+
+                <!-- Modal cambiar balance hidrico-->
+                <div id="modal-change-hydricbalance" class="modal fade copy" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="header">
+                                <h2><span class="glyphicon"></span>&nbsp;Cambiar balance hidrico</h2>
+                            </div>
+                            <div class="copy col-md-12">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            Fecha:
+                                            <input type="date" id="date-change-hydricBalance" class="form-control" value='@Utils.GetDateTimeForClientScripts(DateTime.Now)' />
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cf footer" style="display:-webkit-inline-box;float:right">
+                                    <p>
+                                        <button class="btn  btn-style-2" id="CancelChangeHydricBalance">
+                                            Cancelar
+                                        </button>
+                                    </p>
+                                    <button id="SaveChangeHydricBalance" class="btn  btn-style-2" style="margin-left: 10px;">
+                                        Guardar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- end modal cambiar balance hidrico.-->
                 </div>
+            
             
         </div>
                 </div>

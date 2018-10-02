@@ -94,7 +94,15 @@
         @if (gridPivotItem.IsAdministrator)
         {
             <td>@gridPivotItem.CropCoefficient</td>
-            <td>@gridPivotItem.HydricBalance</td>
+            <td>
+                <span id="lbl-hydricbalance-@gridPivotItem.CropIrrigationWeatherId">@gridPivotItem.HydricBalance</span>
+                <span>
+                    <input type="text" id="txt-hydricbalance-@gridPivotItem.CropIrrigationWeatherId" value="@gridPivotItem.HydricBalance" style="display:none" />
+                    <button id="btn-confirm-change-hydric-balance">Confirmar</button>
+                    <button id="btn-cancel-change-hydric-balance">Cancelar</button>
+                </span>
+               
+            </td>
         }
         
         @foreach (var detail in @gridPivotItem.ListGridPivotDetailHome)

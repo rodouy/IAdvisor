@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using IrrigationAdvisor.Models.Weather;
 
 namespace IrrigationAdvisor.ViewModels.Localization
 {
@@ -25,27 +27,56 @@ namespace IrrigationAdvisor.ViewModels.Localization
 
         public long FarmId { get; set; }
 
-        public String Name { get; set; }
-
+        [Display(Name = "Nombre")]
+         public String Name { get; set; }
+        
+        [Display(Name = "Empresa")]
         public String Company { get; set; }
 
+        [Display(Name = "Dirección")]
         public String Address { get; set; }
 
+        [Display(Name = "Teléfono")]
         public String Phone { get; set; }
 
         public long PositionId { get; set; }
-        
-        public int Has { get; set;}
 
+        [Display(Name = "Hectareas")]
+        public int Has { get; set; }
+
+        [Display(Name = "Estación")]
         public long WeatherStationId { get; set; }
 
-        public WeatherStationViewModel WeatherStationViewModel { get; set; }
+        [Display(Name = "Estacíon")]
+        public List<System.Web.Mvc.SelectListItem> WeatherStations { get; set; }
 
         public List<BombViewModel> BombViewModelList { get; set; }
 
         public List<IrrigationUnitViewModel> IrrigationUnitViewModelList { get; set; }
 
         public List<UserViewModel> UserViewModelList { get; set; }
+
+        public List<System.Web.Mvc.SelectListItem> Cities{ get; set; }
+
+        public City City { get; set; }
+
+        public WeatherStation WeatherStation { get; set; }
+
+        [Display(Name = "Ciudad")]
+        public long CityId { get; set; }
+
+        [Display(Name = "Mostrar balance hídrico")]
+        public bool IrrigationUnitReportShowAvailableWater { get; set; }
+
+        [Display(Name = "Mostrar ETC")]
+        public bool IrrigationUnitReportShowEvapotranspiration { get; set; }
+
+        [Display(Name = "Mostrar temperatura")]
+        public bool  IrrigationUnitReportShowTemperature { get; set; }
+
+        public List<System.Web.Mvc.SelectListItem> Countries { get; set; }
+        
+
 
         #endregion
 
@@ -61,10 +92,15 @@ namespace IrrigationAdvisor.ViewModels.Localization
             this.PositionId = pFarm.PositionId;
             this.Has = pFarm.Has;
             this.WeatherStationId = pFarm.WeatherStationId;
-
+            this.CityId = pFarm.CityId;
             this.BombViewModelList = this.GetBombListBy(pFarm.BombList);
             this.IrrigationUnitViewModelList = this.GetIrrigationUnitListBy(pFarm.IrrigationUnitList);
             this.UserViewModelList = this.GetUserListBy(pFarm.UserFarmList);
+            this.IrrigationUnitReportShowAvailableWater = pFarm.IrrigationUnitReportShowAvailableWater;
+            this.IrrigationUnitReportShowEvapotranspiration = pFarm.IrrigationUnitReportShowEvapotranspiration;
+            this.IrrigationUnitReportShowTemperature = pFarm.IrrigationUnitReportShowTemperature;
+            this.City = pFarm.City;
+            this.WeatherStation = pFarm.WeatherStation;
 
         }
 

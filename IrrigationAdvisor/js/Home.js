@@ -29,6 +29,7 @@ $(document).ready(function () {
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
     var modalMoveIrrigation = $('#modal-move-irrigation');
+    var modalChangeHydricbalance = $('#modal-change-hydricbalance');
     var modalChangePheno = $('#modal-change-pheno');
     var datePhenoChange = $('#datePhenoChange');
     var cancelChangePheno = $('#cancelChangePheno');
@@ -61,6 +62,8 @@ $(document).ready(function () {
     var selectedWaterInput = $('#selectedWaterInput');
     var cancelMoveIrrigation = $('#CancelMoveIrrigation');
     var isFertigation = $('#isFertigation');
+    var btnConfirmHydricBalance = $('#btn-confirm-change-hydric-balance');
+    var btnCancelChangeHydricBalance = $('#btn-cancel-change-hydric-balance');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -248,6 +251,7 @@ $(document).ready(function () {
         modalPheno.modal(initModal);
         modalNoIrrigation.modal(initModal);
         modalMoveIrrigation.modal(initModal);
+        modalChangeHydricbalance.modal(initModal);
         modalChangePheno.modal(initModal);
         loadUserFarms();
         loadDates();
@@ -996,6 +1000,38 @@ $(document).ready(function () {
 
     });
 
+    var openModalChangeHydricBalance = function (pCropIrrigationWeatherId) {
+        modalChangeHydricbalance.modal('show');
+    };
+
+    var changeHydricBalance = function (pCropIrrigationWeatherId, pDate, pPercentage) {
+
+
+        var pUrl = './ChangeHydricBalancePercentage?pCropIrrigationWeatherId=' + pCropIrrigationWeatherId +
+                '&pPercentage=' + pPercentage +
+                '&pDate=' + pDate;
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+                if (data == "Ok") {
+                    location.href = "./home?farm=" + lstFarms.val();
+                }
+                else {
+                    sendMail("Error al cambiar balance hidrico", data);
+                    console.log(data);
+                    hideLoading();
+                }
+            },
+            error: function (data) {
+                hideLoading();
+                sendMail("Error al cambiar balance hidrico", data);
+                console.log(data);
+            }
+        });
+    });
+
     $('.td-pheno').dblclick(function (e, f) {
 
         var ciw = e.currentTarget.children[0].value;
@@ -1044,6 +1080,11 @@ $(document).ready(function () {
         });
     });
 
+    };
+
+    btnConfirmHydricBalance.click(function (e, f) {
+        changeHydricBalance()
+    });
     $('.pheno-ok').click(function (e, f) {
 
         var ciw = e.currentTarget.parentElement.children[0].value;

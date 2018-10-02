@@ -1,0 +1,165 @@
+﻿@model IrrigationAdvisor.ViewModels.Irrigation.IrrigationUnitViewModel
+
+@{
+    
+    ViewBag.Title = "Edit";
+    //Layout = "Irrigation";
+}
+<script js>
+    $(document).ready(function () {
+
+        $('#IrrigationType').on('change', function () {
+            showHiddenIrrigationTypeFields();
+        });
+        function showHiddenIrrigationTypeFields(){
+            var value = $('#IrrigationType').val();
+            var IrrigationTypeDrip = document.getElementById("IrrigationTypeDrip");
+            var IrrigationTypePivot = document.getElementById("IrrigationTypePivot");
+            var IrrigationTypeDrip1 = document.getElementById("IrrigationTypeDrip1");
+            $('#Radius').val('');
+            $('#Width').val('');
+            $('#Length').val('');
+
+            if (value == "Pivot") {
+                IrrigationTypePivot.style.display = "block"
+                IrrigationTypeDrip.style.display = "none"
+                IrrigationTypeDrip1.style.display = "none"
+            }
+            else {
+                IrrigationTypePivot.style.display = "none"
+                IrrigationTypeDrip.style.display = "block"
+                IrrigationTypeDrip1.style.display = "block"
+            }
+        };
+
+        window.onload = function () {
+            showHiddenIrrigationTypeFields();
+        };
+    });
+</script>
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Drip</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.IrrigationUnitId)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nombre</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ShortName, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="ShortNameError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Eficiencia</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IrrigationEfficiency, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="IrrigationEfficiencyError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Superficie</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Surface, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="IrrigationEfficiencyError" class="red-color"></span>
+            </div>
+        </div>        <div class="form-group">
+            <label class="control-label col-md-2">Riego predeterminado</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PredeterminatedIrrigationQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="PredeterminatedIrrigationQuantityError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Visible</label>
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Show)
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Establecimiento</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FarmId, Model.Farms, "-- Selecione establecimiento --", new { @class = "form-control", @onchange = "onChangeFarm(this.value)" })
+                <span id="FarmIdError" class="red-color"></span>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Latitud</label>
+            <div class="col-md-10">
+               @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="LatitudeError" class="red-color"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Longitud</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="LongitudeError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Bomba</label>
+            <div class="col-md-10">
+                <select id="BombId" name="BombId" class="form-control">
+                    <option value="">-- Seleccione la bomba --</option>
+
+                </select>
+                <span id="BombIdError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Tipo de riego</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IrrigationType, Model.IrrigationTypes, "-- Selecione tipo de riego --", new { @class = "form-control", @onchange = "onChangeFarm(this.value)" })
+
+                <span id="IrrigationTypeError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group" id="IrrigationTypePivot">
+            <label class="control-label col-md-2">Radio</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Radius, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="RadiusError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group" id="IrrigationTypeDrip" style="display:none">
+            <label class="control-label col-md-2">Ancho</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="WidthError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group" id="IrrigationTypeDrip1" style="display:none">
+            <label class="control-label col-md-2">Largo</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Length, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="LengthError" class="red-color"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -11,10 +11,10 @@ namespace IrrigationAdvisor.Tests.Models.Agriculture
         [TestMethod]
         public void soilTestSantaLucia() 
         {
-            Horizon lHorizonA = new Horizon(1, "A", 0, "A", 14, 19, 53, 28, 4.4, 0, 1.2);
-            Horizon lHorizonAB = new Horizon(2, "AB", 1, "AB", 23, 18, 45, 37, 3, 0, 1.3);
-            Horizon lHorizonB = new Horizon(3, "B", 2, "B", 20, 19, 37, 44, 2, 0, 1.4);
-            Horizon lHorizonB1 = new Horizon(3, "A", 2, "B", 20, 19, 37, 44, 2, 0, 1.4);
+            Horizon lHorizonA = new Horizon(1, "A", 0, "A", 14, 19, 53, 28, 4.4, 0, 1.2,1);
+            Horizon lHorizonAB = new Horizon(2, "AB", 1, "AB", 23, 18, 45, 37, 3, 0, 1.3,1);
+            Horizon lHorizonB = new Horizon(3, "B", 2, "B", 20, 19, 37, 44, 2, 0, 1.4,1);
+            Horizon lHorizonB1 = new Horizon(3, "A", 2, "B", 20, 19, 37, 44, 2, 0, 1.4,1);
 
             Soil lSoil = new Soil();
             lSoil.Name = "Suelo Pivot 2";

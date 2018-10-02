@@ -1,49 +1,43 @@
-﻿@model IrrigationAdvisor.Models.Localization.Country
+﻿@model IrrigationAdvisor.ViewModels.Localization.CountryViewModel
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "Localization";
+   // Layout = "Localization";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Confirma la eliminación?</h3>
 <div>
-    <h4>Country</h4>
+    <h4>País</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LanguageId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LanguageId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CapitalId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CapitalId)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
+        <div class="horizontal">
+            <div class="horizontal">
+                <table id="mytable">
+                    <tr>
+                        <td id="myTdHead">@Html.DisplayNameFor(model => model.Name)</td>
+                        <td id="myTdBody">@Html.DisplayFor(model => model.Name)</td>
+                    </tr>
+                    <tr>
+                        <td id="myTdHead">@Html.DisplayNameFor(model => model.LanguageId)</td>
+                        <td id="myTdBody">@Html.DisplayFor(model => model.Language.Name)</td>
+                    </tr>
+                    <tr>
+                        <td id="myTdHead">@Html.DisplayNameFor(model => model.CapitalId)</td>
+                        <td id="myTdBody">@Html.DisplayFor(model => model.CapitalName)</td>
+                    </tr>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                    <tr>
+                        <td id="myTdHead"></td>
+                        <td id="myTdBody"><input type="submit" value="&nbsp;&nbsp;&nbsp;Borrar&nbsp;&nbsp;&nbsp;" class="btn btn-default" />&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
+
     }
 </div>

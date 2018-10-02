@@ -216,6 +216,7 @@ namespace IrrigationAdvisor.DBContext
         public virtual DbSet<WeatherInformation> WeatherInformations { get; set; }
 
         public virtual DbSet<WeatherStation> WeatherStations { get; set; }
+        public virtual DbSet<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
 
         #endif
         #endregion
@@ -338,6 +339,7 @@ namespace IrrigationAdvisor.DBContext
             modelBuilder.Configurations.Add(new WeatherDataConfiguration());
             modelBuilder.Configurations.Add(new WeatherInformationConfiguration());
             modelBuilder.Configurations.Add(new WeatherStationConfiguration());
+            modelBuilder.Configurations.Add(new MeteoblueWeatherDataConfiguration());
 
             #endif
             #endregion

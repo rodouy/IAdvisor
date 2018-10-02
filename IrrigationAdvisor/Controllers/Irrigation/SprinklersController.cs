@@ -10,6 +10,10 @@ using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Irrigation;
 
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.DBContext.Localization;
+using IrrigationAdvisor.ViewModels.Irrigation;
+using IrrigationAdvisor.Models.Localization;
+using IrrigationAdvisor.Models.Utilities;
 
 namespace IrrigationAdvisor.Controllers.Irrigation
 {
@@ -30,12 +34,31 @@ namespace IrrigationAdvisor.Controllers.Irrigation
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprinkler sprinkler = db.Sprinklers.Find(id);
-            if (sprinkler == null)
+            Sprinkler irrigationUnit = db.Sprinklers.Find(id);
+            if (irrigationUnit == null)
             {
                 return HttpNotFound();
             }
-            return View(sprinkler);
+
+            SprinklerViewModel vm = new SprinklerViewModel();
+            vm.IrrigationUnitId = irrigationUnit.IrrigationUnitId;
+            vm.ShortName = irrigationUnit.ShortName;
+            vm.Name = irrigationUnit.Name;
+            vm.Bomb = new BombViewModel(irrigationUnit.Bomb);
+            vm.Farm = irrigationUnit.Farm;
+            vm.Position = irrigationUnit.Position;
+            vm.Latitude = irrigationUnit.Position.Latitude;
+            vm.Longitude = irrigationUnit.Position.Longitude;
+            vm.IrrigationEfficiency = irrigationUnit.IrrigationEfficiency;
+            vm.IrrigationType = irrigationUnit.IrrigationType;
+            vm.PredeterminatedIrrigationQuantity = irrigationUnit.PredeterminatedIrrigationQuantity;
+            vm.Surface = irrigationUnit.Surface;
+            vm.Show = irrigationUnit.Show;
+            vm.Width = irrigationUnit.Width;
+            vm.Length = irrigationUnit.Length;
+
+            return View("~/Views/Irrigation/Sprinklers/Details.cshtml", vm);
+ 
         }
 
         // GET: Sprinklers/Create
@@ -49,16 +72,47 @@ namespace IrrigationAdvisor.Controllers.Irrigation
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IrrigationUnitId,Name,IrrigationType,IrrigationEfficiency,Surface,Width,Length")] Sprinkler sprinkler)
+        public ActionResult Create([Bind(Include = "IrrigationUnitId,ShortName,IrrigationType,IrrigationEfficiency,PredeterminatedIrrigationQuantity, Surface,FarmId, BombId, Latitude,Longitude, Show, Width,Length")] SprinklerViewModel sprinklerViewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Sprinklers.Add(sprinkler);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                Sprinkler irrigationUnit = new Sprinkler();
 
-            return View(sprinkler);
+                Farm farm = db.Farms.Find(sprinklerViewModel.FarmId);
+
+                long positionId = GetPositionId(sprinklerViewModel.Latitude, sprinklerViewModel.Longitude);
+                Position positionIU = new Position();
+                //Not exist position
+                if (positionId == 0)
+                {
+                    positionIU.Latitude = sprinklerViewModel.Position.Latitude;
+                    positionIU.Longitude = sprinklerViewModel.Longitude;
+                    positionIU.Name = sprinklerViewModel.Name + " - Unidad de riego";
+                    irrigationUnit.Position = positionIU;
+                }
+                else
+                {
+                    irrigationUnit.PositionId = positionId;
+                }
+
+                irrigationUnit.ShortName = sprinklerViewModel.ShortName;
+                irrigationUnit.Name = farm.Name + " - " + sprinklerViewModel.ShortName;
+                irrigationUnit.BombId = sprinklerViewModel.BombId;
+                irrigationUnit.FarmId = sprinklerViewModel.FarmId;
+                irrigationUnit.IrrigationEfficiency = sprinklerViewModel.IrrigationEfficiency;
+                irrigationUnit.PredeterminatedIrrigationQuantity = sprinklerViewModel.PredeterminatedIrrigationQuantity;
+                irrigationUnit.Surface = sprinklerViewModel.Surface;
+                irrigationUnit.Show = sprinklerViewModel.Show;
+                irrigationUnit.Width = sprinklerViewModel.Width;
+                irrigationUnit.Length = sprinklerViewModel.Length;
+                irrigationUnit.IrrigationType = Utils.IrrigationUnitType.Sprinkler;
+                db.Sprinklers.Add(irrigationUnit);
+                db.SaveChanges();
+
+            }
+            return Redirect("/IrrigationUnit");
+            //var lList = db.IrrigationUnits.Include(f => f.Farm);
+            //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
         }
 
         // GET: Sprinklers/Edit/5
@@ -68,30 +122,76 @@ namespace IrrigationAdvisor.Controllers.Irrigation
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprinkler sprinkler = db.Sprinklers.Find(id);
-            if (sprinkler == null)
+
+            Sprinkler irrigationUnit = db.Sprinklers.Find(id);
+            if (irrigationUnit == null)
             {
                 return HttpNotFound();
             }
-            return View(sprinkler);
+            SprinklerViewModel vm = new SprinklerViewModel();
+
+            vm.IrrigationUnitId = irrigationUnit.IrrigationUnitId;
+            vm.ShortName = irrigationUnit.ShortName;
+            vm.Name = irrigationUnit.Name;
+            vm.BombId = irrigationUnit.BombId;
+            vm.FarmId = irrigationUnit.FarmId;
+            vm.Latitude = irrigationUnit.Position.Latitude;
+            vm.Longitude = irrigationUnit.Position.Longitude;
+            vm.IrrigationEfficiency = irrigationUnit.IrrigationEfficiency;
+            vm.IrrigationType = irrigationUnit.IrrigationType;
+            vm.PredeterminatedIrrigationQuantity = irrigationUnit.PredeterminatedIrrigationQuantity;
+            vm.Surface = irrigationUnit.Surface;
+            vm.Show = irrigationUnit.Show;
+            vm.Width = irrigationUnit.Width;
+            vm.Length = irrigationUnit.Length;
+            vm.Farms = this.LoadFarm();
+            return View("~/Views/Irrigation/Sprinklers/Edit.cshtml", vm);
+
+
         }
 
-        // POST: Sprinklers/Edit/5
+ 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IrrigationUnitId,Name,IrrigationType,IrrigationEfficiency,Surface,Width,Length")] Sprinkler sprinkler)
+        public ActionResult Edit([Bind(Include = "IrrigationUnitId,ShortName,IrrigationType,IrrigationEfficiency,PredeterminatedIrrigationQuantity, Surface,FarmId, BombId, Latitude, Longitude, Show, Width,Length")] SprinklerViewModel sprinkleViewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sprinkler).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(sprinkler);
-        }
+                Sprinkler lSprinkler = db.Sprinklers.Find(sprinkleViewModel.IrrigationUnitId);
 
+                long positionId = GetPositionId(sprinkleViewModel.Latitude, sprinkleViewModel.Longitude);
+                Position lPosition = new Position();
+                //Not exist position
+                if (positionId == 0)
+                {
+                    lPosition.Latitude = sprinkleViewModel.Latitude;
+                    lPosition.Longitude = sprinkleViewModel.Longitude;
+                    lPosition.Name = sprinkleViewModel.Farm.Name + " - " + sprinkleViewModel.Name + " - Unidad de riego";
+                    lSprinkler.Position = lPosition;
+                }
+                else
+                {
+                    lSprinkler.PositionId = positionId;
+                }
+                lSprinkler.ShortName = sprinkleViewModel.ShortName;
+                lSprinkler.BombId = sprinkleViewModel.BombId;
+                lSprinkler.FarmId = sprinkleViewModel.FarmId;
+                lSprinkler.IrrigationEfficiency = sprinkleViewModel.IrrigationEfficiency;
+                lSprinkler.PredeterminatedIrrigationQuantity = sprinkleViewModel.PredeterminatedIrrigationQuantity;
+                lSprinkler.Surface = sprinkleViewModel.Surface;
+                lSprinkler.Show = sprinkleViewModel.Show;
+                lSprinkler.Width = sprinkleViewModel.Width;
+                lSprinkler.Length = sprinkleViewModel.Length;
+                // lSprinkler.IrrigationType = Utils.IrrigationUnitType.Sprinkler;
+                db.Entry(lSprinkler).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            return Redirect("/IrrigationUnit");
+            //var lList = db.IrrigationUnits.Include(f => f.Farm);
+            //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
+        }
         // GET: Sprinklers/Delete/5
         public ActionResult Delete(long? id)
         {
@@ -99,12 +199,30 @@ namespace IrrigationAdvisor.Controllers.Irrigation
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprinkler sprinkler = db.Sprinklers.Find(id);
-            if (sprinkler == null)
+            Sprinkler irrigationUnit = db.Sprinklers.Find(id);
+            if (irrigationUnit == null)
             {
                 return HttpNotFound();
             }
-            return View(sprinkler);
+
+            SprinklerViewModel vm = new SprinklerViewModel();
+            vm.IrrigationUnitId = irrigationUnit.IrrigationUnitId;
+            vm.ShortName = irrigationUnit.ShortName;
+            vm.Name = irrigationUnit.Name;
+            vm.Bomb = new BombViewModel(irrigationUnit.Bomb);
+            vm.Farm = irrigationUnit.Farm;
+            vm.Position = irrigationUnit.Position;
+            vm.Latitude = irrigationUnit.Position.Latitude;
+            vm.Longitude = irrigationUnit.Position.Longitude;
+            vm.IrrigationEfficiency = irrigationUnit.IrrigationEfficiency;
+            vm.IrrigationType = irrigationUnit.IrrigationType;
+            vm.PredeterminatedIrrigationQuantity = irrigationUnit.PredeterminatedIrrigationQuantity;
+            vm.Surface = irrigationUnit.Surface;
+            vm.Show = irrigationUnit.Show;
+            vm.Width = irrigationUnit.Width;
+            vm.Length = irrigationUnit.Length;
+
+            return View("~/Views/Irrigation/Sprinklers/Delete.cshtml", vm);
         }
 
         // POST: Sprinklers/Delete/5
@@ -112,19 +230,43 @@ namespace IrrigationAdvisor.Controllers.Irrigation
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Sprinkler sprinkler = db.Sprinklers.Find(id);
-            db.Sprinklers.Remove(sprinkler);
+            Sprinkler lSprinkler = db.Sprinklers.Find(id);
+            lSprinkler.Show = false;
+            db.Entry(lSprinkler).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("/IrrigationUnit");
+            //var lList = db.IrrigationUnits.Include(f => f.Farm);
+            //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
         }
 
-        protected override void Dispose(bool disposing)
+        private long GetPositionId(double pLatitude, double pLongitude)
         {
-            if (disposing)
+            PositionConfiguration pc;
+            pc = new PositionConfiguration();
+            return pc.GetPositionIdByLatitudLongitud(pLatitude, pLongitude);
+        }
+        private List<System.Web.Mvc.SelectListItem> LoadFarm(long? farmId = null, IrrigationUnit irrigationUnit = null)
+        {
+            FarmConfiguration rc = new FarmConfiguration();
+            List<Farm> farmConfiguration = rc.GetAllFarms();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in farmConfiguration)
             {
-                db.Dispose();
+
+                bool isSelected = false;
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.FarmId.ToString(),
+                    Text = item.Name,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
             }
-            base.Dispose(disposing);
+
+            return result;
         }
     }
 }

@@ -5,12 +5,15 @@ using System.Web;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel.DataAnnotations.Schema;
 using IrrigationAdvisor;
+using IrrigationAdvisor.Models.Language;
 
 namespace IrrigationAdvisor.DBContext.Language
 {
     public class LanguageConfiguration:
         EntityTypeConfiguration<Models.Language.Language>
     {
+         private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
         public LanguageConfiguration()
         {
             ToTable("Language");
@@ -23,5 +26,10 @@ namespace IrrigationAdvisor.DBContext.Language
                 .HasMaxLength(50);
             
         }
+         public List<IrrigationAdvisor.Models.Language.Language> GetAllLanguages()
+        {
+            return db.Languages.ToList();
+        }
     }
+    
 }

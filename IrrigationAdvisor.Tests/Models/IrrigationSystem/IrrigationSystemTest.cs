@@ -737,23 +737,23 @@ namespace IrrigationAdvisor.Models.IrrigationSystem
             testSoil_Pivot_5 = testIrrigationSystem.AddSoil("Suelo Pivot 5", "Suelo Pivot 5", "Suelo Pivot 5", testPositionSantaLucia.PositionId, Utils.MIN_DATETIME, testSoil_Pivot_5_DepthLimit, 0);
 
             // horizon_1A = new Horizon(1,"Horizonte A - Suelo 1", 1, "A",)
-            Horizon horizon_2A = new Horizon(1, "A", 0, "A", 14, 19, 53, 28, 4.4, 0, 1.2);
-            Horizon horizon_2AB = new Horizon(2, "AB", 1, "AB", 23, 18, 45, 37, 3, 0, 1.3);
-            Horizon horizon_2B = new Horizon(3, "B", 2, "B", 20, 19, 37, 44, 2, 0, 1.4);
+            Horizon horizon_2A = new Horizon(1, "A", 0, "A", 14, 19, 53, 28, 4.4, 0, 1.2,1);
+            Horizon horizon_2AB = new Horizon(2, "AB", 1, "AB", 23, 18, 45, 37, 3, 0, 1.3, 1);
+            Horizon horizon_2B = new Horizon(3, "B", 2, "B", 20, 19, 37, 44, 2, 0, 1.4, 1);
 
             testSoil_Pivot_2.HorizonList.Add(horizon_2A);
             testSoil_Pivot_2.HorizonList.Add(horizon_2AB);
             testSoil_Pivot_2.HorizonList.Add(horizon_2B);
 
-            Horizon horizon_3_4A = new Horizon(1, "A", 0, "A", 15, 33, 40, 26, 4.4, 0, 1.3);
-            Horizon horizon_3_4B = new Horizon(2, "B", 1, "B", 20, 20, 28, 52, 4.4, 0, 1.4);
+            Horizon horizon_3_4A = new Horizon(1, "A", 0, "A", 15, 33, 40, 26, 4.4, 0, 1.3, 1);
+            Horizon horizon_3_4B = new Horizon(2, "B", 1, "B", 20, 20, 28, 52, 4.4, 0, 1.4, 1);
 
             testSoil_Pivot_3_4.HorizonList.Add(horizon_3_4A);
             testSoil_Pivot_3_4.HorizonList.Add(horizon_3_4B);
 
-            Horizon horizon_5A = new Horizon(1, "A", 0, "A",14, 19, 53, 28, 4.4, 0, 1.2);
-            Horizon horizon_5AB = new Horizon(2, "AB", 1, "AB", 23, 18, 45, 37, 3, 0, 1.3);
-            Horizon horizon_5B = new Horizon(3, "B", 2, "B", 20, 19, 37, 44, 2, 0, 1.4);
+            Horizon horizon_5A = new Horizon(1, "A", 0, "A", 14, 19, 53, 28, 4.4, 0, 1.2, 1);
+            Horizon horizon_5AB = new Horizon(2, "AB", 1, "AB", 23, 18, 45, 37, 3, 0, 1.3, 1);
+            Horizon horizon_5B = new Horizon(3, "B", 2, "B", 20, 19, 37, 44, 2, 0, 1.4,1);
 
             testSoil_Pivot_5.HorizonList.Add(horizon_5A);
             testSoil_Pivot_5.HorizonList.Add(horizon_5AB);
