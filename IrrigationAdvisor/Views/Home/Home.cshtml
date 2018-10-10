@@ -708,6 +708,8 @@
                                         <div class="col-md-12">
                                             Fecha:
                                             <input type="date" id="date-change-hydricBalance" class="form-control" value='@Utils.GetDateTimeForClientScripts(DateTime.Now)' />
+                                            <input type="hidden" id="ciw-selected-hidro" />
+                                            <input type="hidden" id="stage-selected-hidro" />
                                             <br />
                                         </div>
                                     </div>
@@ -719,7 +721,8 @@
                                         </button>
                                     </p>
                                     <button id="SaveChangeHydricBalance" class="btn  btn-style-2" style="margin-left: 10px;">
-                                        Guardar
+                                        <span class="glyphicon glyphicon-time" id="save-hidro-clock-1" style="display: none;"></span>
+                                        <span id="save-hidro-span">Guardar</span>
                                     </button>
                                 </div>
                             </div>

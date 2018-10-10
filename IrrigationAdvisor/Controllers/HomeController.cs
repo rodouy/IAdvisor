@@ -2118,7 +2118,7 @@ namespace IrrigationAdvisor.Controllers
                                                                 lCropIrrigationWeather.Crop.ShortName,
                                                                 lSowingDate,
                                                                 lPhenologicalStageToday,
-                                                                lHydricBalancePercentage.ToString() + " %",
+                                                                lHydricBalancePercentage.ToString(),
                                                                 lCropCoefficient,
                                                                 lHomeViewModel.IsUserAdministrator,
                                                                 lETcList,
@@ -2432,12 +2432,14 @@ namespace IrrigationAdvisor.Controllers
                 CropIrrigationWeatherConfiguration lCropIrrigationWeatherConfiguration = new CropIrrigationWeatherConfiguration();
 
                 var lContext = IrrigationAdvisorContext.Refresh();
+                
+                var referenceDate = ManageSession.GetNavigationDate();
 
                 var lCropIrrigationWeather = lCropIrrigationWeatherConfiguration
                                              .GetCropIrrigationWeatherByIds(new List<long>() { pCropIrrigationWeatherId },
-                                             ManageSession.GetNavigationDate())
+                                             referenceDate)
                                              .First();
-
+                
                 var lDailyRecords = lContext.DailyRecords
                                    .Where(n => n.CropIrrigationWeatherId == pCropIrrigationWeatherId && n.DailyRecordDateTime >= pDate)
                                    .ToList();
@@ -2452,7 +2454,36 @@ namespace IrrigationAdvisor.Controllers
                 foreach (var item in lDailyRecords)
                 {
                     item.HydricBalance = newHydricBalance;
+                    item.PercentageOfHydricBalance = pPercentage;
                 }
+
+                var existAdjustment = lContext.HydricBalanceAdjustments
+                                      .FirstOrDefault(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId && 
+                                                      n.Date == pDate);
+
+                if (existAdjustment == null)
+                {
+                    var lAdjustment = new HidricBalanceAdjustment()
+                    {
+                        CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId,
+                        Date = pDate,
+                        HydricBalance = newHydricBalance,
+                        Percentage = pPercentage
+                    };
+
+                    lContext.HydricBalanceAdjustments.Add(lAdjustment);
+                }
+                else
+                {
+                    existAdjustment.HydricBalance = newHydricBalance;
+                    existAdjustment.Percentage = pPercentage;
+                }
+
+                lContext.SaveChanges();
+
+                lCropIrrigationWeather.AddInformationToIrrigationUnits(pDate.AddDays(1), pDate.AddDays(2), lContext);
+
+                lContext.SaveChanges();
             }
             catch (Exception ex)
             {

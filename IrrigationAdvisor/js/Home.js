@@ -950,7 +950,6 @@ $(document).ready(function () {
 
     var addNoIrrigation = function (pDateFrom, pDateTo, pCropIrrigationWeatherList, pReasonId, pObservations) {
 
-
         var pUrl = './AddNoIrrigation?pDateFrom=' + pDateFrom +
                 '&pDateTo=' + pDateTo +
                 '&pCropIrrigationWeatherList=' + pCropIrrigationWeatherList +
@@ -1006,7 +1005,6 @@ $(document).ready(function () {
 
     var changeHydricBalance = function (pCropIrrigationWeatherId, pDate, pPercentage) {
 
-
         var pUrl = './ChangeHydricBalancePercentage?pCropIrrigationWeatherId=' + pCropIrrigationWeatherId +
                 '&pPercentage=' + pPercentage +
                 '&pDate=' + pDate;
@@ -1030,7 +1028,7 @@ $(document).ready(function () {
                 console.log(data);
             }
         });
-    });
+    };
 
     $('.td-pheno').dblclick(function (e, f) {
 
@@ -1080,11 +1078,26 @@ $(document).ready(function () {
         });
     });
 
-    };
+    $('.td-hidro').dblclick(function (e, f) {
+
+        var ciw = e.currentTarget.children[0].value;
+
+        var ok = $('#hidro-ok-' + ciw);
+        var cancel = $('#hidro-cancel-' + ciw);
+        var phenoClock = $('#hidro-clock-' + ciw);
+        var hidricBalance = $('#txt-hydricbalance-' + ciw);
+        var lblHidricBalance = $('#lbl-hydricbalance-' + ciw);
+
+        ok.show();
+        hidricBalance.show();
+        cancel.show();
+        lblHidricBalance.hide();
+    });
 
     btnConfirmHydricBalance.click(function (e, f) {
         changeHydricBalance()
     });
+
     $('.pheno-ok').click(function (e, f) {
 
         var ciw = e.currentTarget.parentElement.children[0].value;
@@ -1095,12 +1108,24 @@ $(document).ready(function () {
         $('#ciw-selected-pheno').val(ciw);
 
         modalChangePheno.modal('show');
+    });
 
-        /*var ciw = e.currentTarget.parentElement.children[0].value;
+    $('.hidro-ok').click(function (e, f) {
 
-        var selected = $('#select-pheno-stage-' + ciw).val();
+        var ciw = e.currentTarget.parentElement.parentElement.children[0].value;
 
-        var pUrl = './ChangePhenology?pCropIrrigationWeatherId=' + ciw + '&pStageId=' + selected;
+        $('#ciw-selected-hidro').val(ciw);
+
+        modalChangeHydricbalance.modal('show');
+    });
+
+    $('#SaveChangePheno').click(function (e, f) {
+
+        var selected = $('#stage-selected-pheno').val();
+        var ciw = $('#ciw-selected-pheno').val();
+
+        var date = $('#datePhenoChange').val();
+        var pUrl = './ChangePhenology?pCropIrrigationWeatherId=' + ciw + '&pStageId=' + selected + '&pDate=' + date;
 
         var comboStages = $('#select-pheno-stage-' + ciw);
         var ok = $('#pheno-ok-' + ciw);
@@ -1108,51 +1133,76 @@ $(document).ready(function () {
         var selectedPheno = $('#selected-pheno-name-' + ciw);
         var phenoClock = $('#pheno-clock-' + ciw);
 
+
         comboStages.hide();
         ok.hide();
         cancel.hide();
         phenoClock.show();
 
+        $('#SaveChangePheno').prop('disabled', true);
+
+        $('#save-pheno-span').hide();
+        $('#save-pheno-clock-1').show();
+
+        showLoading();
         $.ajax({
             type: 'GET',
             url: pUrl,
             success: function (data) {
 
                 selectedPheno.show();
-                selectedPheno.text($('#select-pheno-stage-' + ciw + ' :selected').text()); 
+                selectedPheno.text($('#select-pheno-stage-' + ciw + ' :selected').text());
                 phenoClock.hide();
+                modalChangePheno.modal('hide');
+                //hideLoading();
+
+                $('#SaveChangePheno').prop('disabled', false);
+
+                $('#save-pheno-span').show();
+                $('#save-pheno-clock-1').hide();
+
+                location.href = "./home?farm=" + lstFarms.val();
             },
             error: function (data) {
                 alert(data);
                 sendMail("Error al cambiar fenologia", data);
                 console.log(data);
+                modalChangePheno.modal('hide');
+
+                $('#save-pheno-span').show();
+                $('#save-pheno-clock-1').hide();
+
+                hideLoading();
+
+                $('#SaveChangePheno').prop('disabled', false);
             }
-        });*/
+        });
+
+
     });
 
-    $('#SaveChangePheno').click(function (e, f) {
+    $('#SaveChangeHydricBalance').click(function (e, f) {
      
-        var selected = $('#stage-selected-pheno').val();
-        var ciw = $('#ciw-selected-pheno').val();
+        var ciw = $('#ciw-selected-hidro').val();
 
-        var date = $('#datePhenoChange').val();
-        var pUrl = './ChangePhenology?pCropIrrigationWeatherId=' + ciw + '&pStageId=' + selected + '&pDate=' + date;
+        var date = $('#date-change-hydricBalance').val();
 
-       var comboStages = $('#select-pheno-stage-' + ciw);
-       var ok = $('#pheno-ok-' + ciw);
-       var cancel = $('#pheno-cancel-' + ciw);
-       var selectedPheno = $('#selected-pheno-name-' + ciw);
-       var phenoClock = $('#pheno-clock-' + ciw);
+        var percentage = $('#txt-hydricbalance-' + ciw).val();
+        var pUrl = './ChangeHydricBalancePercentage?pCropIrrigationWeatherId=' + ciw + '&pPercentage=' + percentage + '&pDate=' + date;
 
-       comboStages.hide();
+       var ok = $('#hidro-ok-' + ciw);
+       var cancel = $('#hidro-cancel-' + ciw);
+
+       var phenoClock = $('#hidro-clock-' + ciw);
+
        ok.hide();
        cancel.hide();
        phenoClock.show();
 
-       $('#SaveChangePheno').prop('disabled', true);
+       $('#SaveChangeHydricBalance').prop('disabled', true);
 
-       $('#save-pheno-span').hide();
-       $('#save-pheno-clock-1').show();
+       $('#save-hidro-span').hide();
+       $('#save-hidro-clock-1').show();
 
        showLoading();
        $.ajax({
@@ -1160,37 +1210,48 @@ $(document).ready(function () {
            url: pUrl,
            success: function (data) {
 
-               selectedPheno.show();
-               selectedPheno.text($('#select-pheno-stage-' + ciw + ' :selected').text()); 
                phenoClock.hide();
-               modalChangePheno.modal('hide');
+               modalChangeHydricbalance.modal('hide');
                //hideLoading();
              
-               $('#SaveChangePheno').prop('disabled', false);
+               $('#SaveChangeHydricBalance').prop('disabled', false);
 
-               $('#save-pheno-span').show();
-               $('#save-pheno-clock-1').hide();
+               $('#save-hidro-span').show();
+               $('#save-hidro-clock-1').hide();
 
                location.href = "./home?farm=" + lstFarms.val();
            },
            error: function (data) {
                alert(data);
-               sendMail("Error al cambiar fenologia", data);
+               sendMail("Error al cambiar balance hidrico", data);
                console.log(data);
-               modalChangePheno.modal('hide');
+               modalChangeHydricbalance.modal('hide');
 
-               $('#save-pheno-span').show();
-               $('#save-pheno-clock-1').hide();
+               $('#save-hidro-span').show();
+               $('#save-hidro-clock-1').hide();
 
                hideLoading();
 
-               $('#SaveChangePheno').prop('disabled', false);
+               $('#SaveChangeHydricBalance').prop('disabled', false);
            }
-       });
-
-       
+       });      
     });
 
+    $('.hidro-cancel').click(function (e, f) {
+        var ciw = e.currentTarget.parentElement.parentElement.children[0].value;
+    
+        var ok = $('#hidro-ok-' + ciw);
+        var cancel = $('#hidro-cancel-' + ciw);
+
+        var hidricBalance = $('#txt-hydricbalance-' + ciw);
+        var lblHidricBalance = $('#lbl-hydricbalance-' + ciw);
+
+        ok.hide();
+        cancel.hide();
+        hidricBalance.hide();
+        lblHidricBalance.show();
+
+    });
    
     $('.pheno-cancel').click(function (e, f) {
         var ciw = e.currentTarget.parentElement.children[0].value;

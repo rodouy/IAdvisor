@@ -94,12 +94,16 @@
         @if (gridPivotItem.IsAdministrator)
         {
             <td>@gridPivotItem.CropCoefficient</td>
-            <td>
-                <span id="lbl-hydricbalance-@gridPivotItem.CropIrrigationWeatherId">@gridPivotItem.HydricBalance</span>
+            <td class="td-hidro" style="cursor:pointer">
+                <!-- No change childrens. It will broke the javascript.-->
+                <input type="hidden" value="@gridPivotItem.CropIrrigationWeatherId" class="ciw-hidro-@gridPivotItem.CropIrrigationWeatherId" />
+                <span id="lbl-hydricbalance-@gridPivotItem.CropIrrigationWeatherId">@gridPivotItem.HydricBalance %</span> 
                 <span>
                     <input type="text" id="txt-hydricbalance-@gridPivotItem.CropIrrigationWeatherId" value="@gridPivotItem.HydricBalance" style="display:none" />
-                    <button id="btn-confirm-change-hydric-balance">Confirmar</button>
-                    <button id="btn-cancel-change-hydric-balance">Cancelar</button>
+
+                    <span class="glyphicon glyphicon-ok hidro-ok" style="display:none; color:forestgreen; cursor:pointer" id="hidro-ok-@gridPivotItem.CropIrrigationWeatherId"></span>
+                    <span class="glyphicon glyphicon-remove hidro-cancel" style="display:none; color:red; cursor:pointer" id="hidro-cancel-@gridPivotItem.CropIrrigationWeatherId"></span>
+                    <span class="glyphicon glyphicon-time" id="hidro-clock-@gridPivotItem.CropIrrigationWeatherId" style="display:none"></span>
                 </span>
                
             </td>

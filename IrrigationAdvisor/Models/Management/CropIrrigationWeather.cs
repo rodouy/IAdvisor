@@ -2462,6 +2462,28 @@ namespace IrrigationAdvisor.Models.Management
 
         #endregion
 
+        #region HydricBalanceAdjustments
+
+        /// <summary>
+        /// Calculate hydric balance adjustments.
+        /// </summary>
+        /// <param name="pHydricBalanceAdjustmens"></param>
+        /// <param name="pFromDate"></param>
+        /// <param name="pToDate"></param>
+        public void ApplyHydricBalanceAdjustments(List<HidricBalanceAdjustment> pHydricBalanceAdjustmens, DateTime pFromDate)
+        {
+            var dailyRecord = this.dailyRecordList.FirstOrDefault(n => pFromDate == n.DailyRecordDateTime);
+
+            var exists = pHydricBalanceAdjustmens.FirstOrDefault(n => n.CropIrrigationWeatherId == this.cropIrrigationWeatherId && n.Date == dailyRecord.DailyRecordDateTime);
+
+            if (exists != null && dailyRecord != null)
+            {
+                dailyRecord.HydricBalance = exists.HydricBalance;
+                dailyRecord.PercentageOfHydricBalance = exists.Percentage;
+            }        
+        }
+
+        #endregion
         #endregion
 
         #region Public Methods
@@ -3171,7 +3193,7 @@ namespace IrrigationAdvisor.Models.Management
                                                             this.HarvestDate);
                         lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
 
-                        RemoveIrrigationList(lFromDate.Date, pIrrigationAdvisorContext);
+                        //RemoveIrrigationList(lFromDate.Date, pIrrigationAdvisorContext);
 
                         for (int i = 0; i < lDiffDays; i++)
                         {
@@ -3193,11 +3215,18 @@ namespace IrrigationAdvisor.Models.Management
                                     break;
                                 }
                             }
+                            
                             //when arrives to final Stage, do not add new irrigation
                             if (this.PhenologicalStage.Stage.StageId == this.Crop.StopIrrigationStageId)
                             {
                                 //System.Diagnostics.Debugger.Break();
                             }
+
+                            var hydricBalancesAdjustments = pIrrigationAdvisorContext
+                                                            .HydricBalanceAdjustments
+                                                            .Where(n => n.CropIrrigationWeatherId == this.cropIrrigationWeatherId).ToList();
+
+                            ApplyHydricBalanceAdjustments(hydricBalancesAdjustments, lDateOfRecord);
                         }
                     }
                 }
