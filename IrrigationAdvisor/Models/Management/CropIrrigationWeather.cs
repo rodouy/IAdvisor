@@ -3193,7 +3193,7 @@ namespace IrrigationAdvisor.Models.Management
                                                             this.HarvestDate);
                         lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
 
-                        //RemoveIrrigationList(lFromDate.Date, pIrrigationAdvisorContext);
+                        RemoveIrrigationList(lFromDate.Date, pIrrigationAdvisorContext);
 
                         for (int i = 0; i < lDiffDays; i++)
                         {
