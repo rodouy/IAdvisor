@@ -132,8 +132,7 @@ namespace IrrigationAdvisorConsole
                 {
                     AgricultureInsert.InsertSpecies_2016();
                 }
-                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                 {
                     AgricultureInsert.InsertSpecies_2017();
                 }
@@ -144,7 +143,7 @@ namespace IrrigationAdvisorConsole
                 }
                 else
                 {
-                    AgricultureInsert.InsertSpecies_2017();
+                    AgricultureInsert.InsertSpecies_2018();
                 }
                 AgricultureInsert.UpdateCountryRegionWithSpeciesSpeciesCycles();
                 Console.WriteLine("  - InsertStages");

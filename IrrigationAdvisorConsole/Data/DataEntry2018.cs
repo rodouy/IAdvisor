@@ -37,9 +37,9 @@ namespace IrrigationAdvisorConsole.Data
         public static double BaseTemperature_CornNorth_2018 = 8;
         public static double StressTemperature_CornNorth_2018 = 32;
 
-        public static double BaseTemperature_SoyaSouth_2018 = 10;
+        public static double BaseTemperature_SoyaSouth_2018 = 8;
         public static double StressTemperature_SoyaSouth_2018 = 34;
-        public static double BaseTemperature_SoyaNorth_2018 = 10;
+        public static double BaseTemperature_SoyaNorth_2018 = 8;
         public static double StressTemperature_SoyaNorth_2018 = 34;
 
         public static double BaseTemperature_OatSouth_2018 = 8;

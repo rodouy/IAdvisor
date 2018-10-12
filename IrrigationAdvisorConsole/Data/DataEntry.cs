@@ -27,14 +27,14 @@ namespace IrrigationAdvisorConsole.Data
         #region Config Data Crops 2019
 
         #region Specie
-        public static double BaseTemperature_CornSouth_2019 = 10;
+        public static double BaseTemperature_CornSouth_2019 = 8;
         public static double StressTemperature_CornSouth_2019 = 32;
-        public static double BaseTemperature_CornNorth_2019 = 10;
+        public static double BaseTemperature_CornNorth_2019 = 8;
         public static double StressTemperature_CornNorth_2019 = 32;
 
-        public static double BaseTemperature_SoyaSouth_2019 = 10;
+        public static double BaseTemperature_SoyaSouth_2019 = 8;
         public static double StressTemperature_SoyaSouth_2019 = 34;
-        public static double BaseTemperature_SoyaNorth_2019 = 10;
+        public static double BaseTemperature_SoyaNorth_2019 = 8;
         public static double StressTemperature_SoyaNorth_2019 = 34;
 
         public static double BaseTemperature_OatSouth_2019 = 8;
