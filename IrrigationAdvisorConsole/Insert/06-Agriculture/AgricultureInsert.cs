@@ -2613,7 +2613,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V7") select stage).FirstOrDefault();
                 var lPSCornV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 405, MaxDegree = 459.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval =55};
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V8") select stage).FirstOrDefault();
-                var lPSCornV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 519.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval =70};
+                var lPSCornV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 519.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval =60};
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V9") select stage).FirstOrDefault();
                 var lPSCornV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 520, MaxDegree = 589.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval =70};
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V10") select stage).FirstOrDefault();
@@ -2649,7 +2649,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R5") select stage).FirstOrDefault();
                 var lPSCornR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1600, MaxDegree = 1899.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval =300};
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R6") select stage).FirstOrDefault();
-                var lPSCornR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1900, MaxDegree = 2500, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval =1600};
+                var lPSCornR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1900, MaxDegree = 3500, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval =1600};
 
                 #endregion
 
@@ -2813,6 +2813,130 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             };
         }
 
+        //AX 7918
+        public static void InsertPhenologicalStagesCornSouthShort_2018()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region Corn South Short
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieCornSouthShort) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V0") select stage).FirstOrDefault();
+                var lPSCornV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " VE") select stage).FirstOrDefault();
+                var lPSCornVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 114.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 55 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V1") select stage).FirstOrDefault();
+                var lPSCornV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 115, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 20 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V2") select stage).FirstOrDefault();
+                var lPSCornV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 179.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V3") select stage).FirstOrDefault();
+                var lPSCornV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 180, MaxDegree = 229.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V4") select stage).FirstOrDefault();
+                var lPSCornV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 230, MaxDegree = 289.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V5") select stage).FirstOrDefault();
+                var lPSCornV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 349.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V6") select stage).FirstOrDefault();
+                var lPSCornV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 350, MaxDegree = 404.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 55 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V7") select stage).FirstOrDefault();
+                var lPSCornV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 405, MaxDegree = 459.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 55 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V8") select stage).FirstOrDefault();
+                var lPSCornV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 519.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V9") select stage).FirstOrDefault();
+                var lPSCornV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 520, MaxDegree = 589.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 70 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V10") select stage).FirstOrDefault();
+                var lPSCornV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 590, MaxDegree = 649.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V11") select stage).FirstOrDefault();
+                var lPSCornV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 650, MaxDegree = 689.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V12") select stage).FirstOrDefault();
+                var lPSCornV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 690, MaxDegree = 714.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V13") select stage).FirstOrDefault();
+                var lPSCornV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 715, MaxDegree = 749.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V14") select stage).FirstOrDefault();
+                var lPSCornV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 750, MaxDegree = 784.999, Coefficient = 1.10, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V15") select stage).FirstOrDefault();
+                var lPSCornV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 785, MaxDegree = 914.999, Coefficient = 1.10, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V16") select stage).FirstOrDefault();
+                var lPSCornV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.10, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 50 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V17") select stage).FirstOrDefault();
+                var lPSCornV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.10, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 50 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " VT") select stage).FirstOrDefault();
+                var lPSCornVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 915, MaxDegree = 1059.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 145 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R1") select stage).FirstOrDefault();
+                var lPSCornR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1060, MaxDegree = 1119.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R2") select stage).FirstOrDefault();
+                var lPSCornR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1220, MaxDegree = 1359.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 140 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R3") select stage).FirstOrDefault();
+                var lPSCornR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1360, MaxDegree = 1499.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 140 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R4") select stage).FirstOrDefault();
+                var lPSCornR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 1599.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R5") select stage).FirstOrDefault();
+                var lPSCornR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1600, MaxDegree = 1899.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 300 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R6") select stage).FirstOrDefault();
+                var lPSCornR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1900, MaxDegree = 2499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 600 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R7") select stage).FirstOrDefault();
+                var lPSCornR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3999.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1500 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R8") select stage).FirstOrDefault();
+                var lPSCornR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 4000, MaxDegree = 6500, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 2500 };
+
+                #endregion
+
+                #region Add to Context - Corn
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSCornV0);
+                context.PhenologicalStages.Add(lPSCornVe);
+                context.PhenologicalStages.Add(lPSCornV1);
+                context.PhenologicalStages.Add(lPSCornV2);
+                context.PhenologicalStages.Add(lPSCornV3);
+                context.PhenologicalStages.Add(lPSCornV4);
+                context.PhenologicalStages.Add(lPSCornV5);
+                context.PhenologicalStages.Add(lPSCornV6);
+                context.PhenologicalStages.Add(lPSCornV7);
+                context.PhenologicalStages.Add(lPSCornV8);
+                context.PhenologicalStages.Add(lPSCornV9);
+                context.PhenologicalStages.Add(lPSCornV10);
+                context.PhenologicalStages.Add(lPSCornV11);
+                context.PhenologicalStages.Add(lPSCornV12);
+                context.PhenologicalStages.Add(lPSCornV13);
+                context.PhenologicalStages.Add(lPSCornV14);
+                context.PhenologicalStages.Add(lPSCornV15);
+                context.PhenologicalStages.Add(lPSCornV16);
+                context.PhenologicalStages.Add(lPSCornV17);
+                context.PhenologicalStages.Add(lPSCornVt);
+                context.PhenologicalStages.Add(lPSCornR1);
+                context.PhenologicalStages.Add(lPSCornR2);
+                context.PhenologicalStages.Add(lPSCornR3);
+                context.PhenologicalStages.Add(lPSCornR4);
+                context.PhenologicalStages.Add(lPSCornR5);
+                context.PhenologicalStages.Add(lPSCornR6);
+                context.PhenologicalStages.Add(lPSCornR7);
+                context.PhenologicalStages.Add(lPSCornR8);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
         public static void InsertPhenologicalStagesCornSouthMedium()
         {
             #region Base
@@ -2927,6 +3051,130 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.PhenologicalStages.Add(lPSCornR5);
                 context.PhenologicalStages.Add(lPSCornR6);
                 context.PhenologicalStages.Add(lPSCornR7);
+                context.SaveChanges();
+                #endregion
+            };
+        }
+
+        //AX 7822
+        public static void InsertPhenologicalStagesCornSouthMedium_2018()
+        {
+            #region Base
+            var lBase = new PhenologicalStage
+            {
+                SpecieId = 0,
+                StageId = 0,
+                MinDegree = 0,
+                MaxDegree = 0,
+                Coefficient = 0,
+                RootDepth = 0,
+                HydricBalanceDepth = 0,
+            };
+            #endregion
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+
+                #region Corn Medium Short
+                Specie lSpecie = null;
+                Stage lStage = null;
+                lSpecie = (from specie in context.Species where specie.Name.Contains(Utils.NameSpecieCornSouthMedium) select specie).FirstOrDefault();
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V0") select stage).FirstOrDefault();
+                var lPSCornV0 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 59.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " VE") select stage).FirstOrDefault();
+                var lPSCornVe = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 60, MaxDegree = 114.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 55 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V1") select stage).FirstOrDefault();
+                var lPSCornV1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 115, MaxDegree = 134.999, Coefficient = 0.35, RootDepth = 5, HydricBalanceDepth = 15, PhenologicalStageIsUsed = true, DegreesDaysInterval = 20 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V2") select stage).FirstOrDefault();
+                var lPSCornV2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 135, MaxDegree = 179.999, Coefficient = 0.35, RootDepth = 10, HydricBalanceDepth = 20, PhenologicalStageIsUsed = true, DegreesDaysInterval = 45 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V3") select stage).FirstOrDefault();
+                var lPSCornV3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 180, MaxDegree = 229.999, Coefficient = 0.38, RootDepth = 15, HydricBalanceDepth = 25, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V4") select stage).FirstOrDefault();
+                var lPSCornV4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 230, MaxDegree = 289.999, Coefficient = 0.40, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V5") select stage).FirstOrDefault();
+                var lPSCornV5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 290, MaxDegree = 349.999, Coefficient = 0.45, RootDepth = 20, HydricBalanceDepth = 30, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V6") select stage).FirstOrDefault();
+                var lPSCornV6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 350, MaxDegree = 404.999, Coefficient = 0.50, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 55 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V7") select stage).FirstOrDefault();
+                var lPSCornV7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 405, MaxDegree = 459.999, Coefficient = 0.60, RootDepth = 25, HydricBalanceDepth = 35, PhenologicalStageIsUsed = true, DegreesDaysInterval = 55 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V8") select stage).FirstOrDefault();
+                var lPSCornV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 460, MaxDegree = 519.999, Coefficient = 0.70, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V9") select stage).FirstOrDefault();
+                var lPSCornV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 520, MaxDegree = 589.999, Coefficient = 0.80, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 70 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V10") select stage).FirstOrDefault();
+                var lPSCornV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 590, MaxDegree = 649.999, Coefficient = 0.90, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 60 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V11") select stage).FirstOrDefault();
+                var lPSCornV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 650, MaxDegree = 689.999, Coefficient = 0.95, RootDepth = 37, HydricBalanceDepth = 42, PhenologicalStageIsUsed = true, DegreesDaysInterval = 40 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V12") select stage).FirstOrDefault();
+                var lPSCornV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 690, MaxDegree = 714.999, Coefficient = 1.00, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V13") select stage).FirstOrDefault();
+                var lPSCornV13 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 715, MaxDegree = 749.999, Coefficient = 1.05, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 35 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V14") select stage).FirstOrDefault();
+                var lPSCornV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 750, MaxDegree = 774.999, Coefficient = 1.10, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V15") select stage).FirstOrDefault();
+                var lPSCornV15 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 775, MaxDegree = 889.999, Coefficient = 1.10, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 15 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V16") select stage).FirstOrDefault();
+                var lPSCornV16 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.10, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " V17") select stage).FirstOrDefault();
+                var lPSCornV17 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 1.10, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 25 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " VT") select stage).FirstOrDefault();
+                var lPSCornVt = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 890, MaxDegree = 1049.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160 };
+
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R1") select stage).FirstOrDefault();
+                var lPSCornR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1050, MaxDegree = 1199.999, Coefficient = 1.15, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R2") select stage).FirstOrDefault();
+                var lPSCornR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1200, MaxDegree = 1349.999, Coefficient = 1.05, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R3") select stage).FirstOrDefault();
+                var lPSCornR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1350, MaxDegree = 1499.999, Coefficient = 0.90, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 150 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R4") select stage).FirstOrDefault();
+                var lPSCornR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1500, MaxDegree = 1599.999, Coefficient = 0.80, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 100 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R5") select stage).FirstOrDefault();
+                var lPSCornR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1600, MaxDegree = 1899.999, Coefficient = 0.70, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 300 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R6") select stage).FirstOrDefault();
+                var lPSCornR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1900, MaxDegree = 2499.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 600 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R7") select stage).FirstOrDefault();
+                var lPSCornR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2500, MaxDegree = 3999.999, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1500 };
+                lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesCorn + " R8") select stage).FirstOrDefault();
+                var lPSCornR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 4000, MaxDegree = 6500, Coefficient = 0.65, RootDepth = 45, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 2500 };
+
+                #endregion
+
+                #region Add to Context - Corn
+                //context.PhenologicalStages.Add(lBase);
+                context.PhenologicalStages.Add(lPSCornV0);
+                context.PhenologicalStages.Add(lPSCornVe);
+                context.PhenologicalStages.Add(lPSCornV1);
+                context.PhenologicalStages.Add(lPSCornV2);
+                context.PhenologicalStages.Add(lPSCornV3);
+                context.PhenologicalStages.Add(lPSCornV4);
+                context.PhenologicalStages.Add(lPSCornV5);
+                context.PhenologicalStages.Add(lPSCornV6);
+                context.PhenologicalStages.Add(lPSCornV7);
+                context.PhenologicalStages.Add(lPSCornV8);
+                context.PhenologicalStages.Add(lPSCornV9);
+                context.PhenologicalStages.Add(lPSCornV10);
+                context.PhenologicalStages.Add(lPSCornV11);
+                context.PhenologicalStages.Add(lPSCornV12);
+                context.PhenologicalStages.Add(lPSCornV13);
+                context.PhenologicalStages.Add(lPSCornV14);
+                context.PhenologicalStages.Add(lPSCornV15);
+                context.PhenologicalStages.Add(lPSCornV16);
+                context.PhenologicalStages.Add(lPSCornV17);
+                context.PhenologicalStages.Add(lPSCornVt);
+                context.PhenologicalStages.Add(lPSCornR1);
+                context.PhenologicalStages.Add(lPSCornR2);
+                context.PhenologicalStages.Add(lPSCornR3);
+                context.PhenologicalStages.Add(lPSCornR4);
+                context.PhenologicalStages.Add(lPSCornR5);
+                context.PhenologicalStages.Add(lPSCornR6);
+                context.PhenologicalStages.Add(lPSCornR7);
+                context.PhenologicalStages.Add(lPSCornR8);
                 context.SaveChanges();
                 #endregion
             };
