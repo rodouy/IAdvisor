@@ -2480,6 +2480,7 @@ namespace IrrigationAdvisor.Models.Management
             {
                 dailyRecord.HydricBalance = exists.HydricBalance;
                 dailyRecord.PercentageOfHydricBalance = exists.Percentage;
+                this.hydricBalance = exists.HydricBalance;
             }        
         }
 

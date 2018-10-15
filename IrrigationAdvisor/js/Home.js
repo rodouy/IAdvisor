@@ -1133,35 +1133,41 @@ $(document).ready(function () {
         var selectedPheno = $('#selected-pheno-name-' + ciw);
         var phenoClock = $('#pheno-clock-' + ciw);
 
-
         comboStages.hide();
         ok.hide();
         cancel.hide();
-        phenoClock.show();
 
         $('#SaveChangePheno').prop('disabled', true);
 
         $('#save-pheno-span').hide();
-        $('#save-pheno-clock-1').show();
 
         showLoading();
         $.ajax({
             type: 'GET',
             url: pUrl,
             success: function (data) {
+                if (data == 'Ok')
+                {
+                    selectedPheno.show();
+                    selectedPheno.text($('#select-pheno-stage-' + ciw + ' :selected').text());
+                    modalChangePheno.modal('hide');
+                    //hideLoading();
 
-                selectedPheno.show();
-                selectedPheno.text($('#select-pheno-stage-' + ciw + ' :selected').text());
-                phenoClock.hide();
-                modalChangePheno.modal('hide');
-                //hideLoading();
+                    $('#SaveChangePheno').prop('disabled', false);
+                    $('#save-pheno-span').show();
+                    $('#save-pheno-clock-1').hide();
+                    location.href = "./home?farm=" + lstFarms.val();
+                }
+                else
+                {
+                    alert(data);
+                    modalChangePheno.modal('hide');
+                    $('#save-pheno-span').show();
 
-                $('#SaveChangePheno').prop('disabled', false);
+                    hideLoading();
 
-                $('#save-pheno-span').show();
-                $('#save-pheno-clock-1').hide();
-
-                location.href = "./home?farm=" + lstFarms.val();
+                    $('#SaveChangePheno').prop('disabled', false);
+                }
             },
             error: function (data) {
                 alert(data);
@@ -1177,8 +1183,11 @@ $(document).ready(function () {
                 $('#SaveChangePheno').prop('disabled', false);
             }
         });
+    });
 
+    $('#CancelChangeHydricBalance').click(function (e, f) {
 
+        modalChangeHydricbalance.modal('hide');
     });
 
     $('#SaveChangeHydricBalance').click(function (e, f) {
@@ -1188,16 +1197,17 @@ $(document).ready(function () {
         var date = $('#date-change-hydricBalance').val();
 
         var percentage = $('#txt-hydricbalance-' + ciw).val();
+
+        if (!$.isNumeric(percentage))
+        {
+            alert('El porcentaje debe ser númerico');
+            return;
+        }
+
         var pUrl = './ChangeHydricBalancePercentage?pCropIrrigationWeatherId=' + ciw + '&pPercentage=' + percentage + '&pDate=' + date;
 
        var ok = $('#hidro-ok-' + ciw);
        var cancel = $('#hidro-cancel-' + ciw);
-
-       var phenoClock = $('#hidro-clock-' + ciw);
-
-       ok.hide();
-       cancel.hide();
-       phenoClock.show();
 
        $('#SaveChangeHydricBalance').prop('disabled', true);
 
@@ -1209,17 +1219,28 @@ $(document).ready(function () {
            type: 'GET',
            url: pUrl,
            success: function (data) {
-
-               phenoClock.hide();
                modalChangeHydricbalance.modal('hide');
-               //hideLoading();
-             
+
                $('#SaveChangeHydricBalance').prop('disabled', false);
 
                $('#save-hidro-span').show();
                $('#save-hidro-clock-1').hide();
+               if (data == 'Ok')
+               {
+                   showLoading();
+                   location.href = "./home?farm=" + lstFarms.val();
+                   
+               }
+               else
+               {
+                   modalChangeHydricbalance.modal('hide');
 
-               location.href = "./home?farm=" + lstFarms.val();
+                   $('#save-hidro-span').show();
+
+                   $('#SaveChangeHydricBalance').prop('disabled', false);
+
+                   alert(data);
+               }              
            },
            error: function (data) {
                alert(data);
@@ -1228,7 +1249,6 @@ $(document).ready(function () {
                modalChangeHydricbalance.modal('hide');
 
                $('#save-hidro-span').show();
-               $('#save-hidro-clock-1').hide();
 
                hideLoading();
 

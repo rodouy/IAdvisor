@@ -669,7 +669,7 @@
                                             <select id="datePhenoChange" class="form-control">
                                                 @for (int i = 0; i >= -2; i--)
                                                 {
-                                                    <option value="@(dateValue.AddDays(i).Month + "-" + dateValue.AddDays(i).Day + "-" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToShortDateString())</option>
+                                                    <option value="@(dateValue.AddDays(i).Month + "-" + dateValue.AddDays(i).Day + "-" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToString("dd/MM/yyyy"))</option>
                                                 }
                                             </select>
                                             <input type="hidden" id="ciw-selected-pheno"/>

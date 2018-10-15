@@ -55,6 +55,9 @@ namespace IrrigationAdvisor.Controllers
         private const int USER_IS_NULL_CODE = 10003;
         private const int NO_FARMS_FOR_USER_NR = 10002;
         private const string NO_FARMS_FOR_USER = "El usuario no tiene granjas asignadas";
+        private const string INVALID_REFERENCE_DATE = "La fecha debe ser menor a la fecha actual.";
+        private const string INVALID_PERCENTAGE = "El porcentaje debe ser mayor o igual a 0";
+        private const string GENERAL_ERROR = "Ha ocurrido un error en la operación";
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -2177,41 +2180,59 @@ namespace IrrigationAdvisor.Controllers
         /// </summary>
         /// <param name="pCropIrrigationWeatherId"></param>
         /// <param name="pStageId"></param>
-        public void ChangePhenology(long pCropIrrigationWeatherId, long pStageId, DateTime pDate)
+        public ActionResult ChangePhenology(long pCropIrrigationWeatherId, long pStageId, DateTime pDate)
         {
-            var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
+            try
+            {
+                var navigationDate = ManageSession.GetNavigationDate();
 
-            var lCropIrrigationWeather = lIrrigationAdvisorContext.CropIrrigationWeathers
-                                         .Include(n => n.Crop)
-                                         .Where(n => n.CropIrrigationWeatherId == pCropIrrigationWeatherId)
-                                         .First();
+                if (pDate > navigationDate)
+                {
+                    return Content(INVALID_REFERENCE_DATE);
+                }
 
-            DateTime referenceDate = pDate;
+                var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
 
-            var lDailyRecord = lIrrigationAdvisorContext
-                                .DailyRecords
-                                .Where(n => n.DailyRecordDateTime == referenceDate && n.CropIrrigationWeatherId == pCropIrrigationWeatherId)
-                                .First();
+                var lCropIrrigationWeather = lIrrigationAdvisorContext.CropIrrigationWeathers
+                                             .Include(n => n.Crop)
+                                             .Where(n => n.CropIrrigationWeatherId == pCropIrrigationWeatherId)
+                                             .First();
 
-            var crop = lIrrigationAdvisorContext.Crops.First(n => n.CropId == lCropIrrigationWeather.CropId);
+                DateTime referenceDate = pDate;
 
-            var stage = lIrrigationAdvisorContext
-                                    .Stages
-                                    .Where(n => n.StageId == pStageId)
+                var lDailyRecord = lIrrigationAdvisorContext
+                                    .DailyRecords
+                                    .Where(n => n.DailyRecordDateTime == referenceDate && n.CropIrrigationWeatherId == pCropIrrigationWeatherId)
                                     .First();
 
-            var phenologicalStage = lIrrigationAdvisorContext.PhenologicalStages.First(n => n.StageId == stage.StageId && n.SpecieId == crop.SpecieId);
-            
-            ChangePhenology(lCropIrrigationWeather, 
-                            lDailyRecord,
-                            phenologicalStage,
-                            referenceDate);
+                var crop = lIrrigationAdvisorContext.Crops.First(n => n.CropId == lCropIrrigationWeather.CropId);
 
-            lCropIrrigationWeather.AdjustmentPhenology(stage, referenceDate);
-            lIrrigationAdvisorContext.SaveChanges();
+                var stage = lIrrigationAdvisorContext
+                                        .Stages
+                                        .Where(n => n.StageId == pStageId)
+                                        .First();
 
-            lCropIrrigationWeather.AddInformationToIrrigationUnits(referenceDate, referenceDate, lIrrigationAdvisorContext);
-            lIrrigationAdvisorContext.SaveChanges();
+                var phenologicalStage = lIrrigationAdvisorContext.PhenologicalStages.First(n => n.StageId == stage.StageId && n.SpecieId == crop.SpecieId);
+
+                ChangePhenology(lCropIrrigationWeather,
+                                lDailyRecord,
+                                phenologicalStage,
+                                referenceDate);
+
+                lCropIrrigationWeather.AdjustmentPhenology(stage, referenceDate);
+                lIrrigationAdvisorContext.SaveChanges();
+
+                lCropIrrigationWeather.AddInformationToIrrigationUnits(referenceDate, referenceDate, lIrrigationAdvisorContext);
+                lIrrigationAdvisorContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.ChangePhenology \n {0} ", ex);
+                return Content(GENERAL_ERROR);
+
+            }
+
+            return Content("Ok");
         }
 
         /// <summary>
@@ -2230,18 +2251,8 @@ namespace IrrigationAdvisor.Controllers
                                                 pDailyRecord.DailyRecordId,
                                                 pPhenologicalStage.PhenologicalStageId);
             try
-            {
+            {   
                 var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
-
-                /*double lGrowingDegreeDays = (pPhenologicalStage.MaxDegree + pPhenologicalStage.MinDegree) / 2;
-
-                pDailyRecord.PhenologicalStageId = pPhenologicalStage.PhenologicalStageId;
-                pDailyRecord.GrowingDegreeDaysModified = lGrowingDegreeDays;
-                pDailyRecord.GrowingDegreeDaysAccumulated = lGrowingDegreeDays;
-
-                pCropIrrigationWeather.GrowingDegreeDaysAccumulated = lGrowingDegreeDays;
-                pCropIrrigationWeather.GrowingDegreeDaysModified = lGrowingDegreeDays;
-                pCropIrrigationWeather.PhenologicalStageId = pPhenologicalStage.PhenologicalStageId;*/
 
                 var exist = lIrrigationAdvisorContext.PhenologicalStageAdjustments
                             .FirstOrDefault(n => n.CropId == pCropIrrigationWeather.CropId && 
@@ -2429,12 +2440,22 @@ namespace IrrigationAdvisor.Controllers
         {
             try
             {
+                var referenceDate = ManageSession.GetNavigationDate();
+
+                if (pDate > referenceDate)
+                {
+                    return Content(INVALID_REFERENCE_DATE);
+                }
+
+                if (pPercentage < 0)
+                {
+                    return Content(INVALID_PERCENTAGE);
+                }
+
                 CropIrrigationWeatherConfiguration lCropIrrigationWeatherConfiguration = new CropIrrigationWeatherConfiguration();
 
                 var lContext = IrrigationAdvisorContext.Refresh();
                 
-                var referenceDate = ManageSession.GetNavigationDate();
-
                 var lCropIrrigationWeather = lCropIrrigationWeatherConfiguration
                                              .GetCropIrrigationWeatherByIds(new List<long>() { pCropIrrigationWeatherId },
                                              referenceDate)
