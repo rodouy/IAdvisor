@@ -124,7 +124,7 @@ namespace IrrigationAdvisorConsole
                 #region Agriculture
                 #if true
                 Console.WriteLine("Add Information of Agriculture.");
-                
+                #region Agriculture-Species
                 AgricultureInsert.InsertSpecieCycles();
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2015
@@ -146,7 +146,9 @@ namespace IrrigationAdvisorConsole
                     AgricultureInsert.InsertSpecies_2018();
                 }
                 AgricultureInsert.UpdateCountryRegionWithSpeciesSpeciesCycles();
+                #endregion
                 Console.WriteLine("  - InsertStages");
+                #region Agriculture-Stages
                 AgricultureInsert.InsertStagesCorn();
                 AgricultureInsert.InsertStagesSoya();
                 AgricultureInsert.InsertStagesOat();
@@ -158,48 +160,104 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertStagesRedCloverSeed();
                 AgricultureInsert.InsertStagesFescueForage();
                 AgricultureInsert.InsertStagesFescueSeed();
-
+                #endregion
                 Console.WriteLine("  - InsertEffectiveRains");
                 WaterInsert.InsertEffectiveRainsSouth();
                 WaterInsert.InsertEffectiveRainsNorth();
                 WaterInsert.UpdateRegionSetEffectiveRainList();
 
                 Console.WriteLine("  - InsertPhenologicalStages");
-                AgricultureInsert.InsertPhenologicalStagesCornSouthMedium();
-                //AgricultureInsert.InsertPhenologicalStagesCornSouthShort();
-                AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2017();
-                //AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort();
-                AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium();
+                #region Agriculure-PhenologicalStage
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2015
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                {
+                    #region Agriculure-PhenologicalStage-Demo-Season2015-Season2016_2017
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthShort();
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthMedium();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium();
 
-                AgricultureInsert.InsertPhenologicalStagesCornNorthShort();
-                //AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesCornNorthMedium();
-                AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort();
-                //AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium();
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthShort();
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthMedium();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium();
+                    #endregion
+                }
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                {
+                    #region Agriculure-PhenologicalStage-Season2017_2018
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthMedium();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium();
+
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthShort();
+                    //AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthMedium();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort();
+                    //AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium();
 
 
-                AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2017();
-                AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2017();
 
-                AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2017();
-                AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2017();
 
-                AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2017();
-                AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2017();
 
-                AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2017();
-                AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2017();
-                AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2017();
+                    #endregion
+                }
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                {
+                    #region Agriculure-PhenologicalStage-Production-Season2018_2019
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium_2018();
 
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium_2018();
+
+
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2017();
+
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2017();
+
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2017();
+
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2017();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2017();
+                    #endregion
+                }
+                #endregion
                 Console.WriteLine("  - Insert Horizons - Soils - CropCoefficient");
                 AgricultureInsert.InsertHorizons();
                 AgricultureInsert.InsertSoils();
