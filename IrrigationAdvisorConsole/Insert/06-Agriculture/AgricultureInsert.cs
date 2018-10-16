@@ -6524,11 +6524,11 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V8") select stage).FirstOrDefault();
                 var lPSSoyaV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 472, MaxDegree = 515.999, Coefficient = 0.59, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 44, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V9") select stage).FirstOrDefault();
-                var lPSSoyaV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 516, MaxDegree = 569.999, Coefficient = 0.61, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 54, };
+                var lPSSoyaV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 516, MaxDegree = 569.999, Coefficient = 0.61, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 90, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V10") select stage).FirstOrDefault();
-                var lPSSoyaV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 570, MaxDegree = 654.999, Coefficient = 0.63, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 85, };
+                var lPSSoyaV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 606, MaxDegree = 654.999, Coefficient = 0.63, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 144, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V11") select stage).FirstOrDefault();
-                var lPSSoyaV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 655, MaxDegree = 734.999, Coefficient = 0.68, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 80, };
+                var lPSSoyaV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 750, MaxDegree = 929.999, Coefficient = 0.68, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 180, };
 
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V12") select stage).FirstOrDefault();
                 var lPSSoyaV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 0.68, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = false, DegreesDaysInterval = 100, };
@@ -6538,26 +6538,26 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 var lPSSoyaV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 0.68, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = false, DegreesDaysInterval = 100, };
 
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R1") select stage).FirstOrDefault();
-                var lPSSoyaR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 735, MaxDegree = 849.999, Coefficient = 0.72, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 115, };
+                var lPSSoyaR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 930, MaxDegree = 1059.999, Coefficient = 0.72, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R2") select stage).FirstOrDefault();
-                var lPSSoyaR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 850, MaxDegree = 917.999, Coefficient = 0.75, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 68, };
+                var lPSSoyaR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1060, MaxDegree = 1169.999, Coefficient = 0.75, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R3") select stage).FirstOrDefault();
-                var lPSSoyaR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 918, MaxDegree = 1047.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130, };
+                var lPSSoyaR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1170, MaxDegree = 1339.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 170, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R4") select stage).FirstOrDefault();
-                var lPSSoyaR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1048, MaxDegree = 1139.999, Coefficient = 0.83, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 92, };
+                var lPSSoyaR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1340, MaxDegree = 1459.999, Coefficient = 0.83, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120, };
 
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R5") select stage).FirstOrDefault();
-                var lPSSoyaR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1140, MaxDegree = 1319.999, Coefficient = 0.88, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 180, };
+                var lPSSoyaR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1460, MaxDegree = 1589.999, Coefficient = 0.88, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 130, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R6") select stage).FirstOrDefault();
-                var lPSSoyaR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1320, MaxDegree = 1759.999, Coefficient = 1.15, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 440, };
+                var lPSSoyaR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1590, MaxDegree = 1839.999, Coefficient = 1.15, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 250, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R7") select stage).FirstOrDefault();
-                var lPSSoyaR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1760, MaxDegree = 2199.999, Coefficient = 1.15, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 440, };
+                var lPSSoyaR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1840, MaxDegree = 2374.999, Coefficient = 1.15, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 535, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R8") select stage).FirstOrDefault();
-                var lPSSoyaR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2200, MaxDegree = 2699.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 500, };
+                var lPSSoyaR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2375, MaxDegree = 3374.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R9") select stage).FirstOrDefault();
-                var lPSSoyaR9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2700, MaxDegree = 3199.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 500, };
+                var lPSSoyaR9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 3375, MaxDegree = 4374.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R10") select stage).FirstOrDefault();
-                var lPSSoyaR10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 3200, MaxDegree = 4000, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 1000, };
+                var lPSSoyaR10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 4375, MaxDegree = 5000, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 625, };
 
                 #endregion
 
@@ -6758,11 +6758,11 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V8") select stage).FirstOrDefault();
                 var lPSSoyaV8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 472, MaxDegree = 515.999, Coefficient = 0.59, RootDepth = 30, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 44, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V9") select stage).FirstOrDefault();
-                var lPSSoyaV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 516, MaxDegree = 559.999, Coefficient = 0.61, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 44, };
+                var lPSSoyaV9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 516, MaxDegree = 565.999, Coefficient = 0.61, RootDepth = 32, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 50, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V10") select stage).FirstOrDefault();
-                var lPSSoyaV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 560, MaxDegree = 634.999, Coefficient = 0.63, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 75, };
+                var lPSSoyaV10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 566, MaxDegree = 655.999, Coefficient = 0.63, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 90, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V11") select stage).FirstOrDefault();
-                var lPSSoyaV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 0.68, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = false, DegreesDaysInterval = 80, };
+                var lPSSoyaV11 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 656, MaxDegree = 775.999, Coefficient = 0.68, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120, };
 
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " V12") select stage).FirstOrDefault();
                 var lPSSoyaV12 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 0.68, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = false, DegreesDaysInterval = 100, };
@@ -6772,26 +6772,26 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 var lPSSoyaV14 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 0, MaxDegree = 0, Coefficient = 0.68, RootDepth = 35, HydricBalanceDepth = 40, PhenologicalStageIsUsed = false, DegreesDaysInterval = 100, };
 
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R1") select stage).FirstOrDefault();
-                var lPSSoyaR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 635, MaxDegree = 844.999, Coefficient = 0.72, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 210, };
+                var lPSSoyaR1 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 776, MaxDegree = 839.999, Coefficient = 0.72, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 64, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R2") select stage).FirstOrDefault();
-                var lPSSoyaR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 845, MaxDegree = 964.999, Coefficient = 0.75, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120, };
+                var lPSSoyaR2 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 840, MaxDegree = 949.999, Coefficient = 0.75, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 110, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R3") select stage).FirstOrDefault();
-                var lPSSoyaR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 965, MaxDegree = 1124.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160, };
+                var lPSSoyaR3 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 950, MaxDegree = 1069.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R4") select stage).FirstOrDefault();
-                var lPSSoyaR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1125, MaxDegree = 1284.999, Coefficient = 0.83, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 160, };
+                var lPSSoyaR4 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1070, MaxDegree = 1189.999, Coefficient = 0.83, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 120, };
 
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R5") select stage).FirstOrDefault();
-                var lPSSoyaR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1285, MaxDegree = 1399.999, Coefficient = 0.88, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 115, };
+                var lPSSoyaR5 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1190, MaxDegree = 1369.999, Coefficient = 0.88, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 180, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R6") select stage).FirstOrDefault();
-                var lPSSoyaR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1400, MaxDegree = 1699.999, Coefficient = 1.15, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 300, };
+                var lPSSoyaR6 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1370, MaxDegree = 1719.999, Coefficient = 1.15, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 350, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R7") select stage).FirstOrDefault();
-                var lPSSoyaR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1700, MaxDegree = 2149.999, Coefficient = 1.15, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 450, };
+                var lPSSoyaR7 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 1720, MaxDegree = 2244.999, Coefficient = 1.15, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 525, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R8") select stage).FirstOrDefault();
-                var lPSSoyaR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2150, MaxDegree = 2649.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 500, };
+                var lPSSoyaR8 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2245, MaxDegree = 2744.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 500, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R9") select stage).FirstOrDefault();
-                var lPSSoyaR9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2650, MaxDegree = 3149.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 500, };
+                var lPSSoyaR9 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 2745, MaxDegree = 3244.999, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = true, DegreesDaysInterval = 500, };
                 lStage = (from stage in context.Stages where stage.Name.Contains(Utils.NameStagesSoya + " R10") select stage).FirstOrDefault();
-                var lPSSoyaR10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 3150, MaxDegree = 4000, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 850, };
+                var lPSSoyaR10 = new PhenologicalStage { SpecieId = lSpecie.SpecieId, StageId = lStage.StageId, MinDegree = 3245, MaxDegree = 4000, Coefficient = 0.78, RootDepth = 40, HydricBalanceDepth = 45, PhenologicalStageIsUsed = false, DegreesDaysInterval = 850, };
 
                 #endregion
 
