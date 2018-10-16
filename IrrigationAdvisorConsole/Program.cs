@@ -236,31 +236,31 @@ namespace IrrigationAdvisorConsole
                     AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium_2018();
 
 
-                    AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2017();
-                    AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2017();
-                    AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2017();
-                    AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2018();
 
-                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2017();
-                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2017();
-                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2017();
-                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2018();
 
-                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2017();
-                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2017();
-                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2017();
-                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2018();
 
-                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2017();
-                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2017();
-                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2017();
-                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2017();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2018();
                     #endregion
                 }
                 #endregion
                 Console.WriteLine("  - Insert Horizons - Soils - CropCoefficient");
-                AgricultureInsert.InsertHorizons();
-                AgricultureInsert.InsertSoils();
+                SoilInsert.InsertHorizons();
+                SoilInsert.InsertSoils();
                 AgricultureInsert.InsertCropCoefficients();
                 Console.WriteLine("Agriculture - Completed.");
                 #endif

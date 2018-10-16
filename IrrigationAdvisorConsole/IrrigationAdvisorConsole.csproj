@@ -166,6 +166,7 @@
     <Compile Include="Insert\04-Localization\LocalizationInsert.cs" />
     <Compile Include="Insert\05-Weather\WeatherInsert.cs" />
     <Compile Include="Insert\06-Agriculture\AgricultureInsert.cs" />
+    <Compile Include="Insert\06-Agriculture\SoilInsert.cs" />
     <Compile Include="Insert\07-Irrigation\IrrigationInsert.cs" />
     <Compile Include="Insert\08-Water\WaterInsert.cs" />
     <Compile Include="Insert\09-Management\CropIrrigationWeatherInsert2015.cs" />
