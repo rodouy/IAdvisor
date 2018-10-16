@@ -294,7 +294,8 @@ namespace IrrigationAdvisorConsole
 
                 if (AddWeatherInformation 
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                 {
                     Console.WriteLine(" ------------------------------------------------ ");
                     Console.WriteLine("Add Information of WeatherLink and press enter.");
