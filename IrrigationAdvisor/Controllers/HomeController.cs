@@ -1391,6 +1391,7 @@ namespace IrrigationAdvisor.Controllers
                 lDatabaseChangeResult = lContext.SaveChanges();
 
                 lCropIrrigationWeather.AddInformationToIrrigationUnits(pDate, lReferenceDate, lContext);
+
                 lDatabaseChangeResult = lContext.SaveChanges();
 
                 // Change navigation date of reference
@@ -2454,7 +2455,7 @@ namespace IrrigationAdvisor.Controllers
 
                 CropIrrigationWeatherConfiguration lCropIrrigationWeatherConfiguration = new CropIrrigationWeatherConfiguration();
 
-                var lContext = IrrigationAdvisorContext.Refresh();
+                var lContext = IrrigationAdvisorContext.Instance();
                 
                 var lCropIrrigationWeather = lCropIrrigationWeatherConfiguration
                                              .GetCropIrrigationWeatherByIds(new List<long>() { pCropIrrigationWeatherId },
@@ -2502,7 +2503,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lContext.SaveChanges();
 
-                lCropIrrigationWeather.AddInformationToIrrigationUnits(pDate.AddDays(1), pDate.AddDays(2), lContext);
+                lCropIrrigationWeather.AddInformationToIrrigationUnits(pDate, pDate, lContext);
 
                 lContext.SaveChanges();
             }

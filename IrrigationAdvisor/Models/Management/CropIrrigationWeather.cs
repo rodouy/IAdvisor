@@ -6139,6 +6139,8 @@ namespace IrrigationAdvisor.Models.Management
                 {
                     this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
                 }
+
+                lDatabaseChangeResult = pIrrigationAdvisorContext.SaveChanges();
             }
             catch (Exception ex)
             {
