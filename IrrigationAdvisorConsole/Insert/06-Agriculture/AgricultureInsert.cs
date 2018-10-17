@@ -1916,8 +1916,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             var lStageMv13 = new Stage { Name = Utils.NameStagesCorn + " V13", ShortName = "V13", Description = "13 nudos", Order = 15, };
             var lStageMv14 = new Stage { Name = Utils.NameStagesCorn + " V14", ShortName = "V14", Description = "14 nudos", Order = 16, };
             var lStageMv15 = new Stage { Name = Utils.NameStagesCorn + " V15", ShortName = "V15", Description = "15 nudos", Order = 17, };
-            var lStageMv16 = new Stage { Name = Utils.NameStagesCorn + " V16", ShortName = "V16", Description = "15 nudos", Order = 18, };
-            var lStageMv17 = new Stage { Name = Utils.NameStagesCorn + " V17", ShortName = "V17", Description = "15 nudos", Order = 19, };
+            var lStageMv16 = new Stage { Name = Utils.NameStagesCorn + " V16", ShortName = "V16", Description = "16 nudos", Order = 18, };
+            var lStageMv17 = new Stage { Name = Utils.NameStagesCorn + " V17", ShortName = "V17", Description = "17 nudos", Order = 19, };
             var lStageMvt = new Stage { Name = Utils.NameStagesCorn + " VT", ShortName = "VT", Description = "Floracion", Order = 20, };
             var lStageMr1 = new Stage { Name = Utils.NameStagesCorn + " R1", ShortName = "R1", Description = "Estambres 50%", Order = 21, };
             var lStageMr2 = new Stage { Name = Utils.NameStagesCorn + " R2", ShortName = "R2", Description = "Granos hinchados", Order = 22, };
@@ -1927,6 +1927,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             var lStageMr6 = new Stage { Name = Utils.NameStagesCorn + " R6", ShortName = "R6", Description = "Madurez fisiologica", Order = 26, };
             var lStageMr7 = new Stage { Name = Utils.NameStagesCorn + " R7", ShortName = "R7", Description = "Madurez fisiologica", Order = 27, };
             var lStageMr8 = new Stage { Name = Utils.NameStagesCorn + " R8", ShortName = "R8", Description = "Madurez fisiologica", Order = 28, };
+            var lStageMr9 = new Stage { Name = Utils.NameStagesCorn + " R9", ShortName = "R9", Description = "Madurez fisiologica", Order = 29, };
+            var lStageMr10 = new Stage { Name = Utils.NameStagesCorn + " R10", ShortName = "R10", Description = "Madurez fisiologica", Order = 30, };
 
 
             using (var context = new IrrigationAdvisorContext())
@@ -1960,6 +1962,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.Stages.Add(lStageMr6);
                 context.Stages.Add(lStageMr7);
                 context.Stages.Add(lStageMr8);
+                context.Stages.Add(lStageMr9);
+                context.Stages.Add(lStageMr10);
 
                 context.SaveChanges();
             };
@@ -1986,16 +1990,19 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             var lStageSv9 = new Stage { Name = Utils.NameStagesSoya + " V9", ShortName = "V9", Description = "9 nudos", Order = 11, };
             var lStageSv10 = new Stage { Name = Utils.NameStagesSoya + " V10", ShortName = "V10", Description = "10 nudos", Order = 12, };
             var lStageSv11 = new Stage { Name = Utils.NameStagesSoya + " V11", ShortName = "V11", Description = "11 nudos", Order = 13, };
-            var lStageSv12 = new Stage { Name = Utils.NameStagesSoya + " V12", ShortName = "V12", Description = "11 nudos", Order = 14, };
-            var lStageSv13 = new Stage { Name = Utils.NameStagesSoya + " V13", ShortName = "V13", Description = "11 nudos", Order = 15, };
-            var lStageSr1 = new Stage { Name = Utils.NameStagesSoya + " R1", ShortName = "R1", Description = "Inicio Floracion", Order = 16, };
-            var lStageSr2 = new Stage { Name = Utils.NameStagesSoya + " R2", ShortName = "R2", Description = "Floracion Completa", Order = 17, };
-            var lStageSr3 = new Stage { Name = Utils.NameStagesSoya + " R3", ShortName = "R3", Description = "Inicio Vainas", Order = 18, };
-            var lStageSr4 = new Stage { Name = Utils.NameStagesSoya + " R4", ShortName = "R4", Description = "Vainas Completas", Order = 19, };
-            var lStageSr5 = new Stage { Name = Utils.NameStagesSoya + " R5", ShortName = "R5", Description = "Formacion de semillas", Order = 20, };
-            var lStageSr6 = new Stage { Name = Utils.NameStagesSoya + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 21, };
-            var lStageSr7 = new Stage { Name = Utils.NameStagesSoya + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 22, };
-            var lStageSr8 = new Stage { Name = Utils.NameStagesSoya + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 23, };
+            var lStageSv12 = new Stage { Name = Utils.NameStagesSoya + " V12", ShortName = "V12", Description = "12 nudos", Order = 14, };
+            var lStageSv13 = new Stage { Name = Utils.NameStagesSoya + " V13", ShortName = "V13", Description = "13 nudos", Order = 15, };
+            var lStageSv14 = new Stage { Name = Utils.NameStagesSoya + " V14", ShortName = "V14", Description = "14 nudos", Order = 16, };
+            var lStageSr1 = new Stage { Name = Utils.NameStagesSoya + " R1", ShortName = "R1", Description = "Inicio Floracion", Order = 17, };
+            var lStageSr2 = new Stage { Name = Utils.NameStagesSoya + " R2", ShortName = "R2", Description = "Floracion Completa", Order = 18, };
+            var lStageSr3 = new Stage { Name = Utils.NameStagesSoya + " R3", ShortName = "R3", Description = "Inicio Vainas", Order = 19, };
+            var lStageSr4 = new Stage { Name = Utils.NameStagesSoya + " R4", ShortName = "R4", Description = "Vainas Completas", Order = 20, };
+            var lStageSr5 = new Stage { Name = Utils.NameStagesSoya + " R5", ShortName = "R5", Description = "Formacion de semillas", Order = 21, };
+            var lStageSr6 = new Stage { Name = Utils.NameStagesSoya + " R6", ShortName = "R6", Description = "Semillas Completas", Order = 22, };
+            var lStageSr7 = new Stage { Name = Utils.NameStagesSoya + " R7", ShortName = "R7", Description = "Inicio Maduracion", Order = 23, };
+            var lStageSr8 = new Stage { Name = Utils.NameStagesSoya + " R8", ShortName = "R8", Description = "Maduracion Completa", Order = 24, };
+            var lStageSr9 = new Stage { Name = Utils.NameStagesSoya + " R9", ShortName = "R9", Description = "Maduracion Completa", Order = 25, };
+            var lStageSr10 = new Stage { Name = Utils.NameStagesSoya + " R10", ShortName = "R10", Description = "Maduracion Completa", Order = 26, };
 
 
             using (var context = new IrrigationAdvisorContext())
@@ -2016,6 +2023,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.Stages.Add(lStageSv11);
                 context.Stages.Add(lStageSv12);
                 context.Stages.Add(lStageSv13);
+                context.Stages.Add(lStageSv14);
                 context.Stages.Add(lStageSr1);
                 context.Stages.Add(lStageSr2);
                 context.Stages.Add(lStageSr3);
@@ -2024,6 +2032,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 context.Stages.Add(lStageSr6);
                 context.Stages.Add(lStageSr7);
                 context.Stages.Add(lStageSr8);
+                context.Stages.Add(lStageSr9);
+                context.Stages.Add(lStageSr10);
                 context.SaveChanges();
             };
         }
