@@ -203,11 +203,13 @@ namespace IrrigationAdvisor.DBContext
 
         public virtual DbSet<WaterOutput> WaterOutputs { get; set; }
 
+        public virtual DbSet<IrrigationConfirmation> IrrigationConfirmations { get; set; }
+
         #endif
         #endregion
 
         #region Weather
-        #if true
+#if true
 
         public virtual DbSet<TemperatureData> TemperatureDatas { get; set; }
 
@@ -218,8 +220,9 @@ namespace IrrigationAdvisor.DBContext
         public virtual DbSet<WeatherStation> WeatherStations { get; set; }
         public virtual DbSet<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
         public virtual DbSet<HidricBalanceAdjustment> HydricBalanceAdjustments { get; set; }
+        public virtual DbSet<FarmContact> FarmContacts { get; set; }
 
-        #endif
+#endif
         #endregion
 
 
@@ -286,6 +289,7 @@ namespace IrrigationAdvisor.DBContext
             modelBuilder.Configurations.Add(new LocationConfiguration());
             modelBuilder.Configurations.Add(new PositionConfiguration());
             modelBuilder.Configurations.Add(new RegionConfiguration());
+            modelBuilder.Configurations.Add(new FarmContactConfiguration());
 
             #endif
             #endregion
@@ -329,12 +333,13 @@ namespace IrrigationAdvisor.DBContext
             modelBuilder.Configurations.Add(new EvapotranspirationCropConfiguration());
             modelBuilder.Configurations.Add(new IrrigationConfiguration());
             modelBuilder.Configurations.Add(new RainConfiguration());
+            modelBuilder.Configurations.Add(new IrrigationConfirmationConfiguration());
 
-            #endif
+#endif
             #endregion
 
             #region Weather
-            #if true
+#if true
 
             modelBuilder.Configurations.Add(new TemperatureDataConfiguration());
             modelBuilder.Configurations.Add(new WeatherDataConfiguration());
