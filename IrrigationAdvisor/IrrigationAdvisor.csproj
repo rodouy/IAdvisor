@@ -291,7 +291,6 @@
     <Compile Include="DBContext\Water\EffectiveRainConfiguration.cs" />
     <Compile Include="DBContext\Water\EvapotranspirationCropConfiguration.cs" />
     <Compile Include="DBContext\Water\IrrigationConfiguration.cs" />
-    <Compile Include="DBContext\Water\IrrigationConfirmationConfiguration.cs" />
     <Compile Include="DBContext\Water\RainConfiguration.cs" />
     <Compile Include="DBContext\Water\WaterInputConfiguration.cs" />
     <Compile Include="DBContext\Water\WaterOutputConfiguration.cs" />
@@ -444,10 +443,6 @@
     <Compile Include="Migrations\201810170103527_FarmContact.Designer.cs">
       <DependentUpon>201810170103527_FarmContact.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810170131246_IrrigationConfirmation.cs" />
-    <Compile Include="Migrations\201810170131246_IrrigationConfirmation.Designer.cs">
-      <DependentUpon>201810170131246_IrrigationConfirmation.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -501,7 +496,6 @@
     <Compile Include="Models\Water\EffectiveRain.cs" />
     <Compile Include="Models\Water\EvapotranspirationCrop.cs" />
     <Compile Include="Models\Water\Irrigation.cs" />
-    <Compile Include="Models\Water\IrrigationConfirmation.cs" />
     <Compile Include="Models\Water\Rain.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Security\Access.cs" />
@@ -1198,9 +1192,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810170103527_FarmContact.resx">
       <DependentUpon>201810170103527_FarmContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810170131246_IrrigationConfirmation.resx">
-      <DependentUpon>201810170131246_IrrigationConfirmation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

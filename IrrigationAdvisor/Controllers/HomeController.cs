@@ -1939,7 +1939,7 @@ namespace IrrigationAdvisor.Controllers
                 for (int i = -InitialTables.MIN_DAY_SHOW_IN_GRID_BEFORE_TODAY; i <= InitialTables.MAX_DAY_SHOW_IN_GRID_AFTER_TODAY; i++)
                 {
                     //Day i
-                    lGridIrrigationUnitRow = AddGridIrrigationUnitDays(lDateOfReference, lDateOfReference.AddDays(i));
+                    lGridIrrigationUnitRow = AddGridIrrigationUnitDays(lDateOfReference, lDateOfReference.AddDays(i), false);
                     lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
                 }
 
@@ -2153,7 +2153,7 @@ namespace IrrigationAdvisor.Controllers
         /// <param name="pRainList"></param>
         /// <param name="pDailyRecordList"></param>
         /// <returns></returns>
-        private GridPivotDetailHome AddGridIrrigationUnitDays(DateTime pDayOfReference, DateTime pDayOfData)
+        private GridPivotDetailHome AddGridIrrigationUnitDays(DateTime pDayOfReference, DateTime pDayOfData, bool isIrrigationConfirmed)
         {
             GridPivotDetailHome lReturn = null;
 
@@ -2172,7 +2172,8 @@ namespace IrrigationAdvisor.Controllers
                                                 lForcastIrrigationQuantity,
                                                 lDateOfData, lIsToday,
                                                 lIrrigationStatus,
-                                                lPhenology);
+                                                lPhenology,
+                                                isIrrigationConfirmed);
             return lReturn;
         }
 
@@ -2416,9 +2417,31 @@ namespace IrrigationAdvisor.Controllers
 
                 lSomeData = lSomeData + "IrrigationStatus: " + lIrrigationStatus.ToString() + "-";
 
-                lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
-                                                                lDateOfData, lIsToday, lIrrigationStatus,
-                                                                lPhenology, lDailyRecord);
+                var lContext = IrrigationAdvisorContext.Instance();
+
+                bool lIsIrrigationConfirmated = false;
+
+                if (lDailyRecord.Irrigation != null && (lDailyRecord.Irrigation.Type == Utils.WaterInputType.IrrigationByETCAcumulated || lDailyRecord.Irrigation.Type == Utils.WaterInputType.IrrigationByHydricBalance))
+                {
+                    lIsIrrigationConfirmated = lContext
+                                              .Irrigations
+                                              .Where(n => n.Type == Utils.WaterInputType.Confirmation && n.ExtraDate == lDateOfData && n.CropIrrigationWeatherId == lDailyRecord.CropIrrigationWeatherId)
+                                              .Any();
+                }
+                else
+                {
+                    lIsIrrigationConfirmated = true;
+                }
+                
+                lReturn = new GridPivotDetailHome(  lIrrigationQuantity, 
+                                                    lRainQuantity, 
+                                                    lForcastIrrigationQuantity,
+                                                                lDateOfData, 
+                                                                lIsToday, 
+                                                                lIrrigationStatus,
+                                                                lPhenology,
+                                                                lIsIrrigationConfirmated,
+                                                                lDailyRecord);
             }
             catch (Exception ex)
             {
@@ -2506,10 +2529,70 @@ namespace IrrigationAdvisor.Controllers
                 lCropIrrigationWeather.AddInformationToIrrigationUnits(pDate, pDate, lContext);
 
                 lContext.SaveChanges();
+
+                string body = string.Format("Se ha cambiado balance hidrico. CropIrrigationWeather: {0}, Porcentage: {1}, Fecha: {2}",
+                                            pCropIrrigationWeatherId,
+                                            pPercentage,
+                                            pDate);
+                try
+                {
+                    SendEmails("Cambio de balance hidrico", body);
+                }
+                catch (Exception ex)
+                {
+                    Utils.LogError(ex, "Error en envío de correo en HomeController.ChangeHydricBalancePercentage.");
+                }
+                
             }
             catch (Exception ex)
             {
                 Utils.LogError(ex, "Exception in HomeController.ChangeHydricBalancePercentage.");
+                throw ex;
+            }
+
+            return Content("Ok");
+        }
+
+        [HttpGet()]
+        public ActionResult ConfirmIrrigation(long pCropIrrigationWeatherId, double pValue, DateTime pDate)
+        {
+            try
+            {
+                var lContext = IrrigationAdvisorContext.Instance();
+
+                var lIrrigation = new Models.Water.Irrigation()
+                {
+                    CropIrrigationWeatherId = pCropIrrigationWeatherId,
+                    Date = pDate,
+                    ExtraDate = pDate,
+                    ExtraInput = pValue,
+                    Input = 0,
+                    Reason = Utils.NoIrrigationReason.Other,
+                    Type = Utils.WaterInputType.Confirmation,
+                    Observations = "Confirmación de riego " + pDate,
+                };
+
+                lContext.Irrigations.Add(lIrrigation);
+
+                lContext.SaveChanges();
+
+                string body = string.Format("Se ha confirmado el riego. CropIrrigationWeather: {0}, Milimetros: {1}, Fecha: {2}", 
+                                            pCropIrrigationWeatherId, 
+                                            pValue, 
+                                            pDate);
+                try
+                {
+                    SendEmails("Confirmación de riego", body);
+                }
+                catch (Exception ex)
+                {
+                    Utils.LogError(ex, "Error al enviar correo en HomeController.ConfirmIrrigation.");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Utils.LogError(ex, "Exception in HomeController.ConfirmIrrigation.");
                 throw ex;
             }
 

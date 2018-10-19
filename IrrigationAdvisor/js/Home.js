@@ -1291,4 +1291,39 @@ $(document).ready(function () {
     $('#cancelChangePheno').click(function (e, f) {
         modalChangePheno.modal('hide');
     });
+
+    $('.confirm-irrigation').click(function (e, f) {
+ 
+        var ciw = e.currentTarget.children[0].value;
+        var value = e.currentTarget.children[1].value;
+        var date = e.currentTarget.children[2].value;
+
+        showLoading();
+
+        if (confirm('¿Desea confirmar el riego?'))
+        {
+            $.ajax({
+                type: 'GET',
+                url: './ConfirmIrrigation?pCropIrrigationWeatherId=' + ciw + '&pValue=' + value + '&pDate=' + date,
+                success: function (data) {
+                    if (data == 'Ok') {
+                        showLoading();
+                        location.href = "./home?farm=" + lstFarms.val();
+                    }
+                    else {
+                        alert(data);
+                    }
+
+                },
+                error: function (data) {
+                    alert(data);
+
+                    sendMail("Error al confirmar riego", data);
+                    console.log(data);
+
+                    hideLoading();
+                }
+            });
+        }
+    });
 });

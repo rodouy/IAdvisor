@@ -15,13 +15,41 @@
     </td>
 }
 
-@helper CustomIrrigation(Double value, string date, DailyRecord dailyRecord)
+@helper CustomIrrigation(Double value, string date, DailyRecord dailyRecord, bool isIrrigationConfirmed)
 {  
     <td>
         <span class="description-mobile-left">@date</span> 
         <div class="ref-irrigated">
-           <span class="value-mobile-position">@value</span>
+        @{
+            if (!isIrrigationConfirmed)
+            {
+                <span class="value-mobile-position">@value
+                    <span class="glyphicon glyphicon-bullhorn confirm-irrigation" style="cursor:pointer" title="Confirmar riego">
+                        <input type="hidden" value="@dailyRecord.CropIrrigationWeatherId" />
+                        <input type="hidden" value="@value" />
+                        <input type="hidden" value="@dailyRecord.DailyRecordDateTime.ToString("MM/dd/yyyy")" />
+                    </span>
+                </span>
+            }
+            else if (dailyRecord.Irrigation != null && 
+                     isIrrigationConfirmed && 
+                     (dailyRecord.Irrigation.Type == IrrigationAdvisor.Models.Utilities.Utils.WaterInputType.IrrigationByETCAcumulated || 
+                     (dailyRecord.Irrigation.Type == IrrigationAdvisor.Models.Utilities.Utils.WaterInputType.IrrigationByHydricBalance)))
+            {
+                <span class="value-mobile-position">@value
+                    <span class="glyphicon glyphicon-bullhorn" style="color: lightgray;" title="Riego confirmado">
+
+                    </span>
+                </span>
+
+            }
+            else
+            {
+                <span class="value-mobile-position">@value</span>
+            }
+        }
         </div>
+        
     </td>
 }
 
@@ -117,7 +145,7 @@
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Irrigated)
             {
-                @CustomIrrigation(detail.IrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord)
+                @CustomIrrigation(detail.IrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord, detail.IsIrrigationConfirmed)
 
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NextIrrigation)

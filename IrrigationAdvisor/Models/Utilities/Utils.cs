@@ -194,7 +194,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// Irrigation was not decided
             /// </summary>
-            IrrigationWasNotDecided
+            IrrigationWasNotDecided,
+            /// <summary>
+            /// Irrigation confirmation
+            /// </summary>
+            Confirmation
         }
 
         /// <summary>

@@ -203,8 +203,6 @@ namespace IrrigationAdvisor.DBContext
 
         public virtual DbSet<WaterOutput> WaterOutputs { get; set; }
 
-        public virtual DbSet<IrrigationConfirmation> IrrigationConfirmations { get; set; }
-
         #endif
         #endregion
 
@@ -333,7 +331,6 @@ namespace IrrigationAdvisor.DBContext
             modelBuilder.Configurations.Add(new EvapotranspirationCropConfiguration());
             modelBuilder.Configurations.Add(new IrrigationConfiguration());
             modelBuilder.Configurations.Add(new RainConfiguration());
-            modelBuilder.Configurations.Add(new IrrigationConfirmationConfiguration());
 
 #endif
             #endregion
