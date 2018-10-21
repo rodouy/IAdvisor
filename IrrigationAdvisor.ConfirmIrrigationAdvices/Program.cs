@@ -95,9 +95,12 @@ namespace IrrigationAdvisor.ConfirmIrrigationAdvices
                                 message = message.Replace("[dates]", date);
                                 message = message.Replace("[number]", messages.Where(n => n.Item1 == m.Item1).Count().ToString());
 
+                                var contactList = contacts.Select(n => n.Email).ToList();
+                                contactList.Add(emailTo);
+
                                 SendEmails(subject,
                                            message,
-                                           contacts.Select(n => n.Email).ToList());
+                                           contactList);
                             }
 
                             farmProcessed.Add(m.Item1);
