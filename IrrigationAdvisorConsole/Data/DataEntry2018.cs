@@ -563,12 +563,15 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationMainName_CassarinoLaPerdiz_2018 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_CassarinoLaPerdiz_2018 = Utils.NameWeatherStationViveroSanFrancisco;
 
-        public static DateTime SowingDate_SudanGrassSouth_CassarinoLaPerdizPivot1_2018 = new DateTime(2018, 10, 07);
-        public static DateTime HarvestDate_SudanGrassSouth_CassarinoLaPerdizPivot1_2018 = new DateTime(2018, 04, 30);
-        public static Double PredeterminatedIrrigationQuantity_CassarinoLaPerdizPivot1_2018 = 10;
-        public static DateTime SowingDate_SudanGrassSouth_CassarinoLaPerdizPivot2_2018 = new DateTime(2018, 12, 10);
-        public static DateTime HarvestDate_SudanGrassSouth_CassarinoLaPerdizPivot2_2018 = new DateTime(2018, 05, 30);
-        public static Double PredeterminatedIrrigationQuantity_CassarinoLaPerdizPivot2_2018 = 10;
+        public static DateTime SowingDate_SudanGrassSouth_CassarinoLaPerdizPivot11_2018 = new DateTime(2018, 10, 07);
+        public static DateTime HarvestDate_SudanGrassSouth_CassarinoLaPerdizPivot11_2018 = new DateTime(2018, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_CassarinoLaPerdizPivot11_2018 = 10;
+        public static DateTime SowingDate_SudanGrassSouth_CassarinoLaPerdizPivot12_2018 = new DateTime(2018, 12, 10);
+        public static DateTime HarvestDate_SudanGrassSouth_CassarinoLaPerdizPivot12_2018 = new DateTime(2018, 05, 30);
+        public static Double PredeterminatedIrrigationQuantity_CassarinoLaPerdizPivot12_2018 = 10;
+        public static DateTime SowingDate_SudanGrassSouth_CassarinoLaPerdizPivot13_2018 = new DateTime(2018, 10, 07);
+        public static DateTime HarvestDate_SudanGrassSouth_CassarinoLaPerdizPivot13_2018 = new DateTime(2018, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_CassarinoLaPerdizPivot13_2018 = 10;
 
         #endregion
         #region SD - Santo Domingo
