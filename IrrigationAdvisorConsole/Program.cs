@@ -311,6 +311,7 @@ namespace IrrigationAdvisorConsole
                 
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
+                    #region Management DEMO
                     Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2015.InsertCropIrrigationWeather2015();
                     Console.WriteLine(" ");
@@ -323,9 +324,11 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2015.AddInformationToIrrigationUnits2015();
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
                 }
                 else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                 {
+                    #region Management Season 2016-2017
                     Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2016.InsertCropIrrigationWeather2016();
                     Console.WriteLine(" ");
@@ -338,9 +341,11 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2016.AddInformationToIrrigationUnits2016();
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
                 }
                 else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                 {
+                    #region Management Season 2017-2018
                     Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2017.InsertCropIrrigationWeather2017();
                     Console.WriteLine(" ");
@@ -353,10 +358,12 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2017.AddInformationToIrrigationUnits2017();
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
                 }
                 else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                 {
+                    #region Management Season 2018-2019
                     Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2018.InsertCropIrrigationWeather2018();
                     Console.WriteLine(" ");
@@ -369,10 +376,12 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2018.AddInformationToIrrigationUnits2018();
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
                 }
                 //When we select only a Farm or group of farm
                 else
                 {
+                    #region Management Default
                     Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2018.InsertCropIrrigationWeather2018();
                     Console.WriteLine(" ");
@@ -385,6 +394,7 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2018.AddInformationToIrrigationUnits2018();
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
                 }
                 #endif
                 #endregion
