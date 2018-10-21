@@ -1225,13 +1225,9 @@ $(document).ready(function () {
 
                $('#save-hidro-span').show();
                $('#save-hidro-clock-1').hide();
-               if (data == 'Ok')
-               {
-                   showLoading();
-                   location.href = "./home?farm=" + lstFarms.val();
-                   
-               }
-               else
+               showLoading();
+
+               if (data != 'Ok')
                {
                    modalChangeHydricbalance.modal('hide');
 
@@ -1239,8 +1235,10 @@ $(document).ready(function () {
 
                    $('#SaveChangeHydricBalance').prop('disabled', false);
 
-                   alert(data);
-               }              
+                   alert(data);                  
+               }
+
+               location.href = "./home?farm=" + lstFarms.val();
            },
            error: function (data) {
                alert(data);
