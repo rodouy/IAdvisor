@@ -2194,11 +2194,9 @@ namespace IrrigationAdvisor.Controllers
                 }
 
                 var lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
+                var lConfiguration = new CropIrrigationWeatherConfiguration();
 
-                var lCropIrrigationWeather = lIrrigationAdvisorContext.CropIrrigationWeathers
-                                             .Include(n => n.Crop)
-                                             .Where(n => n.CropIrrigationWeatherId == pCropIrrigationWeatherId)
-                                             .First();
+                var lCropIrrigationWeather = lConfiguration.GetCropIrrigationWeatherByIds(new List<long>() { pCropIrrigationWeatherId }, navigationDate).First();
 
                 DateTime referenceDate = pDate;
 
@@ -2226,6 +2224,23 @@ namespace IrrigationAdvisor.Controllers
 
                 lCropIrrigationWeather.AddInformationToIrrigationUnits(referenceDate, referenceDate, lIrrigationAdvisorContext);
                 lIrrigationAdvisorContext.SaveChanges();
+
+                string body = string.Format("Se ha cambiado la fenologia. CropIrrigationWeather: {0} - {1},[br] Stage: {2} - {3},[br] Fecha: {4},[br] Establecimiento: {5} - {6}",
+                                           pCropIrrigationWeatherId,
+                                           lCropIrrigationWeather.CropIrrigationWeatherName,
+                                           stage.StageId,
+                                           stage.Name,
+                                           pDate,
+                                           lCropIrrigationWeather.IrrigationUnit.FarmId,
+                                           lCropIrrigationWeather.IrrigationUnit.Farm.Name);
+                try
+                {
+                    SendEmails("Cambio de fenologia", body);
+                }
+                catch (Exception ex)
+                {
+                    Utils.LogError(ex, "Error en envío de correo en HomeController.ChangePhenology.");
+                }
             }
             catch (Exception ex)
             {
@@ -2530,10 +2545,13 @@ namespace IrrigationAdvisor.Controllers
 
                 lContext.SaveChanges();
 
-                string body = string.Format("Se ha cambiado balance hidrico. CropIrrigationWeather: {0}, Porcentage: {1}, Fecha: {2}",
+                string body = string.Format("Se ha cambiado balance hidrico. CropIrrigationWeather: {0} - {1},[br] Porcentage: {2},[br] Fecha: {3},[br] Establecimiento: {4} - {5}",
                                             pCropIrrigationWeatherId,
+                                            lCropIrrigationWeather.CropIrrigationWeatherName,
                                             pPercentage,
-                                            pDate);
+                                            pDate,
+                                            lCropIrrigationWeather.IrrigationUnit.FarmId,
+                                            lCropIrrigationWeather.IrrigationUnit.Farm.Name);
                 try
                 {
                     SendEmails("Cambio de balance hidrico", body);
@@ -2576,10 +2594,16 @@ namespace IrrigationAdvisor.Controllers
 
                 lContext.SaveChanges();
 
-                string body = string.Format("Se ha confirmado el riego. CropIrrigationWeather: {0}, Milimetros: {1}, Fecha: {2}", 
-                                            pCropIrrigationWeatherId, 
+                var lConfiguration = new CropIrrigationWeatherConfiguration();
+                var lCropIrrigationWeather = lConfiguration.GetCropIrrigationWeatherByIds(new List<long> { pCropIrrigationWeatherId }, ManageSession.GetNavigationDate()).First();
+
+                string body = string.Format("Se ha confirmado el riego. [br] CropIrrigationWeather: {0} - {1}, [br] Milimetros: {2},[br] Fecha: {3}, [br] Establecimiento: {4} - {5}", 
+                                            pCropIrrigationWeatherId,
+                                            lCropIrrigationWeather.CropIrrigationWeatherName,
                                             pValue, 
-                                            pDate);
+                                            pDate,
+                                            lCropIrrigationWeather.IrrigationUnit.FarmId,
+                                            lCropIrrigationWeather.IrrigationUnit.Farm.Name);
                 try
                 {
                     SendEmails("Confirmación de riego", body);

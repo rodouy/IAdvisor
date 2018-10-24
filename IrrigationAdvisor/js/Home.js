@@ -1323,5 +1323,9 @@ $(document).ready(function () {
                 }
             });
         }
+        else
+        {
+            hideLoading();
+        }
     });
 });
