@@ -2274,7 +2274,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotCassarinoLaPerdiz12 = NamePivotCassarinoLaPerdiz12;
         public static String NamePositionPivotCassarinoLaPerdiz13 = NamePivotCassarinoLaPerdiz13;
         #endregion
-        #region El Desafio
+        #region Santo Domingo
         public static String NamePositionPivotSantoDomingo1 = NamePivotSantoDomingo1;
         public static String NamePositionPivotSantoDomingo2 = NamePivotSantoDomingo2;
         #endregion

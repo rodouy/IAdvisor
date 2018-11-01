@@ -76,7 +76,7 @@ namespace IrrigationAdvisor.Controllers.Weather
             {
                 if (ModelState.IsValid)
                 {
-                    if(weatherData.TemperatureMax != null && weatherData.TemperatureMin != null)
+                    if(weatherData.TemperatureMax > 0 && weatherData.TemperatureMin > 0)
                     {
                         weatherData.Temperature = weatherData.TemperatureMax + weatherData.TemperatureMin / 2;
                     }
@@ -121,7 +121,7 @@ namespace IrrigationAdvisor.Controllers.Weather
                 WeatherData updatedWeatherData = db.WeatherDatas.Find(weatherData.WeatherDataId);
 
                 updatedWeatherData.WeatherDataInputType = Models.Utilities.Utils.WeatherDataInputType.WebInsert;
-                if (weatherData.TemperatureMax != null && weatherData.TemperatureMin != null)
+                if (weatherData.TemperatureMax > 0 && weatherData.TemperatureMin > 0)
                 {
                     updatedWeatherData.Temperature = weatherData.TemperatureMax + weatherData.TemperatureMin / 2;
                 }

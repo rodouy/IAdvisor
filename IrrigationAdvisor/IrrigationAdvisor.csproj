@@ -300,6 +300,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Migrations\201811010155441_Initial.cs" />
+    <Compile Include="Migrations\201811010155441_Initial.Designer.cs">
+      <DependentUpon>201811010155441_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811010232410_FirstChangesSinceDatabaseWasCreated.cs" />
+    <Compile Include="Migrations\201811010232410_FirstChangesSinceDatabaseWasCreated.Designer.cs">
+      <DependentUpon>201811010232410_FirstChangesSinceDatabaseWasCreated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -886,6 +894,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811010155441_Initial.resx">
+      <DependentUpon>201811010155441_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811010232410_FirstChangesSinceDatabaseWasCreated.resx">
+      <DependentUpon>201811010232410_FirstChangesSinceDatabaseWasCreated.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
