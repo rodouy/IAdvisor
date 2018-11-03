@@ -49,7 +49,12 @@ namespace GetWeatherInfoService
             /// <summary>
             /// Input for IniaWeather Service
             /// </summary>
-            IniaWeatherService
+            IniaWeatherService,
+
+            /// <summary>
+            /// Input for Meteoblue Service
+            /// </summary>
+            Meteoblue
         }
     }
 }

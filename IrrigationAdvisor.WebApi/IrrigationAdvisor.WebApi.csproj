@@ -295,6 +295,8 @@
     <Compile Include="Models\FarmViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IrrigationDataViewModel.cs" />
+    <Compile Include="Models\IrrigationEntryViewModel.cs" />
+    <Compile Include="Models\IrrigationEntyListViewModel.cs" />
     <Compile Include="Models\IrrigationRow.cs" />
     <Compile Include="Models\OperationResult.cs" />
     <Compile Include="PhenologicalStage.cs">

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cbf410bef7ca4eb682cd4839e0b82f47" Name="Diagram1">
+        <EntityTypeShape EntityType="IrrigationAdvisorModel.DailyRecord" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorModel.Farm" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorModel.FarmContact" Width="1.5" PointX="10" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorModel.Irrigation" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IrrigationAdvisorModel.WaterInput" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="IrrigationAdvisorModel.FK_dbo_DailyRecord_dbo_Irrigation_Irrigation_WaterInputId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorModel.FK_dbo_FarmContact_dbo_Farm_FarmId" ManuallyRouted="false" />
+        <AssociationConnector Association="IrrigationAdvisorModel.FK_dbo_Irrigation_dbo_WaterInput_WaterInputId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IrrigationAdvisorModel.Status" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IrrigationAdvisorModel.CropIrrigationWeather" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="IrrigationAdvisorModel.FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" />
+        <AssociationConnector Association="IrrigationAdvisorModel.FK_dbo_Irrigation_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" />
+        <AssociationConnector Association="IrrigationAdvisorModel.FK_dbo_WaterInput_dbo_CropIrrigationWeather_CropIrrigationWeatherId" />
+        <EntityTypeShape EntityType="IrrigationAdvisorModel.IrrigationUnit" Width="1.5" PointX="10" PointY="5.25" />
+        <AssociationConnector Association="IrrigationAdvisorModel.FK_dbo_CropIrrigationWeather_dbo_IrrigationUnit_IrrigationUnitId" />
+        <AssociationConnector Association="IrrigationAdvisorModel.FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

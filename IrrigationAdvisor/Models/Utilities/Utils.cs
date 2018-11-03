@@ -209,7 +209,11 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// Irrigation was not decided
             /// </summary>
-            IrrigationWasNotDecided
+            IrrigationWasNotDecided,
+            /// <summary>
+            /// Irrigation confirmation
+            /// </summary>
+            Confirmation
         }
 
         /// <summary>
@@ -441,7 +445,12 @@ namespace IrrigationAdvisor.Models.Utilities
             /// <summary>
             /// Input for IniaWeather Service
             /// </summary>
-            IniaWeatherService
+            IniaWeatherService,
+
+            /// <summary>
+            /// Input for meteoblue
+            /// </summary>
+            Meteoblue
         }
 
         /// <summary>

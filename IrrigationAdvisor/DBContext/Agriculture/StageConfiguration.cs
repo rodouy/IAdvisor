@@ -43,7 +43,8 @@ namespace IrrigationAdvisor.DBContext.Agriculture
             var q = (from p in db.PhenologicalStages
                     where p.SpecieId == pSpecieId &&
                     p.Stage.Order >= lMinOrder &&
-                    p.Stage.Order <= lMaxOrder
+                    p.Stage.Order <= lMaxOrder &&
+                    p.MaxDegree > 0
                     select p.Stage).OrderBy(s => s.Order).ToList();
                     
 
