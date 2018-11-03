@@ -209,7 +209,7 @@ namespace IrrigationAdvisor.DBContext
         #endregion
 
         #region Weather
-        #if true
+#if true
 
         public virtual DbSet<TemperatureData> TemperatureDatas { get; set; }
 
@@ -220,8 +220,10 @@ namespace IrrigationAdvisor.DBContext
         public virtual DbSet<WeatherStation> WeatherStations { get; set; }
 
         public virtual DbSet<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
+        public virtual DbSet<HidricBalanceAdjustment> HydricBalanceAdjustments { get; set; }
+        public virtual DbSet<FarmContact> FarmContacts { get; set; }
 
-        #endif
+#endif
         #endregion
 
 
@@ -288,6 +290,7 @@ namespace IrrigationAdvisor.DBContext
             modelBuilder.Configurations.Add(new LocationConfiguration());
             modelBuilder.Configurations.Add(new PositionConfiguration());
             modelBuilder.Configurations.Add(new RegionConfiguration());
+            modelBuilder.Configurations.Add(new FarmContactConfiguration());
 
             #endif
             #endregion
@@ -332,22 +335,23 @@ namespace IrrigationAdvisor.DBContext
             modelBuilder.Configurations.Add(new IrrigationConfiguration());
             modelBuilder.Configurations.Add(new RainConfiguration());
 
-            #endif
+#endif
             #endregion
 
             #region Weather
-            #if true
+#if true
 
             modelBuilder.Configurations.Add(new TemperatureDataConfiguration());
             modelBuilder.Configurations.Add(new WeatherDataConfiguration());
             modelBuilder.Configurations.Add(new WeatherInformationConfiguration());
             modelBuilder.Configurations.Add(new WeatherStationConfiguration());
             modelBuilder.Configurations.Add(new MeteoblueWeatherDataConfiguration());
+            modelBuilder.Configurations.Add(new HidricBalanceAdjustmentConfiguration());
 
-            #endif
+#endif
             #endregion
 
- 	        base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
     }
