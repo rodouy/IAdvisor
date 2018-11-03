@@ -69,14 +69,17 @@ namespace IrrigationAdvisor.Controllers.Weather
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WeatherDataId,WeatherStationId,Date,Temperature,TemperatureMax,TemperatureMin,TemperatureDewPoint,Humidity,HumidityMax,HumidityMin,Barometer,BarometerMax,BarometerMin,SolarRadiation,UVRadiation,RainDay,RainStorm,RainMonth,RainYear,Evapotranspiration,EvapotranspirationMonth,EvapotranspirationYear,WeatherDataType")] WeatherData weatherData)
+        public ActionResult Create([Bind(Include = "WeatherDataId,WeatherStationId,Date,Temperature,TemperatureMax,TemperatureMin,TemperatureDewPoint,Humidity,HumidityMax,HumidityMin,Barometer,BarometerMax,BarometerMin,SolarRadiation,UVRadiation,RainDay,RainStorm,RainMonth,RainYear,Evapotranspiration,EvapotranspirationMonth,EvapotranspirationYear,WindSpeed,Observations,WeatherDataType,WeatherDataInputType")] WeatherData weatherData)
         {
             
             try
             {
                 if (ModelState.IsValid)
                 {
-                    weatherData.Temperature = weatherData.TemperatureMax + weatherData.TemperatureMin / 2;
+                    if(weatherData.TemperatureMax > 0 && weatherData.TemperatureMin > 0)
+                    {
+                        weatherData.Temperature = weatherData.TemperatureMax + weatherData.TemperatureMin / 2;
+                    }
                     weatherData.WeatherDataInputType = Models.Utilities.Utils.WeatherDataInputType.WebInsert;
                     db.WeatherDatas.Add(weatherData);
                     db.SaveChanges();
@@ -111,14 +114,21 @@ namespace IrrigationAdvisor.Controllers.Weather
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WeatherDataId,WeatherStationId,Date,Temperature,TemperatureMax,TemperatureMin,TemperatureDewPoint,Humidity,HumidityMax,HumidityMin,Barometer,BarometerMax,BarometerMin,SolarRadiation,UVRadiation,RainDay,RainStorm,RainMonth,RainYear,Evapotranspiration,EvapotranspirationMonth,EvapotranspirationYear,WeatherDataType")] WeatherData weatherData)
+        public ActionResult Edit([Bind(Include = "WeatherDataId,WeatherStationId,Date,Temperature,TemperatureMax,TemperatureMin,TemperatureDewPoint,Humidity,HumidityMax,HumidityMin,Barometer,BarometerMax,BarometerMin,SolarRadiation,UVRadiation,RainDay,RainStorm,RainMonth,RainYear,Evapotranspiration,EvapotranspirationMonth,EvapotranspirationYear,WindSpeed,Observations,WeatherDataType,WeatherDataInputType")] WeatherData weatherData)
         {
             if (ModelState.IsValid)
             {
                 WeatherData updatedWeatherData = db.WeatherDatas.Find(weatherData.WeatherDataId);
 
                 updatedWeatherData.WeatherDataInputType = Models.Utilities.Utils.WeatherDataInputType.WebInsert;
-                updatedWeatherData.Temperature = weatherData.TemperatureMin + weatherData.TemperatureMax / 2;
+                if (weatherData.TemperatureMax > 0 && weatherData.TemperatureMin > 0)
+                {
+                    updatedWeatherData.Temperature = weatherData.TemperatureMax + weatherData.TemperatureMin / 2;
+                }
+                else
+                {
+                    updatedWeatherData.Temperature = weatherData.Temperature;
+                }
                 updatedWeatherData.TemperatureMin = weatherData.TemperatureMin;
                 updatedWeatherData.TemperatureMax = weatherData.TemperatureMax;
                 updatedWeatherData.WeatherStationId = weatherData.WeatherStationId;
