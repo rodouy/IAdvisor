@@ -2,6 +2,7 @@
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -74,6 +75,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private DateTime testDate;
         private double depthLimit;
         private long farmId;
+        private bool enabled;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -149,6 +151,13 @@ namespace IrrigationAdvisor.Models.Agriculture
             set;
         }
 
+        [DefaultValue(true)]
+        public bool Enabled
+        {
+            get { return enabled; }
+            set { enabled = value; }
+        }
+
         #endregion
 
         #region Construction
@@ -164,6 +173,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.TestDate = Utilities.Utils.MIN_DATETIME;
             this.DepthLimit = 0;
             this.FarmId = 0;
+            this.Enabled = true;
         }
 
         public Soil(long pIdSoil, String pName, String pShortName, String pDescription,
@@ -178,6 +188,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.TestDate = pTestDate;
             this.DepthLimit = pDepthLimit;
             this.FarmId = pFarmId;
+            this.Enabled = true;
         }
         
         #endregion

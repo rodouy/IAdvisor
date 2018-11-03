@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel.DataAnnotations.Schema;
 using IrrigationAdvisor.Models.Agriculture;
+using System.Data.Entity;
 
 namespace IrrigationAdvisor.DBContext.Agriculture
 {
@@ -34,6 +35,23 @@ namespace IrrigationAdvisor.DBContext.Agriculture
         public List<Soil> GetAllSoils()
         {
             return db.Soils.ToList();
+        }
+
+        /// <summary>
+        /// Logical elimination
+        /// </summary>
+        /// <param name="pSoil"></param>
+        public void Disable(Soil pSoil)
+        {
+            pSoil.Enabled = false;
+            List<Horizon> listHorizon = pSoil.HorizonList;
+            foreach (Horizon h in listHorizon)
+            {
+                h.Enabled = false;
+            }
+            db.Entry(pSoil).State = EntityState.Modified;
+            //db.SaveChanges();
+
         }
     }
 }

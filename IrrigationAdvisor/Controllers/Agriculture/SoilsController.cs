@@ -29,7 +29,7 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         public ActionResult Index()
         {
             var lSoilList = db.Soils.Include(b => b.Farm);
-            return View("~/Views/Agriculture/Soils/Index.cshtml", lSoilList.ToList());
+            return View("~/Views/Agriculture/Soils/Index.cshtml", lSoilList.Where(s => s.Enabled == true).ToList());
         }
 
         // GET: Soils/Details/5
@@ -194,19 +194,16 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Soil soil = db.Soils.Find(id);
-            HorizonConfiguration hc = new HorizonConfiguration();
-            List<Horizon> listHorizont = hc.GetHorizonListBy(soil);
-            foreach (Horizon h in listHorizont)
-            {
-                db.Horizons.Remove(h);
-            }
 
-            db.Soils.Remove(soil);
+            SoilConfiguration sc = new SoilConfiguration();
+            Soil soil = db.Soils.Find(id);
+
+            sc.Disable(soil);
             db.SaveChanges();
-            var lSoilList = db.Soils.Include(b => b.Farm);
-            return View("~/Views/Agriculture/Soils/Index.cshtml", lSoilList.ToList());
+
+            return Redirect("/Soils");
         }
+
         // GET: Users/Wizard
         public ActionResult Wizard()
         {

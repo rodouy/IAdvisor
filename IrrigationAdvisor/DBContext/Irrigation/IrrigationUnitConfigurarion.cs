@@ -328,6 +328,34 @@ namespace IrrigationAdvisor.DBContext.Irrigation
             return lReturn;
         }
 
+        /// <summary>
+        /// Logical or fisical elimination
+        /// </summary>
+        /// <param name="pHorizon"></param>
+        public void Disable(IrrigationUnit pIrrigationUnit)
+        {
 
+            List<CropIrrigationWeather> lReturn = null;
+          
+            if (pIrrigationUnit != null)
+            {
+                lReturn = db.CropIrrigationWeathers
+                    .Where(ciw => ciw.IrrigationUnitId == pIrrigationUnit.IrrigationUnitId).ToList();
+            }
+
+            //fisical delete 
+            if (lReturn.Count == 0)
+            {
+                db.Entry(pIrrigationUnit).State = EntityState.Deleted;
+            }
+            else
+            {
+                pIrrigationUnit.Enabled = false;
+                db.Entry(pIrrigationUnit).State = EntityState.Modified;
+            }
+
+           // db.SaveChanges();
+
+        }
     }
 }

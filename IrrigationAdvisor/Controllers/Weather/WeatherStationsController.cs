@@ -24,7 +24,7 @@ namespace IrrigationAdvisor.Controllers.Weather
         // GET: WeatherStations
         public ActionResult Index()
         {
-            return View("~/Views/Weather/WeatherStations/Index.cshtml", db.WeatherStations.ToList());
+            return View("~/Views/Weather/WeatherStations/Index.cshtml", db.WeatherStations.ToList().Where (s => s.Enabled==true).ToList());
         }
 
         // GET: WeatherStations/Details/5
@@ -114,13 +114,16 @@ namespace IrrigationAdvisor.Controllers.Weather
                 long lastWeatherStationId=wsc.GetMaxWeatherStationId();
 
                 //Save Relation whit Farm
-                string[] farmIds = wsm.FarmIdSelected.Split('|');
-                foreach (var farmId in farmIds)
-                {
-                    Farm lFarm = db.Farms.Find(int.Parse(farmId));
-                    lFarm.WeatherStationId = lastWeatherStationId;
-                    db.Entry(lFarm).State = EntityState.Modified;
-                    db.SaveChanges();
+                if ( wsm.FarmIdSelected != null)
+                { 
+                    string[] farmIds = wsm.FarmIdSelected.Split('|');
+                    foreach (var farmId in farmIds)
+                    {
+                        Farm lFarm = db.Farms.Find(int.Parse(farmId));
+                        lFarm.WeatherStationId = lastWeatherStationId;
+                        db.Entry(lFarm).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
                 }
             }
             return Redirect("/WeatherStations");
@@ -166,7 +169,7 @@ namespace IrrigationAdvisor.Controllers.Weather
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WeatherStationId,Name,Model,DateOfInstallation,DateOfService,UpdateTime,WirelessTransmission,GiveET,WeatherDataType, Enabled, Latitude, Longitude, FarmIdSelected")] WeatherStationViewModel wsm)
+        public ActionResult Edit([Bind(Include = "WeatherStationId,Name,Model,DateOfInstallation,DateOfService,UpdateTime,WirelessTransmission,GiveET,WeatherDataType, Latitude, Longitude, FarmIdSelected")] WeatherStationViewModel wsm)
         {
             if (ModelState.IsValid)
             {
@@ -192,7 +195,6 @@ namespace IrrigationAdvisor.Controllers.Weather
                 }
                 ws.DateOfInstallation = wsm.DateOfInstallation;
                 ws.DateOfService = wsm.DateOfService;
-                ws.Enabled = wsm.Enabled;
                 ws.GiveET = wsm.GiveET;
                 ws.Model = wsm.Model;
                 ws.Name = wsm.Name;
@@ -206,15 +208,17 @@ namespace IrrigationAdvisor.Controllers.Weather
                 db.SaveChanges();
             
                 //Save Relation whit Farm
-                string[] farmIds = wsm.FarmIdSelected.Split('|');
-                foreach (var farmId in farmIds)
-                {
-                    Farm lFarm = db.Farms.Find(int.Parse(farmId));
-                    lFarm.WeatherStationId = wsm.WeatherStationId;
-                    db.Entry(lFarm).State = EntityState.Modified;
-                    db.SaveChanges();
+                if ( wsm.FarmIdSelected !=null )
+                { 
+                    string[] farmIds = wsm.FarmIdSelected.Split('|');
+                    foreach (var farmId in farmIds)
+                    {
+                        Farm lFarm = db.Farms.Find(int.Parse(farmId));
+                        lFarm.WeatherStationId = wsm.WeatherStationId;
+                        db.Entry(lFarm).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
                 }
-
 
             }
             return Redirect("/WeatherStations");
@@ -240,7 +244,7 @@ namespace IrrigationAdvisor.Controllers.Weather
             vm.FarmsNotRelated = this.GetFarmNotRelatedListBy(ws);
             vm.DateOfInstallation = ws.DateOfInstallation;
             vm.DateOfService = ws.DateOfService;
-            vm.Enabled = ws.Enabled;
+         
             vm.GiveET = ws.GiveET;
             vm.Model = ws.Model;
             vm.Name = ws.Name;
@@ -260,9 +264,10 @@ namespace IrrigationAdvisor.Controllers.Weather
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
+            WeatherStationConfiguration wsc = new WeatherStationConfiguration();
             WeatherStation ws = db.WeatherStations.Find(id);
-            ws.Enabled = false;
-            db.Entry(ws).State = EntityState.Modified;
+
+            wsc.Disable(ws);
             db.SaveChanges();
             return Redirect("/WeatherStations");
            // return View("~/Views/Weather/WeatherStations/Index.cshtml", db.WeatherStations.ToList());

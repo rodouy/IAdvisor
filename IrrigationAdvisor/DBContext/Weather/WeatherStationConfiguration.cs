@@ -6,6 +6,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel.DataAnnotations.Schema;
 using IrrigationAdvisor.Models.Weather;
 using IrrigationAdvisor.Models.Localization;
+using System.Data.Entity;
 
 
 namespace IrrigationAdvisor.DBContext.Weather
@@ -45,6 +46,17 @@ namespace IrrigationAdvisor.DBContext.Weather
             return db.WeatherStations.Max(s => s.WeatherStationId);
         }
 
+        /// <summary>
+        /// Logical elimination
+        /// </summary>
+        public void Disable(WeatherStation pWeatherStation)
+        {
+            pWeatherStation.Enabled = false;
+
+            db.Entry(pWeatherStation).State = EntityState.Modified;
+           // db.SaveChanges();
+
+        }
 
 
     }

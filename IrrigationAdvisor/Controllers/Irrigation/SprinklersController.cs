@@ -14,6 +14,7 @@ using IrrigationAdvisor.DBContext.Localization;
 using IrrigationAdvisor.ViewModels.Irrigation;
 using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.DBContext.Irrigation;
 
 namespace IrrigationAdvisor.Controllers.Irrigation
 {
@@ -85,7 +86,7 @@ namespace IrrigationAdvisor.Controllers.Irrigation
                 //Not exist position
                 if (positionId == 0)
                 {
-                    positionIU.Latitude = sprinklerViewModel.Position.Latitude;
+                    positionIU.Latitude = sprinklerViewModel.Latitude;
                     positionIU.Longitude = sprinklerViewModel.Longitude;
                     positionIU.Name = sprinklerViewModel.Name + " - Unidad de riego";
                     irrigationUnit.Position = positionIU;
@@ -230,10 +231,16 @@ namespace IrrigationAdvisor.Controllers.Irrigation
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Sprinkler lSprinkler = db.Sprinklers.Find(id);
-            lSprinkler.Show = false;
-            db.Entry(lSprinkler).State = EntityState.Modified;
+            //Sprinkler lSprinkler = db.Sprinklers.Find(id);
+            //lSprinkler.Show = false;
+            //db.Entry(lSprinkler).State = EntityState.Modified;
+            //db.SaveChanges();
+
+            IrrigationUnitConfiguration fc = new IrrigationUnitConfiguration();
+            IrrigationUnit irrigationUnit = db.IrrigationUnits.Find(id);
+            fc.Disable(irrigationUnit);
             db.SaveChanges();
+
             return Redirect("/IrrigationUnit");
             //var lList = db.IrrigationUnits.Include(f => f.Farm);
             //return View("~/Views/Irrigation/IrrigationUnit/Index.cshtml", lList.ToList());
