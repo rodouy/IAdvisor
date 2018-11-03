@@ -14,9 +14,18 @@ namespace MeteoblueWeatherService
     
     public partial class Position
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Position()
+        {
+            this.WeatherStations = new HashSet<WeatherStation>();
+        }
+    
         public long PositionId { get; set; }
         public string Name { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WeatherStation> WeatherStations { get; set; }
     }
 }

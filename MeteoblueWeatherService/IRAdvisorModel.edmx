@@ -54,11 +54,11 @@
           <Property Name="DewPointTemperatureMean" Type="decimal" Precision="9" Scale="2" />
           <Property Name="ReferenceEvapotranspirationFao" Type="decimal" Precision="9" Scale="2" />
           <Property Name="SensibleHeatFlux" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="LastModificationDate" Type="datetime" Nullable="false" />
           <Property Name="BasicJson" Type="varchar(max)" />
           <Property Name="BasicUrl" Type="varchar" MaxLength="200" />
           <Property Name="AgroJson" Type="varchar(max)" />
           <Property Name="AgroUrl" Type="varchar" MaxLength="200" />
-          <Property Name="LastModificationDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -95,9 +95,9 @@
           <Property Name="Evapotranspiration" Type="float" Nullable="false" />
           <Property Name="EvapotranspirationMonth" Type="float" Nullable="false" />
           <Property Name="EvapotranspirationYear" Type="float" Nullable="false" />
-          <Property Name="WeatherDataType" Type="int" Nullable="false" />
-          <Property Name="Observations" Type="nvarchar(max)" />
           <Property Name="WindSpeed" Type="float" Nullable="false" />
+          <Property Name="Observations" Type="nvarchar(max)" />
+          <Property Name="WeatherDataType" Type="int" Nullable="false" />
           <Property Name="WeatherDataInputType" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="WeatherStation">
@@ -116,6 +116,7 @@
           <Property Name="GiveET" Type="bit" Nullable="false" />
           <Property Name="WeatherDataType" Type="int" Nullable="false" />
           <Property Name="WebAddress" Type="nvarchar(max)" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_MeteoblueWeatherData_dbo_WeatherStation_WeatherStationId">
           <End Role="WeatherStation" Type="Self.WeatherStation" Multiplicity="1" />
@@ -141,6 +142,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_WeatherStation_dbo_Position_PositionId">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="WeatherStation" Type="Self.WeatherStation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="PositionId" />
+            </Principal>
+            <Dependent Role="WeatherStation">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="MeteoblueWeatherData" EntityType="Self.MeteoblueWeatherData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
@@ -153,6 +166,10 @@
           <AssociationSet Name="FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" Association="Self.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId">
             <End Role="WeatherStation" EntitySet="WeatherStation" />
             <End Role="WeatherData" EntitySet="WeatherData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_WeatherStation_dbo_Position_PositionId" Association="Self.FK_dbo_WeatherStation_dbo_Position_PositionId">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="WeatherStation" EntitySet="WeatherStation" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -172,6 +189,10 @@
             <End Role="WeatherStation" EntitySet="WeatherStations" />
             <End Role="WeatherData" EntitySet="WeatherDatas" />
           </AssociationSet>
+          <AssociationSet Name="FK_dbo_WeatherStation_dbo_Position_PositionId" Association="Model.FK_dbo_WeatherStation_dbo_Position_PositionId">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="WeatherStation" EntitySet="WeatherStations" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Position">
           <Key>
@@ -181,6 +202,7 @@
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Latitude" Type="Double" Nullable="false" />
           <Property Name="Longitude" Type="Double" Nullable="false" />
+          <NavigationProperty Name="WeatherStations" Relationship="Model.FK_dbo_WeatherStation_dbo_Position_PositionId" FromRole="Position" ToRole="WeatherStation" />
         </EntityType>
         <EntityType Name="WeatherStation">
           <Key>
@@ -200,6 +222,8 @@
           <Property Name="WebAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MeteoblueWeatherDatas" Relationship="Model.FK_MeteoblueWeatherData_WeatherStation" FromRole="WeatherStation" ToRole="MeteoblueWeatherData" />
           <NavigationProperty Name="WeatherDatas" Relationship="Model.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" FromRole="WeatherStation" ToRole="WeatherData" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="Model.FK_dbo_WeatherStation_dbo_Position_PositionId" FromRole="WeatherStation" ToRole="Position" />
         </EntityType>
         <EntityType Name="MeteoblueWeatherData">
           <Key>
@@ -313,6 +337,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_WeatherStation_dbo_Position_PositionId">
+          <End Type="Model.Position" Role="Position" Multiplicity="1" />
+          <End Type="Model.WeatherStation" Role="WeatherStation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="PositionId" />
+            </Principal>
+            <Dependent Role="WeatherStation">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -332,6 +368,7 @@
           <EntitySetMapping Name="WeatherStations">
             <EntityTypeMapping TypeName="Model.WeatherStation">
               <MappingFragment StoreEntitySet="WeatherStation">
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
                 <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
                 <ScalarProperty Name="WeatherDataType" ColumnName="WeatherDataType" />
                 <ScalarProperty Name="GiveET" ColumnName="GiveET" />

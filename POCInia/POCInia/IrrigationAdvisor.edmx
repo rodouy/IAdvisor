@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="IrrigationAdvisorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="IrrigationAdvisorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="WeatherData">
           <Key>
             <PropertyRef Name="WeatherDataId" />
@@ -31,9 +31,9 @@
           <Property Name="Evapotranspiration" Type="float" Nullable="false" />
           <Property Name="EvapotranspirationMonth" Type="float" Nullable="false" />
           <Property Name="EvapotranspirationYear" Type="float" Nullable="false" />
-          <Property Name="WeatherDataType" Type="int" Nullable="false" />
-          <Property Name="Observations" Type="nvarchar(max)" />
           <Property Name="WindSpeed" Type="float" Nullable="false" />
+          <Property Name="Observations" Type="nvarchar(max)" />
+          <Property Name="WeatherDataType" Type="int" Nullable="false" />
           <Property Name="WeatherDataInputType" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="WeatherStation">
@@ -52,6 +52,7 @@
           <Property Name="GiveET" Type="bit" Nullable="false" />
           <Property Name="WeatherDataType" Type="int" Nullable="false" />
           <Property Name="WebAddress" Type="nvarchar(max)" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId">
           <End Role="WeatherStation" Type="Self.WeatherStation" Multiplicity="1" />
@@ -73,8 +74,7 @@
             <End Role="WeatherData" EntitySet="WeatherData" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="IrrigationAdvisorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -127,6 +127,7 @@
           <Property Name="WeatherDataType" Type="Int32" Nullable="false" />
           <Property Name="WebAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WeatherDatas" Relationship="Self.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" FromRole="WeatherStation" ToRole="WeatherData" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId">
           <End Role="WeatherStation" Type="Self.WeatherStation" Multiplicity="1" />
@@ -189,6 +190,7 @@
           <EntitySetMapping Name="WeatherStations">
             <EntityTypeMapping TypeName="IrrigationAdvisorModel.WeatherStation">
               <MappingFragment StoreEntitySet="WeatherStation">
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
                 <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Model" ColumnName="Model" />

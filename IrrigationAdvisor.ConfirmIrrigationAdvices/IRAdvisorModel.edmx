@@ -13,10 +13,12 @@
           <Property Name="CropIrrigationWeatherName" Type="nvarchar(max)" />
           <Property Name="CropId" Type="bigint" Nullable="false" />
           <Property Name="SoilId" Type="bigint" Nullable="false" />
+          <Property Name="Density" Type="float" Nullable="false" />
           <Property Name="SowingDate" Type="datetime" Nullable="false" />
           <Property Name="HarvestDate" Type="datetime" Nullable="false" />
           <Property Name="CropDate" Type="datetime" Nullable="false" />
           <Property Name="StartAdvisorDate" Type="datetime" Nullable="false" />
+          <Property Name="DaysForHydricBalanceUnchangableAfterSowing" Type="int" Nullable="false" />
           <Property Name="PhenologicalStageId" Type="bigint" Nullable="false" />
           <Property Name="HydricBalance" Type="float" Nullable="false" />
           <Property Name="SoilHydricVolume" Type="float" Nullable="false" />
@@ -27,8 +29,13 @@
           <Property Name="DaysAfterSowingModified" Type="int" Nullable="false" />
           <Property Name="GrowingDegreeDaysAccumulated" Type="float" Nullable="false" />
           <Property Name="GrowingDegreeDaysModified" Type="float" Nullable="false" />
+          <Property Name="GrowingDegreeDaysExtraGap" Type="float" Nullable="false" />
+          <Property Name="LastDayOfGrowingDegreeDays" Type="datetime" Nullable="false" />
           <Property Name="IrrigationUnitId" Type="bigint" Nullable="false" />
+          <Property Name="MaxIrrigationQuantity" Type="float" Nullable="false" />
+          <Property Name="AdjustableIrrigationQuantity" Type="bit" Nullable="false" />
           <Property Name="PredeterminatedIrrigationQuantity" Type="float" Nullable="false" />
+          <Property Name="HasAdviseOfIrrigation" Type="bit" Nullable="false" />
           <Property Name="PositionId" Type="bigint" Nullable="false" />
           <Property Name="LastWaterInputDate" Type="datetime" Nullable="false" />
           <Property Name="LastBigWaterInputDate" Type="datetime" Nullable="false" />
@@ -38,6 +45,7 @@
           <Property Name="MainWeatherStationId" Type="bigint" Nullable="false" />
           <Property Name="AlternativeWeatherStationId" Type="bigint" Nullable="false" />
           <Property Name="UsingMainWeatherStation" Type="bit" Nullable="false" />
+          <Property Name="WeatherEventType" Type="int" Nullable="false" />
           <Property Name="TotalEvapotranspirationCrop" Type="float" Nullable="false" />
           <Property Name="TotalEffectiveRain" Type="float" Nullable="false" />
           <Property Name="TotalRealRain" Type="float" Nullable="false" />
@@ -51,14 +59,6 @@
           <Property Name="TextLog" Type="nvarchar(max)" />
           <Property Name="AlternativeWeatherStation_WeatherStationId" Type="bigint" />
           <Property Name="MainWeatherStation_WeatherStationId" Type="bigint" />
-          <Property Name="WeatherEventType" Type="int" Nullable="false" />
-          <Property Name="DaysForHydricBalanceUnchangableAfterSowing" Type="int" Nullable="false" />
-          <Property Name="HasAdviseOfIrrigation" Type="bit" Nullable="false" />
-          <Property Name="Density" Type="float" Nullable="false" />
-          <Property Name="LastDayOfGrowingDegreeDays" Type="datetime" Nullable="false" />
-          <Property Name="GrowingDegreeDaysExtraGap" Type="float" Nullable="false" />
-          <Property Name="MaxIrrigationQuantity" Type="float" Nullable="false" />
-          <Property Name="AdjustableIrrigationQuantity" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DailyRecord">
           <Key>
@@ -66,6 +66,7 @@
           </Key>
           <Property Name="DailyRecordId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DailyRecordDateTime" Type="datetime" Nullable="false" />
+          <Property Name="CropIrrigationWeatherId" Type="bigint" Nullable="false" />
           <Property Name="MainWeatherDataId" Type="bigint" Nullable="false" />
           <Property Name="AlternativeWeatherDataId" Type="bigint" Nullable="false" />
           <Property Name="DaysAfterSowing" Type="int" Nullable="false" />
@@ -73,6 +74,7 @@
           <Property Name="GrowingDegreeDays" Type="float" Nullable="false" />
           <Property Name="GrowingDegreeDaysAccumulated" Type="float" Nullable="false" />
           <Property Name="GrowingDegreeDaysModified" Type="float" Nullable="false" />
+          <Property Name="LastDayOfGrowingDegreeDays" Type="datetime" Nullable="false" />
           <Property Name="RainId" Type="bigint" Nullable="false" />
           <Property Name="IrrigationId" Type="bigint" Nullable="false" />
           <Property Name="LastWaterInputDate" Type="datetime" Nullable="false" />
@@ -102,8 +104,6 @@
           <Property Name="Irrigation_WaterInputId" Type="bigint" />
           <Property Name="MainWeatherData_WeatherDataId" Type="bigint" />
           <Property Name="Rain_WaterInputId" Type="bigint" />
-          <Property Name="CropIrrigationWeatherId" Type="bigint" Nullable="false" />
-          <Property Name="LastDayOfGrowingDegreeDays" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Farm">
           <Key>
@@ -156,9 +156,9 @@
           <Property Name="IrrigationEfficiency" Type="float" Nullable="false" />
           <Property Name="Surface" Type="float" Nullable="false" />
           <Property Name="BombId" Type="bigint" Nullable="false" />
+          <Property Name="FarmId" Type="bigint" Nullable="false" />
           <Property Name="PositionId" Type="bigint" Nullable="false" />
           <Property Name="PredeterminatedIrrigationQuantity" Type="float" Nullable="false" />
-          <Property Name="FarmId" Type="bigint" Nullable="false" />
           <Property Name="Show" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Status">
@@ -194,7 +194,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+        <Association Name="FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
           <End Role="CropIrrigationWeather" Type="Self.CropIrrigationWeather" Multiplicity="1" />
           <End Role="DailyRecord" Type="Self.DailyRecord" Multiplicity="*" />
           <ReferentialConstraint>
@@ -254,7 +254,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId">
+        <Association Name="FK_dbo_IrrigationUnit_dbo_Farm_FarmId">
           <End Role="Farm" Type="Self.Farm" Multiplicity="1" />
           <End Role="IrrigationUnit" Type="Self.IrrigationUnit" Multiplicity="*" />
           <ReferentialConstraint>
@@ -291,7 +291,7 @@
             <End Role="IrrigationUnit" EntitySet="IrrigationUnit" />
             <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeather_CropIrrigationWeatherId">
+          <AssociationSet Name="FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeatherId" Association="Self.FK_dbo_DailyRecord_dbo_CropIrrigationWeather_CropIrrigationWeatherId">
             <End Role="CropIrrigationWeather" EntitySet="CropIrrigationWeather" />
             <End Role="DailyRecord" EntitySet="DailyRecord" />
           </AssociationSet>
@@ -311,7 +311,7 @@
             <End Role="WaterInput" EntitySet="WaterInput" />
             <End Role="Irrigation" EntitySet="Irrigation" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId" Association="Self.FK_dbo_IrrigationUnit_dbo_Farm_Farm_FarmId">
+          <AssociationSet Name="FK_dbo_IrrigationUnit_dbo_Farm_FarmId" Association="Self.FK_dbo_IrrigationUnit_dbo_Farm_FarmId">
             <End Role="Farm" EntitySet="Farm" />
             <End Role="IrrigationUnit" EntitySet="IrrigationUnit" />
           </AssociationSet>

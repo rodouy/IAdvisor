@@ -11,6 +11,7 @@
         <AssociationConnector Association="Model.FK_MeteoblueWeatherData_WeatherStation" />
         <EntityTypeShape EntityType="Model.WeatherData" Width="1.5" PointX="5.625" PointY="2.5" />
         <AssociationConnector Association="Model.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" />
+        <AssociationConnector Association="Model.FK_dbo_WeatherStation_dbo_Position_PositionId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

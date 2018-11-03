@@ -33,10 +33,12 @@ namespace MeteoblueWeatherService
         public bool GiveET { get; set; }
         public int WeatherDataType { get; set; }
         public string WebAddress { get; set; }
+        public bool Enabled { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WeatherData> WeatherDatas { get; set; }
+        public virtual Position Position { get; set; }
     }
 }

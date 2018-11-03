@@ -10,12 +10,12 @@
             <PropertyRef Name="CalculationByCropIrrigationWeatherId" />
           </Key>
           <Property Name="CalculationByCropIrrigationWeatherId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CropIrrigationWeatherId" Type="bigint" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
+          <Property Name="IsExecuting" Type="bit" Nullable="false" />
           <Property Name="Application" Type="nvarchar(max)" />
           <Property Name="Details" Type="nvarchar(max)" />
-          <Property Name="CropIrrigationWeatherId" Type="bigint" Nullable="false" />
-          <Property Name="IsExecuting" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Status">
           <Key>

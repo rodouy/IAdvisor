@@ -52,6 +52,7 @@
           <Property Name="GiveET" Type="bit" Nullable="false" />
           <Property Name="WeatherDataType" Type="int" Nullable="false" />
           <Property Name="WebAddress" Type="nvarchar(max)" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId">
           <End Role="WeatherStation" Type="Self.WeatherStation" Multiplicity="1" />
@@ -126,6 +127,7 @@
           <Property Name="WeatherDataType" Type="Int32" Nullable="false" />
           <Property Name="WebAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WeatherDatas" Relationship="Self.FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId" FromRole="WeatherStation" ToRole="WeatherData" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_WeatherData_dbo_WeatherStation_WeatherStationId">
           <End Role="WeatherStation" Type="Self.WeatherStation" Multiplicity="1" />
@@ -188,6 +190,7 @@
           <EntitySetMapping Name="WeatherStations">
             <EntityTypeMapping TypeName="IrrigationAdvisorModel.WeatherStation">
               <MappingFragment StoreEntitySet="WeatherStation">
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
                 <ScalarProperty Name="WeatherStationId" ColumnName="WeatherStationId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
