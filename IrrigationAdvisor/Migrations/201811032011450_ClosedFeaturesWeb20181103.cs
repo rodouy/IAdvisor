@@ -3,7 +3,7 @@ namespace IrrigationAdvisor.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addFieldEnableToHorizonSoilWeaterStationIrrigationUnit : DbMigration
+    public partial class ClosedFeaturesWeb20181103 : DbMigration
     {
         public override void Up()
         {

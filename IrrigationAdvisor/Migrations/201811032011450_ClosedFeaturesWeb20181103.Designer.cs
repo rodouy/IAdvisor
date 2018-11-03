@@ -7,13 +7,13 @@ namespace IrrigationAdvisor.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addFieldEnableToHorizonSoilWeaterStationIrrigationUnit : IMigrationMetadata
+    public sealed partial class ClosedFeaturesWeb20181103 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addFieldEnableToHorizonSoilWeaterStationIrrigationUnit));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ClosedFeaturesWeb20181103));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808221555534_addFieldEnableToHorizonSoilWeaterStationIrrigationUnit"; }
+            get { return "201811032011450_ClosedFeaturesWeb20181103"; }
         }
         
         string IMigrationMetadata.Source
