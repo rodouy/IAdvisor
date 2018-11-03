@@ -1,0 +1,411 @@
+﻿@model IrrigationAdvisor.Models.Weather.MeteoblueWeatherData
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MeteoblueWeatherData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WeatherStationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeatherStationId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeatherDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeatherDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UvIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UvIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TemperatureMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TemperatureMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TemperatureMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TemperatureMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TemperatureMean)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TemperatureMean)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeltTemperatureMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeltTemperatureMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeltTemperatureMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeltTemperatureMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WindDirection)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WindDirection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecipitationProbability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecipitationProbability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rainspot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rainspot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PredictabilityClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PredictabilityClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Predictability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Predictability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precipitation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precipitation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SnowFraction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SnowFraction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealevelPressureMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealevelPressureMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealevelPressureMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealevelPressureMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SealevelPressureMean)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SealevelPressureMean)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WindSpeedMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WindSpeedMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WindSpeedMean)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WindSpeedMean)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WindSpeedMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WindSpeedMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RelativeHumidityMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RelativeHumidityMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RelativeHumidityMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RelativeHumidityMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RelativehumidityMean)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RelativehumidityMean)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConvectivePrecipitation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConvectivePrecipitation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecipitationHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecipitationHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HumidityGreater90Hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HumidityGreater90Hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoilTemperatureMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoilTemperatureMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoilTemperatureMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoilTemperatureMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoilTemperatureMean)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoilTemperatureMean)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoilMoistureMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoilMoistureMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoilMoistureMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoilMoistureMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoilMoistureMean)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoilMoistureMean)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkinTemperatureMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkinTemperatureMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkinTemperatureMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkinTemperatureMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkinTemperatureMean)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkinTemperatureMean)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Evapotranspiration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Evapotranspiration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeafWetnessIndex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeafWetnessIndex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PotentialEvapotranspiration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PotentialEvapotranspiration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DewPointTemperatureMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DewPointTemperatureMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DewPointTemperatureMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DewPointTemperatureMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DewPointTemperatureMean)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DewPointTemperatureMean)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferenceEvapotranspirationFao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferenceEvapotranspirationFao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SensibleHeatFlux)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SensibleHeatFlux)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModificationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModificationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BasicJson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BasicJson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BasicUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BasicUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgroJson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgroJson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgroUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgroUrl)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MeteoblueWeatherDataId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

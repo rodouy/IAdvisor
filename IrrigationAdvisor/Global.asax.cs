@@ -15,7 +15,7 @@ namespace IrrigationAdvisor
         protected void Application_Start()
         {
 
-            #if false
+            #if true
                 Database.SetInitializer < IrrigationAdvisorContext>
                     (new DropCreateDatabaseIfModelChanges<IrrigationAdvisorContext>());
             #endif

@@ -81,6 +81,8 @@ namespace IrrigationAdvisor.DBContext
 
         public virtual DbSet<Horizon> Horizons { get; set; }
 
+        public virtual DbSet<KC> KCs { get; set; }
+
         public virtual DbSet<PhenologicalStage> PhenologicalStages { get; set; }
 
         public virtual DbSet<PhenologicalStageAdjustment> PhenologicalStageAdjustments { get; set; }
@@ -216,6 +218,7 @@ namespace IrrigationAdvisor.DBContext
         public virtual DbSet<WeatherInformation> WeatherInformations { get; set; }
 
         public virtual DbSet<WeatherStation> WeatherStations { get; set; }
+
         public virtual DbSet<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
 
         public virtual DbSet<CalculationByCropIrrigationWeather> CalculationByCropIrrigationWeathers { get; set; }
