@@ -236,11 +236,12 @@ namespace IrrigationAdvisor.Controllers
                 for (int i = -InitialTables.MIN_DAY_SHOW_IN_GRID_BEFORE_TODAY; i <= InitialTables.MAX_DAY_SHOW_IN_GRID_AFTER_TODAY; i++)
                 {
                     //Day i
-                    lGridIrrigationUnitRow = AddGridIrrigationUnitDays(lDateOfReference, lDateOfReference.AddDays(i));
+                    lGridIrrigationUnitRow = AddGridIrrigationUnitDays(lDateOfReference, lDateOfReference.AddDays(i), false);
                     lGridIrrigationUnitDetailRow.Add(lGridIrrigationUnitRow);
                 }
 
                 var homeViewModel = ManageSession.GetHomeViewModel();
+
                 //Add all the days for the IrrigationUnit
                 lGridIrrigationUnit = new GridPivotHome("Nombre", 
                                                         "Cultivo", 
@@ -440,7 +441,7 @@ namespace IrrigationAdvisor.Controllers
         /// <param name="pRainList"></param>
         /// <param name="pDailyRecordList"></param>
         /// <returns></returns>
-        private GridPivotDetailHome AddGridIrrigationUnitDays(DateTime pDayOfReference, DateTime pDayOfData)
+        private GridPivotDetailHome AddGridIrrigationUnitDays(DateTime pDayOfReference, DateTime pDayOfData, bool pIsIrrigationConfirmated)
         {
             GridPivotDetailHome lReturn = null;
 
@@ -459,7 +460,7 @@ namespace IrrigationAdvisor.Controllers
                                                 lForcastIrrigationQuantity,
                                                 lDateOfData, lIsToday,
                                                 lIrrigationStatus,
-                                                lPhenology);
+                                                lPhenology, pIsIrrigationConfirmated);
             return lReturn;
         }
 
@@ -588,9 +589,25 @@ namespace IrrigationAdvisor.Controllers
 
                 lSomeData = lSomeData + "IrrigationStatus: " + lIrrigationStatus.ToString() + "-";
 
+                var lContext = IrrigationAdvisorContext.Instance();
+
+                bool lIsIrrigationConfirmated = false;
+
+                if (lDailyRecord.Irrigation != null && (lDailyRecord.Irrigation.Type == Utils.WaterInputType.IrrigationByETCAcumulated || lDailyRecord.Irrigation.Type == Utils.WaterInputType.IrrigationByHydricBalance))
+                {
+                    lIsIrrigationConfirmated = lContext
+                                              .Irrigations
+                                              .Where(n => n.Type == Utils.WaterInputType.Confirmation && n.ExtraDate == lDateOfData && n.CropIrrigationWeatherId == lDailyRecord.CropIrrigationWeatherId)
+                                              .Any();
+                }
+                else
+                {
+                    lIsIrrigationConfirmated = true;
+                }
+
                 lReturn = new GridPivotDetailHome(lIrrigationQuantity, lRainQuantity, lForcastIrrigationQuantity,
                                                                 lDateOfData, lIsToday, lIrrigationStatus,
-                                                                lPhenology, lDailyRecord);
+                                                                lPhenology, lIsIrrigationConfirmated, lDailyRecord);
             }
             catch (Exception ex)
             {
