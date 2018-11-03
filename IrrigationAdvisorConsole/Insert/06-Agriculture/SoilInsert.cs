@@ -94,6 +94,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         BulkDensitySoil = 1.25,
                         SoilId = lSoil.SoilId,
                     };
+
+                    lSoil.HorizonList.Add(lDemo1Pivot_11_1);
+                    lSoil.HorizonList.Add(lDemo1Pivot_11_2);
+                    lSoil.HorizonList.Add(lDemo1Pivot_11_3);
                     #endregion
                     #region Pivot 12
                     lSoil = (from soil in context.Soils
@@ -141,6 +145,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         BulkDensitySoil = 1.25,
                         SoilId = lSoil.SoilId,
                     };
+
+                    lSoil.HorizonList.Add(lDemo1Pivot_12_1);
+                    lSoil.HorizonList.Add(lDemo1Pivot_12_2);
+                    lSoil.HorizonList.Add(lDemo1Pivot_12_3);
                     #endregion
                     #region Pivot 13
                     lSoil = (from soil in context.Soils
@@ -188,6 +196,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         BulkDensitySoil = 1.25,
                         SoilId = lSoil.SoilId,
                     };
+
+                    lSoil.HorizonList.Add(lDemo1Pivot_13_1);
+                    lSoil.HorizonList.Add(lDemo1Pivot_13_2);
+                    lSoil.HorizonList.Add(lDemo1Pivot_13_3);
                     #endregion
                     #region Pivot 15
                     lSoil = (from soil in context.Soils
@@ -235,6 +247,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         BulkDensitySoil = 1.25,
                         SoilId = lSoil.SoilId,
                     };
+
+                    lSoil.HorizonList.Add(lDemo1Pivot_15_1);
+                    lSoil.HorizonList.Add(lDemo1Pivot_15_2);
+                    lSoil.HorizonList.Add(lDemo1Pivot_15_3);
                     #endregion
                 
                     #region Horizons Demo1
@@ -4768,10 +4784,13 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         SoilId = lSoil.SoilId,
                     };
 
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_1a_1);
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_1a_2);
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_1a_3);
                     #endregion
                     #region Pivot 1b
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NamePivotGMOElTacuru1a
+                             where soil.Name == Utils.NamePivotGMOElTacuru1b
                              select soil).FirstOrDefault();
                     var lGMOElTacuruPivot_1b_1 = new Horizon
                     {
@@ -4816,6 +4835,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         SoilId = lSoil.SoilId,
                     };
 
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_1b_1);
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_1b_2);
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_1b_3);
                     #endregion
                     #region Pivot 2a
                     lSoil = (from soil in context.Soils
@@ -6852,6 +6874,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     #endregion
 
                     #region Pivot 2b
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotGranMolino2b
+                             select soil).FirstOrDefault();
                     var lGranMolinoPivot_2b_1 = new Horizon
                     {
                         Name = Utils.NamePivotGranMolino2b + " 1",
@@ -6896,6 +6921,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     };
                     #endregion
                     #region Pivot 5b
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotGranMolino5b
+                             select soil).FirstOrDefault();
                     var lGranMolinoPivot_5b_1 = new Horizon
                     {
                         Name = Utils.NamePivotGranMolino5b + " 1",
