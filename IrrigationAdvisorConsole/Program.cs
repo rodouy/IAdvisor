@@ -124,7 +124,7 @@ namespace IrrigationAdvisorConsole
                 #region Agriculture
                 #if true
                 Console.WriteLine("Add Information of Agriculture.");
-                
+                #region Agriculture-Species
                 AgricultureInsert.InsertSpecieCycles();
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2015
@@ -132,17 +132,23 @@ namespace IrrigationAdvisorConsole
                 {
                     AgricultureInsert.InsertSpecies_2016();
                 }
-                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                 {
                     AgricultureInsert.InsertSpecies_2017();
+                }
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                {
+                    AgricultureInsert.InsertSpecies_2018();
                 }
                 else
                 {
-                    AgricultureInsert.InsertSpecies_2017();
+                    AgricultureInsert.InsertSpecies_2018();
                 }
                 AgricultureInsert.UpdateCountryRegionWithSpeciesSpeciesCycles();
+                #endregion
                 Console.WriteLine("  - InsertStages");
+                #region Agriculture-Stages
                 AgricultureInsert.InsertStagesCorn();
                 AgricultureInsert.InsertStagesSoya();
                 AgricultureInsert.InsertStagesOat();
@@ -154,17 +160,35 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertStagesRedCloverSeed();
                 AgricultureInsert.InsertStagesFescueForage();
                 AgricultureInsert.InsertStagesFescueSeed();
-
+                #endregion
                 Console.WriteLine("  - InsertEffectiveRains");
                 WaterInsert.InsertEffectiveRainsSouth();
                 WaterInsert.InsertEffectiveRainsNorth();
                 WaterInsert.UpdateRegionSetEffectiveRainList();
 
                 Console.WriteLine("  - InsertPhenologicalStages");
+                #region Agriculure-PhenologicalStage
+                if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2015
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
+                {
+                    #region Agriculure-PhenologicalStage-Demo-Season2015-Season2016_2017
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthShort();
                 AgricultureInsert.InsertPhenologicalStagesCornSouthMedium();
-                //AgricultureInsert.InsertPhenologicalStagesCornSouthShort();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium();
+
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthShort();
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthMedium();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium();
+                    #endregion
+                }
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                {
+                    #region Agriculure-PhenologicalStage-Season2017_2018
                 AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2017();
-                //AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort();
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthMedium();
                 AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2017();
                 AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium();
 
@@ -195,11 +219,49 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2017();
                 AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2017();
                 AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2017();
+                    #endregion
+                }
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                {
+                    #region Agriculure-PhenologicalStage-Production-Season2018_2019
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium_2018();
 
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium_2018();
+
+
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2018();
+
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2018();
+
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2018();
+
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2018();
+                    #endregion
+                }
+                #endregion
                 Console.WriteLine("  - Insert Horizons - Soils - CropCoefficient");
-                AgricultureInsert.InsertSoils(); 
-                AgricultureInsert.InsertHorizons();
-
+                SoilInsert.InsertSoils();
+                SoilInsert.InsertHorizons();
+                
                 AgricultureInsert.InsertCropCoefficients();
                 Console.WriteLine("Agriculture - Completed.");
                 #endif
@@ -233,7 +295,8 @@ namespace IrrigationAdvisorConsole
 
                 if (AddWeatherInformation 
                     || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                 {
                     Console.WriteLine(" ------------------------------------------------ ");
                     Console.WriteLine("Add Information of WeatherLink and press enter.");
@@ -249,6 +312,7 @@ namespace IrrigationAdvisorConsole
                 
                 if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
+                    #region Management DEMO
                     Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2015.InsertCropIrrigationWeather2015();
                     Console.WriteLine(" ");
@@ -261,9 +325,11 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2015.AddInformationToIrrigationUnits2015();
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
                 }
                 else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                 {
+                    #region Management Season 2016-2017
                     Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2016.InsertCropIrrigationWeather2016();
                     Console.WriteLine(" ");
@@ -276,10 +342,11 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2016.AddInformationToIrrigationUnits2016();
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
                 }
-                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                 {
+                    #region Management Season 2017-2018
                     Console.WriteLine(" Management - InsertCropIrrigationWeather.");
                     CropIrrigationWeatherInsert2017.InsertCropIrrigationWeather2017();
                     Console.WriteLine(" ");
@@ -292,22 +359,43 @@ namespace IrrigationAdvisorConsole
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
                     CropIrrigationWeatherInsert2017.AddInformationToIrrigationUnits2017();
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
+                }
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                {
+                    #region Management Season 2018-2019
+                    Console.WriteLine(" Management - InsertCropIrrigationWeather.");
+                    CropIrrigationWeatherInsert2018.InsertCropIrrigationWeather2018();
+                    Console.WriteLine(" ");
+                    Console.WriteLine(" Management - InsertCropIrrigationWeather. - Completed.");
+                    Console.Write(" Management - Add/Update Rain, Irrigation & Phenology Information.");
+                    WaterInsert.UpdateInformationOfRain2018();
+                    WaterInsert.UpdateInformationOfIrrigation2018();
+                    CropIrrigationWeatherInsert2018.AddPhenologicalStageAdjustements2018();
+                    Console.WriteLine(" - Completed.");
+                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
+                    CropIrrigationWeatherInsert2018.AddInformationToIrrigationUnits2018();
+                    Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
                 }
                 //When we select only a Farm or group of farm
                 else
                 {
+                    #region Management Default
                     Console.WriteLine(" Management - InsertCropIrrigationWeather.");
-                    CropIrrigationWeatherInsert2017.InsertCropIrrigationWeather2017();
+                    CropIrrigationWeatherInsert2018.InsertCropIrrigationWeather2018();
                     Console.WriteLine(" ");
                     Console.WriteLine(" Management - InsertCropIrrigationWeather. - Completed.");
                     Console.Write(" Management - Add/Update Rain, Irrigation & Phenology Information.");
-                    WaterInsert.UpdateInformationOfRain2017();
-                    WaterInsert.UpdateInformationOfIrrigation2017();
-                    CropIrrigationWeatherInsert2017.AddPhenologicalStageAdjustements2017();
+                    WaterInsert.UpdateInformationOfRain2018();
+                    WaterInsert.UpdateInformationOfIrrigation2018();
+                    CropIrrigationWeatherInsert2018.AddPhenologicalStageAdjustements2018();
                     Console.WriteLine(" - Completed.");
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units.");
-                    CropIrrigationWeatherInsert2017.AddInformationToIrrigationUnits2017();
+                    CropIrrigationWeatherInsert2018.AddInformationToIrrigationUnits2018();
                     Console.WriteLine(" Management - Add/Update Information to Irrigation Units. - Completed.");
+                    #endregion
                 }
                 #endif
                 #endregion
