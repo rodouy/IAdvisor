@@ -18,6 +18,7 @@ namespace MeteoblueWeatherService
         public WeatherStation()
         {
             this.MeteoblueWeatherDatas = new HashSet<MeteoblueWeatherData>();
+            this.WeatherDatas = new HashSet<WeatherData>();
         }
     
         public long WeatherStationId { get; set; }
@@ -35,5 +36,7 @@ namespace MeteoblueWeatherService
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WeatherData> WeatherDatas { get; set; }
     }
 }

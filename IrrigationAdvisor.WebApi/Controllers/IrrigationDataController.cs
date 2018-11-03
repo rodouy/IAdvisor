@@ -1,4 +1,5 @@
 ﻿using IrrigationAdvisor.Controllers;
+using IrrigationAdvisor.ViewModels.Water;
 using IrrigationAdvisor.WebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -162,6 +163,31 @@ namespace IrrigationAdvisor.WebApi.Controllers
                 foreach (var irrigationUnitId in values.IrrigationUnitId)
                 {
                     home.AddRain(values.Milimeters, irrigationUnitId, values.Date.Day, values.Date.Month, values.Date.Year, true);
+                }
+
+                result.IsOk = true;
+            }
+            catch (Exception ex)
+            {
+                result.IsOk = false;
+                result.ErrorMessage = ex.Message;
+            }
+
+            return result;
+        }
+
+        [HttpPost]
+        [Route("AddIrrigationAndRain")]
+        public OperationResult<string> AddIrrigationAndRain([FromBody] WebApiIrrigationRainViewModel values)
+        {
+            OperationResult<string> result = new OperationResult<string>();
+
+            try
+            {
+                if (values != null)
+                {
+                    HomeController home = new HomeController();
+                    home.AddIrrigationAndRain(values);
                 }
 
                 result.IsOk = true;

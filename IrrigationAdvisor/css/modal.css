@@ -48,7 +48,7 @@
 	-webkit-transition: all 0.4s ease-in-out;
 }
 
-#modal-no-irrigation, #modal-move-irrigation {
+#modal-no-irrigation, #modal-move-irrigation, #modal-change-hydricbalance, #modal-change-pheno  {
     margin:0;
 	/*width:80%;*/
 	box-sizing:border-box;
@@ -99,8 +99,22 @@
     /* margin: 0 auto; */
     left: 50%;
 	}
-
+    #modal-change-pheno:target{
+         opacity: 1;
+    top: 80%;
+    visibility: visible;
+    /* margin: 0 auto; */
+    left: 50%;
+    }
     #modal-move-irrigation:target {
+    opacity: 1;
+    top: 80%;
+    visibility: visible;
+    /* margin: 0 auto; */
+    left: 50%;
+	}
+
+    #modal-change-hydricbalance:target {
     opacity: 1;
     top: 80%;
     visibility: visible;
@@ -123,7 +137,7 @@
 	border-bottom: 1px solid #e7e7e7;
 	border-radius: 5px 5px 0 0;
 }
-#modal-fenologia .header,#modal-fenologia,#modal-no-irrigation,#modal-move-irrigation .footer {
+#modal-fenologia .header,#modal-fenologia,#modal-no-irrigation,#modal-move-irrigation, #modal-change-hydricbalance, #modal-change-pheno   .footer {
 	border-bottom: 1px solid #e7e7e7;
 	border-radius: 5px 5px 0 0;
 }
@@ -170,6 +184,20 @@
 		border-radius: 0 0 5px 5px;
 		text-align: right;
     }
+   
+    #modal-change-hydricbalance .footer{
+        border:none;
+		border-top: 1px solid #e7e7e7;
+		border-radius: 0 0 5px 5px;
+		text-align: right;
+    }
+    #modal-change-pheno .footer{
+        border:none;
+		border-top: 1px solid #e7e7e7;
+		border-radius: 0 0 5px 5px;
+		text-align: right;
+    }
+
 #modal h2 {
 	margin:0;
 }
@@ -204,7 +232,7 @@
 #modal-fenologia .copy,#modal-fenologia .header, #modal-fenologia .footer {
 	padding:15px;
 }
-#modal-no-irrigation .copy,#modal-no-irrigation .header, #modal-no-irrigation, #modal-move-irrigation .footer {
+#modal-no-irrigation .copy,#modal-no-irrigation .header, #modal-no-irrigation, #modal-move-irrigation, #modal-change-hydricbalance, #modal-change-pheno  .footer {
 	padding:15px;
 }
 .modal-content {
@@ -235,6 +263,14 @@
 }
 
 #modal-move-irrigation .copy {
+    background: #fff;
+}
+
+#modal-change-hydricbalance .copy {
+    background: #fff;
+}
+
+#modal-change-pheno .copy {
     background: #fff;
 }
 
@@ -360,6 +396,20 @@
     left: 50%;
     }
 
+    #modal-change-hydricbalance:target {
+         opacity: 1;
+   /* top: 20%;*/
+    visibility: visible;
+    left: 50%;
+    }
+
+    #modal-change-pheno:target {
+         opacity: 1;
+   /* top: 20%;*/
+    visibility: visible;
+    left: 50%;
+    }
+
 #modal:target {
     opacity: 1;
    /* top: 20%;*/
@@ -417,6 +467,13 @@
 	}
 
     modal-move-irrigation:target{
+	opacity: 1;
+    top: 20%;
+    visibility: visible;
+    left: 50%;
+	}
+
+    #modal-change-hydricbalance:target{
 	opacity: 1;
     top: 20%;
     visibility: visible;

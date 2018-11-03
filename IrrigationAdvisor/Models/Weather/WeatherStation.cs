@@ -528,6 +528,13 @@ namespace IrrigationAdvisor.Models.Weather
 
             if (pDateHour != null)
             {
+                lWeatherData = this.weatherDataList.FirstOrDefault(wd => wd.Date.Date == pDateHour.Date && wd.WeatherDataInputType == Utils.WeatherDataInputType.Meteoblue);
+
+                if (lWeatherData != null)
+                {
+                    return lWeatherData;
+                }
+
                 //Depending on Station Type (WeatherLink or INIA)
                 if (this.StationType == Utils.WeatherStationType.INIA)
                 {
