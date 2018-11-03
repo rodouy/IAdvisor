@@ -188,6 +188,10 @@
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.8.10.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.8.10\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -288,6 +292,7 @@
     <Compile Include="DBContext\Security\SiteMapConfiguration.cs" />
     <Compile Include="DBContext\Security\UserConfiguration.cs" />
     <Compile Include="DBContext\Security\UserFarmConfiguration.cs" />
+    <Compile Include="DBContext\Water\CalculationByCropIrrigationWeatherConfiguration.cs" />
     <Compile Include="DBContext\Water\EffectiveRainConfiguration.cs" />
     <Compile Include="DBContext\Water\EvapotranspirationCropConfiguration.cs" />
     <Compile Include="DBContext\Water\IrrigationConfiguration.cs" />
@@ -365,6 +370,7 @@
     <Compile Include="Models\Security\UserFarm.cs" />
     <Compile Include="Models\Utilities\OutputFileCSV.cs" />
     <Compile Include="Models\Utilities\Triple.cs" />
+    <Compile Include="Models\Water\CalculationByCropIrrigationWeather.cs" />
     <Compile Include="Models\Water\EffectiveRain.cs" />
     <Compile Include="Models\Water\EvapotranspirationCrop.cs" />
     <Compile Include="Models\Water\Irrigation.cs" />
@@ -392,6 +398,8 @@
     <Compile Include="ViewModels\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
+    <Compile Include="ViewModels\Water\IrrigationValueViewModel.cs" />
+    <Compile Include="ViewModels\Water\WebApiIrrigationRainViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />
     <Compile Include="ViewModels\Weather\GridWeather.cs" />
