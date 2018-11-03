@@ -320,9 +320,9 @@
     <Compile Include="Migrations\201811031403379_Merge20181103.Designer.cs">
       <DependentUpon>201811031403379_Merge20181103.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811031607376_Marge20181103_CP.cs" />
-    <Compile Include="Migrations\201811031607376_Marge20181103_CP.Designer.cs">
-      <DependentUpon>201811031607376_Marge20181103_CP.cs</DependentUpon>
+    <Compile Include="Migrations\201811031615235_ClosedFeatures20181103.cs" />
+    <Compile Include="Migrations\201811031615235_ClosedFeatures20181103.Designer.cs">
+      <DependentUpon>201811031615235_ClosedFeatures20181103.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -980,11 +980,8 @@
     <EmbeddedResource Include="Migrations\201811031403379_Merge20181103.resx">
       <DependentUpon>201811031403379_Merge20181103.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221555534_addFieldEnableToHorizonSoilWeaterStationIrrigationUnit.resx">
-      <DependentUpon>201808221555534_addFieldEnableToHorizonSoilWeaterStationIrrigationUnit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811031607376_Marge20181103_CP.resx">
-      <DependentUpon>201811031607376_Marge20181103_CP.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811031615235_ClosedFeatures20181103.resx">
+      <DependentUpon>201811031615235_ClosedFeatures20181103.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
