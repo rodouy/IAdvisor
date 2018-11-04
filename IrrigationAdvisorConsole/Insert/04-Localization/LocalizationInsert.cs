@@ -2030,6 +2030,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 IrrigationUnitList = null,
                 CityId = 0,
                 UserFarmList = null,
+                IsActive = true,
             };
             #endregion
 
@@ -2063,6 +2064,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = true,
                     };
                     context.Farms.Add(lDemo);
                     context.SaveChanges();
@@ -2099,6 +2101,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = true,
                     };
                     context.Farms.Add(lDemo);
                     context.SaveChanges();
@@ -2135,6 +2138,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = true,
                     };
                     context.Farms.Add(lDemo);
                     context.SaveChanges();
@@ -2145,18 +2149,23 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_SantaLucia_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_SantaLucia_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
                         lWeatherStationName = DataEntry2016.WeatherStationMainName_SantaLucia_2016;
                     }
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_SantaLucia_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_SantaLucia_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2182,6 +2191,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lSantaLucia);
                     context.SaveChanges();
@@ -2194,17 +2204,22 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
             {
-                String lWeatherStationName = DataEntry2017.WeatherStationMainName_DCAElParaiso_2017;
+                String lWeatherStationName = DataEntry2018.WeatherStationMainName_DCAElParaiso_2018;
                 if(Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                 {
                     lWeatherStationName = DataEntry2016.WeatherStationMainName_DCAElParaiso_2016;
                 }
-                if(Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                else if(Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                 {
                     lWeatherStationName = DataEntry2017.WeatherStationMainName_DCAElParaiso_2017;
+                }
+                else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                {
+                    lWeatherStationName = DataEntry2018.WeatherStationMainName_DCAElParaiso_2018;
                 }
                 using (var context = new IrrigationAdvisorContext())
                 {
@@ -2243,19 +2258,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_DCALaPerdiz_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
                         lWeatherStationName = DataEntry2016.WeatherStationMainName_DCALaPerdiz_2016;
                     }
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_DCALaPerdiz_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_DCALaPerdiz_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2292,19 +2312,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_DCASanJose_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_DCASanJose_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
                         lWeatherStationName = DataEntry2016.WeatherStationMainName_DCASanJose_2016;
                     }
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_DCASanJose_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_DCASanJose_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2342,19 +2367,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_DelLagoSanPedro_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
                         lWeatherStationName = DataEntry2016.WeatherStationMainName_DelLagoSanPedro_2016;
                     }
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_DelLagoSanPedro_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_DelLagoSanPedro_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2391,19 +2421,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_DelLagoElMirador_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
                         lWeatherStationName = DataEntry2016.WeatherStationMainName_DelLagoElMirador_2016;
                     }
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_DelLagoElMirador_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_DelLagoElMirador_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2441,19 +2476,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_GMOLaPalma_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_GMOLaPalma_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
                         lWeatherStationName = DataEntry2016.WeatherStationMainName_GMOLaPalma_2016;
                     }
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_GMOLaPalma_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_GMOLaPalma_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2490,19 +2530,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_GMOElTacuru_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_GMOElTacuru_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
                         lWeatherStationName = DataEntry2016.WeatherStationMainName_GMOElTacuru_2016;
                     }
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_GMOElTacuru_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_GMOElTacuru_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2540,18 +2585,23 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_TresMarias_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_TresMarias_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
                         lWeatherStationName = DataEntry2016.WeatherStationMainName_TresMarias_2016;
                     }
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_TresMarias_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_TresMarias_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2588,18 +2638,23 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_LaRinconada_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_LaRinconada_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017)
                     {
                         lWeatherStationName = DataEntry2016.WeatherStationMainName_LaRinconada_2016;
                     }
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_LaRinconada_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_LaRinconada_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2635,14 +2690,19 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_ElRincon_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_ElRincon_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_ElRincon_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_ElRincon_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2678,14 +2738,19 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElDesafio)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_ElDesafio_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_ElDesafio_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_ElDesafio_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_ElDesafio_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2721,14 +2786,19 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_LosNaranjales_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_LosNaranjales_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_LosNaranjales_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_LosNaranjales_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2764,14 +2834,19 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_SantaEmilia_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_SantaEmilia_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_SantaEmilia_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_SantaEmilia_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -2807,14 +2882,19 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    String lWeatherStationName = DataEntry2017.WeatherStationMainName_GranMolino_2017;
+                    String lWeatherStationName = DataEntry2018.WeatherStationMainName_GranMolino_2018;
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lWeatherStationName = DataEntry2017.WeatherStationMainName_GranMolino_2017;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lWeatherStationName = DataEntry2018.WeatherStationMainName_GranMolino_2018;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
