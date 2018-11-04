@@ -323,6 +323,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         BulkDensitySoil = 1.4,
                         SoilId = lSoil.SoilId,
                     };
+
+                    lSoil.HorizonList.Add(lDemo2Pivot_21_1);
+                    lSoil.HorizonList.Add(lDemo2Pivot_21_2);
+                    lSoil.HorizonList.Add(lDemo2Pivot_21_3);
                     #endregion
                     #region Pivot 22
                     lSoil = (from soil in context.Soils
@@ -370,6 +374,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         BulkDensitySoil = 1.25,
                         SoilId = lSoil.SoilId,
                     };
+
+                    lSoil.HorizonList.Add(lDemo2Pivot_22_1);
+                    lSoil.HorizonList.Add(lDemo2Pivot_22_2);
+                    lSoil.HorizonList.Add(lDemo2Pivot_22_3);
                     #endregion
                     #region Pivot 23
                     lSoil = (from soil in context.Soils
@@ -403,6 +411,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         BulkDensitySoil = 1.4,
                         SoilId = lSoil.SoilId,
                     };
+
+                    lSoil.HorizonList.Add(lDemo2Pivot_23_1);
+                    lSoil.HorizonList.Add(lDemo2Pivot_23_2);
                     #endregion
                     #region Pivot 24
                     lSoil = (from soil in context.Soils
@@ -437,6 +448,8 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         SoilId = lSoil.SoilId,
                     };
 
+                    lSoil.HorizonList.Add(lDemo2Pivot_24_1);
+                    lSoil.HorizonList.Add(lDemo2Pivot_24_2);
                     #endregion
                     #region Pivot 25
                     lSoil = (from soil in context.Soils
@@ -484,6 +497,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         BulkDensitySoil = 1.4,
                         SoilId = lSoil.SoilId,
                     };
+
+                    lSoil.HorizonList.Add(lDemo2Pivot_25_1);
+                    lSoil.HorizonList.Add(lDemo2Pivot_25_2);
+                    lSoil.HorizonList.Add(lDemo2Pivot_25_3);
                     #endregion
                 
                     #region Horizons Demo
@@ -4886,6 +4903,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         SoilId = lSoil.SoilId,
                     };
 
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_2a_1);
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_2a_2);
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_2a_3);
                     #endregion
                     #region Pivot 2b
                     lSoil = (from soil in context.Soils
@@ -4934,6 +4954,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         SoilId = lSoil.SoilId,
                     };
 
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_2b_1);
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_2b_2);
+                    lSoil.HorizonList.Add(lGMOElTacuruPivot_2b_3);
                     #endregion
                     #region Pivot 3a
                     lSoil = (from soil in context.Soils
@@ -5869,6 +5892,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
             {
 
@@ -5968,6 +5992,100 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         SoilId = lSoil.SoilId,
                     };
                     #endregion
+                    #region Pivot 2a
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotElRincon2a
+                             select soil).FirstOrDefault();
+                    var lElRinconPivot_2a_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon2a + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 16.67,
+                        Limo = 72.19,
+                        Clay = 11.14,
+                        OrganicMatter = 3.99,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElRinconPivot_2a_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon2a + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 15.73,
+                        Limo = 73.72,
+                        Clay = 10.55,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElRinconPivot_2a_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon2a + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 15.08,
+                        Limo = 68.22,
+                        Clay = 16.7,
+                        OrganicMatter = 1.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2b
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotElRincon2b
+                             select soil).FirstOrDefault();
+                    var lElRinconPivot_2b_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon2b + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 30.01,
+                        Limo = 58.59,
+                        Clay = 11.4,
+                        OrganicMatter = 3.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.31,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElRinconPivot_2b_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon2b + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 20,
+                        Sand = 25.5,
+                        Limo = 57.92,
+                        Clay = 16.58,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElRinconPivot_2b_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotElRincon2b + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 20,
+                        Sand = 27.07,
+                        Limo = 50.61,
+                        Clay = 27.32,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.44,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
 
                     #region Horizons El Rincon
                     context.Horizons.Add(lElRinconPivot_1a_1);
@@ -5976,6 +6094,12 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Horizons.Add(lElRinconPivot_1b_1);
                     context.Horizons.Add(lElRinconPivot_1b_2);
                     context.Horizons.Add(lElRinconPivot_1b_3);
+                    context.Horizons.Add(lElRinconPivot_2a_1);
+                    context.Horizons.Add(lElRinconPivot_2a_2);
+                    context.Horizons.Add(lElRinconPivot_2a_3);
+                    context.Horizons.Add(lElRinconPivot_2b_1);
+                    context.Horizons.Add(lElRinconPivot_2b_2);
+                    context.Horizons.Add(lElRinconPivot_2b_3);
                     #endregion
                     context.SaveChanges();
                 }
@@ -10945,6 +11069,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -11011,9 +11136,70 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lElRinconPivot1b.HorizonList.Add(lHorizon2);
                     lElRinconPivot1b.HorizonList.Add(lHorizon3);
                     #endregion
+                    #region Pivot 2a
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElRincon2a
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon2a + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon2a + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon2a + " 3"
+                                 select hor).FirstOrDefault();
+                    var lElRinconPivot2a = new Soil
+                    {
+                        Name = Utils.NamePivotElRincon2a,
+                        Description = "Suelo del Pivot 2a en El Rincon. "
+                         + "Suelo Franco Limoso. CONEAT 10.8b.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 09),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotElRincon2a,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lElRinconPivot2a.HorizonList.Add(lHorizon1);
+                    lElRinconPivot2a.HorizonList.Add(lHorizon2);
+                    lElRinconPivot2a.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 2b
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElRincon2b
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon2b + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon2b + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElRincon2b + " 3"
+                                 select hor).FirstOrDefault();
+                    var lElRinconPivot2b = new Soil
+                    {
+                        Name = Utils.NamePivotElRincon2b,
+                        Description = "Suelo del Pivot 2b en El Rincon. "
+                         + "Suelo Franco Arcilloso. CONEAT 10.8b.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 10, 09),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotElRincon2b,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lElRinconPivot2b.HorizonList.Add(lHorizon1);
+                    lElRinconPivot2b.HorizonList.Add(lHorizon2);
+                    lElRinconPivot2b.HorizonList.Add(lHorizon3);
+                    #endregion
+
 
                     context.Soils.Add(lElRinconPivot1a);
                     context.Soils.Add(lElRinconPivot1b);
+                    context.Soils.Add(lElRinconPivot2a);
+                    context.Soils.Add(lElRinconPivot2b);
                     context.SaveChanges();
                 }
             }

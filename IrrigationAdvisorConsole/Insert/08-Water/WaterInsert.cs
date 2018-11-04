@@ -1993,10 +1993,10 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
                     //RainData2018.AddRainDataDCALaPerdizPivot1_2018(context, Program.DateOfReference);
-                    RainData2018.AddRainDataDCALaPerdizPivot2_2018(context, Program.DateOfReference);
-                    RainData2018.AddRainDataDCALaPerdizPivot3_2018(context, Program.DateOfReference);
+                    //RainData2018.AddRainDataDCALaPerdizPivot2_2018(context, Program.DateOfReference);
+                    //RainData2018.AddRainDataDCALaPerdizPivot3_2018(context, Program.DateOfReference);
                     //RainData2018.AddRainDataDCALaPerdizPivot4_2018(context, Program.DateOfReference);
-                    RainData2018.AddRainDataDCALaPerdizPivot5_2018(context, Program.DateOfReference);
+                    //RainData2018.AddRainDataDCALaPerdizPivot5_2018(context, Program.DateOfReference);
                     //RainData2018.AddRainDataDCALaPerdizPivot6_2018(context, Program.DateOfReference);
                     RainData2018.AddRainDataDCALaPerdizPivot7_2018(context, Program.DateOfReference);
                     //RainData2018.AddRainDataDCALaPerdizPivot10a_2018(context, Program.DateOfReference);
@@ -2106,6 +2106,8 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
 
                     RainData2018.AddRainDataElRinconPivot1a_2018(context, Program.DateOfReference);
                     RainData2018.AddRainDataElRinconPivot1b_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataElRinconPivot2a_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataElRinconPivot2b_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -2332,9 +2334,9 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 using (var context = new IrrigationAdvisorContext())
                 {
                     //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot1_2018(context, Program.DateOfReference);
-                    IrrigationData2018.AddIrrigationDataDCALaPerdizPivot2_2018(context, Program.DateOfReference);
-                    IrrigationData2018.AddIrrigationDataDCALaPerdizPivot3_2018(context, Program.DateOfReference);
-                    IrrigationData2018.AddIrrigationDataDCALaPerdizPivot5_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot2_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot3_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot5_2018(context, Program.DateOfReference);
                     //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot6_2018(context, Program.DateOfReference);
                     IrrigationData2018.AddIrrigationDataDCALaPerdizPivot7_2018(context, Program.DateOfReference);
                     //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot10b_2018(context, Program.DateOfReference);
@@ -2443,8 +2445,10 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    IrrigationData2018.AddIrrigationDataElRinconPivot1a_2018(context, Program.DateOfReference);
-                    IrrigationData2018.AddIrrigationDataElRinconPivot1b_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataElRinconPivot1a_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataElRinconPivot1b_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataElRinconPivot2a_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataElRinconPivot2b_2018(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }

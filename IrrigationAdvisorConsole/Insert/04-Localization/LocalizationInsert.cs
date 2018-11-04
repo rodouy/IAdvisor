@@ -1159,7 +1159,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -57.494618,
             };
             #endregion
-            #region Pivots El Rincon #2
+            #region Pivots El Rincon #4
             var lElRinconPivot1a = new Position()
             {
                 Name = Utils.NamePositionPivotElRincon1a,
@@ -1171,6 +1171,18 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Name = Utils.NamePositionPivotElRincon1b,
                 Latitude = -34.512689,
                 Longitude = -56.897440,
+            };
+            var lElRinconPivot2a = new Position()
+            {
+                Name = Utils.NamePositionPivotElRincon2a,
+                Latitude = -34.5173056,
+                Longitude = -56.897625,
+            };
+            var lElRinconPivot2b = new Position()
+            {
+                Name = Utils.NamePositionPivotElRincon2b,
+                Latitude = -34.5173056,
+                Longitude = -56.897625,
             };
             #endregion
             #region Pivots El Desafio #2
@@ -1414,7 +1426,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosOlivos);
                 context.Positions.Add(lViveroSanFrancisco);
                 #endregion
-                #region Pivots #144
+                #region Pivots #146
                 #region Pivots - Demo #14
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1547,9 +1559,11 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLaRinconadaPivot3_1);
                 context.Positions.Add(lLaRinconadaPivot13_1);
                 #endregion
-                #region Pivots - El Rincon #2
+                #region Pivots - El Rincon #4
                 context.Positions.Add(lElRinconPivot1a);
                 context.Positions.Add(lElRinconPivot1b);
+                context.Positions.Add(lElRinconPivot2a);
+                context.Positions.Add(lElRinconPivot2b);
                 #endregion
                 #region Pivots - El Desafio #2
                 context.Positions.Add(lElDesafioPivot1);

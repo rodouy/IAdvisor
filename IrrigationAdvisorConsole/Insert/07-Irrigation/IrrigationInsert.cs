@@ -1458,7 +1458,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDCAElParaisoPivot6.Show = false;
                         lDCAElParaisoPivot7.Show = false;
                     }
-                    else if(Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lDCAElParaisoPivot1.Show = false;
+                        lDCAElParaisoPivot2.Show = false;
+                        lDCAElParaisoPivot3.Show = false;
+                        lDCAElParaisoPivot4.Show = false;
+                        lDCAElParaisoPivot5.Show = false;
+                        lDCAElParaisoPivot6.Show = false;
+                        lDCAElParaisoPivot7.Show = false;
+                    }
+                    else 
                     {
                         lDCAElParaisoPivot1.Show = false;
                         lDCAElParaisoPivot2.Show = false;
@@ -1904,7 +1916,9 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDCALaPerdizPivot14.Show = true;
                         lDCALaPerdizPivot15.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
                         lDCALaPerdizPivot1.Show = false;
                         lDCALaPerdizPivot2.Show = false;
@@ -1912,7 +1926,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDCALaPerdizPivot4.Show = false;
                         lDCALaPerdizPivot5.Show = false;
                         lDCALaPerdizPivot6.Show = false;
-                        lDCALaPerdizPivot7.Show = false;
+                        lDCALaPerdizPivot7.Show = true;
                         lDCALaPerdizPivot8.Show = false;
                         lDCALaPerdizPivot9.Show = false;
                         lDCALaPerdizPivot10a.Show = false;
@@ -1920,7 +1934,26 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDCALaPerdizPivot11.Show = false;
                         lDCALaPerdizPivot12.Show = false;
                         lDCALaPerdizPivot13.Show = false;
-                        lDCALaPerdizPivot14.Show = false;
+                        lDCALaPerdizPivot14.Show = true;
+                        lDCALaPerdizPivot15.Show = false;
+                    }
+                    else 
+                    {
+                        lDCALaPerdizPivot1.Show = false;
+                        lDCALaPerdizPivot2.Show = false;
+                        lDCALaPerdizPivot3.Show = false;
+                        lDCALaPerdizPivot4.Show = false;
+                        lDCALaPerdizPivot5.Show = false;
+                        lDCALaPerdizPivot6.Show = false;
+                        lDCALaPerdizPivot7.Show = true;
+                        lDCALaPerdizPivot8.Show = false;
+                        lDCALaPerdizPivot9.Show = false;
+                        lDCALaPerdizPivot10a.Show = false;
+                        lDCALaPerdizPivot10b.Show = false;
+                        lDCALaPerdizPivot11.Show = false;
+                        lDCALaPerdizPivot12.Show = false;
+                        lDCALaPerdizPivot13.Show = false;
+                        lDCALaPerdizPivot14.Show = true;
                         lDCALaPerdizPivot15.Show = false;
                     }
                     #endregion
@@ -2068,7 +2101,16 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDCASanJosePivot3.Show = false;
                         lDCASanJosePivot4.Show = true;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lDCASanJosePivot1.Show = false;
+                        lDCASanJosePivot2.Show = false;
+                        lDCASanJosePivot3.Show = false;
+                        lDCASanJosePivot4.Show = false;
+                    }
+                    else
                     {
                         lDCASanJosePivot1.Show = false;
                         lDCASanJosePivot2.Show = false;
@@ -2533,7 +2575,29 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDelLagoSanPedroPivot16.Show = false;
                         lDelLagoSanPedroPivot17.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lDelLagoSanPedroPivot1.Show = false;
+                        lDelLagoSanPedroPivot2.Show = false;
+                        lDelLagoSanPedroPivot3.Show = false;
+                        lDelLagoSanPedroPivot4.Show = false;
+                        lDelLagoSanPedroPivot5.Show = false;
+                        lDelLagoSanPedroPivot6.Show = false;
+                        lDelLagoSanPedroPivot7.Show = false;
+                        lDelLagoSanPedroPivot8.Show = false;
+                        lDelLagoSanPedroPivot9.Show = false;
+                        lDelLagoSanPedroPivot10.Show = false;
+                        lDelLagoSanPedroPivot11.Show = false;
+                        lDelLagoSanPedroPivot12.Show = false;
+                        lDelLagoSanPedroPivot13.Show = false;
+                        lDelLagoSanPedroPivot14.Show = false;
+                        lDelLagoSanPedroPivot15.Show = false;
+                        lDelLagoSanPedroPivot16.Show = false;
+                        lDelLagoSanPedroPivot17.Show = false;
+                    }
+                    else 
                     {
                         lDelLagoSanPedroPivot1.Show = false;
                         lDelLagoSanPedroPivot2.Show = false;
@@ -3146,7 +3210,33 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDelLagoElMiradorPivot3b.Show = false;
                         lDelLagoElMiradorPivot4b.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lDelLagoElMiradorPivot1.Show = false;
+                        lDelLagoElMiradorPivot2.Show = false;
+                        lDelLagoElMiradorPivot3.Show = false;
+                        lDelLagoElMiradorPivot4.Show = false;
+                        lDelLagoElMiradorPivot5.Show = false;
+                        lDelLagoElMiradorPivot6.Show = false;
+                        lDelLagoElMiradorPivot7.Show = false;
+                        lDelLagoElMiradorPivot8.Show = false;
+                        lDelLagoElMiradorPivot9.Show = false;
+                        lDelLagoElMiradorPivot10.Show = false;
+                        lDelLagoElMiradorPivot11.Show = false;
+                        lDelLagoElMiradorPivot12.Show = false;
+                        lDelLagoElMiradorPivot13.Show = false;
+                        lDelLagoElMiradorPivot14.Show = false;
+                        lDelLagoElMiradorPivot15.Show = false;
+                        lDelLagoElMiradorPivotChaja1.Show = false;
+                        lDelLagoElMiradorPivotChaja2.Show = false;
+                        lDelLagoElMiradorPivot1b.Show = false;
+                        lDelLagoElMiradorPivot2b.Show = false;
+                        lDelLagoElMiradorPivot3b.Show = false;
+                        lDelLagoElMiradorPivot4b.Show = false;
+                    }
+                    else 
                     {
                         lDelLagoElMiradorPivot1.Show = false;
                         lDelLagoElMiradorPivot2.Show = false;
@@ -3455,7 +3545,21 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lGMOLaPalmaPivot3_1.Show = true;
                         lGMOLaPalmaPivot4_1.Show = true;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lGMOLaPalmaPivot1.Show = false;
+                        lGMOLaPalmaPivot2.Show = false;
+                        lGMOLaPalmaPivot3.Show = false;
+                        lGMOLaPalmaPivot4.Show = false;
+                        lGMOLaPalmaPivot5.Show = false;
+                        lGMOLaPalmaPivot1_1.Show = false;
+                        lGMOLaPalmaPivot2_1.Show = false;
+                        lGMOLaPalmaPivot3_1.Show = false;
+                        lGMOLaPalmaPivot4_1.Show = false;
+                    }
+                    else 
                     {
                         lGMOLaPalmaPivot1.Show = false;
                         lGMOLaPalmaPivot2.Show = false;
@@ -3843,7 +3947,25 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lGMOElTacuruPivot9.Show = true;
                         lGMOElTacuruPivot10.Show = true;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lGMOElTacuruPivot1a.Show = false;
+                        lGMOElTacuruPivot1b.Show = false;
+                        lGMOElTacuruPivot2a.Show = false;
+                        lGMOElTacuruPivot2b.Show = false;
+                        lGMOElTacuruPivot3a.Show = false;
+                        lGMOElTacuruPivot3b.Show = false;
+                        lGMOElTacuruPivot4.Show = false;
+                        lGMOElTacuruPivot5.Show = false;
+                        lGMOElTacuruPivot6.Show = false;
+                        lGMOElTacuruPivot7.Show = false;
+                        lGMOElTacuruPivot8.Show = false;
+                        lGMOElTacuruPivot9.Show = false;
+                        lGMOElTacuruPivot10.Show = false;
+                    }
+                    else 
                     {
                         lGMOElTacuruPivot1a.Show = false;
                         lGMOElTacuruPivot1b.Show = false;
@@ -4004,7 +4126,16 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lTresMariasPivot3.Show = false;
                         lTresMariasPivot4.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lTresMariasPivot1.Show = false;
+                        lTresMariasPivot2.Show = false;
+                        lTresMariasPivot3.Show = false;
+                        lTresMariasPivot4.Show = false;
+                    }
+                    else 
                     {
                         lTresMariasPivot1.Show = false;
                         lTresMariasPivot2.Show = false;
@@ -4147,7 +4278,16 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lLaRinconadaPivot3_1.Show = false;
                         lLaRinconadaPivot13_1.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lLaRinconadaPivot1.Show = false;
+                        lLaRinconadaPivot2.Show = false;
+                        lLaRinconadaPivot3_1.Show = false;
+                        lLaRinconadaPivot13_1.Show = false;
+                    }
+                    else 
                     {
                         lLaRinconadaPivot1.Show = false;
                         lLaRinconadaPivot2.Show = false;
@@ -4197,7 +4337,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
                         Radius = 23,
-                        Show = true,
+                        Show = false,
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
@@ -4221,6 +4361,54 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 10,
                         Radius = 23,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 2a
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombElRincon
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElRincon2a
+                                 select pos).FirstOrDefault();
+
+                    var lElRinconPivot2a = new Pivot
+                    {
+                        Name = Utils.NamePivotElRincon2a,
+                        ShortName = "Pivot 2a",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 47,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 10,
+                        Radius = 23,
+                        Show = false,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 2b
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombElRincon
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElRincon2b
+                                 select pos).FirstOrDefault();
+
+                    var lElRinconPivot2b = new Pivot
+                    {
+                        Name = Utils.NamePivotElRincon2b,
+                        ShortName = "Pivot 2b",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 50,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 10,
+                        Radius = 25,
                         Show = true,
                         FarmId = lFarm.FarmId,
                     };
@@ -4231,16 +4419,31 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     {
                         lElRinconPivot1a.Show = true;
                         lElRinconPivot1b.Show = true;
+                        lElRinconPivot2a.Show = false;
+                        lElRinconPivot2b.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
                         lElRinconPivot1a.Show = false;
                         lElRinconPivot1b.Show = false;
+                        lElRinconPivot2a.Show = false;
+                        lElRinconPivot2b.Show = true;
+                    }
+                    else
+                    {
+                        lElRinconPivot1a.Show = false;
+                        lElRinconPivot1b.Show = false;
+                        lElRinconPivot2a.Show = false;
+                        lElRinconPivot2b.Show = true;
                     }
                     #endregion
 
                     context.Pivots.Add(lElRinconPivot1a);
                     context.Pivots.Add(lElRinconPivot1b);
+                    context.Pivots.Add(lElRinconPivot2a);
+                    context.Pivots.Add(lElRinconPivot2b);
                     context.SaveChanges();
                 }
             }
@@ -4313,7 +4516,14 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lElDesafioPivot1.Show = true;
                         lElDesafioPivot2.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lElDesafioPivot1.Show = false;
+                        lElDesafioPivot2.Show = false;
+                    }
+                    else 
                     {
                         lElDesafioPivot1.Show = false;
                         lElDesafioPivot2.Show = false;
@@ -4444,7 +4654,16 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lLosNaranjalesPivot5aT5.Show = true;
                         lLosNaranjalesPivot5bT5.Show = true;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lLosNaranjalesPivot6aT3.Show = false;
+                        lLosNaranjalesPivot6bT3.Show = false;
+                        lLosNaranjalesPivot5aT5.Show = false;
+                        lLosNaranjalesPivot5bT5.Show = false;
+                    }
+                    else 
                     {
                         lLosNaranjalesPivot6aT3.Show = false;
                         lLosNaranjalesPivot6bT3.Show = false;
@@ -4654,7 +4873,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lSantaEmiliaPivot6.Show = false;
                         lSantaEmiliaPivot7.Show = true;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lSantaEmiliaPivot1.Show = false;
+                        lSantaEmiliaPivot2.Show = false;
+                        lSantaEmiliaPivot3.Show = false;
+                        lSantaEmiliaPivot4.Show = false;
+                        lSantaEmiliaPivot5.Show = false;
+                        lSantaEmiliaPivot6.Show = false;
+                        lSantaEmiliaPivot7.Show = false;
+                    }
+                    else 
                     {
                         lSantaEmiliaPivot1.Show = false;
                         lSantaEmiliaPivot2.Show = false;
@@ -4871,7 +5102,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lGranMolinoPivot2b.Show = true;
                         lGranMolinoPivot5b.Show = true;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lGranMolinoPivot1.Show = false;
+                        lGranMolinoPivot2.Show = false;
+                        lGranMolinoPivot3.Show = false;
+                        lGranMolinoPivot4.Show = false;
+                        lGranMolinoPivot5.Show = false;
+                        lGranMolinoPivot2b.Show = false;
+                        lGranMolinoPivot5b.Show = false;
+                    }
+                    else 
                     {
                         lGranMolinoPivot1.Show = false;
                         lGranMolinoPivot2.Show = false;
@@ -4961,10 +5204,18 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lLaPortuguesaPivot1.Show = false;
                         lLaPortuguesaPivot2.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
                         lLaPortuguesaPivot1.Show = true;
                         lLaPortuguesaPivot2.Show = false;
+                    }
+                    else
+                    {
+                        lLaPortuguesaPivot1.Show = true;
+                        lLaPortuguesaPivot2.Show = false;
+
                     }
                     #endregion
 
@@ -5066,7 +5317,15 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lCassarinoLaPerdizPivot12.Show = false;
                         lCassarinoLaPerdizPivot13.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lCassarinoLaPerdizPivot11.Show = true;
+                        lCassarinoLaPerdizPivot12.Show = true;
+                        lCassarinoLaPerdizPivot13.Show = true;
+                    }
+                    else
                     {
                         lCassarinoLaPerdizPivot11.Show = true;
                         lCassarinoLaPerdizPivot12.Show = true;
@@ -5148,7 +5407,14 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lSantoDomingoPivot1.Show = false;
                         lSantoDomingoPivot2.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lSantoDomingoPivot1.Show = true;
+                        lSantoDomingoPivot2.Show = false;
+                    }
+                    else
                     {
                         lSantoDomingoPivot1.Show = true;
                         lSantoDomingoPivot2.Show = false;
