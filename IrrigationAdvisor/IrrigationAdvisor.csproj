@@ -270,7 +270,7 @@
     <Compile Include="DBContext\IrrigationAdvisorContext.cs" />
     <Compile Include="DBContext\Irrigation\BombConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\DripConfiguration.cs" />
-    <Compile Include="DBContext\Irrigation\IrrigationUnitConfigurarion.cs" />
+    <Compile Include="DBContext\Irrigation\IrrigationUnitConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\PivotConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\SprinklerConfiguration.cs" />
     <Compile Include="DBContext\Language\LanguageConfiguration.cs" />
