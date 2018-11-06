@@ -2247,6 +2247,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = true,
                     };
                     context.Farms.Add(lDCAElParaiso);
                     context.SaveChanges();
@@ -2301,6 +2302,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = true,
                     };
                     context.Farms.Add(lDCALaPerdiz);
                     context.SaveChanges();
@@ -2355,6 +2357,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = true,
                     };
                     context.Farms.Add(lDCASanJose);
                     context.SaveChanges();
@@ -2410,6 +2413,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lDelLagoSanPedro);
                     context.SaveChanges();
@@ -2464,6 +2468,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lDelLagoElMirador);
                     context.SaveChanges();
@@ -2519,6 +2524,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lGMOLaPalma);
                     context.SaveChanges();
@@ -2573,6 +2579,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lGMOElTacuru);
                     context.SaveChanges();
@@ -2627,6 +2634,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lTresMarias);
                     context.SaveChanges();
@@ -2680,6 +2688,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lLaRinconada);
                     context.SaveChanges();
@@ -2728,6 +2737,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lElRincon);
                     context.SaveChanges();
@@ -2776,6 +2786,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lElDesafio);
                     context.SaveChanges();
@@ -2824,6 +2835,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lLosNaranjales);
                     context.SaveChanges();
@@ -2872,6 +2884,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lSantaEmilia);
                     context.SaveChanges();
@@ -2920,6 +2933,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = false,
                     };
                     context.Farms.Add(lGranMolino);
                     context.SaveChanges();
@@ -2964,6 +2978,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = true,
                     };
                     context.Farms.Add(lLaPortuguesa);
                     context.SaveChanges();
@@ -3007,6 +3022,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = true,
                     };
                     context.Farms.Add(lCassarinoLaPerdiz);
                     context.SaveChanges();
@@ -3050,6 +3066,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
+                        IsActive = true,
                     };
                     context.Farms.Add(lSantoDomingo);
                     context.SaveChanges();
@@ -3057,6 +3074,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             }
             #endregion
 
+            
             using (var context = new IrrigationAdvisorContext())
             {
                 //context.Farms.Add(lBase);

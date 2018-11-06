@@ -115,20 +115,20 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime HarvestDate_SoyaSouth_DCAElParaisoPivot2_2018 = new DateTime(2019, 04, 15);
         public static Double PredeterminatedIrrigationQuantity_DCAElParaisoPivot2_2018 = 12;
 
-        public static DateTime SowingDate_FestucaSouth_DCAElParaisoPivot3_2018 = new DateTime(2012, 9, 16);
-        public static DateTime HarvestDate_FestucaSouth_DCAElParaisoPivot3_2018 = new DateTime(2018, 4, 5);
+        public static DateTime SowingDate_CornSouth_DCAElParaisoPivot3_2018 = new DateTime(2018, 10, 16);
+        public static DateTime HarvestDate_CornSouth_DCAElParaisoPivot3_2018 = new DateTime(2019, 4, 5);
         public static Double PredeterminatedIrrigationQuantity_DCAElParaisoPivot3_2018 = 12;
-        public static DateTime SowingDate_FestucaSouth_LDCAElParaisoPivot4_2018 = new DateTime(2012, 9, 16);
-        public static DateTime HarvestDate_FestucaSouth_DCAElParaisoPivot4_2018 = new DateTime(2018, 4, 5);
+        public static DateTime SowingDate_CornSouth_DCAElParaisoPivot4_2018 = new DateTime(2018, 10, 16);
+        public static DateTime HarvestDate_CornSouth_DCAElParaisoPivot4_2018 = new DateTime(2019, 4, 5);
         public static Double PredeterminatedIrrigationQuantity_DCAElParaisoPivot4_2018 = 12;
-        public static DateTime SowingDate_FestucaSouth_LDCAElParaisoPivot5_2018 = new DateTime(2018, 5, 24);
-        public static DateTime HarvestDate_FestucaSouth_DCAElParaisoPivot5_2018 = new DateTime(2018, 4, 5);
+        public static DateTime SowingDate_FestucaSouth_DCAElParaisoPivot5_2018 = new DateTime(2018, 5, 24);
+        public static DateTime HarvestDate_FestucaSouth_DCAElParaisoPivot5_2018 = new DateTime(2019, 4, 5);
         public static Double PredeterminatedIrrigationQuantity_DCAElParaisoPivot5_2018 = 12;
-        public static DateTime SowingDate_FestucaSouth_LDCAElParaisoPivot6_2018 = new DateTime(2018, 5, 24);
-        public static DateTime HarvestDate_FestucaSouth_DCAElParaisoPivot6_2018 = new DateTime(2018, 4, 5);
+        public static DateTime SowingDate_FestucaSouth_DCAElParaisoPivot6_2018 = new DateTime(2018, 5, 24);
+        public static DateTime HarvestDate_FestucaSouth_DCAElParaisoPivot6_2018 = new DateTime(2019, 4, 5);
         public static Double PredeterminatedIrrigationQuantity_DCAElParaisoPivot6_2018 = 12;
-        public static DateTime SowingDate_FestucaSouth_LDCAElParaisoPivot7_2018 = new DateTime(2018, 5, 24);
-        public static DateTime HarvestDate_FestucaSouth_DCAElParaisoPivot7_2018 = new DateTime(2018, 4, 5);
+        public static DateTime SowingDate_FestucaSouth_DCAElParaisoPivot7_2018 = new DateTime(2018, 5, 24);
+        public static DateTime HarvestDate_FestucaSouth_DCAElParaisoPivot7_2018 = new DateTime(2019, 4, 5);
         public static Double PredeterminatedIrrigationQuantity_DCAElParaisoPivot7_2018 = 12;
         #endregion
         #region DCA - La Perdiz
@@ -153,8 +153,8 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot6_2018 = new DateTime(2018, 9, 23);
         public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot6_2018 = new DateTime(2019, 02, 5);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot6_2018 = 10;
-        public static DateTime SowingDate_SoyaSouth_DCALaPerdizPivot7_2018 = new DateTime(2018, 10, 05);
-        public static DateTime HarvestDate_SoyaSouth_DCALaPerdizPivot7_2018 = new DateTime(2019, 02, 25);
+        public static DateTime SowingDate_CornSouth_DCALaPerdizPivot7_2018 = new DateTime(2018, 10, 05);
+        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot7_2018 = new DateTime(2019, 02, 25);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot7_2018 = 10;
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot8_2018 = new DateTime(2018, 8, 20);
         public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot8_2018 = new DateTime(2019, 03, 15);
@@ -177,8 +177,8 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot13_2018 = new DateTime(2018, 9, 16);
         public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot13_2018 = new DateTime(2019, 02, 10);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot13_2018 = 10;
-        public static DateTime SowingDate_SoyaSouth_DCALaPerdizPivot14_2018 = new DateTime(2018, 10, 05);
-        public static DateTime HarvestDate_SoyaSouth_DCALaPerdizPivot14_2018 = new DateTime(2019, 02, 25);
+        public static DateTime SowingDate_CornSouth_DCALaPerdizPivot14_2018 = new DateTime(2018, 10, 05);
+        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot14_2018 = new DateTime(2019, 02, 25);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot14_2018 = 10;
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot15_2018 = new DateTime(2018, 9, 23);
         public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot15_2018 = new DateTime(2019, 02, 05);

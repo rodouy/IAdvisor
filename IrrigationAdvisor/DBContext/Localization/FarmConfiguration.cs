@@ -110,7 +110,8 @@ namespace IrrigationAdvisor.DBContext.Localization
                            on i.IrrigationUnitId equals ciw.IrrigationUnitId
                            where ul.UserId == pUser.UserId && 
                            ciw.SowingDate <= lDate && 
-                           ciw.HarvestDate >= lDate
+                           ciw.HarvestDate >= lDate &&
+                           f.IsActive == true
                            select f).Include(f => f.BombList)
                                         .Include(f => f.IrrigationUnitList)
                                         .Include(f => f.WeatherStation)
