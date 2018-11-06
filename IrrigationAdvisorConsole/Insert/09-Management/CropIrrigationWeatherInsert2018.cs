@@ -4205,6 +4205,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
 #endif
                     #endregion
+#if false
                     #region Del Lago - El Mirador Pivot 3 2018
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -6684,7 +6685,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-
+#endif
                     lWeatherStationMainName = DataEntry2018.WeatherStationMainName_DelLagoElMirador_2018b;
                     lWeatherStationAlternativeName = DataEntry2018.WeatherStationAlternativeName_DelLagoElMirador_2018b;
 #if false
@@ -16828,8 +16829,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
 
                     Console.Write(" - DCA - El Paraiso");
-                    //DataEntry2018.AddInformationToIrrigationUnitsDCAElParaisoPivot1_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsDCAElParaisoPivot1_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDCAElParaisoPivot2_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsDCAElParaisoPivot3_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsDCAElParaisoPivot4_2018(context, Program.DateOfReference);
                     //context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
@@ -16845,15 +16848,15 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
                     Console.Write(" - DCA - La Perdiz");
-                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot1_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot2_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot3_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot5_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot6_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot1_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot2_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot3_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot5_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot6_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot7_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot10b_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot10b_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot14_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
@@ -16869,10 +16872,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
                     Console.Write(" - DCA - San Jose");
-                    DataEntry2018.AddInformationToIrrigationUnitsDCASanJosePivot1_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDCASanJosePivot1_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsDCASanJosePivot2_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsDCASanJosePivot3_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDCASanJosePivot4_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDCASanJosePivot4_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
@@ -16889,14 +16892,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
                     Console.Write(" - Del Lago - San Pedro");
-                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot1_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot1_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot2_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot3_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot4_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot5_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot6_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot7_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot8_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot5_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot6_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot7_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot8_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot9_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot10_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDelLagoSanPedroPivot11_2018(context, Program.DateOfReference);
@@ -16924,21 +16927,21 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     Console.Write(" - Del Lago - El Mirador");
                     DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot5_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot6_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot14_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot3_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot4_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot5_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot6_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot7_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot8_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot9_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot10_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot11_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot12_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot13_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot14_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot15_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja1_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivotChaja2_2018(context, Program.DateOfReference);
 
                     //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot1b_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDelLagoElMiradorPivot2b_2018(context, Program.DateOfReference);
@@ -17126,12 +17129,12 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     Console.Write(" - GMO - El Tacuru");
                     DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot1a_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot1b_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot2a_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot2b_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot3a_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot3b_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot4_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot5_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot2a_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot2b_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot3a_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot3b_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot4_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot5_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot6_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot7_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot8_2018(context, Program.DateOfReference);
@@ -17157,10 +17160,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot5_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_1_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_1_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_1_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_1_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot1_1_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot2_1_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot3_1_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsGMOLaPalmaPivot4_1_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
