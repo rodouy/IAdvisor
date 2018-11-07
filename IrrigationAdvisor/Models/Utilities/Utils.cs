@@ -733,6 +733,42 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             SantoDomingo,
 
+            /// <summary>
+            /// Cecchini Farm
+            /// AGRO JW SRL
+            /// </summary>
+            Cecchini,
+
+            /// <summary>
+            /// El Alba Farm
+            /// Estancia El Alba
+            /// </summary>
+            ElAlba,
+
+            /// <summary>
+            /// La Zenaida Farm
+            /// La Zenaida SRL
+            /// </summary>
+            LaZenaida,
+
+            /// <summary>
+            /// Alpino - Santa Emilia Farm
+            /// AGRO JW SRL
+            /// </summary>
+            AlpinoSantaEmilia,
+
+            /// <summary>
+            /// San Miguel Farm
+            /// SAMIFRUIT Uruguay SA
+            /// </summary>
+            SanMiguel,
+
+            /// <summary>
+            /// El Espinillar Farm
+            /// INOVATERRA
+            /// </summary>
+            ElEspinillar,
+
         }
 
 
@@ -893,6 +929,42 @@ namespace IrrigationAdvisor.Models.Utilities
             /// </summary>
             SantoDomingo,
 
+            /// <summary>
+            /// Cecchini Farm
+            /// AGRO JW SRL
+            /// </summary>
+            Cecchini,
+
+            /// <summary>
+            /// El Alba Farm
+            /// Estancia El Alba
+            /// </summary>
+            ElAlba,
+
+            /// <summary>
+            /// La Zenaida Farm
+            /// La Zenaida SRL
+            /// </summary>
+            LaZenaida,
+
+            /// <summary>
+            /// Alpino - Santa Emilia Farm
+            /// AGRO JW SRL
+            /// </summary>
+            AlpinoSantaEmilia,
+
+            /// <summary>
+            /// San Miguel Farm
+            /// SAMIFRUIT Uruguay SA
+            /// </summary>
+            SanMiguel,
+
+            /// <summary>
+            /// El Espinillar Farm
+            /// INOVATERRA
+            /// </summary>
+            ElEspinillar,
+
         }
 
         /// <summary>
@@ -969,6 +1041,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCitySaucedo = "Saucedo";
         public static String NameCityDolores = "Dolores";
         public static String NameCityConchillas = "Conchillas";
+        public static String NameCityColoniaDelSacramento = "Colonia del Sacramento";
+        public static String NameCityCampana = "Campana";
         public static String NameCity = "";
         #endregion
         #region Farms
@@ -994,6 +1068,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameFarmLaPortuguesa = "La Portuguesa";
         public static String NameFarmCassarinoLaPerdiz = "Cassarino - La Perdiz";
         public static String NameFarmSantoDomingo = "Santo Domingo";
+        public static String NameFarmCecchini = "Cecchini";
+        public static String NameFarmElAlba = "El Alba";
+        public static String NameFarmLaZenaida = "La Zenaida";
+        public static String NameFarmAlpinoSantaEmilia = "Alpino - Santa Emilia";
+        public static String NameFarmSanMiguel = "San Miguel";
+        public static String NameFarmElEspinillar = "El Espinillar";
 
         #endregion
         #region Weather
@@ -1347,6 +1427,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameBombLaPortuguesa = NameFarmLaPortuguesa + " Bomba";
         public static String NameBombCassarinoLaPerdiz = NameFarmCassarinoLaPerdiz + " Bomba";
         public static String NameBombSantoDomingo = NameFarmSantoDomingo + " Bomba";
+        public static String NameBombCecchini = NameFarmCecchini + " Bomba";
+        public static String NameBombElAlba = NameFarmElAlba + " Bomba";
+        public static String NameBombLaZenaida = NameFarmLaZenaida + " Bomba";
+        public static String NameBombAlpinoSantaEmilia = NameFarmAlpinoSantaEmilia + " Bomba";
+        public static String NameBombSanMiguel = NameFarmSanMiguel + " Bomba";
+        public static String NameBombElEspinillar = NameFarmElEspinillar + " Bomba";
         #endregion
         #region Pivots
         #region Demo
@@ -1544,6 +1630,30 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Santo Domingo
         public static String NamePivotSantoDomingo1 = NameFarmSantoDomingo + " Pivot 1";
         public static String NamePivotSantoDomingo2 = NameFarmSantoDomingo + " Pivot 2";
+        #endregion
+        #region Cecchini
+        public static String NamePivotCecchini1 = NameFarmCecchini + " Pivot 1";
+        public static String NamePivotCecchini2 = NameFarmCecchini + " Pivot 2";
+        #endregion
+        #region El Alba
+        public static String NamePivotElAlba32 = NameFarmElAlba + " Pivot 32";
+        public static String NamePivotElAlba33 = NameFarmElAlba + " Pivot 33";
+        #endregion
+        #region La Zenaida
+        public static String NamePivotLaZenaida1 = NameFarmLaZenaida + " Pivot 1";
+        public static String NamePivotLaZenaida2 = NameFarmLaZenaida + " Pivot 2";
+        #endregion
+        #region Alpino - Santa Emilia
+        public static String NamePivotAlpinoSantaEmilia1 = NameFarmAlpinoSantaEmilia + " Pivot 1";
+        public static String NamePivotAlpinoSantaEmilia2 = NameFarmAlpinoSantaEmilia + " Pivot 2";
+        #endregion
+        #region San Miguel
+        public static String NamePivotSanMiguel1 = NameFarmSanMiguel + " Pivot 1";
+        public static String NamePivotSanMiguel2 = NameFarmSanMiguel + " Pivot 2";
+        #endregion
+        #region El Espinillar
+        public static String NamePivotElEspinillar1 = NameFarmElEspinillar + " Pivot 1";
+        public static String NamePivotElEspinillar2 = NameFarmElEspinillar + " Pivot 2";
         #endregion
         public static String NamePivot = "";
         #endregion
@@ -1830,8 +1940,8 @@ namespace IrrigationAdvisor.Models.Utilities
         #region ElParaiso
         public static String NameCropIrrigationWeatherDCAElParaisoPivot1_S1819 = NamePivotDCAElParaiso1 + " " + NameSpecieSoyaSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCAElParaisoPivot2_S1819 = NamePivotDCAElParaiso2 + " " + NameSpecieSoyaSouthShort + " S1819";
-        public static String NameCropIrrigationWeatherDCAElParaisoPivot3_S1819 = NamePivotDCAElParaiso3 + " " + NameSpecieFescueForageSouthShort + " S1819";
-        public static String NameCropIrrigationWeatherDCAElParaisoPivot4_S1819 = NamePivotDCAElParaiso4 + " " + NameSpecieFescueForageSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot3_S1819 = NamePivotDCAElParaiso3 + " " + NameSpecieCornSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot4_S1819 = NamePivotDCAElParaiso4 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCAElParaisoPivot5_S1819 = NamePivotDCAElParaiso5 + " " + NameSpecieFescueForageSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCAElParaisoPivot6_S1819 = NamePivotDCAElParaiso6 + " " + NameSpecieFescueForageSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCAElParaisoPivot7_S1819 = NamePivotDCAElParaiso7 + " " + NameSpecieFescueForageSouthShort + " S1819";
@@ -1843,7 +1953,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherDCALaPerdizPivot4_S1819 = NamePivotDCALaPerdiz4 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot5_S1819 = NamePivotDCALaPerdiz5 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot6_S1819 = NamePivotDCALaPerdiz6 + " " + NameSpecieCornSouthShort + " S1819";
-        public static String NameCropIrrigationWeatherDCALaPerdizPivot7_S1819 = NamePivotDCALaPerdiz7 + " " + NameSpecieSoyaSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot7_S1819 = NamePivotDCALaPerdiz7 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot8_S1819 = NamePivotDCALaPerdiz8 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot9_S1819 = NamePivotDCALaPerdiz9 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot10a_S1819 = NamePivotDCALaPerdiz10a + " " + NameSpecieFescueForageSouthShort + " S1819";
@@ -1851,7 +1961,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherDCALaPerdizPivot11_S1819 = NamePivotDCALaPerdiz11 + " " + NameSpecieFescueForageSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot12_S1819 = NamePivotDCALaPerdiz12 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot13_S1819 = NamePivotDCALaPerdiz13 + " " + NameSpecieCornSouthShort + " S1819";
-        public static String NameCropIrrigationWeatherDCALaPerdizPivot14_S1819 = NamePivotDCALaPerdiz14 + " " + NameSpecieSoyaSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot14_S1819 = NamePivotDCALaPerdiz14 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot15_S1819 = NamePivotDCALaPerdiz15 + " " + NameSpecieCornSouthShort + " S1819";
         #endregion
         #region SanJose
@@ -1979,6 +2089,30 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherSantoDomingoPivot1_S1819 = NamePivotSantoDomingo1 + " " + NameSpecieSoyaSouthShort + " S1819";
         public static String NameCropIrrigationWeatherSantoDomingoPivot2_S1819 = NamePivotSantoDomingo2 + " " + NameSpecieCornSouthShort + " S1819";
         #endregion
+        #region Cecchini
+        public static String NameCropIrrigationWeatherCecchiniPivot1_S1819 = NamePivotCecchini1 + " " + NameSpecieSoyaSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherCecchiniPivot2_S1819 = NamePivotCecchini2 + " " + NameSpecieCornSouthShort + " S1819";
+        #endregion
+        #region El Alba
+        public static String NameCropIrrigationWeatherElAlbaPivot32_S1819 = NamePivotElAlba32 + " " + NameSpecieCornSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherElAlbaPivot33_S1819 = NamePivotElAlba33 + " " + NameSpecieCornSouthShort + " S1819";
+        #endregion
+        #region La Zenaida
+        public static String NameCropIrrigationWeatherLaZenaidaPivot1_S1819 = NamePivotLaZenaida1 + " " + NameSpecieSoyaSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot2_S1819 = NamePivotLaZenaida2 + " " + NameSpecieCornSouthShort + " S1819";
+        #endregion
+        #region Alpino - Santa Emilia
+        public static String NameCropIrrigationWeatherAlpinoSantaEmiliaPivot1_S1819 = NamePivotAlpinoSantaEmilia1 + " " + NameSpecieSoyaSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherAlpinoSantaEmiliaPivot2_S1819 = NamePivotAlpinoSantaEmilia2 + " " + NameSpecieCornSouthShort + " S1819";
+        #endregion
+        #region San Miguel
+        public static String NameCropIrrigationWeatherSanMiguelPivot1_S1819 = NamePivotSanMiguel1 + " " + NameSpecieSoyaSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherSanMiguelPivot2_S1819 = NamePivotSanMiguel2 + " " + NameSpecieCornSouthShort + " S1819";
+        #endregion
+        #region El Espinillar
+        public static String NameCropIrrigationWeatherElEspinillarPivot1_S1819 = NamePivotElEspinillar1 + " " + NameSpecieSoyaSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherElEspinillarPivot2_S1819 = NamePivotElEspinillar2 + " " + NameSpecieCornSouthShort + " S1819";
+        #endregion
         #endregion
         #endregion
         #region Security
@@ -1997,12 +2131,17 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserMobileAdm = "MobileAdmin";
         public static String NameUserDCA1 = "jplatero";
         public static String NameUserDCA2 = "fartigue";
+        public static String NameUserDCA3 = "jlauber";
+        public static String NameUserDCA4 = "schilibroste";
+        public static String NameUserDCA5 = "agareta";
+        public static String NameUserDCA6 = "rpastorino";
         public static String NameUserSantaLucia = "SantaLucia";
         public static String NameUserDelLago1 = "girazabal";
         public static String NameUserDelLago2 = "jhemala";
         public static String NameUserDelLago3 = "sriera";
         public static String NameUserDelLago4 = "jvolf";
         public static String NameUserDelLago5 = "llanusse";
+        public static String NameUserDelLago6 = "jrrodriguez";
         public static String NameUserGMO1 = "ptarigo";
         public static String NameUserGMO2 = "danselmi";
         public static String NameUserGMO3 = "mrios";
@@ -2026,6 +2165,16 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserLP1 = "pdamiani";
         public static String NameUserCLP1 = "frovira";
         public static String NameUserSD1 = "dordoqui";
+        public static String NameUserCE1 = "wcecchini";
+        public static String NameUserCE2 = "jcecchini";
+        public static String NameUserEA1 = "durani";
+        public static String NameUserSEA1 = "mpino";
+        public static String NameUserSEA2 = "lpino";
+        public static String NameUserSM1 = "ypochintesta";
+        public static String NameUserSM2 = "gunderz";
+        public static String NameUserEE1 = "crodriguez";
+        public static String NameUserEE2 = "nazambuja";
+        public static String NameUserEE3 = "fcarrau";
         #endregion
         #region Utilities
         #endregion
@@ -2053,6 +2202,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionCitySaucedo = NameCitySaucedo;
         public static String NamePositionCityDolores = NameCityDolores;
         public static String NamePositionCityConchillas = NameCityConchillas;
+        public static String NamePositionCityColoniaDelSacramento = NameCityColoniaDelSacramento;
+        public static String NamePositionCityCampana = NameCityCampana;
         public static String NamePositionCity = NameCity;
         #endregion
         #region PositionsFarms
@@ -2078,6 +2229,12 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionFarmLaPortuguesa = NameFarmLaPortuguesa;
         public static String NamePositionFarmCassarinoLaPerdiz = NameFarmCassarinoLaPerdiz;
         public static String NamePositionFarmSantoDomingo = NameFarmSantoDomingo;
+        public static String NamePositionFarmCecchini = NameFarmCecchini;
+        public static String NamePositionFarmElAlba = NameFarmElAlba;
+        public static String NamePositionFarmLaZenaida = NameFarmLaZenaida;
+        public static String NamePositionFarmAlpinoSantaEmilia = NameFarmAlpinoSantaEmilia;
+        public static String NamePositionFarmSanMiguel = NameFarmSanMiguel;
+        public static String NamePositionFarmElEspinillar = NameFarmElEspinillar;
         #endregion
         #region PositionsWeatherStations
         public static String NamePositionWeatherStationLasBrujas = NameWeatherStationLasBrujas;
@@ -2294,6 +2451,30 @@ namespace IrrigationAdvisor.Models.Utilities
         #region Santo Domingo
         public static String NamePositionPivotSantoDomingo1 = NamePivotSantoDomingo1;
         public static String NamePositionPivotSantoDomingo2 = NamePivotSantoDomingo2;
+        #endregion
+        #region Cecchini
+        public static String NamePositionPivotCecchini1 = NamePivotCecchini1;
+        public static String NamePositionPivotCecchini2 = NamePivotCecchini2;
+        #endregion
+        #region El Alba
+        public static String NamePositionPivotElAlba32 = NamePivotElAlba32;
+        public static String NamePositionPivotElAlba33 = NamePivotElAlba33;
+        #endregion
+        #region La Zenaida
+        public static String NamePositionPivotLaZenaida1 = NamePivotLaZenaida1;
+        public static String NamePositionPivotLaZenaida2 = NamePivotLaZenaida2;
+        #endregion
+        #region Alpino - Santa Emilia
+        public static String NamePositionPivotAlpinoSantaEmilia1 = NamePivotAlpinoSantaEmilia1;
+        public static String NamePositionPivotAlpinoSantaEmilia2 = NamePivotAlpinoSantaEmilia2;
+        #endregion
+        #region San Miguel
+        public static String NamePositionPivotSanMiguel1 = NamePivotSanMiguel1;
+        public static String NamePositionPivotSanMiguel2 = NamePivotSanMiguel2;
+        #endregion
+        #region El Espinillar
+        public static String NamePositionPivotElEspinillar1 = NamePivotElEspinillar1;
+        public static String NamePositionPivotElEspinillar2 = NamePivotElEspinillar2;
         #endregion
         public static String NamePositionPivot = "";
         #endregion

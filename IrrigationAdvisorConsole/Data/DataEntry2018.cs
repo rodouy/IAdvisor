@@ -585,6 +585,18 @@ namespace IrrigationAdvisorConsole.Data
         public static Double PredeterminatedIrrigationQuantity_SantoDomingoPivot2_2018 = 14;
 
         #endregion
+        #region CE - Cecchini
+        public static String WeatherStationMainName_Cecchini_2018 = Utils.NameWeatherStationLaEstanzuela;
+        public static String WeatherStationAlternativeName_Cecchini_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+
+        public static DateTime SowingDate_SoyaSouth_CecchiniPivot1_2018 = new DateTime(2018, 10, 20);
+        public static DateTime HarvestDate_SoyaSouth_CecchiniPivot1_2018 = new DateTime(2019, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_CecchiniPivot1_2018 = 14;
+        public static DateTime SowingDate_SoyaSouth_CecchiniPivot2_2018 = new DateTime(2018, 12, 10);
+        public static DateTime HarvestDate_SoyaSouth_CecchiniPivot2_2018 = new DateTime(2019, 05, 30);
+        public static Double PredeterminatedIrrigationQuantity_CecchiniPivot2_2018 = 14;
+
+        #endregion
 
         #endregion
 
