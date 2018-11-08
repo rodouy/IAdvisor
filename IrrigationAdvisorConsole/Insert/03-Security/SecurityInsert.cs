@@ -691,6 +691,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lDCAFabian);
                 context.Users.Add(lDCAJavier);
                 context.Users.Add(lDCASantiago);
+                context.Users.Add(lDCAAlejandro);
+                context.Users.Add(lDCARaul);
                 context.Users.Add(lDelLagoGuzman);
                 context.Users.Add(lDelLagoJose);
                 context.Users.Add(lDelLagoSebastian);

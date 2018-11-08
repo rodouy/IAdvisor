@@ -1398,6 +1398,14 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilSantoDomingo1 = NameFarmSantoDomingo + " Pivot 1";
         public static String NameSoilSantoDomingo2 = NameFarmSantoDomingo + " Pivot 2";
         #endregion
+        #region Cecchini
+        public static String NameSoilCecchini1 = NameFarmCecchini + " Pivot 1";
+        public static String NameSoilCecchini2 = NameFarmCecchini + " Pivot 2";
+        #endregion
+        #region El Alba
+        public static String NameSoilElAlba32 = NameFarmElAlba + " Pivot 32";
+        public static String NameSoilElAlba33 = NameFarmElAlba + " Pivot 33";
+        #endregion
         #endregion
         #endregion
         #region Data
@@ -2544,7 +2552,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static Double PredeterminatedIrrigationQuantity_FirstPart = 10;
         public static DateTime PredeterminatedDateFrom_SecondPart = new DateTime(2017, 12, 01);
         public static Double PredeterminatedIrrigationQuantity_SecondPart = 14;
-        public static DateTime PredeterminatedDateFrom_ThirdPart = new DateTime(2017, 02, 01);
+        public static DateTime PredeterminatedDateFrom_ThirdPart = new DateTime(2018, 02, 01);
         public static Double PredeterminatedIrrigationQuantity_ThirdPart = 14;
         #endregion
 
