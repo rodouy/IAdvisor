@@ -923,7 +923,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3, 
                                                 Utils.NameUserDCA4, Utils.NameUserDCA5, 
-                                               Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
                                                 Utils.NameUserROlivera, Utils.NameUserDemo,

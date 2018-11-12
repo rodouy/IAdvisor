@@ -2548,11 +2548,11 @@ namespace IrrigationAdvisor.Models.Utilities
         /// 2017:10:02 - From 15 -> 12
         /// </summary>
         /// 
-        public static DateTime PredeterminatedDateFrom_FirstPart = new DateTime(2017, 09, 01);
+        public static DateTime PredeterminatedDateFrom_FirstPart = new DateTime(2018, 09, 01);
         public static Double PredeterminatedIrrigationQuantity_FirstPart = 10;
-        public static DateTime PredeterminatedDateFrom_SecondPart = new DateTime(2017, 12, 01);
+        public static DateTime PredeterminatedDateFrom_SecondPart = new DateTime(2018, 12, 01);
         public static Double PredeterminatedIrrigationQuantity_SecondPart = 14;
-        public static DateTime PredeterminatedDateFrom_ThirdPart = new DateTime(2018, 02, 01);
+        public static DateTime PredeterminatedDateFrom_ThirdPart = new DateTime(2019, 02, 01);
         public static Double PredeterminatedIrrigationQuantity_ThirdPart = 14;
         #endregion
 
