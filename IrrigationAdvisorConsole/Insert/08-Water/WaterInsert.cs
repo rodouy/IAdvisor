@@ -2300,8 +2300,10 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //IrrigationData2018.AddIrrigationDataDCAElParaisoPivot1_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataDCAElParaisoPivot1_2018(context, Program.DateOfReference);
                     //IrrigationData2018.AddIrrigationDataDCAElParaisoPivot2_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataDCAElParaisoPivot2_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataDCAElParaisoPivot2_2018(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
