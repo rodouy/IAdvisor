@@ -7354,8 +7354,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region GMO - La Palma
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
@@ -8697,8 +8697,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #region GMO - El Tacuru
 
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
@@ -15500,29 +15500,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieSudanGrassSouthShort
+                               where sp.Name == Utils.NameSpecieCornNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieSudanGrassSouthShort
+                             where crop.Name == Utils.NameSpecieCornNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                                        where cc.Name == Utils.NameSpecieCornNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                               where cc.Name == Utils.NameSpecieCornNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieSudanGrassSouthShort
+                                              where cid.Name == Utils.NameSpecieCornNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -15536,8 +15536,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotLaPortuguesa1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry2018.SowingDate_SudanGrassSouth_LaPortuguesaPivot1_2018;
-                    lHarvestDate = DataEntry2018.HarvestDate_SudanGrassSouth_LaPortuguesaPivot1_2018;
+                    lSowingDate = DataEntry2018.SowingDate_CornNorth_LaPortuguesaPivot1_2018;
+                    lHarvestDate = DataEntry2018.HarvestDate_CornNorth_LaPortuguesaPivot1_2018;
                     lCropDate = DateTime.Now;
                     if (DataEntry2018.PredeterminatedIrrigationQuantity_LaPortuguesaPivot1_2018 == 0)
                     {
@@ -15667,29 +15667,29 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                   where ws.Name == lWeatherStationAlternativeName
                                                   select ws).FirstOrDefault();
                     lEffectiveRainList = (from effectiverain in context.EffectiveRains
-                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionNorth)
                                           select effectiverain)
                                          .ToList<EffectiveRain>();
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieSudanGrassSouthShort
+                               where sp.Name == Utils.NameSpecieSoyaNorthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieSudanGrassSouthShort
+                             where crop.Name == Utils.NameSpecieSoyaNorthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                                        where cc.Name == Utils.NameSpecieSoyaNorthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                               where cc.Name == Utils.NameSpecieSoyaNorthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieSudanGrassSouthShort
+                                              where cid.Name == Utils.NameSpecieSoyaNorthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -15703,8 +15703,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotLaPortuguesa2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry2018.SowingDate_SudanGrassSouth_LaPortuguesaPivot2_2018;
-                    lHarvestDate = DataEntry2018.HarvestDate_SudanGrassSouth_LaPortuguesaPivot2_2018;
+                    lSowingDate = DataEntry2018.SowingDate_SoyaNorth_LaPortuguesaPivot2_2018;
+                    lHarvestDate = DataEntry2018.HarvestDate_SoyaNorth_LaPortuguesaPivot2_2018;
                     lCropDate = Program.DateOfReference;
                     if (DataEntry2018.PredeterminatedIrrigationQuantity_LaPortuguesaPivot2_2018 == 0)
                     {
@@ -15856,23 +15856,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieSoyaSouthShort
+                               where sp.Name == Utils.NameSpecieSudanGrassSouthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieSoyaSouthShort
+                             where crop.Name == Utils.NameSpecieSudanGrassSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieSoyaSouthShort
+                                        where cc.Name == Utils.NameSpecieSudanGrassSouthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieSoyaSouthShort
+                               where cc.Name == Utils.NameSpecieSudanGrassSouthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieSoyaSouthShort
+                                              where cid.Name == Utils.NameSpecieSudanGrassSouthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -15886,8 +15886,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotCassarinoLaPerdiz11)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry2018.SowingDate_SoyaSouth_CassarinoLaPerdizPivot11_2018;
-                    lHarvestDate = DataEntry2018.HarvestDate_SoyaSouth_CassarinoLaPerdizPivot11_2018;
+                    lSowingDate = DataEntry2018.SowingDate_SudanGrassSouth_CassarinoLaPerdizPivot11_2018;
+                    lHarvestDate = DataEntry2018.HarvestDate_SudanGrassSouth_CassarinoLaPerdizPivot11_2018;
                     lCropDate = DateTime.Now;
                     if (DataEntry2018.PredeterminatedIrrigationQuantity_CassarinoLaPerdizPivot11_2018 == 0)
                     {
@@ -17472,8 +17472,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region GMO - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
@@ -17487,8 +17487,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region GMO - El Tacuru
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
@@ -17857,8 +17857,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region GMO - El Tacuru
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
@@ -17867,14 +17867,14 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     Console.Write(" - GMO - El Tacuru");
                     DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot1a_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot1b_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot2a_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot2b_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot3a_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot3b_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot4_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot5_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot6_2018(context, Program.DateOfReference);
-                    //DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot7_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot2a_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot2b_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot3a_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot3b_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot4_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot5_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot6_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot7_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot8_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot9_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsGMOElTacuruPivot10_2018(context, Program.DateOfReference);
@@ -17885,8 +17885,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             #endregion
             #region GMO - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
