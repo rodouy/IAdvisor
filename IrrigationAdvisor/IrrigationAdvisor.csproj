@@ -270,6 +270,7 @@
     <Compile Include="DBContext\IrrigationAdvisorContext.cs" />
     <Compile Include="DBContext\Irrigation\BombConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\DripConfiguration.cs" />
+    <Compile Include="DBContext\Irrigation\IrrigationUnitConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\PivotConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\SprinklerConfiguration.cs" />
     <Compile Include="DBContext\Language\LanguageConfiguration.cs" />
@@ -948,7 +949,7 @@
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
-	<Content Include="Views\Irrigation\IrrigationUnit\Index.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Index.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Create.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Delete.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Details.cshtml" />
