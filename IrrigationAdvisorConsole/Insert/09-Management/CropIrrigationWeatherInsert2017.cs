@@ -10864,7 +10864,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region La Rinconada
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
                 {

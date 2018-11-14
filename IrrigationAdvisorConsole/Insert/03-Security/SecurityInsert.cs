@@ -1151,7 +1151,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region Albanell - Tres Marias
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
@@ -1188,10 +1188,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region Maria Elena SRL - La Rinconada - LR
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
                 {
                     lUserNames = new String[] { Utils.NameUserLR1, Utils.NameUserLR2, 
@@ -1261,9 +1261,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region El Desafio - ED
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElDesafio)
                 {
                     lUserNames = new String[] { Utils.NameUserED1, 
@@ -1297,9 +1297,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region OLAM - Los Naranjales - LN
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
                 {
                     lUserNames = new String[] { Utils.NameUserLN1, Utils.NameUserLN2,
@@ -1334,9 +1334,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region Sierra Madera S.A - Santa Emilia - SE
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
                 {
                     lUserNames = new String[] { Utils.NameUserSE1, Utils.NameUserSE2,
@@ -1370,9 +1370,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region Gran Molino SRL - Gran Molino - GM
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
                 {
                     lUserNames = new String[] { Utils.NameUserGM1,
@@ -1406,7 +1406,6 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region La Portuguesa - LP
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
                 {
