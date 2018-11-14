@@ -331,10 +331,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             #endregion
             #region Bomb GMO - LaPalma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
@@ -365,10 +365,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             #endregion
             #region Bomb GMO - ElTacuru
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
@@ -3350,10 +3350,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             #endregion
             #region Pivots GMO - LaPalma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
@@ -3648,10 +3648,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             #endregion
             #region Pivots GMO - ElTacuru
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
@@ -5737,18 +5737,18 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmGMOLaPalma();
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmGMOElTacuru();
             }
-            if (//Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production ||
-                Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production 
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmGMOLaPalma();
             }
-            if (//Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production ||
-                Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production 
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmGMOElTacuru();
