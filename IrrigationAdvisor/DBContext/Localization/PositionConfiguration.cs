@@ -46,5 +46,10 @@ namespace IrrigationAdvisor.DBContext.Localization
 
             return lReturn;
         }
+
+        public List<Position> GetAllPositions()
+        {
+            return db.Positions.ToList();
+        }
     }
 }

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<IrrigationAdvisor.Models.Irrigation.IrrigationUnit>
+
+@{
+    ViewBag.Title = "Index";
+    //Layout = "Irrigation";
+}
+
+<h2>Unidades de riego</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create", "IrrigationUnit")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Establecimiento
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Eficiencia
+        </th>
+        <th>
+            Superficie
+        </th>
+        <th>
+            Bomba
+        </th>
+        <th>
+            mm. predeterminado
+        </th>
+        <th>
+            Pos. latitud
+        </th>
+        <th>
+            Pos. longitud
+        </th>
+        <th>
+            Visible
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) 
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Farm.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IrrigationEfficiency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surface)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bomb.ShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PredeterminatedIrrigationQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Show)
+        </td>
+
+            <td>
+                @Html.ActionLink(linkText: "Editar",   actionName: "Edit", controllerName: item.IrrigationType.ToString()+'s', routeValues: new  {id = item.IrrigationUnitId}, htmlAttributes: null) |
+                @Html.ActionLink(linkText: "Detalle", actionName: "Details", controllerName: item.IrrigationType.ToString() + 's', routeValues: new { id = item.IrrigationUnitId}, htmlAttributes: null) |
+                @Html.ActionLink(linkText: "Eliminar", actionName: "Delete", controllerName: item.IrrigationType.ToString() + 's', routeValues: new { id = item.IrrigationUnitId}, htmlAttributes: null)
+            </td>
+
+    </tr>
+}
+
+</table>

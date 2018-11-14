@@ -104,12 +104,18 @@ namespace IrrigationAdvisor.Models.GridHome
             set { dailyRecord = value; }
         }
 
+        public bool IsIrrigationConfirmed
+        {
+            get; set;
+        }
+
         #endregion
 
         public GridPivotDetailHome(Double pIrrigationQuantity, Double pRainQuantity,
                                     Double pForecastIrrigationQuantity, DateTime pDateOfData, 
                                     bool pIsToday, Utils.IrrigationStatus pIrrigationStatus,
                                     String pPhenology,
+                                    bool pIsIrrigationConfirmed,
                                     DailyRecord pDailyRecord = null)
         {
             this.IrrigationQuantity = pIrrigationQuantity;
@@ -120,6 +126,7 @@ namespace IrrigationAdvisor.Models.GridHome
             this.IrrigationStatus = pIrrigationStatus;
             this.Phenology = pPhenology;
             this.DailyRecord = pDailyRecord;
+            this.IsIrrigationConfirmed = pIsIrrigationConfirmed;
         }
     }
 }

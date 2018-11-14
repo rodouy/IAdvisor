@@ -123,11 +123,11 @@ namespace IrrigationAdvisor.Controllers.Wizard
 
 
             }
-
-            WizardFarmViewModel vmReturn = new WizardFarmViewModel();
-            vmReturn.City = this.LoadCities();
-            vmReturn.WeatherStation = this.LoadWeatherStations();
-            return View("~/Views/Wizard/FarmBomb/Wizard.cshtml", vmReturn);
+            return View("~/Views/Localization/Farms/Index.cshtml", db.Farms.ToList());
+            //WizardFarmViewModel vmReturn = new WizardFarmViewModel();
+            //vmReturn.City = this.LoadCities();
+            //vmReturn.WeatherStation = this.LoadWeatherStations();
+            //return View("~/Views/Wizard/FarmBomb/Wizard.cshtml", vmReturn);
         }
 
         #region private methondaux

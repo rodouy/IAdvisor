@@ -1,83 +1,90 @@
-﻿@model IrrigationAdvisor.Models.Weather.WeatherStation
+﻿@model IrrigationAdvisor.ViewModels.Weather.WeatherStationViewModel
 
 @{
     ViewBag.Title = "Details";
-    Layout = "Weather";
+   // Layout = "Weather";
 }
+<h2>Detalle</h2>
 
-<h2>Details</h2>
 
-<div>
-    <h4>WeatherStation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<h4>Estación</h4>
+<hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+<div class="horizontal">
+    <table id="mytable">
+        <tr>
+            <td id="myTdHead">Nombre</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Modelo</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Model)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Fecha instalación</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.DateOfInstallation)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Fecha servicio</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.DateOfService)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Fecha actualización</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.UpdateTime)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Trans. wireless</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.WirelessTransmission)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Dirección web</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.WebAddress)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Tipo de estación</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.StationType)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Tipo de datos</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.WeatherDataType)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Brinda ET</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.GiveET)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Habilitada</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Enabled)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Latitud</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Latitude)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Longitud</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Longitude)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Establecimientos</td>
+            <td id="myTdBody">
+                @foreach (var item in Model.Farms)
+                {
+                    @(item.Text)<br>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td id="myTdHead"></td>
+            <td id="myTdBody">@Html.ActionLink("   Editar   ", "Edit", new { id = Model.WeatherStationId }, new { @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+        </tr>
+    </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfInstallation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfInstallation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfService)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfService)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdateTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WirelessTransmission)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WirelessTransmission)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GiveET)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GiveET)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WeatherDataType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WeatherDataType)
-        </dd>
-
-    </dl>
 </div>
+
+
+
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.WeatherStationId }) |
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </p>

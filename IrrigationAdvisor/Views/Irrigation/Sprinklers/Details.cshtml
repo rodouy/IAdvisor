@@ -1,67 +1,79 @@
-﻿@model IrrigationAdvisor.Models.Irrigation.Sprinkler
+﻿@model IrrigationAdvisor.ViewModels.Irrigation.SprinklerViewModel
 
 @{
     ViewBag.Title = "Details";
-    Layout = "Irrigation";
+    // Layout = "Irrigation";
 }
 
-<h2>Details</h2>
+<h2>Detalle</h2>
 
-<div>
-    <h4>Sprinkler</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+<div class="horizontal">
+    <table id="mytable">
+        <tr>
+            <td id="myTdHead">Nombre</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.ShortName)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Eficiencia</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.IrrigationEfficiency)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Superficie</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Surface)</td>
+        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IrrigationType)
-        </dt>
+        <tr>
+            <td id="myTdHead">Riego predeterminado</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.PredeterminatedIrrigationQuantity)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Visible</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Show)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Establecimiento</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Farm.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Latitud</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Position.Latitude)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Longitud</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Position.Longitude)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Bomba</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Bomb.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Tipo de riego</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.IrrigationType)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Ancho</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Width)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Largo</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Length)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead"></td>
+            <td id="myTdBody">
 
-        <dd>
-            @Html.DisplayFor(model => model.IrrigationType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IrrigationEfficiency)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IrrigationEfficiency)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Surface)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Surface)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Width)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Width)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Length)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Length)
-        </dd>
-
-    </dl>
+                @Html.ActionLink(linkText: "   Editar   ", actionName: "Edit", controllerName: "Sprinklers", routeValues: new { id = Model.IrrigationUnitId }, htmlAttributes: new { @class = "btn btn-default" })
+                &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink(linkText: "Volver a la lista", actionName: "Index", controllerName: "IrrigationUnit", routeValues: null, htmlAttributes: new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    </table>
 </div>
+
+
+
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IrrigationUnitId }) |
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </p>

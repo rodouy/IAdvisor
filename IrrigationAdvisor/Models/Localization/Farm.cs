@@ -73,6 +73,8 @@ namespace IrrigationAdvisor.Models.Localization
         private bool irrigationUnitReportShowTemperature;
         private bool irrigationUnitReportShowEvapotranspiration;
         private bool irrigationUnitReportShowAvailableWater;
+        private bool isActive;
+
 
         #endregion
 
@@ -191,7 +193,11 @@ namespace IrrigationAdvisor.Models.Localization
             get { return irrigationUnitReportShowAvailableWater; }
             set { irrigationUnitReportShowAvailableWater = value; }
         }
-
+        public bool IsActive
+        {
+            get { return isActive; }
+            set { isActive = value; }
+        }
         #endregion
 
         #region Construction
@@ -216,6 +222,7 @@ namespace IrrigationAdvisor.Models.Localization
             this.IrrigationUnitReportShowTemperature = false;
             this.IrrigationUnitReportShowEvapotranspiration = false;
             this.IrrigationUnitReportShowAvailableWater = false;
+            this.IsActive = true;
         }
 
         /// <summary>
@@ -254,6 +261,7 @@ namespace IrrigationAdvisor.Models.Localization
             this.IrrigationUnitList = pIrrigationUnitList;
             this.CityId = pCityId;
             this.UserFarmList = pUserFarmList;
+            
         }
 
         #endregion
@@ -374,7 +382,7 @@ namespace IrrigationAdvisor.Models.Localization
             Soil lReturn = null;
             long lIdSoil = this.GetNewSoilListId();
             Soil lSoil = new Soil(lIdSoil, pName, pShortName, pDescription, pPositionId, pTestDate, pDepthLimit, pFarmId);
-            if (ExistSoil(lSoil) == null)
+            if(ExistSoil(lSoil) == null)
             {
                 this.SoilList.Add(lSoil);
                 lReturn = lSoil;

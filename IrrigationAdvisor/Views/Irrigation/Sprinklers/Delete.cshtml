@@ -1,73 +1,79 @@
-﻿@model IrrigationAdvisor.Models.Irrigation.Sprinkler
+﻿@model IrrigationAdvisor.ViewModels.Irrigation.SprinklerViewModel
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "Irrigation";
+    // Layout = "Agriculture";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Confirma la eliminación?</h3>
 <div>
-    <h4>Sprinkler</h4>
+    <h4>Soil</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IrrigationType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IrrigationType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IrrigationEfficiency)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IrrigationEfficiency)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Surface)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Surface)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Width)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Width)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Length)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Length)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
+        <div class="horizontal">
+            <table id="mytable">
+                <tr>
+                    <td id="myTdHead">Nombre</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.ShortName)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Eficiencia</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.IrrigationEfficiency)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Superficie</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Surface)</td>
+                </tr>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                <tr>
+                    <td id="myTdHead">Riego predeterminado</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.PredeterminatedIrrigationQuantity)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Visible</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Show)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Establecimiento</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Farm.Name)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Latitud</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Position.Latitude)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Longitud</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Position.Longitude)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Bomba</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Bomb.Name)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Tipo de riego</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.IrrigationType)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Ancho</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Width)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead">Largo</td>
+                    <td id="myTdBody">@Html.DisplayFor(model => model.Length)</td>
+                </tr>
+                <tr>
+                    <td id="myTdHead"></td>
+                    <td id="myTdBody">
+                        <input type="submit" value="&nbsp;&nbsp;&nbsp;Borrar&nbsp;&nbsp;&nbsp;" class="btn btn-default" />&nbsp;&nbsp;&nbsp;&nbsp;
+                        @Html.ActionLink(linkText: "Volver a la lista", actionName: "Index", controllerName: "IrrigationUnit", routeValues: null, htmlAttributes: new { @class = "btn btn-default" })
+                    </td>
+                </tr>
+            </table>
         </div>
+
     }
 </div>

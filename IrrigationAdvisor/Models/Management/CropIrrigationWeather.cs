@@ -2462,6 +2462,29 @@ namespace IrrigationAdvisor.Models.Management
 
         #endregion
 
+        #region HydricBalanceAdjustments
+
+        /// <summary>
+        /// Calculate hydric balance adjustments.
+        /// </summary>
+        /// <param name="pHydricBalanceAdjustmens"></param>
+        /// <param name="pFromDate"></param>
+        /// <param name="pToDate"></param>
+        public void ApplyHydricBalanceAdjustments(List<HidricBalanceAdjustment> pHydricBalanceAdjustmens, DateTime pFromDate)
+        {
+            var dailyRecord = this.dailyRecordList.FirstOrDefault(n => pFromDate == n.DailyRecordDateTime);
+
+            var exists = pHydricBalanceAdjustmens.FirstOrDefault(n => n.CropIrrigationWeatherId == this.cropIrrigationWeatherId && n.Date == dailyRecord.DailyRecordDateTime);
+
+            if (exists != null && dailyRecord != null)
+            {
+                dailyRecord.HydricBalance = exists.HydricBalance;
+                dailyRecord.PercentageOfHydricBalance = exists.Percentage;
+                this.hydricBalance = exists.HydricBalance;
+            }        
+        }
+
+        #endregion
         #endregion
 
         #region Public Methods
@@ -3193,11 +3216,18 @@ namespace IrrigationAdvisor.Models.Management
                                     break;
                                 }
                             }
+                            
                             //when arrives to final Stage, do not add new irrigation
                             if (this.PhenologicalStage.Stage.StageId == this.Crop.StopIrrigationStageId)
                             {
                                 //System.Diagnostics.Debugger.Break();
                             }
+
+                            var hydricBalancesAdjustments = pIrrigationAdvisorContext
+                                                            .HydricBalanceAdjustments
+                                                            .Where(n => n.CropIrrigationWeatherId == this.cropIrrigationWeatherId).ToList();
+
+                            ApplyHydricBalanceAdjustments(hydricBalancesAdjustments, lDateOfRecord);
                         }
                     }
                 }
@@ -4139,6 +4169,7 @@ namespace IrrigationAdvisor.Models.Management
                         "Because there was no Irrigation and the new Irrigation is 0 or the quantity of water is negative.");
                 }
                 #endregion
+
             }
             catch (Exception ex)
             {
@@ -4724,13 +4755,29 @@ namespace IrrigationAdvisor.Models.Management
             {
 
                 UpdateCropIrrigationWeatherByOneDayBeforeDailyRecordData(lDailyRecordToDelete);
-
+                /**************************************************************************************/
+                /*-- 2018-11-13  Change to Update DailyRecords to initial state without irrigation  --*/
+                /*--  TODO: Change Deletion to update of records                                    --*/
+                /**************************************************************************************/
                 //Delete Database List of DATA
                 //Delete DailyRecords from database after date of record to delete.
-                this.dailyRecordList.RemoveAll(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime 
+                this.dailyRecordList.RemoveAll(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime
                                                 && dr.CropIrrigationWeatherId == this.CropIrrigationWeatherId);
 
                 lIrrigationToDelete = RemoveIrrigationList(lDailyRecordToDelete.DailyRecordDateTime);
+
+                /**************************************************************************************/
+                /*--                   New code                                                     --*/
+                foreach (DailyRecord lDailyRecord in this.dailyRecordList
+                                                                .Where(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime 
+                                                                    && dr.CropIrrigationWeatherId == this.CropIrrigationWeatherId))
+                {
+                    lDailyRecord.Irrigation.Type = Utils.WaterInputType.Irrigation;
+                }
+
+
+                /**************************************************************************************/
+
 
             }
 
@@ -4740,6 +4787,12 @@ namespace IrrigationAdvisor.Models.Management
 
         }
 
+        /// <summary>
+        /// Remove Irrigations from the List from a Date
+        /// Note: Extra input or CantIrrigate input, will not be deleted
+        /// </summary>
+        /// <param name="pDateFrom"></param>
+        /// <returns></returns>
         public List<Water.Irrigation> RemoveIrrigationList(DateTime pDateFrom)
         {
             List<Water.Irrigation> lReturn = null;
@@ -4779,6 +4832,55 @@ namespace IrrigationAdvisor.Models.Management
             }
 
             lReturn = lIrrigationToDelete;
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Update IrrigationList with Initial values from a Date
+        /// </summary>
+        /// <param name="pDateFrom"></param>
+        /// <returns></returns>
+        public List<Water.Irrigation> UpdateIrrigationListToInitial(DateTime pDateFrom)
+        {
+            List<Water.Irrigation> lReturn = null;
+            List<Water.Irrigation> lIrrigationToUpdate = null;
+
+
+            //Find Irrigation to delete
+            lIrrigationToUpdate = this.irrigationList
+                                        .Where(irrigation => irrigation.Date >= pDateFrom.Date
+                                            && irrigation.CropIrrigationWeatherId == this.CropIrrigationWeatherId
+                                            && irrigation.Type != Utils.WaterInputType.CantIrrigate
+                                            && !(irrigation.ExtraInput > 0 || irrigation.ExtraInput == 0 && irrigation.ExtraDate == irrigation.Date))
+                                            .ToList();
+
+            if (lIrrigationToUpdate != null && lIrrigationToUpdate.Any())
+            {
+                //Update Irrigations input from database after date of record. 
+                //Extra input or CantIrrigate input, will not be updated
+                foreach (Water.Irrigation lIrrigation in this.IrrigationList
+                                                                .Where(irrigation => irrigation.Date >= pDateFrom.Date
+                                                                    && irrigation.CropIrrigationWeatherId == this.CropIrrigationWeatherId
+                                                                    && irrigation.Type != Utils.WaterInputType.CantIrrigate))
+                {
+                    if (lIrrigation.ExtraInput > 0 ||
+                        (lIrrigation.ExtraInput == 0 && lIrrigation.ExtraDate == lIrrigation.Date))
+                    {
+                        lIrrigation.Input = 0;
+                        lIrrigation.Date = lIrrigation.ExtraDate;
+                    }
+                    else
+                    {
+                        lIrrigation.Input = 0;
+                        lIrrigation.Type = Utils.WaterInputType.IrrigationWasNotDecided;
+                        lIrrigation.Reason = Utils.NoIrrigationReason.NotDecided;
+                        lIrrigation.ExtraDate = Utils.MIN_DATETIME;
+                    }
+                }
+
+            }
+
+            lReturn = lIrrigationToUpdate;
             return lReturn;
         }
 
@@ -4877,6 +4979,67 @@ namespace IrrigationAdvisor.Models.Management
             lDatabaseChangeResult = pIrrigationAdvisorContext.SaveChanges();
 
             lReturn = lIrrigationToDelete;
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Update IrrigationList with Initial values from a Date
+        /// </summary>
+        /// <param name="pDateFrom"></param>
+        /// <param name="pIrrigationAdvisorContext"></param>
+        /// <returns></returns>
+        public List<Water.Irrigation> UpdateIrrigationListToInitial(DateTime pDateFrom, IrrigationAdvisorContext pIrrigationAdvisorContext)
+        {
+            List<Water.Irrigation> lReturn = null;
+            List<Water.Irrigation> lIrrigationToUpdate = null;
+            EntityState lState;
+            int lDatabaseChangeResult = 0;
+
+
+            lState = pIrrigationAdvisorContext.Entry(this).State;
+
+            //Find Irrigation to update
+            lIrrigationToUpdate = this.irrigationList.Where(irrigation => irrigation.Date >= pDateFrom.Date
+                                        && irrigation.CropIrrigationWeatherId == this.CropIrrigationWeatherId
+                                        && irrigation.Type != Utils.WaterInputType.CantIrrigate
+                                        && !(irrigation.ExtraInput > 0 || irrigation.ExtraInput == 0 && irrigation.ExtraDate == irrigation.Date)).ToList();
+
+            if(lIrrigationToUpdate != null && lIrrigationToUpdate.Any())
+            {
+                foreach(Water.Irrigation lIrrigation in lIrrigationToUpdate)
+                {
+                    lIrrigation.Input = 0;
+                    lIrrigation.Type = Utils.WaterInputType.IrrigationWasNotDecided;
+                    lIrrigation.Reason = Utils.NoIrrigationReason.NotDecided;
+                    lIrrigation.ExtraDate = Utils.MIN_DATETIME;
+                }
+            }
+
+
+            //Update Irrigations input from database after date of record to update. 
+            //Extra input will not be deleted
+            foreach (Water.Irrigation lIrrigation in pIrrigationAdvisorContext.Irrigations
+                                    .Where(irrigation => irrigation.Date >= pDateFrom.Date
+                                        && irrigation.CropIrrigationWeatherId == this.CropIrrigationWeatherId
+                                        && irrigation.Type != Utils.WaterInputType.CantIrrigate))
+            {
+                if (lIrrigation.ExtraInput > 0 ||
+                    (lIrrigation.ExtraInput == 0 && lIrrigation.ExtraDate == lIrrigation.Date))
+                {
+                    lIrrigation.Input = 0;
+                    lIrrigation.Date = lIrrigation.ExtraDate;
+                }
+                else
+                {
+                    lIrrigation.Input = 0;
+                    lIrrigation.Type = Utils.WaterInputType.IrrigationWasNotDecided;
+                    lIrrigation.Reason = Utils.NoIrrigationReason.NotDecided;
+                    lIrrigation.ExtraDate = Utils.MIN_DATETIME;
+                }
+            }
+            lDatabaseChangeResult = pIrrigationAdvisorContext.SaveChanges();
+
+            lReturn = lIrrigationToUpdate;
             return lReturn;
         }
 
@@ -6109,6 +6272,8 @@ namespace IrrigationAdvisor.Models.Management
                 {
                     this.OutPut += this.PrintState(this.Titles, this.TotalMessageLines, this, false);
                 }
+
+                lDatabaseChangeResult = pIrrigationAdvisorContext.SaveChanges();
             }
             catch (Exception ex)
             {

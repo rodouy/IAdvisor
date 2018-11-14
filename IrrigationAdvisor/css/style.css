@@ -25,6 +25,55 @@ select:focus {
 }
 
 
+table#mytable
+{    border: none !important;
+}
+td#myTdHead 
+{
+
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    text-align:right;
+    border: none !important;
+    font-weight: bold;
+    width:20%
+    
+}
+td#myTdBody 
+{
+
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+
+    border: none !important;
+    
+}
+
+.subject-info-box-1,
+.subject-info-box-2 {
+    float: left;
+    width: 45%;
+    
+    select {
+        height: 200px;
+        padding: 0;
+        option {
+            padding: 4px 10px 4px 10px;
+        }
+        option:hover {
+            background: #EEEEEE;
+        }
+    }
+}
+.subject-info-arrows {
+    float: left;
+    width: 10%;
+    input {
+        width: 50%;
+        margin-bottom: 5px;
+    }
+}
+
 input,
 textarea {
   /*-webkit-appearance: none;

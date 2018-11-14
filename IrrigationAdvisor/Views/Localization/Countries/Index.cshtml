@@ -1,27 +1,22 @@
 ﻿@model IEnumerable<IrrigationAdvisor.Models.Localization.Country>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "Localization";
+    ViewBag.Title = "Paises";
+    //Layout = "Localization";
 }
 
-<h2>Index</h2>
+<h2>Países</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Nombre
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LanguageId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CapitalId)
-        </th>
-        <th></th>
+
+        <th width="20%"></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -29,16 +24,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.LanguageId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CapitalId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CountryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CountryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CountryId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.CountryId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.CountryId }) |
+           
         </td>
     </tr>
 }

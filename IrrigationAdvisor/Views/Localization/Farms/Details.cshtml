@@ -1,51 +1,67 @@
-﻿@model IrrigationAdvisor.Models.Localization.Farm
+﻿@model IrrigationAdvisor.ViewModels.Localization.FarmViewModel
 
 @{
     ViewBag.Title = "Details";
-    Layout = "Localization";
+
 }
+<script src="~/js/Home.js"></script>
+<h2>Detalle</h2>
+<h4>Farm</h4>
+<hr />
+<div class="horizontal">
+    <table id="mytable">
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.Name)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.Company)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Company)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.Address)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Address)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.Phone)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Phone)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.Has)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Has)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.CityId)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.City.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.WeatherStationId)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.WeatherStation.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.IrrigationUnitReportShowAvailableWater)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.IrrigationUnitReportShowAvailableWater)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.IrrigationUnitReportShowEvapotranspiration)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.IrrigationUnitReportShowEvapotranspiration)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.IrrigationUnitReportShowTemperature)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.IrrigationUnitReportShowTemperature)</td>
+        </tr>
 
-<h2>Details</h2>
-
-<div>
-    <h4>Farm</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Has)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Has)
-        </dd>
-
-    </dl>
+        <tr>
+            <td id="myTdHead"></td>
+            <td id="myTdBody">@Html.ActionLink("   Editar   ", "Edit", new { id = Model.FarmId }, new { @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+        </tr>
+    </table>
 </div>
+
+
+
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.FarmId }) |
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </p>

@@ -114,6 +114,8 @@ namespace MeteoblueWeatherService
 
                         var meteoblueWeatherDatas = context.MeteoblueWeatherDatas.Where(n => n.WeatherStationId == identifier).ToList();
 
+                        var weatherDatas = context.WeatherDatas.Where(n => n.WeatherStationId == identifier && n.WeatherDataInputType == 5).ToList();
+
                         for (int i = 0; i < basicDataValues.data_day.time.Count - 1; i++)
                         {
                             var dataDate = Convert.ToDateTime(basicDataValues.data_day.time.ElementAt(i));
@@ -122,111 +124,43 @@ namespace MeteoblueWeatherService
 
                             if (existRecord == null)
                             {
-                                MeteoblueWeatherData meteoblueWeatherData = new MeteoblueWeatherData()
-                                {
-                                    WeatherStationId = identifier,
-                                    WeatherDate = dataDate,
-                                    ConvectivePrecipitation = basicDataValues.data_day.convective_precipitation.ElementAt(i),
-                                    DewPointTemperatureMax = agroDataValues.data_day.dewpointtemperature_max.ElementAt(i),
-                                    DewPointTemperatureMean = agroDataValues.data_day.dewpointtemperature_mean.ElementAt(i),
-                                    DewPointTemperatureMin = agroDataValues.data_day.dewpointtemperature_min.ElementAt(i),
-                                    Evapotranspiration = agroDataValues.data_day.evapotranspiration.ElementAt(i),
-                                    FeltTemperatureMax = basicDataValues.data_day.felttemperature_max.ElementAt(i),
-                                    FeltTemperatureMin = basicDataValues.data_day.felttemperature_min.ElementAt(i),
-                                    HumidityGreater90Hours = basicDataValues.data_day.humiditygreater90_hours.ElementAt(i),
-                                    LeafWetnessIndex = agroDataValues.data_day.leafwetnessindex.ElementAt(i),
-                                    PotentialEvapotranspiration = agroDataValues.data_day.potentialevapotranspiration.ElementAt(i),
-                                    Precipitation = basicDataValues.data_day.precipitation.ElementAt(i),
-                                    PrecipitationHours = basicDataValues.data_day.precipitation_hours.ElementAt(i),
-                                    PrecipitationProbability = basicDataValues.data_day.precipitation_probability.ElementAt(i),
-                                    Predictability = basicDataValues.data_day.predictability.ElementAt(i),
-                                    PredictabilityClass = basicDataValues.data_day.predictability_class.ElementAt(i),
-                                    Rainspot = basicDataValues.data_day.rainspot.ElementAt(i),
-                                    ReferenceEvapotranspirationFao = agroDataValues.data_day.referenceevapotranspiration_fao.ElementAt(i),
-                                    RelativeHumidityMax = basicDataValues.data_day.relativehumidity_max.ElementAt(i),
-                                    RelativehumidityMean = basicDataValues.data_day.relativehumidity_mean.ElementAt(i),
-                                    RelativeHumidityMin = basicDataValues.data_day.relativehumidity_min.ElementAt(i),
-                                    SealevelPressureMax = basicDataValues.data_day.sealevelpressure_max.ElementAt(i),
-                                    SealevelPressureMean = basicDataValues.data_day.sealevelpressure_mean.ElementAt(i),
-                                    SealevelPressureMin = basicDataValues.data_day.sealevelpressure_min.ElementAt(i),
-                                    SensibleHeatFlux = agroDataValues.data_day.sensibleheatflux.ElementAt(i),
-                                    SkinTemperatureMax = agroDataValues.data_day.skintemperature_max.ElementAt(i),
-                                    SkinTemperatureMean = agroDataValues.data_day.skintemperature_mean.ElementAt(i),
-                                    SkinTemperatureMin = agroDataValues.data_day.skintemperature_min.ElementAt(i),
-                                    SnowFraction = basicDataValues.data_day.snowfraction.ElementAt(i),
-                                    SoilMoistureMax = agroDataValues.data_day.soilmoisture_0to10cm_max.ElementAt(i),
-                                    SoilMoistureMean = agroDataValues.data_day.soilmoisture_0to10cm_mean.ElementAt(i),
-                                    SoilMoistureMin = agroDataValues.data_day.soilmoisture_0to10cm_min.ElementAt(i),
-                                    SoilTemperatureMax = agroDataValues.data_day.soiltemperature_0to10cm_max.ElementAt(i),
-                                    SoilTemperatureMean = agroDataValues.data_day.soiltemperature_0to10cm_mean.ElementAt(i),
-                                    SoilTemperatureMin = agroDataValues.data_day.soiltemperature_0to10cm_min.ElementAt(i),
-                                    TemperatureMax = basicDataValues.data_day.temperature_max.ElementAt(i),
-                                    TemperatureMean = basicDataValues.data_day.temperature_mean.ElementAt(i),
-                                    TemperatureMin = basicDataValues.data_day.temperature_min.ElementAt(i),
-                                    UvIndex = basicDataValues.data_day.uvindex.ElementAt(i),
-                                    WindDirection = basicDataValues.data_day.winddirection.ElementAt(i),
-                                    WindSpeedMax = basicDataValues.data_day.windspeed_max.ElementAt(i),
-                                    WindSpeedMean = basicDataValues.data_day.windspeed_mean.ElementAt(i),
-                                    WindSpeedMin = basicDataValues.data_day.windspeed_min.ElementAt(i),
-                                    LastModificationDate = DateTime.Now,
-                                    AgroJson = agroResult,
-                                    BasicJson = result,
-                                    AgroUrl = agroUrl,
-                                    BasicUrl = basicUrl
-                                };
+                                MeteoblueWeatherData meteoblueWeatherData = CreateMeteoblueWeatherData(identifier,
+                                                                                                basicUrl,
+                                                                                                result,
+                                                                                                basicDataValues,
+                                                                                                agroUrl,
+                                                                                                agroResult,
+                                                                                                agroDataValues,
+                                                                                                i,
+                                                                                                dataDate);
 
                                 processedData.Add(meteoblueWeatherData);
                                 context.MeteoblueWeatherDatas.Add(meteoblueWeatherData);
+
+                                double humidity = (GetDoubleOrZero(meteoblueWeatherData.RelativeHumidityMax) + GetDoubleOrZero(meteoblueWeatherData.RelativeHumidityMin)) / 2;
+
+                                WeatherData weatherData = CreateWeatherData(identifier, dataDate, meteoblueWeatherData, humidity);
+
+                                context.WeatherDatas.Add(weatherData);
                             }
                             else
                             {
-                                existRecord.ConvectivePrecipitation = basicDataValues.data_day.convective_precipitation.ElementAt(i);
-                                existRecord.DewPointTemperatureMax = agroDataValues.data_day.dewpointtemperature_max.ElementAt(i);
-                                existRecord.DewPointTemperatureMean = agroDataValues.data_day.dewpointtemperature_mean.ElementAt(i);
-                                existRecord.DewPointTemperatureMin = agroDataValues.data_day.dewpointtemperature_min.ElementAt(i);
-                                existRecord.Evapotranspiration = agroDataValues.data_day.evapotranspiration.ElementAt(i);
-                                existRecord.FeltTemperatureMax = basicDataValues.data_day.felttemperature_max.ElementAt(i);
-                                existRecord.FeltTemperatureMin = basicDataValues.data_day.felttemperature_min.ElementAt(i);
-                                existRecord.HumidityGreater90Hours = basicDataValues.data_day.humiditygreater90_hours.ElementAt(i);
-                                existRecord.LeafWetnessIndex = agroDataValues.data_day.leafwetnessindex.ElementAt(i);
-                                existRecord.PotentialEvapotranspiration = agroDataValues.data_day.potentialevapotranspiration.ElementAt(i);
-                                existRecord.Precipitation = basicDataValues.data_day.precipitation.ElementAt(i);
-                                existRecord.PrecipitationHours = basicDataValues.data_day.precipitation_hours.ElementAt(i);
-                                existRecord.PrecipitationProbability = basicDataValues.data_day.precipitation_probability.ElementAt(i);
-                                existRecord.Predictability = basicDataValues.data_day.predictability.ElementAt(i);
-                                existRecord.PredictabilityClass = basicDataValues.data_day.predictability_class.ElementAt(i);
-                                existRecord.Rainspot = basicDataValues.data_day.rainspot.ElementAt(i);
-                                existRecord.ReferenceEvapotranspirationFao = agroDataValues.data_day.referenceevapotranspiration_fao.ElementAt(i);
-                                existRecord.RelativeHumidityMax = basicDataValues.data_day.relativehumidity_max.ElementAt(i);
-                                existRecord.RelativehumidityMean = basicDataValues.data_day.relativehumidity_mean.ElementAt(i);
-                                existRecord.RelativeHumidityMin = basicDataValues.data_day.relativehumidity_min.ElementAt(i);
-                                existRecord.SealevelPressureMax = basicDataValues.data_day.sealevelpressure_max.ElementAt(i);
-                                existRecord.SealevelPressureMean = basicDataValues.data_day.sealevelpressure_mean.ElementAt(i);
-                                existRecord.SealevelPressureMin = basicDataValues.data_day.sealevelpressure_min.ElementAt(i);
-                                existRecord.SensibleHeatFlux = agroDataValues.data_day.sensibleheatflux.ElementAt(i);
-                                existRecord.SkinTemperatureMax = agroDataValues.data_day.skintemperature_max.ElementAt(i);
-                                existRecord.SkinTemperatureMean = agroDataValues.data_day.skintemperature_mean.ElementAt(i);
-                                existRecord.SkinTemperatureMin = agroDataValues.data_day.skintemperature_min.ElementAt(i);
-                                existRecord.SnowFraction = basicDataValues.data_day.snowfraction.ElementAt(i);
-                                existRecord.SoilMoistureMax = agroDataValues.data_day.soilmoisture_0to10cm_max.ElementAt(i);
-                                existRecord.SoilMoistureMean = agroDataValues.data_day.soilmoisture_0to10cm_mean.ElementAt(i);
-                                existRecord.SoilMoistureMin = agroDataValues.data_day.soilmoisture_0to10cm_min.ElementAt(i);
-                                existRecord.SoilTemperatureMax = agroDataValues.data_day.soiltemperature_0to10cm_max.ElementAt(i);
-                                existRecord.SoilTemperatureMean = agroDataValues.data_day.soiltemperature_0to10cm_mean.ElementAt(i);
-                                existRecord.SoilTemperatureMin = agroDataValues.data_day.soiltemperature_0to10cm_min.ElementAt(i);
-                                existRecord.TemperatureMax = basicDataValues.data_day.temperature_max.ElementAt(i);
-                                existRecord.TemperatureMean = basicDataValues.data_day.temperature_mean.ElementAt(i);
-                                existRecord.TemperatureMin = basicDataValues.data_day.temperature_min.ElementAt(i);
-                                existRecord.UvIndex = basicDataValues.data_day.uvindex.ElementAt(i);
-                                existRecord.WindDirection = basicDataValues.data_day.winddirection.ElementAt(i);
-                                existRecord.WindSpeedMax = basicDataValues.data_day.windspeed_max.ElementAt(i);
-                                existRecord.WindSpeedMean = basicDataValues.data_day.windspeed_mean.ElementAt(i);
-                                existRecord.WindSpeedMin = basicDataValues.data_day.windspeed_min.ElementAt(i);
-                                existRecord.LastModificationDate = DateTime.Now;
-                                existRecord.AgroJson = agroResult;
-                                existRecord.BasicJson = result;
-                                existRecord.AgroUrl = agroUrl;
-                                existRecord.BasicUrl = basicUrl;
+                                UpdateMeteoblueWeatherData(basicUrl, 
+                                                  result, 
+                                                  basicDataValues, 
+                                                  agroUrl, 
+                                                  agroResult, 
+                                                  agroDataValues, 
+                                                  i, 
+                                                  existRecord);
+
+                                var existWeatherData = weatherDatas.Where(n => n.Date == existRecord.WeatherDate).FirstOrDefault();
+
+                                if (existWeatherData != null)
+                                {
+                                    UpdateWeatherData(existRecord, existWeatherData);
+                                }
+
                                 processedData.Add(existRecord);
                             }
                         }
@@ -242,6 +176,174 @@ namespace MeteoblueWeatherService
             {
                 logger.Error(ex, ex.Message);
             }           
+        }
+
+        private static void UpdateWeatherData(MeteoblueWeatherData existRecord, WeatherData existWeatherData)
+        {
+            double humidity = (GetDoubleOrZero(existRecord.RelativeHumidityMax) + GetDoubleOrZero(existRecord.RelativeHumidityMin)) / 2;
+
+            existWeatherData.Barometer = GetDoubleOrZero(existRecord.SealevelPressureMean);
+            existWeatherData.BarometerMax = GetDoubleOrZero(existRecord.SealevelPressureMax);
+            existWeatherData.BarometerMin = GetDoubleOrZero(existRecord.SealevelPressureMin);
+            existWeatherData.Evapotranspiration = GetDecimalOrZero(existRecord.Evapotranspiration);
+            existWeatherData.Humidity = humidity;
+            existWeatherData.HumidityMax = GetDoubleOrZero(existRecord.RelativeHumidityMax);
+            existWeatherData.HumidityMin = GetDoubleOrZero(existRecord.RelativeHumidityMin);
+            existWeatherData.RainDay = GetDecimalOrZero(existRecord.Precipitation);
+            existWeatherData.Temperature = GetDecimalOrZero(existRecord.TemperatureMean);
+            existWeatherData.TemperatureMax = GetDecimalOrZero(existRecord.TemperatureMax);
+            existWeatherData.TemperatureMin = GetDecimalOrZero(existRecord.TemperatureMin);
+            existWeatherData.TemperatureDewPoint = GetDecimalOrZero(existRecord.DewPointTemperatureMean);
+            existWeatherData.UVRadiation = GetDoubleOrZero(existRecord.UvIndex);
+            existWeatherData.WindSpeed = GetDecimalOrZero(existRecord.WindSpeedMean);
+        }
+
+        private static WeatherData CreateWeatherData(long identifier, DateTime dataDate, MeteoblueWeatherData meteoblueWeatherData, double humidity)
+        {
+            return new WeatherData()
+            {
+                Date = dataDate,
+                WeatherStationId = identifier,
+                Barometer = GetDoubleOrZero(meteoblueWeatherData.SealevelPressureMean),
+                BarometerMax = GetDoubleOrZero(meteoblueWeatherData.SealevelPressureMax),
+                BarometerMin = GetDoubleOrZero(meteoblueWeatherData.SealevelPressureMin),
+                Evapotranspiration = GetDecimalOrZero(meteoblueWeatherData.Evapotranspiration),
+                EvapotranspirationMonth = 0,
+                EvapotranspirationYear = 0,
+                Humidity = humidity,
+                HumidityMax = GetDoubleOrZero(meteoblueWeatherData.RelativeHumidityMax),
+                HumidityMin = GetDoubleOrZero(meteoblueWeatherData.RelativeHumidityMin),
+                RainDay = GetDecimalOrZero(meteoblueWeatherData.Precipitation),
+                RainMonth = 0,
+                RainYear = 0,
+                RainStorm = 0,
+                SolarRadiation = 0,
+                Temperature = GetDecimalOrZero(meteoblueWeatherData.TemperatureMean),
+                TemperatureMax = GetDecimalOrZero(meteoblueWeatherData.TemperatureMax),
+                TemperatureMin = GetDecimalOrZero(meteoblueWeatherData.TemperatureMin),
+                TemperatureDewPoint = GetDecimalOrZero(meteoblueWeatherData.DewPointTemperatureMean),
+                UVRadiation = GetDoubleOrZero(meteoblueWeatherData.UvIndex),
+                WeatherDataInputType = 5,
+                WeatherDataType = 0,
+                WindSpeed = GetDecimalOrZero(meteoblueWeatherData.WindSpeedMean)
+            };
+        }
+
+        private static double GetDoubleOrZero(int? value)
+        {
+            return value == null ? 0 : Convert.ToDouble(value);
+        }
+
+        private static double GetDecimalOrZero(decimal? value)
+        {
+            return value == null ? 0 : Convert.ToDouble(value.Value);
+        }
+
+        private static void UpdateMeteoblueWeatherData(string basicUrl, string result, BasicData basicDataValues, string agroUrl, string agroResult, AgroData agroDataValues, int i, MeteoblueWeatherData existRecord)
+        {
+            existRecord.ConvectivePrecipitation = basicDataValues.data_day.convective_precipitation.ElementAt(i);
+            existRecord.DewPointTemperatureMax = agroDataValues.data_day.dewpointtemperature_max.ElementAt(i);
+            existRecord.DewPointTemperatureMean = agroDataValues.data_day.dewpointtemperature_mean.ElementAt(i);
+            existRecord.DewPointTemperatureMin = agroDataValues.data_day.dewpointtemperature_min.ElementAt(i);
+            existRecord.Evapotranspiration = agroDataValues.data_day.evapotranspiration.ElementAt(i);
+            existRecord.FeltTemperatureMax = basicDataValues.data_day.felttemperature_max.ElementAt(i);
+            existRecord.FeltTemperatureMin = basicDataValues.data_day.felttemperature_min.ElementAt(i);
+            existRecord.HumidityGreater90Hours = basicDataValues.data_day.humiditygreater90_hours.ElementAt(i);
+            existRecord.LeafWetnessIndex = agroDataValues.data_day.leafwetnessindex.ElementAt(i);
+            existRecord.PotentialEvapotranspiration = agroDataValues.data_day.potentialevapotranspiration.ElementAt(i);
+            existRecord.Precipitation = basicDataValues.data_day.precipitation.ElementAt(i);
+            existRecord.PrecipitationHours = basicDataValues.data_day.precipitation_hours.ElementAt(i);
+            existRecord.PrecipitationProbability = basicDataValues.data_day.precipitation_probability.ElementAt(i);
+            existRecord.Predictability = basicDataValues.data_day.predictability.ElementAt(i);
+            existRecord.PredictabilityClass = basicDataValues.data_day.predictability_class.ElementAt(i);
+            existRecord.Rainspot = basicDataValues.data_day.rainspot.ElementAt(i);
+            existRecord.ReferenceEvapotranspirationFao = agroDataValues.data_day.referenceevapotranspiration_fao.ElementAt(i);
+            existRecord.RelativeHumidityMax = basicDataValues.data_day.relativehumidity_max.ElementAt(i);
+            existRecord.RelativehumidityMean = basicDataValues.data_day.relativehumidity_mean.ElementAt(i);
+            existRecord.RelativeHumidityMin = basicDataValues.data_day.relativehumidity_min.ElementAt(i);
+            existRecord.SealevelPressureMax = basicDataValues.data_day.sealevelpressure_max.ElementAt(i);
+            existRecord.SealevelPressureMean = basicDataValues.data_day.sealevelpressure_mean.ElementAt(i);
+            existRecord.SealevelPressureMin = basicDataValues.data_day.sealevelpressure_min.ElementAt(i);
+            existRecord.SensibleHeatFlux = agroDataValues.data_day.sensibleheatflux.ElementAt(i);
+            existRecord.SkinTemperatureMax = agroDataValues.data_day.skintemperature_max.ElementAt(i);
+            existRecord.SkinTemperatureMean = agroDataValues.data_day.skintemperature_mean.ElementAt(i);
+            existRecord.SkinTemperatureMin = agroDataValues.data_day.skintemperature_min.ElementAt(i);
+            existRecord.SnowFraction = basicDataValues.data_day.snowfraction.ElementAt(i);
+            existRecord.SoilMoistureMax = agroDataValues.data_day.soilmoisture_0to10cm_max.ElementAt(i);
+            existRecord.SoilMoistureMean = agroDataValues.data_day.soilmoisture_0to10cm_mean.ElementAt(i);
+            existRecord.SoilMoistureMin = agroDataValues.data_day.soilmoisture_0to10cm_min.ElementAt(i);
+            existRecord.SoilTemperatureMax = agroDataValues.data_day.soiltemperature_0to10cm_max.ElementAt(i);
+            existRecord.SoilTemperatureMean = agroDataValues.data_day.soiltemperature_0to10cm_mean.ElementAt(i);
+            existRecord.SoilTemperatureMin = agroDataValues.data_day.soiltemperature_0to10cm_min.ElementAt(i);
+            existRecord.TemperatureMax = basicDataValues.data_day.temperature_max.ElementAt(i);
+            existRecord.TemperatureMean = basicDataValues.data_day.temperature_mean.ElementAt(i);
+            existRecord.TemperatureMin = basicDataValues.data_day.temperature_min.ElementAt(i);
+            existRecord.UvIndex = basicDataValues.data_day.uvindex.ElementAt(i);
+            existRecord.WindDirection = basicDataValues.data_day.winddirection.ElementAt(i);
+            existRecord.WindSpeedMax = basicDataValues.data_day.windspeed_max.ElementAt(i);
+            existRecord.WindSpeedMean = basicDataValues.data_day.windspeed_mean.ElementAt(i);
+            existRecord.WindSpeedMin = basicDataValues.data_day.windspeed_min.ElementAt(i);
+            existRecord.LastModificationDate = DateTime.Now;
+            existRecord.AgroJson = agroResult;
+            existRecord.BasicJson = result;
+            existRecord.AgroUrl = agroUrl;
+            existRecord.BasicUrl = basicUrl;
+        }
+
+        private static MeteoblueWeatherData CreateMeteoblueWeatherData(long identifier, string basicUrl, string result, BasicData basicDataValues, string agroUrl, string agroResult, AgroData agroDataValues, int i, DateTime dataDate)
+        {
+            return new MeteoblueWeatherData()
+            {
+                WeatherStationId = identifier,
+                WeatherDate = dataDate,
+                ConvectivePrecipitation = basicDataValues.data_day.convective_precipitation.ElementAt(i),
+                DewPointTemperatureMax = agroDataValues.data_day.dewpointtemperature_max.ElementAt(i),
+                DewPointTemperatureMean = agroDataValues.data_day.dewpointtemperature_mean.ElementAt(i),
+                DewPointTemperatureMin = agroDataValues.data_day.dewpointtemperature_min.ElementAt(i),
+                Evapotranspiration = agroDataValues.data_day.evapotranspiration.ElementAt(i),
+                FeltTemperatureMax = basicDataValues.data_day.felttemperature_max.ElementAt(i),
+                FeltTemperatureMin = basicDataValues.data_day.felttemperature_min.ElementAt(i),
+                HumidityGreater90Hours = basicDataValues.data_day.humiditygreater90_hours.ElementAt(i),
+                LeafWetnessIndex = agroDataValues.data_day.leafwetnessindex.ElementAt(i),
+                PotentialEvapotranspiration = agroDataValues.data_day.potentialevapotranspiration.ElementAt(i),
+                Precipitation = basicDataValues.data_day.precipitation.ElementAt(i),
+                PrecipitationHours = basicDataValues.data_day.precipitation_hours.ElementAt(i),
+                PrecipitationProbability = basicDataValues.data_day.precipitation_probability.ElementAt(i),
+                Predictability = basicDataValues.data_day.predictability.ElementAt(i),
+                PredictabilityClass = basicDataValues.data_day.predictability_class.ElementAt(i),
+                Rainspot = basicDataValues.data_day.rainspot.ElementAt(i),
+                ReferenceEvapotranspirationFao = agroDataValues.data_day.referenceevapotranspiration_fao.ElementAt(i),
+                RelativeHumidityMax = basicDataValues.data_day.relativehumidity_max.ElementAt(i),
+                RelativehumidityMean = basicDataValues.data_day.relativehumidity_mean.ElementAt(i),
+                RelativeHumidityMin = basicDataValues.data_day.relativehumidity_min.ElementAt(i),
+                SealevelPressureMax = basicDataValues.data_day.sealevelpressure_max.ElementAt(i),
+                SealevelPressureMean = basicDataValues.data_day.sealevelpressure_mean.ElementAt(i),
+                SealevelPressureMin = basicDataValues.data_day.sealevelpressure_min.ElementAt(i),
+                SensibleHeatFlux = agroDataValues.data_day.sensibleheatflux.ElementAt(i),
+                SkinTemperatureMax = agroDataValues.data_day.skintemperature_max.ElementAt(i),
+                SkinTemperatureMean = agroDataValues.data_day.skintemperature_mean.ElementAt(i),
+                SkinTemperatureMin = agroDataValues.data_day.skintemperature_min.ElementAt(i),
+                SnowFraction = basicDataValues.data_day.snowfraction.ElementAt(i),
+                SoilMoistureMax = agroDataValues.data_day.soilmoisture_0to10cm_max.ElementAt(i),
+                SoilMoistureMean = agroDataValues.data_day.soilmoisture_0to10cm_mean.ElementAt(i),
+                SoilMoistureMin = agroDataValues.data_day.soilmoisture_0to10cm_min.ElementAt(i),
+                SoilTemperatureMax = agroDataValues.data_day.soiltemperature_0to10cm_max.ElementAt(i),
+                SoilTemperatureMean = agroDataValues.data_day.soiltemperature_0to10cm_mean.ElementAt(i),
+                SoilTemperatureMin = agroDataValues.data_day.soiltemperature_0to10cm_min.ElementAt(i),
+                TemperatureMax = basicDataValues.data_day.temperature_max.ElementAt(i),
+                TemperatureMean = basicDataValues.data_day.temperature_mean.ElementAt(i),
+                TemperatureMin = basicDataValues.data_day.temperature_min.ElementAt(i),
+                UvIndex = basicDataValues.data_day.uvindex.ElementAt(i),
+                WindDirection = basicDataValues.data_day.winddirection.ElementAt(i),
+                WindSpeedMax = basicDataValues.data_day.windspeed_max.ElementAt(i),
+                WindSpeedMean = basicDataValues.data_day.windspeed_mean.ElementAt(i),
+                WindSpeedMin = basicDataValues.data_day.windspeed_min.ElementAt(i),
+                LastModificationDate = DateTime.Now,
+                AgroJson = agroResult,
+                BasicJson = result,
+                AgroUrl = agroUrl,
+                BasicUrl = basicUrl
+            };
         }
 
         private static void GenerateEmailLines(List<MeteoblueWeatherData> weatherData)
@@ -264,7 +366,7 @@ namespace MeteoblueWeatherService
                     {
                         if (dataToShow.Contains(prop.Name))
                         {
-                            lines.Add(prop.Name + ": " + prop.GetValue(item, null)?.ToString());
+                            lines.Add(prop.Name + ": " + prop.GetValue(item, null)==null ? "": prop.GetValue(item, null).ToString());
                         }                     
                     }
 

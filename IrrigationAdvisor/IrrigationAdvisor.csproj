@@ -219,6 +219,7 @@
     <Compile Include="Controllers\Irrigation\BombsController.cs" />
     <Compile Include="Controllers\Irrigation\DripsController.cs" />
     <Compile Include="Controllers\Irrigation\PivotsController.cs" />
+    <Compile Include="Controllers\Irrigation\IrrigationUnitController.cs" />
     <Compile Include="Controllers\Irrigation\SprinklersController.cs" />
     <Compile Include="Controllers\Language\LanguagesController.cs" />
     <Compile Include="Controllers\Localization\CitiesController.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="DBContext\Agriculture\CropCoefficientConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropInformationByDateConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\HidricBalanceAdjustmentConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\HorizonConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\KCConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\PhenologicalStageAdjustmentConfiguration.cs" />
@@ -268,13 +270,13 @@
     <Compile Include="DBContext\IrrigationAdvisorContext.cs" />
     <Compile Include="DBContext\Irrigation\BombConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\DripConfiguration.cs" />
-    <Compile Include="DBContext\Irrigation\IrrigationUnitConfigurarion.cs" />
     <Compile Include="DBContext\Irrigation\PivotConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\SprinklerConfiguration.cs" />
     <Compile Include="DBContext\Language\LanguageConfiguration.cs" />
     <Compile Include="DBContext\Localization\CityConfiguration.cs" />
     <Compile Include="DBContext\Localization\CountryConfiguration.cs" />
     <Compile Include="DBContext\Localization\FarmConfiguration.cs" />
+    <Compile Include="DBContext\Localization\FarmContactConfiguration.cs" />
     <Compile Include="DBContext\Localization\LocationConfiguration.cs" />
     <Compile Include="DBContext\Localization\PositionConfiguration.cs" />
     <Compile Include="DBContext\Localization\RegionConfiguration.cs" />
@@ -313,12 +315,25 @@
     <Compile Include="Migrations\201811010232410_FirstChangesSinceDatabaseWasCreated.Designer.cs">
       <DependentUpon>201811010232410_FirstChangesSinceDatabaseWasCreated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811031403379_Merge20181103.cs" />
+    <Compile Include="Migrations\201811031403379_Merge20181103.Designer.cs">
+      <DependentUpon>201811031403379_Merge20181103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811031615235_ClosedFeatures20181103.cs" />
+    <Compile Include="Migrations\201811031615235_ClosedFeatures20181103.Designer.cs">
+      <DependentUpon>201811031615235_ClosedFeatures20181103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811032011450_ClosedFeaturesWeb20181103.cs" />
+    <Compile Include="Migrations\201811032011450_ClosedFeaturesWeb20181103.Designer.cs">
+      <DependentUpon>201811032011450_ClosedFeaturesWeb20181103.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
     <Compile Include="Models\Agriculture\CropCoefficient.cs" />
     <Compile Include="Models\Agriculture\CropCoefficientGraph.cs" />
     <Compile Include="Models\Agriculture\CropInformationByDate.cs" />
+    <Compile Include="Models\Agriculture\HidricBalanceAdjustment.cs" />
     <Compile Include="Models\Agriculture\Horizon.cs" />
     <Compile Include="Models\Agriculture\KC.cs" />
     <Compile Include="Models\Agriculture\PhenologicalStage.cs" />
@@ -336,6 +351,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Language\LanguageContext.cs" />
     <Compile Include="Models\Localization\Farm.cs" />
+    <Compile Include="Models\Localization\FarmContact.cs" />
     <Compile Include="Models\Management\IrrigationSystem.cs" />
     <Compile Include="Models\Irrigation\Bomb.cs" />
     <Compile Include="Models\Irrigation\Drip.cs" />
@@ -381,6 +397,11 @@
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Models\Weather\MeteoblueWeatherData.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Irrigation\SprinklerViewModel.cs" />
+    <Compile Include="ViewModels\Irrigation\DripViewModel.cs" />
+    <Compile Include="ViewModels\Localization\FarmEditViewModel.cs" />
+    <Compile Include="ViewModels\Agriculture\HorizonViewModel.cs" />
+    <Compile Include="ViewModels\Agriculture\SoilViewModel.cs" />
     <Compile Include="ViewModels\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
@@ -533,6 +554,48 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="images\company\img-1.jpg" />
+    <Content Include="Queries\1.-Respaldo IrrigationAdvisor.sql" />
+    <Content Include="Queries\2.-Respaldo IrrigationAdvisor-Demo.sql" />
+    <Content Include="Queries\3.-Kill Sessions in IrrigationAdvisor.sql" />
+    <Content Include="Queries\4.-Restore IrrigationAdvisor-Demo.sql" />
+    <Content Include="Queries\All Bombs - Query.sql" />
+    <Content Include="Queries\All CropCoefficients - Query.sql" />
+    <Content Include="Queries\All CropInformationByDates - Query.sql" />
+    <Content Include="Queries\All CropIrrigationWeathers - Query.sql" />
+    <Content Include="Queries\All Crops - Query.sql" />
+    <Content Include="Queries\All DailyRecords - Query for Report.sql" />
+    <Content Include="Queries\All DailyRecords - Query.sql" />
+    <Content Include="Queries\All Farms - Query.sql" />
+    <Content Include="Queries\All Horizons - Query.sql" />
+    <Content Include="Queries\All IrrigationUnits - Query.sql" />
+    <Content Include="Queries\All KC - Query.sql" />
+    <Content Include="Queries\All PhenologicalStages - Query.sql" />
+    <Content Include="Queries\All Regions - Query.sql" />
+    <Content Include="Queries\All Soils - Query.sql" />
+    <Content Include="Queries\All Specie - Query.sql" />
+    <Content Include="Queries\All SpecieCycle - Query.sql" />
+    <Content Include="Queries\All Stages- Query.sql" />
+    <Content Include="Queries\All Users - Query.sql" />
+    <Content Include="Queries\All WaterInputs - Query.sql" />
+    <Content Include="Queries\All WaterOututs - Query.sql" />
+    <Content Include="Queries\All WeatherData - Query by WeatherStation.sql" />
+    <Content Include="Queries\All WeatherData - Query Data.sql" />
+    <Content Include="Queries\All WeatherData - Query.sql" />
+    <Content Include="Queries\All WeatherStations - Query.sql" />
+    <Content Include="Queries\CIW-DR Queries Test.sql" />
+    <Content Include="Queries\CIW-DR Queries.sql" />
+    <Content Include="Queries\Local 1.-Respaldo IrrigationAdvisor.sql" />
+    <Content Include="Queries\Local 2.-Restore IrrigationAdvisor.sql" />
+    <Content Include="Queries\UpdateCropIrrigationWeather_WeatherData.sql" />
+    <Content Include="Queries\UpdateStatus_DateOfReference - UPDATE.sql" />
+    <Content Include="Queries\UpdateWeatherData of IA-DEMO-From WeatherData-PROD_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData of IA-From WeatherData-PROD of IA-DEMO_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData of IA-From WeatherData-PROD of IA_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-DEMO-From WeatherData_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-DEMO_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-From WeatherData-DEMO_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-From WeatherData-PROD_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-Prod_cursor.sql" />
     <Content Include="respond.min.js" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="images\homeslider\img-1.jpg" />
@@ -872,6 +935,8 @@
     <Content Include="Views\Reports\ReportPivotState\_ReportPivotStatePartial.cshtml" />
     <Content Include="Views\Reports\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
+    <Content Include="Views\ReportPivotState\ReportPivotStatePrintable.cshtml" />
+    <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
     <Content Include="Views\Reports\ReportPivotState\ReportPivotStatePrintable.cshtml" />
     <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnit.cshtml" />
@@ -883,6 +948,11 @@
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
+	<Content Include="Views\Irrigation\IrrigationUnit\Index.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Create.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Delete.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Details.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Edit.cshtml" />
     <Content Include="Views\Weather\MeteoblueWeatherDatas\Create.cshtml" />
     <Content Include="Views\Weather\MeteoblueWeatherDatas\Delete.cshtml" />
     <Content Include="Views\Weather\MeteoblueWeatherDatas\Details.cshtml" />
@@ -909,6 +979,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811010232410_FirstChangesSinceDatabaseWasCreated.resx">
       <DependentUpon>201811010232410_FirstChangesSinceDatabaseWasCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811031403379_Merge20181103.resx">
+      <DependentUpon>201811031403379_Merge20181103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811031615235_ClosedFeatures20181103.resx">
+      <DependentUpon>201811031615235_ClosedFeatures20181103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811032011450_ClosedFeaturesWeb20181103.resx">
+      <DependentUpon>201811032011450_ClosedFeaturesWeb20181103.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,6 +10,8 @@ using IrrigationAdvisor.Models;
 using IrrigationAdvisor.Models.Agriculture;
 
 using IrrigationAdvisor.DBContext;
+using IrrigationAdvisor.DBContext.Agriculture;
+using IrrigationAdvisor.ViewModels.Agriculture;
 
 namespace IrrigationAdvisor.Controllers.Agriculture
 {
@@ -20,7 +22,9 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // GET: Horizons
         public ActionResult Index()
         {
-            return View(db.Horizons.ToList());
+            var lHorizonList = db.Horizons.Include(s => s.Soil);
+            return View("~/Views/Agriculture/Horizons/Index.cshtml", lHorizonList.Where(h => h.Enabled == true).ToList());
+
         }
 
         // GET: Horizons/Details/5
@@ -35,13 +39,19 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return HttpNotFound();
             }
-            return View(horizon);
+            HorizonViewModel vm = new HorizonViewModel(horizon);
+
+            return View("~/Views/Agriculture/Horizons/Details.cshtml", vm);
+
         }
 
         // GET: Horizons/Create
         public ActionResult Create()
         {
-            return View();
+            HorizonViewModel vm = new HorizonViewModel();
+            vm.Soils = this.LoadSoils();
+
+            return View("~/Views/Agriculture/Horizons/Create.cshtml", vm);
         }
 
         // POST: Horizons/Create
@@ -49,16 +59,29 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "HorizonId,Name,Order,HorizonLayer,HorizonLayerDepth,Sand,Limo,Clay,OrganicMatter,NitrogenAnalysis,BulkDensitySoil")] Horizon horizon)
+        public ActionResult Create([Bind(Include = "HorizonId,Name,Order,HorizonLayer,HorizonLayerDepth,Sand,Limo,Clay,OrganicMatter,NitrogenAnalysis,BulkDensitySoil, SoilId")] HorizonViewModel h)
         {
             if (ModelState.IsValid)
             {
-                db.Horizons.Add(horizon);
+                Horizon lHorizon = new Horizon();
+                lHorizon.BulkDensitySoil = h.BulkDensitySoil;
+                lHorizon.Clay = h.Clay;
+                lHorizon.HorizonLayer = h.HorizonLayer;
+                lHorizon.HorizonLayerDepth = h.HorizonLayerDepth;
+                lHorizon.Limo = h.Limo;
+                lHorizon.Name = h.Name;
+                lHorizon.NitrogenAnalysis = h.NitrogenAnalysis;
+                lHorizon.Order = h.Order;
+                lHorizon.OrganicMatter = h.OrganicMatter;
+                lHorizon.Sand = h.Sand;
+                lHorizon.SoilId = h.SoilId;
+                db.Horizons.Add(lHorizon);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(horizon);
+            }
+            return Redirect("/Horizons");
+            //var lHorizonList = db.Horizons.Include(s => s.Soil);
+            //return View("~/Views/Agriculture/Horizons/Index.cshtml", lHorizonList.ToList());
         }
 
         // GET: Horizons/Edit/5
@@ -73,7 +96,9 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return HttpNotFound();
             }
-            return View(horizon);
+            HorizonViewModel vm = new HorizonViewModel(horizon);
+            vm.Soils = this.LoadSoils();
+            return View("~/Views/Agriculture/Horizons/Edit.cshtml", vm);
         }
 
         // POST: Horizons/Edit/5
@@ -81,15 +106,33 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "HorizonId,Name,Order,HorizonLayer,HorizonLayerDepth,Sand,Limo,Clay,OrganicMatter,NitrogenAnalysis,BulkDensitySoil")] Horizon horizon)
+        public ActionResult Edit([Bind(Include = "HorizonId,Name,Order,HorizonLayer,HorizonLayerDepth,Sand,Limo,Clay,OrganicMatter,NitrogenAnalysis,BulkDensitySoil, SoilId")] HorizonViewModel horizonViewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(horizon).State = EntityState.Modified;
+                Horizon updatedHorizon = db.Horizons.Find(horizonViewModel.HorizonId);
+                if (updatedHorizon == null)
+                {
+                    return HttpNotFound();
+                }
+
+                updatedHorizon.BulkDensitySoil = horizonViewModel.BulkDensitySoil;
+                updatedHorizon.Clay = horizonViewModel.Clay;
+                updatedHorizon.HorizonLayer = horizonViewModel.HorizonLayer;
+                updatedHorizon.HorizonLayerDepth = horizonViewModel.HorizonLayerDepth;
+                updatedHorizon.Limo = horizonViewModel.Limo;
+                updatedHorizon.Name = horizonViewModel.Name;
+                updatedHorizon.NitrogenAnalysis = horizonViewModel.NitrogenAnalysis;
+                updatedHorizon.Order = horizonViewModel.Order;
+                updatedHorizon.OrganicMatter = horizonViewModel.OrganicMatter;
+                updatedHorizon.Sand = horizonViewModel.Sand;
+                updatedHorizon.SoilId = horizonViewModel.SoilId;
+                db.Entry(updatedHorizon).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-            return View(horizon);
+            return Redirect("/Horizons");
+            //var lHorizonList = db.Horizons.Include(s => s.Soil);
+            //return View("~/Views/Agriculture/Horizons/Index.cshtml", lHorizonList.ToList());
         }
 
         // GET: Horizons/Delete/5
@@ -104,7 +147,8 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return HttpNotFound();
             }
-            return View(horizon);
+            HorizonViewModel vm = new HorizonViewModel(horizon);
+            return View("~/Views/Agriculture/Horizons/Delete.cshtml", vm);
         }
 
         // POST: Horizons/Delete/5
@@ -112,19 +156,47 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
+            //Horizon horizon = db.Horizons.Find(id);
+            //db.Horizons.Remove(horizon);
+            //db.SaveChanges();
+
+            HorizonConfiguration hc = new HorizonConfiguration();
             Horizon horizon = db.Horizons.Find(id);
-            db.Horizons.Remove(horizon);
+
+            hc.Disable(horizon);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("/Horizons");
+
         }
 
-        protected override void Dispose(bool disposing)
+        private List<System.Web.Mvc.SelectListItem> LoadSoils(long? soilId = null, Horizon horizon = null)
         {
-            if (disposing)
+            SoilConfiguration sc = new SoilConfiguration();
+
+            List<Soil> soils = sc.GetAllSoils();
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in soils)
             {
-                db.Dispose();
+
+                bool isSelected = false;
+                if (horizon != null && soilId.HasValue)
+                {
+                    isSelected = (horizon.SoilId == soilId);
+                }
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.SoilId.ToString(),
+                    Text = item.ShortName,
+                    Selected = isSelected
+                };
+
+                result.Add(sl);
             }
-            base.Dispose(disposing);
+
+            return result;
         }
     }
+
 }

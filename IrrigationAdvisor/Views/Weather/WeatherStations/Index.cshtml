@@ -2,13 +2,13 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "Weather";
+    //Layout = "Weather";
 }
 
-<h2>Index</h2>
+<h2>Estaciones meteorológicas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -34,8 +34,15 @@
             @Html.DisplayNameFor(model => model.GiveET)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WeatherDataType)
+            @Html.DisplayNameFor(model => model.Enabled)
+        </th>        
+        <th>
+           Pos. @Html.DisplayNameFor(model => model.Position.Latitude)
         </th>
+        <th>
+            Pos. @Html.DisplayNameFor(model => model.Position.Longitude)
+        </th>
+
         <th></th>
     </tr>
 
@@ -63,12 +70,19 @@
             @Html.DisplayFor(modelItem => item.GiveET)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.WeatherDataType)
-        </td>
+            @Html.DisplayFor(modelItem => item.Enabled)
+        </td>        
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.WeatherStationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WeatherStationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WeatherStationId })
+            @Html.DisplayFor(modelItem => item.Position.Latitude)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Position.Longitude)
+        </td>        
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.WeatherStationId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.WeatherStationId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.WeatherStationId })
         </td>
     </tr>
 }

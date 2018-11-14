@@ -6,6 +6,7 @@ using IrrigationAdvisor.Models.Utilities;
 using IrrigationAdvisor.Models.Agriculture;
 using IrrigationAdvisor.Models.Localization;
 using NLog;
+using System.ComponentModel;
 
 namespace IrrigationAdvisor.Models.Irrigation
 {
@@ -53,7 +54,7 @@ namespace IrrigationAdvisor.Models.Irrigation
         private Double predeterminatedIrrigationQuantity;
         private bool show;
         private long farmId;
-
+        private bool enabled;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -134,6 +135,11 @@ namespace IrrigationAdvisor.Models.Irrigation
             set { positionId = value; }
         }
 
+        public virtual Position Position
+        {
+            get;
+            set;
+        }
         public Double PredeterminatedIrrigationQuantity
         {
             get { return predeterminatedIrrigationQuantity; }
@@ -146,6 +152,12 @@ namespace IrrigationAdvisor.Models.Irrigation
             set { show = value; }
         }
 
+        [DefaultValue(true)]
+        public bool Enabled
+        {
+            get { return enabled; }
+            set { enabled = value; }
+        }
         #endregion
 
         #region Construction
@@ -166,6 +178,7 @@ namespace IrrigationAdvisor.Models.Irrigation
             this.PositionId = 0;
             this.PredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_SecondPart;
             this.Show = false;
+            this.Enabled = true;
         }
         
         /// <summary>
@@ -197,6 +210,7 @@ namespace IrrigationAdvisor.Models.Irrigation
             this.PositionId = pPositionId;
             this.PredeterminatedIrrigationQuantity = pPredeterminatedIrrigationQuantity;
             this.Show = false;
+            this.Enabled = true;
         }
 
         #endregion

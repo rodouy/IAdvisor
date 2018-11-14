@@ -15,13 +15,41 @@
     </td>
 }
 
-@helper CustomIrrigation(Double value, string date, DailyRecord dailyRecord)
+@helper CustomIrrigation(Double value, string date, DailyRecord dailyRecord, bool isIrrigationConfirmed)
 {  
     <td>
         <span class="description-mobile-left">@date</span> 
         <div class="ref-irrigated">
-           <span class="value-mobile-position">@value</span>
+        @{
+            if (!isIrrigationConfirmed)
+            {
+                <span class="value-mobile-position">@value
+                    <span class="glyphicon glyphicon-bullhorn confirm-irrigation" style="cursor:pointer" title="Confirmar riego">
+                        <input type="hidden" value="@dailyRecord.CropIrrigationWeatherId" />
+                        <input type="hidden" value="@value" />
+                        <input type="hidden" value="@dailyRecord.DailyRecordDateTime.ToString("MM/dd/yyyy")" />
+                    </span>
+                </span>
+            }
+            else if (dailyRecord.Irrigation != null && 
+                     isIrrigationConfirmed && 
+                     (dailyRecord.Irrigation.Type == IrrigationAdvisor.Models.Utilities.Utils.WaterInputType.IrrigationByETCAcumulated || 
+                     (dailyRecord.Irrigation.Type == IrrigationAdvisor.Models.Utilities.Utils.WaterInputType.IrrigationByHydricBalance)))
+            {
+                <span class="value-mobile-position">@value
+                    <span class="glyphicon glyphicon-bullhorn" style="color: lightgray;" title="Riego confirmado">
+
+                    </span>
+                </span>
+
+            }
+            else
+            {
+                <span class="value-mobile-position">@value</span>
+            }
+        }
         </div>
+        
     </td>
 }
 
@@ -80,11 +108,33 @@
         <td><a href="../ReportPivotState?ciw=@gridPivotItem.CropIrrigationWeatherId" title="Reporte de estado del pivot">@gridPivotItem.IrrigationUnitName</a></td>
         <td>@gridPivotItem.CropName</td>
         <td>@gridPivotItem.SowingDate</td>
-        <td>@gridPivotItem.PhenologyName</td>
+        <td class="td-pheno" style="cursor:pointer">   
+            <!-- No change childrens. It will broke the javascript.-->       
+            <input type="hidden" value="@gridPivotItem.CropIrrigationWeatherId" class="ciw-@gridPivotItem.CropIrrigationWeatherId" />
+            <span id="selected-pheno-name-@gridPivotItem.CropIrrigationWeatherId">@gridPivotItem.PhenologyName</span>
+            <select id="select-pheno-stage-@gridPivotItem.CropIrrigationWeatherId" style="display:none">
+                
+            </select>
+            <span class="glyphicon glyphicon-ok pheno-ok" style="display:none; color:forestgreen; cursor:pointer" id="pheno-ok-@gridPivotItem.CropIrrigationWeatherId"></span>
+            <span class="glyphicon glyphicon-remove pheno-cancel" style="display:none; color:red; cursor:pointer" id="pheno-cancel-@gridPivotItem.CropIrrigationWeatherId"></span>
+            <span class="glyphicon glyphicon-time" id="pheno-clock-@gridPivotItem.CropIrrigationWeatherId" style="display:none"></span>
+        </td>
         @if (gridPivotItem.IsAdministrator)
         {
             <td>@gridPivotItem.CropCoefficient</td>
-            <td>@gridPivotItem.HydricBalance</td>
+            <td class="td-hidro" style="cursor:pointer">
+                <!-- No change childrens. It will broke the javascript.-->
+                <input type="hidden" value="@gridPivotItem.CropIrrigationWeatherId" class="ciw-hidro-@gridPivotItem.CropIrrigationWeatherId" />
+                <span id="lbl-hydricbalance-@gridPivotItem.CropIrrigationWeatherId">@gridPivotItem.HydricBalance %</span> 
+                <span>
+                    <input type="text" id="txt-hydricbalance-@gridPivotItem.CropIrrigationWeatherId" value="@gridPivotItem.HydricBalance" style="display:none" />
+
+                    <span class="glyphicon glyphicon-ok hidro-ok" style="display:none; color:forestgreen; cursor:pointer" id="hidro-ok-@gridPivotItem.CropIrrigationWeatherId"></span>
+                    <span class="glyphicon glyphicon-remove hidro-cancel" style="display:none; color:red; cursor:pointer" id="hidro-cancel-@gridPivotItem.CropIrrigationWeatherId"></span>
+                    <span class="glyphicon glyphicon-time" id="hidro-clock-@gridPivotItem.CropIrrigationWeatherId" style="display:none"></span>
+                </span>
+               
+            </td>
         }
         
         @foreach (var detail in @gridPivotItem.ListGridPivotDetailHome)
@@ -95,7 +145,7 @@
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.Irrigated)
             {
-                @CustomIrrigation(detail.IrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord)
+                @CustomIrrigation(detail.IrrigationQuantity + detail.RainQuantity, detail.Day, detail.DailyRecord, detail.IsIrrigationConfirmed)
 
             }
             else if (detail.IrrigationStatus == IrrigationAdvisor.Models.Utilities.Utils.IrrigationStatus.NextIrrigation)
