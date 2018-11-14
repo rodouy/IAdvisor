@@ -2302,8 +2302,8 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 {
                     IrrigationData2018.AddIrrigationDataDCAElParaisoPivot1_2018(context, Program.DateOfReference);
                     //IrrigationData2018.AddIrrigationDataDCAElParaisoPivot2_2018(context, Program.DateOfReference);
-                    IrrigationData2018.AddIrrigationDataDCAElParaisoPivot2_2018(context, Program.DateOfReference);
-                    IrrigationData2018.AddIrrigationDataDCAElParaisoPivot2_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataDCAElParaisoPivot3_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataDCAElParaisoPivot4_2018(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
@@ -2336,15 +2336,15 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot1_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataDCALaPerdizPivot1_2018(context, Program.DateOfReference);
                     //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot2_2018(context, Program.DateOfReference);
                     //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot3_2018(context, Program.DateOfReference);
                     //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot5_2018(context, Program.DateOfReference);
-                    //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot6_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataDCALaPerdizPivot6_2018(context, Program.DateOfReference);
                     IrrigationData2018.AddIrrigationDataDCALaPerdizPivot7_2018(context, Program.DateOfReference);
-                    //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot10b_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataDCALaPerdizPivot10b_2018(context, Program.DateOfReference);
                     IrrigationData2018.AddIrrigationDataDCALaPerdizPivot14_2018(context, Program.DateOfReference);
-                    //IrrigationData2018.AddIrrigationDataDCALaPerdizPivot15_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataDCALaPerdizPivot15_2018(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
