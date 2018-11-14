@@ -4205,10 +4205,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
             #region Horizons GMO - La Palma
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
@@ -4751,10 +4751,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             #endregion
             #region Horizons GMO - El Tacuru
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {
@@ -10383,10 +10383,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
             #region GMO - La Palma Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
             {
@@ -10692,10 +10692,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             #endregion
             #region GMO - El Tacuru Soils
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
             {

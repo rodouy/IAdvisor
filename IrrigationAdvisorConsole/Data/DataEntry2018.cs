@@ -448,13 +448,13 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationMainName_ElRincon_2018 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_ElRincon_2018 = Utils.NameWeatherStationViveroSanFrancisco;
 
-        public static DateTime SowingDate_CornSouth_ElRinconPivot1a_2018 = new DateTime(2018, 10, 07);
+        public static DateTime SowingDate_CornSouth_ElRinconPivot1a_2018 = new DateTime(2018, 11, 07);
         public static DateTime HarvestDate_CornSouth_ElRinconPivot1a_2018 = new DateTime(2019, 03, 10);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1a_2018 = 14;
         public static DateTime SowingDate_SoyaSouth_ElRinconPivot1b_2018 = new DateTime(2018, 11, 07);
         public static DateTime HarvestDate_SoyaSouth_ElRinconPivot1b_2018 = new DateTime(2019, 04, 10);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1b_2018 = 10;
-        public static DateTime SowingDate_CornSouth_ElRinconPivot2a_2018 = new DateTime(2018, 10, 07);
+        public static DateTime SowingDate_CornSouth_ElRinconPivot2a_2018 = new DateTime(2018, 10, 26);
         public static DateTime HarvestDate_CornSouth_ElRinconPivot2a_2018 = new DateTime(2019, 03, 10);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot2a_2018 = 14;
         public static DateTime SowingDate_CornSouth_ElRinconPivot2b_2018 = new DateTime(2018, 10, 26);
@@ -580,8 +580,8 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime SowingDate_SoyaSouth_SantoDomingoPivot1_2018 = new DateTime(2018, 10, 20);
         public static DateTime HarvestDate_SoyaSouth_SantoDomingoPivot1_2018 = new DateTime(2019, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_SantoDomingoPivot1_2018 = 14;
-        public static DateTime SowingDate_SoyaSouth_SantoDomingoPivot2_2018 = new DateTime(2018, 12, 10);
-        public static DateTime HarvestDate_SoyaSouth_SantoDomingoPivot2_2018 = new DateTime(2019, 05, 30);
+        public static DateTime SowingDate_CornSouth_SantoDomingoPivot2_2018 = new DateTime(2018, 10, 20);
+        public static DateTime HarvestDate_CornSouth_SantoDomingoPivot2_2018 = new DateTime(2019, 05, 30);
         public static Double PredeterminatedIrrigationQuantity_SantoDomingoPivot2_2018 = 14;
 
         #endregion
@@ -592,7 +592,7 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime SowingDate_SoyaSouth_CecchiniPivot1_2018 = new DateTime(2018, 10, 20);
         public static DateTime HarvestDate_SoyaSouth_CecchiniPivot1_2018 = new DateTime(2019, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_CecchiniPivot1_2018 = 14;
-        public static DateTime SowingDate_SoyaSouth_CecchiniPivot2_2018 = new DateTime(2018, 12, 10);
+        public static DateTime SowingDate_SoyaSouth_CecchiniPivot2_2018 = new DateTime(2018, 10, 20);
         public static DateTime HarvestDate_SoyaSouth_CecchiniPivot2_2018 = new DateTime(2019, 05, 30);
         public static Double PredeterminatedIrrigationQuantity_CecchiniPivot2_2018 = 14;
 
@@ -601,11 +601,11 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationMainName_ElAlba_2018 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_ElAlba_2018 = Utils.NameWeatherStationViveroSanFrancisco;
 
-        public static DateTime SowingDate_CornSouth_ElAlbaPivot32_2018 = new DateTime(2018, 10, 20);
-        public static DateTime HarvestDate_CornSouth_ElAlbaPivot32_2018 = new DateTime(2019, 04, 30);
+        public static DateTime SowingDate_CornSouth_ElAlbaPivot32_2018 = new DateTime(2018, 09, 25);
+        public static DateTime HarvestDate_CornSouth_ElAlbaPivot32_2018 = new DateTime(2019, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_ElAlbaPivot32_2018 = 12;
-        public static DateTime SowingDate_CornSouth_ElAlbaPivot33_2018 = new DateTime(2018, 12, 10);
-        public static DateTime HarvestDate_CornSouth_ElAlbaPivot33_2018 = new DateTime(2019, 05, 30);
+        public static DateTime SowingDate_CornSouth_ElAlbaPivot33_2018 = new DateTime(2018, 09, 15);
+        public static DateTime HarvestDate_CornSouth_ElAlbaPivot33_2018 = new DateTime(2019, 03, 01);
         public static Double PredeterminatedIrrigationQuantity_ElAlbaPivot33_2018 = 12;
 
         #endregion
@@ -23670,11 +23670,11 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieSoyaSouthShort
+                       where sp.Name == Utils.NameSpecieCornSouthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
-                       where st.Name.Contains(Utils.NameStagesSoya)
+                       where st.Name.Contains(Utils.NameStagesCorn)
                        select st).ToList<Stage>();
             lPhenologicalStages = (from ps in context.PhenologicalStages
                                    where ps.SpecieId == lSpecie.SpecieId
@@ -23683,7 +23683,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmSantoDomingo
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieSoyaSouthShort
+                     where crop.Name == Utils.NameSpecieCornSouthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
@@ -23709,7 +23709,7 @@ namespace IrrigationAdvisorConsole.Data
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieSoyaSouthShort
+                                      where cid.Name == Utils.NameSpecieCornSouthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -23736,10 +23736,10 @@ namespace IrrigationAdvisorConsole.Data
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieSoyaSouthShort
+                                where cc.Name == Utils.NameSpecieCornSouthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieSoyaSouthShort
+                       where cc.Name == Utils.NameSpecieCornSouthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilSantoDomingo2

@@ -1072,10 +1072,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region Estancia Menafra - GMO - LaPalma
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
@@ -1111,10 +1111,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #endregion
                 #region Estancia Menafra - GMO - ElTacuru
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
@@ -1154,7 +1154,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
                 {
                     lUserNames = new String[] { Utils.NameUserTM1, 
@@ -1406,7 +1406,6 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region La Portuguesa - LP
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
                 {
