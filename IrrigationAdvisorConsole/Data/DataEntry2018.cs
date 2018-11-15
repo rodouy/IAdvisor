@@ -12232,7 +12232,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -13852,7 +13851,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > DateTime.Now)
             {
                 lToDate = DateTime.Now.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -19105,7 +19103,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -19712,7 +19709,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -20318,7 +20314,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -21327,7 +21322,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -22132,7 +22126,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -22739,7 +22732,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -23145,7 +23137,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -23752,7 +23743,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -24158,7 +24148,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
@@ -24564,7 +24553,6 @@ namespace IrrigationAdvisorConsole.Data
             //The start Day is one Day after sowing 
             //because the first Day is created when the testCrop is created
             lFromDate = lSowingDate.AddDays(1);
-            lFromDate = Utils.MaxDateTimeBetween(lFromDate, new DateTime(2018, 11, 01));
             if (lHarvestDate > pDateOfReference)
             {
                 lToDate = pDateOfReference.AddDays(InitialTables.DAYS_FOR_PREDICTION);
