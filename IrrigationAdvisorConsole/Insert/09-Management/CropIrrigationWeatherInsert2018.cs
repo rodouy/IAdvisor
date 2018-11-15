@@ -17298,7 +17298,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW El Alba Pivot 2 2018
+                    #region New CIW El Alba Pivot 33 2018
                     var lCIWElAlbaPivot33_2018 = new CropIrrigationWeather
                     {
                         CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherElAlbaPivot33_S1819,
