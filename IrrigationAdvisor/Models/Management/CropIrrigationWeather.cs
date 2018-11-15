@@ -3889,7 +3889,7 @@ namespace IrrigationAdvisor.Models.Management
                 #endregion
 
                 //Condition1: (No old Irrigation or is NotDecided) and New Quantity Of Water To Irrigate > 0
-                #region Condition #1 NEW IRRIGATION: If there is not a registry of irrigation, then it is created 
+                #region Condition #1 NEW IRRIGATION: If there is not a registry of irrigation, then it is created. If Exist and is NotDecided, it is modified.
                 if ((lOldIrrigation == null || lOldIrrigationWasNotDecided) && lNewQuantityOfWaterToIrrigate > 0)
                 {
                     if (lOldIrrigation == null)
@@ -3945,8 +3945,7 @@ namespace IrrigationAdvisor.Models.Management
                 #region Condition #2 NEW IRRIGATION NOT TO IRRIGATE: There is not registry then it is created (if they are Extra)
                 else if ((lOldIrrigation == null || lOldIrrigationWasNotDecided) &&
                             lNewQuantityOfWaterToIrrigate == 0 && lIsExtraIrrigation &&
-                            (lNewTypeOfIrrigation != Utils.WaterInputType.CantIrrigate &&
-                            lNewTypeOfIrrigation != Utils.WaterInputType.IrrigationWasNotDecided))
+                            (lNewTypeOfIrrigation != Utils.WaterInputType.CantIrrigate && lNewTypeOfIrrigation != Utils.WaterInputType.IrrigationWasNotDecided))
                 {
                     if (lOldIrrigation == null)
                     {
@@ -4768,12 +4767,12 @@ namespace IrrigationAdvisor.Models.Management
 
                 /**************************************************************************************/
                 /*--                   New code                                                     --*/
-                foreach (DailyRecord lDailyRecord in this.dailyRecordList
-                                                                .Where(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime 
-                                                                    && dr.CropIrrigationWeatherId == this.CropIrrigationWeatherId))
-                {
-                    lDailyRecord.Irrigation.Type = Utils.WaterInputType.Irrigation;
-                }
+                //foreach (DailyRecord lDailyRecord in this.dailyRecordList
+                //                                                .Where(dr => dr.DailyRecordDateTime >= lDailyRecordToDelete.DailyRecordDateTime 
+                //                                                    && dr.CropIrrigationWeatherId == this.CropIrrigationWeatherId))
+                //{
+                //    lDailyRecord.Irrigation.Type = Utils.WaterInputType.Irrigation;
+                //}
 
 
                 /**************************************************************************************/
