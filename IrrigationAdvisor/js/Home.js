@@ -1196,7 +1196,7 @@ $(document).ready(function () {
 
         var date = $('#date-change-hydricBalance').val();
 
-        var percentage = $('#txt-hydricbalance-' + ciw).val();
+        var percentage = $('#txt-hydricbalance-' + ciw).val().replace(',','.');
 
         if (!$.isNumeric(percentage))
         {
