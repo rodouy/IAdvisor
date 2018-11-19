@@ -2470,7 +2470,7 @@ namespace IrrigationAdvisor.Models.Management
         /// <param name="pHydricBalanceAdjustmens"></param>
         /// <param name="pFromDate"></param>
         /// <param name="pToDate"></param>
-        public void ApplyHydricBalanceAdjustments(List<HidricBalanceAdjustment> pHydricBalanceAdjustmens, DateTime pFromDate)
+        public void ApplyHydricBalanceAdjustments(List<HydricBalanceAdjustment> pHydricBalanceAdjustmens, DateTime pFromDate)
         {
             var dailyRecord = this.dailyRecordList.FirstOrDefault(n => pFromDate == n.DailyRecordDateTime);
 
