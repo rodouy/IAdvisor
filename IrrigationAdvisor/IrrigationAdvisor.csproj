@@ -257,8 +257,8 @@
     <Compile Include="DBContext\Agriculture\CropCoefficientConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropInformationByDateConfiguration.cs" />
-    <Compile Include="DBContext\Agriculture\HidricBalanceAdjustmentConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\HorizonConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\HydricBalanceAdjustmentConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\KCConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\PhenologicalStageAdjustmentConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\PhenologicalStageConfiguration.cs" />
@@ -334,8 +334,8 @@
     <Compile Include="Models\Agriculture\CropCoefficient.cs" />
     <Compile Include="Models\Agriculture\CropCoefficientGraph.cs" />
     <Compile Include="Models\Agriculture\CropInformationByDate.cs" />
-    <Compile Include="Models\Agriculture\HidricBalanceAdjustment.cs" />
     <Compile Include="Models\Agriculture\Horizon.cs" />
+    <Compile Include="Models\Agriculture\HydricBalanceAdjustment.cs" />
     <Compile Include="Models\Agriculture\KC.cs" />
     <Compile Include="Models\Agriculture\PhenologicalStage.cs" />
     <Compile Include="Models\Agriculture\PhenologicalStageAdjustment.cs" />
@@ -407,6 +407,7 @@
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
     <Compile Include="ViewModels\Water\IrrigationValueViewModel.cs" />
+    <Compile Include="ViewModels\Water\RainValueViewModel.cs" />
     <Compile Include="ViewModels\Water\WebApiIrrigationRainViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />

@@ -1,15 +1,16 @@
-﻿using IrrigationAdvisor.Models.Agriculture;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
 
+using IrrigationAdvisor.Models.Agriculture;
+using System.Data.Entity.ModelConfiguration;
+
 namespace IrrigationAdvisor.DBContext.Agriculture
 {
-    public class HidricBalanceAdjustmentConfiguration : EntityTypeConfiguration<HidricBalanceAdjustment>
+    public class HydricBalanceAdjustmentConfiguration : EntityTypeConfiguration<HydricBalanceAdjustment>
     {
-        public HidricBalanceAdjustmentConfiguration()
+        public HydricBalanceAdjustmentConfiguration()
         {
             ToTable("HydricBalanceAdjustment");
             HasKey(w => w.HydricBalanceAdjustmentId);

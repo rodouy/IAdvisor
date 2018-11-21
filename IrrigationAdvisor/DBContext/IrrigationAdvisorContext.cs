@@ -220,7 +220,9 @@ namespace IrrigationAdvisor.DBContext
         public virtual DbSet<WeatherStation> WeatherStations { get; set; }
 
         public virtual DbSet<MeteoblueWeatherData> MeteoblueWeatherDatas { get; set; }
-        public virtual DbSet<HidricBalanceAdjustment> HydricBalanceAdjustments { get; set; }
+
+        public virtual DbSet<HydricBalanceAdjustment> HydricBalanceAdjustments { get; set; }
+
         public virtual DbSet<FarmContact> FarmContacts { get; set; }
 
         public virtual DbSet<CalculationByCropIrrigationWeather> CalculationByCropIrrigationWeathers { get; set; }
@@ -349,7 +351,7 @@ namespace IrrigationAdvisor.DBContext
             modelBuilder.Configurations.Add(new WeatherStationConfiguration());
             modelBuilder.Configurations.Add(new MeteoblueWeatherDataConfiguration());
             modelBuilder.Configurations.Add(new CalculationByCropIrrigationWeatherConfiguration());
-            modelBuilder.Configurations.Add(new HidricBalanceAdjustmentConfiguration());
+            modelBuilder.Configurations.Add(new HydricBalanceAdjustmentConfiguration());
 
 #endif
             #endregion
