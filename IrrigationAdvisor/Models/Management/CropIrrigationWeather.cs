@@ -1737,6 +1737,14 @@ namespace IrrigationAdvisor.Models.Management
                 lReturn.Third = true;
                 return lReturn;
             }
+            //We have a Confirmation of Irrigation this day
+            else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.Confirmation)
+            {
+                lReturn.First = lHaveIrrigation.Input;
+                lReturn.Second = lHaveIrrigation.Type;
+                lReturn.Third = false;
+                return lReturn;
+            }
             //when arrives to final Stage, do not add new irrigation
             else if (this.PhenologicalStage.Stage.Order >= this.Crop.StopIrrigationStageOrder)
             {
@@ -1745,7 +1753,7 @@ namespace IrrigationAdvisor.Models.Management
                 lReturn.Third = true;
                 return lReturn;
             }
-            //We have a Cant Irrigate the day before and an Irrigation tha day
+            //We have a Cant Irrigate the day before and an Irrigation that day
             else if (lHaveIrrigation != null  && lHaveIrrigation.Type != Utils.WaterInputType.IrrigationWasNotDecided
                                               && lHaveIrrigation.Type != Utils.WaterInputType.CantIrrigate
                   && lHaveIrrigationDayBefore!= null && lHaveIrrigationDayBefore.Type == Utils.WaterInputType.CantIrrigate)
@@ -1755,6 +1763,7 @@ namespace IrrigationAdvisor.Models.Management
                 lReturn.Third = false;
                 return lReturn;
             }
+            
 
             //Calculate the irrigation quantity and reason for this
             lIrrigationByEvapotranspiration = this.IrrigateByEvapotranspiration();
@@ -1763,13 +1772,14 @@ namespace IrrigationAdvisor.Models.Management
             
             //To Calculate a new Irrigation we have this constraint:
             //      - No Irrigation the day before
-            //      - If we have Irrigation the day before, it has not to be Irrigation, IrrigationByETCAcumulated nor IrrigationByHydricBalance
+            //      - If we have Irrigation the day before, it has not to be Irrigation, Confirmation of Irrigation, IrrigationByETCAcumulated nor IrrigationByHydricBalance
             //      - No Irrigation Today
             //      - If we have Irrigation today, do not has to be Extra Irrigation
             if ((lHaveIrrigationDayBefore == null || (lHaveIrrigationDayBefore != null 
                                                     && (lHaveIrrigationDayBefore.Type != Utils.WaterInputType.Irrigation
+                                                    && (lHaveIrrigationDayBefore.Type != Utils.WaterInputType.Confirmation
                                                     && lHaveIrrigationDayBefore.Type != Utils.WaterInputType.IrrigationByETCAcumulated
-                                                    && lHaveIrrigationDayBefore.Type != Utils.WaterInputType.IrrigationByHydricBalance))) 
+                                                    && lHaveIrrigationDayBefore.Type != Utils.WaterInputType.IrrigationByHydricBalance)))) 
                 && (lHaveIrrigation == null || lHaveIrrigation.Type == Utils.WaterInputType.IrrigationWasNotDecided 
                                             || lHaveIrrigation.ExtraInput == 0))
             {
@@ -1807,19 +1817,25 @@ namespace IrrigationAdvisor.Models.Management
                         }
                     }
                 }
-               else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByHydricBalance)
-               {
-                   lReturn.First = lHaveIrrigation.Input;
-                   lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
-                   lReturn.Third = false;
-               }
-               else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByETCAcumulated)
-               {
-                   lReturn.First = lHaveIrrigation.Input;
-                   lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
-                   lReturn.Third = false;
-               }
-               else  //Always we consider to have a Irrigation Type
+                else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByHydricBalance)
+                {
+                    lReturn.First = lHaveIrrigation.Input;
+                    lReturn.Second = Utils.WaterInputType.IrrigationByHydricBalance;
+                    lReturn.Third = false;
+                }
+                else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByETCAcumulated)
+                {
+                    lReturn.First = lHaveIrrigation.Input;
+                    lReturn.Second = Utils.WaterInputType.IrrigationByETCAcumulated;
+                    lReturn.Third = false;
+                }
+                else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.Confirmation)
+                {
+                    lReturn.First = lHaveIrrigation.Input;
+                    lReturn.Second = Utils.WaterInputType.Confirmation;
+                    lReturn.Third = false;
+                }
+                else  //Always we consider to have a Irrigation Type
                 {
                     lReturn.First = 0;
                     lReturn.Second = Utils.WaterInputType.IrrigationWasNotDecided;
@@ -1829,8 +1845,9 @@ namespace IrrigationAdvisor.Models.Management
 
             lIrrigationNextDay = this.GetIrrigationByDay(pDateTime.AddDays(1));
 
-            if (lHaveIrrigation != null && lHaveIrrigation.ExtraInput == 0 
+            if (lHaveIrrigation != null && lHaveIrrigation.ExtraInput == 0
                                         && lHaveIrrigation.Type != Utils.WaterInputType.CantIrrigate
+                                        && lHaveIrrigation.Type != Utils.WaterInputType.Confirmation
                 && lIrrigationNextDay != null && lIrrigationNextDay.ExtraInput > 0 )
             {
                 //We have to move the irrigation to tomorrow
