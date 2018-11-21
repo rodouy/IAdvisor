@@ -2835,7 +2835,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
-                        IsActive = false,
+                        IsActive = true,
                     };
                     context.Farms.Add(lElRincon);
                     context.SaveChanges();
@@ -2982,7 +2982,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         IrrigationUnitList = null,
                         CityId = lCity.CityId,
                         UserFarmList = null,
-                        IsActive = false,
+                        IsActive = true,
                     };
                     context.Farms.Add(lSantaEmilia);
                     context.SaveChanges();

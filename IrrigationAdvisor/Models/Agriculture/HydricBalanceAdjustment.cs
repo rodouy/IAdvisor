@@ -1,12 +1,13 @@
-﻿using IrrigationAdvisor.Models.Management;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+using IrrigationAdvisor.Models.Management;
+
 namespace IrrigationAdvisor.Models.Agriculture
 {
-    public class HidricBalanceAdjustment
+    public class HydricBalanceAdjustment
     {
         public long HydricBalanceAdjustmentId { get; set; }
         public double Percentage { get; set; }
@@ -14,6 +15,6 @@ namespace IrrigationAdvisor.Models.Agriculture
         public DateTime Date { get; set; }
         public long CropIrrigationWeatherId { get; set; }
 
-        public virtual CropIrrigationWeather CropIrrigationWeather { get;set;}
+        public virtual CropIrrigationWeather CropIrrigationWeather { get; set; }
     }
 }
