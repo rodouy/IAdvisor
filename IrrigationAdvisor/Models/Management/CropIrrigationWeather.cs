@@ -1729,20 +1729,20 @@ namespace IrrigationAdvisor.Models.Management
                 lReturn.Third = true;
                 return lReturn;
             }
+            //We have a Confirmation of Irrigation this day
+            else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.Confirmation)
+            {
+                lReturn.First = lHaveIrrigation.ExtraInput;
+                lReturn.Second = lHaveIrrigation.Type;
+                lReturn.Third = false;
+                return lReturn;
+            }
             //We have an extra Irrigation this day
             else if (lHaveIrrigation != null && lHaveIrrigation.ExtraInput > 0)
             {
                 lReturn.First = lHaveIrrigation.ExtraInput;
                 lReturn.Second = lHaveIrrigation.Type;
                 lReturn.Third = true;
-                return lReturn;
-            }
-            //We have a Confirmation of Irrigation this day
-            else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.Confirmation)
-            {
-                lReturn.First = lHaveIrrigation.Input;
-                lReturn.Second = lHaveIrrigation.Type;
-                lReturn.Third = false;
                 return lReturn;
             }
             //when arrives to final Stage, do not add new irrigation
@@ -2839,8 +2839,49 @@ namespace IrrigationAdvisor.Models.Management
             //Get the irrigation for the day
             lHaveIrrigation = this.GetIrrigationByDay(pDateTime);
 
+            //Is a Confirmation
+            if (!this.HasAdviseOfIrrigation && lTypeOfIrrigation == Utils.WaterInputType.Confirmation && lQuantityOfWaterToIrrigate > 0)
+            {
+                this.HasAdviseOfIrrigation = true;
+                if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByETCAcumulated)
+                {
+                    lObservations = "Confirm Irrigation. Before: " + lHaveIrrigation.Observations;
+                    lObservations += " Tipo de Riego: Riego por ETc Acumulado. ";
+                }
+                else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByHydricBalance)
+                {
+                    lObservations = "Confirm Irrigation. Before: " + lHaveIrrigation.Observations;
+                    lObservations += " Tipo de Riego: Riego por Balance Hidrico. ";
+                }
+                else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.Irrigation)
+                {
+                    lObservations = "Confirm Irrigation. Before: " + lHaveIrrigation.Observations;
+                    lObservations += " Tipo de Riego: Riego OK. ";
+                }
+                else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.Confirmation)
+                {
+                    lObservations = "Confirm Irrigation. Before: " + lHaveIrrigation.Observations;
+                }
+                else
+                {
+                    lObservations = "Confirm Irrigation OK.";
+                }
+                if (lHaveIrrigation == null)
+                {
+                    this.AddOrUpdateIrrigationDataToList(pDateTime, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                }
+                //Confirmation Irrigation always goes.
+                else
+                {
+                    if (lHaveIrrigation.Reason == Utils.NoIrrigationReason.MoveIrrigation)
+                    {
+                        lReason = lHaveIrrigation.Reason;
+                    }
+                    this.AddOrUpdateIrrigationDataToList(pDateTime, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                }
+            }
             //Is an extra irrigation
-            if (!this.HasAdviseOfIrrigation && lIsExtraIrrigation && lQuantityOfWaterToIrrigate > 0)
+            else if (!this.HasAdviseOfIrrigation && lIsExtraIrrigation && lQuantityOfWaterToIrrigate > 0)
             {
                 this.HasAdviseOfIrrigation = true;
                 lObservations = "Add Irrigation OK.";
@@ -3046,8 +3087,49 @@ namespace IrrigationAdvisor.Models.Management
                 //Get the irrigation for the day
                 lHaveIrrigation = this.GetIrrigationByDay(pDateTime);
 
+                //Is a Confirmation
+                if (!this.HasAdviseOfIrrigation && lNewTypeOfIrrigation == Utils.WaterInputType.Confirmation && lNewQuantityOfWaterToIrrigate > 0)
+                {
+                    this.HasAdviseOfIrrigation = true;
+                    if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByETCAcumulated)
+                    {
+                        lObservations = "Confirm Irrigation. Before: " + lHaveIrrigation.Observations;
+                        lObservations += " Tipo de Riego: Riego por ETc Acumulado. ";
+                    }
+                    else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.IrrigationByHydricBalance)
+                    {
+                        lObservations = "Confirm Irrigation. Before: " + lHaveIrrigation.Observations;
+                        lObservations += " Tipo de Riego: Riego por Balance Hidrico. ";
+                    }
+                    else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.Irrigation)
+                    {
+                        lObservations = "Confirm Irrigation. Before: " + lHaveIrrigation.Observations;
+                        lObservations += " Tipo de Riego: Riego OK. ";
+                    }
+                    else if (lHaveIrrigation != null && lHaveIrrigation.Type == Utils.WaterInputType.Confirmation)
+                    {
+                        lObservations = "Confirm Irrigation. Before: " + lHaveIrrigation.Observations;
+                    }
+                    else
+                    {
+                        lObservations = "Confirm Irrigation OK.";
+                    }
+                    if (lHaveIrrigation == null)
+                    {
+                        this.AddOrUpdateIrrigationDataToList(pDateTime, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                    }
+                    //Confirmation Irrigation always goes.
+                    else
+                    {
+                        if (lHaveIrrigation.Reason == Utils.NoIrrigationReason.MoveIrrigation)
+                        {
+                            lReason = lHaveIrrigation.Reason;
+                        }
+                        this.AddOrUpdateIrrigationDataToList(pDateTime, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                    }
+                }
                 //Is an extra irrigation
-                if (!this.HasAdviseOfIrrigation && lIsExtraIrrigation && lNewQuantityOfWaterToIrrigate > 0)
+                else if (!this.HasAdviseOfIrrigation && lIsExtraIrrigation && lNewQuantityOfWaterToIrrigate > 0)
                 {
                     this.HasAdviseOfIrrigation = true;
                     lObservations = "Add Irrigation OK.";
@@ -3870,6 +3952,8 @@ namespace IrrigationAdvisor.Models.Management
             Water.Irrigation lOldIrrigation = null;
             Water.Irrigation lOldIrrigationNextDate = null;
             DailyRecord lDailyRecordIrrigationNextDate = null;
+            bool lOldIrrigationConfirmed = false;
+            bool lOldIrrigationNextDateConfirmed = false;
             bool lOldIrrigationWasNotDecided = false;
             bool lOldIrrigationNextDateWasNotDecided = false;
             int lIrrigationCount;
@@ -3877,6 +3961,7 @@ namespace IrrigationAdvisor.Models.Management
             Double lNewQuantityOfWaterToIrrigate;
             Utils.WaterInputType lNewTypeOfIrrigation;
             bool lIsExtraIrrigation;
+            bool lIsIrrigationConfirmed = false;
             Utils.NoIrrigationReason lReason = Utils.NoIrrigationReason.Other;
             String lObservations;
             
@@ -3891,18 +3976,40 @@ namespace IrrigationAdvisor.Models.Management
                 lIsExtraIrrigation = pIsExtraIrrigation;
                 lReason = pReason;
                 lObservations = pObservations;
+                lIsIrrigationConfirmed = lNewTypeOfIrrigation == Utils.WaterInputType.Confirmation;
 
                 lOldIrrigation = this.GetIrrigationByDay(lIrrigationDate);
                 lOldIrrigationNextDate = this.GetIrrigationByDay(lIrrigationDate.AddDays(1));
                 if(lOldIrrigation != null)
                 {
                     lOldIrrigationWasNotDecided = lOldIrrigation.Type == Utils.WaterInputType.IrrigationWasNotDecided;
+                    lOldIrrigationConfirmed = lOldIrrigation.Type == Utils.WaterInputType.Confirmation;
                 }
                 if (lOldIrrigationNextDate != null)
                 {
                     lOldIrrigationNextDateWasNotDecided = lOldIrrigationNextDate.Type == Utils.WaterInputType.IrrigationWasNotDecided;
+                    lOldIrrigationNextDateConfirmed = lOldIrrigationNextDate.Type == Utils.WaterInputType.Confirmation;
                 }
-                
+                if (lOldIrrigation != null && lOldIrrigation.Type == Utils.WaterInputType.IrrigationByETCAcumulated)
+                {
+                    lObservations += " Tipo de Riego: Riego por ETc Acumulado. ";
+                }
+                else if (lOldIrrigation != null && lOldIrrigation.Type == Utils.WaterInputType.IrrigationByHydricBalance)
+                {
+                    lObservations += " Tipo de Riego: Riego por Balance Hidrico. ";
+                }
+                else if (lOldIrrigation != null && lOldIrrigation.Type == Utils.WaterInputType.Irrigation)
+                {
+                    lObservations += " Tipo de Riego: Riego extra. ";
+                }
+                else if (lOldIrrigation != null && lOldIrrigation.Type == Utils.WaterInputType.Confirmation)
+                {
+                    lObservations += lOldIrrigation.Observations;
+                }
+                else
+                {
+                    lObservations += " . ";
+                }
                 #endregion
 
                 //Condition1: (No old Irrigation or is NotDecided) and New Quantity Of Water To Irrigate > 0
@@ -3915,6 +4022,12 @@ namespace IrrigationAdvisor.Models.Management
                         lNewIrrigation.WaterInputId = this.GetNewIrrigationListId();
                         lNewIrrigation.Date = lIrrigationDate;
                         if (lIsExtraIrrigation)
+                        {
+                            lNewIrrigation.ExtraInput = lNewQuantityOfWaterToIrrigate;
+                            lNewIrrigation.ExtraDate = lIrrigationDate;
+                            lNewIrrigation.Input = 0;
+                        }
+                        else if (lIsIrrigationConfirmed)
                         {
                             lNewIrrigation.ExtraInput = lNewQuantityOfWaterToIrrigate;
                             lNewIrrigation.ExtraDate = lIrrigationDate;
@@ -3944,6 +4057,12 @@ namespace IrrigationAdvisor.Models.Management
                             lOldIrrigation.ExtraDate = lIrrigationDate;
                             lOldIrrigation.Input = 0;
                         }
+                        else if (lIsIrrigationConfirmed)
+                        {
+                            lOldIrrigation.ExtraInput = lNewQuantityOfWaterToIrrigate;
+                            lOldIrrigation.ExtraDate = lIrrigationDate;
+                            lOldIrrigation.Input = 0;
+                        }
                         else
                         {
                             lOldIrrigation.Input = lNewQuantityOfWaterToIrrigate;
@@ -3958,11 +4077,13 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                //Condition2: (No old Irrigation or is NotDecided) and (New Quantity == 0 and Extra Irrigation and Type not in (CantIrrigate, IrrigationWasNotDecided)
+                //Condition2: (No old Irrigation or is NotDecided) and (New Quantity == 0 and Extra Irrigation and Type not in (CantIrrigate, Confirmation, IrrigationWasNotDecided)
                 #region Condition #2 NEW IRRIGATION NOT TO IRRIGATE: There is not registry then it is created (if they are Extra)
                 else if ((lOldIrrigation == null || lOldIrrigationWasNotDecided) &&
                             lNewQuantityOfWaterToIrrigate == 0 && lIsExtraIrrigation &&
-                            (lNewTypeOfIrrigation != Utils.WaterInputType.CantIrrigate && lNewTypeOfIrrigation != Utils.WaterInputType.IrrigationWasNotDecided))
+                            (lNewTypeOfIrrigation != Utils.WaterInputType.CantIrrigate &&
+                             lNewTypeOfIrrigation != Utils.WaterInputType.Confirmation &&
+                             lNewTypeOfIrrigation != Utils.WaterInputType.IrrigationWasNotDecided))
                 {
                     if (lOldIrrigation == null)
                     {
@@ -3997,11 +4118,12 @@ namespace IrrigationAdvisor.Models.Management
                 }
                 #endregion
 
-                //Condition3: (Is an Old Irrigation and Not is NotDecided and New Quantity == 0) and Type not in (CantIrrigate, IrrigationWasNotDecided) 
+                //Condition3: (Is an Old Irrigation and Not is NotDecided and New Quantity == 0) and Type not in (CantIrrigate, Confirmation, IrrigationWasNotDecided) 
                 #region Condition #3 IRRIGATION TO NEXT DAY: If there is an Irrigation Registry and new Irrigation Input is 0, Input goes for tomorrow
                 else if (lOldIrrigation != null && !lOldIrrigationWasNotDecided &&
                             lNewQuantityOfWaterToIrrigate == 0 &&
                             (lNewTypeOfIrrigation != Utils.WaterInputType.CantIrrigate &&
+                            lNewTypeOfIrrigation != Utils.WaterInputType.Confirmation &&
                             lNewTypeOfIrrigation != Utils.WaterInputType.IrrigationWasNotDecided))
                 {
                     //If quentity of water is 0, the user want to move the irrigation on day
@@ -4060,7 +4182,19 @@ namespace IrrigationAdvisor.Models.Management
                 #region Condition #4 UPDATE IRRIGATION: If there is an Irrigation Registry it is updated
                 else if (lOldIrrigation != null && lNewQuantityOfWaterToIrrigate > 0)
                 {
-                    if (lIsExtraIrrigation)
+                    if (lIsIrrigationConfirmed)
+                    {
+                        //If there was an Advisor of irrigation, it will be updated to 0.
+                        lOldIrrigation.Input = 0;
+                        lOldIrrigation.Date = lIrrigationDate;
+                        //If there was an Extra irrigation, it will be added the new irrigation.
+                        lOldIrrigation.ExtraInput = lNewQuantityOfWaterToIrrigate;
+                        lOldIrrigation.ExtraDate = lIrrigationDate;
+                        lOldIrrigation.Type = lNewTypeOfIrrigation;
+                        lOldIrrigation.Reason = lReason;
+                        lOldIrrigation.Observations = lObservations + " Confirmed Irrigation.";
+                    }
+                    else if (lIsExtraIrrigation)
                     {
                         //If there was an Advisor of irrigation, it will be updated to 0.
                         lOldIrrigation.Input = 0;
@@ -4072,7 +4206,7 @@ namespace IrrigationAdvisor.Models.Management
                         lOldIrrigation.Reason = lReason;
                         lOldIrrigation.Observations = lObservations + " Updated Irrigation.";
                     }
-                    else
+                    else 
                     {
                         //It is an Advise of Irrigation, so we are updating Advise Irrigation we have.
                         //if the Advise input is 0, we wanted to pass one day the Advise so, we do that.

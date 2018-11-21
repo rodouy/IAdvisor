@@ -804,20 +804,41 @@ namespace IrrigationAdvisor.Controllers
             return View();
         }
 
-        private MailMessage GetMailMessage(string subject, string body, string pEmailTo = null)
+        private MailMessage GetMailMessage(string lSubject, string pBody, string pEMailTo = null)
         {
-            MailMessage mail = new MailMessage();
-            string emailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]);
-            string emailTo = pEmailTo == null ? Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]) : pEmailTo;
+            #region local variables
+            MailMessage lEMail;
+            string lEMailFrom;
+            string lEMailTo;
+            string lEMailBCC;
 
-            mail.From = new MailAddress(emailFrom);
-            mail.To.Add(emailTo);
-            mail.Subject = subject;
-            body = body.Replace("[br]", "<br>");
-            mail.Body = body;
-            mail.IsBodyHtml = true;
+            #endregion
 
-            return mail;
+            lEMail = new MailMessage();
+            lEMailFrom = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailFrom"]);
+            lEMailBCC = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings["emailTo"]);
+
+            if(pEMailTo == null)
+            {
+                lEMailTo = lEMailBCC;
+            }
+            else
+            {
+                lEMailTo = pEMailTo;
+                if (lEMailBCC != lEMailTo)
+                {
+                    lEMail.Bcc.Add(lEMailBCC);
+                }
+            }
+
+            lEMail.From = new MailAddress(lEMailFrom);
+            lEMail.To.Add(lEMailTo);
+            lEMail.Subject = lSubject;
+            pBody = pBody.Replace("[br]", "<br>");
+            lEMail.Body = pBody;
+            lEMail.IsBodyHtml = true;
+
+            return lEMail;
         }
 
         private SmtpClient GetSmtpClient()
@@ -1387,38 +1408,54 @@ namespace IrrigationAdvisor.Controllers
 
         public ActionResult AddIrrigationAndRain(WebApiIrrigationRainViewModel pIrrigationValueViewModel)
         {
+            #region local variables
+            IrrigationAdvisorContext lIrrigationAdvisorContext;
+            IrrigationUnitConfiguration lIrrigationUnitConfiguration;
+            CropIrrigationWeatherConfiguration lCropIrrigationWeatherConfiguration;
+            List<long> lIrrigationUnitsForIrrigationIds;
+            List<long> lIrrigationUnitsForRainsIds;
+            List<long> lIrrigationUnitsUnion;
+            List<IrrigationUnit> lIrrigationUnits;
+            DateTime lReferenceDate;
+            List<CropIrrigationWeather> lCropIrrigationWeatherListOfAll;
+            DateTime lDateResult;
+            IrrigationUnit lIrrigationUnit;
+            List<CropIrrigationWeather> lCropIrrigationWeatherList;
+            CalculationByCropIrrigationWeather lCalculationByCropIrrigationWeather;
+            #endregion
+
             if (pIrrigationValueViewModel != null)
             {
-                IrrigationAdvisorContext lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
-                IrrigationUnitConfiguration lIrrigationUnitConfiguration = new IrrigationUnitConfiguration();
-                CropIrrigationWeatherConfiguration lCropIrrigationWeatherConfiguration = new CropIrrigationWeatherConfiguration();
+                lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
+                lIrrigationUnitConfiguration = new IrrigationUnitConfiguration();
+                lCropIrrigationWeatherConfiguration = new CropIrrigationWeatherConfiguration();
 
-                var lIrrigationUnitsForIrrigationIds = pIrrigationValueViewModel.Irrigations.Select(n => n.IrrigationUnitId);
-                var lIrrigationUnitsForRainsIds = pIrrigationValueViewModel.Rains.Select(n => n.IrrigationUnitId);
+                lIrrigationUnitsForIrrigationIds = pIrrigationValueViewModel.Irrigations.Select(n => n.IrrigationUnitId).ToList();
+                lIrrigationUnitsForRainsIds = pIrrigationValueViewModel.Rains.Select(n => n.IrrigationUnitId).ToList();
 
                 //Concat all IrrigationUnits for Irrigation and for Rain
-                var lIrrigationUnitsUnion = lIrrigationUnitsForIrrigationIds
+                lIrrigationUnitsUnion = lIrrigationUnitsForIrrigationIds
                                              .Concat(lIrrigationUnitsForRainsIds)
                                              .Distinct()
                                              .ToList();
 
-                List<IrrigationUnit> lIrrigationUnits = lIrrigationAdvisorContext.IrrigationUnits
+                lIrrigationUnits = lIrrigationAdvisorContext.IrrigationUnits
                                         .Where(iu => lIrrigationUnitsUnion.Contains(iu.IrrigationUnitId))
                                         .ToList();
 
-                DateTime lReferenceDate = Utils.GetDateOfReference().Value;
+                lReferenceDate = Utils.GetDateOfReference().Value;
 
-                List<CropIrrigationWeather> lCropIrrigationWeatherListOfAll = lIrrigationUnitConfiguration
+                lCropIrrigationWeatherListOfAll = lIrrigationUnitConfiguration
                             .GetCropIrrigationWeatherListBy(lIrrigationUnitsUnion, lReferenceDate);
 
                 foreach (IrrigationValueViewModel lIrrigationValueViewModel in pIrrigationValueViewModel.Irrigations)
                 {
-                    DateTime lDateResult = lIrrigationValueViewModel.Date;
+                    lDateResult = lIrrigationValueViewModel.Date;
                     
-                    IrrigationUnit lIrrigationUnit = lIrrigationUnits.Where(iu => iu.IrrigationUnitId == lIrrigationValueViewModel.IrrigationUnitId).FirstOrDefault();
+                    lIrrigationUnit = lIrrigationUnits.Where(iu => iu.IrrigationUnitId == lIrrigationValueViewModel.IrrigationUnitId).FirstOrDefault();
 
                     //List of CropIrrigationWeather that has the IrrigationUnit filtered
-                    List<CropIrrigationWeather> lCropIrrigationWeatherList = lCropIrrigationWeatherListOfAll.Where(n => n.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId).ToList();
+                    lCropIrrigationWeatherList = lCropIrrigationWeatherListOfAll.Where(n => n.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId).ToList();
 
                     foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
@@ -1431,7 +1468,7 @@ namespace IrrigationAdvisor.Controllers
                         {
                             //lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
 
-                            CalculationByCropIrrigationWeather calculationByCropIrrigationWeather = new CalculationByCropIrrigationWeather()
+                            lCalculationByCropIrrigationWeather = new CalculationByCropIrrigationWeather()
                             {
                                 Application = pIrrigationValueViewModel.Application,
                                 CreationDate = DateTime.Now,
@@ -1439,7 +1476,7 @@ namespace IrrigationAdvisor.Controllers
                                 IsCompleted = false
                             };
 
-                            lIrrigationAdvisorContext.CalculationByCropIrrigationWeathers.Add(calculationByCropIrrigationWeather);
+                            lIrrigationAdvisorContext.CalculationByCropIrrigationWeathers.Add(lCalculationByCropIrrigationWeather);
 
                             lIrrigationAdvisorContext.SaveChanges();
                         }
@@ -1450,19 +1487,19 @@ namespace IrrigationAdvisor.Controllers
 
                 foreach (RainValueViewModel item in pIrrigationValueViewModel.Rains)
                 {
-                    DateTime lDateResult = item.Date;
+                    lDateResult = item.Date;
 
-                    IrrigationUnit lIrrigationUnit = lIrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
+                    lIrrigationUnit = lIrrigationUnits.Where(iu => iu.IrrigationUnitId == item.IrrigationUnitId).FirstOrDefault();
 
                     //List of CropIrrigationWeather that has the IrrigationUnit filtered
-                    List<CropIrrigationWeather> lCropIrrigationWeatherList = lCropIrrigationWeatherListOfAll.Where(n => n.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId).ToList();
+                    lCropIrrigationWeatherList = lCropIrrigationWeatherListOfAll.Where(n => n.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId).ToList();
 
                     foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
                     {
                         lCropIrrigationWeather.AddRainDataToList(lDateResult, item.Milimeters);
                         lIrrigationAdvisorContext.SaveChanges();
 
-                        CalculationByCropIrrigationWeather calculationByCropIrrigationWeather = new CalculationByCropIrrigationWeather()
+                        lCalculationByCropIrrigationWeather = new CalculationByCropIrrigationWeather()
                         {
                             Application = pIrrigationValueViewModel.Application,
                             CreationDate = DateTime.Now,
@@ -1470,7 +1507,7 @@ namespace IrrigationAdvisor.Controllers
                             IsCompleted = false
                         };
 
-                        lIrrigationAdvisorContext.CalculationByCropIrrigationWeathers.Add(calculationByCropIrrigationWeather);
+                        lIrrigationAdvisorContext.CalculationByCropIrrigationWeathers.Add(lCalculationByCropIrrigationWeather);
 
                         //lCropIrrigationWeather.AddInformationToIrrigationUnits(lDateResult, lReferenceDate, lIrrigationAdvisorContext);
                         lIrrigationAdvisorContext.SaveChanges();
@@ -1505,7 +1542,7 @@ namespace IrrigationAdvisor.Controllers
             bool lIsExtraIrrigation = true;
             DateTime lDateResult;
             DateTime lReferenceDate;
-            string lObservations = pIsFertigation ? "Fertigation" : "Add Irrigation OK.";
+            string lObservations = pIsFertigation ? "Fertigation " : "Add Irrigation OK.";
 
             IrrigationAdvisorContext lIrrigationAdvisorContext;
             IrrigationUnitConfiguration lIrrigationUnitConfiguration;
@@ -2682,27 +2719,64 @@ namespace IrrigationAdvisor.Controllers
             IrrigationAdvisorContext lIrrigationAdvisorContext;
             CropIrrigationWeatherConfiguration lCropIrrigationWeatherConfiguration;
             CropIrrigationWeather lCropIrrigationWeather;
-
+            Models.Water.Irrigation lIrrigationBefore;
+            String lIrrigationType;
             string lBody;
             #endregion
             try
             {
                 lIrrigationAdvisorContext = IrrigationAdvisorContext.Instance();
 
-                Models.Water.Irrigation lIrrigation = new Models.Water.Irrigation()
+                lIrrigationBefore = lIrrigationAdvisorContext
+                                             .Irrigations
+                                             .Where(ir => ir.Type != Utils.WaterInputType.CantIrrigate 
+                                                 && ir.Type != Utils.WaterInputType.IrrigationWasNotDecided 
+                                                 && ir.Date == pDate && ir.CropIrrigationWeatherId == pCropIrrigationWeatherId)
+                                             .First();
+                if(lIrrigationBefore != null && lIrrigationBefore.Type == Utils.WaterInputType.IrrigationByETCAcumulated)
                 {
-                    CropIrrigationWeatherId = pCropIrrigationWeatherId,
-                    Date = pDate,
-                    ExtraDate = pDate,
-                    ExtraInput = pValue,
-                    Input = 0,
-                    Reason = Utils.NoIrrigationReason.Other,
-                    Type = Utils.WaterInputType.Confirmation,
-                    Observations = "Confirmación de riego " + pDate + " Tipo de Riego = ",
-                };
-
-                lIrrigationAdvisorContext.Irrigations.Add(lIrrigation);
-
+                    lIrrigationType = " Tipo de Riego: Riego por ETc Acumulado. ";
+                }
+                else if(lIrrigationBefore != null && lIrrigationBefore.Type == Utils.WaterInputType.IrrigationByHydricBalance)
+                {
+                    lIrrigationType = " Tipo de Riego: Riego por Balance Hidrico. ";
+                }
+                else if(lIrrigationBefore != null && lIrrigationBefore.Type == Utils.WaterInputType.Irrigation)
+                {
+                    lIrrigationType = " Tipo de Riego: Riego extra. ";
+                }
+                else if (lIrrigationBefore != null && lIrrigationBefore.Type == Utils.WaterInputType.Confirmation)
+                {
+                    lIrrigationType = lIrrigationBefore.Observations;
+                }
+                else
+                {
+                    lIrrigationType = " . ";
+                }
+                if (lIrrigationBefore != null)
+                {
+                        lIrrigationBefore.ExtraDate = pDate;
+                        lIrrigationBefore.ExtraInput = pValue;
+                        lIrrigationBefore.Input = 0;
+                        lIrrigationBefore.Reason = Utils.NoIrrigationReason.Other;
+                        lIrrigationBefore.Type = Utils.WaterInputType.Confirmation;
+                        lIrrigationBefore.Observations = "Confirmación de riego " + pDate + lIrrigationType;
+                }
+                else
+                {
+                    Models.Water.Irrigation lIrrigation = new Models.Water.Irrigation()
+                    {
+                        CropIrrigationWeatherId = pCropIrrigationWeatherId,
+                        Date = pDate,
+                        ExtraDate = pDate,
+                        ExtraInput = pValue,
+                        Input = 0,
+                        Reason = Utils.NoIrrigationReason.Other,
+                        Type = Utils.WaterInputType.Confirmation,
+                        Observations = "Confirmación de riego " + pDate + lIrrigationType,
+                    };
+                    lIrrigationAdvisorContext.Irrigations.Add(lIrrigation);
+                }
                 lIrrigationAdvisorContext.SaveChanges();
 
                 lCropIrrigationWeatherConfiguration = new CropIrrigationWeatherConfiguration();
