@@ -4902,7 +4902,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                              where b.Name == Utils.NameBombSantaEmilia
                              select b).FirstOrDefault();
                     lPosition = (from pos in context.Positions
-                                 where pos.Name == Utils.NamePositionPivotSantaEmilia5
+                                 where pos.Name == Utils.NamePositionPivotSantaEmilia7
                                  select pos).FirstOrDefault();
 
                     var lSantaEmiliaPivot7 = new Pivot
@@ -4921,6 +4921,30 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
+                    #region Pivot ZP
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombSantaEmilia
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotSantaEmiliaZP
+                                 select pos).FirstOrDefault();
+
+                    var lSantaEmiliaPivotZP = new Pivot
+                    {
+                        Name = Utils.NamePivotSantaEmiliaZP,
+                        ShortName = "Pivot ZP",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.80,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 70,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 35,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
 
                     #region Pivot - Shows by Season
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
@@ -4932,6 +4956,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lSantaEmiliaPivot5.Show = true;
                         lSantaEmiliaPivot6.Show = false;
                         lSantaEmiliaPivot7.Show = true;
+                        lSantaEmiliaPivotZP.Show = false;
                     }
                     else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
@@ -4944,6 +4969,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lSantaEmiliaPivot5.Show = false;
                         lSantaEmiliaPivot6.Show = false;
                         lSantaEmiliaPivot7.Show = false;
+                        lSantaEmiliaPivotZP.Show = true;
                     }
                     else 
                     {
@@ -4954,6 +4980,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lSantaEmiliaPivot5.Show = false;
                         lSantaEmiliaPivot6.Show = false;
                         lSantaEmiliaPivot7.Show = false;
+                        lSantaEmiliaPivotZP.Show = true;
                     }
                     #endregion
 
@@ -4965,6 +4992,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     context.Pivots.Add(lSantaEmiliaPivot5);
                     context.Pivots.Add(lSantaEmiliaPivot6);
                     context.Pivots.Add(lSantaEmiliaPivot7);
+                    context.Pivots.Add(lSantaEmiliaPivotZP);
                     context.SaveChanges();
                 }
             }

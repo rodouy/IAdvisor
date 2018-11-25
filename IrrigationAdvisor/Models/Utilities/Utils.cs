@@ -1375,6 +1375,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilSantaEmilia5 = NameFarmSantaEmilia + " Pivot 5";
         public static String NameSoilSantaEmilia6 = NameFarmSantaEmilia + " Pivot 6";
         public static String NameSoilSantaEmilia7 = NameFarmSantaEmilia + " Pivot 7";
+        public static String NameSoilSantaEmiliaZP = NameFarmSantaEmilia + " Pivot ZP";
         #endregion
         #region Gran Molino
         public static String NameSoilGranMolino1 = NameFarmGranMolino + " Pivot 1";
@@ -1616,6 +1617,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotSantaEmilia5 = NameFarmSantaEmilia + " Pivot 5";
         public static String NamePivotSantaEmilia6 = NameFarmSantaEmilia + " Pivot 6";
         public static String NamePivotSantaEmilia7 = NameFarmSantaEmilia + " Pivot 7";
+        public static String NamePivotSantaEmiliaZP = NameFarmSantaEmilia + " Pivot Zorrilla y Puente";
         #endregion
         #region Gran Molino
         public static String NamePivotGranMolino1 = NameFarmGranMolino + " Pivot 1";
@@ -2074,6 +2076,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherSantaEmiliaPivot5_S1819 = NamePivotSantaEmilia5 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherSantaEmiliaPivot6_S1819 = NamePivotSantaEmilia6 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherSantaEmiliaPivot7_S1819 = NamePivotSantaEmilia7 + " " + NameSpecieCornSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherSantaEmiliaPivotZP_S1819 = NamePivotSantaEmiliaZP + " " + NameSpecieCornSouthShort + " S1819";
         #endregion
         #region Gran Molino
         public static String NameCropIrrigationWeatherGranMolinoPivot1_S1819 = NamePivotGranMolino1 + " " + NameSpecieSoyaSouthShort + " S1819";
@@ -2183,6 +2186,11 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserEE1 = "crodriguez";
         public static String NameUserEE2 = "nazambuja";
         public static String NameUserEE3 = "fcarrau";
+        public static String NameUserAP1 = "mpino";
+        public static String NameUserAP2 = "lpino";
+        public static String NameUserAP3 = "rguillen";
+        public static String NameUserAP4 = "nleguisamo";
+        public static String NameUserAP5 = "mblanco";
         #endregion
         #region Utilities
         #endregion
@@ -2437,6 +2445,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotSantaEmilia5 = NamePivotSantaEmilia5;
         public static String NamePositionPivotSantaEmilia6 = NamePivotSantaEmilia6;
         public static String NamePositionPivotSantaEmilia7 = NamePivotSantaEmilia7;
+        public static String NamePositionPivotSantaEmiliaZP = NamePivotSantaEmiliaZP; //ALPINO
         #endregion
         #region Gran Molino
         public static String NamePositionPivotGranMolino1 = NamePivotGranMolino1;

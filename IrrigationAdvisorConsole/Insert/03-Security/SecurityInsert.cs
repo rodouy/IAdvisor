@@ -573,6 +573,64 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
             };
             #endregion
 
+            #region Alpino - Santa Emilia
+            var lAlpinoMPino = new User()
+            {
+                Name = "Mauricio",
+                Surname = "Pino",
+                Phone = "+598 91 238 638",
+                Address = "Ruta 2, km 277",
+                Email = "mauricio@alpino.com.uy",
+                UserName = Utils.NameUserAP1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            var lAlpinoLPino = new User()
+            {
+                Name = "Luciano",
+                Surname = "Pino",
+                Phone = "+598 99 529 016",
+                Address = "Ruta 2, km 277",
+                Email = "pinoluciano@gmail.com",
+                UserName = Utils.NameUserAP2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            var lAlpinoRGuillen = new User()
+            {
+                Name = "Ricardo",
+                Surname = "Guillen",
+                Phone = "+598 99 529 080",
+                Address = "Ruta 2, km 277",
+                Email = "guillen@alpino.com.uy",
+                UserName = Utils.NameUserAP3,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            var lAlpinoNLeguisamo = new User()
+            {
+                Name = "Nestor",
+                Surname = "Leguisamo",
+                Phone = "+598 99 531 179",
+                Address = "Ruta 2, km 277",
+                Email = "nestorandres@adinet.com.uy",
+                UserName = Utils.NameUserAP4,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            var lAlpinoMBlanco = new User()
+            {
+                Name = "Maria",
+                Surname = "Blanco",
+                Phone = "+598 99 531 212",
+                Address = "Ruta 2, km 277",
+                Email = "mariarosa@alpino.com.uy",
+                UserName = Utils.NameUserAP5,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            #endregion
+
             #region Gran Molino
             var lGranMolinoPJimenez = new User()
             {
@@ -725,6 +783,11 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lCecchiniWalter);
                 context.Users.Add(lCecchiniJulio);
                 context.Users.Add(lElAlbaDUrani);
+                context.Users.Add(lAlpinoMPino);
+                context.Users.Add(lAlpinoLPino);
+                context.Users.Add(lAlpinoRGuillen);
+                context.Users.Add(lAlpinoNLeguisamo);
+                context.Users.Add(lAlpinoMBlanco);
                 context.SaveChanges();
             }
 
@@ -1332,7 +1395,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 }
                 #endregion
 
-                #region Sierra Madera S.A - Santa Emilia - SE
+                #region Sierra Madera S.A - Alpino - Santa Emilia - SE
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
@@ -1340,6 +1403,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
                 {
                     lUserNames = new String[] { Utils.NameUserSE1, Utils.NameUserSE2,
+                                                Utils.NameUserAP1, Utils.NameUserAP2,
+                                                Utils.NameUserAP3, Utils.NameUserAP4,
+                                                Utils.NameUserAP5, 
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
