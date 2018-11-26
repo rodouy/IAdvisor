@@ -654,8 +654,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Phone = "+598 99 999 999",
                 Address = "Saucedo, Salto",
                 Email = "damianipatricia@gmail.com",
-                UserName = Utils.NameUserGM1,
-                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GM2018"),
+                UserName = Utils.NameUserLP1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LP2018"),
                 RoleId = 3,
             };
 
@@ -670,7 +670,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Address = "Ruta 105, km 60. Soriano",
                 Email = "fernando.roviracuervo@gmail.com",
                 UserName = Utils.NameUserCLP1,
-                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LP2019"),
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "CLP2019"),
                 RoleId = 3,
             };
 
