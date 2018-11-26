@@ -1980,22 +1980,22 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
-                        lDCALaPerdizPivot1.Show = true;
+                        lDCALaPerdizPivot1.Show = false;
                         lDCALaPerdizPivot2.Show = false;
                         lDCALaPerdizPivot3.Show = false;
                         lDCALaPerdizPivot4.Show = false;
                         lDCALaPerdizPivot5.Show = false;
-                        lDCALaPerdizPivot6.Show = true;
+                        lDCALaPerdizPivot6.Show = false;
                         lDCALaPerdizPivot7.Show = true;
                         lDCALaPerdizPivot8.Show = false;
                         lDCALaPerdizPivot9.Show = false;
                         lDCALaPerdizPivot10a.Show = false;
-                        lDCALaPerdizPivot10b.Show = true;
+                        lDCALaPerdizPivot10b.Show = false;
                         lDCALaPerdizPivot11.Show = false;
                         lDCALaPerdizPivot12.Show = false;
                         lDCALaPerdizPivot13.Show = false;
                         lDCALaPerdizPivot14.Show = true;
-                        lDCALaPerdizPivot15.Show = true;
+                        lDCALaPerdizPivot15.Show = false;
                     }
                     else 
                     {
