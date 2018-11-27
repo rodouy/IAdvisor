@@ -1617,7 +1617,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePivotSantaEmilia5 = NameFarmSantaEmilia + " Pivot 5";
         public static String NamePivotSantaEmilia6 = NameFarmSantaEmilia + " Pivot 6";
         public static String NamePivotSantaEmilia7 = NameFarmSantaEmilia + " Pivot 7";
-        public static String NamePivotSantaEmiliaZP = NameFarmSantaEmilia + " Pivot Zorrilla y Puente";
+        public static String NamePivotSantaEmiliaZP = NameFarmSantaEmilia + " Pivot ZP";
         #endregion
         #region Gran Molino
         public static String NamePivotGranMolino1 = NameFarmGranMolino + " Pivot 1";

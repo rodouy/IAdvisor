@@ -40,7 +40,7 @@ namespace IrrigationAdvisorConsole
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Production;
+        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.DCAElParaiso;
 
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
@@ -335,7 +335,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Console.WriteLine(" ------------------------------------------------ ");
                     Console.WriteLine("Add Information of WeatherLink and press enter.");
-                    Console.ReadLine();
+                    //Console.ReadLine();
                 }
 
 #endif
@@ -460,6 +460,7 @@ namespace IrrigationAdvisorConsole
             catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
             {
                 logger.Error(ex, "Exception in Program.DbUpdateException " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("");
                 Console.WriteLine("DB Update Exception ");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
@@ -467,6 +468,7 @@ namespace IrrigationAdvisorConsole
             catch (System.Data.SqlClient.SqlException ex)
             {
                 logger.Info(ex, "Exception in Program.SqlException " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("");
                 Console.WriteLine("DB is OPEN, close all connections. OR the model changes (Add or Update Migration) ");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
@@ -483,6 +485,7 @@ namespace IrrigationAdvisorConsole
             catch (Exception ex)
             {
                 logger.Error(ex, "Exception in Program " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("");
                 Console.WriteLine("Initialization Failed...");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
