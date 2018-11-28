@@ -2918,6 +2918,12 @@ namespace IrrigationAdvisor.Models.Management
                     //If we insert more water, we have to recalculate.
                     this.AddDailyRecordToList(pDateTime, pDateTime.ToShortDateString(), pDateOfReference);
                 }
+                //Irrigation Calculated.
+                else if (lHaveIrrigation.Input != 0 && lHaveIrrigation.ExtraDate == Utils.MIN_DATETIME)
+                {
+                    this.AddOrUpdateIrrigationDataToList(pDateTime, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                    //Not to calculate because this Irrigation exist
+                }
             }
             //If Quantity is 0 and is an Extra Irrigation
             else if (!this.HasAdviseOfIrrigation && lQuantityOfWaterToIrrigate == 0 && lIsExtraIrrigation)
