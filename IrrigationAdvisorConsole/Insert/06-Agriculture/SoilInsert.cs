@@ -6739,7 +6739,53 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         SoilId = lSoil.SoilId,
                     };
                     #endregion
-                
+                    #region Pivot ZP - ALPINO
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotSantaEmiliaZP
+                             select soil).FirstOrDefault();
+                    var lSantaEmiliaPivot_ZP_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmiliaZP + " 1",
+                        Order = 1,
+                        HorizonLayer = "Ap",
+                        HorizonLayerDepth = 23,
+                        Sand = 30,
+                        Limo = 35,
+                        Clay = 35,
+                        OrganicMatter = 4.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.2,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_ZP_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmiliaZP + " 2",
+                        Order = 2,
+                        HorizonLayer = "B1",
+                        HorizonLayerDepth = 47,
+                        Sand = 30,
+                        Limo = 25,
+                        Clay = 45,
+                        OrganicMatter = 3.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.25,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lSantaEmiliaPivot_ZP_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotSantaEmiliaZP + " 3",
+                        Order = 3,
+                        HorizonLayer = "B2",
+                        HorizonLayerDepth = 69,
+                        Sand = 20,
+                        Limo = 25,
+                        Clay = 55,
+                        OrganicMatter = 1.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.34,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
                     #region Horizons Santa Emilia
                     context.Horizons.Add(lSantaEmiliaPivot_1_1);
                     context.Horizons.Add(lSantaEmiliaPivot_1_2);
@@ -6759,6 +6805,9 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Horizons.Add(lSantaEmiliaPivot_7_1);
                     context.Horizons.Add(lSantaEmiliaPivot_7_2);
                     context.Horizons.Add(lSantaEmiliaPivot_7_3);
+                    context.Horizons.Add(lSantaEmiliaPivot_ZP_1);
+                    context.Horizons.Add(lSantaEmiliaPivot_ZP_2);
+                    context.Horizons.Add(lSantaEmiliaPivot_ZP_3);
                     #endregion
                     context.SaveChanges();
                 }
@@ -11921,12 +11970,42 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lSantaEmiliaPivot7.HorizonList.Add(lHorizon2);
                     lSantaEmiliaPivot7.HorizonList.Add(lHorizon3);
                     #endregion
+                    #region Pivot ZP
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotSantaEmiliaZP
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotSantaEmiliaZP + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotSantaEmiliaZP + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotSantaEmiliaZP + " 3"
+                                 select hor).FirstOrDefault();
+                    var lSantaEmiliaPivotZP = new Soil
+                    {
+                        Name = Utils.NamePivotSantaEmiliaZP,
+                        Description = "Suelo del Pivot 5 en Santa Emilia. "
+                         + "Typic Argiudoll – Clase de capacidad de uso IIe.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2017, 09, 10),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotSantaEmiliaZP,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lSantaEmiliaPivotZP.HorizonList.Add(lHorizon1);
+                    lSantaEmiliaPivotZP.HorizonList.Add(lHorizon2);
+                    lSantaEmiliaPivotZP.HorizonList.Add(lHorizon3);
+                    #endregion
                     context.Soils.Add(lSantaEmiliaPivot1);
                     context.Soils.Add(lSantaEmiliaPivot2);
                     context.Soils.Add(lSantaEmiliaPivot3);
                     context.Soils.Add(lSantaEmiliaPivot4);
                     context.Soils.Add(lSantaEmiliaPivot5);
                     context.Soils.Add(lSantaEmiliaPivot7);
+                    context.Soils.Add(lSantaEmiliaPivotZP);
                     context.SaveChanges();
                 }
             }

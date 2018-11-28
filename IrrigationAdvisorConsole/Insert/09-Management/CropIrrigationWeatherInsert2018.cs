@@ -13608,15 +13608,15 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region Santa Emilia
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
                 {
                     lWeatherStationMainName = DataEntry2018.WeatherStationMainName_SantaEmilia_2018;
                     lWeatherStationAlternativeName = DataEntry2018.WeatherStationAlternativeName_SantaEmilia_2018;
 
                     Console.Write(" Santa Emilia | ");
-#if false
+                    #if false
                     #region Santa Emilia Pivot 1 2018
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -13784,7 +13784,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-#endif
                     #region Santa Emilia Pivot 2 2018
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -13952,7 +13951,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-
                     #region Santa Emilia Pivot 5 2018
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -14120,7 +14118,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-
                     #region Santa Emilia Pivot 7 2018
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -14283,6 +14280,174 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                         if ((lTitleIdSantaEmiliaPivot7_2018 - lFirstTitleIdSantaEmiliaPivot7_2018) % (lTotalTitlesSantaEmiliaPivot7_2018) == 0)
                         {
                             lTitleIdSantaEmiliaPivot7_2018 = lFirstTitleIdSantaEmiliaPivot7_2018;
+                        }
+                    }
+                    context.SaveChanges();
+                    #endregion
+                    #endregion
+                    #endif
+                    #region Santa Emilia Pivot ZP 2018
+                    #region Farm //////////////////////////////////////////////////////////////////////
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmSantaEmilia
+                             select farm).FirstOrDefault();
+                    lWeatherStationMain = (from ws in context.WeatherStations
+                                           where ws.Name == lWeatherStationMainName
+                                           select ws).FirstOrDefault();
+                    lWeatherStationAlternative = (from ws in context.WeatherStations
+                                                  where ws.Name == lWeatherStationAlternativeName
+                                                  select ws).FirstOrDefault();
+                    lEffectiveRainList = (from effectiverain in context.EffectiveRains
+                                          where effectiverain.Name.StartsWith(Utils.NameRegionSouth)
+                                          select effectiverain)
+                                         .ToList<EffectiveRain>();
+                    #endregion
+                    #region Crop //////////////////////////////////////////////////////////////////////
+                    lSpecie = (from sp in context.Species
+                               where sp.Name == Utils.NameSpecieCornSouthShort
+                               select sp).FirstOrDefault();
+                    lCrop = (from crop in context.Crops
+                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             select crop).FirstOrDefault();
+                    lCropCoefficient = (from cc in context.CropCoefficients
+                                        where cc.Name == Utils.NameSpecieCornSouthShort
+                                        select cc).FirstOrDefault();
+                    lPhenologicalStages = (from ps in context.PhenologicalStages
+                                           where ps.SpecieId == lSpecie.SpecieId
+                                           select ps).ToList<PhenologicalStage>();
+                    lKCList = (from cc in context.CropCoefficients
+                               where cc.Name == Utils.NameSpecieCornSouthShort
+                               select cc.KCList)
+                                         .FirstOrDefault();
+                    lCropInformationByDate = (from cid in context.CropInformationByDates
+                                              where cid.Name == Utils.NameSpecieCornSouthShort
+                                              select cid).FirstOrDefault();
+                    #endregion
+                    #region Agriculture //////////////////////////////////////////////////////////////////////
+                    lIrrigationUnit = (from iu in context.Pivots
+                                       where iu.Name == Utils.NamePivotSantaEmiliaZP
+                                       select iu).FirstOrDefault();
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NameSoilSantaEmiliaZP
+                             select soil).FirstOrDefault();
+                    lHorizonList = (from horizon in context.Horizons
+                                    where horizon.Name.StartsWith(Utils.NamePivotSantaEmiliaZP)
+                                    select horizon)
+                                    .ToList<Horizon>();
+                    lSowingDate = DataEntry2018.SowingDate_CornSouth_SantaEmiliaPivotZP_2018;
+                    lHarvestDate = DataEntry2018.HarvestDate_CornSouth_SantaEmiliaPivotZP_2018;
+                    lCropDate = DateTime.Now;
+                    if (DataEntry2018.PredeterminatedIrrigationQuantity_SantaEmiliaPivotZP_2018 == 0)
+                    {
+                        lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
+                    }
+                    else
+                    {
+                        lPredeterminatedIrrigationQuantity = DataEntry2018.PredeterminatedIrrigationQuantity_SantaEmiliaPivotZP_2018;
+                    }
+                    #endregion
+                    #region Weather Data
+                    lMainWeatherDataList = (from weatherdata in context.WeatherDatas
+                                            join weatherstation in context.WeatherStations
+                                            on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                            where (weatherdata.Date >= lSowingDate &&
+                                                    weatherdata.Date <= lHarvestDate) &&
+                                                    weatherstation.WeatherStationId == lWeatherStationMain.WeatherStationId
+                                            select weatherdata).ToList<WeatherData>();
+                    lAlternativeWeatherDataList = (from weatherdata in context.WeatherDatas
+                                                   join weatherstation in context.WeatherStations
+                                                   on weatherdata.WeatherStationId equals weatherstation.WeatherStationId
+                                                   where (weatherdata.Date >= lSowingDate &&
+                                                        weatherdata.Date <= lHarvestDate) &&
+                                                        weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
+                                                   select weatherdata).ToList<WeatherData>();
+                    #endregion
+                    #region New CIW Santa Emilia Pivot1 2018
+                    var lCIWSantaEmiliaPivotZP_2018 = new CropIrrigationWeather
+                    {
+
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherSantaEmiliaPivotZP_S1819,
+                        CropId = lCrop.CropId,
+                        Crop = lCrop,
+                        IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
+                        IrrigationUnit = lIrrigationUnit,
+                        MainWeatherStationId = lWeatherStationMain.WeatherStationId,
+                        MainWeatherStation = lWeatherStationMain,
+
+                        WeatherEventType = Utils.WeatherEventType.LaNinia,
+
+                        AlternativeWeatherStationId = lWeatherStationAlternative.WeatherStationId,
+                        AlternativeWeatherStation = lWeatherStationAlternative,
+                        PositionId = lFarm.PositionId,
+                        SoilId = lSoil.SoilId,
+                        Soil = lSoil,
+
+                        MaxIrrigationQuantity = Math.Max(Utils.PredeterminatedIrrigationQuantity_FirstPart,
+                                                 Math.Max(Utils.PredeterminatedIrrigationQuantity_SecondPart,
+                                                          Utils.PredeterminatedIrrigationQuantity_ThirdPart)),
+                        AdjustableIrrigationQuantity = false,
+                        PredeterminatedIrrigationQuantity = lPredeterminatedIrrigationQuantity,
+
+                        //Set the initial Phenological Stage for the Crop
+                        PhenologicalStageId = lCrop.PhenologicalStageList[0].PhenologicalStageId,
+                        PhenologicalStage = lCrop.PhenologicalStageList[0],
+
+                        SowingDate = lSowingDate,
+                        HarvestDate = lHarvestDate,
+                        CropDate = lCropDate,
+                        DaysForHydricBalanceUnchangableAfterSowing = 0,
+
+                        HydricBalance = 0,
+
+                        CropInformationByDateId = lCropInformationByDate.CropInformationByDateId,
+                        CropInformationByDate = lCropInformationByDate,
+
+                    };
+                    context.SaveChanges();
+
+                    //Set Calculus Method for Phenological Adjustment
+                    lCIWSantaEmiliaPivotZP_2018.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    //Get Initial Hydric Balance
+                    lCIWSantaEmiliaPivotZP_2018.HydricBalance = lCIWSantaEmiliaPivotZP_2018.GetInitialHydricBalance();
+                    //Create the initial registry
+                    lCIWSantaEmiliaPivotZP_2018.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
+
+                    context.CropIrrigationWeathers.Add(lCIWSantaEmiliaPivotZP_2018);
+                    context.SaveChanges();
+
+                    #endregion
+                    #region Save Titles for print
+                    foreach (var item in lCIWSantaEmiliaPivotZP_2018.Titles)
+                    {
+                        var lTitlesSantaEmiliaPivotZP_2018 = new Title
+                        {
+                            CropIrrigationWeatherId = lCIWSantaEmiliaPivotZP_2018.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWSantaEmiliaPivotZP_2018,
+                            Daily = false,
+                            Name = item.Name,
+                            Abbreviation = item.Abbreviation,
+                            Description = item.Description,
+                        };
+                        context.Titles.Add(lTitlesSantaEmiliaPivotZP_2018);
+                    }
+                    context.SaveChanges();
+                    long lFirstTitleIdSantaEmiliaPivotZP_2018 = (from title in context.Titles
+                                                                where title.Name == "DDS"
+                                                                   && title.Daily == false
+                                                                   && title.CropIrrigationWeatherId == lCIWSantaEmiliaPivotZP_2018.CropIrrigationWeatherId
+                                                                select title.TitleId).FirstOrDefault();
+                    long lTotalTitlesSantaEmiliaPivotZP_2018 = lCIWSantaEmiliaPivotZP_2018.Titles.Count();
+                    long lTitleIdSantaEmiliaPivotZP_2018 = lFirstTitleIdSantaEmiliaPivotZP_2018;
+                    #endregion
+                    #region Update Messages Ids
+                    foreach (var item in lCIWSantaEmiliaPivotZP_2018.Messages)
+                    {
+                        item.TitleId = lTitleIdSantaEmiliaPivotZP_2018;
+                        lTitleIdSantaEmiliaPivotZP_2018 += 1;
+                        item.CropIrrigationWeatherId = lCIWSantaEmiliaPivotZP_2018.CropIrrigationWeatherId;
+                        if ((lTitleIdSantaEmiliaPivotZP_2018 - lFirstTitleIdSantaEmiliaPivotZP_2018) % (lTotalTitlesSantaEmiliaPivotZP_2018) == 0)
+                        {
+                            lTitleIdSantaEmiliaPivotZP_2018 = lFirstTitleIdSantaEmiliaPivotZP_2018;
                         }
                     }
                     context.SaveChanges();
@@ -17533,7 +17698,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     //DataEntry2018.AddInformationToIrrigationUnitsDCAElParaisoPivot2_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsDCAElParaisoPivot3_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsDCAElParaisoPivot4_2018(context, Program.DateOfReference);
-                    //context.SaveChanges();
+                    context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
             }
@@ -17548,15 +17713,15 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
                     Console.Write(" - DCA - La Perdiz");
-                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot1_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot1_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot2_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot3_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot5_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot6_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot6_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot7_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot10b_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot10b_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot14_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
@@ -17734,8 +17899,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region Santa Emilia
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -17743,12 +17908,13 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                     Console.Write(" - Santa Emilia");
                     //DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot1_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot2_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot2_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot3_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot4_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot5_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot5_2018(context, Program.DateOfReference);
                     //DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot6_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot7_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivot7_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsSantaEmiliaPivotZP_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
