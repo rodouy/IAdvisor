@@ -1253,7 +1253,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -55.868,
             };
             #endregion
-            #region Pivots Santa Emilia #5
+            #region Pivots Santa Emilia #8
             var lSantaEmiliaPivot1 = new Position()
             {
                 Name = Utils.NamePositionPivotSantaEmilia1,
@@ -1295,6 +1295,12 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Name = Utils.NamePositionPivotSantaEmilia7,
                 Latitude = -33.4572,
                 Longitude = -57.6705,
+            };
+            var lSantaEmiliaPivotZP = new Position()
+            {
+                Name = Utils.NamePositionPivotSantaEmiliaZP,
+                Latitude = -33.431209,
+                Longitude = -57.702448,
             };
             #endregion
             #region Pivots Gran Molino #7
@@ -1486,7 +1492,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosOlivos);
                 context.Positions.Add(lViveroSanFrancisco);
                 #endregion
-                #region Pivots #150
+                #region Pivots #151
                 #region Pivots - Demo #14
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1635,7 +1641,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosNaranjalesPivot2a);
                 context.Positions.Add(lLosNaranjalesPivot2b);
                 #endregion
-                #region Pivots - Santa Emilia #7
+                #region Pivots - Santa Emilia #8
                 context.Positions.Add(lSantaEmiliaPivot1);
                 context.Positions.Add(lSantaEmiliaPivot2);
                 context.Positions.Add(lSantaEmiliaPivot3);
@@ -1643,6 +1649,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lSantaEmiliaPivot5);
                 context.Positions.Add(lSantaEmiliaPivot6);
                 context.Positions.Add(lSantaEmiliaPivot7);
+                context.Positions.Add(lSantaEmiliaPivotZP);
                 #endregion
                 #region Pivots - Gran Molino #7
                 context.Positions.Add(lGranMolinoPivot1);
@@ -4647,6 +4654,9 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = { Utils.NameUserSE1, Utils.NameUserSE2, 
+                                      Utils.NameUserAP1, Utils.NameUserAP2,
+                                      Utils.NameUserAP3, Utils.NameUserAP4,
+                                      Utils.NameUserAP5, 
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
                                       Utils.NameUserCPalo, Utils.NameUserMCarle,

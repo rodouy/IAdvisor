@@ -2116,17 +2116,18 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
 
                 #region Santa Emilia
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
                 {
 
                     //RainData2018.AddRainDataSantaEmiliaPivot1_2018(context, Program.DateOfReference);
-                    RainData2018.AddRainDataSantaEmiliaPivot2_2018(context, Program.DateOfReference);
+                    //RainData2018.AddRainDataSantaEmiliaPivot2_2018(context, Program.DateOfReference);
                     //RainData2018.AddRainDataSantaEmiliaPivot3_2018(context, Program.DateOfReference);
                     //RainData2018.AddRainDataSantaEmiliaPivot4_2018(context, Program.DateOfReference);
-                    RainData2018.AddRainDataSantaEmiliaPivot5_2018(context, Program.DateOfReference);
-                    RainData2018.AddRainDataSantaEmiliaPivot7_2018(context, Program.DateOfReference);
+                    //RainData2018.AddRainDataSantaEmiliaPivot5_2018(context, Program.DateOfReference);
+                    //RainData2018.AddRainDataSantaEmiliaPivot7_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataSantaEmiliaPivotZP_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -2494,18 +2495,19 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
 
             #region Santa Emilia
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
                     //IrrigationData2018.AddIrrigationDataSantaEmiliaPivot1_2018(context, Program.DateOfReference);
-                    IrrigationData2018.AddIrrigationDataSantaEmiliaPivot2_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataSantaEmiliaPivot2_2018(context, Program.DateOfReference);
                     //IrrigationData2018.AddIrrigationDataSantaEmiliaPivot3_2018(context, Program.DateOfReference);
                     //IrrigationData2018.AddIrrigationDataSantaEmiliaPivot4_2018(context, Program.DateOfReference);
-                    IrrigationData2018.AddIrrigationDataSantaEmiliaPivot5_2018(context, Program.DateOfReference);
-                    IrrigationData2018.AddIrrigationDataSantaEmiliaPivot7_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataSantaEmiliaPivot5_2018(context, Program.DateOfReference);
+                    //IrrigationData2018.AddIrrigationDataSantaEmiliaPivot7_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataSantaEmiliaPivotZP_2018(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
