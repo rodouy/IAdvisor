@@ -1,0 +1,56 @@
+﻿{
+	"metadata": 
+	{
+		"name": "Montevideo", 
+		"latitude": 34.86, 
+		"longitude": 56.18, 
+		"height": 713, 
+		"timezone_abbrevation": "Montevideo", 
+		"utc_timeoffset": 0.00, 
+		"modelrun_utc": "2018-06-03 12:00", 
+		"modelrun_updatetime_utc": "2018-06-03 17:30"
+	}, 
+	"units": 
+	{
+		"time": "YYYY-MM-DD hh:mm", 
+		"predictability": "percent", 
+		"precipitation_probability": "percent", 
+		"pressure": "hPa", 
+		"relativehumidity": "percent", 
+		"co": "ug/m3", 
+		"temperature": "C", 
+		"winddirection": "degree", 
+		"precipitation": "mm", 
+		"windspeed": "ms-1"
+	}, 
+	"data_day": 
+	{
+		"time": ["2018-06-04", "2018-06-05", "2018-06-06", "2018-06-07", "2018-06-08", "2018-06-09", "2018-06-10"], 
+		"pictocode": [1, 1, 1, 1, 2, 2, 2], 
+		"uvindex": [12, 12, 12, 12, 12, null, null], 
+		"temperature_max": [37.34, 41.70, 43.73, 41.87, 38.52, 37.03, 35.77], 
+		"temperature_min": [21.82, 24.73, 27.00, 25.21, 24.81, 24.84, 23.30], 
+		"temperature_mean": [30.82, 34.40, 35.98, 33.73, 31.84, 30.46, 29.69], 
+		"felttemperature_max": [37.91, 38.11, 43.29, 40.10, 33.53, 31.96, 31.50], 
+		"felttemperature_min": [20.04, 23.32, 23.16, 22.92, 22.53, 22.50, 21.98], 
+		"winddirection": [45, 90, 45, 45, 45, 45, 0], 
+		"precipitation_probability": [0, 0, 0, 0, 0, 0, 0], 
+		"rainspot": ["0000000000000000000000000000000000000000000000000", "0000000000000000000000000000000000000000000000000", "0000000000000000000000000000000000000000000000000", "0000000000000000000000000000000000000000000000000", "0000000000000000000000000000000000000000000000000", "0000000000000000000000000000000000000000000000000", "0000000000000000000000000000000000000000000000000"], 
+		"predictability_class": [5, 4, 5, 4, 4, 4, 4], 
+		"predictability": [96, 78, 92, 80, 66, 64, 67], 
+		"precipitation": [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00], 
+		"snowfraction": [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00], 
+		"sealevelpressure_max": [1008, 1009, 1007, 1007, 1005, 1004, 1002], 
+		"sealevelpressure_min": [1003, 1002, 1002, 1001, 998, 997, 996], 
+		"sealevelpressure_mean": [1006, 1005, 1005, 1004, 1002, 1001, 999], 
+		"windspeed_max": [4.22, 5.31, 4.92, 7.54, 8.70, 7.92, 7.96], 
+		"windspeed_mean": [2.65, 4.35, 3.16, 4.29, 5.59, 5.69, 5.53], 
+		"windspeed_min": [0.70, 3.09, 0.22, 1.42, 3.01, 3.52, 3.29], 
+		"relativehumidity_max": [54, 48, 37, 47, 43, 49, 66], 
+		"relativehumidity_min": [15, 8, 5, 5, 10, 12, 20], 
+		"relativehumidity_mean": [27, 18, 14, 20, 21, 27, 38], 
+		"convective_precipitation": [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00], 
+		"precipitation_hours": [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00], 
+		"humiditygreater90_hours": [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+	}
+}

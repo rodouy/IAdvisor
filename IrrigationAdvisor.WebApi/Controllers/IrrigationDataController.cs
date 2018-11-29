@@ -1,4 +1,5 @@
 ﻿using IrrigationAdvisor.Controllers;
+using IrrigationAdvisor.ViewModels.Water;
 using IrrigationAdvisor.WebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,7 @@ namespace IrrigationAdvisor.WebApi.Controllers
                                                     Stage = s}).ToList();
 
                 foreach (var row in irrigationRows)
-                {
+                {                  
                     IrrigationRow irrigationRow = new IrrigationRow()
                     {
                         IrrigationUnitId = row.IrrigationUnit.IrrigationUnitId,
@@ -71,6 +72,9 @@ namespace IrrigationAdvisor.WebApi.Controllers
                     var dailyRecords = context.DailyRecords.Where(n => n.CropIrrigationWeatherId == row.CropIrrigationWeather.CropIrrigationWeatherId && 
                                                                  (n.DailyRecordDateTime <= mayorDate && 
                                                                  n.DailyRecordDateTime >= minorDate)).Distinct().ToList();
+                    irrigationRow.Kc = dailyRecords
+                                        .OrderByDescending(n => n.DailyRecordDateTime)
+                                        .First().CropCoefficient;
 
                     foreach (var daily in dailyRecords)
                     {
@@ -92,8 +96,8 @@ namespace IrrigationAdvisor.WebApi.Controllers
                         {
                             var irrigation = context.WaterInputs.SingleOrDefault(n => n.WaterInputId == daily.IrrigationId);
 
-                            if (irrigation != null && (irrigation.Input > 0 || irrigation.Input > 0))
-                            {
+                            if (irrigation != null && (irrigation.Input > 0 || irrigation.ExtraInput > 0))
+                            {                               
                                 irrigationRow.Advices.Add(new AdviceViewModel()
                                 {
                                     Date = daily.DailyRecordDateTime,
@@ -159,6 +163,31 @@ namespace IrrigationAdvisor.WebApi.Controllers
                 foreach (var irrigationUnitId in values.IrrigationUnitId)
                 {
                     home.AddRain(values.Milimeters, irrigationUnitId, values.Date.Day, values.Date.Month, values.Date.Year, true);
+                }
+
+                result.IsOk = true;
+            }
+            catch (Exception ex)
+            {
+                result.IsOk = false;
+                result.ErrorMessage = ex.Message;
+            }
+
+            return result;
+        }
+
+        [HttpPost]
+        [Route("AddIrrigationAndRain")]
+        public OperationResult<string> AddIrrigationAndRain([FromBody] WebApiIrrigationRainViewModel values)
+        {
+            OperationResult<string> result = new OperationResult<string>();
+
+            try
+            {
+                if (values != null)
+                {
+                    HomeController home = new HomeController();
+                    home.AddIrrigationAndRain(values);
                 }
 
                 result.IsOk = true;

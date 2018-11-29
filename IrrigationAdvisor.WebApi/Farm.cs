@@ -30,6 +30,9 @@ namespace IrrigationAdvisor.WebApi
         public int Has { get; set; }
         public long WeatherStationId { get; set; }
         public long CityId { get; set; }
+        public bool IrrigationUnitReportShowTemperature { get; set; }
+        public bool IrrigationUnitReportShowEvapotranspiration { get; set; }
+        public bool IrrigationUnitReportShowAvailableWater { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IrrigationUnit> IrrigationUnits { get; set; }

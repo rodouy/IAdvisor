@@ -1,14 +1,86 @@
-﻿@model IrrigationAdvisor.Models.Localization.City
+﻿@model IrrigationAdvisor.ViewModels.Localization.CityViewModel
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "Localization";
+   // Layout = "Localization";
 }
+<script js>
+    $(document).ready(function () {
+        var saveCountryBtn = $('#SaveCountryBtn');
+        var expresionLatitudeLongitud = /^(-([1-8]?[1-9]|[1-9]0)\,{1}\d{1,6})/;
+        saveCountryBtn.click(function ()
+        {
+            var validateForm = true;
 
-<h2>Edit</h2>
+            if ($('#Name').val().trim() != '') {
+                $('#NameError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#NameError').html('Ingrese el nombre');
+                validateForm = false;
+            }
+
+            if (validateForm == true) {
+                if ($('#Latitude').val().trim() != '') {
+                    if (!expresionLatitudeLongitud.test($("#Latitude").val())) {
+                        $("#LatitudeError").html("La latitud no esta correctamente ingresada (Ej: -45,4455)");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#LatitudeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#LatitudeError').html('Ingrese latitud');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Longitude').val().trim() != '') {
+                    if (!expresionLatitudeLongitud.test($("#Longitude").val())) {
+                        $("#LongitudeError").html("La longitud no esta correctamente ingresada (Ej: -45,4455)");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#LongitudeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#LongitudeError').html('Ingrese longitud');
+                    validateForm = false;
+                }
+            }
 
 
-@using (Html.BeginForm())
+            if (validateForm == true) {
+                if ($('#CountryId').val().trim() != '') {
+                    $('#CountryIdError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#CountryIdError').html('Seleccione el país');
+                    validateForm = false;
+                }
+            }
+
+            
+
+            if (validateForm == true) {
+                myForm.submit();
+            }
+
+        });
+
+    });
+</script>
+<h2>Editar</h2>
+
+
+@using (Html.BeginForm("Edit", "Cities", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
     
@@ -17,7 +89,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.CityId)
-
+        @Html.HiddenFor(model => model.PositionId)
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -27,31 +99,40 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PositionId, "PositionId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Latitud</label>
             <div class="col-md-10">
-                @Html.DropDownList("PositionId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.PositionId, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })          
+                <span id="LatitudeError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Longitud</label>
+            <div class="col-md-10">
+               @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="LongitudeError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.CountryId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CountryId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.CountryId, Model.Countries, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+        <div class="cf footer">
+            <label class="control-label col-md-2" for="CapitalId"></label>
+
+            <input type="button" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveCountryBtn" class="btn btn-default" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </div>
 
 @section Scripts {

@@ -1,17 +1,176 @@
-﻿@model IrrigationAdvisor.Models.Weather.WeatherStation
+﻿@model IrrigationAdvisor.ViewModels.Weather.WeatherStationViewModel
 
 @{
     ViewBag.Title = "Create";
-    Layout = "Weather";
+   // Layout = "Weather";
 }
+<script js>
+    $(document).ready(function () {
+             
+        $('#SaveBtn').click(function () {
+            loadFarmsId();
+            var validateForm = true;
+            var expresionLatitudeLongitud = /^(-([1-8]?[1-9]|[1-9]0)\,{1}\d{1,6})/;
 
-<h2>Create</h2>
+            if ($('#Name').val().trim() != '') {
+                $('#NameError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#NameError').html('Ingrese el nombre');
+                validateForm = false;
+            }
+
+            if ($('#DateOfInstallation').val().trim() != '') {
+                $('#DateOfInstallationError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#DateOfInstallationError').html('Ingrese fecha de instalacion');
+                validateForm = false;
+            }
+
+            if ($('#DateOfService').val().trim() != '') {
+                $('#DateOfServiceError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#DateOfServiceError').html('Ingrese fecha de servicio');
+                validateForm = false;
+            }
+
+            if ($('#UpdateTime').val().trim() != '') {
+                $('#UpdateTimeError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#UpdateTimeError').html('Ingrese la fecha de actualización');
+                validateForm = false;
+            }
+
+            function hasValidation() {
+                if ($("#WirelessTransmission").val().trim() === "") {
+                    $("#WirelessTransmissionMessage").html("<span class=text-danger>Ingrese wireless</span>");
+                    return false;
+                }
+                else {
+                    if (!isNaN($("#WirelessTransmission").val())) {
+                        $("#WirelessTransmissionMessage").html("<span class=text-danger></span>");
+                        return true;
+                    }
+                    else {
+                        $("#WirelessTransmissionMessage").html("<span class=text-danger>Ingrese solo números</span>");
+                        return false;
+                    }
+                }
+            }
+
+            if ($('#Latitude').val().trim() != '') {
+                if (!expresionLatitudeLongitud.test($("#Latitude").val())) {
+                    $("#LatitudeError").html("La latitud no esta correctamente ingresada (Ej: -45,4455)");
+                    validateForm = false;
+                }
+                else {
+                    $('#LatitudeError').html('');
+                    validateForm = true;
+                }
+            }
+            else {
+                $('#LatitudeError').html('Ingrese latitud');
+                validateForm = false;
+            }
+
+            if ($('#Longitude').val().trim() != '') {
+                if (!expresionLatitudeLongitud.test($("#Longitude").val())) {
+                    $("#LongitudeError").html("La longitud no esta correctamente ingresada (Ej: -45,4455)");
+                    validateForm = false;
+                }
+                else {
+                    $('#LongitudeError').html('');
+                    validateForm = true;
+                }
+            }
+            else {
+                $('#LongitudeError').html('Ingrese longitud');
+                validateForm = false;
+            }
 
 
-@using (Html.BeginForm()) 
+            if (validateForm == true) {
+                myForm.submit();
+            }
+
+
+        });
+
+        function loadFarmsId() {
+            var options = $('#FarmSelected option');
+            var farms = "";
+            var values = $.map(options, function (option) {
+                if (farms == "")
+                    farms = option.value
+                else
+                    farms = farms + "|" + option.value
+
+            });
+            $('#FarmIdSelected').val(farms);
+
+        }
+
+        $('#btnRight').click(function (e) {
+            var selectedOpts = $('#FarmId option:selected');
+            if (selectedOpts.length == 0) {
+                alert("Nothing to move.");
+                e.preventDefault();
+            }
+            $('#FarmSelected').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+        $('#btnAllRight').click(function (e) {
+            var selectedOpts = $('#FarmId option');
+            if (selectedOpts.length == 0) {
+                alert("Nothing to move.");
+                e.preventDefault();
+            }
+            $('#FarmSelected').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+        $('#btnLeft').click(function (e) {
+            var selectedOpts = $('#FarmSelected option:selected');
+            if (selectedOpts.length == 0) {
+                alert("Nothing to move.");
+                e.preventDefault();
+            }
+            $('#FarmId').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+        $('#btnAllLeft').click(function (e) {
+            var selectedOpts = $('#FarmSelected option');
+            if (selectedOpts.length == 0) {
+                alert("Nothing to move.");
+                e.preventDefault();
+            }
+            $('#FarmId').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+
+    });
+</script>
+
+
+
+
+<h2>Nuevo</h2>
+
+
+@using (Html.BeginForm("Create", "WeatherStations", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
-    
+<input type="hidden" id="FarmIdSelected" name="FarmIdSelected" />
     <div class="form-horizontal">
         <h4>WeatherStation</h4>
         <hr />
@@ -20,7 +179,7 @@
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                <span id="NameError" class="red-color"></span> 
             </div>
         </div>
 
@@ -28,31 +187,31 @@
             @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+                <span id="ModelError" class="red-color"></span> 
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.DateOfInstallation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateOfInstallation, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateOfInstallation, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.DateOfInstallation, new { htmlAttributes = new { @class = "form-control" , @type = "date" } })
+                <span id="DateOfInstallationError" class="red-color"></span> 
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.DateOfService, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateOfService, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateOfService, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.DateOfService, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                <span id="DateOfServiceError" class="red-color"></span> 
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UpdateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.UpdateTime, htmlAttributes: new { @class = "control-label col-md-2" })    
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UpdateTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UpdateTime, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.UpdateTime, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                <span id="UpdateTimeError" class="red-color"></span> 
             </div>
         </div>
 
@@ -60,38 +219,84 @@
             @Html.LabelFor(model => model.WirelessTransmission, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.WirelessTransmission, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.WirelessTransmission, "", new { @class = "text-danger" })
+                <span id="WirelessTransmissionError" class="red-color"></span> 
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.WebAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.WebAddress, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="WebAddressError" class="red-color"></span> 
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.StationType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.StationType,"-- Seleccione tipo --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StationType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.WeatherDataType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.WeatherDataType, "-- Seleccione tipo de dato --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WeatherDataType, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.GiveET, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.GiveET)
-                    @Html.ValidationMessageFor(model => model.GiveET, "", new { @class = "text-danger" })
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(model => model.GiveET)
+
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.WeatherDataType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Latitud</label>
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.WeatherDataType, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.WeatherDataType, "", new { @class = "text-danger" })
+                <input type="text" placeholder="Ingrese latitud. Ej: -45,124456" class="form-control" id="Latitude" name="Latitude" min="1" max="50" />
+                <span id="LatitudeError" class="red-color"></span>
             </div>
         </div>
-
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <label class="control-label col-md-2">Longitud</label>
+            <div class="col-md-10">                                                                                                                        
+                <input type="text" placeholder="Ingrese longitud. Ej: -45,124456 " class="form-control" id="Longitude" name="Longitude" min="1" max="50" />
+                <span id="LongitudeError" class="red-color"></span>
             </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Establecimientos</label>
+            <div class="col-md-10">
+                <div class="subject-info-box-1">
+                    @Html.DropDownListFor(model => model.FarmId, Model.Farms, new { @class = "form-control", multiple = "multiple" })
+                </div>
+                <div class="subject-info-arrows text-center">
+                    <input type="button" id="btnAllRight" value=">>" /><br />
+                    <input type="button" id="btnRight" value=">" /><br />
+                    <input type="button" id="btnLeft" value="<"  /><br />
+                    <input type="button" id="btnAllLeft" value="<<"  />
+                </div>
+                <div class="subject-info-box-2">
+                    <select id="FarmSelected" name="FarmSelected" class="form-control" multiple="multiple"></select>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CapitalId"></label>
+
+            <input type="button" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveBtn" class="btn btn-default" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </div>
 
 @section Scripts {

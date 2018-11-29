@@ -240,7 +240,7 @@
                  {
                    <div class="row">
                     <!-- map-->
-                    <div class="col-md-6 hidden-xs">s
+                    <div class="col-md-6 hidden-xs">
                         <div id="embed-map-canvas">
                             <iframe  frameborder="0" style="width: 100%; height: 472px; margin-top: 10px"
                                     src="http://maps.google.com/maps?z=13&t=h&q=loc:@Model.GetDefaultFarmLatitude(),+@Model.GetDefaultFarmLongitude()&output=embed"></iframe>
@@ -248,7 +248,7 @@
 
                     </div>
                     <!-- end map-->
-
+                     
                     <!-- weather-->
                     <div class="col-md-6">
                         <section class="pivot-ub">
@@ -256,11 +256,10 @@
                                 <div>
                                     <div class="location-pivot">
                                         @*<h3 class="fa fa-cloud fa-2x"> Clima </h3>*@
-                                        <iframe src="https://www.meteoblue.com/es/tiempo/widget/three/montevideo_uruguay_3441575?geoloc=detect&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 460px;height: 610px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/pronostico/semana/montevideo_uruguay_3441575?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
+                                        @* https://www.meteoblue.com/es/tiempo/widget/three/-33.96N-55.948E80_America%2FMontevideo?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image *@
+                                        <iframe src="https://www.meteoblue.com/es/tiempo/widget/three/@(Model.GetDefaultFarmLatitude())N@(Model.GetDefaultFarmLongitude())E?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=monochrome" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 460px;height: 610px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/pronostico/semana/montevideo_uruguay_3441575?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
                                     </div>
-                                    <div id="example">
-                                        @*@{ Html.RenderAction("WeatherHomePartial", "Home"); }*@
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </section>
@@ -271,7 +270,8 @@
                    else
                    {
                     <div class="row">
-                        <iframe src="https://www.meteoblue.com/es/tiempo/widget/three/montevideo_uruguay_3441575?geoloc=detect&nocurrent=0&noforecast=0&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 100%;height: 628px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/pronostico/semana/montevideo_uruguay_3441575?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank">meteoblue</a></div>
+                        <iframe src="https://www.meteoblue.com/es/tiempo/widget/three/@(Model.GetDefaultFarmLatitude())N@(Model.GetDefaultFarmLongitude())E?geoloc=detect&nocurrent=0&noforecast=0&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=monochrome" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 100%;height: 628px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/pronostico/semana/montevideo_uruguay_3441575?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank">meteoblue</a></div>
+                       
                     </div>
                    }
             }
@@ -648,9 +648,86 @@
                         </div>
                     </div>
                 </div>
-
                     <!-- end modal mover riego-->
             </div>
+                <!-- Modal cambiar fenologia-->
+                <div id="modal-change-pheno" class="modal fade copy" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="header">
+                                <h2><span class="glyphicon"></span>&nbsp;Cambiar fenología</h2>
+                            </div>
+                            <div class="copy col-md-12">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            Fecha:
+                                            @*<input type="date" id="datePhenoChange" class="form-control" value='@Utils.GetDateTimeForClientScripts(DateTime.Now)' />*@
+                                            <select id="datePhenoChange" class="form-control">
+                                                @for (int i = 0; i >= -2; i--)
+                                                {
+                                                    <option value="@(dateValue.AddDays(i).Month + "-" + dateValue.AddDays(i).Day + "-" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToString("dd/MM/yyyy"))</option>
+                                                }
+                                            </select>
+                                            <input type="hidden" id="ciw-selected-pheno"/>
+                                            <input type="hidden" id="stage-selected-pheno"/>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cf footer" style="display:-webkit-inline-box;float:right">
+                                    <p>
+                                        <button class="btn  btn-style-2" id="cancelChangePheno">
+                                            Cancelar
+                                        </button>
+                                    </p>
+                                    <button id="SaveChangePheno" class="btn  btn-style-2" style="margin-left: 10px;">
+                                        <span class="glyphicon glyphicon-time" id="save-pheno-clock-1" style="display: none;"></span>
+                                        <span id="save-pheno-span">Guardar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end modal mover riego-->
+            </div>
+
+                <!-- Modal cambiar balance hidrico-->
+                <div id="modal-change-hydricbalance" class="modal fade copy" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="header">
+                                <h2><span class="glyphicon"></span>&nbsp;Cambiar balance hidrico</h2>
+                            </div>
+                            <div class="copy col-md-12">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            Fecha:
+                                            <input type="date" id="date-change-hydricBalance" class="form-control" value='@Utils.GetDateTimeForClientScripts(DateTime.Now)' />
+                                            <input type="hidden" id="ciw-selected-hidro" />
+                                            <input type="hidden" id="stage-selected-hidro" />
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cf footer" style="display:-webkit-inline-box;float:right">
+                                    <p>
+                                        <button class="btn  btn-style-2" id="CancelChangeHydricBalance">
+                                            Cancelar
+                                        </button>
+                                    </p>
+                                    <button id="SaveChangeHydricBalance" class="btn  btn-style-2" style="margin-left: 10px;">
+                                        <span class="glyphicon glyphicon-time" id="save-hidro-clock-1" style="display: none;"></span>
+                                        <span id="save-hidro-span">Guardar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- end modal cambiar balance hidrico.-->
+                </div>
             
             
         </div>

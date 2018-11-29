@@ -5,12 +5,15 @@ using System.Web;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel.DataAnnotations.Schema;
 using IrrigationAdvisor.Models.Agriculture;
+using System.Data.Entity;
 
 namespace IrrigationAdvisor.DBContext.Agriculture
 {
-    public class SoilConfiguration:
+    public class SoilConfiguration :
         EntityTypeConfiguration<Soil>
     {
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
+
         public SoilConfiguration()
         {
             ToTable("Soil");
@@ -23,6 +26,31 @@ namespace IrrigationAdvisor.DBContext.Agriculture
                 .HasMaxLength(50);
             Property(s => s.DepthLimit)
                 .IsRequired();
+
+        }
+        /// <summary>
+        /// Get all soils
+        /// </summary>
+        /// <returns></returns>
+        public List<Soil> GetAllSoils()
+        {
+            return db.Soils.ToList();
+        }
+
+        /// <summary>
+        /// Logical elimination
+        /// </summary>
+        /// <param name="pSoil"></param>
+        public void Disable(Soil pSoil)
+        {
+            pSoil.Enabled = false;
+            List<Horizon> listHorizon = pSoil.HorizonList;
+            foreach (Horizon h in listHorizon)
+            {
+                h.Enabled = false;
+            }
+            db.Entry(pSoil).State = EntityState.Modified;
+            //db.SaveChanges();
 
         }
     }

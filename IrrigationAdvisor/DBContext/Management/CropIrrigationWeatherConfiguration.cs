@@ -718,6 +718,7 @@ namespace IrrigationAdvisor.DBContext.Management
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Rain))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.Irrigation))
                     .Include(ciw => ciw.DailyRecordList.Select(dr => dr.EvapotranspirationCrop))
+                    .Include(ciw => ciw.PhenologicalStageAdjustmentList)
                     .ToList();
 
             return lReturn;
@@ -736,14 +737,11 @@ namespace IrrigationAdvisor.DBContext.Management
                    .Where(ciw => pCropIrrigationWeatherIds.Contains(ciw.CropIrrigationWeatherId) &&
                                 ciw.SowingDate <= pDateOfReference &&
                                 ciw.HarvestDate >= pDateOfReference)
-                    .Include(ciw => ciw.Crop)
-                    .Include(ciw => ciw.Crop.Specie)
+                     .Include(ciw => ciw.Crop)
                     .Include(ciw => ciw.Crop.Region)
                     .Include(ciw => ciw.Crop.Region.EffectiveRainList)
                     .Include(ciw => ciw.Crop.Region.TemperatureDataList)
                     .Include(ciw => ciw.Crop.PhenologicalStageList)
-                    .Include(ciw => ciw.Crop.PhenologicalStageList.Select(ps => ps.Stage))
-                    .Include(ciw => ciw.Crop.StageList)
                     .Include(ciw => ciw.Crop.CropCoefficient)
                     .Include(ciw => ciw.Crop.CropCoefficient.KCList)
                     .Include(ciw => ciw.Soil)

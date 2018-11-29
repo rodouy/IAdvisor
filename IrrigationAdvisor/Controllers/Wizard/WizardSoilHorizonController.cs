@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using IrrigationAdvisor.DBContext.Security;
@@ -78,8 +81,7 @@ namespace IrrigationAdvisor.Controllers.Wizard
                     double lnitrogenAnalysis = item.nitrogenAnalysis;
                     double lbulkDensitySoil = item.bulkDensitySoil;
 
-
-                    soilMapped.AddHorizon(lhorizonName, lorder, lhorizonLayer, lhorizonLayerDepth, lsand, llimo, lclay, lorganicMatter, lnitrogenAnalysis, lbulkDensitySoil);
+                    soilMapped.AddHorizon(lhorizonName, lorder, lhorizonLayer, lhorizonLayerDepth, lsand, llimo, lclay, lorganicMatter, lnitrogenAnalysis, lbulkDensitySoil );
                 }
                 soilMapped.ShortName = vm.ShortName;
                 soilMapped.Name = vm.Name;
@@ -93,9 +95,9 @@ namespace IrrigationAdvisor.Controllers.Wizard
                 ////return RedirectToAction("Index");
             }
 
-            WizardSoilHorizonViewModel vmReturn = new WizardSoilHorizonViewModel();
-            vmReturn.Farm = this.LoadFarms();
-            return View("~/Views/Wizard/SoilHorizon/Wizard.cshtml", vmReturn);
+            var lSoilList = db.Soils.Include(b => b.Farm);
+            return View("~/Views/Agriculture/Soils/Index.cshtml", lSoilList.ToList());
+
         }
 
         #region private methondaux

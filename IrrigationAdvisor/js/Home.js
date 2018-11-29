@@ -28,7 +28,12 @@ $(document).ready(function () {
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
     var modalPheno = $('#modal-fenologia');
-    var modalMoveIrrigation = $('#modal-move-irrigation')
+    var modalMoveIrrigation = $('#modal-move-irrigation');
+    var modalChangeHydricbalance = $('#modal-change-hydricbalance');
+    var modalChangePheno = $('#modal-change-pheno');
+    var datePhenoChange = $('#datePhenoChange');
+    var cancelChangePheno = $('#cancelChangePheno');
+    var saveChangePheno = $('#SaveChangePheno');
     var modalNoIrrigation = $('#modal-no-irrigation');
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
@@ -57,6 +62,8 @@ $(document).ready(function () {
     var selectedWaterInput = $('#selectedWaterInput');
     var cancelMoveIrrigation = $('#CancelMoveIrrigation');
     var isFertigation = $('#isFertigation');
+    var btnConfirmHydricBalance = $('#btn-confirm-change-hydric-balance');
+    var btnCancelChangeHydricBalance = $('#btn-cancel-change-hydric-balance');
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -244,6 +251,8 @@ $(document).ready(function () {
         modalPheno.modal(initModal);
         modalNoIrrigation.modal(initModal);
         modalMoveIrrigation.modal(initModal);
+        modalChangeHydricbalance.modal(initModal);
+        modalChangePheno.modal(initModal);
         loadUserFarms();
         loadDates();
         if (modalLoadStatus) {
@@ -941,7 +950,6 @@ $(document).ready(function () {
 
     var addNoIrrigation = function (pDateFrom, pDateTo, pCropIrrigationWeatherList, pReasonId, pObservations) {
 
-
         var pUrl = './AddNoIrrigation?pDateFrom=' + pDateFrom +
                 '&pDateTo=' + pDateTo +
                 '&pCropIrrigationWeatherList=' + pCropIrrigationWeatherList +
@@ -991,5 +999,333 @@ $(document).ready(function () {
 
     });
 
+    var openModalChangeHydricBalance = function (pCropIrrigationWeatherId) {
+        modalChangeHydricbalance.modal('show');
+    };
 
+    var changeHydricBalance = function (pCropIrrigationWeatherId, pDate, pPercentage) {
+
+        var pUrl = './ChangeHydricBalancePercentage?pCropIrrigationWeatherId=' + pCropIrrigationWeatherId +
+                '&pPercentage=' + pPercentage +
+                '&pDate=' + pDate;
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+                if (data == "Ok") {
+                    location.href = "./home?farm=" + lstFarms.val();
+                }
+                else {
+                    sendMail("Error al cambiar balance hidrico", data);
+                    console.log(data);
+                    hideLoading();
+                }
+            },
+            error: function (data) {
+                hideLoading();
+                sendMail("Error al cambiar balance hidrico", data);
+                console.log(data);
+            }
+        });
+    };
+
+    $('.td-pheno').dblclick(function (e, f) {
+
+        var ciw = e.currentTarget.children[0].value;
+
+        var pUrl = './GetStagesBy?pCropIrrigationWeatherId=' + ciw;
+
+        var comboStages = $('#select-pheno-stage-' + ciw);
+        var ok = $('#pheno-ok-' + ciw);
+        var cancel = $('#pheno-cancel-' + ciw);
+        var phenoClock = $('#pheno-clock-' + ciw);
+        var selectedPheno = $('#selected-pheno-name-' + ciw);
+        selectedPheno.hide();
+        phenoClock.show();
+
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+
+                var values = JSON.stringify(data);
+
+                comboStages.empty();
+                $.each($.parseJSON(values), function (key, value) {
+                    if (selectedPheno.text() == value.ShortName)
+                    {
+                        comboStages.append('<option value="' + value.StageId + '" selected>' + value.ShortName + '</option>');
+                    }
+                    else
+                    {
+                        comboStages.append('<option value="' + value.StageId + '">' + value.ShortName + '</option>');
+                    }
+                   
+                });
+                
+                comboStages.show();
+                ok.show();
+                cancel.show();
+                phenoClock.hide();
+
+            },
+            error: function (data) {
+                hideLoading();
+                //sendMail("Error al cargar No Riego", data);
+                console.log(data);
+            }
+        });
+    });
+
+    $('.td-hidro').dblclick(function (e, f) {
+
+        var ciw = e.currentTarget.children[0].value;
+
+        var ok = $('#hidro-ok-' + ciw);
+        var cancel = $('#hidro-cancel-' + ciw);
+        var phenoClock = $('#hidro-clock-' + ciw);
+        var hidricBalance = $('#txt-hydricbalance-' + ciw);
+        var lblHidricBalance = $('#lbl-hydricbalance-' + ciw);
+
+        ok.show();
+        hidricBalance.show();
+        cancel.show();
+        lblHidricBalance.hide();
+    });
+
+    btnConfirmHydricBalance.click(function (e, f) {
+        changeHydricBalance()
+    });
+
+    $('.pheno-ok').click(function (e, f) {
+
+        var ciw = e.currentTarget.parentElement.children[0].value;
+
+        var selected = $('#select-pheno-stage-' + ciw).val();
+
+        $('#stage-selected-pheno').val(selected);
+        $('#ciw-selected-pheno').val(ciw);
+
+        modalChangePheno.modal('show');
+    });
+
+    $('.hidro-ok').click(function (e, f) {
+
+        var ciw = e.currentTarget.parentElement.parentElement.children[0].value;
+
+        $('#ciw-selected-hidro').val(ciw);
+
+        modalChangeHydricbalance.modal('show');
+    });
+
+    $('#SaveChangePheno').click(function (e, f) {
+
+        var selected = $('#stage-selected-pheno').val();
+        var ciw = $('#ciw-selected-pheno').val();
+
+        var date = $('#datePhenoChange').val();
+        var pUrl = './ChangePhenology?pCropIrrigationWeatherId=' + ciw + '&pStageId=' + selected + '&pDate=' + date;
+
+        var comboStages = $('#select-pheno-stage-' + ciw);
+        var ok = $('#pheno-ok-' + ciw);
+        var cancel = $('#pheno-cancel-' + ciw);
+        var selectedPheno = $('#selected-pheno-name-' + ciw);
+        var phenoClock = $('#pheno-clock-' + ciw);
+
+        comboStages.hide();
+        ok.hide();
+        cancel.hide();
+
+        $('#SaveChangePheno').prop('disabled', true);
+
+        $('#save-pheno-span').hide();
+
+        showLoading();
+        $.ajax({
+            type: 'GET',
+            url: pUrl,
+            success: function (data) {
+                if (data == 'Ok')
+                {
+                    selectedPheno.show();
+                    selectedPheno.text($('#select-pheno-stage-' + ciw + ' :selected').text());
+                    modalChangePheno.modal('hide');
+                    //hideLoading();
+
+                    $('#SaveChangePheno').prop('disabled', false);
+                    $('#save-pheno-span').show();
+                    $('#save-pheno-clock-1').hide();
+                    location.href = "./home?farm=" + lstFarms.val();
+                }
+                else
+                {
+                    alert(data);
+                    modalChangePheno.modal('hide');
+                    $('#save-pheno-span').show();
+
+                    hideLoading();
+
+                    $('#SaveChangePheno').prop('disabled', false);
+                }
+            },
+            error: function (data) {
+                alert(data);
+                sendMail("Error al cambiar fenologia", data);
+                console.log(data);
+                modalChangePheno.modal('hide');
+
+                $('#save-pheno-span').show();
+                $('#save-pheno-clock-1').hide();
+
+                hideLoading();
+
+                $('#SaveChangePheno').prop('disabled', false);
+            }
+        });
+    });
+
+    $('#CancelChangeHydricBalance').click(function (e, f) {
+
+        modalChangeHydricbalance.modal('hide');
+    });
+
+    $('#SaveChangeHydricBalance').click(function (e, f) {
+     
+        var ciw = $('#ciw-selected-hidro').val();
+
+        var date = $('#date-change-hydricBalance').val();
+
+        var percentage = $('#txt-hydricbalance-' + ciw).val().replace(',','.');
+
+        if (!$.isNumeric(percentage))
+        {
+            alert('El porcentaje debe ser númerico');
+            return;
+        }
+
+        var pUrl = './ChangeHydricBalancePercentage?pCropIrrigationWeatherId=' + ciw + '&pPercentage=' + percentage + '&pDate=' + date;
+
+       var ok = $('#hidro-ok-' + ciw);
+       var cancel = $('#hidro-cancel-' + ciw);
+
+       $('#SaveChangeHydricBalance').prop('disabled', true);
+
+       $('#save-hidro-span').hide();
+       $('#save-hidro-clock-1').show();
+
+       showLoading();
+       $.ajax({
+           type: 'GET',
+           url: pUrl,
+           success: function (data) {
+               modalChangeHydricbalance.modal('hide');
+
+               $('#SaveChangeHydricBalance').prop('disabled', false);
+
+               $('#save-hidro-span').show();
+               $('#save-hidro-clock-1').hide();
+               showLoading();
+
+               if (data != 'Ok')
+               {
+                   modalChangeHydricbalance.modal('hide');
+
+                   $('#save-hidro-span').show();
+
+                   $('#SaveChangeHydricBalance').prop('disabled', false);
+
+                   alert(data);                  
+               }
+
+               location.href = "./home?farm=" + lstFarms.val();
+           },
+           error: function (data) {
+               alert(data);
+               sendMail("Error al cambiar balance hidrico", data);
+               console.log(data);
+               modalChangeHydricbalance.modal('hide');
+
+               $('#save-hidro-span').show();
+
+               hideLoading();
+
+               $('#SaveChangeHydricBalance').prop('disabled', false);
+           }
+       });      
+    });
+
+    $('.hidro-cancel').click(function (e, f) {
+        var ciw = e.currentTarget.parentElement.parentElement.children[0].value;
+    
+        var ok = $('#hidro-ok-' + ciw);
+        var cancel = $('#hidro-cancel-' + ciw);
+
+        var hidricBalance = $('#txt-hydricbalance-' + ciw);
+        var lblHidricBalance = $('#lbl-hydricbalance-' + ciw);
+
+        ok.hide();
+        cancel.hide();
+        hidricBalance.hide();
+        lblHidricBalance.show();
+
+    });
+   
+    $('.pheno-cancel').click(function (e, f) {
+        var ciw = e.currentTarget.parentElement.children[0].value;
+        
+        var comboStages = $('#select-pheno-stage-' + ciw);
+        var ok = $('#pheno-ok-' + ciw);
+        var cancel = $('#pheno-cancel-' + ciw);
+        var selectedPheno = $('#selected-pheno-name-' + ciw);
+
+        comboStages.hide();
+        ok.hide();
+        cancel.hide();
+     
+        selectedPheno.show();
+    });
+
+    $('#cancelChangePheno').click(function (e, f) {
+        modalChangePheno.modal('hide');
+    });
+
+    $('.confirm-irrigation').click(function (e, f) {
+ 
+        var ciw = e.currentTarget.children[0].value;
+        var value = e.currentTarget.children[1].value;
+        var date = e.currentTarget.children[2].value;
+
+        showLoading();
+
+        if (confirm('¿Desea confirmar el riego?'))
+        {
+            $.ajax({
+                type: 'GET',
+                url: './ConfirmIrrigation?pCropIrrigationWeatherId=' + ciw + '&pValue=' + value + '&pDate=' + date,
+                success: function (data) {
+                    if (data == 'Ok') {
+                        showLoading();
+                        location.href = "./home?farm=" + lstFarms.val();
+                    }
+                    else {
+                        alert(data);
+                    }
+
+                },
+                error: function (data) {
+                    alert(data);
+
+                    sendMail("Error al confirmar riego", data);
+                    console.log(data);
+
+                    hideLoading();
+                }
+            });
+        }
+        else
+        {
+            hideLoading();
+        }
+    });
 });

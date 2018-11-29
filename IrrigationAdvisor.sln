@@ -26,6 +26,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrrigationAdvisor.Sandbox",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrrigationAdvisor.WebApi", "IrrigationAdvisor.WebApi\IrrigationAdvisor.WebApi.csproj", "{076902F6-29D6-4B2E-B164-07E696AB5EA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeteoblueWeatherService", "MeteoblueWeatherService\MeteoblueWeatherService.csproj", "{6C0E83A4-578B-49CB-BE60-045FA8E30AF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrrigationAdvisor.ExecutePendingCalculations", "IrrigationAdvisor.ExecutePendingCalculations\IrrigationAdvisor.ExecutePendingCalculations.csproj", "{C6B32751-5F65-48C9-ACA7-8BCA813E53AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrrigationAdvisor.ConfirmIrrigationAdvices", "IrrigationAdvisor.ConfirmIrrigationAdvices\IrrigationAdvisor.ConfirmIrrigationAdvices.csproj", "{61113871-32A3-4E09-AB74-1DC3B542CAC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +70,18 @@ Global
 		{076902F6-29D6-4B2E-B164-07E696AB5EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{076902F6-29D6-4B2E-B164-07E696AB5EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{076902F6-29D6-4B2E-B164-07E696AB5EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C0E83A4-578B-49CB-BE60-045FA8E30AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C0E83A4-578B-49CB-BE60-045FA8E30AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C0E83A4-578B-49CB-BE60-045FA8E30AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C0E83A4-578B-49CB-BE60-045FA8E30AF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B32751-5F65-48C9-ACA7-8BCA813E53AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B32751-5F65-48C9-ACA7-8BCA813E53AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B32751-5F65-48C9-ACA7-8BCA813E53AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B32751-5F65-48C9-ACA7-8BCA813E53AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61113871-32A3-4E09-AB74-1DC3B542CAC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61113871-32A3-4E09-AB74-1DC3B542CAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61113871-32A3-4E09-AB74-1DC3B542CAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61113871-32A3-4E09-AB74-1DC3B542CAC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

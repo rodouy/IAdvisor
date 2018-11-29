@@ -14,6 +14,22 @@
 	-webkit-transition: all 0.4s ease-in-out;
     overflow:auto;
 }
+#modal-city {
+	margin:0;
+	/*width:80%;*/
+	box-sizing:border-box;
+	transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+}
+#modal-modalWeatherStation {
+	margin:0;
+	/*width:80%;*/
+	box-sizing:border-box;
+	transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+}
 #modal-lluvia {
 	margin:0;
 	/*width:80%;*/
@@ -32,7 +48,7 @@
 	-webkit-transition: all 0.4s ease-in-out;
 }
 
-#modal-no-irrigation, #modal-move-irrigation {
+#modal-no-irrigation, #modal-move-irrigation, #modal-change-hydricbalance, #modal-change-pheno  {
     margin:0;
 	/*width:80%;*/
 	box-sizing:border-box;
@@ -48,6 +64,20 @@
     /* margin: 0 auto; */
     left: 50%;
 	}
+    #modal-city:target {
+    opacity: 1;
+    top: 80%;
+    visibility: visible;
+    /* margin: 0 auto; */
+    left: 50%;
+	}
+    #modal-modalWeatherStation:target {
+    opacity: 1;
+    top: 80%;
+    visibility: visible;
+    /* margin: 0 auto; */
+    left: 50%;
+	} 
 	#modal-lluvia:target {
     opacity: 1;
     top: 80%;
@@ -69,8 +99,22 @@
     /* margin: 0 auto; */
     left: 50%;
 	}
-
+    #modal-change-pheno:target{
+         opacity: 1;
+    top: 80%;
+    visibility: visible;
+    /* margin: 0 auto; */
+    left: 50%;
+    }
     #modal-move-irrigation:target {
+    opacity: 1;
+    top: 80%;
+    visibility: visible;
+    /* margin: 0 auto; */
+    left: 50%;
+	}
+
+    #modal-change-hydricbalance:target {
     opacity: 1;
     top: 80%;
     visibility: visible;
@@ -81,14 +125,35 @@
 	border-bottom: 1px solid #e7e7e7;
 	border-radius: 5px 5px 0 0;
 }
+#modal-city .header,#modal-city .footer {
+	border-bottom: 1px solid #e7e7e7;
+	border-radius: 5px 5px 0 0;
+}
+#modal-modalWeatherStation .header,#modal-modalWeatherStation .footer {
+	border-bottom: 1px solid #e7e7e7;
+	border-radius: 5px 5px 0 0;
+}
 #modal-lluvia .header,#modal-lluvia .footer {
 	border-bottom: 1px solid #e7e7e7;
 	border-radius: 5px 5px 0 0;
 }
-#modal-fenologia .header,#modal-fenologia,#modal-no-irrigation,#modal-move-irrigation .footer {
+#modal-fenologia .header,#modal-fenologia,#modal-no-irrigation,#modal-move-irrigation, #modal-change-hydricbalance, #modal-change-pheno   .footer {
 	border-bottom: 1px solid #e7e7e7;
 	border-radius: 5px 5px 0 0;
 }
+#modal-city .footer {
+		border:none;
+		border-top: 1px solid #e7e7e7;
+		border-radius: 0 0 5px 5px;
+		text-align: right;
+}
+#modal-modalWeatherStation .footer {
+		border:none;
+		border-top: 1px solid #e7e7e7;
+		border-radius: 0 0 5px 5px;
+		text-align: right;
+	}
+
 #modal-lluvia .footer {
 		border:none;
 		border-top: 1px solid #e7e7e7;
@@ -119,7 +184,28 @@
 		border-radius: 0 0 5px 5px;
 		text-align: right;
     }
+   
+    #modal-change-hydricbalance .footer{
+        border:none;
+		border-top: 1px solid #e7e7e7;
+		border-radius: 0 0 5px 5px;
+		text-align: right;
+    }
+    #modal-change-pheno .footer{
+        border:none;
+		border-top: 1px solid #e7e7e7;
+		border-radius: 0 0 5px 5px;
+		text-align: right;
+    }
+
 #modal h2 {
+	margin:0;
+}
+#modal-city h2 {
+	margin:0;
+}
+
+#modal-modalWeatherStation h2 {
 	margin:0;
 }
 #modal-lluvia h2 {
@@ -134,13 +220,19 @@
 #modal .copy,#modal .header, #modal .footer {
 	padding:15px;
 }
+#modal-city .copy,#modal-city .header, #modal-city .footer {
+	padding:15px;
+}
+#modal-modalWeatherStation .copy,#modal-modalWeatherStation .header, #modal-modalWeatherStation .footer {
+	padding:15px;
+}
 #modal-lluvia .copy,#modal-lluvia .header, #modal-lluvia .footer {
 	padding:15px;
 }
 #modal-fenologia .copy,#modal-fenologia .header, #modal-fenologia .footer {
 	padding:15px;
 }
-#modal-no-irrigation .copy,#modal-no-irrigation .header, #modal-no-irrigation, #modal-move-irrigation .footer {
+#modal-no-irrigation .copy,#modal-no-irrigation .header, #modal-no-irrigation, #modal-move-irrigation, #modal-change-hydricbalance, #modal-change-pheno  .footer {
 	padding:15px;
 }
 .modal-content {
@@ -150,6 +242,12 @@
 	border-radius:5px;
 }
 #modal .copy {
+	background: #fff;
+}
+#modal-city .copy {
+	background: #fff;
+}
+#modal-modalWeatherStation .copy {
 	background: #fff;
 }
 #modal-lluvia .copy {
@@ -165,6 +263,14 @@
 }
 
 #modal-move-irrigation .copy {
+    background: #fff;
+}
+
+#modal-change-hydricbalance .copy {
+    background: #fff;
+}
+
+#modal-change-pheno .copy {
     background: #fff;
 }
 
@@ -247,7 +353,20 @@
 
 @media screen and (max-width: 1199px) {
 	
-	
+	#modal-city:target{
+	opacity: 1;
+  /* top: 20%;*/
+    visibility: visible;
+    /* margin: 0 auto; */
+    left: 50%;
+	}
+   #modal-modalWeatherStation:target{
+	opacity: 1;
+  /* top: 20%;*/
+    visibility: visible;
+    /* margin: 0 auto; */
+    left: 50%;
+	}
 	#modal-lluvia:target{
 	opacity: 1;
   /* top: 20%;*/
@@ -277,6 +396,20 @@
     left: 50%;
     }
 
+    #modal-change-hydricbalance:target {
+         opacity: 1;
+   /* top: 20%;*/
+    visibility: visible;
+    left: 50%;
+    }
+
+    #modal-change-pheno:target {
+         opacity: 1;
+   /* top: 20%;*/
+    visibility: visible;
+    left: 50%;
+    }
+
 #modal:target {
     opacity: 1;
    /* top: 20%;*/
@@ -291,6 +424,7 @@
     .form-control {
         width:50%;
     }
+
 	#modal-fenologia:target {
     opacity: 1;
     top: 20%;
@@ -304,8 +438,21 @@
     visibility: visible;
     left: 50%;
 }
+    #modal-city:target {
+    opacity: 1;
+    top: 20%;
+    visibility: visible;
+    left: 50%;
+	}
 
-	#modal-lluvia:target{
+	#modal-modalWeatherStation:target{
+	opacity: 1;
+    top: 20%;
+    visibility: visible;
+    left: 50%;
+	}
+
+    #modal-lluvia:target{
 	opacity: 1;
     top: 20%;
     visibility: visible;
@@ -320,6 +467,13 @@
 	}
 
     modal-move-irrigation:target{
+	opacity: 1;
+    top: 20%;
+    visibility: visible;
+    left: 50%;
+	}
+
+    #modal-change-hydricbalance:target{
 	opacity: 1;
     top: 20%;
     visibility: visible;

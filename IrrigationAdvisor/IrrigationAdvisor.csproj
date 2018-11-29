@@ -188,6 +188,10 @@
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.8.10.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.8.10\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -215,6 +219,7 @@
     <Compile Include="Controllers\Irrigation\BombsController.cs" />
     <Compile Include="Controllers\Irrigation\DripsController.cs" />
     <Compile Include="Controllers\Irrigation\PivotsController.cs" />
+    <Compile Include="Controllers\Irrigation\IrrigationUnitController.cs" />
     <Compile Include="Controllers\Irrigation\SprinklersController.cs" />
     <Compile Include="Controllers\Language\LanguagesController.cs" />
     <Compile Include="Controllers\Localization\CitiesController.cs" />
@@ -253,6 +258,7 @@
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropInformationByDateConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\HorizonConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\HydricBalanceAdjustmentConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\KCConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\PhenologicalStageAdjustmentConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\PhenologicalStageConfiguration.cs" />
@@ -264,13 +270,14 @@
     <Compile Include="DBContext\IrrigationAdvisorContext.cs" />
     <Compile Include="DBContext\Irrigation\BombConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\DripConfiguration.cs" />
-    <Compile Include="DBContext\Irrigation\IrrigationUnitConfigurarion.cs" />
+    <Compile Include="DBContext\Irrigation\IrrigationUnitConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\PivotConfiguration.cs" />
     <Compile Include="DBContext\Irrigation\SprinklerConfiguration.cs" />
     <Compile Include="DBContext\Language\LanguageConfiguration.cs" />
     <Compile Include="DBContext\Localization\CityConfiguration.cs" />
     <Compile Include="DBContext\Localization\CountryConfiguration.cs" />
     <Compile Include="DBContext\Localization\FarmConfiguration.cs" />
+    <Compile Include="DBContext\Localization\FarmContactConfiguration.cs" />
     <Compile Include="DBContext\Localization\LocationConfiguration.cs" />
     <Compile Include="DBContext\Localization\PositionConfiguration.cs" />
     <Compile Include="DBContext\Localization\RegionConfiguration.cs" />
@@ -285,12 +292,14 @@
     <Compile Include="DBContext\Security\SiteMapConfiguration.cs" />
     <Compile Include="DBContext\Security\UserConfiguration.cs" />
     <Compile Include="DBContext\Security\UserFarmConfiguration.cs" />
+    <Compile Include="DBContext\Water\CalculationByCropIrrigationWeatherConfiguration.cs" />
     <Compile Include="DBContext\Water\EffectiveRainConfiguration.cs" />
     <Compile Include="DBContext\Water\EvapotranspirationCropConfiguration.cs" />
     <Compile Include="DBContext\Water\IrrigationConfiguration.cs" />
     <Compile Include="DBContext\Water\RainConfiguration.cs" />
     <Compile Include="DBContext\Water\WaterInputConfiguration.cs" />
     <Compile Include="DBContext\Water\WaterOutputConfiguration.cs" />
+    <Compile Include="DBContext\Weather\MeteoblueWeatherDataConfiguration.cs" />
     <Compile Include="DBContext\Weather\TemperatureDataConfiguration.cs" />
     <Compile Include="DBContext\Weather\WeatherDataConfiguration.cs" />
     <Compile Include="DBContext\Weather\WeatherInformationConfiguration.cs" />
@@ -299,85 +308,25 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Migrations\201609220024024_AddObservations.cs" />
-    <Compile Include="Migrations\201609220024024_AddObservations.Designer.cs">
-      <DependentUpon>201609220024024_AddObservations.cs</DependentUpon>
+    <Compile Include="Migrations\201811010155441_Initial.cs" />
+    <Compile Include="Migrations\201811010155441_Initial.Designer.cs">
+      <DependentUpon>201811010155441_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610081631455_PendingModelChanges20161008.cs" />
-    <Compile Include="Migrations\201610081631455_PendingModelChanges20161008.Designer.cs">
-      <DependentUpon>201610081631455_PendingModelChanges20161008.cs</DependentUpon>
+    <Compile Include="Migrations\201811010232410_FirstChangesSinceDatabaseWasCreated.cs" />
+    <Compile Include="Migrations\201811010232410_FirstChangesSinceDatabaseWasCreated.Designer.cs">
+      <DependentUpon>201811010232410_FirstChangesSinceDatabaseWasCreated.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610152211294_AddColumnWeatherData.cs" />
-    <Compile Include="Migrations\201610152211294_AddColumnWeatherData.Designer.cs">
-      <DependentUpon>201610152211294_AddColumnWeatherData.cs</DependentUpon>
+    <Compile Include="Migrations\201811031403379_Merge20181103.cs" />
+    <Compile Include="Migrations\201811031403379_Merge20181103.Designer.cs">
+      <DependentUpon>201811031403379_Merge20181103.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610160158463_AddWeatherEventType.cs" />
-    <Compile Include="Migrations\201610160158463_AddWeatherEventType.Designer.cs">
-      <DependentUpon>201610160158463_AddWeatherEventType.cs</DependentUpon>
+    <Compile Include="Migrations\201811031615235_ClosedFeatures20181103.cs" />
+    <Compile Include="Migrations\201811031615235_ClosedFeatures20181103.Designer.cs">
+      <DependentUpon>201811031615235_ClosedFeatures20181103.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.cs" />
-    <Compile Include="Migrations\201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.Designer.cs">
-      <DependentUpon>201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610281554174_DailyRecordCorrection.cs" />
-    <Compile Include="Migrations\201610281554174_DailyRecordCorrection.Designer.cs">
-      <DependentUpon>201610281554174_DailyRecordCorrection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.cs" />
-    <Compile Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.Designer.cs">
-      <DependentUpon>201611121537073_AddFarmIdInIrrigationUnit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611290128005_HasAdviseOfIrrigation.cs" />
-    <Compile Include="Migrations\201611290128005_HasAdviseOfIrrigation.Designer.cs">
-      <DependentUpon>201611290128005_HasAdviseOfIrrigation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612052045273_StageToUseETinHBCalculation.cs" />
-    <Compile Include="Migrations\201612052045273_StageToUseETinHBCalculation.Designer.cs">
-      <DependentUpon>201612052045273_StageToUseETinHBCalculation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612200710390_AddColumnLastDayOfGrowingDegreeDays.cs" />
-    <Compile Include="Migrations\201612200710390_AddColumnLastDayOfGrowingDegreeDays.Designer.cs">
-      <DependentUpon>201612200710390_AddColumnLastDayOfGrowingDegreeDays.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.cs" />
-    <Compile Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.Designer.cs">
-      <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.cs" />
-    <Compile Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.Designer.cs">
-      <DependentUpon>201702212334312_AddObservationAndReasonForIrrigation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703272304551_AddUserAccess.cs" />
-    <Compile Include="Migrations\201703272304551_AddUserAccess.Designer.cs">
-      <DependentUpon>201703272304551_AddUserAccess.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703292024308_UserAccessNewColumn.cs" />
-    <Compile Include="Migrations\201703292024308_UserAccessNewColumn.Designer.cs">
-      <DependentUpon>201703292024308_UserAccessNewColumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709022236060_FarmAndBombNewColumnPosition.cs" />
-    <Compile Include="Migrations\201709022236060_FarmAndBombNewColumnPosition.Designer.cs">
-      <DependentUpon>201709022236060_FarmAndBombNewColumnPosition.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs" />
-    <Compile Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.Designer.cs">
-      <DependentUpon>201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.cs" />
-    <Compile Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.Designer.cs">
-      <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs" />
-    <Compile Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.Designer.cs">
-      <DependentUpon>201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs" />
-    <Compile Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.Designer.cs">
-      <DependentUpon>201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs" />
-    <Compile Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.Designer.cs">
-      <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
+    <Compile Include="Migrations\201811032011450_ClosedFeaturesWeb20181103.cs" />
+    <Compile Include="Migrations\201811032011450_ClosedFeaturesWeb20181103.Designer.cs">
+      <DependentUpon>201811032011450_ClosedFeaturesWeb20181103.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -386,6 +335,7 @@
     <Compile Include="Models\Agriculture\CropCoefficientGraph.cs" />
     <Compile Include="Models\Agriculture\CropInformationByDate.cs" />
     <Compile Include="Models\Agriculture\Horizon.cs" />
+    <Compile Include="Models\Agriculture\HydricBalanceAdjustment.cs" />
     <Compile Include="Models\Agriculture\KC.cs" />
     <Compile Include="Models\Agriculture\PhenologicalStage.cs" />
     <Compile Include="Models\Agriculture\PhenologicalStageAdjustment.cs" />
@@ -402,6 +352,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Language\LanguageContext.cs" />
     <Compile Include="Models\Localization\Farm.cs" />
+    <Compile Include="Models\Localization\FarmContact.cs" />
     <Compile Include="Models\Management\IrrigationSystem.cs" />
     <Compile Include="Models\Irrigation\Bomb.cs" />
     <Compile Include="Models\Irrigation\Drip.cs" />
@@ -427,6 +378,7 @@
     <Compile Include="Models\Security\UserFarm.cs" />
     <Compile Include="Models\Utilities\OutputFileCSV.cs" />
     <Compile Include="Models\Utilities\Triple.cs" />
+    <Compile Include="Models\Water\CalculationByCropIrrigationWeather.cs" />
     <Compile Include="Models\Water\EffectiveRain.cs" />
     <Compile Include="Models\Water\EvapotranspirationCrop.cs" />
     <Compile Include="Models\Water\Irrigation.cs" />
@@ -444,10 +396,19 @@
     <Compile Include="Models\Utilities\Utils.cs" />
     <Compile Include="Models\Water\WaterInput.cs" />
     <Compile Include="Models\Water\WaterOutput.cs" />
+    <Compile Include="Models\Weather\MeteoblueWeatherData.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Irrigation\SprinklerViewModel.cs" />
+    <Compile Include="ViewModels\Irrigation\DripViewModel.cs" />
+    <Compile Include="ViewModels\Localization\FarmEditViewModel.cs" />
+    <Compile Include="ViewModels\Agriculture\HorizonViewModel.cs" />
+    <Compile Include="ViewModels\Agriculture\SoilViewModel.cs" />
     <Compile Include="ViewModels\Reports\CropIrrigationWeathersActive\CropIrrigationWeathersActiveViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
+    <Compile Include="ViewModels\Water\IrrigationValueViewModel.cs" />
+    <Compile Include="ViewModels\Water\RainValueViewModel.cs" />
+    <Compile Include="ViewModels\Water\WebApiIrrigationRainViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />
     <Compile Include="ViewModels\Weather\GridWeather.cs" />
@@ -498,6 +459,7 @@
     <Compile Include="ViewModels\Water\WaterOutputViewModel.cs" />
     <Compile Include="ViewModels\Weather\WeatherStationViewModel.cs" />
     <Compile Include="ViewModels\Weather\WUndergroundGeolookupResultToCSharp.cs" />
+    <Compile Include="Controllers\Weather\MeteoblueWeatherDatasController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -594,6 +556,48 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="images\company\img-1.jpg" />
+    <Content Include="Queries\1.-Respaldo IrrigationAdvisor.sql" />
+    <Content Include="Queries\2.-Respaldo IrrigationAdvisor-Demo.sql" />
+    <Content Include="Queries\3.-Kill Sessions in IrrigationAdvisor.sql" />
+    <Content Include="Queries\4.-Restore IrrigationAdvisor-Demo.sql" />
+    <Content Include="Queries\All Bombs - Query.sql" />
+    <Content Include="Queries\All CropCoefficients - Query.sql" />
+    <Content Include="Queries\All CropInformationByDates - Query.sql" />
+    <Content Include="Queries\All CropIrrigationWeathers - Query.sql" />
+    <Content Include="Queries\All Crops - Query.sql" />
+    <Content Include="Queries\All DailyRecords - Query for Report.sql" />
+    <Content Include="Queries\All DailyRecords - Query.sql" />
+    <Content Include="Queries\All Farms - Query.sql" />
+    <Content Include="Queries\All Horizons - Query.sql" />
+    <Content Include="Queries\All IrrigationUnits - Query.sql" />
+    <Content Include="Queries\All KC - Query.sql" />
+    <Content Include="Queries\All PhenologicalStages - Query.sql" />
+    <Content Include="Queries\All Regions - Query.sql" />
+    <Content Include="Queries\All Soils - Query.sql" />
+    <Content Include="Queries\All Specie - Query.sql" />
+    <Content Include="Queries\All SpecieCycle - Query.sql" />
+    <Content Include="Queries\All Stages- Query.sql" />
+    <Content Include="Queries\All Users - Query.sql" />
+    <Content Include="Queries\All WaterInputs - Query.sql" />
+    <Content Include="Queries\All WaterOututs - Query.sql" />
+    <Content Include="Queries\All WeatherData - Query by WeatherStation.sql" />
+    <Content Include="Queries\All WeatherData - Query Data.sql" />
+    <Content Include="Queries\All WeatherData - Query.sql" />
+    <Content Include="Queries\All WeatherStations - Query.sql" />
+    <Content Include="Queries\CIW-DR Queries Test.sql" />
+    <Content Include="Queries\CIW-DR Queries.sql" />
+    <Content Include="Queries\Local 1.-Respaldo IrrigationAdvisor.sql" />
+    <Content Include="Queries\Local 2.-Restore IrrigationAdvisor.sql" />
+    <Content Include="Queries\UpdateCropIrrigationWeather_WeatherData.sql" />
+    <Content Include="Queries\UpdateStatus_DateOfReference - UPDATE.sql" />
+    <Content Include="Queries\UpdateWeatherData of IA-DEMO-From WeatherData-PROD_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData of IA-From WeatherData-PROD of IA-DEMO_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData of IA-From WeatherData-PROD of IA_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-DEMO-From WeatherData_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-DEMO_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-From WeatherData-DEMO_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-From WeatherData-PROD_cursor.sql" />
+    <Content Include="Queries\UpdateWeatherData-Prod_cursor.sql" />
     <Content Include="respond.min.js" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="images\homeslider\img-1.jpg" />
@@ -813,11 +817,11 @@
     <Content Include="Views\Home\_WeatherPartial.cshtml" />
     <Content Include="Views\Home\_AddPhenology.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
-    <Content Include="Views\WeatherDatas\Create.cshtml" />
-    <Content Include="Views\WeatherDatas\Delete.cshtml" />
-    <Content Include="Views\WeatherDatas\Details.cshtml" />
-    <Content Include="Views\WeatherDatas\Edit.cshtml" />
-    <Content Include="Views\WeatherDatas\Index.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Create.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Delete.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Details.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Edit.cshtml" />
+    <Content Include="Views\Weather\WeatherDatas\Index.cshtml" />
     <Content Include="Views\Weather\WeatherInformations\Create.cshtml" />
     <Content Include="Views\Weather\WeatherInformations\Delete.cshtml" />
     <Content Include="Views\Weather\WeatherInformations\Details.cshtml" />
@@ -933,6 +937,7 @@
     <Content Include="Views\Reports\ReportPivotState\_ReportPivotStatePartial.cshtml" />
     <Content Include="Views\Reports\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
+    <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
     <Content Include="Views\Reports\ReportPivotState\ReportPivotStatePrintable.cshtml" />
     <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
     <Content Include="Views\Reports\ReportIrrigationUnit\ReportIrrigationUnit.cshtml" />
@@ -944,6 +949,16 @@
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Index.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Create.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Delete.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Details.cshtml" />
+    <Content Include="Views\Irrigation\IrrigationUnit\Edit.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Create.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Delete.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Details.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Edit.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -954,72 +969,26 @@
     <Folder Include="Views\Authenticate\" />
     <Folder Include="Views\Company\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\TemperatureDatas\" />
     <Folder Include="Views\Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609220024024_AddObservations.resx">
-      <DependentUpon>201609220024024_AddObservations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811010155441_Initial.resx">
+      <DependentUpon>201811010155441_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610081631455_PendingModelChanges20161008.resx">
-      <DependentUpon>201610081631455_PendingModelChanges20161008.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811010232410_FirstChangesSinceDatabaseWasCreated.resx">
+      <DependentUpon>201811010232410_FirstChangesSinceDatabaseWasCreated.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610152211294_AddColumnWeatherData.resx">
-      <DependentUpon>201610152211294_AddColumnWeatherData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811031403379_Merge20181103.resx">
+      <DependentUpon>201811031403379_Merge20181103.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610160158463_AddWeatherEventType.resx">
-      <DependentUpon>201610160158463_AddWeatherEventType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811031615235_ClosedFeatures20181103.resx">
+      <DependentUpon>201811031615235_ClosedFeatures20181103.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.resx">
-      <DependentUpon>201610200244352_AddIrrigationUnit-Show+CIW-DaysForHBUnchangable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610281554174_DailyRecordCorrection.resx">
-      <DependentUpon>201610281554174_DailyRecordCorrection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611121537073_AddFarmIdInIrrigationUnit.resx">
-      <DependentUpon>201611121537073_AddFarmIdInIrrigationUnit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611290128005_HasAdviseOfIrrigation.resx">
-      <DependentUpon>201611290128005_HasAdviseOfIrrigation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612052045273_StageToUseETinHBCalculation.resx">
-      <DependentUpon>201612052045273_StageToUseETinHBCalculation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612200710390_AddColumnLastDayOfGrowingDegreeDays.resx">
-      <DependentUpon>201612200710390_AddColumnLastDayOfGrowingDegreeDays.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612210046031_AddColumnInPhenologicalStage-Coefficient.resx">
-      <DependentUpon>201612210046031_AddColumnInPhenologicalStage-Coefficient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702212334312_AddObservationAndReasonForIrrigation.resx">
-      <DependentUpon>201702212334312_AddObservationAndReasonForIrrigation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703272304551_AddUserAccess.resx">
-      <DependentUpon>201703272304551_AddUserAccess.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703292024308_UserAccessNewColumn.resx">
-      <DependentUpon>201703292024308_UserAccessNewColumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709022236060_FarmAndBombNewColumnPosition.resx">
-      <DependentUpon>201709022236060_FarmAndBombNewColumnPosition.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709150210246_AddIsUsedAndIntervalToPhenologicalTable.resx">
-      <DependentUpon>201709150210246_AddIsUsedAndIntervalToPhenologicalTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710260148535_ChangeIrrigationReasonToEnum.resx">
-      <DependentUpon>201710260148535_ChangeIrrigationReasonToEnum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.resx">
-      <DependentUpon>201711151536396_AddShortNameAndFarmIdToBombAndSoil_20171115.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.resx">
-      <DependentUpon>201712130256311_PredeterminatedIrrigationQuantity-AdjustableIrrigationQuantity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.resx">
-      <DependentUpon>201712221414444_20171222_AddFieldToFarmForShowInReportIrrigationUnit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811032011450_ClosedFeaturesWeb20181103.resx">
+      <DependentUpon>201811032011450_ClosedFeaturesWeb20181103.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

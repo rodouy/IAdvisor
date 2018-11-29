@@ -8,6 +8,11 @@ using IrrigationAdvisor.Models.Localization;
 using IrrigationAdvisor.Models.Security;
 using System.Data.Entity;
 using IrrigationAdvisor.Models.Utilities;
+using IrrigationAdvisor.Models.Weather;
+using IrrigationAdvisor.DBContext.Agriculture;
+using IrrigationAdvisor.Models.Agriculture;
+using IrrigationAdvisor.DBContext.Irrigation;
+using IrrigationAdvisor.Models.Irrigation;
 
 namespace IrrigationAdvisor.DBContext.Localization
 {
@@ -105,7 +110,8 @@ namespace IrrigationAdvisor.DBContext.Localization
                            on i.IrrigationUnitId equals ciw.IrrigationUnitId
                            where ul.UserId == pUser.UserId && 
                            ciw.SowingDate <= lDate && 
-                           ciw.HarvestDate >= lDate
+                           ciw.HarvestDate >= lDate &&
+                           f.IsActive == true
                            select f).Include(f => f.BombList)
                                         .Include(f => f.IrrigationUnitList)
                                         .Include(f => f.WeatherStation)
@@ -153,7 +159,7 @@ namespace IrrigationAdvisor.DBContext.Localization
         /// <returns></returns>
         public List<Farm> GetAllFarms()
         {
-            return db.Farms.ToList();
+            return db.Farms.OrderBy(f => f.Name).ToList();
         }
 
         /// <summary>
@@ -163,9 +169,6 @@ namespace IrrigationAdvisor.DBContext.Localization
         /// <returns></returns>
         public Farm GetFarmBy(long pCropIrrigationWeatherId)
         {
-
-
-
             return (from dr in db.DailyRecords
                     join ciw in db.CropIrrigationWeathers
                     on dr.CropIrrigationWeatherId equals ciw.CropIrrigationWeatherId
@@ -177,5 +180,71 @@ namespace IrrigationAdvisor.DBContext.Localization
                     select f). FirstOrDefault();
 
         }
+        /// <summary>
+        /// Get Farm by pWeatherStation
+        /// </summary>
+        /// <param name="pWeatherStation"></param>
+        /// <returns></returns>
+        public List<Farm> GetFarmListBy(WeatherStation pWeatherStation)
+        {
+            List<Farm> lReturn = null;
+
+            lReturn = (from ul in db.WeatherStations
+                       join f in db.Farms
+                       on ul.WeatherStationId equals f.WeatherStationId
+                       where ul.WeatherStationId == pWeatherStation.WeatherStationId
+                       select f).OrderBy(f => f.Name).ToList();
+            return lReturn;
+        }
+
+        /// <summary>
+        /// Get List whit no Farm by pWeatherStation
+        /// </summary>
+        /// <param name="pWeatherStation"></param>
+        /// <returns></returns>
+        public List<Farm> GetFarmNotRelatedListBy(WeatherStation pWeatherStation)
+        {
+            List<Farm> lReturn = null;
+
+            lReturn = (from ul in db.WeatherStations
+                       join f in db.Farms
+                       on ul.WeatherStationId equals f.WeatherStationId
+                       where ul.WeatherStationId != pWeatherStation.WeatherStationId
+                       select f).OrderBy(f => f.Name).ToList();
+            return lReturn;
+        }
+
+
+        /// <summary>
+        ///  Logical elimination
+        /// </summary>
+        /// <param name="pFarm"></param>
+        /// <returns></returns>
+        public void Disable(Farm pFarm)
+        {
+            SoilConfiguration sc = new SoilConfiguration();
+            IrrigationUnitConfiguration iuc = new IrrigationUnitConfiguration();
+            List<Soil> listSoil = pFarm.SoilList;
+            List<IrrigationUnit> listIrrigationUnit = pFarm.IrrigationUnitList;          
+
+            foreach (Soil soil in listSoil)
+            {
+                
+                sc.Disable(soil);
+            }
+
+            foreach (IrrigationUnit irrigationUnit in listIrrigationUnit)
+            {
+                iuc.Disable(irrigationUnit);
+                
+            }
+
+            pFarm.IsActive = false;
+
+            db.Entry(pFarm).State = EntityState.Modified;
+            //db.SaveChanges();
+
+        }
+
     }
 }

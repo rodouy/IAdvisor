@@ -1,51 +1,68 @@
-﻿@model IrrigationAdvisor.Models.Agriculture.Soil
+﻿@model IrrigationAdvisor.ViewModels.Agriculture.SoilViewModel
 
 @{
     ViewBag.Title = "Details";
-    Layout = "Agriculture";
+    //Layout = "Agriculture";
 }
 
-<h2>Details</h2>
+<h2>Detalle</h2>
 
-<div>
-    <h4>Soil</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+<h4>Ciudad</h4>
+<hr />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+<div class="horizontal">
+    <table id="mytable">
+        <tr>
+            <td id="myTdHead">Establecimiento</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Farm.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Nombre</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.ShortName)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Descripción</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Description)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Fecha de visita</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.TestDate)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Profundidad</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.DepthLimit)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Latitud</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Position.Latitude)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Longitud</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Position.Longitude)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Horizontes</td>
+            <td id="myTdBody">
+              @foreach (var item in Model.Horizonts)
+                {
+                    @(item.Name + " - " + item.HorizonLayer + " - " + item.HorizonLayerDepth)<br>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td id="myTdHead"></td>
+            <td id="myTdBody">@Html.ActionLink("   Editar   ", "Edit", new { id = Model.SoilId }, new { @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+        </tr>
+    </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TestDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TestDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DepthLimit)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DepthLimit)
-        </dd>
-
-    </dl>
 </div>
+
+
+
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SoilId }) |
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </p>

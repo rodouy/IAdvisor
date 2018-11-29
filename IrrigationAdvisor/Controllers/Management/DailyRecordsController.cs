@@ -49,7 +49,7 @@ namespace IrrigationAdvisor.Controllers.Management
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DailyRecordId,DailyRecordDateTime,DaysAfterSowing,DaysAfterSowingModified,GrowingDegreeDays,GrowingDegreeDaysAccumulated,GrowingDegreeDaysModified,LastWaterInputDate,LastBigWaterInputDate,LastPartialWaterInputDate,LastPartialWaterInput,HydricBalance,SoilHydricVolume,TotalEvapotranspirationCropFromLastWaterInput,CropCoefficient,Observations,TotalEvapotranspirationCrop,TotalEffectiveRain,TotalRealRain,TotalIrrigation,TotalIrrigationInHydricBalance,TotalExtraIrrigation,TotalExtraIrrigationInHydricBalance")] DailyRecord dailyRecord)
+        public ActionResult Create([Bind(Include = "DailyRecordId,DailyRecordDateTime,DaysAfterSowing,DaysAfterSowingModified,GrowingDegreeDays,GrowingDegreeDaysAccumulated,GrowingDegreeDaysModified,LastWaterInputDate,LastBigWaterInputDate,LastPartialWaterInputDate,LastPartialWaterInput,HydricBalance,SoilHydricVolume,TotalEvapotranspirationCropFromLastWaterInput,CropCoefficient,Observations,TotalEvapotranspirationCrop,TotalEffectiveRain,TotalRealRain,TotalIrrigation,TotalIrrigationInHydricBalance,TotalExtraIrrigation,TotalExtraIrrigationInHydricBalance,CropIrrgationWeatherId")] DailyRecord dailyRecord)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace IrrigationAdvisor.Controllers.Management
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DailyRecordId,DailyRecordDateTime,DaysAfterSowing,DaysAfterSowingModified,GrowingDegreeDays,GrowingDegreeDaysAccumulated,GrowingDegreeDaysModified,LastWaterInputDate,LastBigWaterInputDate,LastPartialWaterInputDate,LastPartialWaterInput,HydricBalance,SoilHydricVolume,TotalEvapotranspirationCropFromLastWaterInput,CropCoefficient,Observations,TotalEvapotranspirationCrop,TotalEffectiveRain,TotalRealRain,TotalIrrigation,TotalIrrigationInHydricBalance,TotalExtraIrrigation,TotalExtraIrrigationInHydricBalance")] DailyRecord dailyRecord)
+        public ActionResult Edit([Bind(Include = "DailyRecordId,DailyRecordDateTime,DaysAfterSowing,DaysAfterSowingModified,GrowingDegreeDays,GrowingDegreeDaysAccumulated,GrowingDegreeDaysModified,LastWaterInputDate,LastBigWaterInputDate,LastPartialWaterInputDate,LastPartialWaterInput,HydricBalance,SoilHydricVolume,TotalEvapotranspirationCropFromLastWaterInput,CropCoefficient,Observations,TotalEvapotranspirationCrop,TotalEffectiveRain,TotalRealRain,TotalIrrigation,TotalIrrigationInHydricBalance,TotalExtraIrrigation,TotalExtraIrrigationInHydricBalance,CropIrrgationWeatherId")] DailyRecord dailyRecord)
         {
             if (ModelState.IsValid)
             {

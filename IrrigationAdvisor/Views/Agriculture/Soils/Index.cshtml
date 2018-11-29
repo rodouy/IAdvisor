@@ -2,27 +2,31 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "Agriculture";
+   // Layout = "Agriculture";
 }
 
-<h2>Index</h2>
+<h2>Suelos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Wizard")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Esatablecimiento
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+           Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TestDate)
+            Descripcíon
+        </th>
+
+        <th>
+            Fecha visita
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DepthLimit)
+            Profundidad
         </th>
         <th></th>
     </tr>
@@ -30,11 +34,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.Farm.Name)
+        </td>       
+         <td>
+            @Html.DisplayFor(modelItem => item.ShortName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.TestDate)
         </td>
@@ -42,9 +50,9 @@
             @Html.DisplayFor(modelItem => item.DepthLimit)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SoilId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SoilId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SoilId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.SoilId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.SoilId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.SoilId })
         </td>
     </tr>
 }
