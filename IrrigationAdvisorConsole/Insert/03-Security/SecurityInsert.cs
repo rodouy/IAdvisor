@@ -270,6 +270,17 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "ADC2017"),
                 RoleId = 3,
             };
+            var lDCAGrolero = new User()
+            {
+                Name = "Ignacio",
+                Surname = "Grolero",
+                Phone = "+598 91 909 951",
+                Address = "Mercedes Ruta 14",
+                Email = "igrolero@delcarmen.com.uy",
+                UserName = Utils.NameUserDCA7,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "ADC2017"),
+                RoleId = 3,
+            };
             #endregion
 
             #region Estancias del Lago - Del Lago - EDL
@@ -751,6 +762,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lDCASantiago);
                 context.Users.Add(lDCAAlejandro);
                 context.Users.Add(lDCARaul);
+                context.Users.Add(lDCAGrolero);
                 context.Users.Add(lDelLagoGuzman);
                 context.Users.Add(lDelLagoJose);
                 context.Users.Add(lDelLagoSebastian);
@@ -949,7 +961,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3,
-                                                Utils.NameUserDCA4, Utils.NameUserDCA6,
+                                                Utils.NameUserDCA4, Utils.NameUserDCA6, Utils.NameUserDCA7,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -987,7 +999,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3, 
-                                                Utils.NameUserDCA4, Utils.NameUserDCA5, 
+                                                Utils.NameUserDCA4, Utils.NameUserDCA5, Utils.NameUserDCA7,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -1025,7 +1037,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3,
-                                                Utils.NameUserDCA4, 
+                                                Utils.NameUserDCA4, Utils.NameUserDCA7,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
