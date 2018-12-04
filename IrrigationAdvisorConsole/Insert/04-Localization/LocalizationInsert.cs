@@ -3622,7 +3622,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = {  Utils.NameUserDCA1, Utils.NameUserDCA3,
-                                      Utils.NameUserDCA4, Utils.NameUserDCA6,
+                                      Utils.NameUserDCA4, Utils.NameUserDCA6, Utils.NameUserDCA7,
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
                                       Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -3708,7 +3708,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             List<IrrigationUnit> lPivotList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQPivots = null;
             String[] lUserNames = {   Utils.NameUserDCA1, Utils.NameUserDCA3, 
-                                      Utils.NameUserDCA4, Utils.NameUserDCA5, 
+                                      Utils.NameUserDCA4, Utils.NameUserDCA5, Utils.NameUserDCA7,
                                       Utils.NameUserSeba, Utils.NameUserGonza, 
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
                                       Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -3794,7 +3794,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             List<IrrigationUnit> lIrrigationUnitList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQIrrigationUnit = null;
             String[] lUserNames = {   Utils.NameUserDCA1, Utils.NameUserDCA3,
-                                      Utils.NameUserDCA4, 
+                                      Utils.NameUserDCA4, Utils.NameUserDCA7,
                                       Utils.NameUserSeba, Utils.NameUserGonza,
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
                                       Utils.NameUserCPalo, Utils.NameUserMCarle,
