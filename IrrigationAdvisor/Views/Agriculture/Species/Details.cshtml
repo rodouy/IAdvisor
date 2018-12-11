@@ -1,51 +1,48 @@
-﻿@model IrrigationAdvisor.Models.Agriculture.Specie
+﻿@model IrrigationAdvisor.ViewModels.Agriculture.SpecieViewModel
 
 @{
     ViewBag.Title = "Details";
-    Layout = "Agriculture";
+  
 }
 
-<h2>Details</h2>
+<script src="~/js/Home.js"></script>
+<h2>Detalle</h2>
+<h4>Ciclo</h4>
+<hr />
+<div class="horizontal">
+    <table id="mytable">
 
-<div>
-    <h4>Specie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SpecieCycle.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SpecieCycle.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BaseTemperature)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BaseTemperature)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StressTemperature)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StressTemperature)
-        </dd>
-
-    </dl>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.ShortName)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.ShortName)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.BaseTemperature)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.BaseTemperature)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.StressTemperature)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.StressTemperature)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.SpecieCycleName)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.SpecieCycleName)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.RegionName)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.RegionName)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.SpecieType)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.SpecieType)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead"></td>
+            <td id="myTdBody">@Html.ActionLink("   Editar   ", "Edit", new { id = Model.SpecieId }, new { @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+        </tr>
+    </table>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SpecieId }) |
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </p>
