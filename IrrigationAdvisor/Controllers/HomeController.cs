@@ -2492,7 +2492,7 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Rain
                 //Find Rain of the Date of Data
-                lRain = pRainList.Where(r => r.Date.Date == lDateOfData || r.ExtraDate.Date == lDateOfData).FirstOrDefault();
+                lRain = pRainList.Where(r => r.Date.Date == lDateOfData.Date || r.ExtraDate.Date == lDateOfData.Date).FirstOrDefault();
                 if (lRain != null && lRain.GetTotalInput() > 0)
                 {
                     lRainQuantity = lRain.GetTotalInput();
@@ -2504,7 +2504,7 @@ namespace IrrigationAdvisor.Controllers
 
                 #region Irrigation for today or in the future
                 //Find Daily Record of the Date of Data
-                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData).FirstOrDefault();
+                lDailyRecord = pDailyRecordList.Where(dr => dr.DailyRecordDateTime.Date == lDateOfData.Date).FirstOrDefault();
                 if (lDailyRecord != null && lDateOfData >= lDayOfReference)
                 {
                     if (lDailyRecord.Irrigation != null && lDailyRecord.Irrigation.Input > 0)
@@ -2566,7 +2566,7 @@ namespace IrrigationAdvisor.Controllers
                 {
                     lIsIrrigationConfirmated = lContext
                                               .Irrigations
-                                              .Where(n => n.Type == Utils.WaterInputType.Confirmation && n.ExtraDate == lDateOfData && n.CropIrrigationWeatherId == lDailyRecord.CropIrrigationWeatherId)
+                                              .Where(n => n.Type == Utils.WaterInputType.Confirmation && n.ExtraDate == lDateOfData.Date && n.CropIrrigationWeatherId == lDailyRecord.CropIrrigationWeatherId)
                                               .Any();
                 }
                 //The icon will be gray
@@ -2642,7 +2642,7 @@ namespace IrrigationAdvisor.Controllers
                                              .First();
                 
                 lDailyRecordList = lContext.DailyRecords
-                                   .Where(n => n.CropIrrigationWeatherId == pCropIrrigationWeatherId && n.DailyRecordDateTime >= pDate)
+                                   .Where(n => n.CropIrrigationWeatherId == pCropIrrigationWeatherId && n.DailyRecordDateTime.Date >= pDate.Date)
                                    .ToList();
 
                 lCurrentBalance = lCropIrrigationWeather.GetPercentageOfHydricBalance();
@@ -2660,14 +2660,14 @@ namespace IrrigationAdvisor.Controllers
 
                 lExistHydricBalanceAdjustments = lContext.HydricBalanceAdjustments
                                                                         .FirstOrDefault(n => n.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId && 
-                                                                        n.Date == pDate);
+                                                                        n.Date == pDate.Date);
 
                 if (lExistHydricBalanceAdjustments == null)
                 {
                     lHydricBalanceAdjustment = new HydricBalanceAdjustment()
                     {
                         CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId,
-                        Date = pDate,
+                        Date = pDate.Date,
                         HydricBalance = lNewHydricBalance,
                         Percentage = pPercentage
                     };
@@ -2682,7 +2682,7 @@ namespace IrrigationAdvisor.Controllers
 
                 lContext.SaveChanges();
 
-                lCropIrrigationWeather.AddInformationToIrrigationUnits(pDate, pDate, lContext);
+                lCropIrrigationWeather.AddInformationToIrrigationUnits(pDate.Date, pDate.Date, lContext);
 
                 lContext.SaveChanges();
 
@@ -2690,7 +2690,7 @@ namespace IrrigationAdvisor.Controllers
                                             pCropIrrigationWeatherId,
                                             lCropIrrigationWeather.CropIrrigationWeatherName,
                                             pPercentage,
-                                            pDate,
+                                            pDate.Date,
                                             lCropIrrigationWeather.IrrigationUnit.FarmId,
                                             lCropIrrigationWeather.IrrigationUnit.Farm.Name);
                 try
@@ -2731,7 +2731,7 @@ namespace IrrigationAdvisor.Controllers
                                              .Irrigations
                                              .Where(ir => ir.Type != Utils.WaterInputType.CantIrrigate 
                                                  && ir.Type != Utils.WaterInputType.IrrigationWasNotDecided 
-                                                 && ir.Date == pDate && ir.CropIrrigationWeatherId == pCropIrrigationWeatherId)
+                                                 && ir.Date == pDate.Date && ir.CropIrrigationWeatherId == pCropIrrigationWeatherId)
                                              .First();
                 if(lIrrigationBefore != null && lIrrigationBefore.Type == Utils.WaterInputType.IrrigationByETCAcumulated)
                 {
@@ -2755,25 +2755,25 @@ namespace IrrigationAdvisor.Controllers
                 }
                 if (lIrrigationBefore != null)
                 {
-                        lIrrigationBefore.ExtraDate = pDate;
+                        lIrrigationBefore.ExtraDate = pDate.Date;
                         lIrrigationBefore.ExtraInput = pValue;
                         lIrrigationBefore.Input = 0;
                         lIrrigationBefore.Reason = Utils.NoIrrigationReason.Other;
                         lIrrigationBefore.Type = Utils.WaterInputType.Confirmation;
-                        lIrrigationBefore.Observations = "Confirmación de riego " + pDate + lIrrigationType;
+                        lIrrigationBefore.Observations = "Confirmación de riego " + pDate.Date + " " + lIrrigationType;
                 }
                 else
                 {
                     Models.Water.Irrigation lIrrigation = new Models.Water.Irrigation()
                     {
                         CropIrrigationWeatherId = pCropIrrigationWeatherId,
-                        Date = pDate,
-                        ExtraDate = pDate,
+                        Date = pDate.Date,
+                        ExtraDate = pDate.Date,
                         ExtraInput = pValue,
                         Input = 0,
                         Reason = Utils.NoIrrigationReason.Other,
                         Type = Utils.WaterInputType.Confirmation,
-                        Observations = "Confirmación de riego " + pDate + lIrrigationType,
+                        Observations = "Confirmación de riego " + pDate.Date + " " + lIrrigationType,
                     };
                     lIrrigationAdvisorContext.Irrigations.Add(lIrrigation);
                 }
@@ -2786,7 +2786,7 @@ namespace IrrigationAdvisor.Controllers
                                             pCropIrrigationWeatherId,
                                             lCropIrrigationWeather.CropIrrigationWeatherName,
                                             pValue, 
-                                            pDate,
+                                            pDate.Date,
                                             lCropIrrigationWeather.IrrigationUnit.FarmId,
                                             lCropIrrigationWeather.IrrigationUnit.Farm.Name);
                 try
