@@ -1,17 +1,68 @@
-﻿@model IrrigationAdvisor.Models.Agriculture.SpecieCycle
+﻿@model IrrigationAdvisor.ViewModels.Agriculture.SpecieCycleViewModel
 
 @{
     ViewBag.Title = "Create";
-    Layout = "Agriculture";
+   // Layout = "Agriculture";
 }
+<script js>
+    $(document).ready(function () {
+        var saveBtn = $('#SaveBtn');
 
-<h2>Create</h2>
+        saveBtn.click(function () {
+            var validateForm = true;
+
+            if ($('#Name').val().trim() != '') {
+                $('#NameError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#NameError').html('Ingrese el nombre');
+                validateForm = false;
+            }
+            if (validateForm == true) {
+
+                if ($("#Duration").val().trim() === "") {
+                    $("#DurationError").html("Ingrese la duración");
+                    validateForm = false;
+                }
+                else {
+                    if (!isNaN($("#Duration").val())) {
+                        $("#DurationError").html("");
+                        validateForm = true;
+                    }
+                    else {
+                        $("#DurationError").html("En la duración ingrese solo números");
+                        validateForm = false;
+                    }
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#RegionId').val().trim() != '') {
+                    $('#RegionIdError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#RegionIdError').html('Seleccione la región');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                $('#myForm').submit();
+
+            }
+        });
+    });
+</script>
+
+<h2>Nuevo</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "SpecieCycles", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>SpecieCycle</h4>
         <hr />
@@ -20,7 +71,7 @@
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                <span id="NameError" class="red-color"></span>
             </div>
         </div>
 
@@ -28,20 +79,33 @@
             @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+                <span id="DurationError" class="red-color"></span>
             </div>
         </div>
-
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            @Html.LabelFor(model => model.RegionId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.RegionId, Model.Regions, "-- Selecione una región --", new { @class = "form-control" })
+                <span id="RegionIdError" class="red-color"></span>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="cf footer">
+                <div class="cf footer">
+                    <label class="control-label col-md-2" for="CapitalId"></label>
+
+                    <input type="button" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveBtn" class="btn btn-default" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
+                </div>
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </div>
 
 @section Scripts {

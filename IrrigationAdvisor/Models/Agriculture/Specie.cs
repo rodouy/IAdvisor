@@ -63,12 +63,12 @@ namespace IrrigationAdvisor.Models.Agriculture
         private Double baseTemperature;
         private Double stressTemperature;
         private Utils.SpecieType specieType;
-       
+        private long regionId;
         #endregion
 
         #region Properties
 
-        
+
         public long SpecieId
         {
             get { return specieId; }
@@ -86,19 +86,19 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return shortName; }
             set { shortName = value; }
         }
-        
+
         public long SpecieCycleId
         {
             get { return specieCycleId; }
             set { specieCycleId = value; }
         }
-        
+
         public Double BaseTemperature
         {
             get { return baseTemperature; }
             set { baseTemperature = value; }
         }
-        
+
         public Double StressTemperature
         {
             get { return stressTemperature; }
@@ -116,15 +116,24 @@ namespace IrrigationAdvisor.Models.Agriculture
             get { return specieType; }
             set { specieType = value; }
         }
-        
+        public long RegionId
+        {
+            get { return regionId; }
+            set { regionId = value; }
+        }
+        public virtual Region Region
+        {
+            get;
+            set;
+        }
         #endregion
-       
+
         #region Construction
 
         /// <summary>
         /// Constructor of Specie without parameters
         /// </summary>
-        public Specie() 
+        public Specie()
         {
             //this.specieId = 0;
             this.Name = "noName";
@@ -157,12 +166,12 @@ namespace IrrigationAdvisor.Models.Agriculture
             this.SpecieType = pSpecieType;
         }
 
-        
+
         #endregion
 
         #region Private Helpers
 
-        
+
         #endregion
 
         #region Public Methods
@@ -197,6 +206,6 @@ namespace IrrigationAdvisor.Models.Agriculture
         }
 
         #endregion
-    
+
     }
 }
