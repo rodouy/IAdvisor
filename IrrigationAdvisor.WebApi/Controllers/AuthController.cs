@@ -45,7 +45,7 @@ namespace IrrigationAdvisor.WebApi.Controllers
                                 ciw.HarvestDate >= DateTime.Now
                                 select uf;
 
-                    foreach (var f in farms)
+                    foreach (var f in farms.Distinct())
                     {
                         FarmViewModel newFarm = new FarmViewModel()
                         {
