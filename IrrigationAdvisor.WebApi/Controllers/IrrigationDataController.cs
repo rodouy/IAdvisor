@@ -47,7 +47,10 @@ namespace IrrigationAdvisor.WebApi.Controllers
                                      on ciw.PhenologicalStageId equals p.PhenologicalStageId
                                      join s in context.Stages
                                      on p.StageId equals s.StageId
-                                     where  f.FarmId == farmId
+                                     where  f.FarmId == farmId &&
+                                     ciw.HarvestDate >= DateTime.Now &&
+                                     ciw.SowingDate <= DateTime.Now &&
+                                     iu.Show && f.IsActive
                                      select new {   IrrigationUnit = iu,
                                                     CropIrrigationWeather = ciw,
                                                     Crop = c,
