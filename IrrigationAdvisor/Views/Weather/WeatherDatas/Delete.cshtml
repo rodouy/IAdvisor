@@ -4,205 +4,46 @@
     ViewBag.Title = "Delete";
    // Layout = "Weather";
 }
-<link rel="stylesheet" type="text/css" href="../../css/library/bootstrap.min.css">
-<link rel="stylesheet" href="~/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/style.css">
-<link rel="stylesheet" type="text/css" href="../../css/md-font.css">
-<link rel="stylesheet" type="text/css" href="../../css/flatWeather-index.css">
-<link rel="stylesheet" type="text/css" href="../../css/slippry.css">
-<script type="text/javascript" src="../../js/library/jquery-2.1.1.min.js"></script>
-<link href="~/css/shared.css" rel="stylesheet" />
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Confirma la eliminación?</h3>
 <div>
-    <h4>WeatherData</h4>
+    <h4>País</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Temperature)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Temperature)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TemperatureMax)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TemperatureMax)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TemperatureMin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TemperatureMin)
-        </dd>
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.TemperatureDewPoint)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TemperatureDewPoint)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Humidity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Humidity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HumidityMax)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HumidityMax)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HumidityMin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HumidityMin)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Barometer)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Barometer)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BarometerMax)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BarometerMax)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BarometerMin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BarometerMin)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SolarRadiation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SolarRadiation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UVRadiation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UVRadiation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RainDay)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RainDay)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RainStorm)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RainStorm)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RainMonth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RainMonth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RainYear)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RainYear)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Evapotranspiration)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Evapotranspiration)
-        </dd>
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.EvapotranspirationMonth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EvapotranspirationMonth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EvapotranspirationYear)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EvapotranspirationYear)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WeatherDataType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WeatherDataType)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
+        <div class="horizontal">
+            <div class="horizontal">
+                <table id="mytable">
+                    <tr>
+                        <td id="myTdHead">Fecha</td>
+                        <td id="myTdBody">@Html.DisplayFor(model => model.Date)</td>
+                    </tr>
+                    <tr>
+                        <td id="myTdHead">Temperatura max.</td>
+                        <td id="myTdBody">@Html.DisplayFor(model => model.TemperatureMax)</td>
+                    </tr>
+                    <tr>
+                        <td id="myTdHead">Temperatura min.</td>
+                        <td id="myTdBody">@Html.DisplayFor(model => model.TemperatureMin)</td>
+                    </tr>
+                    <tr>
+                        <td id="myTdHead">Evapotranspiración</td>
+                        <td id="myTdBody">@Html.DisplayFor(model => model.Evapotranspiration)</td>
+                    </tr>                  
+                    <tr>
+                        <td id="myTdHead">Weather Data</td>
+                        <td id="myTdBody">@Html.DisplayFor(model => model.WeatherDataType)</td>
+                    </tr>                    <tr>
+                        <td id="myTdHead"></td>
+                        <td id="myTdBody"><input type="submit" value="&nbsp;&nbsp;&nbsp;Borrar&nbsp;&nbsp;&nbsp;" class="btn btn-default" />&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+                    </tr>
+                </table>
+            </div>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
         </div>
+
     }
 </div>
-<script type="text/javascript" src="../../js/library/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.owl.carousel.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.appear.min.js"></script>
-<script type="text/javascript" src="../../js/library/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="../../css/slippry.min.js"></script>
-<script type="text/javascript" src="../../js/scripts.js"></script>
