@@ -90,10 +90,10 @@
         });
     })
 </script>
-<h2>Index</h2>
+<h2>Datos del clima</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -114,19 +114,19 @@
             @Html.DisplayNameFor(model => model.WeatherStation)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+           Fecha
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.Temperature)
         </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.TemperatureMax)
+           Temperatura max.
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TemperatureMin)
+            Temperatura min.
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Evapotranspiration)
+            Evapotranspiración
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.EvapotranspirationMonth)
@@ -170,9 +170,9 @@
             @Html.DisplayFor(modelItem => item.WeatherDataType)
         </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.WeatherDataId }) |
+            @Html.ActionLink("Editar", "Edit", new { id=item.WeatherDataId }) |
             @*@Html.ActionLink("Details", "Details", new { id=item.WeatherDataId }) |*@
-            @Html.ActionLink("Delete", "Delete", new { id=item.WeatherDataId })
+            @Html.ActionLink("Borrar", "Delete", new { id=item.WeatherDataId })
         </td>
     </tr>
 }

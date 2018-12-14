@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/library/jquery-2.1.1.min.js"></script>
 <link href="~/css/shared.css" rel="stylesheet" />*@
 
-<h2>Create</h2>
+<h2>Nuevo</h2>
 
 
 @using (Html.BeginForm()) 
@@ -215,15 +215,21 @@
         </div>*@
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="cf footer">
+                <div class="cf footer">
+                    <label class="control-label col-md-2" for="CapitalId"></label>
+
+                    <input type="submit" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveBtn" class="btn btn-default" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
+                </div>
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </div>
 
 @*@section Scripts {

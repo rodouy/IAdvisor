@@ -27,19 +27,19 @@ namespace IrrigationAdvisor.Controllers.Weather
 
             if (pStartDateTime == null && pEndDateTime == null && pWeatherStationId == 0)
             {
-                return View(db.WeatherDatas.Where(w => w.Date.Year == now.Year && w.Date.Month == now.Month && w.Date.Day == now.Day).ToList());
+                return View("~/Views/Weather/WeatherDatas/Index.cshtml", db.WeatherDatas.Where(w => w.Date.Year == now.Year && w.Date.Month == now.Month && w.Date.Day == now.Day).ToList());
             }
             else if(pStartDateTime != null && pEndDateTime != null && pWeatherStationId != 0)
             {
-                return View(db.WeatherDatas.Where(w => w.Date >= from && w.Date <= end && w.WeatherStationId == pWeatherStationId).ToList());
+                return View("~/Views/Weather/WeatherDatas/Index.cshtml", db.WeatherDatas.Where(w => w.Date >= from && w.Date <= end && w.WeatherStationId == pWeatherStationId).ToList());
             }
             else if (pWeatherStationId == 0)
             {
-                return View(db.WeatherDatas.Where(w => w.Date >= from && w.Date <= end).ToList());
+                return View("~/Views/Weather/WeatherDatas/Index.cshtml", db.WeatherDatas.Where(w => w.Date >= from && w.Date <= end).ToList());
             }
             else
             {
-                return View(db.WeatherDatas.ToList());
+                return View("~/Views/Weather/WeatherDatas/Index.cshtml", db.WeatherDatas.ToList());
             }
         }
 
@@ -61,7 +61,7 @@ namespace IrrigationAdvisor.Controllers.Weather
         // GET: WeatherDatas/Create
         public ActionResult Create()
         {
-            return View();
+            return View("~/Views/Weather/WeatherDatas/Create.cshtml");
         }
 
         // POST: WeatherDatas/Create
@@ -106,7 +106,7 @@ namespace IrrigationAdvisor.Controllers.Weather
             {
                 return HttpNotFound();
             }
-            return View(weatherData);
+            return View("~/Views/Weather/WeatherDatas/Edit.cshtml",weatherData);
         }
 
         // POST: WeatherDatas/Edit/5
@@ -152,7 +152,7 @@ namespace IrrigationAdvisor.Controllers.Weather
             {
                 return HttpNotFound();
             }
-            return View(weatherData);
+            return View("~/Views/Weather/WeatherDatas/delete.cshtml",weatherData);
         }
 
         // POST: WeatherDatas/Delete/5
