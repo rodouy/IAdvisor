@@ -1043,6 +1043,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCityConchillas = "Conchillas";
         public static String NameCityColoniaDelSacramento = "Colonia del Sacramento";
         public static String NameCityCampana = "Campana";
+        public static String NameCityMarincho = "Marincho";
         public static String NameCity = "";
         #endregion
         #region Farms
@@ -1407,6 +1408,13 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSoilElAlba32 = NameFarmElAlba + " Pivot 32";
         public static String NameSoilElAlba33 = NameFarmElAlba + " Pivot 33";
         #endregion
+        #region La Zenaida
+        public static String NameSoilLaZenaida1 = NameFarmLaZenaida + " Pivot 1";
+        public static String NameSoilLaZenaida2 = NameFarmLaZenaida + " Pivot 2";
+        public static String NameSoilLaZenaida3 = NameFarmLaZenaida + " Pivot 3";
+        public static String NameSoilLaZenaida4 = NameFarmLaZenaida + " Pivot 4";
+        public static String NameSoilLaZenaida5 = NameFarmLaZenaida + " Pivot 5";
+        #endregion
         #endregion
         #endregion
         #region Data
@@ -1652,6 +1660,9 @@ namespace IrrigationAdvisor.Models.Utilities
         #region La Zenaida
         public static String NamePivotLaZenaida1 = NameFarmLaZenaida + " Pivot 1";
         public static String NamePivotLaZenaida2 = NameFarmLaZenaida + " Pivot 2";
+        public static String NamePivotLaZenaida3 = NameFarmLaZenaida + " Pivot 3";
+        public static String NamePivotLaZenaida4 = NameFarmLaZenaida + " Pivot 4";
+        public static String NamePivotLaZenaida5 = NameFarmLaZenaida + " Pivot 5";
         #endregion
         #region Alpino - Santa Emilia
         public static String NamePivotAlpinoSantaEmilia1 = NameFarmAlpinoSantaEmilia + " Pivot 1";
@@ -2109,8 +2120,11 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherElAlbaPivot33_S1819 = NamePivotElAlba33 + " " + NameSpecieCornSouthShort + " S1819";
         #endregion
         #region La Zenaida
-        public static String NameCropIrrigationWeatherLaZenaidaPivot1_S1819 = NamePivotLaZenaida1 + " " + NameSpecieSoyaSouthShort + " S1819";
-        public static String NameCropIrrigationWeatherLaZenaidaPivot2_S1819 = NamePivotLaZenaida2 + " " + NameSpecieCornSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot1_S1819 = NamePivotLaZenaida1 + " " + NameSpecieFescueForageSouthMedium + " S1819";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot2_S1819 = NamePivotLaZenaida2 + " " + NameSpecieFescueForageSouthMedium + " S1819";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot3_S1819 = NamePivotLaZenaida3 + " " + NameSpecieFescueForageSouthMedium + " S1819";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot4_S1819 = NamePivotLaZenaida4 + " " + NameSpecieSudanGrassSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot5_S1819 = NamePivotLaZenaida5 + " " + NameSpecieSudanGrassSouthShort + " S1819";
         #endregion
         #region Alpino - Santa Emilia
         public static String NameCropIrrigationWeatherAlpinoSantaEmiliaPivot1_S1819 = NamePivotAlpinoSantaEmilia1 + " " + NameSpecieSoyaSouthShort + " S1819";
@@ -2192,6 +2206,9 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserAP3 = "rguillen";
         public static String NameUserAP4 = "nleguisamo";
         public static String NameUserAP5 = "mblanco";
+        public static String NameUserLZ1 = "mchiesa";
+        public static String NameUserLZ2 = "mregusci";
+        public static String NameUserLZ3 = "psecco";
         #endregion
         #region Utilities
         #endregion
@@ -2221,6 +2238,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionCityConchillas = NameCityConchillas;
         public static String NamePositionCityColoniaDelSacramento = NameCityColoniaDelSacramento;
         public static String NamePositionCityCampana = NameCityCampana;
+        public static String NamePositionCityMarincho = NameCityMarincho;
         public static String NamePositionCity = NameCity;
         #endregion
         #region PositionsFarms
@@ -2481,6 +2499,9 @@ namespace IrrigationAdvisor.Models.Utilities
         #region La Zenaida
         public static String NamePositionPivotLaZenaida1 = NamePivotLaZenaida1;
         public static String NamePositionPivotLaZenaida2 = NamePivotLaZenaida2;
+        public static String NamePositionPivotLaZenaida3 = NamePivotLaZenaida3;
+        public static String NamePositionPivotLaZenaida4 = NamePivotLaZenaida4;
+        public static String NamePositionPivotLaZenaida5 = NamePivotLaZenaida5;
         #endregion
         #region Alpino - Santa Emilia
         public static String NamePositionPivotAlpinoSantaEmilia1 = NamePivotAlpinoSantaEmilia1;
