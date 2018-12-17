@@ -750,7 +750,6 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             #region Bomb El Alba
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
             {
@@ -775,6 +774,37 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         FarmId = lFarm.FarmId,
                     };
                     context.Bombs.Add(lBombElAlba);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+            #region Bomb La Zenaida
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionFarmLaZenaida
+                                 select pos).FirstOrDefault();
+
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NamePositionFarmLaZenaida
+                             select far).FirstOrDefault();
+
+                    var lBombLaZenaida = new Bomb
+                    {
+                        Name = Utils.NameBombLaZenaida,
+                        ShortName = Utils.NameBombLaZenaida,
+                        SerialNumber = "111111111",
+                        PurchaseDate = Utils.MIN_DATETIME,
+                        ServiceDate = Utils.MIN_DATETIME,
+                        PositionId = lPosition.PositionId,
+                        FarmId = lFarm.FarmId,
+                    };
+                    context.Bombs.Add(lBombLaZenaida);
                     context.SaveChanges();
                 }
             }
@@ -1522,8 +1552,8 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
-                        lDCAElParaisoPivot1.Show = true;
-                        lDCAElParaisoPivot2.Show = false;
+                        lDCAElParaisoPivot1.Show = false;
+                        lDCAElParaisoPivot2.Show = true;
                         lDCAElParaisoPivot3.Show = true;
                         lDCAElParaisoPivot4.Show = true;
                         lDCAElParaisoPivot5.Show = false;
@@ -1532,8 +1562,8 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     }
                     else 
                     {
-                        lDCAElParaisoPivot1.Show = true;
-                        lDCAElParaisoPivot2.Show = false;
+                        lDCAElParaisoPivot1.Show = false;
+                        lDCAElParaisoPivot2.Show = true;
                         lDCAElParaisoPivot3.Show = true;
                         lDCAElParaisoPivot4.Show = true;
                         lDCAElParaisoPivot5.Show = false;
@@ -1980,22 +2010,22 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
-                        lDCALaPerdizPivot1.Show = false;
+                        lDCALaPerdizPivot1.Show = true;
                         lDCALaPerdizPivot2.Show = false;
                         lDCALaPerdizPivot3.Show = false;
                         lDCALaPerdizPivot4.Show = false;
                         lDCALaPerdizPivot5.Show = false;
-                        lDCALaPerdizPivot6.Show = false;
+                        lDCALaPerdizPivot6.Show = true;
                         lDCALaPerdizPivot7.Show = true;
                         lDCALaPerdizPivot8.Show = false;
                         lDCALaPerdizPivot9.Show = false;
-                        lDCALaPerdizPivot10a.Show = false;
+                        lDCALaPerdizPivot10a.Show = true;
                         lDCALaPerdizPivot10b.Show = false;
                         lDCALaPerdizPivot11.Show = false;
                         lDCALaPerdizPivot12.Show = false;
                         lDCALaPerdizPivot13.Show = false;
                         lDCALaPerdizPivot14.Show = true;
-                        lDCALaPerdizPivot15.Show = false;
+                        lDCALaPerdizPivot15.Show = true;
                     }
                     else 
                     {
@@ -2008,8 +2038,8 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDCALaPerdizPivot7.Show = true;
                         lDCALaPerdizPivot8.Show = false;
                         lDCALaPerdizPivot9.Show = false;
-                        lDCALaPerdizPivot10a.Show = false;
-                        lDCALaPerdizPivot10b.Show = true;
+                        lDCALaPerdizPivot10a.Show = true;
+                        lDCALaPerdizPivot10b.Show = false;
                         lDCALaPerdizPivot11.Show = false;
                         lDCALaPerdizPivot12.Show = false;
                         lDCALaPerdizPivot13.Show = false;
@@ -5689,6 +5719,169 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 }
             }
             #endregion
+            #region Pivots La Zenaida
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lFarm = (from f in context.Farms
+                             where f.Name == Utils.NameFarmLaZenaida
+                             select f).FirstOrDefault();
+
+                    #region Pivot 1
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombLaZenaida
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida1
+                                 select pos).FirstOrDefault();
+
+                    var lLaZenaidaPivot1 = new Pivot
+                    {
+                        Name = Utils.NamePivotLaZenaida1,
+                        ShortName = "Pivot 1",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 15,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 8,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombLaZenaida
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida2
+                                 select pos).FirstOrDefault();
+
+                    var lLaZenaidaPivot2 = new Pivot
+                    {
+                        Name = Utils.NamePivotLaZenaida2,
+                        ShortName = "Pivot 2",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 15,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 8,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombLaZenaida
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida3
+                                 select pos).FirstOrDefault();
+
+                    var lLaZenaidaPivot3 = new Pivot
+                    {
+                        Name = Utils.NamePivotLaZenaida3,
+                        ShortName = "Pivot 3",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 15,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 8,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombLaZenaida
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida4
+                                 select pos).FirstOrDefault();
+
+                    var lLaZenaidaPivot4 = new Pivot
+                    {
+                        Name = Utils.NamePivotLaZenaida4,
+                        ShortName = "Pivot 4",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 15,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 8,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombLaZenaida
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida5
+                                 select pos).FirstOrDefault();
+
+                    var lLaZenaidaPivot5 = new Pivot
+                    {
+                        Name = Utils.NamePivotLaZenaida5,
+                        ShortName = "Pivot 5",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.90,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 15,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 8,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+
+                    #region Pivot - Shows by Season
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lLaZenaidaPivot1.Show = true;
+                        lLaZenaidaPivot2.Show = true;
+                        lLaZenaidaPivot3.Show = true;
+                        lLaZenaidaPivot4.Show = true;
+                        lLaZenaidaPivot5.Show = true;
+                    }
+                    else
+                    {
+                        lLaZenaidaPivot1.Show = true;
+                        lLaZenaidaPivot2.Show = true;
+                        lLaZenaidaPivot3.Show = true;
+                        lLaZenaidaPivot4.Show = true;
+                        lLaZenaidaPivot5.Show = true;
+                    }
+                    #endregion
+
+                    context.Pivots.Add(lLaZenaidaPivot1);
+                    context.Pivots.Add(lLaZenaidaPivot2);
+                    context.Pivots.Add(lLaZenaidaPivot3);
+                    context.Pivots.Add(lLaZenaidaPivot4);
+                    context.Pivots.Add(lLaZenaidaPivot5);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
 
         }
 
@@ -5873,6 +6066,13 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmElAlba();
+            }
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
+            {
+                LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmLaZenaida();
             }
         }
 
