@@ -7828,6 +7828,272 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
+            #region Horizons La Zenaida
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
+            {
+
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region Pivot 1
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotLaZenaida1
+                             select soil).FirstOrDefault();
+                    var lLaZenaidaPivot_1_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida1 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 37,
+                        Limo = 40,
+                        Clay = 23,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.32,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_1_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida1 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 35,
+                        Sand = 34,
+                        Limo = 39,
+                        Clay = 27,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.27,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_1_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida1 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 50,
+                        Sand = 29,
+                        Limo = 35,
+                        Clay = 36,
+                        OrganicMatter = 2.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.22,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 2
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotLaZenaida2
+                             select soil).FirstOrDefault();
+                    var lLaZenaidaPivot_2_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida2 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 37,
+                        Limo = 40,
+                        Clay = 23,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.32,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_2_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida2 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 35,
+                        Sand = 34,
+                        Limo = 39,
+                        Clay = 27,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.27,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_2_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida2 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 50,
+                        Sand = 29,
+                        Limo = 35,
+                        Clay = 36,
+                        OrganicMatter = 2.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.22,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 3
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotLaZenaida3
+                             select soil).FirstOrDefault();
+                    var lLaZenaidaPivot_3_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida3 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 37,
+                        Limo = 40,
+                        Clay = 23,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.32,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_3_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida3 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 35,
+                        Sand = 34,
+                        Limo = 39,
+                        Clay = 27,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.27,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_3_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida3 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 50,
+                        Sand = 29,
+                        Limo = 35,
+                        Clay = 36,
+                        OrganicMatter = 2.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.22,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 4
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotLaZenaida4
+                             select soil).FirstOrDefault();
+                    var lLaZenaidaPivot_4_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida4 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 37,
+                        Limo = 40,
+                        Clay = 23,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.32,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_4_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida4 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 35,
+                        Sand = 34,
+                        Limo = 39,
+                        Clay = 27,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.27,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_4_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida4 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 50,
+                        Sand = 29,
+                        Limo = 35,
+                        Clay = 36,
+                        OrganicMatter = 2.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.22,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 5
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotLaZenaida5
+                             select soil).FirstOrDefault();
+                    var lLaZenaidaPivot_5_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida5 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 20,
+                        Sand = 37,
+                        Limo = 40,
+                        Clay = 23,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.32,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_5_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida5 + " 2",
+                        Order = 2,
+                        HorizonLayer = "AB",
+                        HorizonLayerDepth = 35,
+                        Sand = 34,
+                        Limo = 39,
+                        Clay = 27,
+                        OrganicMatter = 2.8,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.27,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lLaZenaidaPivot_5_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotLaZenaida5 + " 3",
+                        Order = 3,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 50,
+                        Sand = 29,
+                        Limo = 35,
+                        Clay = 36,
+                        OrganicMatter = 2.3,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.22,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+
+                    #region Horizons La Zenaida
+                    context.Horizons.Add(lLaZenaidaPivot_1_1);
+                    context.Horizons.Add(lLaZenaidaPivot_1_2);
+                    context.Horizons.Add(lLaZenaidaPivot_1_3);
+                    context.Horizons.Add(lLaZenaidaPivot_2_1);
+                    context.Horizons.Add(lLaZenaidaPivot_2_2);
+                    context.Horizons.Add(lLaZenaidaPivot_2_3);
+                    context.Horizons.Add(lLaZenaidaPivot_3_1);
+                    context.Horizons.Add(lLaZenaidaPivot_3_2);
+                    context.Horizons.Add(lLaZenaidaPivot_3_3);
+                    context.Horizons.Add(lLaZenaidaPivot_4_1);
+                    context.Horizons.Add(lLaZenaidaPivot_4_2);
+                    context.Horizons.Add(lLaZenaidaPivot_4_3);
+                    context.Horizons.Add(lLaZenaidaPivot_5_1);
+                    context.Horizons.Add(lLaZenaidaPivot_5_2);
+                    context.Horizons.Add(lLaZenaidaPivot_5_3);
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
 
             #region Horizons
 
@@ -12639,7 +12905,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     var lElAlbaPivot33 = new Soil
                     {
                         Name = Utils.NamePivotElAlba33,
-                        Description = "Suelo del Pivot 2 en El Alba. "
+                        Description = "Suelo del Pivot 33 en El Alba. "
                          + "Brunosoles Éutricos Lúvicos. Grupo CONEAT 10.5.",
                         PositionId = lPosition.PositionId,
                         TestDate = new DateTime(2018, 10, 24),
@@ -12660,6 +12926,174 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                 }
             }
             #endregion
+            #region La Zenaida Soils
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    lFarm = (from far in context.Farms
+                             where far.Name == Utils.NameFarmLaZenaida
+                             select far).FirstOrDefault();
+
+                    #region Pivot 1
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida1
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida1 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida1 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida1 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lLaZenaidaPivot1 = new Soil
+                    {
+                        Name = Utils.NamePivotLaZenaida1,
+                        Description = "Suelo del Pivot 1 en La Zenaida. "
+                         + "Grupo CONEAT 5.4.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 12, 12),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotLaZenaida1,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lLaZenaidaPivot1.HorizonList.Add(lHorizon1);
+                    lLaZenaidaPivot1.HorizonList.Add(lHorizon2);
+                    lLaZenaidaPivot1.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 2
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida2
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida2 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida2 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida2 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lLaZenaidaPivot2 = new Soil
+                    {
+                        Name = Utils.NamePivotLaZenaida2,
+                        Description = "Suelo del Pivot 2 en La Zenaida. "
+                         + "Grupo CONEAT 5.4.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 12, 12),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotLaZenaida2,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lLaZenaidaPivot2.HorizonList.Add(lHorizon1);
+                    lLaZenaidaPivot2.HorizonList.Add(lHorizon2);
+                    lLaZenaidaPivot2.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 3
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida3
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida3 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida3 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida3 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lLaZenaidaPivot3 = new Soil
+                    {
+                        Name = Utils.NamePivotLaZenaida3,
+                        Description = "Suelo del Pivot 3 en La Zenaida. "
+                         + "Grupo CONEAT 5.4.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 12, 12),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotLaZenaida3,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lLaZenaidaPivot3.HorizonList.Add(lHorizon1);
+                    lLaZenaidaPivot3.HorizonList.Add(lHorizon2);
+                    lLaZenaidaPivot3.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 4
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida4
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida4 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida4 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida4 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lLaZenaidaPivot4 = new Soil
+                    {
+                        Name = Utils.NamePivotLaZenaida4,
+                        Description = "Suelo del Pivot 4 en La Zenaida. "
+                         + "Grupo CONEAT 5.4.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 12, 12),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotLaZenaida4,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lLaZenaidaPivot4.HorizonList.Add(lHorizon1);
+                    lLaZenaidaPivot4.HorizonList.Add(lHorizon2);
+                    lLaZenaidaPivot4.HorizonList.Add(lHorizon3);
+                    #endregion
+                    #region Pivot 5
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotLaZenaida5
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida5 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida5 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotLaZenaida5 + " 3"
+                                 select hor).FirstOrDefault();
+                    var lLaZenaidaPivot5 = new Soil
+                    {
+                        Name = Utils.NamePivotLaZenaida5,
+                        Description = "Suelo del Pivot 5 en La Zenaida. "
+                         + "Grupo CONEAT 5.4.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 12, 12),
+                        DepthLimit = 50,
+                        ShortName = Utils.NamePivotLaZenaida5,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lLaZenaidaPivot5.HorizonList.Add(lHorizon1);
+                    lLaZenaidaPivot5.HorizonList.Add(lHorizon2);
+                    lLaZenaidaPivot5.HorizonList.Add(lHorizon3);
+                    #endregion
+
+                    context.Soils.Add(lLaZenaidaPivot1);
+                    context.Soils.Add(lLaZenaidaPivot2);
+                    context.Soils.Add(lLaZenaidaPivot3);
+                    context.Soils.Add(lLaZenaidaPivot4);
+                    context.Soils.Add(lLaZenaidaPivot5);
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
 
         }
 
