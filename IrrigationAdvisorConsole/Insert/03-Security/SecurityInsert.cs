@@ -743,6 +743,43 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
             #endregion
 
+            #region La Zenaida
+            var lLaZenaidaMChiesa= new User()
+            {
+                Name = "Martin",
+                Surname = "Chiesa",
+                Phone = "+598 99 561 101",
+                Address = "Ruta 14 km",
+                Email = "martinchiesa@hotmail.com",
+                UserName = Utils.NameUserLZ1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LZ2018"),
+                RoleId = 3,
+            };
+            var lLaZenaidaMRegusci = new User()
+            {
+                Name = "Martin",
+                Surname = "Regusci",
+                Phone = "+598 98 346 458",
+                Address = "Ruta 55, Campana",
+                Email = "martinregusci@gmail.com",
+                UserName = Utils.NameUserLZ2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LZ2018"),
+                RoleId = 3,
+            };
+            var lLaZenaidaPSecco = new User()
+            {
+                Name = "Pablo",
+                Surname = "Secco",
+                Phone = "+598 92 123 222",
+                Address = "Ruta 55, Campana",
+                Email = "pablo.seccofr@gmail.com",
+                UserName = Utils.NameUserLZ3,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LZ2018"),
+                RoleId = 3,
+            };
+
+            #endregion
+
             using (var context = new IrrigationAdvisorContext())
             {
                 //context.Users.Add(lBase);
@@ -800,6 +837,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lAlpinoRGuillen);
                 context.Users.Add(lAlpinoNLeguisamo);
                 context.Users.Add(lAlpinoMBlanco);
+                context.Users.Add(lLaZenaidaMChiesa);
+                context.Users.Add(lLaZenaidaMRegusci);
+                context.Users.Add(lLaZenaidaPSecco);
                 context.SaveChanges();
             }
 
@@ -1633,6 +1673,41 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmElAlba
+                             select farm).FirstOrDefault();
+                    lUserList = (from user in context.Users
+                                 where lUserNames.Contains(user.UserName)
+                                 select user).ToList();
+                    foreach (User lUser in lUserList)
+                    {
+                        var lUserFarm = new UserFarm()
+                        {
+                            UserId = lUser.UserId,
+                            FarmId = lFarm.FarmId,
+                            Name = lUser.Name + lFarm.Name,
+                            StartDate = DateTime.Now,
+                        };
+
+                        context.UserFarms.Add(lUserFarm);
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
+                #region La Zenaida - LZ
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
+                {
+                    lUserNames = new String[] { Utils.NameUserLZ1, Utils.NameUserLZ2,
+                                                Utils.NameUserLZ3,
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin, Utils.NameUserCristian,
+                                                Utils.NameUserCPalo, Utils.NameUserMCarle,
+                                                Utils.NameUserROlivera, Utils.NameUserDemo,
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
+
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmLaZenaida
                              select farm).FirstOrDefault();
                     lUserList = (from user in context.Users
                                  where lUserNames.Contains(user.UserName)
