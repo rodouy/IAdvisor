@@ -1136,10 +1136,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSpecieSorghumForageNorthMedium = "Sorgo Forraje " + NameSpecieCycleNorthMedium;
         #endregion
         #region Sorghum Grain
-        public static String NameSpecieSorghumGrainSouthShort = "Sorgo Granifero" + NameSpecieCycleSouthShort;
-        public static String NameSpecieSorghumGrainSouthMedium = "Sorgo Granifero" + NameSpecieCycleSouthMedium;
-        public static String NameSpecieSorghumGrainNorthShort = "Sorgo Granifero" + NameSpecieCycleNorthShort;
-        public static String NameSpecieSorghumGrainNorthMedium = "Sorgo Granifero" + NameSpecieCycleNorthMedium;
+        public static String NameSpecieSorghumGrainSouthShort = "Sorgo Granifero " + NameSpecieCycleSouthShort;
+        public static String NameSpecieSorghumGrainSouthMedium = "Sorgo Granifero " + NameSpecieCycleSouthMedium;
+        public static String NameSpecieSorghumGrainNorthShort = "Sorgo Granifero " + NameSpecieCycleNorthShort;
+        public static String NameSpecieSorghumGrainNorthMedium = "Sorgo Granifero " + NameSpecieCycleNorthMedium;
         #endregion
         #region Alfalfa
         public static String NameSpecieAlfalfaSouthShort = "Alfalfa " + NameSpecieCycleSouthShort;
@@ -1166,16 +1166,16 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSpecieRedCloverSeedNorthMedium = "Trebol Rojo Semilla " + NameSpecieCycleNorthMedium;
         #endregion
         #region Fescue Forage
-        public static String NameSpecieFescueForageSouthShort = "Festuca Forraje" + NameSpecieCycleSouthShort;
-        public static String NameSpecieFescueForageSouthMedium = "Festuca Forraje" + NameSpecieCycleSouthMedium;
-        public static String NameSpecieFescueForageNorthShort = "Festuca Forraje" + NameSpecieCycleNorthShort;
-        public static String NameSpecieFescueForageNorthMedium = "Festuca Forraje" + NameSpecieCycleNorthMedium;
+        public static String NameSpecieFescueForageSouthShort = "Festuca Forraje " + NameSpecieCycleSouthShort;
+        public static String NameSpecieFescueForageSouthMedium = "Festuca Forraje " + NameSpecieCycleSouthMedium;
+        public static String NameSpecieFescueForageNorthShort = "Festuca Forraje " + NameSpecieCycleNorthShort;
+        public static String NameSpecieFescueForageNorthMedium = "Festuca Forraje " + NameSpecieCycleNorthMedium;
         #endregion
         #region Fescue Seed
-        public static String NameSpecieFescueSeedSouthShort = "Festuca Semilla" + NameSpecieCycleSouthShort;
-        public static String NameSpecieFescueSeedSouthMedium = "Festuca Semilla" + NameSpecieCycleSouthMedium;
-        public static String NameSpecieFescueSeedNorthShort = "Festuca Semilla" + NameSpecieCycleNorthShort;
-        public static String NameSpecieFescueSeedNorthMedium = "Festuca Semilla" + NameSpecieCycleNorthMedium;
+        public static String NameSpecieFescueSeedSouthShort = "Festuca Semilla " + NameSpecieCycleSouthShort;
+        public static String NameSpecieFescueSeedSouthMedium = "Festuca Semilla " + NameSpecieCycleSouthMedium;
+        public static String NameSpecieFescueSeedNorthShort = "Festuca Semilla " + NameSpecieCycleNorthShort;
+        public static String NameSpecieFescueSeedNorthMedium = "Festuca Semilla " + NameSpecieCycleNorthMedium;
         #endregion
         public static String NameSpecie = "";
         #endregion
@@ -1977,7 +1977,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherDCALaPerdizPivot7_S1819 = NamePivotDCALaPerdiz7 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot8_S1819 = NamePivotDCALaPerdiz8 + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot9_S1819 = NamePivotDCALaPerdiz9 + " " + NameSpecieCornSouthShort + " S1819";
-        public static String NameCropIrrigationWeatherDCALaPerdizPivot10a_S1819 = NamePivotDCALaPerdiz10a + " " + NameSpecieFescueForageSouthShort + " S1819";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot10a_S1819 = NamePivotDCALaPerdiz10a + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot10b_S1819 = NamePivotDCALaPerdiz10b + " " + NameSpecieCornSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot11_S1819 = NamePivotDCALaPerdiz11 + " " + NameSpecieFescueForageSouthShort + " S1819";
         public static String NameCropIrrigationWeatherDCALaPerdizPivot12_S1819 = NamePivotDCALaPerdiz12 + " " + NameSpecieCornSouthShort + " S1819";
