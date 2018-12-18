@@ -14,6 +14,7 @@ namespace IrrigationAdvisor.WebApi.Models
         public string Name { get; set; }
         public string Crop { get; set; }
         public DateTime HarvestDate { get; set; }
+        public DateTime SowingDate { get; set; }
         public string Phenology { get; set; }
         public double Kc { get; set; }
         public double HydricBalance { get; set; }

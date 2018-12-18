@@ -63,6 +63,7 @@ namespace IrrigationAdvisor.WebApi.Controllers
                         IrrigationUnitId = row.IrrigationUnit.IrrigationUnitId,
                         Crop = row.Crop.Name,
                         HarvestDate = row.CropIrrigationWeather.HarvestDate,
+                        SowingDate = row.CropIrrigationWeather.SowingDate,
                         HydricBalance = Math.Round(row.CropIrrigationWeather.HydricBalance, 2),
                         Kc = 0,
                         Phenology = row.Stage.Name,
