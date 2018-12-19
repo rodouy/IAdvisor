@@ -19141,8 +19141,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
 
                     Console.Write(" - La Portuguesa ");
-                    DataEntry2018.AddInformationToIrrigationUnitsLaPortuguesaPivot1_2018(context, Program.DateOfReference);
-                    DataEntry2018.AddInformationToIrrigationUnitsLaPortuguesaPivot2_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsLaPortuguesaPivot1_2018(context, Program.DateOfReference);
+                    //DataEntry2018.AddInformationToIrrigationUnitsLaPortuguesaPivot2_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
