@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace IrrigationAdvisor.Models.Agriculture
 {
-    
+
     /// <summary>
     /// Create: 2014-10-14
     /// Author: monicarle
@@ -64,31 +64,38 @@ namespace IrrigationAdvisor.Models.Agriculture
         ///     - Name: the name of the instance
         /// </summary>
 
-        
+
         public long StageId
         {
             get { return stageId; }
             set { stageId = value; }
         }
 
+
+        [Required]
+        [Display(Name = "Nombre")]
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
 
+        [Display(Name = "Nombre corto")]
         public String ShortName
         {
             get { return shortName; }
             set { shortName = value; }
         }
-        
+
+        [Display(Name = "Descirpción")]
         public string Description
         {
             get { return description; }
             set { description = value; }
         }
 
+        [Required]
+        [Display(Name = "Orden")]
         public int Order
         {
             get { return order; }
@@ -119,7 +126,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         /// <param name="pShortName"></param>
         /// <param name="pDescription"></param>
         /// <param name="pOrder"></param>
-        public Stage(long pStageId, String pName, String pShortName, 
+        public Stage(long pStageId, String pName, String pShortName,
                     String pDescription, int pOrder)
         {
             this.StageId = pStageId;

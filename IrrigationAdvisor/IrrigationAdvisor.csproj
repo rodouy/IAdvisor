@@ -402,6 +402,7 @@
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Models\Weather\MeteoblueWeatherData.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Agriculture\PhenologicalStageViewModel.cs" />
     <Compile Include="ViewModels\Agriculture\SpecieCycleViewModel.cs" />
     <Compile Include="ViewModels\Irrigation\SprinklerViewModel.cs" />
     <Compile Include="ViewModels\Irrigation\DripViewModel.cs" />
