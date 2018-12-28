@@ -3907,7 +3907,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             List<IrrigationUnit> lIrrigationUnitList = new List<IrrigationUnit>();
             IQueryable<IrrigationUnit> lIQIrrigationUnit = null;
             String[] lUserNames = {   Utils.NameUserDCA1, Utils.NameUserDCA3,
-                                      Utils.NameUserDCA4, Utils.NameUserDCA7,
+                                      Utils.NameUserDCA4, Utils.NameUserDCA7, Utils.NameUserDCA8,
                                       Utils.NameUserSeba, Utils.NameUserGonza,
                                       Utils.NameUserAdmin, Utils.NameUserCristian,
                                       Utils.NameUserCPalo, Utils.NameUserMCarle,
