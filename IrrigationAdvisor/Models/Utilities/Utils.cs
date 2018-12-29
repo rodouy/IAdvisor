@@ -2161,6 +2161,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameUserDCA5 = "agareta";
         public static String NameUserDCA6 = "rpastorino";
         public static String NameUserDCA7 = "IGrolero";
+        public static String NameUserDCA8 = "DGogna";
         public static String NameUserSantaLucia = "SantaLucia";
         public static String NameUserDelLago1 = "girazabal";
         public static String NameUserDelLago2 = "jhemala";
