@@ -106,7 +106,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region DCA - El Paraiso
         public static String WeatherStationMainName_DCAElParaiso_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_DCAElParaiso_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_DCAElParaiso_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_SoyaSouth_DCAElParaisoPivot1_2018 = new DateTime(2018, 11, 9);
         public static DateTime HarvestDate_SoyaSouth_DCAElParaisoPivot1_2018 = new DateTime(2019, 05, 15);
@@ -133,7 +133,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region DCA - La Perdiz
         public static String WeatherStationMainName_DCALaPerdiz_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_DCALaPerdiz_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_DCALaPerdiz_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot1_2018 = new DateTime(2018, 12, 08);
         public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot1_2018 = new DateTime(2019, 04, 30);
@@ -192,7 +192,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region DCA - San Jose
         public static String WeatherStationMainName_DCASanJose_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_DCASanJose_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_DCASanJose_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_CornSouth_DCASanJosePivot1_2018 = new DateTime(2018, 11, 10);
         public static DateTime HarvestDate_CornSouth_DCASanJosePivot1_2018 = new DateTime(2019, 04, 05);
@@ -209,7 +209,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region Del Lago - San Pedro
         public static String WeatherStationMainName_DelLagoSanPedro_2018 = Utils.NameWeatherStationLasBrujas;
-        public static String WeatherStationAlternativeName_DelLagoSanPedro_2018 = Utils.NameWeatherStationLaTribu;
+        public static String WeatherStationAlternativeName_DelLagoSanPedro_2018 = Utils.NameWeatherStationLaEstanzuela;
 
         public static DateTime SowingDate_CornSouth_DelLagoSanPedroPivot1_2018 = new DateTime(2018, 10, 09); //1
         public static DateTime HarvestDate_CornSouth_DelLagoSanPedroPivot1_2018 = new DateTime(2019, 04, 10);
@@ -266,7 +266,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region Del Lago - El Mirador
         public static String WeatherStationMainName_DelLagoElMirador_2018 = Utils.NameWeatherStationLasBrujas;
-        public static String WeatherStationAlternativeName_DelLagoElMirador_2018 = Utils.NameWeatherStationLaTribu;
+        public static String WeatherStationAlternativeName_DelLagoElMirador_2018 = Utils.NameWeatherStationLaEstanzuela;
 
         public static DateTime SowingDate_CornSouth_DelLagoElMiradorPivot1_2018 = new DateTime(2018, 10, 09); //1
         public static DateTime HarvestDate_CornSouth_DelLagoElMiradorPivot1_2018 = new DateTime(2019, 04, 10);
@@ -340,7 +340,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region GMO - La Palma
         public static String WeatherStationMainName_GMOLaPalma_2018 = Utils.NameWeatherStationSaltoGrande;
-        public static String WeatherStationAlternativeName_GMOLaPalma_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_GMOLaPalma_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_SoyaNorth_GMOLaPalmaPivot1_2018 = new DateTime(2018, 11, 21);
         public static DateTime HarvestDate_SoyaNorth_GMOLaPalmaPivot1_2018 = new DateTime(2019, 05, 10);
@@ -372,7 +372,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region GMO - El Tacuru
         public static String WeatherStationMainName_GMOElTacuru_2018 = Utils.NameWeatherStationSaltoGrande;
-        public static String WeatherStationAlternativeName_GMOElTacuru_2018 = Utils.NameWeatherStationElRetiro;
+        public static String WeatherStationAlternativeName_GMOElTacuru_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_AlfalfaNorth_GMOElTacuruPivot1a_2018 = new DateTime(2016, 06, 23);
         public static DateTime HarvestDate_AlfalfaNorth_GMOElTacuruPivot1a_2018 = new DateTime(2019, 08, 01);
@@ -416,7 +416,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region TM - Tres Marias
         public static String WeatherStationMainName_TresMarias_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_TresMarias_2018 = Utils.NameWeatherStationElRetiro;
+        public static String WeatherStationAlternativeName_TresMarias_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_CornSouth_TresMariasPivot1_2018 = new DateTime(2018, 12, 12);
         public static DateTime HarvestDate_CornSouth_TresMariasPivot1_2018 = new DateTime(2019, 03, 30);
@@ -434,7 +434,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region LR - La Rinconada
         public static String WeatherStationMainName_LaRinconada_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_LaRinconada_2018 = Utils.NameWeatherStationElRetiro;
+        public static String WeatherStationAlternativeName_LaRinconada_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_SoyaNorth_LaRinconadaPivot1_2018 = new DateTime(2018, 10, 29);
         public static DateTime HarvestDate_SoyaNorth_LaRinconadaPivot1_2018 = new DateTime(2019, 02, 28);
@@ -452,7 +452,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region ER - El Rincon
         public static String WeatherStationMainName_ElRincon_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_ElRincon_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_ElRincon_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_CornSouth_ElRinconPivot1a_2018 = new DateTime(2018, 11, 07);
         public static DateTime HarvestDate_CornSouth_ElRinconPivot1a_2018 = new DateTime(2019, 03, 10);
@@ -470,7 +470,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region ED - El Desafio
         public static String WeatherStationMainName_ElDesafio_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_ElDesafio_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_ElDesafio_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_SudanGrassSouth_ElDesafioPivot1_2018 = new DateTime(2018, 10, 07);
         public static DateTime HarvestDate_SudanGrassSouth_ElDesafioPivot1_2018 = new DateTime(2019, 04, 30);
@@ -482,7 +482,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region LN - Los Naranjos
         public static String WeatherStationMainName_LosNaranjales_2018 = Utils.NameWeatherStationLasBrujas;
-        public static String WeatherStationAlternativeName_LosNaranjales_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_LosNaranjales_2018 = Utils.NameWeatherStationLaEstanzuela;
 
         public static DateTime SowingDate_CornSouth_LosNaranjalesPivot6aT3_2018 = new DateTime(2018, 10, 20);
         public static DateTime HarvestDate_CornSouth_LosNaranjalesPivot6aT3_2018 = new DateTime(2019, 04, 10);
@@ -500,7 +500,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region SE - Santa Emilia
         public static String WeatherStationMainName_SantaEmilia_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_SantaEmilia_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_SantaEmilia_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_CornSouth_SantaEmiliaPivot1_2018 = new DateTime(2018, 10, 07);
         public static DateTime HarvestDate_CornSouth_SantaEmiliaPivot1_2018 = new DateTime(2019, 04, 30);
@@ -530,7 +530,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region GM - Gran Molino
         public static String WeatherStationMainName_GranMolino_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_GranMolino_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_GranMolino_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_SoyaSouth_GranMolinoPivot1_2018 = new DateTime(2018, 12, 05);
         public static DateTime HarvestDate_SoyaSouth_GranMolinoPivot1_2018 = new DateTime(2019, 05, 15);
@@ -557,7 +557,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region LP - La Portuguesa
         public static String WeatherStationMainName_LaPortuguesa_2018 = Utils.NameWeatherStationSaltoGrande;
-        public static String WeatherStationAlternativeName_LaPortuguesa_2018 = Utils.NameWeatherStationElRetiro;
+        public static String WeatherStationAlternativeName_LaPortuguesa_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_CornNorth_LaPortuguesaPivot1_2018 = new DateTime(2018, 10, 07);
         public static DateTime HarvestDate_CornNorth_LaPortuguesaPivot1_2018 = new DateTime(2019, 04, 30);
@@ -569,7 +569,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region CLP - Cassarino - La Perdiz
         public static String WeatherStationMainName_CassarinoLaPerdiz_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_CassarinoLaPerdiz_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_CassarinoLaPerdiz_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_SudanGrassSouth_CassarinoLaPerdizPivot11_2018 = new DateTime(2018, 10, 07);
         public static DateTime HarvestDate_SudanGrassSouth_CassarinoLaPerdizPivot11_2018 = new DateTime(2019, 04, 30);
@@ -584,7 +584,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region SD - Santo Domingo
         public static String WeatherStationMainName_SantoDomingo_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_SantoDomingo_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_SantoDomingo_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_SoyaSouth_SantoDomingoPivot1_2018 = new DateTime(2018, 10, 20);
         public static DateTime HarvestDate_SoyaSouth_SantoDomingoPivot1_2018 = new DateTime(2019, 04, 30);
@@ -596,7 +596,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region CE - Cecchini
         public static String WeatherStationMainName_Cecchini_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_Cecchini_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_Cecchini_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_SoyaSouth_CecchiniPivot1_2018 = new DateTime(2018, 10, 20);
         public static DateTime HarvestDate_SoyaSouth_CecchiniPivot1_2018 = new DateTime(2019, 04, 30);
@@ -608,7 +608,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region EA - El Alba
         public static String WeatherStationMainName_ElAlba_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_ElAlba_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_ElAlba_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_CornSouth_ElAlbaPivot32_2018 = new DateTime(2018, 09, 25);
         public static DateTime HarvestDate_CornSouth_ElAlbaPivot32_2018 = new DateTime(2019, 03, 01);
@@ -620,7 +620,7 @@ namespace IrrigationAdvisorConsole.Data
         #endregion
         #region LZ - La Zenaida
         public static String WeatherStationMainName_LaZenaida_2018 = Utils.NameWeatherStationLaEstanzuela;
-        public static String WeatherStationAlternativeName_LaZenaida_2018 = Utils.NameWeatherStationViveroSanFrancisco;
+        public static String WeatherStationAlternativeName_LaZenaida_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_FescueForageSouth_LaZenaidaPivot1_2018 = new DateTime(2018, 09, 25);
         public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot1_2018 = new DateTime(2019, 06, 30);
