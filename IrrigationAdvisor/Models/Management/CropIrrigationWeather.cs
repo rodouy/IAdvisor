@@ -2484,20 +2484,22 @@ namespace IrrigationAdvisor.Models.Management
         /// <summary>
         /// Calculate hydric balance adjustments.
         /// </summary>
-        /// <param name="pHydricBalanceAdjustmens"></param>
+        /// <param name="pHydricBalanceAdjustments"></param>
         /// <param name="pFromDate"></param>
         /// <param name="pToDate"></param>
-        public void ApplyHydricBalanceAdjustments(List<HydricBalanceAdjustment> pHydricBalanceAdjustmens, DateTime pFromDate)
+        public void ApplyHydricBalanceAdjustments(List<HydricBalanceAdjustment> pHydricBalanceAdjustments, DateTime pFromDate)
         {
-            var dailyRecord = this.dailyRecordList.FirstOrDefault(n => pFromDate == n.DailyRecordDateTime);
+            DailyRecord lDailyRecord = this.dailyRecordList.FirstOrDefault(n => pFromDate.Date == n.DailyRecordDateTime.Date);
 
-            var exists = pHydricBalanceAdjustmens.FirstOrDefault(n => n.CropIrrigationWeatherId == this.cropIrrigationWeatherId && n.Date == dailyRecord.DailyRecordDateTime);
+            HydricBalanceAdjustment lHydricBalanceAdjustmentExists = pHydricBalanceAdjustments
+                                                                    .FirstOrDefault(n => n.CropIrrigationWeatherId == this.cropIrrigationWeatherId 
+                                                                                       && n.Date.Date == lDailyRecord.DailyRecordDateTime.Date);
 
-            if (exists != null && dailyRecord != null)
+            if (lHydricBalanceAdjustmentExists != null && lDailyRecord != null)
             {
-                dailyRecord.HydricBalance = exists.HydricBalance;
-                dailyRecord.PercentageOfHydricBalance = exists.Percentage;
-                this.hydricBalance = exists.HydricBalance;
+                lDailyRecord.HydricBalance = lHydricBalanceAdjustmentExists.HydricBalance;
+                lDailyRecord.PercentageOfHydricBalance = lHydricBalanceAdjustmentExists.Percentage;
+                this.HydricBalance = lHydricBalanceAdjustmentExists.HydricBalance;
             }        
         }
 
@@ -3277,6 +3279,7 @@ namespace IrrigationAdvisor.Models.Management
             DateTime lDateOfReference;
             String lObservation = String.Empty;
             int lDatabaseChangeResult = 0;
+            List<HydricBalanceAdjustment> lHydricBalanceAdjustmentList;
 
             try
             {
@@ -3321,18 +3324,19 @@ namespace IrrigationAdvisor.Models.Management
                                     break;
                                 }
                             }
-                            
+
+                            //Adjustment of Hydric Balance
+                            lHydricBalanceAdjustmentList = pIrrigationAdvisorContext.HydricBalanceAdjustments
+                                                                .Where(n => n.CropIrrigationWeatherId == this.CropIrrigationWeatherId).ToList();
+
+                            ApplyHydricBalanceAdjustments(lHydricBalanceAdjustmentList, lDateOfRecord);
+
                             //when arrives to final Stage, do not add new irrigation
                             if (this.PhenologicalStage.Stage.StageId == this.Crop.StopIrrigationStageId)
                             {
                                 //System.Diagnostics.Debugger.Break();
                             }
 
-                            var hydricBalancesAdjustments = pIrrigationAdvisorContext
-                                                            .HydricBalanceAdjustments
-                                                            .Where(n => n.CropIrrigationWeatherId == this.cropIrrigationWeatherId).ToList();
-
-                            ApplyHydricBalanceAdjustments(hydricBalancesAdjustments, lDateOfRecord);
                         }
                     }
                 }
