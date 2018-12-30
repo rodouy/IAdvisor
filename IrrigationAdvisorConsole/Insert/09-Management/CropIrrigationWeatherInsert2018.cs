@@ -18692,6 +18692,167 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
         }
 
         /// <summary>
+        /// Add HydricBalance Adjustments:
+        ///     - DataEntry Add HydricBalance Adjustements Farm Pivot Year
+        /// </summary>
+        public static void AddHydricBalanceAdjustements2018()
+        {
+            #region Local Variable
+            HydricBalanceAdjustment lHydricBalanceAdjustment;
+            List<CropIrrigationWeather> lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+            Farm lFarm = null;
+            Crop lCrop = null;
+            IrrigationUnit lIrrigationUnit;
+            DateTime lDateOfChange;
+            double lCurrentBalance;
+            double lFieldCapacity;
+            double lNewHydricBalance;
+            double lPercentage;
+
+
+            #endregion
+
+            #region South
+
+            #region Santa Lucia
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaLucia)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region La Perdiz
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    #region DCA - La Perdiz Pivot 7 2018
+                    #region context
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmDCALaPerdiz
+                             select farm).FirstOrDefault();
+                    lCrop = (from crop in context.Crops
+                             where crop.Name == Utils.NameSpecieCornSouthShort
+                             select crop).FirstOrDefault();
+                    lIrrigationUnit = (from iu in context.Pivots
+                                       where iu.Name == Utils.NamePivotDCALaPerdiz7
+                                       select iu).FirstOrDefault();
+                    lCropIrrigationWeatherList = (from ciw in context.CropIrrigationWeathers
+                                                  where ciw.CropId == lCrop.CropId
+                                                      && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
+                                                      && ciw.SowingDate <= Program.DateOfReference
+                                                      && ciw.HarvestDate.Year >= Program.DateOfReference.Year
+                                                  select ciw).ToList<CropIrrigationWeather>();
+                    #endregion
+                    #region HydricBalanceAdjustment 2018/10/12 25 mm
+                    foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+                    {
+                        lDateOfChange = new DateTime(2018, 10, 12);
+                        lNewHydricBalance = 0;
+                        lPercentage = 90.31;
+
+                        lCurrentBalance = lCropIrrigationWeather.GetPercentageOfHydricBalance();
+                        lFieldCapacity = lCropIrrigationWeather.GetSoilFieldCapacity();
+
+                        lNewHydricBalance = (lPercentage * lFieldCapacity) / 100;
+
+                        lHydricBalanceAdjustment = new HydricBalanceAdjustment()
+                        {
+                            CropIrrigationWeatherId = lCropIrrigationWeather.CropIrrigationWeatherId,
+                            Date = lDateOfChange.Date,
+                            HydricBalance = lNewHydricBalance,
+                            Percentage = lPercentage,
+                        };
+                        context.HydricBalanceAdjustments.Add(lHydricBalanceAdjustment);
+                    }
+                    #endregion
+
+                    #endregion
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Del Lago - San Pedro
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region Del Lago - El Mirador
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region GMO - La Palma
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region GMO - El Tacuru
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #endregion
+
+            #region North
+            using (var context = new IrrigationAdvisorContext())
+            {
+                context.SaveChanges();
+            }
+            #endregion
+        }
+
+        /// <summary>
         /// Add Information to Irrigation Units:
         ///     - DataEntry Add Information To Irrigation Units Farm Pivot Year
         /// </summary>
