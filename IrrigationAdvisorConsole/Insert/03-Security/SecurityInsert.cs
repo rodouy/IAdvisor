@@ -1013,7 +1013,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3,
-                                                Utils.NameUserDCA4, Utils.NameUserDCA6, Utils.NameUserDCA7,
+                                                Utils.NameUserDCA4, //Utils.NameUserDCA5,
+                                                Utils.NameUserDCA6, 
+                                                Utils.NameUserDCA7, //Utils.NameUserDCA8,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -1051,7 +1053,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3, 
-                                                Utils.NameUserDCA4, Utils.NameUserDCA5, Utils.NameUserDCA7,
+                                                Utils.NameUserDCA4, Utils.NameUserDCA5, 
+                                                //Utils.NameUserDCA6,
+                                                Utils.NameUserDCA7, //Utils.NameUserDCA8,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -1089,7 +1093,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3,
-                                                Utils.NameUserDCA4, Utils.NameUserDCA7, Utils.NameUserDCA8,
+                                                Utils.NameUserDCA4, 
+                                                //Utils.NameUserDCA5, Utils.NameUserDCA6,
+                                                Utils.NameUserDCA7, Utils.NameUserDCA8,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
