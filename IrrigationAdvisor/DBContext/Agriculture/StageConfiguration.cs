@@ -51,5 +51,10 @@ namespace IrrigationAdvisor.DBContext.Agriculture
             return q;
 
         }
+
+        public List<Stage> GetAllStage()
+        {
+            return db.Stages.OrderBy(m => m.Name).ToList();
+        }
     }
 }

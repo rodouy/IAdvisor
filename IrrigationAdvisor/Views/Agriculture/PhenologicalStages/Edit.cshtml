@@ -1,14 +1,159 @@
-﻿@model IrrigationAdvisor.Models.Agriculture.PhenologicalStage
+﻿@model IrrigationAdvisor.ViewModels.Agriculture.PhenologicalStageViewModel
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "Agriculture";
 }
+<script js>
+    $(document).ready(function () {
+        var saveBtn = $('#SaveBtn');
 
-<h2>Edit</h2>
+        function isNumber(n) {
+            'use strict';
+            n = n.replace(/\./g, '').replace(',', '.');
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        saveBtn.click(function () {
+            $('#myForm').submit();
+            /*
+            var validateForm = true;
+
+            if ($('#StageId').val().trim() != '') {
+                $('#StageIdError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#StageIdError').html('Seleccione un estadio');
+                validateForm = false;
+            }
+
+            if (validateForm == true) {
+                if ($('#SpecieId').val().trim() != '') {
+                    $('#SpecieIdError').html('');
+                    validateForm = true;
+                }
+                else {
+                    $('#SpecieIdError').html('Seleccione una especie');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#MinDegree').val().trim() != '') {
+                    if (!isNumber($("#MinDegree").val())) {
+                        $("#MinDegreeError").html("En los grados mínimos ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#MinDegreeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#MinDegreeError').html('Ingrese los grados mínimos');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#MaxDegree').val().trim() != '') {
+                    if (!isNumber($("#MaxDegree").val())) {
+                        $("#MaxDegreeError").html("En los grados máximos ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#MaxDegreeError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#MaxDegreeError').html('Ingrese los grados máximos');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#RootDepth').val().trim() != '') {
+                    if (!isNumber($("#RootDepth").val())) {
+                        $("#RootDepthError").html("En la profundidad de la raíz ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#RootDepthError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#RootDepthError').html('Ingrese la profundidad de la raíz');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#HydricBalanceDepth').val().trim() != '') {
+                    if (!isNumber($("#HydricBalanceDepth").val())) {
+                        $("#HydricBalanceDepthError").html("En el balance hídrico ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#HydricBalanceDepthError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#HydricBalanceDepthError').html('Ingrese el balance hídrico');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#Coefficient').val().trim() != '') {
+                    if (!isNumber($("#Coefficient").val())) {
+                        $("#CoefficientError").html("En el coeficiente ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#CoefficientError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#CoefficientError').html('Ingrese el coeficiente');
+                    validateForm = false;
+                }
+            }
+
+            if (validateForm == true) {
+                if ($('#DegreesDaysInterval').val().trim() != '') {
+                    if (!isNumber($("#DegreesDaysInterval").val())) {
+                        $("#DegreesDaysIntervalError").html("En los grados acum. diarios ingrese solo números");
+                        validateForm = false;
+                    }
+                    else {
+                        $('#DegreesDaysIntervalError').html('');
+                        validateForm = true;
+                    }
+                }
+                else {
+                    $('#DegreesDaysIntervalError').html('Ingrese los grados acum. diarios');
+                    validateForm = false;
+                }
+            }
 
 
-@using (Html.BeginForm())
+
+            if (validateForm == true) {
+                $('#myForm').submit();
+
+            }
+            */
+        });
+    });
+</script>
+<h2>Editar</h2>
+
+
+@using (Html.BeginForm("Edit", "PhenologicalStages", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
     
@@ -19,47 +164,77 @@
         @Html.HiddenFor(model => model.PhenologicalStageId)
 
         <div class="form-group">
+            @Html.LabelFor(model => model.StageId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.StageId, Model.Stages, "-- Selecione un estadio --", new { @class = "form-control" })
+                <span id="StageIdError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SpecieId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SpecieId, Model.Species, "-- Selecione una especie --", new { @class = "form-control" })
+                <span id="SpecieIdError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
             @Html.LabelFor(model => model.MinDegree, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MinDegree, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MinDegree, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.MinDegree, new { htmlAttributes = new { @class = "form-control" , @placeholder="Ejemplo: 2,5" } })
+                <span id="MinDegreeError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.MaxDegree, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MaxDegree, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaxDegree, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.MaxDegree, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ejemplo: 2,5" } })
+                <span id="MaxDegreeError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.RootDepth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RootDepth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RootDepth, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.RootDepth, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ejemplo: 2,5" } })
+                <span id="RootDepthError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.HydricBalanceDepth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HydricBalanceDepth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HydricBalanceDepth, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.HydricBalanceDepth, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ejemplo: 2,5" } })
+                <span id="HydricBalanceDepthError" class="red-color"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Coefficient, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Coefficient, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ejemplo: 2,5" } })
+                <span id="CoefficientError" class="red-color"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DegreesDaysInterval, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DegreesDaysInterval, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ejemplo: 2,5" } })
+                <span id="DegreesDaysIntervalError" class="red-color"></span>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="button" id="SaveBtn" value="&nbsp;&nbsp;&nbsp;Guardar&nbsp;&nbsp;&nbsp;" class="btn btn-default" />&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
             </div>
+
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </div>
 
 @section Scripts {
