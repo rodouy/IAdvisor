@@ -2,22 +2,30 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "Agriculture";
+    
+    
 }
 
-<h2>Index</h2>
+<h2>Estadios</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Nombre corto
         </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Orden
+        </th>
+
         <th></th>
     </tr>
 
@@ -27,12 +35,18 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.ShortName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StageId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StageId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StageId })
+            @Html.DisplayFor(modelItem => item.Order)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.StageId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.StageId }) 
+           
         </td>
     </tr>
 }

@@ -2,13 +2,56 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "Agriculture";
 }
 
-<h2>Edit</h2>
+<script js>
+    $(document).ready(function () {
+        var saveBtn = $('#SaveBtn');
+
+        saveBtn.click(function () {
+            var validateForm = true;
+
+            if ($('#Name').val().trim() != '') {
+                $('#NameError').html('');
+                validateForm = true;
+            }
+            else {
+                $('#NameError').html('Ingrese el nombre');
+                validateForm = false;
+            }
+
+            if (validateForm == true) {
+                if ($("#Order").val().trim() === "") {
+                    $("#OrderError").html("Ingrese el orden");
+                    validateForm = false;
+                }
+                else {
+                    if (!isNaN($("#Order").val())) {
+                        $("#OrderError").html("");
+                        validateForm = true;
+                    }
+                    else {
+                        $("#OrderError").html("En el orden ingrese solo números");
+                        validateForm = false;
+                    }
+                }
+            }
 
 
-@using (Html.BeginForm())
+            if (validateForm == true) {
+                $('#myForm').submit();
+
+            }
+        });
+    });
+</script>
+
+
+
+<h2>Editar</h2>
+
+
+@using (Html.BeginForm("Edit", "Stages", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
     
@@ -22,28 +65,40 @@
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                <span id="NameError" class="red-color"></span>
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.ShortName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ShortName, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="ShortNameError" class="red-color"></span>
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                <span id="DescriptionError" class="red-color"></span>
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="OrderError" class="red-color"></span>
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="button" id="SaveBtn" value="&nbsp;&nbsp;&nbsp;Guardar&nbsp;&nbsp;&nbsp;" class="btn btn-default" />&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </div>
 
 @section Scripts {

@@ -20,7 +20,8 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // GET: Stages
         public ActionResult Index()
         {
-            return View(db.Stages.ToList());
+            var lSTages = db.Stages;
+            return View("~/Views/Agriculture/Stages/Index.cshtml", lSTages.ToList());
         }
 
         // GET: Stages/Details/5
@@ -35,13 +36,15 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return HttpNotFound();
             }
-            return View(stage);
+            return View("~/Views/Agriculture/Stages/Details.cshtml", stage);
         }
 
         // GET: Stages/Create
         public ActionResult Create()
         {
-            return View();
+            Stage vm = new Stage();
+        
+            return View("~/Views/Agriculture/Stages/Create.cshtml", vm);
         }
 
         // POST: Stages/Create
@@ -49,16 +52,14 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StageId,Name,Description")] Stage stage)
+        public ActionResult Create([Bind(Include = "StageId,Name,ShortName, Description, Order")] Stage stage)
         {
             if (ModelState.IsValid)
             {
                 db.Stages.Add(stage);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-
-            return View(stage);
+            return Redirect("/Stages");
         }
 
         // GET: Stages/Edit/5
@@ -73,7 +74,7 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             {
                 return HttpNotFound();
             }
-            return View(stage);
+            return View("~/Views/Agriculture/Stages/Edit.cshtml", stage);
         }
 
         // POST: Stages/Edit/5
@@ -81,15 +82,26 @@ namespace IrrigationAdvisor.Controllers.Agriculture
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StageId,Name,Description")] Stage stage)
+        public ActionResult Edit([Bind(Include = "StageId,Name,ShortName,Description,Order")] Stage stage)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(stage).State = EntityState.Modified;
+                Stage updatedstage = db.Stages.Find(stage.StageId);
+                if (updatedstage == null)
+                {
+                    return HttpNotFound();
+                }
+                updatedstage.Name = stage.Name;
+                updatedstage.ShortName = stage.ShortName;
+                updatedstage.Description = stage.Description;
+
+                updatedstage.Order = stage.Order;
+
+                db.Entry(updatedstage).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
             }
-            return View(stage);
+            return Redirect("/Stages");
         }
 
         // GET: Stages/Delete/5
@@ -116,15 +128,6 @@ namespace IrrigationAdvisor.Controllers.Agriculture
             db.Stages.Remove(stage);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

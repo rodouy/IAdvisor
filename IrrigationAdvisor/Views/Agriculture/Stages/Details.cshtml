@@ -2,34 +2,39 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "Agriculture";
+    
 }
 
-<h2>Details</h2>
+<h2>Detalle</h2>
+<h4>Estadio</h4>
+<hr />
+<div class="horizontal">
+    <table id="mytable">
 
-<div>
-    <h4>Stage</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.Name)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.ShortName)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.ShortName)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.Description)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Description)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">@Html.DisplayNameFor(model => model.Order)</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Order)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead"></td>
+            <td id="myTdBody">@Html.ActionLink("   Editar   ", "Edit", new { id = Model.StageId }, new { @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+        </tr>
+    </table>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StageId }) |
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </p>
+

@@ -2,33 +2,51 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "Agriculture";
+    
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MinDegree)
+            Especie
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MaxDegree)
+            Estadio
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RootDepth)
+            Grado mínimo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HydricBalanceDepth)
+            Grado máximo
         </th>
+        <th>
+           Prof. raíz
+        </th>
+        <th>
+           Bal. hídrico
+        </th>
+        <th>
+            Coeficiente
+        </th>
+        <th>
+            Grados acum. diarios
+        </th> 
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specie.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stage.Name)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.MinDegree)
         </td>
@@ -42,9 +60,16 @@
             @Html.DisplayFor(modelItem => item.HydricBalanceDepth)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PhenologicalStageId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PhenologicalStageId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PhenologicalStageId })
+            @Html.DisplayFor(modelItem => item.Coefficient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreesDaysInterval)
+        </td>
+
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.PhenologicalStageId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.PhenologicalStageId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.PhenologicalStageId })
         </td>
     </tr>
 }
