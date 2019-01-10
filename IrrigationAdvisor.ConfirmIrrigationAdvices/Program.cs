@@ -81,7 +81,7 @@ namespace IrrigationAdvisor.ConfirmIrrigationAdvices
                         {
                             var dates = messages.Where(n => n.Item1 == m.Item1).Select(p => p.Item2).Distinct().ToList();
 
-                            var contacts = context.FarmContacts.Where(n => n.FarmId == m.Item1).ToList();
+                            var contacts = context.FarmContacts.Where(n => n.FarmId == m.Item1 && n.SendEmail).ToList();
 
                             string date = string.Empty;
 
@@ -100,6 +100,20 @@ namespace IrrigationAdvisor.ConfirmIrrigationAdvices
 
                                 SendEmails(subject,
                                            message,
+                                           contactList);
+
+                                string contactString = string.Empty;
+
+                                foreach (var item in contactList.Distinct())
+                                {
+                                    contactString += item + ", ";
+                                }
+
+                                contactList.Clear();
+                                contactList.Add(emailTo);
+                               
+                                SendEmails("Mails enviados de confirmación de riego",
+                                           "Mails enviados de confirmación de riego: " + contactString,
                                            contactList);
                             }
 
@@ -125,7 +139,7 @@ namespace IrrigationAdvisor.ConfirmIrrigationAdvices
 
             foreach(var m in pEmailTo)
             {
-                mail.To.Add(m);
+                mail.Bcc.Add(m);
             }
           
             mail.Subject = subject;
