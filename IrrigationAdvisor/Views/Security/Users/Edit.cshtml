@@ -4,7 +4,67 @@
     ViewBag.Title = "Edit";
    // Layout = "";
 }
+<script js>
+    $(document).ready(function () {
 
+
+        function loadFarmsId() {
+            var options = $('#FarmSelected option');
+            var farms = "";
+            var values = $.map(options, function (option) {
+                if (farms == "")
+                    farms = option.value
+                else
+                    farms = farms + "|" + option.value
+
+            });
+            $('#FarmIdSelected').val(farms);
+
+        }
+
+        $('#btnRight').click(function (e) {
+            var selectedOpts = $('#FarmId option:selected');
+            if (selectedOpts.length == 0) {
+                alert("Nothing to move.");
+                e.preventDefault();
+            }
+            $('#FarmSelected').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+        $('#btnAllRight').click(function (e) {
+            var selectedOpts = $('#FarmId option');
+            if (selectedOpts.length == 0) {
+                alert("Nothing to move.");
+                e.preventDefault();
+            }
+            $('#FarmSelected').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+        $('#btnLeft').click(function (e) {
+            var selectedOpts = $('#FarmSelected option:selected');
+            if (selectedOpts.length == 0) {
+                alert("Nothing to move.");
+                e.preventDefault();
+            }
+            $('#FarmId').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+        $('#btnAllLeft').click(function (e) {
+            var selectedOpts = $('#FarmSelected option');
+            if (selectedOpts.length == 0) {
+                alert("Nothing to move.");
+                e.preventDefault();
+            }
+            $('#FarmId').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+
+    });
+</script>
 <h2>Editar</h2>
 
 
@@ -71,12 +131,39 @@
                 @Html.CheckBoxFor(model => model.Enable)
             </div>
         </div>       
-        <div class="cf footer">
-            <label class="control-label col-md-2" for="CapitalId"></label>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Establecimiento">Establecimientos</label>
+            <div class="col-md-10">
+                <div class="subject-info-box-1">
+                    Disponibles
+                    @Html.DropDownListFor(model => model.FarmId, Model.FarmsNotRelated, new { @class = "form-control", multiple = "multiple" })
 
-            <input type="submit" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveCountryBtn" class="btn btn-default" />
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
+                </div>
+                <div class="subject-info-arrows text-center">
+                    <input type="button" id="btnAllRight" value=">>" /><br />
+                    <input type="button" id="btnRight" value=">" /><br />
+                    <input type="button" id="btnLeft" value="<" /><br />
+                    <input type="button" id="btnAllLeft" value="<<" />
+                </div>
+                <div class="subject-info-box-2">
+                    Relacionadas
+                    @Html.DropDownListFor(model => model.FarmId, Model.Farms, new { @class = "form-control", multiple = "multiple", id = "FarmSelected" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                &nbsp;
+                <div class="col-md-10">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="cf footer">
+                <label class="control-label col-md-2" for="CapitalId"></label>
+
+                <input type="button" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveBtn" class="btn btn-default" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
+            </div>
         </div>
     </div>
 }

@@ -276,7 +276,9 @@ namespace IrrigationAdvisor.Controllers.Security
                 Surname = user.Surname,
                 UserId = user.UserId,
                 UserName = user.UserName,
-                Enable = user.Enable
+                Enable = user.Enable,
+                Farms = this.GetFarmListBy(user),
+                FarmsNotRelated = this.GetFarmNotRelatedListBy(user)
             };
 
             userVM.Roles = this.LoadRoles(user.RoleId, user);
@@ -310,6 +312,46 @@ namespace IrrigationAdvisor.Controllers.Security
                 result.Add(sl);
             }
 
+            return result;
+        }
+
+        private List<System.Web.Mvc.SelectListItem> GetFarmNotRelatedListBy(User pUser)
+        {
+            FarmConfiguration fc = new FarmConfiguration();
+            List<Farm> farms = fc.GetFarmNotRelatedListBy(pUser);
+
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in farms)
+            {
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.FarmId.ToString(),
+                    Text = item.Name,
+                };
+                result.Add(sl);
+            }
+            return result;
+        }
+
+        private List<System.Web.Mvc.SelectListItem> GetFarmListBy(User pUser)
+        {
+            FarmConfiguration fc = new FarmConfiguration();
+            List<Farm> farms = fc.GetFarmListBy(pUser);
+
+            List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
+
+            foreach (var item in farms)
+            {
+
+                SelectListItem sl = new SelectListItem()
+                {
+                    Value = item.FarmId.ToString(),
+                    Disabled = true,
+                    Text = item.Name,
+                };
+                result.Add(sl);
+            }
             return result;
         }
 

@@ -18,5 +18,9 @@ namespace IrrigationAdvisor.ViewModels.Security
         public String UserName { get; set; }
         [Display(Name = "Rol")]
         public String RolName { get; set; }
+
+        public long FarmId { get; set; }
+        public List<System.Web.Mvc.SelectListItem> FarmsNotRelated { get; set; }
+        public List<System.Web.Mvc.SelectListItem> Farms { get; set; }
     }
 }

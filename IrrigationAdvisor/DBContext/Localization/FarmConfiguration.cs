@@ -214,6 +214,22 @@ namespace IrrigationAdvisor.DBContext.Localization
             return lReturn;
         }
 
+        /// <summary>
+        /// Get List whit no Farm by User
+        /// </summary>
+        /// <param name="pUser"></param>
+        /// <returns></returns>
+        public List<Farm> GetFarmNotRelatedListBy(User pUser)
+        {
+            List<Farm> lReturn = null;
+
+            lReturn = (from ul in db.UserFarms
+                       join f in db.Farms
+                       on ul.FarmId equals f.FarmId
+                       where ul.UserId != pUser.UserId
+                       select f).OrderBy(f => f.Name).ToList();
+            return lReturn;
+        }
 
         /// <summary>
         ///  Logical elimination
