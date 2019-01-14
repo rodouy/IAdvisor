@@ -1,87 +1,63 @@
-﻿@model IrrigationAdvisor.Models.Security.User
+﻿@model IrrigationAdvisor.ViewModels.Security.EditUserViewModel
 
 @{
     ViewBag.Title = "Details";
-    Layout = "";
+    //Layout = "";
 }
+<h2>Detalle</h2>
 
-<h2>Details</h2>
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Raleway:300,400,700,900' rel='stylesheet' type='text/css'>
-<!--aca-->
 
-<link rel="stylesheet" type="text/css" href="../../css/library/bootstrap.min.css">
-<link rel="stylesheet" href="~/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/style.css">
-<link rel="stylesheet" type="text/css" href="../../css/md-font.css">
-<link rel="stylesheet" type="text/css" href="../../css/flatWeather-index.css">
-<link rel="stylesheet" type="text/css" href="../../css/slippry.css">
-<script type="text/javascript" src="../../js/library/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.owl.carousel.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.appear.min.js"></script>
-<script type="text/javascript" src="../../js/library/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="../../css/slippry.min.js"></script>
-<script type="text/javascript" src="../../js/scripts.js"></script>
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<h4>Usuario</h4>
+<hr />
+<div class="horizontal">
+    <table id="mytable">
+        <tr>
+            <td id="myTdHead">Nombre</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Name)</td>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        <tr>
+            <td id="myTdHead">Apellido</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Surname)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Teléfono</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Phone)</td>
+        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Surname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Surname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-
-    </dl>
+        <tr>
+            <td id="myTdHead">Dirección</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Address)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">E-mail</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Usuario</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.UserName)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Rol</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.RolName)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead">Habilitado</td>
+            <td id="myTdBody">@Html.DisplayFor(model => model.Enable)</td>
+        </tr>
+        <tr>
+            <td id="myTdHead"></td>
+            <td id="myTdBody">@Html.ActionLink("   Editar   ", "Edit", new { id = Model.UserId }, new { @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
+        </tr>
+    </table>
 </div>
+
+
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </p>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+
 

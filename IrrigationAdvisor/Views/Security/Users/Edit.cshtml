@@ -2,27 +2,11 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "";
+   // Layout = "";
 }
 
-<h2>Edit</h2>
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Raleway:300,400,700,900' rel='stylesheet' type='text/css'>
+<h2>Editar</h2>
 
-
-<link rel="stylesheet" type="text/css" href="../../css/library/bootstrap.min.css">
-<link rel="stylesheet" href="~/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/style.css">
-<link rel="stylesheet" type="text/css" href="../../css/md-font.css">
-<link rel="stylesheet" type="text/css" href="../../css/flatWeather-index.css">
-<link rel="stylesheet" type="text/css" href="../../css/slippry.css">
-<script type="text/javascript" src="../../js/library/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.owl.carousel.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.appear.min.js"></script>
-<script type="text/javascript" src="../../js/library/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="../../css/slippry.min.js"></script>
-<script type="text/javascript" src="../../js/scripts.js"></script>
 
 
 @using (Html.BeginForm())
@@ -81,17 +65,23 @@
                 @Html.DropDownListFor(model => model.RoleId, Model.Roles, "-- Seleccione Rol --")
             </div>
         </div>
-        
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            @Html.LabelFor(model => model.Enable, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Enable)
             </div>
+        </div>       
+        <div class="cf footer">
+            <label class="control-label col-md-2" for="CapitalId"></label>
+
+            <input type="submit" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveCountryBtn" class="btn btn-default" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
         </div>
     </div>
 }
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </div>
 
 

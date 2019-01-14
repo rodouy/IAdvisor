@@ -30,6 +30,7 @@ namespace IrrigationAdvisor.Controllers.Security
         public ActionResult Index()
         {
             //TO-DO: Not use access directly to database. Access via controllers.
+            
             return View("~/Views/Security/Users/Index.cshtml", db.Users.ToList());
         }
 
@@ -45,7 +46,26 @@ namespace IrrigationAdvisor.Controllers.Security
             {
                 return HttpNotFound();
             }
-            return View("~/Views/Security/Users/Details.cshtml", user);
+
+            Role role = db.Roles.Find(user.RoleId);
+            EditUserViewModel userVM = new EditUserViewModel()
+            {
+                Address = user.Address,
+                Email = user.Email,
+                Name = user.Name,
+                Password = user.Password,
+                Phone = user.Phone,
+                RoleId = user.RoleId,
+                Surname = user.Surname,
+                UserId = user.UserId,
+                UserName = user.UserName,
+                RolName = role.Name,
+                Enable = user.Enable
+            };
+
+            userVM.Roles = this.LoadRoles(user.RoleId, user);
+
+            return View("~/Views/Security/Users/Details.cshtml", userVM);
         }
 
         // GET: Users/Create
@@ -79,11 +99,7 @@ namespace IrrigationAdvisor.Controllers.Security
 
             if (ModelState.IsValid)
             {
-
                 MD5 md5Hash = MD5.Create();
-
-
-                //  private string[] s = user.FarmsHidden
 
                 var userMapped = new User
                 {
@@ -95,12 +111,9 @@ namespace IrrigationAdvisor.Controllers.Security
                     RoleId = user.RoleId,
                     Surname = user.Surname,
                     UserName = user.UserName
-
                 };
                 userMapped.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
                 db.Users.Add(userMapped);
-
-
 
                 //working with farms 
                 string[] farmsId = user.FarmsHidden.Split('|');
@@ -116,15 +129,12 @@ namespace IrrigationAdvisor.Controllers.Security
                     lUserFarm.FarmId = id;
                     lUserFarm.Name = userMapped.Name + " - " + lfarm.Name;
                     lUserFarm.StartDate = DateTime.Now;
-
                     db.UserFarms.Add(lUserFarm);
                 }
-
 
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View("~/Views/Security/Users/Wizard.cshtml", user);
         }
 
@@ -265,7 +275,8 @@ namespace IrrigationAdvisor.Controllers.Security
                 RoleId = user.RoleId,
                 Surname = user.Surname,
                 UserId = user.UserId,
-                UserName = user.UserName
+                UserName = user.UserName,
+                Enable = user.Enable
             };
 
             userVM.Roles = this.LoadRoles(user.RoleId, user);
@@ -336,7 +347,7 @@ namespace IrrigationAdvisor.Controllers.Security
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,RoleId")] EditUserViewModel user)
+        public ActionResult Edit([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,RoleId, Enable")] EditUserViewModel user)
         {
             if (ModelState.IsValid)
             {
@@ -351,12 +362,13 @@ namespace IrrigationAdvisor.Controllers.Security
                 }
 
                 //user.Password = CryptoUtils.GetMd5Hash(md5Hash, user.Password);
-                updatedUser.Address = user.Address;
-
                 updatedUser.Name = user.Name;
-                updatedUser.Phone = user.Phone;
-                updatedUser.RoleId = user.RoleId;
                 updatedUser.Surname = user.Surname;
+                updatedUser.Phone = user.Phone;
+                updatedUser.Address = user.Address;
+                updatedUser.Email = user.Email;
+                updatedUser.RoleId = user.RoleId;
+                updatedUser.Enable = user.Enable;
 
                 db.Entry(updatedUser).State = EntityState.Modified;
                 db.SaveChanges();
@@ -377,7 +389,23 @@ namespace IrrigationAdvisor.Controllers.Security
             {
                 return HttpNotFound();
             }
-            return View("~/Views/Security/Users/Delete.cshtml", user);
+
+            Role role = db.Roles.Find(user.RoleId);
+            EditUserViewModel userVM = new EditUserViewModel()
+            {
+                Address = user.Address,
+                Email = user.Email,
+                Name = user.Name,
+                Password = user.Password,
+                Phone = user.Phone,
+                RoleId = user.RoleId,
+                Surname = user.Surname,
+                UserId = user.UserId,
+                UserName = user.UserName,
+                RolName = role.Name,
+                Enable = user.Enable
+            };
+            return View("~/Views/Security/Users/Delete.cshtml", userVM);
         }
 
         // POST: Users/Delete/5
@@ -385,19 +413,26 @@ namespace IrrigationAdvisor.Controllers.Security
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
-            db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+
+
+                User updatedUser = db.Users.Find(id);
+
+                if (updatedUser == null)
+                {
+                    return HttpNotFound();
+                }
+
+                updatedUser.Enable = false;
+
+                db.Entry(updatedUser).State = EntityState.Modified;
+                db.SaveChanges();
+            }
             return RedirectToAction("Index");
+
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            //if (disposing)
-            //{
-            //    db.Dispose();
-            //}
-            //base.Dispose(disposing);
-        }
+
     }
 }
