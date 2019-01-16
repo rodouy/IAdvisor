@@ -60,7 +60,8 @@ namespace IrrigationAdvisor.Controllers.Security
                 UserId = user.UserId,
                 UserName = user.UserName,
                 RolName = role.Name,
-                Enable = user.Enable
+                Enable = user.Enable,
+                Farms = this.GetFarmListBy(user)
             };
 
             userVM.Roles = this.LoadRoles(user.RoleId, user);
@@ -322,28 +323,27 @@ namespace IrrigationAdvisor.Controllers.Security
             List<Farm> farmsUser = fc.GetFarmListBy(pUser);
 
             List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
-            bool isAsign = false;
+            bool addToList = true;
             foreach (var item in farms)
             {
                 foreach (var itemUser in farmsUser)
                 {
                     if (item.FarmId == itemUser.FarmId)
                     {
-                        isAsign = true;
+                        addToList = false;
                     }
-                    if (isAsign == false)
-                    {
-                        SelectListItem sl = new SelectListItem()
+                }
+                if (addToList == true)
+                {
+                    SelectListItem sl = new SelectListItem()
                         {
                             Value = item.FarmId.ToString(),
                             Text = item.Name,
                         };
 
-                        result.Add(sl);
-                        isAsign = false;
-                    }
-                }
-
+                    result.Add(sl);
+                }     
+                addToList = true;         
             }
 
 
@@ -363,7 +363,7 @@ namespace IrrigationAdvisor.Controllers.Security
                 SelectListItem sl = new SelectListItem()
                 {
                     Value = item.FarmId.ToString(),
-                    Disabled = true,
+                 
                     Text = item.Name,
                 };
                 result.Add(sl);
@@ -405,7 +405,7 @@ namespace IrrigationAdvisor.Controllers.Security
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,RoleId, Enable")] EditUserViewModel user)
+        public ActionResult Edit([Bind(Include = "UserId,Name,Surname,Phone,Address,Email,UserName,Password,RoleId, Enable, FarmIdSelected")] EditUserViewModel user)
         {
             if (ModelState.IsValid)
             {
@@ -430,6 +430,36 @@ namespace IrrigationAdvisor.Controllers.Security
 
                 db.Entry(updatedUser).State = EntityState.Modified;
                 db.SaveChanges();
+
+                //Save Relation whit Farm
+                if (user.FarmIdSelected != null)
+                {
+                   string[] farmIds = user.FarmIdSelected.Split('|');
+
+                   UserFarmConfiguration ufc = new UserFarmConfiguration();
+                   List<UserFarm> userFarmsList = ufc.GetUserFarmRelatedListBy(updatedUser);
+
+                   foreach (UserFarm userFarms in userFarmsList)
+                   {
+                       db.Entry(userFarms).State = EntityState.Deleted;
+                   }
+                   db.SaveChanges();
+
+                   foreach (var farmId in farmIds)
+                   {
+                       Farm lFarm = db.Farms.Find(int.Parse(farmId));
+                       
+                       UserFarm lUserFarm = new UserFarm();
+                       lUserFarm.UserId = user.UserId;
+                       lUserFarm.FarmId = int.Parse(farmId);
+                       lUserFarm.Name = updatedUser.Name + " " + lFarm.Name;
+                       lUserFarm.StartDate = DateTime.Now;
+                       lFarm.UserFarmList.Add(lUserFarm);
+                       db.UserFarms.Add(lUserFarm);
+
+                    }
+                    db.SaveChanges(); 
+                }
                 return RedirectToAction("Index");
             }
             return View("~/Views/Security/Users/Edit.cshtml", user);

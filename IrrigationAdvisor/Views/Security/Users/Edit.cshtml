@@ -7,6 +7,10 @@
 <script js>
     $(document).ready(function () {
 
+        $('#SaveBtn').click(function () {
+            loadFarmsId();
+            myForm.submit();
+        });
 
         function loadFarmsId() {
             var options = $('#FarmSelected option');
@@ -22,10 +26,11 @@
 
         }
 
+
         $('#btnRight').click(function (e) {
             var selectedOpts = $('#FarmId option:selected');
             if (selectedOpts.length == 0) {
-                alert("Nothing to move.");
+                alert("Nada para mover.");
                 e.preventDefault();
             }
             $('#FarmSelected').append($(selectedOpts).clone());
@@ -35,7 +40,7 @@
         $('#btnAllRight').click(function (e) {
             var selectedOpts = $('#FarmId option');
             if (selectedOpts.length == 0) {
-                alert("Nothing to move.");
+                alert("Nada para mover.");
                 e.preventDefault();
             }
             $('#FarmSelected').append($(selectedOpts).clone());
@@ -45,7 +50,7 @@
         $('#btnLeft').click(function (e) {
             var selectedOpts = $('#FarmSelected option:selected');
             if (selectedOpts.length == 0) {
-                alert("Nothing to move.");
+                alert("Nada para mover.");
                 e.preventDefault();
             }
             $('#FarmId').append($(selectedOpts).clone());
@@ -55,7 +60,7 @@
         $('#btnAllLeft').click(function (e) {
             var selectedOpts = $('#FarmSelected option');
             if (selectedOpts.length == 0) {
-                alert("Nothing to move.");
+                alert("Nada para mover.");
                 e.preventDefault();
             }
             $('#FarmId').append($(selectedOpts).clone());
@@ -69,7 +74,7 @@
 
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
 
@@ -78,7 +83,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.UserId)
-
+        <input type="hidden" id="FarmIdSelected" name="FarmIdSelected" value="0" />
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

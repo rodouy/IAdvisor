@@ -21,6 +21,8 @@ namespace IrrigationAdvisor.ViewModels.Security
 
         public long FarmId { get; set; }
         public List<System.Web.Mvc.SelectListItem> FarmsNotRelated { get; set; }
+
         public List<System.Web.Mvc.SelectListItem> Farms { get; set; }
+        public string FarmIdSelected { get; set; }   
     }
 }

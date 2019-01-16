@@ -46,6 +46,15 @@
             <td id="myTdBody">@Html.DisplayFor(model => model.Enable)</td>
         </tr>
         <tr>
+            <td id="myTdHead" valign="top">Establecimientos</td>
+            <td id="myTdBody">
+                @foreach (var item in Model.Farms)
+                {
+                     @( item.Text)<br>
+                }
+            </td>
+        </tr>
+        <tr>
             <td id="myTdHead"></td>
             <td id="myTdBody">@Html.ActionLink("   Editar   ", "Edit", new { id = Model.UserId }, new { @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })</td>
         </tr>
