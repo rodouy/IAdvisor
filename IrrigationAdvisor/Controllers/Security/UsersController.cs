@@ -30,7 +30,7 @@ namespace IrrigationAdvisor.Controllers.Security
         public ActionResult Index()
         {
             //TO-DO: Not use access directly to database. Access via controllers.
-            
+
             return View("~/Views/Security/Users/Index.cshtml", db.Users.ToList());
         }
 
@@ -331,21 +331,22 @@ namespace IrrigationAdvisor.Controllers.Security
                     {
                         isAsign = true;
                     }
-                }
-                if (isAsign ==false)
-                {
-                    SelectListItem sl = new SelectListItem()
+                    if (isAsign == false)
                     {
-                        Value = item.FarmId.ToString(),
-                        Text = item.Name,
-                    };
+                        SelectListItem sl = new SelectListItem()
+                        {
+                            Value = item.FarmId.ToString(),
+                            Text = item.Name,
+                        };
 
-                    result.Add(sl);
-                    isAsign = false;
+                        result.Add(sl);
+                        isAsign = false;
+                    }
                 }
+
             }
-        
-                   
+
+
             return result;
         }
 
