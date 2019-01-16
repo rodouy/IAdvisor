@@ -88,7 +88,7 @@ namespace IrrigationAdvisor.DBContext.Localization
                            select f).Include(f => f.BombList)
                                         .Include(f => f.IrrigationUnitList)
                                         .Include(f => f.WeatherStation)
-                                        .Include(f => f.City).ToList();
+                                        .Include(f => f.City).OrderBy(f => f.Name).ToList();
             }
             
             return lReturn;
@@ -222,13 +222,22 @@ namespace IrrigationAdvisor.DBContext.Localization
         public List<Farm> GetFarmNotRelatedListBy(User pUser)
         {
             List<Farm> lReturn = null;
-
-            lReturn = (from ul in db.UserFarms
-                       join f in db.Farms
-                       on ul.FarmId equals f.FarmId
-                       where ul.UserId != pUser.UserId
+            /*
+            lReturn = (from f in db.Farms
+                       join uf in db.UserFarms
+                        on f.FarmId equals uf.FarmId
+                       join u in db.Users
+                         on uf.UserId equals u.UserId
+                       where u.UserId != pUser.UserId
                        select f).OrderBy(f => f.Name).ToList();
+            */
+            lReturn = (from f in db.Farms
+                           join uf in db.UserFarms
+                           on f.FarmId equals uf.FarmId
+                           where uf.UserId != pUser.UserId
+                       select f).Distinct().OrderBy(f => f.Name).ToList();
             return lReturn;
+
         }
 
         /// <summary>

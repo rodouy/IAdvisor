@@ -318,19 +318,34 @@ namespace IrrigationAdvisor.Controllers.Security
         private List<System.Web.Mvc.SelectListItem> GetFarmNotRelatedListBy(User pUser)
         {
             FarmConfiguration fc = new FarmConfiguration();
-            List<Farm> farms = fc.GetFarmNotRelatedListBy(pUser);
+            List<Farm> farms = fc.GetAllFarms();
+            List<Farm> farmsUser = fc.GetFarmListBy(pUser);
 
             List<System.Web.Mvc.SelectListItem> result = new List<SelectListItem>();
-
+            bool isAsign = false;
             foreach (var item in farms)
             {
-                SelectListItem sl = new SelectListItem()
+                foreach (var itemUser in farmsUser)
                 {
-                    Value = item.FarmId.ToString(),
-                    Text = item.Name,
-                };
-                result.Add(sl);
+                    if (item.FarmId == itemUser.FarmId)
+                    {
+                        isAsign = true;
+                    }
+                }
+                if (isAsign ==false)
+                {
+                    SelectListItem sl = new SelectListItem()
+                    {
+                        Value = item.FarmId.ToString(),
+                        Text = item.Name,
+                    };
+
+                    result.Add(sl);
+                    isAsign = false;
+                }
             }
+        
+                   
             return result;
         }
 
