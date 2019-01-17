@@ -34,6 +34,14 @@ namespace IrrigationAdvisor.DBContext.Security
                 .IsRequired();
             
         }
+        public List<UserFarm> GetUserFarmRelatedListBy(User pUser)
+        {
+            List<UserFarm> lReturn = null;
 
+            lReturn = (from f in db.UserFarms
+                       where f.UserId == pUser.UserId
+                       select f).ToList();
+            return lReturn;
+        }
     }
 }

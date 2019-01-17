@@ -2,30 +2,79 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "";
+   // Layout = "";
 }
+<script js>
+    $(document).ready(function () {
 
-<h2>Edit</h2>
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Raleway:300,400,700,900' rel='stylesheet' type='text/css'>
+        $('#SaveBtn').click(function () {
+            loadFarmsId();
+            myForm.submit();
+        });
+
+        function loadFarmsId() {
+            var options = $('#FarmSelected option');
+            var farms = "";
+            var values = $.map(options, function (option) {
+                if (farms == "")
+                    farms = option.value
+                else
+                    farms = farms + "|" + option.value
+
+            });
+            $('#FarmIdSelected').val(farms);
+
+        }
 
 
-<link rel="stylesheet" type="text/css" href="../../css/library/bootstrap.min.css">
-<link rel="stylesheet" href="~/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/style.css">
-<link rel="stylesheet" type="text/css" href="../../css/md-font.css">
-<link rel="stylesheet" type="text/css" href="../../css/flatWeather-index.css">
-<link rel="stylesheet" type="text/css" href="../../css/slippry.css">
-<script type="text/javascript" src="../../js/library/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../../js/library/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.owl.carousel.js"></script>
-<script type="text/javascript" src="../../js/library/jquery.appear.min.js"></script>
-<script type="text/javascript" src="../../js/library/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="../../css/slippry.min.js"></script>
-<script type="text/javascript" src="../../js/scripts.js"></script>
+        $('#btnRight').click(function (e) {
+            var selectedOpts = $('#FarmId option:selected');
+            if (selectedOpts.length == 0) {
+                alert("Nada para mover.");
+                e.preventDefault();
+            }
+            $('#FarmSelected').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+        $('#btnAllRight').click(function (e) {
+            var selectedOpts = $('#FarmId option');
+            if (selectedOpts.length == 0) {
+                alert("Nada para mover.");
+                e.preventDefault();
+            }
+            $('#FarmSelected').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+        $('#btnLeft').click(function (e) {
+            var selectedOpts = $('#FarmSelected option:selected');
+            if (selectedOpts.length == 0) {
+                alert("Nada para mover.");
+                e.preventDefault();
+            }
+            $('#FarmId').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+        $('#btnAllLeft').click(function (e) {
+            var selectedOpts = $('#FarmSelected option');
+            if (selectedOpts.length == 0) {
+                alert("Nada para mover.");
+                e.preventDefault();
+            }
+            $('#FarmId').append($(selectedOpts).clone());
+            $(selectedOpts).remove();
+            e.preventDefault();
+        });
+
+    });
+</script>
+<h2>Editar</h2>
 
 
-@using (Html.BeginForm())
+
+@using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { id = "myForm" }))
 {
     @Html.AntiForgeryToken()
 
@@ -34,7 +83,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.UserId)
-
+        <input type="hidden" id="FarmIdSelected" name="FarmIdSelected" value="0" />
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -81,17 +130,50 @@
                 @Html.DropDownListFor(model => model.RoleId, Model.Roles, "-- Seleccione Rol --")
             </div>
         </div>
-        
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            @Html.LabelFor(model => model.Enable, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Enable)
+            </div>
+        </div>       
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Establecimiento">Establecimientos</label>
+            <div class="col-md-10">
+                <div class="subject-info-box-1">
+                    Disponibles
+                    @Html.DropDownListFor(model => model.FarmId, Model.FarmsNotRelated, new { @class = "form-control", multiple = "multiple" })
+
+                </div>
+                <div class="subject-info-arrows text-center">
+                    <input type="button" id="btnAllRight" value=">>" /><br />
+                    <input type="button" id="btnRight" value=">" /><br />
+                    <input type="button" id="btnLeft" value="<" /><br />
+                    <input type="button" id="btnAllLeft" value="<<" />
+                </div>
+                <div class="subject-info-box-2">
+                    Relacionadas
+                    @Html.DropDownListFor(model => model.FarmId, Model.Farms, new { @class = "form-control", multiple = "multiple", id = "FarmSelected" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                &nbsp;
+                <div class="col-md-10">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="cf footer">
+                <label class="control-label col-md-2" for="CapitalId"></label>
+
+                <input type="button" value="&nbsp;&nbsp;&nbsp;Gaurdar&nbsp;&nbsp;&nbsp;" id="SaveBtn" class="btn btn-default" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
             </div>
         </div>
     </div>
 }
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    &nbsp;
 </div>
 
 

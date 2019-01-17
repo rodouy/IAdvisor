@@ -18,16 +18,21 @@ namespace IrrigationAdvisor.ViewModels.Security
 
         public long UserId { get; set; }
         [Required]
+        [Display(Name = "Nombre")]
         public String Name { get; set; }
         [Required]
+        [Display(Name = "Apellido")]
         public String Surname { get; set; }
+        [Display(Name = "Teléfono")]
         public String Phone { get; set; }
 
         [Required]
-        [Display(Name = "Role")]
+        [Display(Name = "Rol")]
         public long RoleId { get; set; }
+        [Display(Name = "Dirección")]
         public String Address { get; set; }
-        
+        [Display(Name = "Habilitado")]
+        public bool Enable { get; set; }        
         public String FarmsHidden { get; set; }
 
         public List<string> ErrorMessages { get; set; }

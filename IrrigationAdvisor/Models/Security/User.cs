@@ -58,6 +58,7 @@ namespace IrrigationAdvisor.Models.Security
         ///     - roleId
         ///     - userName
         ///     - password
+        ///     - enable
         /// </summary>
 
         private long userId;
@@ -69,6 +70,7 @@ namespace IrrigationAdvisor.Models.Security
         private long roleId;
         private String userName;
         private String password;
+        private bool enable;
         private List<UserAccess> userAccesses;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -86,6 +88,7 @@ namespace IrrigationAdvisor.Models.Security
         ///     - RoleId
         ///     - UserName
         ///     - Password
+        ///     - Enable
         /// </summary>
         
         
@@ -148,6 +151,11 @@ namespace IrrigationAdvisor.Models.Security
             get { return userAccesses; }
             set { userAccesses = value; }
         }
+        public bool Enable
+        {
+            get { return enable; }
+            set { enable = value; }
+        }
 
         #endregion
 
@@ -167,6 +175,7 @@ namespace IrrigationAdvisor.Models.Security
             this.UserName = "";
             this.Password = "";
             this.UserAccesses = new List<UserAccess>();
+            this.Enable = true;
         }
 
         /// <summary>
@@ -194,6 +203,7 @@ namespace IrrigationAdvisor.Models.Security
             this.UserName = pUserName;
             this.Password = pPassword;
             this.UserAccesses = new List<UserAccess>();
+            this.Enable = true;
         }
 
         /// <summary>
@@ -223,6 +233,7 @@ namespace IrrigationAdvisor.Models.Security
             this.UserName = pUserName;
             this.Password = pPassword;
             this.UserAccesses = pUserAccesses;
+            this.Enable = true;
         }
 
         #endregion
