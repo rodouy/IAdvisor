@@ -308,6 +308,8 @@ namespace IrrigationAdvisorConsole.Data
             }
             #endregion
 
+
+
         }
 
         public static void AddRainDataDCAElParaisoPivot2_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -587,6 +589,9 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
 
         }
 
@@ -869,6 +874,8 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
 
 
+
+
         }
 
         public static void AddRainDataDCAElParaisoPivot4_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -1149,6 +1156,9 @@ namespace IrrigationAdvisorConsole.Data
             }
             #endregion
 
+
+
+
         }
 
         #endregion
@@ -1394,6 +1404,8 @@ namespace IrrigationAdvisorConsole.Data
             }
             #endregion
 
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot2_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -1593,6 +1605,10 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
+
 
         }
 
@@ -1794,6 +1810,10 @@ namespace IrrigationAdvisorConsole.Data
             }
             #endregion
 
+
+
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot4_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -1994,6 +2014,10 @@ namespace IrrigationAdvisorConsole.Data
             }
             #endregion
 
+
+
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot5_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -2193,6 +2217,11 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot6_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -2422,6 +2451,20 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+            #region Rain 2019/01/17 12 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 17);
+                lRainQuantity = 12;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+
+
+
+
 
         }
 
@@ -2672,6 +2715,10 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot8_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -2872,6 +2919,10 @@ namespace IrrigationAdvisorConsole.Data
             }
             #endregion
 
+
+
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot9_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -3061,6 +3112,9 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
 
         }
 
@@ -3314,6 +3368,8 @@ namespace IrrigationAdvisorConsole.Data
 
 
 
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot10b_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -3556,6 +3612,8 @@ namespace IrrigationAdvisorConsole.Data
 
 
 
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot11_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -3755,6 +3813,9 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
 
 
         }
@@ -3958,6 +4019,8 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
 
 
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot13_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -4157,6 +4220,9 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
 
         }
 
@@ -4408,6 +4474,8 @@ namespace IrrigationAdvisorConsole.Data
             }
             #endregion
 
+
+
         }
 
         public static void AddRainDataDCALaPerdizPivot15_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -4647,6 +4715,9 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
 
         }
 
@@ -9390,6 +9461,8 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
 
 
+
+
         }
 
         public static void AddRainDataSantaEmiliaPivot2_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -9639,6 +9712,9 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
 
         }
 
@@ -9890,6 +9966,9 @@ namespace IrrigationAdvisorConsole.Data
             }
             #endregion
 
+
+
+
         }
 
         public static void AddRainDataSantaEmiliaPivot4_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -10139,6 +10218,10 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
+
         }
 
         public static void AddRainDataSantaEmiliaPivot5_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -10388,6 +10471,9 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
         }
 
         public static void AddRainDataSantaEmiliaPivot7_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -10637,6 +10723,9 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
+
+
         }
 
         public static void AddRainDataSantaEmiliaPivotZP_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -11860,26 +11949,30 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2019/01/13 60 mm
+            #region Rain 2019/01/13 10 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2019, 01, 13);
-                lRainQuantity = 60;
-                /////////////////////////////////////////////////////////////////////////////////////////////
-                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
-            }
-            #endregion
-            #region Rain 2019/01/15 10 mm
-            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
-            {
-                //Data to change about Rain
-                lRainDate = new DateTime(2019, 01, 15);
                 lRainQuantity = 10;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+            #region Rain 2019/01/15 60 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 15);
+                lRainQuantity = 60;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+
+
+
+
         }
 
         public static void AddRainDataElAlbaPivot33_2018(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -12129,26 +12222,28 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
-            #region Rain 2019/01/13 60 mm
+            #region Rain 2019/01/13 10 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
                 lRainDate = new DateTime(2019, 01, 13);
-                lRainQuantity = 60;
-                /////////////////////////////////////////////////////////////////////////////////////////////
-                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
-            }
-            #endregion
-            #region Rain 2019/01/15 10 mm
-            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
-            {
-                //Data to change about Rain
-                lRainDate = new DateTime(2019, 01, 15);
                 lRainQuantity = 10;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+            #region Rain 2019/01/15 60 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 15);
+                lRainQuantity = 60;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+
+
 
         }
 
@@ -12217,6 +12312,36 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+            #region Rain 2019/01/13 45 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 13);
+                lRainQuantity = 45;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/15 60 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 15);
+                lRainQuantity = 60;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/18 20 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 18);
+                lRainQuantity = 20;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
 
 
 
@@ -12275,6 +12400,36 @@ namespace IrrigationAdvisorConsole.Data
                 //Data to change about Rain
                 lRainDate = new DateTime(2019, 01, 07);
                 lRainQuantity = 50;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/13 45 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 13);
+                lRainQuantity = 45;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/15 60 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 15);
+                lRainQuantity = 60;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/18 20 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 18);
+                lRainQuantity = 20;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -12340,6 +12495,36 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+            #region Rain 2019/01/13 45 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 13);
+                lRainQuantity = 45;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/15 60 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 15);
+                lRainQuantity = 60;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/18 20 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 18);
+                lRainQuantity = 20;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
 
 
         }
@@ -12377,6 +12562,56 @@ namespace IrrigationAdvisorConsole.Data
                 //Data to change about Rain
                 lRainDate = new DateTime(2018, 12, 13);
                 lRainQuantity = 10;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/02 60 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 02);
+                lRainQuantity = 60;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/07 50 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 07);
+                lRainQuantity = 50;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/13 45 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 13);
+                lRainQuantity = 45;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/15 60 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 15);
+                lRainQuantity = 60;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/18 20 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 18);
+                lRainQuantity = 20;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
@@ -12441,6 +12676,36 @@ namespace IrrigationAdvisorConsole.Data
                 //Data to change about Rain
                 lRainDate = new DateTime(2019, 01, 07);
                 lRainQuantity = 50;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/13 45 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 13);
+                lRainQuantity = 45;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/15 60 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 15);
+                lRainQuantity = 60;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
+            }
+            #endregion
+            #region Rain 2019/01/18 20 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Rain
+                lRainDate = new DateTime(2019, 01, 18);
+                lRainQuantity = 20;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
