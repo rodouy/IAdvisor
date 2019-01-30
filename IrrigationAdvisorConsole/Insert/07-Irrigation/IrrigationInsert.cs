@@ -4497,7 +4497,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         Surface = 50,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
-                        PredeterminatedIrrigationQuantity = 10,
+                        PredeterminatedIrrigationQuantity = 14,
                         Radius = 25,
                         Show = true,
                         FarmId = lFarm.FarmId,
