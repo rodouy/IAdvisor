@@ -465,7 +465,7 @@ namespace IrrigationAdvisorConsole.Data
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot2a_2018 = 14;
         public static DateTime SowingDate_CornSouth_ElRinconPivot2b_2018 = new DateTime(2018, 10, 26);
         public static DateTime HarvestDate_CornSouth_ElRinconPivot2b_2018 = new DateTime(2019, 03, 01);
-        public static Double PredeterminatedIrrigationQuantity_ElRinconPivot2b_2018 = 10;
+        public static Double PredeterminatedIrrigationQuantity_ElRinconPivot2b_2018 = 14;
 
         #endregion
         #region ED - El Desafio
