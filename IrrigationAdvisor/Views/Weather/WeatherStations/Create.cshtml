@@ -120,7 +120,7 @@
         $('#btnRight').click(function (e) {
             var selectedOpts = $('#FarmId option:selected');
             if (selectedOpts.length == 0) {
-                alert("Nothing to move.");
+                alert("Nada para mover.");
                 e.preventDefault();
             }
             $('#FarmSelected').append($(selectedOpts).clone());
@@ -130,7 +130,7 @@
         $('#btnAllRight').click(function (e) {
             var selectedOpts = $('#FarmId option');
             if (selectedOpts.length == 0) {
-                alert("Nothing to move.");
+                alert("Nada para mover.");
                 e.preventDefault();
             }
             $('#FarmSelected').append($(selectedOpts).clone());
@@ -140,7 +140,7 @@
         $('#btnLeft').click(function (e) {
             var selectedOpts = $('#FarmSelected option:selected');
             if (selectedOpts.length == 0) {
-                alert("Nothing to move.");
+                alert("Nada para mover.");
                 e.preventDefault();
             }
             $('#FarmId').append($(selectedOpts).clone());
@@ -150,7 +150,7 @@
         $('#btnAllLeft').click(function (e) {
             var selectedOpts = $('#FarmSelected option');
             if (selectedOpts.length == 0) {
-                alert("Nothing to move.");
+                alert("Nada para mover.");
                 e.preventDefault();
             }
             $('#FarmId').append($(selectedOpts).clone());

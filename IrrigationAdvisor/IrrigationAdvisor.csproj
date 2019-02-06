@@ -332,6 +332,10 @@
     <Compile Include="Migrations\201812111652034_addRelationSpecieCicleToRegionAndSpecieToRegion.Designer.cs">
       <DependentUpon>201812111652034_addRelationSpecieCicleToRegionAndSpecieToRegion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901111803568_addFieldEnabledToUsers.cs" />
+    <Compile Include="Migrations\201901111803568_addFieldEnabledToUsers.Designer.cs">
+      <DependentUpon>201901111803568_addFieldEnabledToUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
@@ -998,6 +1002,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812111652034_addRelationSpecieCicleToRegionAndSpecieToRegion.resx">
       <DependentUpon>201812111652034_addRelationSpecieCicleToRegionAndSpecieToRegion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901111803568_addFieldEnabledToUsers.resx">
+      <DependentUpon>201901111803568_addFieldEnabledToUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
