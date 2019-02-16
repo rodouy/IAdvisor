@@ -4717,9 +4717,34 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(017), 17.9, 302.3, 20.8, 14.9, 2.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(018), 18.1, 670.4, 24.4, 11.7, 4.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(019), 20.1, 649.1, 26.9, 13.3, 4.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-1-20
-
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(020), 22.4, 665.3, 29.8, 15.0, 5.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(021), 25.4, 674.6, 32.7, 18.1, 5.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(022), 24.5, 470.9, 28.5, 20.5, 4.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(023), 24.6, 665.7, 31.2, 18.0, 6.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(024), 22.7, 263.5, 27.9, 17.4, 3.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-1-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(025), 27.2, 523.1, 31.3, 23.0, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(026), 28.1, 522.0, 34.0, 22.2, 5.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(027), 29.5, 647.4, 35.3, 23.6, 6.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(028), 28.9, 482.5, 35.8, 22.0, 5.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(029), 25.5, 314.3, 29.4, 21.5, 3.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-1-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(030), 23.8, 653.8, 28.1, 19.4, 5.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            
             #endregion
             #region 02
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(031), 25.5, 533.5, 31.3, 19.7, 4.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-2-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(032), 20.3, 583.3, 24.3, 16.3, 4.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(033), 18.5, 629.1, 23.8, 13.1, 4.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(034), 18.4, 644.6, 24.9, 11.9, 4.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(035), 20.4, 639.7, 28.4, 12.3, 4.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-2-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(036), 21.9, 634.7, 28.6, 15.2, 5.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(037), 25.2, 639.8, 31.4, 19.0, 5.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(038), 26.1, 581.1, 32.8, 19.4, 5.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(039), 26.2, 462.2, 33.1, 19.3, 4.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(040), 26.6, 617.9, 34.3, 18.8, 5.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-2-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(041), 21.4, 292.5, 25.2, 17.5, 3.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(042), 15.8, 591.3, 19.8, 11.8, 4.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(043), 17.4, 602.7, 24.9, 09.8, 4.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(044), 18.8, 206.1, 22.0, 15.5, 2.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
 
             #endregion
             #region 03
@@ -6437,10 +6462,31 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(017), 18.9, 462.8, 22.4, 15.3, 3.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(018), 18.8, 720.7, 23.9, 13.6, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(019), 20.3, 731.9, 26.0, 14.5, 5.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-1-20
-
-
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(020), 22.9, 726.8, 29.4, 16.4, 5.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(021), 25.4, 653.5, 31.8, 18.9, 5.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(022), 24.9, 418.9, 29.2, 20.6, 3.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(023), 25.1, 711.7, 31.4, 18.8, 6.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(024), 22.1, 212.3, 25.4, 18.8, 2.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-1-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(025), 27.1, 468.6, 31.0, 23.2, 4.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(026), 25.7, 536.0, 29.3, 22.0, 4.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(027), 29.2, 683.0, 34.4, 24.0, 6.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(028), 29.3, 665.9, 34.6, 23.9, 6.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(029), 24.8, 336.9, 28.8, 20.8, 3.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-1-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(030), 24.6, 703.1, 28.8, 20.4, 5.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            
             #endregion
             #region 02
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(031), 26.1, 510.5, 31.2, 21.0, 4.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-2-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(032), 21.1, 664.6, 24.2, 18.0, 4.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(033), 18.0, 698.6, 22.3, 13.6, 4.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(034), 18.5, 713.0, 23.1, 13.8, 4.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(035), 20.5, 711.5, 26.7, 14.2, 4.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-2-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(036), 22.6, 701.9, 28.8, 16.4, 5.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(037), 24.8, 692.4, 31.2, 18.4, 5.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(038), 26.2, 592.2, 32.5, 19.8, 5.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(039), 26.3, 551.3, 32.3, 20.2, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(040), 27.7, 691.0, 34.9, 20.5, 6.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-2-10
+
             #endregion
             #region 03
             #endregion
@@ -8156,9 +8202,35 @@ namespace IrrigationAdvisorConsole.Data
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(017), 19.1, 243.6, 21.7, 16.4, 3.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(018), 21.3, 589.6, 26.0, 16.6, 4.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
             lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(019), 22.7, 626.1, 27.4, 17.9, 5.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-1-20
-
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(020), 24.6, 692.4, 30.1, 19.1, 5.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(021), 26.5, 531.6, 31.9, 21.1, 5.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(022), 23.2, 248.5, 26.3, 20.0, 2.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(023), 27.1, 648.9, 32.6, 21.6, 6.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(024), 27.6, 614.5, 33.0, 22.1, 5.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-1-25
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(025), 29.0, 291.2, 31.6, 26.3, 3.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(026), 28.5, 416.4, 31.9, 25.1, 4.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(027), 29.8, 400.9, 34.4, 25.1, 4.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(028), 29.7, 658.7, 34.0, 25.4, 6.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(029), 28.6, 332.8, 32.5, 24.6, 3.5, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-1-30
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(030), 24.6, 228.8, 26.3, 22.9, 2.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            
             #endregion
             #region 02
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(031), 23.6, 228.1, 24.8, 22.4, 2.0, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-2-1
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(032), 25.8, 370.9, 29.4, 22.1, 4.6, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(033), 21.8, 663.8, 26.5, 17.1, 5.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(034), 21.2, 622.2, 26.3, 16.1, 5.3, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(035), 22.2, 591.5, 27.6, 16.7, 5.2, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-2-5
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(036), 24.6, 667.1, 29.8, 19.4, 5.7, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(037), 26.9, 672.8, 32.6, 21.2, 5.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(038), 26.8, 649.5, 33.6, 19.9, 5.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(039), 28.0, 364.1, 33.0, 22.9, 4.1, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(040), 28.6, 610.3, 33.0, 24.1, 5.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);// Month - 2019-2-10
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(041), 25.5, 390.9, 29.0, 22.0, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(042), 19.4, 632.4, 23.7, 15.1, 5.4, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(043), 19.6, 652.5, 27.0, 12.1, 4.8, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+            lWeatherStation.AddWeatherDataToList(lFirstDay.AddDays(044), 22.6, 358.5, 28.8, 16.4, 3.9, 0, "MANUAL", Utils.WeatherDataInputType.CodeInsert);
+
             #endregion
             #region 03
             #endregion
