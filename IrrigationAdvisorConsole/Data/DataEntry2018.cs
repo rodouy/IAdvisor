@@ -455,16 +455,16 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationAlternativeName_ElRincon_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_CornSouth_ElRinconPivot1a_2018 = new DateTime(2018, 11, 07);
-        public static DateTime HarvestDate_CornSouth_ElRinconPivot1a_2018 = new DateTime(2019, 03, 10);
+        public static DateTime HarvestDate_CornSouth_ElRinconPivot1a_2018 = new DateTime(2019, 04, 01);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1a_2018 = 14;
         public static DateTime SowingDate_SoyaSouth_ElRinconPivot1b_2018 = new DateTime(2018, 11, 07);
         public static DateTime HarvestDate_SoyaSouth_ElRinconPivot1b_2018 = new DateTime(2019, 04, 10);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1b_2018 = 10;
         public static DateTime SowingDate_CornSouth_ElRinconPivot2a_2018 = new DateTime(2018, 10, 26);
-        public static DateTime HarvestDate_CornSouth_ElRinconPivot2a_2018 = new DateTime(2019, 03, 10);
+        public static DateTime HarvestDate_CornSouth_ElRinconPivot2a_2018 = new DateTime(2019, 04, 01);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot2a_2018 = 14;
         public static DateTime SowingDate_CornSouth_ElRinconPivot2b_2018 = new DateTime(2018, 10, 26);
-        public static DateTime HarvestDate_CornSouth_ElRinconPivot2b_2018 = new DateTime(2019, 03, 01);
+        public static DateTime HarvestDate_CornSouth_ElRinconPivot2b_2018 = new DateTime(2019, 04, 01);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot2b_2018 = 14;
 
         #endregion
