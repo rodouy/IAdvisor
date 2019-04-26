@@ -115,10 +115,10 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime HarvestDate_SoyaSouth_DCAElParaisoPivot2_2018 = new DateTime(2019, 05, 15);
         public static Double PredeterminatedIrrigationQuantity_DCAElParaisoPivot2_2018 = 12;
         public static DateTime SowingDate_CornSouth_DCAElParaisoPivot3_2018 = new DateTime(2018, 11, 25);
-        public static DateTime HarvestDate_CornSouth_DCAElParaisoPivot3_2018 = new DateTime(2019, 04, 30);
+        public static DateTime HarvestDate_CornSouth_DCAElParaisoPivot3_2018 = new DateTime(2019, 05, 15);
         public static Double PredeterminatedIrrigationQuantity_DCAElParaisoPivot3_2018 = 12;
         public static DateTime SowingDate_CornSouth_DCAElParaisoPivot4_2018 = new DateTime(2018, 11, 25);
-        public static DateTime HarvestDate_CornSouth_DCAElParaisoPivot4_2018 = new DateTime(2019, 04, 30);
+        public static DateTime HarvestDate_CornSouth_DCAElParaisoPivot4_2018 = new DateTime(2019, 05, 15);
         public static Double PredeterminatedIrrigationQuantity_DCAElParaisoPivot4_2018 = 12;
 
         public static DateTime SowingDate_FestucaSouth_DCAElParaisoPivot5_2018 = new DateTime(2018, 5, 24);
