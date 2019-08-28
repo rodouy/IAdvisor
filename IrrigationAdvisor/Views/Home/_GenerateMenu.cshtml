@@ -3,12 +3,12 @@
 <li class="current-menu-item">
     <a href="http://@Request.Url.Host:@Request.Url.Port/Home/Home">Inicio</a>
 </li>
-<li>
+@*<li>
     <a href="../Home/Company">Empresa</a>
 </li>
 <li>
     <a href="../Home/Contact">Contacto</a>
-</li>
+</li>*@
 @{
     if (Model.IsAdministrator)
     {
@@ -71,3 +71,4 @@
 }
 <li>
     <a href="../Home/LogOut">Salir</a>
+</li>

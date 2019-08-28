@@ -541,6 +541,7 @@
     <Content Include="fonts\metro.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\header.svg" />
     <Content Include="js\geolocation.js" />
     <Content Include="js\Home.js" />
     <Content Include="Migrations.txt" />
