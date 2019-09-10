@@ -511,13 +511,14 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
                     DataEntryDataTemperatures.DataTemperatures_South_2015(context, lRegion);
+                    DataEntryDataTemperatures.DataTemperatures_South_2016(context, lRegion);
                 }
-
-                DataEntryDataTemperatures.DataTemperatures_South_2016(context, lRegion);
 
                 DataEntryDataTemperatures.DataTemperatures_South_2017(context, lRegion);
 
                 DataEntryDataTemperatures.DataTemperatures_South_2018(context, lRegion);
+
+                DataEntryDataTemperatures.DataTemperatures_South_2019(context, lRegion);
 
                 #endregion
 
@@ -529,13 +530,15 @@ namespace IrrigationAdvisorConsole.Insert._05_Weather
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Demo)
                 {
                     DataEntryDataTemperatures.DataTemperatures_North_2015(context, lRegion);
+                    DataEntryDataTemperatures.DataTemperatures_North_2016(context, lRegion);
                 }
 
-                DataEntryDataTemperatures.DataTemperatures_North_2016(context, lRegion);
 
                 DataEntryDataTemperatures.DataTemperatures_North_2017(context, lRegion);
 
                 DataEntryDataTemperatures.DataTemperatures_North_2018(context, lRegion);
+
+                DataEntryDataTemperatures.DataTemperatures_North_2019(context, lRegion);
 
                 #endregion
 
