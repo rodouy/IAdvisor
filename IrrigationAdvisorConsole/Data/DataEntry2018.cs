@@ -47,6 +47,11 @@ namespace IrrigationAdvisorConsole.Data
         public static double BaseTemperature_OatNorth_2018 = 8;
         public static double StressTemperature_OatNorth_2018 = 35;
 
+        public static double BaseTemperature_PastureSouth_2018 = 8;
+        public static double StressTemperature_PastureSouth_2018 = 35;
+        public static double BaseTemperature_PastureNorth_2018 = 8;
+        public static double StressTemperature_PastureNorth_2018 = 35;
+
         public static double BaseTemperature_SorghumForageSouth_2018 = 8;
         public static double StressTemperature_SorghumForageSouth_2018 = 35;
         public static double BaseTemperature_SorghumForageNorth_2018 = 8;
@@ -638,6 +643,15 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime HarvestDate_SudanGrassSouth_LaZenaidaPivot5_2018 = new DateTime(2019, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot5_2018 = 14;
 
+        public static DateTime SowingDate_OatSouth_LaZenaidaPivot1a_2018 = new DateTime(2019, 03, 27);
+        public static DateTime HarvestDate_OatSouth_LaZenaidaPivot1a_2018 = new DateTime(2019, 10, 30);
+        public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot1a_2018 = 14;
+        public static DateTime SowingDate_PastureSouth_LaZenaidaPivot4a_2018 = new DateTime(2019, 05, 29);
+        public static DateTime HarvestDate_PastureSouth_LaZenaidaPivot4a_2018 = new DateTime(2020, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot4a_2018 = 14;
+        public static DateTime SowingDate_PastureSouth_LaZenaidaPivot5a_2018 = new DateTime(2019, 05, 29);
+        public static DateTime HarvestDate_PastureSouth_LaZenaidaPivot5a_2018 = new DateTime(2020, 04, 30);
+        public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot5a_2018 = 14;
         #endregion
 
         #endregion
