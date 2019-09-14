@@ -9630,6 +9630,75 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             }
             #endregion
 
+            #region Crop Coefficient Pasture South Short
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpeciePastureSouthShort)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientPastureSouthShort = new CropCoefficient
+                {
+                    Name = Utils.NameSpeciePastureSouthShort,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientPastureSouthShort = InitialTables.CreateUpdateCropCoefficient_PastureSouthShort(lCropCoefficientPastureSouthShort, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientPastureSouthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient Pasture South Medium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpeciePastureSouthMedium)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientPastureSouthMedium = new CropCoefficient
+                {
+                    Name = Utils.NameSpeciePastureSouthMedium,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientPastureSouthMedium = InitialTables.CreateUpdateCropCoefficient_PastureSouthMedium(lCropCoefficientPastureSouthMedium, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientPastureSouthMedium);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient Pasture North Short
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpeciePastureNorthShort)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientPastureNorthShort = new CropCoefficient
+                {
+                    Name = Utils.NameSpeciePastureNorthShort,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientPastureNorthShort = InitialTables.CreateUpdateCropCoefficient_PastureNorthShort(lCropCoefficientPastureNorthShort, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientPastureNorthShort);
+                context.SaveChanges();
+            }
+            #endregion
+            #region Crop Coefficient Pasture North Medium
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lSpecie = (from specie in context.Species
+                           where specie.Name.Contains(Utils.NameSpeciePastureNorthMedium)
+                           select specie).FirstOrDefault();
+                var lCropCoefficientPastureNorthMedium = new CropCoefficient
+                {
+                    Name = Utils.NameSpeciePastureNorthMedium,
+                    SpecieId = lSpecie.SpecieId,
+                    KCList = new List<KC>(),
+                };
+                lCropCoefficientPastureNorthMedium = InitialTables.CreateUpdateCropCoefficient_PastureNorthMedium(lCropCoefficientPastureNorthMedium, 0, lSpecie);
+                context.CropCoefficients.Add(lCropCoefficientPastureNorthMedium);
+                context.SaveChanges();
+            }
+            #endregion
+
             #region Crop Coefficient Alfalfa South Short
             using (var context = new IrrigationAdvisorContext())
             {
