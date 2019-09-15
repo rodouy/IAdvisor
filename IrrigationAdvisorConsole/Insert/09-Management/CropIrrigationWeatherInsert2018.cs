@@ -18610,25 +18610,25 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
                     lIrrigationUnit = (from iu in context.Pivots
-                                       where iu.Name == Utils.NamePivotLaZenaida1
+                                       where iu.Name == Utils.NamePivotLaZenaida1a
                                        select iu).FirstOrDefault();
                     lSoil = (from soil in context.Soils
-                             where soil.Name == Utils.NameSoilLaZenaida1
+                             where soil.Name == Utils.NameSoilLaZenaida1a
                              select soil).FirstOrDefault();
                     lHorizonList = (from horizon in context.Horizons
-                                    where horizon.Name.StartsWith(Utils.NamePivotLaZenaida1)
+                                    where horizon.Name.StartsWith(Utils.NamePivotLaZenaida1a)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry2018.SowingDate_OatSouth_LaZenaidaPivot1_2018;
-                    lHarvestDate = DataEntry2018.HarvestDate_OatSouth_LaZenaidaPivot1_2018;
+                    lSowingDate = DataEntry2018.SowingDate_OatSouth_LaZenaidaPivot1a_2018;
+                    lHarvestDate = DataEntry2018.HarvestDate_OatSouth_LaZenaidaPivot1a_2018;
                     lCropDate = DateTime.Now;
-                    if (DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot1_2018 == 0)
+                    if (DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot1a_2018 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot1_2018;
+                        lPredeterminatedIrrigationQuantity = DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot1a_2018;
                     }
                     #endregion
                     #region Weather Data
@@ -18647,11 +18647,11 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                         weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
-                    #region New CIW La Zenaida Pivot1 2018
-                    var lCIWLaZenaidaPivot1_2018 = new CropIrrigationWeather
+                    #region New CIW La Zenaida Pivot1a 2018
+                    var lCIWLaZenaidaPivot1a_2018 = new CropIrrigationWeather
                     {
 
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaZenaidaPivot1_S1819,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaZenaidaPivot1a_S1819,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -18691,48 +18691,48 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWLaZenaidaPivot1_2018.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWLaZenaidaPivot1a_2018.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWLaZenaidaPivot1_2018.HydricBalance = lCIWLaZenaidaPivot1_2018.GetInitialHydricBalance();
+                    lCIWLaZenaidaPivot1a_2018.HydricBalance = lCIWLaZenaidaPivot1a_2018.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWLaZenaidaPivot1_2018.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
+                    lCIWLaZenaidaPivot1a_2018.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
-                    context.CropIrrigationWeathers.Add(lCIWLaZenaidaPivot1_2018);
+                    context.CropIrrigationWeathers.Add(lCIWLaZenaidaPivot1a_2018);
                     context.SaveChanges();
 
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWLaZenaidaPivot1_2018.Titles)
+                    foreach (var item in lCIWLaZenaidaPivot1a_2018.Titles)
                     {
-                        var lTitlesLaZenaidaPivot1_2018 = new Title
+                        var lTitlesLaZenaidaPivot1a_2018 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWLaZenaidaPivot1_2018.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWLaZenaidaPivot1_2018,
+                            CropIrrigationWeatherId = lCIWLaZenaidaPivot1a_2018.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWLaZenaidaPivot1a_2018,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesLaZenaidaPivot1_2018);
+                        context.Titles.Add(lTitlesLaZenaidaPivot1a_2018);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdLaZenaidaPivot1_2018 = (from title in context.Titles
+                    long lFirstTitleIdLaZenaidaPivot1a_2018 = (from title in context.Titles
                                                               where title.Name == "DDS"
                                                                  && title.Daily == false
-                                                                 && title.CropIrrigationWeatherId == lCIWLaZenaidaPivot1_2018.CropIrrigationWeatherId
+                                                                 && title.CropIrrigationWeatherId == lCIWLaZenaidaPivot1a_2018.CropIrrigationWeatherId
                                                               select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesLaZenaidaPivot1_2018 = lCIWLaZenaidaPivot1_2018.Titles.Count();
-                    long lTitleIdLaZenaidaPivot1_2018 = lFirstTitleIdLaZenaidaPivot1_2018;
+                    long lTotalTitlesLaZenaidaPivot1a_2018 = lCIWLaZenaidaPivot1a_2018.Titles.Count();
+                    long lTitleIdLaZenaidaPivot1a_2018 = lFirstTitleIdLaZenaidaPivot1a_2018;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWLaZenaidaPivot1_2018.Messages)
+                    foreach (var item in lCIWLaZenaidaPivot1a_2018.Messages)
                     {
-                        item.TitleId = lTitleIdLaZenaidaPivot1_2018;
-                        lTitleIdLaZenaidaPivot1_2018 += 1;
-                        item.CropIrrigationWeatherId = lCIWLaZenaidaPivot1_2018.CropIrrigationWeatherId;
-                        if ((lTitleIdLaZenaidaPivot1_2018 - lFirstTitleIdLaZenaidaPivot1_2018) % (lTotalTitlesLaZenaidaPivot1_2018) == 0)
+                        item.TitleId = lTitleIdLaZenaidaPivot1a_2018;
+                        lTitleIdLaZenaidaPivot1a_2018 += 1;
+                        item.CropIrrigationWeatherId = lCIWLaZenaidaPivot1a_2018.CropIrrigationWeatherId;
+                        if ((lTitleIdLaZenaidaPivot1a_2018 - lFirstTitleIdLaZenaidaPivot1a_2018) % (lTotalTitlesLaZenaidaPivot1a_2018) == 0)
                         {
-                            lTitleIdLaZenaidaPivot1_2018 = lFirstTitleIdLaZenaidaPivot1_2018;
+                            lTitleIdLaZenaidaPivot1a_2018 = lFirstTitleIdLaZenaidaPivot1a_2018;
                         }
                     }
                     context.SaveChanges();
@@ -18786,16 +18786,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotLaZenaida4)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry2018.SowingDate_PastureSouth_LaZenaidaPivot4_2018;
-                    lHarvestDate = DataEntry2018.HarvestDate_PastureSouth_LaZenaidaPivot4_2018;
+                    lSowingDate = DataEntry2018.SowingDate_PastureSouth_LaZenaidaPivot4a_2018;
+                    lHarvestDate = DataEntry2018.HarvestDate_PastureSouth_LaZenaidaPivot4a_2018;
                     lCropDate = Program.DateOfReference;
-                    if (DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot4_2018 == 0)
+                    if (DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot4a_2018 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot4_2018;
+                        lPredeterminatedIrrigationQuantity = DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot4a_2018;
                     }
                     #endregion
                     #region Weather Data
@@ -18815,9 +18815,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
                     #region New CIW La Zenaida Pivot 4 2018
-                    var lCIWLaZenaidaPivot4_2018 = new CropIrrigationWeather
+                    var lCIWLaZenaidaPivot4a_2018 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaZenaidaPivot4_S1819,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaZenaidaPivot4a_S1819,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -18859,47 +18859,47 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWLaZenaidaPivot4_2018.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWLaZenaidaPivot4a_2018.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWLaZenaidaPivot4_2018.HydricBalance = lCIWLaZenaidaPivot4_2018.GetInitialHydricBalance();
+                    lCIWLaZenaidaPivot4a_2018.HydricBalance = lCIWLaZenaidaPivot4a_2018.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWLaZenaidaPivot4_2018.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
+                    lCIWLaZenaidaPivot4a_2018.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
-                    context.CropIrrigationWeathers.Add(lCIWLaZenaidaPivot4_2018);
+                    context.CropIrrigationWeathers.Add(lCIWLaZenaidaPivot4a_2018);
                     context.SaveChanges();
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWLaZenaidaPivot4_2018.Titles)
+                    foreach (var item in lCIWLaZenaidaPivot4a_2018.Titles)
                     {
-                        var lTitlesLaZenaidaPivot4_2018 = new Title
+                        var lTitlesLaZenaidaPivot4a_2018 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWLaZenaidaPivot4_2018.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWLaZenaidaPivot4_2018,
+                            CropIrrigationWeatherId = lCIWLaZenaidaPivot4a_2018.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWLaZenaidaPivot4a_2018,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesLaZenaidaPivot4_2018);
+                        context.Titles.Add(lTitlesLaZenaidaPivot4a_2018);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdLaZenaidaPivot4_2018 = (from title in context.Titles
+                    long lFirstTitleIdLaZenaidaPivot4a_2018 = (from title in context.Titles
                                                               where title.Name == "DDS"
                                                                  && title.Daily == false
-                                                                 && title.CropIrrigationWeatherId == lCIWLaZenaidaPivot4_2018.CropIrrigationWeatherId
+                                                                 && title.CropIrrigationWeatherId == lCIWLaZenaidaPivot4a_2018.CropIrrigationWeatherId
                                                               select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesLaZenaidaPivot4_2018 = lCIWLaZenaidaPivot4_2018.Titles.Count();
-                    long lTitleIdLaZenaidaPivot4_2018 = lFirstTitleIdLaZenaidaPivot4_2018;
+                    long lTotalTitlesLaZenaidaPivot4a_2018 = lCIWLaZenaidaPivot4a_2018.Titles.Count();
+                    long lTitleIdLaZenaidaPivot4a_2018 = lFirstTitleIdLaZenaidaPivot4a_2018;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWLaZenaidaPivot4_2018.Messages)
+                    foreach (var item in lCIWLaZenaidaPivot4a_2018.Messages)
                     {
-                        item.TitleId = lTitleIdLaZenaidaPivot4_2018;
-                        lTitleIdLaZenaidaPivot4_2018 += 1;
-                        item.CropIrrigationWeatherId = lCIWLaZenaidaPivot4_2018.CropIrrigationWeatherId;
-                        if ((lTitleIdLaZenaidaPivot4_2018 - lFirstTitleIdLaZenaidaPivot4_2018) % (lTotalTitlesLaZenaidaPivot4_2018) == 0)
+                        item.TitleId = lTitleIdLaZenaidaPivot4a_2018;
+                        lTitleIdLaZenaidaPivot4a_2018 += 1;
+                        item.CropIrrigationWeatherId = lCIWLaZenaidaPivot4a_2018.CropIrrigationWeatherId;
+                        if ((lTitleIdLaZenaidaPivot4a_2018 - lFirstTitleIdLaZenaidaPivot4a_2018) % (lTotalTitlesLaZenaidaPivot4a_2018) == 0)
                         {
-                            lTitleIdLaZenaidaPivot4_2018 = lFirstTitleIdLaZenaidaPivot4_2018;
+                            lTitleIdLaZenaidaPivot4a_2018 = lFirstTitleIdLaZenaidaPivot4a_2018;
                         }
                     }
                     context.SaveChanges();
@@ -18953,16 +18953,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotLaZenaida5)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry2018.SowingDate_PastureSouth_LaZenaidaPivot5_2018;
-                    lHarvestDate = DataEntry2018.HarvestDate_PastureSouth_LaZenaidaPivot5_2018;
+                    lSowingDate = DataEntry2018.SowingDate_PastureSouth_LaZenaidaPivot5a_2018;
+                    lHarvestDate = DataEntry2018.HarvestDate_PastureSouth_LaZenaidaPivot5a_2018;
                     lCropDate = Program.DateOfReference;
-                    if (DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot5_2018 == 0)
+                    if (DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot5a_2018 == 0)
                     {
                         lPredeterminatedIrrigationQuantity = Utils.PredeterminatedIrrigationQuantity_FirstPart;
                     }
                     else
                     {
-                        lPredeterminatedIrrigationQuantity = DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot5_2018;
+                        lPredeterminatedIrrigationQuantity = DataEntry2018.PredeterminatedIrrigationQuantity_LaZenaidaPivot5a_2018;
                     }
                     #endregion
                     #region Weather Data
@@ -18982,9 +18982,9 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                                    select weatherdata).ToList<WeatherData>();
                     #endregion
                     #region New CIW La Zenaida Pivot 5 2018
-                    var lCIWLaZenaidaPivot5_2018 = new CropIrrigationWeather
+                    var lCIWLaZenaidaPivot5a_2018 = new CropIrrigationWeather
                     {
-                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaZenaidaPivot5_S1819,
+                        CropIrrigationWeatherName = Utils.NameCropIrrigationWeatherLaZenaidaPivot5a_S1819,
                         CropId = lCrop.CropId,
                         Crop = lCrop,
                         IrrigationUnitId = lIrrigationUnit.IrrigationUnitId,
@@ -19026,47 +19026,47 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
 
                     //Set Calculus Method for Phenological Adjustment
-                    lCIWLaZenaidaPivot5_2018.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
+                    lCIWLaZenaidaPivot5a_2018.SetCalculusMethodForPhenologicalAdjustment(Utils.CalculusOfPhenologicalStage.ByGrowingDegreeDays);
                     //Get Initial Hydric Balance
-                    lCIWLaZenaidaPivot5_2018.HydricBalance = lCIWLaZenaidaPivot5_2018.GetInitialHydricBalance();
+                    lCIWLaZenaidaPivot5a_2018.HydricBalance = lCIWLaZenaidaPivot5a_2018.GetInitialHydricBalance();
                     //Create the initial registry
-                    lCIWLaZenaidaPivot5_2018.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
+                    lCIWLaZenaidaPivot5a_2018.AddDailyRecordToList(lSowingDate, "Initial registry", lSowingDate);
 
-                    context.CropIrrigationWeathers.Add(lCIWLaZenaidaPivot5_2018);
+                    context.CropIrrigationWeathers.Add(lCIWLaZenaidaPivot5a_2018);
                     context.SaveChanges();
                     #endregion
                     #region Save Titles for print
-                    foreach (var item in lCIWLaZenaidaPivot5_2018.Titles)
+                    foreach (var item in lCIWLaZenaidaPivot5a_2018.Titles)
                     {
-                        var lTitlesLaZenaidaPivot5_2018 = new Title
+                        var lTitlesLaZenaidaPivot5a_2018 = new Title
                         {
-                            CropIrrigationWeatherId = lCIWLaZenaidaPivot5_2018.CropIrrigationWeatherId,
-                            CropIrrigationWeather = lCIWLaZenaidaPivot5_2018,
+                            CropIrrigationWeatherId = lCIWLaZenaidaPivot5a_2018.CropIrrigationWeatherId,
+                            CropIrrigationWeather = lCIWLaZenaidaPivot5a_2018,
                             Daily = false,
                             Name = item.Name,
                             Abbreviation = item.Abbreviation,
                             Description = item.Description,
                         };
-                        context.Titles.Add(lTitlesLaZenaidaPivot5_2018);
+                        context.Titles.Add(lTitlesLaZenaidaPivot5a_2018);
                     }
                     context.SaveChanges();
-                    long lFirstTitleIdLaZenaidaPivot5_2018 = (from title in context.Titles
+                    long lFirstTitleIdLaZenaidaPivot5a_2018 = (from title in context.Titles
                                                               where title.Name == "DDS"
                                                                  && title.Daily == false
-                                                                 && title.CropIrrigationWeatherId == lCIWLaZenaidaPivot5_2018.CropIrrigationWeatherId
+                                                                 && title.CropIrrigationWeatherId == lCIWLaZenaidaPivot5a_2018.CropIrrigationWeatherId
                                                               select title.TitleId).FirstOrDefault();
-                    long lTotalTitlesLaZenaidaPivot5_2018 = lCIWLaZenaidaPivot5_2018.Titles.Count();
-                    long lTitleIdLaZenaidaPivot5_2018 = lFirstTitleIdLaZenaidaPivot5_2018;
+                    long lTotalTitlesLaZenaidaPivot5a_2018 = lCIWLaZenaidaPivot5a_2018.Titles.Count();
+                    long lTitleIdLaZenaidaPivot5a_2018 = lFirstTitleIdLaZenaidaPivot5a_2018;
                     #endregion
                     #region Update Messages Ids
-                    foreach (var item in lCIWLaZenaidaPivot5_2018.Messages)
+                    foreach (var item in lCIWLaZenaidaPivot5a_2018.Messages)
                     {
-                        item.TitleId = lTitleIdLaZenaidaPivot5_2018;
-                        lTitleIdLaZenaidaPivot5_2018 += 1;
-                        item.CropIrrigationWeatherId = lCIWLaZenaidaPivot5_2018.CropIrrigationWeatherId;
-                        if ((lTitleIdLaZenaidaPivot5_2018 - lFirstTitleIdLaZenaidaPivot5_2018) % (lTotalTitlesLaZenaidaPivot5_2018) == 0)
+                        item.TitleId = lTitleIdLaZenaidaPivot5a_2018;
+                        lTitleIdLaZenaidaPivot5a_2018 += 1;
+                        item.CropIrrigationWeatherId = lCIWLaZenaidaPivot5a_2018.CropIrrigationWeatherId;
+                        if ((lTitleIdLaZenaidaPivot5a_2018 - lFirstTitleIdLaZenaidaPivot5a_2018) % (lTotalTitlesLaZenaidaPivot5a_2018) == 0)
                         {
-                            lTitleIdLaZenaidaPivot5_2018 = lFirstTitleIdLaZenaidaPivot5_2018;
+                            lTitleIdLaZenaidaPivot5a_2018 = lFirstTitleIdLaZenaidaPivot5a_2018;
                         }
                     }
                     context.SaveChanges();
@@ -19711,6 +19711,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     DataEntry2018.AddInformationToIrrigationUnitsLaZenaidaPivot3_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsLaZenaidaPivot4_2018(context, Program.DateOfReference);
                     DataEntry2018.AddInformationToIrrigationUnitsLaZenaidaPivot5_2018(context, Program.DateOfReference);
+
+                    DataEntry2018.AddInformationToIrrigationUnitsLaZenaidaPivot1a_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsLaZenaidaPivot4a_2018(context, Program.DateOfReference);
+                    DataEntry2018.AddInformationToIrrigationUnitsLaZenaidaPivot5a_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }

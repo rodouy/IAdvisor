@@ -2519,6 +2519,9 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NamePositionPivotLaZenaida3 = NamePivotLaZenaida3;
         public static String NamePositionPivotLaZenaida4 = NamePivotLaZenaida4;
         public static String NamePositionPivotLaZenaida5 = NamePivotLaZenaida5;
+        public static String NamePositionPivotLaZenaida1a = NamePivotLaZenaida1a;
+        public static String NamePositionPivotLaZenaida4a = NamePivotLaZenaida4a;
+        public static String NamePositionPivotLaZenaida5a = NamePivotLaZenaida5a;
         #endregion
         #region Alpino - Santa Emilia
         public static String NamePositionPivotAlpinoSantaEmilia1 = NamePivotAlpinoSantaEmilia1;

@@ -40,7 +40,7 @@ namespace IrrigationAdvisorConsole
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.Production;
+        public static Utils.IrrigationAdvisorProcessFarm ProcessFarm = Utils.IrrigationAdvisorProcessFarm.LaZenaida;
 
         public static Utils.IrrigationAdvisorOutputFiles PrintFarm = Utils.IrrigationAdvisorOutputFiles.NONE;
 
@@ -152,6 +152,7 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertStagesCorn();
                 AgricultureInsert.InsertStagesSoya();
                 AgricultureInsert.InsertStagesOat();
+                AgricultureInsert.InsertStagesPasture();
                 AgricultureInsert.InsertStagesSorghumForage();
                 AgricultureInsert.InsertStagesSorghumGrain();
                 AgricultureInsert.InsertStagesAlfalfa();
@@ -241,6 +242,11 @@ namespace IrrigationAdvisorConsole
                     AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2018();
                     AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2018();
 
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthMedium_2018();
+
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2018();
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2018();
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2018();
@@ -275,6 +281,11 @@ namespace IrrigationAdvisorConsole
                     AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2018();
                     AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2018();
                     AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2018();
+
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthMedium_2018();
 
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2018();
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2018();
