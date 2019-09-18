@@ -154,15 +154,15 @@ namespace IrrigationAdvisor.Models.Data
 
         //TODO this is only to start relative pastures
         public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_OAT = "V1";
-        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_OAT = "V1";
+        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_OAT = "R6";
         public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_PASTURE = "V1";
-        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE = "V1";
+        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE = "R6";
         public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_ALFALFA = "V1";
-        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_ALFALFA = "V1";
+        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_ALFALFA = "R6";
         public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_SUDANGRASS = "V1";
-        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SUDANGRASS = "V1";
+        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_SUDANGRASS = "R6";
         public const String STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_FESCUEFORAGE = "V1";
-        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_FESCUEFORAGE = "V1";
+        public const String STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_FESCUEFORAGE = "R5";
 
         #endregion
 

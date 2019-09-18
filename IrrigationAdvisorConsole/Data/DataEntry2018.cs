@@ -628,7 +628,7 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationAlternativeName_LaZenaida_2018 = Utils.NameWeatherStationLasBrujas;
 
         public static DateTime SowingDate_FescueForageSouth_LaZenaidaPivot1_2018 = new DateTime(2018, 09, 25);
-        public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot1_2018 = new DateTime(2019, 06, 30);
+        public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot1_2018 = new DateTime(2019, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot1_2018 = 14;
         public static DateTime SowingDate_FescueForageSouth_LaZenaidaPivot2_2018 = new DateTime(2018, 09, 25);
         public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot2_2018 = new DateTime(2019, 06, 30);
@@ -25970,9 +25970,9 @@ namespace IrrigationAdvisorConsole.Data
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (Program.StopOnDebug && i == 55)
+                if (Program.StopOnDebug && i >= 149)
                 {
-                    //System.Diagnostics.Debugger.Break();
+                    System.Diagnostics.Debugger.Break();
                 }
                 #endregion
 
@@ -25982,10 +25982,7 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.HasAdviseOfIrrigation = false;
                 lCropIrrigationWeather.AddDailyRecordToList(lDateOfRecord, lObservation, pDateOfReference);
 
-                int a;
-                if (i==144)
-                    a=0;
-
+                 
                 context.SaveChanges();
 
                 //Adjustment of Phenological Stage
