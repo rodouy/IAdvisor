@@ -240,6 +240,24 @@ namespace IrrigationAdvisor.DBContext.Irrigation
             return lReturn;
         }
 
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherInactiveListstBy(
+                                     IrrigationUnit pIrrigationUnit,
+                                     DateTime pDateOfReference)
+        {
+            List<CropIrrigationWeather> lReturn = null;
+            long lIrrigationUnitId;
+            if (pIrrigationUnit != null)
+            {
+                lIrrigationUnitId = pIrrigationUnit.IrrigationUnitId;
+                lReturn = db.CropIrrigationWeathers
+                    .Where(ciw => ciw.IrrigationUnitId == lIrrigationUnitId
+                        && ciw.HarvestDate <= pDateOfReference
+                        && ciw.IrrigationUnit.Show == true).ToList();
+            }
+
+            return lReturn;
+        }
+
         /// <summary>
         /// Get List of IrrigationUnit by Farm
         /// Include: IrrigationUnitList;

@@ -3,4 +3,21 @@
 <div class="title-images">
     @*<h1>@Model.Code</h1>*@
     <h2>@Model.Description</h2>
+    @if (Model.InactiveCropIrrigationWeatherList != null)
+      {
+    <table cellspacing="0" border="1" style="table-layout:fixed; width:400px" align="center" class="main-table-advisor">
+        <tr>
+            <th class="caption">Unidades de riegos</th>
+        </tr>
+
+           @foreach (var item in Model.InactiveCropIrrigationWeatherList)
+            {
+                <tr>
+                    <td><a href="../ReportPivotState?ciw=@item.CropIrrigationWeatherId" title="Reporte de estado del pivot">@item.CropIrrigationWeatherName</a></td>
+                </tr>
+
+            }
+
+    </table>
+        }
 </div>

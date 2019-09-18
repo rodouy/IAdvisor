@@ -59,6 +59,8 @@ namespace IrrigationAdvisor.ViewModels.Home
 
         public DateTime MaxDateOfReference { get; set; }
 
+        public List<CropIrrigationWeather> CropIrrigationWeatherInactiveList { get; set; }
+
         #endregion
 
         #region Construction

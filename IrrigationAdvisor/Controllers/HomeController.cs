@@ -58,6 +58,7 @@ namespace IrrigationAdvisor.Controllers
         private const string INVALID_REFERENCE_DATE = "La fecha debe ser menor a la fecha actual.";
         private const string INVALID_PERCENTAGE = "El porcentaje debe ser mayor o igual a 0";
         private const string GENERAL_ERROR = "Ha ocurrido un error en la operación";
+        private const string NO_ACTIVE_IU = "No existen unidades de riegos activas";
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -214,6 +215,9 @@ namespace IrrigationAdvisor.Controllers
             List<CropIrrigationWeather> lCropIrrigationWeatherVM;
             sc = new StatusConfiguration();
             lErrorVM = new ErrorViewModel();
+
+            List<Farm> lFarmListInactiveCIW;
+            List<CropIrrigationWeather> lInactiveCropIrrigationWeatherList;
             #endregion
 
             int trace = 0;
@@ -305,13 +309,14 @@ namespace IrrigationAdvisor.Controllers
                 #region Get list of Farms from User
                 if(lLoggedUser != null)
                 {
-                    lFarmList = fc.GetFarmWithActiveCropIrrigationWeathersListBy(lLoggedUser);
+                    lFarmList = fc.GetFarmWithActiveCropIrrigationWeathersListBy(lLoggedUser);                  
+                    lFarmListInactiveCIW = fc.GetFarmWithInactiveCropIrrigationWeathersListBy(lLoggedUser);     
                 }
                 else
                 {
+
                     lErrorVM.Code = USER_IS_NULL_CODE;
                     lErrorVM.Description = USER_IS_NULL;
-
                     HomeViewModel HVMError = new HomeViewModel(lErrorVM);
                     logger.Debug(USER_IS_NULL);
                     return View(HVMError);
@@ -320,14 +325,28 @@ namespace IrrigationAdvisor.Controllers
                 
                 trace = 60;
                 // If the user doesnt have farms
-                if (lFarmList.Count == 0)
+                if (lFarmList.Count == 0 && lFarmListInactiveCIW.Count == 0)
                 {
+
                     lErrorVM.Code = NO_FARMS_FOR_USER_NR;
                     lErrorVM.Description = NO_FARMS_FOR_USER;
-
                     HomeViewModel HVMError = new HomeViewModel(lErrorVM);
                     logger.Debug(NO_FARMS_FOR_USER);
                     return View(HVMError);
+                }
+                else 
+                {   
+                    if (lFarmList.Count == 0) // Only inactive irrigation unit
+                    {
+                        lInactiveCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherInactiveByUser(lLoggedUser.UserId, lDateOfReference);
+
+
+                        lErrorVM.Code = 999;
+                        lErrorVM.Description = NO_ACTIVE_IU;
+                        lErrorVM.InactiveCropIrrigationWeatherList = lInactiveCropIrrigationWeatherList;
+                        HomeViewModel HVMError = new HomeViewModel(lErrorVM);
+                        return View(HVMError);
+                    }
                 }
                 #endregion
 
@@ -373,9 +392,11 @@ namespace IrrigationAdvisor.Controllers
                 trace = 90;
 
                 lCropIrrigationWeatherList = new List<CropIrrigationWeather>();
+                lInactiveCropIrrigationWeatherList = new List<CropIrrigationWeather>();
                 lDailyRecordList = new List<DailyRecord>();
                 foreach (IrrigationUnit lIrrigationUnit in lIrrigationUnitList)
                 {
+
                     lPosibleCropIrrigationWeatherList = iuc.GetCropIrrigationWeatherListIncludeCropRainListIrrigationListBy(lIrrigationUnit, lDateOfReference);
                     //Only using Active CropIrrigationWeather, depending in DateOfReference 
                     if (lPosibleCropIrrigationWeatherList != null && lPosibleCropIrrigationWeatherList.Count() > 0)
@@ -387,10 +408,13 @@ namespace IrrigationAdvisor.Controllers
                         lCropIrrigationWeatherList.AddRange(lPosibleCropIrrigationWeatherList);
                     }
                     else
-                    {
+                    { 
                         trace = 95;
                     }
                 }
+
+                lInactiveCropIrrigationWeatherList = ciwc.GetCropIrrigationWeatherInactiveByFarm(lCurrentFarm.FarmId, lDateOfReference);
+
 
                 trace = 100;
                 //TODO Change First CropIrrigationWeather
@@ -441,6 +465,7 @@ namespace IrrigationAdvisor.Controllers
                 //Set User as Intermediate
                 lHomeViewModel.IsUserIntermediate = (lLoggedUser.RoleId == (int)Utils.UserRoles.Intermediate);
 
+                lHomeViewModel.CropIrrigationWeatherInactiveList = lInactiveCropIrrigationWeatherList;
                 trace = 140;
                 ManageSession.SetHomeViewModel(lHomeViewModel);
 

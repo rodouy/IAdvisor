@@ -139,6 +139,7 @@
                                         <button class="btn go btn-pivots " id="dateOfReferenceBtn2" style="display:inline-block">Actualizar</button>
                                     }
                                 }*@
+
                                 <select class="form-control margin-bottom-10" id="lstFarms" style="width: 59%">
                                    
                                 </select>
@@ -207,6 +208,9 @@
                                             <tbody>
                                                 @{ Html.RenderAction("FrontPagePartial", "Home"); }
                                             </tbody>
+                                            <tbody>
+                                              
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -215,70 +219,86 @@
                         <!-- End Table -->
                     </div>
                     <!-- End Grid Pivot -->
-                </div>
-            </div>
-            <!--reference-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12" style="padding-left: 0">
-                        <div class="mod-reference">
-                            <div class="title-reference">
-                                <h3 class="fa fa-list fa-2x"> Referencias</h3>
-                                <div class="regado col-md-3"><h5>Campo regado</h5></div>
-                                <div class="proximo-riego col-md-3"><h5>Próximo riego</h5></div>
-                                <div class="lluvia-registrada col-md-3"><h5>Lluvia</h5></div>
-                                <div class="no-riego col-md-3"><h5>No riego</h5></div>
-                                <div class="por-defecto col-md-3"><h5>Sin Riego</h5></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  Weather & Map container -->
-            <div class="container">
-               @{if (Model.IsUserAdministrator)
-                 {
-                   <div class="row">
-                    <!-- map-->
-                    <div class="col-md-6 hidden-xs">
-                        <div id="embed-map-canvas">
-                            <iframe  frameborder="0" style="width: 100%; height: 472px; margin-top: 10px"
-                                    src="http://maps.google.com/maps?z=13&t=h&q=loc:@Model.GetDefaultFarmLatitude(),+@Model.GetDefaultFarmLongitude()&output=embed"></iframe>
-                        </div>
+                    @if (Model.CropIrrigationWeatherInactiveList.Count > 1)
+                    { 
+                        <div style="color:black" class="btn-md">
+                            <div class="col-xs-10 col-md-10 col-lg-5" id="dv-for-txtDateOfReference-dateOfReferenceBtn2">
+                                
+                                <button class="btn go btn-pivots btn-md" id="viewPivotsModal">
+                                    <span class="glyphicon glyphicon-plus"></span>Ver pivots inactivos
+                                </button>
+                                
+</div>
 
-                    </div>
-                    <!-- end map-->
-                     
-                    <!-- weather-->
-                    <div class="col-md-6">
-                        <section class="pivot-ub">
-                            <div class="container-images">
-                                <div>
-                                    <div class="location-pivot">
-                                        @*<h3 class="fa fa-cloud fa-2x"> Clima </h3>*@
-                                        @* https://www.meteoblue.com/es/tiempo/widget/three/-33.96N-55.948E80_America%2FMontevideo?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image *@
-                                        <iframe src="https://www.meteoblue.com/es/tiempo/widget/three/@(Model.GetDefaultFarmLatitude())N@(Model.GetDefaultFarmLongitude())E?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=monochrome" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 460px;height: 610px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/pronostico/semana/montevideo_uruguay_3441575?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
-                                    </div>
-                                    
+                        </div>
+                        }
+                    
+
+
+                </div>
+            </div>
+            
+                <!--reference-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12" style="padding-left: 0">
+                            <div class="mod-reference">
+                                <div class="title-reference">
+                                    <h3 class="fa fa-list fa-2x"> Referencias</h3>
+                                    <div class="regado col-md-3"><h5>Campo regado</h5></div>
+                                    <div class="proximo-riego col-md-3"><h5>Próximo riego</h5></div>
+                                    <div class="lluvia-registrada col-md-3"><h5>Lluvia</h5></div>
+                                    <div class="no-riego col-md-3"><h5>No riego</h5></div>
+                                    <div class="por-defecto col-md-3"><h5>Sin Riego</h5></div>
                                 </div>
                             </div>
-                        </section>
+                        </div>
                     </div>
-                    <!-- end weather-->
                 </div>
-                   }
-                   else
-                   {
-                    <div class="row">
-                        <iframe src="https://www.meteoblue.com/es/tiempo/widget/three/@(Model.GetDefaultFarmLatitude())N@(Model.GetDefaultFarmLongitude())E?geoloc=detect&nocurrent=0&noforecast=0&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=monochrome" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 100%;height: 628px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/pronostico/semana/montevideo_uruguay_3441575?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank">meteoblue</a></div>
-                       
-                    </div>
-                   }
-            }
-            </div>
-            <!-- end Weather & Map container -->
-            <!-- end reference-->
-        </div>
+                <!--  Weather & Map container -->
+                <div class="container">
+                    @{if (Model.IsUserAdministrator)
+                    {
+                        <div class="row">
+                            <!-- map-->
+                            <div class="col-md-6 hidden-xs">
+                                <div id="embed-map-canvas">
+                                    <iframe frameborder="0" style="width: 100%; height: 472px; margin-top: 10px"
+                                            src="http://maps.google.com/maps?z=13&t=h&q=loc:@Model.GetDefaultFarmLatitude(),+@Model.GetDefaultFarmLongitude()&output=embed"></iframe>
+                                </div>
+
+                            </div>
+                            <!-- end map-->
+                            <!-- weather-->
+                            <div class="col-md-6">
+                                <section class="pivot-ub">
+                                    <div class="container-images">
+                                        <div>
+                                            <div class="location-pivot">
+                                                @*<h3 class="fa fa-cloud fa-2x"> Clima </h3>*@
+                                                @* https://www.meteoblue.com/es/tiempo/widget/three/-33.96N-55.948E80_America%2FMontevideo?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image *@
+                                                <iframe src="https://www.meteoblue.com/es/tiempo/widget/three/@(Model.GetDefaultFarmLatitude())N@(Model.GetDefaultFarmLongitude())E?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=monochrome" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 460px;height: 610px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/pronostico/semana/montevideo_uruguay_3441575?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <!-- end weather-->
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <iframe src="https://www.meteoblue.com/es/tiempo/widget/three/@(Model.GetDefaultFarmLatitude())N@(Model.GetDefaultFarmLongitude())E?geoloc=detect&nocurrent=0&noforecast=0&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=monochrome" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 100%;height: 628px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/es/tiempo/pronostico/semana/montevideo_uruguay_3441575?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank">meteoblue</a></div>
+
+                        </div>
+                    }
+                    }
+                </div>
+                <!-- end Weather & Map container -->
+                <!-- end reference-->
+</div>
         <div class="row">
             <!-- location pivots-->
             <section class="pivot-ub">
@@ -306,6 +326,60 @@
 
         <div class="row">
             <div class="col-md-12">
+            
+                    <!-- modal pivot inactivos--->
+                    <div id="modal-pivots" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="header">
+                                    <h2>Pivots inactivos</h2>
+                                </div>
+                                <div class="copy">
+                                    <p>  </p>
+
+                                    <div class="form-group">
+
+                                            <span id="a" class="red-color"></span>
+                                        <br />
+                                   
+                                        <br />
+                                        <div class="dropdown">
+                                            <table cellspacing="0" border="1" style="table-layout:fixed; width:400px" align="center">
+                                                <tr>
+                                                    <th class="caption">Unidades de riegos</th>
+                                                   </tr>
+                                                    @if (Model.CropIrrigationWeatherInactiveList != null)
+                                                    {
+                                                        foreach (var item in Model.CropIrrigationWeatherInactiveList)
+                                                        {
+                                                            <tr>
+                                                                <td><a href="../ReportPivotState?ciw=@item.CropIrrigationWeatherId" title="Reporte de estado del pivot">@item.CropIrrigationWeatherName</a></td>
+                                                            </tr>
+
+                                                        }
+                                                    }
+                                                </table>
+
+                                            <br />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="cf footer">
+                                    <p>
+                                        <button class="btn  btn-style-2" id="CancelPivots">
+                                            Cerrar
+                                        </button>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- end modal pivot inactivos --->            
                     <!-- modal agregar riego--->
                     <div id="modal" class="modal fade" role="dialog">
                         <div class="modal-dialog">
@@ -619,39 +693,40 @@
                     <!-- end modal agregar no riego-->    
 
                     <!-- Modal mover riego-->
-                <div id="modal-move-irrigation" class="modal fade copy" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="header">
-                                <h2><span class="glyphicon"></span>&nbsp;Mover riego</h2>
-                            </div>
-                            <div class="copy col-md-12">
-                                <div class="form-group">
-                                    <div class="col-md-12">
+                    <div id="modal-move-irrigation" class="modal fade copy" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="header">
+                                    <h2><span class="glyphicon"></span>&nbsp;Mover riego</h2>
+                                </div>
+                                <div class="copy col-md-12">
+                                    <div class="form-group">
                                         <div class="col-md-12">
-                                            Mover a la fecha:
-                                            <input type="date" id="dateToMove" class="form-control" value='@Utils.GetDateTimeForClientScripts(DateTime.Now)'/>
-                                            <br />
-                                        </div>                                      
-                                    </div>                                   
-                            </div>
-                            <div class="cf footer" style="display:-webkit-inline-box;float:right">
-                                <p>
-                                    <button class="btn  btn-style-2" id="CancelMoveIrrigation">
-                                        Cancelar
-                                    </button>
-                                </p>
-                                <button id="SaveMoveIrrigation" class="btn  btn-style-2" style="margin-left: 10px;">
-                                    Guardar
-                                </button>
+                                            <div class="col-md-12">
+                                                Mover a la fecha:
+                                                <input type="date" id="dateToMove" class="form-control" value='@Utils.GetDateTimeForClientScripts(DateTime.Now)' />
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cf footer" style="display:-webkit-inline-box;float:right">
+                                        <p>
+                                            <button class="btn  btn-style-2" id="CancelMoveIrrigation">
+                                                Cancelar
+                                            </button>
+                                        </p>
+                                        <button id="SaveMoveIrrigation" class="btn  btn-style-2" style="margin-left: 10px;">
+                                            Guardar
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                    <!-- end modal mover riego-->
-            </div>
+                    </div>  
+               <!-- end modal mover riego-->
+
                 <!-- Modal cambiar fenologia-->
-                <div id="modal-change-pheno" class="modal fade copy" role="dialog">
+                    <div id="modal-change-pheno" class="modal fade copy" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="header">
@@ -669,8 +744,8 @@
                                                     <option value="@(dateValue.AddDays(i).Month + "-" + dateValue.AddDays(i).Day + "-" + dateValue.AddDays(i).Year)">@(dateValue.AddDays(i).ToString("dd/MM/yyyy"))</option>
                                                 }
                                             </select>
-                                            <input type="hidden" id="ciw-selected-pheno"/>
-                                            <input type="hidden" id="stage-selected-pheno"/>
+                                            <input type="hidden" id="ciw-selected-pheno" />
+                                            <input type="hidden" id="stage-selected-pheno" />
                                             <br />
                                         </div>
                                     </div>
@@ -689,11 +764,12 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end modal mover riego-->
-            </div>
+                </div> 
+                      <!-- end modal mover riego-->
+            
 
                 <!-- Modal cambiar balance hidrico-->
-                <div id="modal-change-hydricbalance" class="modal fade copy" role="dialog">
+                    <div id="modal-change-hydricbalance" class="modal fade copy" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="header">
@@ -725,10 +801,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- end modal cambiar balance hidrico.-->
                 </div>
-            
+                    <!-- end modal cambiar balance hidrico.-->
+
+
+
             
         </div>
                 </div>

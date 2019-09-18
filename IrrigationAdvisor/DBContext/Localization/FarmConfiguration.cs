@@ -120,7 +120,29 @@ namespace IrrigationAdvisor.DBContext.Localization
 
             return lReturn;
         }
+        public List<Farm> GetFarmWithInactiveCropIrrigationWeathersListBy(User pUser)
+        {
+            List<Farm> lReturn = null;
 
+            DateTime lDate = Utils.GetDateOfReference().Value;
+
+            if (pUser != null)
+            {
+                lReturn = (from ul in db.UserFarms
+                           join f in db.Farms
+                           on ul.FarmId equals f.FarmId
+                           join i in db.IrrigationUnits
+                           on f.FarmId equals i.FarmId
+                           join ciw in db.CropIrrigationWeathers
+                           on i.IrrigationUnitId equals ciw.IrrigationUnitId
+                           where ul.UserId == pUser.UserId &&
+                           ciw.HarvestDate <= lDate &&
+                           f.IsActive == true
+                           select f).Include(f => f.IrrigationUnitList).Distinct().ToList();
+            }
+
+            return lReturn;
+        }
         /// <summary>
         /// Get Latitude by Position Id
         /// </summary>

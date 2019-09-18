@@ -549,6 +549,39 @@ namespace IrrigationAdvisor.DBContext.Management
             return lReturn;
         }
 
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherInactiveByFarm(long farmId, DateTime pDateOfReference)
+        {
+            List<CropIrrigationWeather> lReturn;
+
+            lReturn = (from ciw in db.CropIrrigationWeathers
+                       join iu in db.IrrigationUnits
+                       on ciw.IrrigationUnitId equals iu.IrrigationUnitId
+                       join f in db.Farms
+                       on iu.FarmId equals f.FarmId
+                       where f.FarmId == farmId &&
+                       ciw.HarvestDate < pDateOfReference
+                       select ciw).ToList();
+
+            return lReturn;
+        }
+
+        public List<CropIrrigationWeather> GetCropIrrigationWeatherInactiveByUser(long userId, DateTime pDateOfReference)
+        {
+            List<CropIrrigationWeather> lReturn;
+
+            lReturn = (from ciw in db.CropIrrigationWeathers
+                       join iu in db.IrrigationUnits
+                       on ciw.IrrigationUnitId equals iu.IrrigationUnitId
+                       join f in db.Farms
+                       on iu.FarmId equals f.FarmId
+                       join ul in db.UserFarms
+                       on f.FarmId equals ul.FarmId
+                       where ul.UserId == userId &&
+                       ciw.HarvestDate < pDateOfReference
+                       select ciw).ToList();
+
+            return lReturn;
+        }
 
         /// <summary>
         /// Get a CropIrrigationWeather list 

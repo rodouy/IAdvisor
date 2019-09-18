@@ -23,10 +23,12 @@ $(document).ready(function () {
     var addNoIrrigationMobile = $('#addNoIrrigationMobile');
     var addPhenoModal = $('#addPhenoModal');
     var addRainModal = $('#addRainModal');
+    var viewPivotsModal = $('#viewPivotsModal');
     var addNoIrrigationModal = $('#addNoIrrigationModal');
     var addRainModalMobile = $('#addRainModalMobile');
     var modalIrrigation = $('#modal');
     var modalRain = $('#modal-lluvia');
+    var modalPivots = $('#modal-pivots');
     var modalPheno = $('#modal-fenologia');
     var modalMoveIrrigation = $('#modal-move-irrigation');
     var modalChangeHydricbalance = $('#modal-change-hydricbalance');
@@ -37,6 +39,7 @@ $(document).ready(function () {
     var modalNoIrrigation = $('#modal-no-irrigation');
     var cancelIrrigation = $('#CancelIrrigation');
     var cancelRain = $('#CancelRain');
+    var cancelPivots = $('#CancelPivots');
     var cancelPheno = $('#CancelPheno');
     var cancelNoIrrigation = $('#CancelNoIrrigation');
     var lstFarms = $('#lstFarms');
@@ -237,6 +240,7 @@ $(document).ready(function () {
 
         addIrrigationModal.hide();
         addRainModal.hide();
+        viewPivotsModal.hide();
         addIrrigationModalMobile.hide();
         addRainModalMobile.hide();
         addPhenoModal.hide();
@@ -248,6 +252,7 @@ $(document).ready(function () {
 
         modalIrrigation.modal(initModal);
         modalRain.modal(initModal);
+        modalPivots.modal(initModal);
         modalPheno.modal(initModal);
         modalNoIrrigation.modal(initModal);
         modalMoveIrrigation.modal(initModal);
@@ -305,6 +310,7 @@ $(document).ready(function () {
 
             addIrrigationModal.hide();
             addRainModal.hide();
+            viewPivotsModal.hide();
             addNoIrrigationModal.hide();
             removeClasses();
         }
@@ -315,6 +321,7 @@ $(document).ready(function () {
 
             addIrrigationModal.show();
             addRainModal.show();
+            viewPivotsModal.show();
             addNoIrrigationModal.show()
             addClasses();
         }
@@ -325,6 +332,7 @@ $(document).ready(function () {
     $.getScript("https://code.jquery.com/ui/1.12.0/jquery-ui.js", function () {
         var addIrrigationModal = $('#addIrrigationModal');
         var addRainModal = $('#addRainModal');
+        var viewPivotsModal = $('#viewPivotsModal');
         var addPhenoModal = $('#addPhenoModal');
 
         var addIrrigationModalMobile = $('#addIrrigationModalMobile');
@@ -344,6 +352,7 @@ $(document).ready(function () {
 
             addIrrigationModal.hide();
             addRainModal.hide();
+            viewPivotsModal.hide();
             addNoIrrigationModal.hide();
 
             removeClasses();
@@ -355,6 +364,7 @@ $(document).ready(function () {
 
             addIrrigationModal.show();
             addRainModal.show();
+            viewPivotsModal.show();
             addNoIrrigationModal.show();
             addClasses();
         }
@@ -373,7 +383,11 @@ $(document).ready(function () {
     });
 
     addRainModal.click(function () {
-        modalRain.modal('show');
+         modalRain.modal('show');
+        $('.modal-content').draggable();
+    });
+    viewPivotsModal.click(function () {
+        modalPivots.modal('show');
         $('.modal-content').draggable();
     });
 
@@ -412,6 +426,10 @@ $(document).ready(function () {
 
     cancelRain.click(function () {
         modalRain.modal('hide');
+    });
+
+    cancelPivots.click(function () {
+        modalPivots.modal('hide');
     });
 
     cancelPheno.click(function () {
