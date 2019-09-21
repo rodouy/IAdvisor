@@ -1467,6 +1467,24 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Latitude = -33.2849639,
                 Longitude = -57.11852777,
             };
+            var lLaZenaidaPivot1a = new Position()
+            {
+                Name = Utils.NamePositionPivotLaZenaida1a,
+                Latitude = -33.2769167,
+                Longitude = -57.1036222,
+            };
+            var lLaZenaidaPivot4a = new Position()
+            {
+                Name = Utils.NamePositionPivotLaZenaida4a,
+                Latitude = -33.2846222,
+                Longitude = -57.11364166,
+            };
+            var lLaZenaidaPivot5a = new Position()
+            {
+                Name = Utils.NamePositionPivotLaZenaida5a,
+                Latitude = -33.2849639,
+                Longitude = -57.11852777,
+            };
             #endregion
 
             using (var context = new IrrigationAdvisorContext())
@@ -1539,7 +1557,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosOlivos);
                 context.Positions.Add(lViveroSanFrancisco);
                 #endregion
-                #region Pivots #156
+                #region Pivots #159
                 #region Pivots - Demo #14
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1728,12 +1746,15 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lElAlbaPivot32);
                 context.Positions.Add(lElAlbaPivot33);
                 #endregion
-                #region Pivots - La Zenaida #5
+                #region Pivots - La Zenaida #8
                 context.Positions.Add(lLaZenaidaPivot1);
                 context.Positions.Add(lLaZenaidaPivot2);
                 context.Positions.Add(lLaZenaidaPivot3);
                 context.Positions.Add(lLaZenaidaPivot4);
                 context.Positions.Add(lLaZenaidaPivot5);
+                context.Positions.Add(lLaZenaidaPivot1a);
+                context.Positions.Add(lLaZenaidaPivot4a);
+                context.Positions.Add(lLaZenaidaPivot5a);
                 #endregion
                 #endregion
                 context.SaveChanges();
