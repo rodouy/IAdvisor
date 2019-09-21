@@ -2229,6 +2229,10 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     RainData2018.AddRainDataLaZenaidaPivot3_2018(context, Program.DateOfReference);
                     RainData2018.AddRainDataLaZenaidaPivot4_2018(context, Program.DateOfReference);
                     RainData2018.AddRainDataLaZenaidaPivot5_2018(context, Program.DateOfReference);
+
+                    RainData2018.AddRainDataLaZenaidaPivot1a_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataLaZenaidaPivot4a_2018(context, Program.DateOfReference);
+                    RainData2018.AddRainDataLaZenaidaPivot5a_2018(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
 
@@ -2650,6 +2654,9 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     IrrigationData2018.AddIrrigationDataLaZenaidaPivot3_2018(context, Program.DateOfReference);
                     IrrigationData2018.AddIrrigationDataLaZenaidaPivot4_2018(context, Program.DateOfReference);
                     IrrigationData2018.AddIrrigationDataLaZenaidaPivot5_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataLaZenaidaPivot1a_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataLaZenaidaPivot4a_2018(context, Program.DateOfReference);
+                    IrrigationData2018.AddIrrigationDataLaZenaidaPivot5a_2018(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
