@@ -25970,9 +25970,9 @@ namespace IrrigationAdvisorConsole.Data
             {
                 #region Erase - only for debug - do nothing
                 //TODO: Erase To debug
-                if (Program.StopOnDebug && i >= 149)
+                if (Program.StopOnDebug && i == 149)
                 {
-                    System.Diagnostics.Debugger.Break();
+                    //System.Diagnostics.Debugger.Break();
                 }
                 #endregion
 
