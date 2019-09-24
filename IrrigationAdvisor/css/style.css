@@ -996,7 +996,7 @@ textarea {
 #header {
   position: relative;
   z-index: 999;
-  background-color: #012340;
+  /*background-color: #012340;*/
   border-bottom: 4px solid #12B73D;
 }
 #header .logo {
@@ -1041,7 +1041,7 @@ textarea {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  /*color: #37abf2;*/
   line-height: 65px;
   padding: 0 17px;
   -webkit-transition: all 0.3s ease 0s;
@@ -1061,10 +1061,11 @@ textarea {
 }
 .navigation .menu li:hover > a {
   background-color: #11538c;
+  color:white
 }
 .navigation .menu li.active > a,
 .navigation .menu li.current-menu-item > a {
-  color: #37abf2;
+  color: #428bca;
 }
 .navigation .menu .sub-menu {
   position: absolute;
