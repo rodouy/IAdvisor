@@ -3,12 +3,12 @@
 <li class="current-menu-item">
     <a href="http://@Request.Url.Host:@Request.Url.Port/Home/Home">Inicio</a>
 </li>
-<li>
+@*<li>
     <a href="../Home/Company">Empresa</a>
 </li>
 <li>
     <a href="../Home/Contact">Contacto</a>
-</li>
+</li>*@
 @{
     if (Model.IsAdministrator)
     {
@@ -50,6 +50,18 @@
                 <li>
                     <a href="../IrrigationUnit">Unidad de riego</a>
                 </li>
+                <li>
+                    <a href="../SpecieCycles">Ciclo de especie</a>
+                </li>
+                <li>
+                    <a href="../Species">Especie</a>
+                </li>
+                <li>
+                    <a href="../Stages">Estadio</a>
+                </li>
+                <li>
+                    <a href="../PhenologicalStages">Estadio fenológico</a>
+                </li>   
 
             </ul>
         </li>
@@ -59,3 +71,4 @@
 }
 <li>
     <a href="../Home/LogOut">Salir</a>
+</li>

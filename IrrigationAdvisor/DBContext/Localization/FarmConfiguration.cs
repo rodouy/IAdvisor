@@ -88,7 +88,7 @@ namespace IrrigationAdvisor.DBContext.Localization
                            select f).Include(f => f.BombList)
                                         .Include(f => f.IrrigationUnitList)
                                         .Include(f => f.WeatherStation)
-                                        .Include(f => f.City).ToList();
+                                        .Include(f => f.City).OrderBy(f => f.Name).ToList();
             }
             
             return lReturn;
@@ -213,6 +213,7 @@ namespace IrrigationAdvisor.DBContext.Localization
                        select f).OrderBy(f => f.Name).ToList();
             return lReturn;
         }
+
 
 
         /// <summary>

@@ -11,6 +11,7 @@ namespace IrrigationAdvisor.DBContext.Localization
     public class RegionConfiguration:
         EntityTypeConfiguration<Region>
     {
+        private IrrigationAdvisorContext db = IrrigationAdvisorContext.Instance();
         public RegionConfiguration()
         {
             ToTable("Region");
@@ -22,6 +23,10 @@ namespace IrrigationAdvisor.DBContext.Localization
                 .IsRequired()
                 .HasMaxLength(50);
             
+        }
+        public List<Region> GetAllRegions()
+        {
+            return db.Regions.ToList();
         }
     }
 }

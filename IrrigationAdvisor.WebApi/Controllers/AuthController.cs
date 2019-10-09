@@ -33,9 +33,19 @@ namespace IrrigationAdvisor.WebApi.Controllers
                     string cleanUserName = userName.ToLower().Trim();
                     var user = context.Users.Where(n => n.UserName == cleanUserName).Single();
 
-                    var farms = context.UserFarms.Where(n => n.UserId == user.UserId).ToList();
+                    var farms = from uf in context.UserFarms
+                                join iu in context.IrrigationUnits
+                                on uf.FarmId equals iu.FarmId
+                                join f in context.Farms
+                                on iu.FarmId equals f.FarmId
+                                join ciw in context.CropIrrigationWeathers
+                                on iu.IrrigationUnitId equals ciw.IrrigationUnitId
+                                where uf.UserId == user.UserId &&
+                                iu.Show && ciw.SowingDate <= DateTime.Now && f.IsActive &&
+                                ciw.HarvestDate >= DateTime.Now
+                                select uf;
 
-                    foreach (var f in farms)
+                    foreach (var f in farms.Distinct())
                     {
                         FarmViewModel newFarm = new FarmViewModel()
                         {
@@ -63,27 +73,6 @@ namespace IrrigationAdvisor.WebApi.Controllers
             }
 
             return result;
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
         }
     }
 }

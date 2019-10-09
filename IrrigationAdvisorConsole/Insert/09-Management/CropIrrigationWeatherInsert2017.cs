@@ -10864,7 +10864,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region La Rinconada
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
                 {
@@ -13099,7 +13098,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-#endif
+                    #endif
                     #region Santa Emilia Pivot 2 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -13267,7 +13266,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-
                     #region Santa Emilia Pivot 5 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -13435,7 +13433,6 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-
                     #region Santa Emilia Pivot 7 2017
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -13603,6 +13600,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
+                    
+
 #if true
 #endif
                 }

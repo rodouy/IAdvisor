@@ -21,8 +21,8 @@ namespace IrrigationAdvisor.Views
         {
             if (!dateFrom.HasValue && !dateTo.HasValue && weatherStationId == 0)
             {
-                return View(db.MeteoblueWeatherDatas
-                            .Include(n => n.WeatherStation).ToList());
+               
+                return View("~/Views/Weather/MeteoblueWeatherDatas/Index.cshtml", (db.MeteoblueWeatherDatas.Include(n => n.WeatherStation).ToList()));
             }
             else
             {
@@ -36,7 +36,7 @@ namespace IrrigationAdvisor.Views
                     query = query.Where(n => n.WeatherStationId == weatherStationId);
                 }
 
-                return View(query.ToList());
+                return View("~/Views/Weather/MeteoblueWeatherDatas/Index.cshtml",query.ToList());
             }  
         }
 
@@ -58,7 +58,7 @@ namespace IrrigationAdvisor.Views
         // GET: MeteoblueWeatherDatas/Create
         public ActionResult Create()
         {
-            return View();
+            return View("~/Views/Weather/MeteoblueWeatherDatas/Create.cshtml");
         }
 
         // POST: MeteoblueWeatherDatas/Create
@@ -137,13 +137,13 @@ namespace IrrigationAdvisor.Views
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

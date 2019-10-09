@@ -257,8 +257,8 @@
     <Compile Include="DBContext\Agriculture\CropCoefficientConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\CropInformationByDateConfiguration.cs" />
-    <Compile Include="DBContext\Agriculture\HidricBalanceAdjustmentConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\HorizonConfiguration.cs" />
+    <Compile Include="DBContext\Agriculture\HydricBalanceAdjustmentConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\KCConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\PhenologicalStageAdjustmentConfiguration.cs" />
     <Compile Include="DBContext\Agriculture\PhenologicalStageConfiguration.cs" />
@@ -328,14 +328,22 @@
     <Compile Include="Migrations\201811032011450_ClosedFeaturesWeb20181103.Designer.cs">
       <DependentUpon>201811032011450_ClosedFeaturesWeb20181103.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812111652034_addRelationSpecieCicleToRegionAndSpecieToRegion.cs" />
+    <Compile Include="Migrations\201812111652034_addRelationSpecieCicleToRegionAndSpecieToRegion.Designer.cs">
+      <DependentUpon>201812111652034_addRelationSpecieCicleToRegionAndSpecieToRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901111803568_addFieldEnabledToUsers.cs" />
+    <Compile Include="Migrations\201901111803568_addFieldEnabledToUsers.Designer.cs">
+      <DependentUpon>201901111803568_addFieldEnabledToUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agriculture\Crop.cs" />
     <Compile Include="Models\Agriculture\CropCoefficient.cs" />
     <Compile Include="Models\Agriculture\CropCoefficientGraph.cs" />
     <Compile Include="Models\Agriculture\CropInformationByDate.cs" />
-    <Compile Include="Models\Agriculture\HidricBalanceAdjustment.cs" />
     <Compile Include="Models\Agriculture\Horizon.cs" />
+    <Compile Include="Models\Agriculture\HydricBalanceAdjustment.cs" />
     <Compile Include="Models\Agriculture\KC.cs" />
     <Compile Include="Models\Agriculture\PhenologicalStage.cs" />
     <Compile Include="Models\Agriculture\PhenologicalStageAdjustment.cs" />
@@ -398,6 +406,8 @@
     <Compile Include="Models\Water\WaterOutput.cs" />
     <Compile Include="Models\Weather\MeteoblueWeatherData.cs" />
     <Compile Include="Templates\ConfigurationTemplate.cs" />
+    <Compile Include="ViewModels\Agriculture\PhenologicalStageViewModel.cs" />
+    <Compile Include="ViewModels\Agriculture\SpecieCycleViewModel.cs" />
     <Compile Include="ViewModels\Irrigation\SprinklerViewModel.cs" />
     <Compile Include="ViewModels\Irrigation\DripViewModel.cs" />
     <Compile Include="ViewModels\Localization\FarmEditViewModel.cs" />
@@ -407,6 +417,7 @@
     <Compile Include="ViewModels\Reports\ReportIrrigationUnitViewModel.cs" />
     <Compile Include="ViewModels\Reports\ReportPivotStateViewModel.cs" />
     <Compile Include="ViewModels\Water\IrrigationValueViewModel.cs" />
+    <Compile Include="ViewModels\Water\RainValueViewModel.cs" />
     <Compile Include="ViewModels\Water\WebApiIrrigationRainViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardSoilHorizonViewModel.cs" />
     <Compile Include="ViewModels\Wizard\WizardFarmViewModel.cs" />
@@ -530,6 +541,7 @@
     <Content Include="fonts\metro.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\header.svg" />
     <Content Include="js\geolocation.js" />
     <Content Include="js\Home.js" />
     <Content Include="Migrations.txt" />
@@ -936,7 +948,6 @@
     <Content Include="Views\Reports\ReportPivotState\_ReportPivotStatePartial.cshtml" />
     <Content Include="Views\Reports\ReportPivotState\_ReportPivotStateHeaderPartial.cshtml" />
     <Content Include="Views\Security\Users\Wizard.cshtml" />
-    <Content Include="Views\ReportPivotState\ReportPivotStatePrintable.cshtml" />
     <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
     <Content Include="Views\Reports\ReportPivotState\ReportPivotStatePrintable.cshtml" />
     <Content Include="Views\Wizard\SoilHorizon\Wizard.cshtml" />
@@ -949,16 +960,16 @@
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_FrontPagePartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayPartial.cshtml" />
     <Content Include="Views\Reports\CropIrrigationWeathersActive\_InputWaterPerDayHeaderPartial.cshtml" />
-    <Content Include="Views\MeteoblueWeatherDatas\Create.cshtml" />
-    <Content Include="Views\MeteoblueWeatherDatas\Delete.cshtml" />
-    <Content Include="Views\MeteoblueWeatherDatas\Details.cshtml" />
-    <Content Include="Views\MeteoblueWeatherDatas\Edit.cshtml" />
-    <Content Include="Views\MeteoblueWeatherDatas\Index.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Index.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Create.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Delete.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Details.cshtml" />
     <Content Include="Views\Irrigation\IrrigationUnit\Edit.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Create.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Delete.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Details.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Edit.cshtml" />
+    <Content Include="Views\Weather\MeteoblueWeatherDatas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Scripts\Data\" />
@@ -989,6 +1000,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811032011450_ClosedFeaturesWeb20181103.resx">
       <DependentUpon>201811032011450_ClosedFeaturesWeb20181103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111652034_addRelationSpecieCicleToRegionAndSpecieToRegion.resx">
+      <DependentUpon>201812111652034_addRelationSpecieCicleToRegionAndSpecieToRegion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901111803568_addFieldEnabledToUsers.resx">
+      <DependentUpon>201901111803568_addFieldEnabledToUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

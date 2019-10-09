@@ -31,6 +31,7 @@ namespace IrrigationAdvisor.WebApi
         public double PredeterminatedIrrigationQuantity { get; set; }
         public long FarmId { get; set; }
         public bool Show { get; set; }
+        public bool Enabled { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CropIrrigationWeather> CropIrrigationWeathers { get; set; }

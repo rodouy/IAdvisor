@@ -270,6 +270,28 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Password = CryptoUtils.GetMd5Hash(MD5.Create(), "ADC2017"),
                 RoleId = 3,
             };
+            var lDCAGrolero = new User()
+            {
+                Name = "Ignacio",
+                Surname = "Grolero",
+                Phone = "+598 91 909 951",
+                Address = "Mercedes Ruta 14",
+                Email = "igrolero@delcarmen.com.uy",
+                UserName = Utils.NameUserDCA7,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "ADC2017"),
+                RoleId = 3,
+            };
+            var lDCADamian= new User()
+            {
+                Name = "Damián",
+                Surname = "Gogna",
+                Phone = "+598 91 615 933",
+                Address = "Mercedes Ruta 14",
+                Email = "dgogna@delcarmen.com.uy",
+                UserName = Utils.NameUserDCA8,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "ADC2017"),
+                RoleId = 3,
+            };
             #endregion
 
             #region Estancias del Lago - Del Lago - EDL
@@ -573,6 +595,64 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
             };
             #endregion
 
+            #region Alpino - Santa Emilia
+            var lAlpinoMPino = new User()
+            {
+                Name = "Mauricio",
+                Surname = "Pino",
+                Phone = "+598 91 238 638",
+                Address = "Ruta 2, km 277",
+                Email = "mauricio@alpino.com.uy",
+                UserName = Utils.NameUserAP1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            var lAlpinoLPino = new User()
+            {
+                Name = "Luciano",
+                Surname = "Pino",
+                Phone = "+598 99 529 016",
+                Address = "Ruta 2, km 277",
+                Email = "pinoluciano@gmail.com",
+                UserName = Utils.NameUserAP2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            var lAlpinoRGuillen = new User()
+            {
+                Name = "Ricardo",
+                Surname = "Guillen",
+                Phone = "+598 99 529 080",
+                Address = "Ruta 2, km 277",
+                Email = "guillen@alpino.com.uy",
+                UserName = Utils.NameUserAP3,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            var lAlpinoNLeguisamo = new User()
+            {
+                Name = "Nestor",
+                Surname = "Leguisamo",
+                Phone = "+598 99 531 179",
+                Address = "Ruta 2, km 277",
+                Email = "nestorandres@adinet.com.uy",
+                UserName = Utils.NameUserAP4,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            var lAlpinoMBlanco = new User()
+            {
+                Name = "Maria",
+                Surname = "Blanco",
+                Phone = "+598 99 531 212",
+                Address = "Ruta 2, km 277",
+                Email = "mariarosa@alpino.com.uy",
+                UserName = Utils.NameUserAP5,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "AP2018"),
+                RoleId = 3,
+            };
+            #endregion
+
             #region Gran Molino
             var lGranMolinoPJimenez = new User()
             {
@@ -596,8 +676,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Phone = "+598 99 999 999",
                 Address = "Saucedo, Salto",
                 Email = "damianipatricia@gmail.com",
-                UserName = Utils.NameUserGM1,
-                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "GM2018"),
+                UserName = Utils.NameUserLP1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LP2018"),
                 RoleId = 3,
             };
 
@@ -612,7 +692,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 Address = "Ruta 105, km 60. Soriano",
                 Email = "fernando.roviracuervo@gmail.com",
                 UserName = Utils.NameUserCLP1,
-                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LP2019"),
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "CLP2019"),
                 RoleId = 3,
             };
 
@@ -674,6 +754,43 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
             #endregion
 
+            #region La Zenaida
+            var lLaZenaidaMChiesa= new User()
+            {
+                Name = "Martin",
+                Surname = "Chiesa",
+                Phone = "+598 99 561 101",
+                Address = "Ruta 14 km",
+                Email = "martinchiesa@hotmail.com",
+                UserName = Utils.NameUserLZ1,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LZ2018"),
+                RoleId = 3,
+            };
+            var lLaZenaidaMRegusci = new User()
+            {
+                Name = "Martin",
+                Surname = "Regusci",
+                Phone = "+598 98 346 458",
+                Address = "Ruta 55, Campana",
+                Email = "martinregusci@gmail.com",
+                UserName = Utils.NameUserLZ2,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LZ2018"),
+                RoleId = 3,
+            };
+            var lLaZenaidaPSecco = new User()
+            {
+                Name = "Pablo",
+                Surname = "Secco",
+                Phone = "+598 92 123 222",
+                Address = "Ruta 55, Campana",
+                Email = "pablo.seccofr@gmail.com",
+                UserName = Utils.NameUserLZ3,
+                Password = CryptoUtils.GetMd5Hash(MD5.Create(), "LZ2018"),
+                RoleId = 3,
+            };
+
+            #endregion
+
             using (var context = new IrrigationAdvisorContext())
             {
                 //context.Users.Add(lBase);
@@ -693,6 +810,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lDCASantiago);
                 context.Users.Add(lDCAAlejandro);
                 context.Users.Add(lDCARaul);
+                context.Users.Add(lDCAGrolero);
+                context.Users.Add(lDCADamian);
                 context.Users.Add(lDelLagoGuzman);
                 context.Users.Add(lDelLagoJose);
                 context.Users.Add(lDelLagoSebastian);
@@ -725,6 +844,14 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 context.Users.Add(lCecchiniWalter);
                 context.Users.Add(lCecchiniJulio);
                 context.Users.Add(lElAlbaDUrani);
+                context.Users.Add(lAlpinoMPino);
+                context.Users.Add(lAlpinoLPino);
+                context.Users.Add(lAlpinoRGuillen);
+                context.Users.Add(lAlpinoNLeguisamo);
+                context.Users.Add(lAlpinoMBlanco);
+                context.Users.Add(lLaZenaidaMChiesa);
+                context.Users.Add(lLaZenaidaMRegusci);
+                context.Users.Add(lLaZenaidaPSecco);
                 context.SaveChanges();
             }
 
@@ -886,7 +1013,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3,
-                                                Utils.NameUserDCA4, Utils.NameUserDCA6,
+                                                Utils.NameUserDCA4, //Utils.NameUserDCA5,
+                                                Utils.NameUserDCA6, 
+                                                Utils.NameUserDCA7, //Utils.NameUserDCA8,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -925,6 +1054,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3, 
                                                 Utils.NameUserDCA4, Utils.NameUserDCA5, 
+                                                //Utils.NameUserDCA6,
+                                                Utils.NameUserDCA7, //Utils.NameUserDCA8,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -963,6 +1094,8 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 {
                     lUserNames = new String[] { Utils.NameUserDCA1, Utils.NameUserDCA3,
                                                 Utils.NameUserDCA4, 
+                                                //Utils.NameUserDCA5, Utils.NameUserDCA6,
+                                                Utils.NameUserDCA7, Utils.NameUserDCA8,
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -1072,10 +1205,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region Estancia Menafra - GMO - LaPalma
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
                 {
@@ -1111,10 +1244,10 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 #endregion
                 #region Estancia Menafra - GMO - ElTacuru
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
                 {
@@ -1154,7 +1287,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
                 {
                     lUserNames = new String[] { Utils.NameUserTM1, 
@@ -1332,7 +1465,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 }
                 #endregion
 
-                #region Sierra Madera S.A - Santa Emilia - SE
+                #region Sierra Madera S.A - Alpino - Santa Emilia - SE
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
@@ -1340,6 +1473,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
                 {
                     lUserNames = new String[] { Utils.NameUserSE1, Utils.NameUserSE2,
+                                                Utils.NameUserAP1, Utils.NameUserAP2,
+                                                Utils.NameUserAP3, Utils.NameUserAP4,
+                                                Utils.NameUserAP5, 
                                                 Utils.NameUserSeba, Utils.NameUserGonza,
                                                 Utils.NameUserAdmin, Utils.NameUserCristian,
                                                 Utils.NameUserCPalo, Utils.NameUserMCarle,
@@ -1406,7 +1542,6 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region La Portuguesa - LP
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
                 {
@@ -1556,6 +1691,41 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                     lFarm = (from farm in context.Farms
                              where farm.Name == Utils.NameFarmElAlba
+                             select farm).FirstOrDefault();
+                    lUserList = (from user in context.Users
+                                 where lUserNames.Contains(user.UserName)
+                                 select user).ToList();
+                    foreach (User lUser in lUserList)
+                    {
+                        var lUserFarm = new UserFarm()
+                        {
+                            UserId = lUser.UserId,
+                            FarmId = lFarm.FarmId,
+                            Name = lUser.Name + lFarm.Name,
+                            StartDate = DateTime.Now,
+                        };
+
+                        context.UserFarms.Add(lUserFarm);
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
+                #region La Zenaida - LZ
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
+                {
+                    lUserNames = new String[] { Utils.NameUserLZ1, Utils.NameUserLZ2,
+                                                Utils.NameUserLZ3,
+                                                Utils.NameUserSeba, Utils.NameUserGonza,
+                                                Utils.NameUserAdmin, Utils.NameUserCristian,
+                                                Utils.NameUserCPalo, Utils.NameUserMCarle,
+                                                Utils.NameUserROlivera, Utils.NameUserDemo,
+                                                Utils.NameUserTesting, Utils.NameUserTestAdm };
+
+                    lFarm = (from farm in context.Farms
+                             where farm.Name == Utils.NameFarmLaZenaida
                              select farm).FirstOrDefault();
                     lUserList = (from user in context.Users
                                  where lUserNames.Contains(user.UserName)

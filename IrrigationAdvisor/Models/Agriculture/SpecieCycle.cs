@@ -1,13 +1,13 @@
-﻿using NLog;
+﻿using IrrigationAdvisor.Models.Localization;
+using NLog;
 using System;
 using System.Collections.Generic;
-
 using System.Linq;
 using System.Web;
 
 namespace IrrigationAdvisor.Models.Agriculture
 {
-     /// <summary>
+    /// <summary>
     /// Create: 2015-06-14
     /// Author: rodouy - monicarle
     /// Description: 
@@ -50,7 +50,7 @@ namespace IrrigationAdvisor.Models.Agriculture
         private long specieCycleId;
         private string name;
         private double duration;
-
+        private long regionId;
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
 
@@ -75,13 +75,23 @@ namespace IrrigationAdvisor.Models.Agriculture
             set { name = value; }
         }
 
-        
+
         public double Duration
         {
-          get { return duration; }
-          set { duration = value; }
+            get { return duration; }
+            set { duration = value; }
         }
 
+        public long RegionId
+        {
+            get { return regionId; }
+            set { regionId = value; }
+        }
+        public virtual Region Region
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Construction
@@ -137,7 +147,7 @@ namespace IrrigationAdvisor.Models.Agriculture
             string lUpperFirstLetter = pPhrase;
             try
             {
-                lUpperFirstLetter = 
+                lUpperFirstLetter =
                     System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(pPhrase);
             }
             catch (Exception ex)

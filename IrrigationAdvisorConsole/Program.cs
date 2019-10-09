@@ -152,6 +152,7 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertStagesCorn();
                 AgricultureInsert.InsertStagesSoya();
                 AgricultureInsert.InsertStagesOat();
+                AgricultureInsert.InsertStagesPasture();
                 AgricultureInsert.InsertStagesSorghumForage();
                 AgricultureInsert.InsertStagesSorghumGrain();
                 AgricultureInsert.InsertStagesAlfalfa();
@@ -241,6 +242,11 @@ namespace IrrigationAdvisorConsole
                     AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2018();
                     AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2018();
 
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthMedium_2018();
+
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2018();
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2018();
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2018();
@@ -275,6 +281,11 @@ namespace IrrigationAdvisorConsole
                     AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2018();
                     AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2018();
                     AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2018();
+
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthShort_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthMedium_2018();
 
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2018();
                     AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2018();
@@ -335,7 +346,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Console.WriteLine(" ------------------------------------------------ ");
                     Console.WriteLine("Add Information of WeatherLink and press enter.");
-                    Console.ReadLine();
+                    //Console.ReadLine();
                 }
 
 #endif
@@ -460,6 +471,7 @@ namespace IrrigationAdvisorConsole
             catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
             {
                 logger.Error(ex, "Exception in Program.DbUpdateException " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("");
                 Console.WriteLine("DB Update Exception ");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
@@ -467,6 +479,7 @@ namespace IrrigationAdvisorConsole
             catch (System.Data.SqlClient.SqlException ex)
             {
                 logger.Info(ex, "Exception in Program.SqlException " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("");
                 Console.WriteLine("DB is OPEN, close all connections. OR the model changes (Add or Update Migration) ");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
@@ -483,6 +496,7 @@ namespace IrrigationAdvisorConsole
             catch (Exception ex)
             {
                 logger.Error(ex, "Exception in Program " + "\n" + ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine("");
                 Console.WriteLine("Initialization Failed...");
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
