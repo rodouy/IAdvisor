@@ -573,6 +573,11 @@ namespace IrrigationAdvisor.Models.Utilities
             Production,
 
             /// <summary>
+            /// Print all Farms in Production 2020-2021
+            /// </summary>
+            Season_2020_2021,
+
+            /// <summary>
             /// Print all Farms in Production 2019-2020
             /// </summary>
             Season_2019_2020,
@@ -1841,6 +1846,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #endregion        
         #region Season_2017_2018
+        //public static String NameSeason = "S1718";
         #region DCA
         #region ElParaiso
         public static String NameCropIrrigationWeatherDCAElParaisoPivot1_S1718 = NamePivotDCAElParaiso1 + " " + NameSpecieSoyaSouthShort+ " S1718";
@@ -1981,7 +1987,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #endregion
         #region Season_2018_2019
-        public static String NameSeason = "S1819";
+        //public static String NameSeason = "S1819";
         #region DCA
         #region ElParaiso
         public static String NameCropIrrigationWeatherDCAElParaisoPivot1_S1819 = NamePivotDCAElParaiso1 + " " + NameSpecieSoyaSouthShort + " S1819";
@@ -2165,6 +2171,193 @@ namespace IrrigationAdvisor.Models.Utilities
         #region El Espinillar
         public static String NameCropIrrigationWeatherElEspinillarPivot1_S1819 = NamePivotElEspinillar1 + " " + NameSpecieSoyaSouthShort + " S1819";
         public static String NameCropIrrigationWeatherElEspinillarPivot2_S1819 = NamePivotElEspinillar2 + " " + NameSpecieCornSouthShort + " S1819";
+        #endregion
+        #endregion
+        #region Season_2019_2020
+        public static String NameSeason = "S1920";
+        #region DCA
+        #region ElParaiso
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot1_S1920 = NamePivotDCAElParaiso1 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot2_S1920 = NamePivotDCAElParaiso2 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot3_S1920 = NamePivotDCAElParaiso3 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot4_S1920 = NamePivotDCAElParaiso4 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot5_S1920 = NamePivotDCAElParaiso5 + " " + NameSpecieFescueForageSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot6_S1920 = NamePivotDCAElParaiso6 + " " + NameSpecieFescueForageSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCAElParaisoPivot7_S1920 = NamePivotDCAElParaiso7 + " " + NameSpecieFescueForageSouthShort + " S1920";
+        #endregion
+        #region LaPerdiz
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot1_S1920 = NamePivotDCALaPerdiz1 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot2_S1920 = NamePivotDCALaPerdiz2 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot3_S1920 = NamePivotDCALaPerdiz3 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot4_S1920 = NamePivotDCALaPerdiz4 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot5_S1920 = NamePivotDCALaPerdiz5 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot6_S1920 = NamePivotDCALaPerdiz6 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot7_S1920 = NamePivotDCALaPerdiz7 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot8_S1920 = NamePivotDCALaPerdiz8 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot9_S1920 = NamePivotDCALaPerdiz9 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot10a_S1920 = NamePivotDCALaPerdiz10a + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot10b_S1920 = NamePivotDCALaPerdiz10b + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot11_S1920 = NamePivotDCALaPerdiz11 + " " + NameSpecieFescueForageSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot12_S1920 = NamePivotDCALaPerdiz12 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot13_S1920 = NamePivotDCALaPerdiz13 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot14_S1920 = NamePivotDCALaPerdiz14 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCALaPerdizPivot15_S1920 = NamePivotDCALaPerdiz15 + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region SanJose
+        public static String NameCropIrrigationWeatherDCASanJosePivot1_S1920 = NamePivotDCASanJose1 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCASanJosePivot2_S1920 = NamePivotDCASanJose2 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCASanJosePivot3_S1920 = NamePivotDCASanJose3 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDCASanJosePivot4_S1920 = NamePivotDCASanJose4 + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #endregion
+        #region Del Lago
+        #region SanPedro
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot1_S1920 = NamePivotDelLagoSanPedro1 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot3_S1920 = NamePivotDelLagoSanPedro3 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot4_S1920 = NamePivotDelLagoSanPedro4 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot5_S1920 = NamePivotDelLagoSanPedro5 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot6_S1920 = NamePivotDelLagoSanPedro6 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot7_S1920 = NamePivotDelLagoSanPedro7 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot8_S1920 = NamePivotDelLagoSanPedro8 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot9_S1920 = NamePivotDelLagoSanPedro9 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot10_S1920 = NamePivotDelLagoSanPedro10 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot11_S1920 = NamePivotDelLagoSanPedro11 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot12_S1920 = NamePivotDelLagoSanPedro12 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot13_S1920 = NamePivotDelLagoSanPedro13 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot14_S1920 = NamePivotDelLagoSanPedro14 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot15_S1920 = NamePivotDelLagoSanPedro15 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot16_S1920 = NamePivotDelLagoSanPedro16 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoSanPedroPivot17_S1920 = NamePivotDelLagoSanPedro17 + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region ElMirador
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot1_S1920 = NamePivotDelLagoElMirador1 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot2_S1920 = NamePivotDelLagoElMirador2 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot3_S1920 = NamePivotDelLagoElMirador3 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot4_S1920 = NamePivotDelLagoElMirador4 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot5_S1920 = NamePivotDelLagoElMirador5 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot6_S1920 = NamePivotDelLagoElMirador6 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot7_S1920 = NamePivotDelLagoElMirador7 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot8_S1920 = NamePivotDelLagoElMirador8 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot9_S1920 = NamePivotDelLagoElMirador9 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot10_S1920 = NamePivotDelLagoElMirador10 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot11_S1920 = NamePivotDelLagoElMirador11 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot12_S1920 = NamePivotDelLagoElMirador12 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot13_S1920 = NamePivotDelLagoElMirador13 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot14_S1920 = NamePivotDelLagoElMirador14 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot15_S1920 = NamePivotDelLagoElMirador15 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivotChaja1_S1920 = NamePivotDelLagoElMiradorChaja1 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivotChaja2_S1920 = NamePivotDelLagoElMiradorChaja2 + " " + NameSpecieCornSouthShort + " S1920";
+
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot1b_S1920 = NamePivotDelLagoElMirador1b + " " + NameSpecieCornSouthMedium + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot2b_S1920 = NamePivotDelLagoElMirador2b + " " + NameSpecieCornSouthMedium + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot3b_S1920 = NamePivotDelLagoElMirador3b + " " + NameSpecieCornSouthMedium + " S1920";
+        public static String NameCropIrrigationWeatherDelLagoElMiradorPivot4b_S1920 = NamePivotDelLagoElMirador4b + " " + NameSpecieCornSouthMedium + " S1920";
+        #endregion
+        #endregion
+        #region GMO
+        #region LaPalma
+        public static String NameCropIrrigationWeatherGMOLaPalmaPivot1_S1920 = NamePivotGMOLaPalma1 + " " + NameSpecieSoyaNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOLaPalmaPivot2_S1920 = NamePivotGMOLaPalma2 + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOLaPalmaPivot3_S1920 = NamePivotGMOLaPalma3 + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOLaPalmaPivot4_S1920 = NamePivotGMOLaPalma4 + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOLaPalmaPivot1_1_S1920 = NamePivotGMOLaPalma1_1 + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOLaPalmaPivot2_1_S1920 = NamePivotGMOLaPalma2_1 + " " + NameSpecieSoyaNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOLaPalmaPivot3_1_S1920 = NamePivotGMOLaPalma3_1 + " " + NameSpecieSoyaNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOLaPalmaPivot4_1_S1920 = NamePivotGMOLaPalma4_1 + " " + NameSpecieSoyaNorthShort + " S1920";
+        #endregion
+        #region ElTacuru
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot1a_S1920 = NamePivotGMOElTacuru1a + " " + NameSpecieAlfalfaNorthMedium + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot1b_S1920 = NamePivotGMOElTacuru1b + " " + NameSpecieSoyaNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot2a_S1920 = NamePivotGMOElTacuru2a + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot2b_S1920 = NamePivotGMOElTacuru2b + " " + NameSpecieSoyaNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot3a_S1920 = NamePivotGMOElTacuru3a + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot3b_S1920 = NamePivotGMOElTacuru3b + " " + NameSpecieSoyaNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot4_S1920 = NamePivotGMOElTacuru4 + " " + NameSpecieSoyaNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot5_S1920 = NamePivotGMOElTacuru5 + " " + NameSpecieSoyaNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot6_S1920 = NamePivotGMOElTacuru6 + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot7_S1920 = NamePivotGMOElTacuru7 + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot8_S1920 = NamePivotGMOElTacuru8 + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot9_S1920 = NamePivotGMOElTacuru9 + " " + NameSpecieSoyaNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherGMOElTacuruPivot10_S1920 = NamePivotGMOElTacuru10 + " " + NameSpecieSoyaNorthShort + " S1920";
+        #endregion
+        #endregion
+        #region El Rincon
+        public static String NameCropIrrigationWeatherElRinconPivot1a_S1920 = NamePivotElRincon1a + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElRinconPivot1b_S1920 = NamePivotElRincon1b + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElRinconPivot2a_S1920 = NamePivotElRincon2a + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElRinconPivot2b_S1920 = NamePivotElRincon2b + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region El Desafio
+        public static String NameCropIrrigationWeatherElDesafioPivot1_S1920 = NamePivotElDesafio1 + " " + NameSpecieSudanGrassSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElDesafioPivot2_S1920 = NamePivotElDesafio2 + " " + NameSpecieSudanGrassSouthShort + " S1920";
+        #endregion
+        #region Los Naranjales
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot6aT3_S1920 = NamePivotLosNaranjales6aT3 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot6bT3_S1920 = NamePivotLosNaranjales6bT3 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot5aT5_S1920 = NamePivotLosNaranjales5aT5 + " " + NameSpecieFescueForageSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherLosNaranjalesPivot5bT5_S1920 = NamePivotLosNaranjales5bT5 + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region Santa Emilia
+        public static String NameCropIrrigationWeatherSantaEmiliaPivot1_S1920 = NamePivotSantaEmilia1 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherSantaEmiliaPivot2_S1920 = NamePivotSantaEmilia2 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherSantaEmiliaPivot3_S1920 = NamePivotSantaEmilia3 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherSantaEmiliaPivot4_S1920 = NamePivotSantaEmilia4 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherSantaEmiliaPivot5_S1920 = NamePivotSantaEmilia5 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherSantaEmiliaPivot6_S1920 = NamePivotSantaEmilia6 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherSantaEmiliaPivot7_S1920 = NamePivotSantaEmilia7 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherSantaEmiliaPivotZP_S1920 = NamePivotSantaEmiliaZP + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region Gran Molino
+        public static String NameCropIrrigationWeatherGranMolinoPivot1_S1920 = NamePivotGranMolino1 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherGranMolinoPivot2_S1920 = NamePivotGranMolino2 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherGranMolinoPivot3_S1920 = NamePivotGranMolino3 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherGranMolinoPivot4_S1920 = NamePivotGranMolino4 + " " + NameSpecieAlfalfaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherGranMolinoPivot5_S1920 = NamePivotGranMolino5 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherGranMolinoPivot2b_S1920 = NamePivotGranMolino2b + " " + NameSpecieOatSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherGranMolinoPivot5b_S1920 = NamePivotGranMolino5b + " " + NameSpecieOatSouthShort + " S1920";
+        #endregion
+        #region La Portuguesa
+        public static String NameCropIrrigationWeatherLaPortuguesaPivot1_S1920 = NamePivotLaPortuguesa1 + " " + NameSpecieCornNorthShort + " S1920";
+        public static String NameCropIrrigationWeatherLaPortuguesaPivot2_S1920 = NamePivotLaPortuguesa2 + " " + NameSpecieSoyaNorthShort + " S1920";
+        #endregion
+        #region Cassarino - La Perdiz
+        public static String NameCropIrrigationWeatherCassarinoLaPerdizPivot11_S1920 = NamePivotCassarinoLaPerdiz11 + " " + NameSpecieSudanGrassSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherCassarinoLaPerdizPivot12_S1920 = NamePivotCassarinoLaPerdiz12 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherCassarinoLaPerdizPivot13_S1920 = NamePivotCassarinoLaPerdiz13 + " " + NameSpecieSoyaSouthShort + " S1920";
+        #endregion
+        #region Santo Domingo
+        public static String NameCropIrrigationWeatherSantoDomingoPivot1_S1920 = NamePivotSantoDomingo1 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherSantoDomingoPivot2_S1920 = NamePivotSantoDomingo2 + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region Cecchini
+        public static String NameCropIrrigationWeatherCecchiniPivot1_S1920 = NamePivotCecchini1 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherCecchiniPivot2_S1920 = NamePivotCecchini2 + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region El Alba
+        public static String NameCropIrrigationWeatherElAlbaPivot32_S1920 = NamePivotElAlba32 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElAlbaPivot33_S1920 = NamePivotElAlba33 + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region La Zenaida
+        public static String NameCropIrrigationWeatherLaZenaidaPivot1_S1920 = NamePivotLaZenaida1 + " " + NameSpecieFescueForageSouthMedium + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot2_S1920 = NamePivotLaZenaida2 + " " + NameSpecieFescueForageSouthMedium + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot3_S1920 = NamePivotLaZenaida3 + " " + NameSpecieFescueForageSouthMedium + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot4_S1920 = NamePivotLaZenaida4 + " " + NameSpecieSudanGrassSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot5_S1920 = NamePivotLaZenaida5 + " " + NameSpecieSudanGrassSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot1a_S1920 = NamePivotLaZenaida1a + " " + NameSpecieOatSouthMedium + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot4a_S1920 = NamePivotLaZenaida4a + " " + NameSpeciePastureSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot5a_S1920 = NamePivotLaZenaida5a + " " + NameSpeciePastureSouthShort + " S1920";
+        #endregion
+        #region Alpino - Santa Emilia
+        public static String NameCropIrrigationWeatherAlpinoSantaEmiliaPivot1_S1920 = NamePivotAlpinoSantaEmilia1 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherAlpinoSantaEmiliaPivot2_S1920 = NamePivotAlpinoSantaEmilia2 + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region San Miguel
+        public static String NameCropIrrigationWeatherSanMiguelPivot1_S1920 = NamePivotSanMiguel1 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherSanMiguelPivot2_S1920 = NamePivotSanMiguel2 + " " + NameSpecieCornSouthShort + " S1920";
+        #endregion
+        #region El Espinillar
+        public static String NameCropIrrigationWeatherElEspinillarPivot1_S1920 = NamePivotElEspinillar1 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElEspinillarPivot2_S1920 = NamePivotElEspinillar2 + " " + NameSpecieCornSouthShort + " S1920";
         #endregion
         #endregion
         #endregion
@@ -2614,11 +2807,11 @@ namespace IrrigationAdvisor.Models.Utilities
         /// 2017:10:02 - From 15 -> 12
         /// </summary>
         /// 
-        public static DateTime PredeterminatedDateFrom_FirstPart = new DateTime(2018, 09, 01);
+        public static DateTime PredeterminatedDateFrom_FirstPart = new DateTime(2019, 09, 01);
         public static Double PredeterminatedIrrigationQuantity_FirstPart = 10;
-        public static DateTime PredeterminatedDateFrom_SecondPart = new DateTime(2018, 12, 01);
+        public static DateTime PredeterminatedDateFrom_SecondPart = new DateTime(2019, 12, 01);
         public static Double PredeterminatedIrrigationQuantity_SecondPart = 14;
-        public static DateTime PredeterminatedDateFrom_ThirdPart = new DateTime(2019, 02, 01);
+        public static DateTime PredeterminatedDateFrom_ThirdPart = new DateTime(2020, 02, 01);
         public static Double PredeterminatedIrrigationQuantity_ThirdPart = 14;
         #endregion
 
