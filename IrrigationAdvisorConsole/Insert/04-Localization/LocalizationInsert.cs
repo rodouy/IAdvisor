@@ -1422,7 +1422,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -57.8287611,
             };
             #endregion
-            #region Pivots El Alba #2
+            #region Pivots El Alba #4
             var lElAlbaPivot32 = new Position()
             {
                 Name = Utils.NamePositionPivotElAlba32,
@@ -1434,6 +1434,18 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Name = Utils.NamePositionPivotElAlba33,
                 Latitude = -33.9872139,
                 Longitude = -57.9744972,
+            };
+            var lElAlbaPivot38 = new Position()
+            {
+                Name = Utils.NamePositionPivotElAlba38,
+                Latitude = -33.97888889,
+                Longitude = -57.96,
+            };
+            var lElAlbaPivot40 = new Position()
+            {
+                Name = Utils.NamePositionPivotElAlba40,
+                Latitude = -33.99055556,
+                Longitude = -57.94138889,
             };
             #endregion
             #region Pivots La Zenaida #5
@@ -1557,7 +1569,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosOlivos);
                 context.Positions.Add(lViveroSanFrancisco);
                 #endregion
-                #region Pivots #159
+                #region Pivots #161
                 #region Pivots - Demo #14
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1742,9 +1754,11 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lCecchiniPivot1);
                 context.Positions.Add(lCecchiniPivot2);
                 #endregion
-                #region Pivots - El Alba #2
+                #region Pivots - El Alba #4
                 context.Positions.Add(lElAlbaPivot32);
                 context.Positions.Add(lElAlbaPivot33);
+                context.Positions.Add(lElAlbaPivot38);
+                context.Positions.Add(lElAlbaPivot40);
                 #endregion
                 #region Pivots - La Zenaida #8
                 context.Positions.Add(lLaZenaidaPivot1);
@@ -3317,6 +3331,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -3325,6 +3340,10 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
                         lWeatherStationName = DataEntry2018.WeatherStationMainName_ElAlba_2018;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
+                    {
+                        lWeatherStationName = DataEntry2019.WeatherStationMainName_ElAlba_2019;
                     }
                     lWeatherStation = (from ws in context.WeatherStations
                                        where ws.Name == lWeatherStationName
@@ -3343,7 +3362,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         Address = "Ruta 55, Campana",
                         Phone = "099 568 176",
                         PositionId = lPosition.PositionId,
-                        Has = 470,
+                        Has = 140,
                         WeatherStationId = lWeatherStation.WeatherStationId,
                         SoilList = null,
                         BombList = null,

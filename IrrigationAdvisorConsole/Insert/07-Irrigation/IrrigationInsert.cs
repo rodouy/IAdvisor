@@ -5636,6 +5636,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -5692,29 +5693,92 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
+                    #region Pivot 38
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombElAlba
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElAlba38
+                                 select pos).FirstOrDefault();
+
+                    var lElAlbaPivot38 = new Pivot
+                    {
+                        Name = Utils.NamePivotElAlba38,
+                        ShortName = "Pivot 38",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 70,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 12,
+                        Radius = 35,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
+                    #region Pivot 40
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombElAlba
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElAlba40
+                                 select pos).FirstOrDefault();
+
+                    var lElAlbaPivot40 = new Pivot
+                    {
+                        Name = Utils.NamePivotElAlba40,
+                        ShortName = "Pivot 40",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 70,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 35,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
 
                     #region Pivot - Shows by Season
                     if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018)
                     {
                         lElAlbaPivot32.Show = false;
                         lElAlbaPivot33.Show = false;
+                        lElAlbaPivot32.Show = false;
+                        lElAlbaPivot33.Show = false;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lElAlbaPivot32.Show = true;
+                        lElAlbaPivot33.Show = true;
+                        lElAlbaPivot38.Show = false;
+                        lElAlbaPivot40.Show = false;
                     }
                     else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
                     {
-                        lElAlbaPivot32.Show = true;
-                        lElAlbaPivot33.Show = true;
+                        lElAlbaPivot32.Show = false;
+                        lElAlbaPivot33.Show = false;
+                        lElAlbaPivot38.Show = true;
+                        lElAlbaPivot40.Show = true;
                     }
                     else
                     {
-                        lElAlbaPivot32.Show = true;
-                        lElAlbaPivot33.Show = true;
+                        lElAlbaPivot32.Show = false;
+                        lElAlbaPivot33.Show = false;
+                        lElAlbaPivot38.Show = true;
+                        lElAlbaPivot40.Show = true;
                     }
                     #endregion
 
                     context.Pivots.Add(lElAlbaPivot32);
                     context.Pivots.Add(lElAlbaPivot33);
+                    context.Pivots.Add(lElAlbaPivot38);
+                    context.Pivots.Add(lElAlbaPivot40);
                     context.SaveChanges();
                 }
             }
