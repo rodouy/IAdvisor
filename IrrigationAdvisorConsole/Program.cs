@@ -351,7 +351,7 @@ namespace IrrigationAdvisorConsole
                 {
                     Console.WriteLine(" ------------------------------------------------ ");
                     Console.WriteLine("Add Information of WeatherLink and press enter.");
-                    //Console.ReadLine();
+                    Console.ReadLine();
                 }
 
 #endif

@@ -4512,9 +4512,16 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lElRinconPivot2a.Show = false;
                         lElRinconPivot2b.Show = false;
                     }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lElRinconPivot1a.Show = false;
+                        lElRinconPivot1b.Show = false;
+                        lElRinconPivot2a.Show = false;
+                        lElRinconPivot2b.Show = true;
+                    }
                     else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
                     {
                         lElRinconPivot1a.Show = false;
                         lElRinconPivot1b.Show = false;
@@ -6056,6 +6063,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDCAElParaiso();
@@ -6064,6 +6072,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDCALaPerdiz();
@@ -6072,6 +6081,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDCASanJose();
@@ -6086,6 +6096,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDelLagoSanPedro();
@@ -6094,6 +6105,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmDelLagoElMirador();
@@ -6142,6 +6154,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmElRincon();
@@ -6166,6 +6179,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmSantaEmilia();
@@ -6181,6 +6195,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmLaPortuguesa();
@@ -6202,6 +6217,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Cecchini)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmCecchini();
@@ -6209,6 +6225,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmElAlba();
@@ -6216,6 +6233,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
             {
                 LocalizationInsert.UpdateSoilsBombsIrrigationUnitsUsersFarmLaZenaida();

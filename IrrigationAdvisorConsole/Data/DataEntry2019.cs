@@ -468,8 +468,8 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime SowingDate_CornSouth_ElRinconPivot2a_2019 = new DateTime(2019, 10, 26);
         public static DateTime HarvestDate_CornSouth_ElRinconPivot2a_2019 = new DateTime(2020, 04, 01);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot2a_2019 = 14;
-        public static DateTime SowingDate_CornSouth_ElRinconPivot2b_2019 = new DateTime(2019, 10, 26);
-        public static DateTime HarvestDate_CornSouth_ElRinconPivot2b_2019 = new DateTime(2020, 04, 01);
+        public static DateTime SowingDate_CornSouth_ElRinconPivot2b_2019 = new DateTime(2019, 11, 15);
+        public static DateTime HarvestDate_CornSouth_ElRinconPivot2b_2019 = new DateTime(2020, 05, 01);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot2b_2019 = 14;
 
         #endregion
@@ -564,7 +564,7 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationMainName_LaPortuguesa_2019 = Utils.NameWeatherStationSaltoGrande;
         public static String WeatherStationAlternativeName_LaPortuguesa_2019 = Utils.NameWeatherStationLasBrujas;
 
-        public static DateTime SowingDate_CornNorth_LaPortuguesaPivot1_2019 = new DateTime(2019, 10, 07);
+        public static DateTime SowingDate_CornNorth_LaPortuguesaPivot1_2019 = new DateTime(2019, 11, 15);
         public static DateTime HarvestDate_CornNorth_LaPortuguesaPivot1_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_LaPortuguesaPivot1_2019 = 10;
         public static DateTime SowingDate_SoyaNorth_LaPortuguesaPivot2_2019 = new DateTime(2019, 11, 10);
@@ -603,11 +603,11 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationMainName_Cecchini_2019 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_Cecchini_2019 = Utils.NameWeatherStationLasBrujas;
 
-        public static DateTime SowingDate_SoyaSouth_CecchiniPivot1_2019 = new DateTime(2019, 10, 20);
-        public static DateTime HarvestDate_SoyaSouth_CecchiniPivot1_2019 = new DateTime(2020, 04, 30);
+        public static DateTime SowingDate_CornSouth_CecchiniPivot1_2019 = new DateTime(2019, 11, 08);
+        public static DateTime HarvestDate_CornSouth_CecchiniPivot1_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_CecchiniPivot1_2019 = 14;
-        public static DateTime SowingDate_SoyaSouth_CecchiniPivot2_2019 = new DateTime(2019, 10, 20);
-        public static DateTime HarvestDate_SoyaSouth_CecchiniPivot2_2019 = new DateTime(2020, 05, 30);
+        public static DateTime SowingDate_CornSouth_CecchiniPivot2_2019 = new DateTime(2019, 11, 09);
+        public static DateTime HarvestDate_CornSouth_CecchiniPivot2_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_CecchiniPivot2_2019 = 14;
 
         #endregion

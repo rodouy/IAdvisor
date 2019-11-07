@@ -3286,7 +3286,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 {
                     //IrrigationData2019.AddIrrigationDataElRinconPivot1a_2019(context, Program.DateOfReference);
                     //IrrigationData2019.AddIrrigationDataElRinconPivot1b_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataElRinconPivot2a_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataElRinconPivot2a_2019(context, Program.DateOfReference);
                     IrrigationData2019.AddIrrigationDataElRinconPivot2b_2019(context, Program.DateOfReference);
                     context.SaveChanges();
 
@@ -3379,7 +3379,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 using (var context = new IrrigationAdvisorContext())
                 {
                     IrrigationData2019.AddIrrigationDataLaPortuguesaPivot1_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataLaPortuguesaPivot2_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaPortuguesaPivot2_2019(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
@@ -3428,7 +3428,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                 using (var context = new IrrigationAdvisorContext())
                 {
                     IrrigationData2019.AddIrrigationDataCecchiniPivot1_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataCecchiniPivot2_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataCecchiniPivot2_2019(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }

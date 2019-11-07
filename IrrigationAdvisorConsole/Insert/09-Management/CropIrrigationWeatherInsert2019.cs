@@ -316,8 +316,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region DCA El Paraiso
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
                 {
@@ -995,8 +995,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region DCA La Perdiz
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                        || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                        || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                        //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                        //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
@@ -2669,8 +2669,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region DCA San Jose
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
@@ -4026,8 +4026,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region Del Lago - El Mirador
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
                 {
@@ -12063,7 +12063,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lWeatherStationAlternativeName = DataEntry2019.WeatherStationAlternativeName_ElRincon_2019;
 
                     Console.Write(" El Rincon | ");
-
+#if false
                     #region El Rincon Pivot 1a 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -12565,6 +12565,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
+#endif
                     #region El Rincon Pivot 2b 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -16159,8 +16160,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region Cassarino - La Perdiz
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.CassarinoLaPerdiz)
                 {
                     lWeatherStationMainName = DataEntry2019.WeatherStationMainName_CassarinoLaPerdiz_2019;
@@ -16676,8 +16677,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region Santo Domingo
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantoDomingo)
                 {
                     lWeatherStationMainName = DataEntry2019.WeatherStationMainName_SantoDomingo_2019;
@@ -17026,8 +17027,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region Cecchini
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Cecchini)
                 {
                     lWeatherStationMainName = DataEntry2019.WeatherStationMainName_Cecchini_2019;
@@ -17053,23 +17054,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieSoyaSouthShort
+                               where sp.Name == Utils.NameSpecieCornSouthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieSoyaSouthShort
+                             where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieSoyaSouthShort
+                                        where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieSoyaSouthShort
+                               where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieSoyaSouthShort
+                                              where cid.Name == Utils.NameSpecieCornSouthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -17083,8 +17084,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotCecchini1)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry2019.SowingDate_SoyaSouth_CecchiniPivot1_2019;
-                    lHarvestDate = DataEntry2019.HarvestDate_SoyaSouth_CecchiniPivot1_2019;
+                    lSowingDate = DataEntry2019.SowingDate_CornSouth_CecchiniPivot1_2019;
+                    lHarvestDate = DataEntry2019.HarvestDate_CornSouth_CecchiniPivot1_2019;
                     lCropDate = DateTime.Now;
                     if (DataEntry2019.PredeterminatedIrrigationQuantity_CecchiniPivot1_2019 == 0)
                     {
@@ -17220,23 +17221,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieSoyaSouthShort
+                               where sp.Name == Utils.NameSpecieCornSouthShort
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieSoyaSouthShort
+                             where crop.Name == Utils.NameSpecieCornSouthShort
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieSoyaSouthShort
+                                        where cc.Name == Utils.NameSpecieCornSouthShort
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieSoyaSouthShort
+                               where cc.Name == Utils.NameSpecieCornSouthShort
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieSoyaSouthShort
+                                              where cid.Name == Utils.NameSpecieCornSouthShort
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////
@@ -17250,8 +17251,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                                     where horizon.Name.StartsWith(Utils.NamePivotCecchini2)
                                     select horizon)
                                     .ToList<Horizon>();
-                    lSowingDate = DataEntry2019.SowingDate_SoyaSouth_CecchiniPivot2_2019;
-                    lHarvestDate = DataEntry2019.HarvestDate_SoyaSouth_CecchiniPivot2_2019;
+                    lSowingDate = DataEntry2019.SowingDate_CornSouth_CecchiniPivot2_2019;
+                    lHarvestDate = DataEntry2019.HarvestDate_CornSouth_CecchiniPivot2_2019;
                     lCropDate = Program.DateOfReference;
                     if (DataEntry2019.PredeterminatedIrrigationQuantity_CecchiniPivot2_2019 == 0)
                     {
@@ -18060,8 +18061,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region La Zenaida
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
                 {
                     lWeatherStationMainName = DataEntry2019.WeatherStationMainName_LaZenaida_2019;
