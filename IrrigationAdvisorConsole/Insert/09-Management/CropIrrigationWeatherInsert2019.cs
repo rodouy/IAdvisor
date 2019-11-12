@@ -17027,8 +17027,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region Cecchini
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Cecchini)
                 {
                     lWeatherStationMainName = DataEntry2019.WeatherStationMainName_Cecchini_2019;

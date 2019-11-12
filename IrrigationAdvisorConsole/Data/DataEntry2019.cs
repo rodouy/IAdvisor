@@ -603,7 +603,7 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationMainName_Cecchini_2019 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_Cecchini_2019 = Utils.NameWeatherStationLasBrujas;
 
-        public static DateTime SowingDate_CornSouth_CecchiniPivot1_2019 = new DateTime(2019, 11, 08);
+        public static DateTime SowingDate_CornSouth_CecchiniPivot1_2019 = new DateTime(2019, 11, 01);
         public static DateTime HarvestDate_CornSouth_CecchiniPivot1_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_CecchiniPivot1_2019 = 14;
         public static DateTime SowingDate_CornSouth_CecchiniPivot2_2019 = new DateTime(2019, 11, 09);
