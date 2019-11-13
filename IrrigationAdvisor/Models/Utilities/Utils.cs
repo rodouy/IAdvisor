@@ -2334,7 +2334,7 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameCropIrrigationWeatherSantoDomingoPivot2_S1920 = NamePivotSantoDomingo2 + " " + NameSpecieCornSouthShort + " S1920";
         #endregion
         #region Cecchini
-        public static String NameCropIrrigationWeatherCecchiniPivot1_S1920 = NamePivotCecchini1 + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherCecchiniPivot1_S1920 = NamePivotCecchini1 + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherCecchiniPivot2_S1920 = NamePivotCecchini2 + " " + NameSpecieCornSouthShort + " S1920";
         #endregion
         #region El Alba
