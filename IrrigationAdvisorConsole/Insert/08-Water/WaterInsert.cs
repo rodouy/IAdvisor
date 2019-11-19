@@ -2741,6 +2741,818 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
 
         #endregion
 
+        #region Season_2019_2020
+
+        /// <summary>
+        /// Add Rain Data to Pivots in Farms
+        /// </summary>
+        public static void UpdateInformationOfRain2019()
+        {
+
+            #region South
+
+            using (var context = new IrrigationAdvisorContext())
+            {
+                #region DCA El Paraiso
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
+                {
+                    //RainData2019.AddRainDataDCAElParaisoPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCAElParaisoPivot2_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCAElParaisoPivot3_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCAElParaisoPivot4_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+                #region DCA La Perdiz
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
+                {
+                    RainData2019.AddRainDataDCALaPerdizPivot1_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot2_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot3_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot4_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot5_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCALaPerdizPivot6_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCALaPerdizPivot7_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCALaPerdizPivot10a_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot10b_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCALaPerdizPivot14_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCALaPerdizPivot15_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+                #region DCA San Jose
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+                {
+                    //RainData2019.AddRainDataDCASanJosePivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCASanJosePivot2_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCASanJosePivot3_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCASanJosePivot4_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Del Lago - San Pedro
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
+                {
+
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot1_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot2_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot3_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot4_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDelLagoSanPedroPivot5_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDelLagoSanPedroPivot6_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDelLagoSanPedroPivot7_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDelLagoSanPedroPivot8_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot9_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot10_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot11_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot12_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot13_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot14_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot15_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot16_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoSanPedroPivot17_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+                #region Del Lago - El Mirador
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
+                {
+                    RainData2019.AddRainDataDelLagoElMiradorPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDelLagoElMiradorPivot2_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDelLagoElMiradorPivot3_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDelLagoElMiradorPivot4_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDelLagoElMiradorPivot5_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDelLagoElMiradorPivot6_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot7_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot8_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot9_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot10_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot11_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot12_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot13_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot14_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot15_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivotChaja1_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivotChaja2_2019(context, Program.DateOfReference);
+
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot1_2019b(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot2_2019b(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot3_2019b(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDelLagoElMiradorPivot4_2019b(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Tres Marias
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+                {
+
+                    //RainData2019.AddRainDataTresMariasPivot1_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataTresMariasPivot2_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataTresMariasPivot3_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataTresMariasPivot4_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region El Rincon
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
+                {
+
+                    //RainData2019.AddRainDataElRinconPivot1a_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataElRinconPivot1b_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataElRinconPivot2a_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataElRinconPivot2b_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region El Desafio
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElDesafio)
+                {
+
+                    RainData2019.AddRainDataElDesafioPivot1_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataElDesafioPivot2_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Los Naranjales
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
+                {
+
+                    RainData2019.AddRainDataLosNaranjalesPivot6aT3_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLosNaranjalesPivot6bT3_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLosNaranjalesPivot5aT5_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLosNaranjalesPivot5bT5_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Santa Emilia
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
+                {
+
+                    //RainData2019.AddRainDataSantaEmiliaPivot1_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataSantaEmiliaPivot2_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataSantaEmiliaPivot3_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataSantaEmiliaPivot4_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataSantaEmiliaPivot5_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataSantaEmiliaPivot7_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataSantaEmiliaPivotZP_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Gran Molino
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+                {
+
+                    RainData2019.AddRainDataGranMolinoPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGranMolinoPivot2_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGranMolinoPivot3_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGranMolinoPivot4_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGranMolinoPivot5_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGranMolinoPivot2b_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGranMolinoPivot5b_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region La Portuguesa
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
+                {
+
+                    RainData2019.AddRainDataLaPortuguesaPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLaPortuguesaPivot2_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Cassarino - La Perdiz
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.CassarinoLaPerdiz)
+                {
+
+                    RainData2019.AddRainDataCassarinoLaPerdizPivot11_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataCassarinoLaPerdizPivot12_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataCassarinoLaPerdizPivot13_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Santo Domingo
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantoDomingo)
+                {
+
+                    RainData2019.AddRainDataSantoDomingoPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataSantoDomingoPivot2_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region Cecchini
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Cecchini)
+                {
+
+                    RainData2019.AddRainDataCecchiniPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataCecchiniPivot2_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region El Alba
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
+                {
+
+                    //RainData2019.AddRainDataElAlbaPivot32_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataElAlbaPivot33_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataElAlbaPivot38_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataElAlbaPivot40_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+
+                #endregion
+
+                #region La Zenaida
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
+                {
+
+                    RainData2019.AddRainDataLaZenaidaPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLaZenaidaPivot2_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLaZenaidaPivot3_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLaZenaidaPivot4_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLaZenaidaPivot5_2019(context, Program.DateOfReference);
+
+                    RainData2019.AddRainDataLaZenaidaPivot1a_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLaZenaidaPivot4a_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLaZenaidaPivot5a_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+
+                #endregion
+
+
+
+            }
+
+            #endregion
+
+            #region North
+            using (var context = new IrrigationAdvisorContext())
+            {
+                #region GMO - El Tacuru
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+                {
+                    RainData2019.AddRainDataGMOElTacuruPivot1a_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot1b_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot2a_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot2b_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot3a_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot3b_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot4_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot5_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataGMOElTacuruPivot6_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataGMOElTacuruPivot7_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot8_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot9_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOElTacuruPivot10_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+                #region GMO - La Palma
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+                {
+                    RainData2019.AddRainDataGMOLaPalmaPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOLaPalmaPivot2_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOLaPalmaPivot3_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOLaPalmaPivot4_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOLaPalmaPivot1_1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOLaPalmaPivot2_1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOLaPalmaPivot3_1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataGMOLaPalmaPivot4_1_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+
+                #region La Rinconada
+                if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
+                {
+
+                    //RainData2019.AddRainDataLaRinconadaPivot1_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataLaRinconadaPivot2_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataLaRinconadaPivot3_1_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataLaRinconadaPivot13_1_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+                }
+                #endregion
+            }
+            #endregion
+
+        }
+
+        /// <summary>
+        /// Add Irrigation Data to Pivots in Farms
+        /// </summary>
+        public static void UpdateInformationOfIrrigation2019()
+        {
+
+            #region South
+
+            #region DCA El Paraiso
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //IrrigationData2019.AddIrrigationDataDCAElParaisoPivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCAElParaisoPivot2_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCAElParaisoPivot3_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCAElParaisoPivot4_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+            #region DCA San Jose
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //IrrigationData2019.AddIrrigationDataDCASanJosePivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCASanJosePivot2_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCASanJosePivot3_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCASanJosePivot4_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+            #region DCA La Perdiz
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot1_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot2_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot3_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot5_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot6_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot7_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot10a_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot10b_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot14_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot15_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Del Lago - San Pedro
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoSanPedro)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot1_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot2_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot3_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot4_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot5_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot6_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot7_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot8_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot9_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot10_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot11_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot12_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot13_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot14_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot15_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot16_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoSanPedroPivot17_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+            #region Del Lago - El Mirador
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
+            {
+                ;
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot2_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot3_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot4_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot5_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot6_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot7_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot8_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot9_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot10_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot11_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot12_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot13_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot14_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot15_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivotChaja1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivotChaja2_2019(context, Program.DateOfReference);
+
+                    //IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot1_2019b(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot2_2019b(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot3_2019b(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDelLagoElMiradorPivot4_2019b(context, Program.DateOfReference);
+
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Tres Marias
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.TresMarias)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //IrrigationData2019.AddIrrigationDataTresMariasPivot1_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataTresMariasPivot2_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataTresMariasPivot3_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataTresMariasPivot4_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region El Rincon
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //IrrigationData2019.AddIrrigationDataElRinconPivot1a_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataElRinconPivot1b_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataElRinconPivot2a_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataElRinconPivot2b_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region El Desafio
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElDesafio)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataElDesafioPivot1_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataElDesafioPivot2_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Los Naranjales
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LosNaranjales)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataLosNaranjalesPivot6aT3_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLosNaranjalesPivot6bT3_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLosNaranjalesPivot5aT5_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLosNaranjalesPivot5bT5_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Santa Emilia
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //IrrigationData2019.AddIrrigationDataSantaEmiliaPivot1_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataSantaEmiliaPivot2_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataSantaEmiliaPivot3_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataSantaEmiliaPivot4_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataSantaEmiliaPivot5_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataSantaEmiliaPivot7_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataSantaEmiliaPivotZP_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Gran Molino
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GranMolino)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataGranMolinoPivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGranMolinoPivot2_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGranMolinoPivot3_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGranMolinoPivot4_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGranMolinoPivot5_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGranMolinoPivot2b_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGranMolinoPivot5b_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region La Portuguesa
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataLaPortuguesaPivot1_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaPortuguesaPivot2_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Cassarino - La Perdiz
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.CassarinoLaPerdiz)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataCassarinoLaPerdizPivot11_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataCassarinoLaPerdizPivot12_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataCassarinoLaPerdizPivot13_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Santo Domingo
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantoDomingo)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataSantoDomingoPivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataSantoDomingoPivot2_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region Cecchini
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Cecchini)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataCecchiniPivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataCecchiniPivot2_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region El Alba
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //IrrigationData2019.AddIrrigationDataElAlbaPivot32_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataElAlbaPivot33_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataElAlbaPivot38_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataElAlbaPivot40_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region La Zenaida
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot2_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot3_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot4_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot5_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot1a_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot4a_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot5a_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #endregion
+
+            #region North
+
+            #region GMO - El Tacuru
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOElTacuru)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot1a_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot1b_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot2a_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot2b_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot3a_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot3b_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot4_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot5_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataGMOElTacuruPivot6_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataGMOElTacuruPivot7_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot8_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot9_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOElTacuruPivot10_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+            #region GMO - La Palma
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMO
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.GMOLaPalma)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    IrrigationData2019.AddIrrigationDataGMOLaPalmaPivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOLaPalmaPivot2_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOLaPalmaPivot3_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOLaPalmaPivot4_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOLaPalmaPivot1_1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOLaPalmaPivot2_1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOLaPalmaPivot3_1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataGMOLaPalmaPivot4_1_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #region La Rinconada
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaRinconada)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    //IrrigationData2019.AddIrrigationDataLaRinconadaPivot1_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaRinconadaPivot2_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaRinconadaPivot3_1_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaRinconadaPivot13_1_2019(context, Program.DateOfReference);
+                    context.SaveChanges();
+
+                }
+            }
+            #endregion
+
+            #endregion
+
+        }
+
+        #endregion
+
 
 
 #endif

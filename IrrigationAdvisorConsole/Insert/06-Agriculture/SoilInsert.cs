@@ -7686,6 +7686,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
             {
 
@@ -7813,6 +7814,128 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         SoilId = lSoil.SoilId,
                     };
                     #endregion
+                    #region Pivot 38
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotElAlba38
+                             select soil).FirstOrDefault();
+                    var lElAlbaPivot_38_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba38 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 18,
+                        Sand = 30,
+                        Limo = 50,
+                        Clay = 20,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElAlbaPivot_38_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba38 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 36,
+                        Sand = 28,
+                        Limo = 44,
+                        Clay = 28,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElAlbaPivot_38_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba38 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 45,
+                        Sand = 25,
+                        Limo = 37,
+                        Clay = 38,
+                        OrganicMatter = 0.7,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElAlbaPivot_38_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba38 + " 4",
+                        Order = 4,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 60,
+                        Sand = 22,
+                        Limo = 35,
+                        Clay = 43,
+                        OrganicMatter = 0.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
+                    #region Pivot 40
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotElAlba40
+                             select soil).FirstOrDefault();
+                    var lElAlbaPivot_40_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba40 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 18,
+                        Sand = 30,
+                        Limo = 50,
+                        Clay = 20,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElAlbaPivot_40_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba40 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 36,
+                        Sand = 28,
+                        Limo = 44,
+                        Clay = 28,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElAlbaPivot_40_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba40 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 45,
+                        Sand = 25,
+                        Limo = 37,
+                        Clay = 38,
+                        OrganicMatter = 0.7,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElAlbaPivot_40_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba40 + " 4",
+                        Order = 4,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 60,
+                        Sand = 22,
+                        Limo = 35,
+                        Clay = 43,
+                        OrganicMatter = 0.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
 
                     #region Horizons El Alba
                     context.Horizons.Add(lElAlbaPivot_32_1);
@@ -7823,6 +7946,14 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Horizons.Add(lElAlbaPivot_33_2);
                     context.Horizons.Add(lElAlbaPivot_33_3);
                     context.Horizons.Add(lElAlbaPivot_33_4);
+                    context.Horizons.Add(lElAlbaPivot_38_1);
+                    context.Horizons.Add(lElAlbaPivot_38_2);
+                    context.Horizons.Add(lElAlbaPivot_38_3);
+                    context.Horizons.Add(lElAlbaPivot_38_4);
+                    context.Horizons.Add(lElAlbaPivot_40_1);
+                    context.Horizons.Add(lElAlbaPivot_40_2);
+                    context.Horizons.Add(lElAlbaPivot_40_3);
+                    context.Horizons.Add(lElAlbaPivot_40_4);
                     #endregion
                     context.SaveChanges();
                 }
@@ -12997,6 +13128,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -13071,9 +13203,77 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lElAlbaPivot33.HorizonList.Add(lHorizon3);
                     lElAlbaPivot33.HorizonList.Add(lHorizon4);
                     #endregion
+                    #region Pivot 38
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElAlba38
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba38 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba38 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba38 + " 3"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba38 + " 4"
+                                 select hor).FirstOrDefault();
+                    var lElAlbaPivot38 = new Soil
+                    {
+                        Name = Utils.NamePivotElAlba38,
+                        Description = "Suelo del Pivot 38 en El Alba. "
+                         + "Brunosoles Éutricos Lúvicos. Grupo CONEAT 10.5.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 10, 24),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotElAlba38,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lElAlbaPivot38.HorizonList.Add(lHorizon1);
+                    lElAlbaPivot38.HorizonList.Add(lHorizon2);
+                    lElAlbaPivot38.HorizonList.Add(lHorizon3);
+                    lElAlbaPivot38.HorizonList.Add(lHorizon4);
+                    #endregion
+                    #region Pivot 40
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElAlba40
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba40 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba40 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba40 + " 3"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba40 + " 4"
+                                 select hor).FirstOrDefault();
+                    var lElAlbaPivot40 = new Soil
+                    {
+                        Name = Utils.NamePivotElAlba40,
+                        Description = "Suelo del Pivot 40 en El Alba. "
+                         + "Brunosoles Éutricos Lúvicos. Grupo CONEAT 10.5.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 10, 24),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotElAlba40,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lElAlbaPivot40.HorizonList.Add(lHorizon1);
+                    lElAlbaPivot40.HorizonList.Add(lHorizon2);
+                    lElAlbaPivot40.HorizonList.Add(lHorizon3);
+                    lElAlbaPivot40.HorizonList.Add(lHorizon4);
+                    #endregion
 
                     context.Soils.Add(lElAlbaPivot32);
                     context.Soils.Add(lElAlbaPivot33);
+                    context.Soils.Add(lElAlbaPivot38);
+                    context.Soils.Add(lElAlbaPivot40);
                     context.SaveChanges();
                 }
             }
