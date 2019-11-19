@@ -1944,6 +1944,1543 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
             };
         }
 
+        public static void InsertSpecies_2019()
+        {
+            SpecieCycle lSpecieCycle = null;
+            Region lRegion = null;
+            #region Base
+            var lBase = new Specie
+            {
+                Name = Utils.NameBase,
+                ShortName = "NoName",
+                SpecieCycleId = 0,
+                BaseTemperature = 0,
+                StressTemperature = 0,
+                SpecieType = Utils.SpecieType.Default,
+
+            };
+            #endregion
+
+            #region South
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+
+                #region CornSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lCornSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieCornSouthShort,
+                    ShortName = "Maíz",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_CornSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_CornSouth_2019,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lCornSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region CornSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lCornSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieCornSouthMedium,
+                    ShortName = "Maíz",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_CornSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_CornSouth_2019,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lCornSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region SoyaSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lSoyaSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSoyaSouthShort,
+                    ShortName = "Soja",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SoyaSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SoyaSouth_2019,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSoyaSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region SoyaSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lSoyaSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSoyaSouthMedium,
+                    ShortName = "Soja",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SoyaSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SoyaSouth_2019,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSoyaSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region OatSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lOatSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieOatSouthShort,
+                    ShortName = "Avena",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_OatSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_OatSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lOatSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region OatSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lOatSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieOatSouthMedium,
+                    ShortName = "Avena",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_OatSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_OatSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lOatSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region PastureSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lPastureSouthShort = new Specie
+                {
+                    Name = Utils.NameSpeciePastureSouthShort,
+                    ShortName = "Pastura",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_PastureSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_PastureSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lPastureSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region PastureSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lPastureSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpeciePastureSouthMedium,
+                    ShortName = "Pastura",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_PastureSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_PastureSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lPastureSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region SorghumForageSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lSorghumForageSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSorghumForageSouthShort,
+                    ShortName = "Sorgo Forrajero",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SorghumForageSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SorghumForageSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSorghumForageSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region SorghumGrainSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lSorghumGrainSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSorghumGrainSouthShort,
+                    ShortName = "Sorgo Granifero",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SorghumGrainSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SorghumGrainSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSorghumGrainSouthShort);
+                context.SaveChanges();
+
+                #endregion
+
+                #region AlfalfaSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lAlfalfaSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaSouthShort,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_AlfalfaSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_AlfalfaSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lAlfalfaSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region AlfalfaSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lAlfalfaSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaSouthMedium,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_AlfalfaSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_AlfalfaSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lAlfalfaSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region SudanGrassSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lSudanGrassSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthShort,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SudanGrassSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SudanGrassSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSudanGrassSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region SudanGrassSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lSudanGrassSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthMedium,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SudanGrassSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SudanGrassSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSudanGrassSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region RedCloverForageSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lRedCloverForageSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieRedCloverForageSouthShort,
+                    ShortName = "Trebol Rojo Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_RedCloverForageSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_RedCloverForageSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lRedCloverForageSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region RedCloverSeedSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lRedCloverSeedSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieRedCloverSeedSouthShort,
+                    ShortName = "Trebol Rojo Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_RedCloverSeedSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_RedCloverSeedSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lRedCloverSeedSouthShort);
+                context.SaveChanges();
+
+                #endregion
+
+                #region FescueForageSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lFescueForageSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageSouthShort,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_FescueForageSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_FescueForageSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueForageSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueForageSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lFescueForageSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageSouthMedium,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_FescueForageSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_FescueForageSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueForageSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueSeedSouthShort
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lFescueSeedSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedSouthShort,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_FescueSeedSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_FescueSeedSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueSeedSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueSeedSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lFescueSeedSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedSouthMedium,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_FescueSeedSouth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_FescueSeedSouth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueSeedSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+            }
+            #endregion
+
+            #region North
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+
+                #region Corn North Short
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+                var lCornNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieCornNorthShort,
+                    ShortName = "Maíz",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_CornNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_CornNorth_2019,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+                context.Species.Add(lCornNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region Corn North Medium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+                var lCornNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieCornNorthMedium,
+                    ShortName = "Maíz",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_CornNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_CornNorth_2019,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+                context.Species.Add(lCornNorthMedium);
+                context.SaveChanges();
+
+
+                #endregion
+
+                #region Soya North Short
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lSoyaNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSoyaNorthShort,
+                    ShortName = "Soja",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SoyaNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SoyaNorth_2019,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+                context.Species.Add(lSoyaNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region Soya North Medium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lSoyaNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSoyaNorthMedium,
+                    ShortName = "Soja",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SoyaNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SoyaNorth_2019,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+                context.Species.Add(lSoyaNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region OatNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lOatNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieOatNorthShort,
+                    ShortName = "Avena",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_OatNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_OatNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lOatNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region OatNorthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lOatNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieOatNorthMedium,
+                    ShortName = "Avena",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_OatNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_OatNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lOatNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region PastureNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lPastureNorthShort = new Specie
+                {
+                    Name = Utils.NameSpeciePastureNorthShort,
+                    ShortName = "Pastura",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_PastureNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_PastureNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lPastureNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region PastureNorthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lPastureNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpeciePastureNorthMedium,
+                    ShortName = "Pastura",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_PastureNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_PastureNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lPastureNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region AlfalfaNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lAlfalfaNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaNorthShort,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_AlfalfaNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_AlfalfaNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lAlfalfaNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region AlfalfaNorthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lAlfalfaNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaNorthMedium,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_AlfalfaNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_AlfalfaNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lAlfalfaNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region SudanGrassNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lSudanGrassNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthShort,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SudanGrassNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SudanGrassNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSudanGrassNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region SudanGrassNorthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lSudanGrassNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthMedium,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_SudanGrassNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_SudanGrassNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSudanGrassNorthMedium);
+                context.SaveChanges();
+                #endregion
+
+                #region FescueForageNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lFescueForageNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageNorthShort,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_FescueForageNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_FescueForageNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueForageNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueForageNorthMedium
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lFescueForageNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageNorthMedium,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_FescueForageNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_FescueForageNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueForageNorthMedium);
+                context.SaveChanges();
+                #endregion
+                #region FescueSeedNorthShort
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lFescueSeedNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedNorthShort,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_FescueSeedNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_FescueSeedNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueSeedNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueSeedNorthMedium
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lFescueSeedNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedNorthMedium,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2019.BaseTemperature_FescueSeedNorth_2019,
+                    StressTemperature = DataEntry2019.StressTemperature_FescueSeedNorth_2019,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueSeedNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+            #endregion
+
+                //using (var context = new IrrigationAdvisorContext())
+                //{
+                //    //context.Species.Add(lBase);
+                //    context.SaveChanges();
+            };
+        }
+        
+//For next year 2020
+#if false 
+        public static void InsertSpecies_2020()
+        {
+            SpecieCycle lSpecieCycle = null;
+            Region lRegion = null;
+            #region Base
+            var lBase = new Specie
+            {
+                Name = Utils.NameBase,
+                ShortName = "NoName",
+                SpecieCycleId = 0,
+                BaseTemperature = 0,
+                StressTemperature = 0,
+                SpecieType = Utils.SpecieType.Default,
+
+            };
+            #endregion
+
+            #region South
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+
+                #region CornSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lCornSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieCornSouthShort,
+                    ShortName = "Maíz",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_CornSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_CornSouth_2020,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lCornSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region CornSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lCornSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieCornSouthMedium,
+                    ShortName = "Maíz",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_CornSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_CornSouth_2020,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lCornSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region SoyaSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lSoyaSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSoyaSouthShort,
+                    ShortName = "Soja",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SoyaSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SoyaSouth_2020,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSoyaSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region SoyaSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lSoyaSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSoyaSouthMedium,
+                    ShortName = "Soja",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SoyaSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SoyaSouth_2020,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSoyaSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region OatSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lOatSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieOatSouthShort,
+                    ShortName = "Avena",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_OatSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_OatSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lOatSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region OatSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lOatSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieOatSouthMedium,
+                    ShortName = "Avena",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_OatSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_OatSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lOatSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region PastureSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lPastureSouthShort = new Specie
+                {
+                    Name = Utils.NameSpeciePastureSouthShort,
+                    ShortName = "Pastura",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_PastureSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_PastureSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lPastureSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region PastureSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lPastureSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpeciePastureSouthMedium,
+                    ShortName = "Pastura",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_PastureSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_PastureSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lPastureSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region SorghumForageSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lSorghumForageSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSorghumForageSouthShort,
+                    ShortName = "Sorgo Forrajero",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SorghumForageSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SorghumForageSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSorghumForageSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region SorghumGrainSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lSorghumGrainSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSorghumGrainSouthShort,
+                    ShortName = "Sorgo Granifero",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SorghumGrainSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SorghumGrainSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSorghumGrainSouthShort);
+                context.SaveChanges();
+
+                #endregion
+
+                #region AlfalfaSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lAlfalfaSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaSouthShort,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_AlfalfaSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_AlfalfaSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lAlfalfaSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region AlfalfaSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lAlfalfaSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaSouthMedium,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_AlfalfaSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_AlfalfaSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lAlfalfaSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region SudanGrassSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lSudanGrassSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthShort,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SudanGrassSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SudanGrassSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSudanGrassSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region SudanGrassSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lSudanGrassSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassSouthMedium,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SudanGrassSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SudanGrassSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSudanGrassSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region RedCloverForageSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lRedCloverForageSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieRedCloverForageSouthShort,
+                    ShortName = "Trebol Rojo Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_RedCloverForageSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_RedCloverForageSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lRedCloverForageSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region RedCloverSeedSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lRedCloverSeedSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieRedCloverSeedSouthShort,
+                    ShortName = "Trebol Rojo Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_RedCloverSeedSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_RedCloverSeedSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lRedCloverSeedSouthShort);
+                context.SaveChanges();
+
+                #endregion
+
+                #region FescueForageSouthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lFescueForageSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageSouthShort,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_FescueForageSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_FescueForageSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueForageSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueForageSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lFescueForageSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageSouthMedium,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_FescueForageSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_FescueForageSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueForageSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueSeedSouthShort
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthShort);
+
+                var lFescueSeedSouthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedSouthShort,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_FescueSeedSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_FescueSeedSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueSeedSouthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueSeedSouthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleSouthMedium);
+
+                var lFescueSeedSouthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedSouthMedium,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_FescueSeedSouth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_FescueSeedSouth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueSeedSouthMedium);
+                context.SaveChanges();
+
+                #endregion
+            }
+            #endregion
+
+            #region North
+            using (var context = new IrrigationAdvisorContext())
+            {
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+
+                #region Corn North Short
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+                var lCornNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieCornNorthShort,
+                    ShortName = "Maíz",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_CornNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_CornNorth_2020,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+                context.Species.Add(lCornNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region Corn North Medium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+                var lCornNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieCornNorthMedium,
+                    ShortName = "Maíz",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_CornNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_CornNorth_2020,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+                context.Species.Add(lCornNorthMedium);
+                context.SaveChanges();
+
+
+                #endregion
+
+                #region Soya North Short
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lSoyaNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSoyaNorthShort,
+                    ShortName = "Soja",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SoyaNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SoyaNorth_2020,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+                context.Species.Add(lSoyaNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region Soya North Medium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lSoyaNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSoyaNorthMedium,
+                    ShortName = "Soja",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SoyaNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SoyaNorth_2020,
+                    SpecieType = Utils.SpecieType.Grains,
+                    RegionId = lRegion.RegionId,
+                };
+                context.Species.Add(lSoyaNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region OatNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lOatNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieOatNorthShort,
+                    ShortName = "Avena",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_OatNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_OatNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lOatNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region OatNorthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lOatNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieOatNorthMedium,
+                    ShortName = "Avena",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_OatNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_OatNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lOatNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region PastureNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lPastureNorthShort = new Specie
+                {
+                    Name = Utils.NameSpeciePastureNorthShort,
+                    ShortName = "Pastura",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_PastureNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_PastureNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lPastureNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region PastureNorthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lPastureNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpeciePastureNorthMedium,
+                    ShortName = "Pastura",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_PastureNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_PastureNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lPastureNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region AlfalfaNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lAlfalfaNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaNorthShort,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_AlfalfaNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_AlfalfaNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lAlfalfaNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region AlfalfaNorthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lAlfalfaNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieAlfalfaNorthMedium,
+                    ShortName = "Alfalfa",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_AlfalfaNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_AlfalfaNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lAlfalfaNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+                #region SudanGrassNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lSudanGrassNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthShort,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SudanGrassNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SudanGrassNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSudanGrassNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region SudanGrassNorthMedium
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lSudanGrassNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieSudanGrassNorthMedium,
+                    ShortName = "SudanGrass",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_SudanGrassNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_SudanGrassNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lSudanGrassNorthMedium);
+                context.SaveChanges();
+                #endregion
+
+                #region FescueForageNorthShort
+
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lFescueForageNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageNorthShort,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_FescueForageNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_FescueForageNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueForageNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueForageNorthMedium
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lFescueForageNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueForageNorthMedium,
+                    ShortName = "Festuca Forraje",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_FescueForageNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_FescueForageNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueForageNorthMedium);
+                context.SaveChanges();
+                #endregion
+                #region FescueSeedNorthShort
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthShort);
+
+                var lFescueSeedNorthShort = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedNorthShort,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_FescueSeedNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_FescueSeedNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueSeedNorthShort);
+                context.SaveChanges();
+
+                #endregion
+                #region FescueSeedNorthMedium
+                lSpecieCycle = context.SpecieCycles.SingleOrDefault(
+                                        sc => sc.Name == Utils.NameSpecieCycleNorthMedium);
+
+                var lFescueSeedNorthMedium = new Specie
+                {
+                    Name = Utils.NameSpecieFescueSeedNorthMedium,
+                    ShortName = "Festuca Semilla",
+                    SpecieCycleId = lSpecieCycle.SpecieCycleId,
+                    BaseTemperature = DataEntry2020.BaseTemperature_FescueSeedNorth_2020,
+                    StressTemperature = DataEntry2020.StressTemperature_FescueSeedNorth_2020,
+                    SpecieType = Utils.SpecieType.Pastures,
+                    RegionId = lRegion.RegionId,
+                };
+
+                context.Species.Add(lFescueSeedNorthMedium);
+                context.SaveChanges();
+
+                #endregion
+
+            #endregion
+
+                //using (var context = new IrrigationAdvisorContext())
+                //{
+                //    //context.Species.Add(lBase);
+                //    context.SaveChanges();
+            };
+        }
+#endif
+
         public static void UpdateCountryRegionWithSpeciesSpeciesCycles()
         {
             Region lRegion = null;
