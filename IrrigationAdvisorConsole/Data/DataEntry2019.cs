@@ -202,10 +202,10 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime SowingDate_CornSouth_DCASanJosePivot1_2019 = new DateTime(2019, 11, 10);
         public static DateTime HarvestDate_CornSouth_DCASanJosePivot1_2019 = new DateTime(2020, 04, 05);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot1_2019 = 14;
-        public static DateTime SowingDate_CornSouth_DCASanJosePivot2_2019 = new DateTime(2019, 12, 03);
+        public static DateTime SowingDate_CornSouth_DCASanJosePivot2_2019 = new DateTime(2019, 10, 25);
         public static DateTime HarvestDate_CornSouth_DCASanJosePivot2_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot2_2019 = 14;
-        public static DateTime SowingDate_CornSouth_DCASanJosePivot3_2019 = new DateTime(2019, 12, 03);
+        public static DateTime SowingDate_CornSouth_DCASanJosePivot3_2019 = new DateTime(2019, 10, 25);
         public static DateTime HarvestDate_CornSouth_DCASanJosePivot3_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot3_2019 = 14;
         public static DateTime SowingDate_CornSouth_DCASanJosePivot4_2019 = new DateTime(2019, 11, 10);
@@ -564,7 +564,7 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationMainName_LaPortuguesa_2019 = Utils.NameWeatherStationSaltoGrande;
         public static String WeatherStationAlternativeName_LaPortuguesa_2019 = Utils.NameWeatherStationLasBrujas;
 
-        public static DateTime SowingDate_CornNorth_LaPortuguesaPivot1_2019 = new DateTime(2019, 11, 15);
+        public static DateTime SowingDate_CornNorth_LaPortuguesaPivot1_2019 = new DateTime(2019, 11, 12);
         public static DateTime HarvestDate_CornNorth_LaPortuguesaPivot1_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_LaPortuguesaPivot1_2019 = 10;
         public static DateTime SowingDate_SoyaNorth_LaPortuguesaPivot2_2019 = new DateTime(2019, 11, 10);
