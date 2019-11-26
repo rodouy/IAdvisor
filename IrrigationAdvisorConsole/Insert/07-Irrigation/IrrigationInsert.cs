@@ -2074,6 +2074,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
             {
@@ -2192,8 +2193,16 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDCASanJosePivot4.Show = true;
                     }
                     else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lDCASanJosePivot1.Show = false;
+                        lDCASanJosePivot2.Show = true;
+                        lDCASanJosePivot3.Show = true;
+                        lDCASanJosePivot4.Show = false;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
                     {
                         lDCASanJosePivot1.Show = false;
                         lDCASanJosePivot2.Show = true;
@@ -4399,6 +4408,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -5266,6 +5276,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -5330,8 +5341,14 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lLaPortuguesaPivot2.Show = false;
                     }
                     else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    {
+                        lLaPortuguesaPivot1.Show = true;
+                        lLaPortuguesaPivot2.Show = false;
+                    }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
                     {
                         lLaPortuguesaPivot1.Show = true;
                         lLaPortuguesaPivot2.Show = false;
@@ -5556,6 +5573,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Cecchini)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -5620,16 +5638,22 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lCecchiniPivot2.Show = false;
                     }
                     else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
                         lCecchiniPivot1.Show = true;
                         lCecchiniPivot2.Show = false;
                     }
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
+                    {
+                        lCecchiniPivot1.Show = true;
+                        lCecchiniPivot2.Show = true;
+                    }
                     else
                     {
                         lCecchiniPivot1.Show = true;
-                        lCecchiniPivot2.Show = false;
+                        lCecchiniPivot2.Show = true;
                     }
                     #endregion
 

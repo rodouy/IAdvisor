@@ -1089,6 +1089,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
@@ -1361,6 +1362,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
                 {
                     lUserNames = new String[] { Utils.NameUserER1, 
@@ -1470,6 +1472,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
                 {
                     lUserNames = new String[] { Utils.NameUserSE1, Utils.NameUserSE2,
@@ -1542,7 +1545,9 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
 
                 #region La Portuguesa - LP
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
                 {
                     lUserNames = new String[] { Utils.NameUserLP1, 
@@ -1646,6 +1651,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Cecchini)
                 {
                     lUserNames = new String[] { Utils.NameUserCE1, Utils.NameUserCE2,
@@ -1680,6 +1686,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
                 {
                     lUserNames = new String[] { Utils.NameUserEA1, 
@@ -1714,6 +1721,7 @@ namespace IrrigationAdvisorConsole.Insert._03_Security
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
                 {
                     lUserNames = new String[] { Utils.NameUserLZ1, Utils.NameUserLZ2,
