@@ -2669,8 +2669,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region DCA San Jose
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
                 {
@@ -20144,7 +20144,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
 
                     Console.Write(" - La Portuguesa ");
-                    //DataEntry2019.AddInformationToIrrigationUnitsLaPortuguesaPivot1_2019(context, Program.DateOfReference);
+                    DataEntry2019.AddInformationToIrrigationUnitsLaPortuguesaPivot1_2019(context, Program.DateOfReference);
                     //DataEntry2019.AddInformationToIrrigationUnitsLaPortuguesaPivot2_2019(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
