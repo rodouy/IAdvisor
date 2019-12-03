@@ -20043,15 +20043,15 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 {
 
                     Console.Write(" - La Zenaida");
-                    DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot1_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot1_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot2_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot3_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot3_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot4_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot5_2019(context, Program.DateOfReference);
 
-                    DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot1a_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot4a_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot5a_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot1a_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot4a_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsLaZenaidaPivot5a_2019(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }

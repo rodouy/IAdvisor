@@ -5818,6 +5818,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -6021,9 +6022,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     #endregion
 
                     #region Pivot - Shows by Season
-                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
                         lLaZenaidaPivot1.Show = true;
                         lLaZenaidaPivot2.Show = true;
@@ -6033,6 +6032,19 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lLaZenaidaPivot1a.Show = true;
                         lLaZenaidaPivot4a.Show = true;
                         lLaZenaidaPivot5a.Show = true;
+                    }
+                    if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
+                    {
+                        lLaZenaidaPivot1.Show = false;
+                        lLaZenaidaPivot2.Show = true;
+                        lLaZenaidaPivot3.Show = false;
+                        lLaZenaidaPivot4.Show = true;
+                        lLaZenaidaPivot5.Show = true;
+                        lLaZenaidaPivot1a.Show = false;
+                        lLaZenaidaPivot4a.Show = false;
+                        lLaZenaidaPivot5a.Show = false;
                     }
                     else
                     {
