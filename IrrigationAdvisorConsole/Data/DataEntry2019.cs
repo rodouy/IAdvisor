@@ -637,15 +637,15 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot1_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot1_2019 = 14;
         public static DateTime SowingDate_FescueForageSouth_LaZenaidaPivot2_2019 = new DateTime(2019, 09, 25);
-        public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot2_2019 = new DateTime(2020, 06, 30);
+        public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot2_2019 = new DateTime(2021, 06, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot2_2019 = 14;
         public static DateTime SowingDate_FescueForageSouth_LaZenaidaPivot3_2019 = new DateTime(2019, 09, 25);
         public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot3_2019 = new DateTime(2020, 06, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot3_2019 = 14;
-        public static DateTime SowingDate_SudanGrassSouth_LaZenaidaPivot4_2019 = new DateTime(2019, 11, 11);
+        public static DateTime SowingDate_SudanGrassSouth_LaZenaidaPivot4_2019 = new DateTime(2019, 04, 15);
         public static DateTime HarvestDate_SudanGrassSouth_LaZenaidaPivot4_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot4_2019 = 14;
-        public static DateTime SowingDate_SudanGrassSouth_LaZenaidaPivot5_2019 = new DateTime(2019, 11, 11);
+        public static DateTime SowingDate_SudanGrassSouth_LaZenaidaPivot5_2019 = new DateTime(2019, 04, 15);
         public static DateTime HarvestDate_SudanGrassSouth_LaZenaidaPivot5_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot5_2019 = 14;
 
