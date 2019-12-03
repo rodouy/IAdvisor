@@ -18061,8 +18061,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region La Zenaida
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
                 {
                     lWeatherStationMainName = DataEntry2019.WeatherStationMainName_LaZenaida_2019;
