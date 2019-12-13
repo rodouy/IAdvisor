@@ -18905,7 +18905,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-
+#if false
                     #region La Zenaida Pivot 1a 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -19407,7 +19407,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-#if true
+
 #endif
                 }
                 #endregion

@@ -3461,14 +3461,14 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot1_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaZenaidaPivot1_2019(context, Program.DateOfReference);
                     IrrigationData2019.AddIrrigationDataLaZenaidaPivot2_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot3_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaZenaidaPivot3_2019(context, Program.DateOfReference);
                     IrrigationData2019.AddIrrigationDataLaZenaidaPivot4_2019(context, Program.DateOfReference);
                     IrrigationData2019.AddIrrigationDataLaZenaidaPivot5_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot1a_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot4a_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot5a_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaZenaidaPivot1a_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaZenaidaPivot4a_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataLaZenaidaPivot5a_2019(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
