@@ -2204,17 +2204,17 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
                     {
-                        lDCASanJosePivot1.Show = false;
+                        lDCASanJosePivot1.Show = true;
                         lDCASanJosePivot2.Show = true;
                         lDCASanJosePivot3.Show = true;
-                        lDCASanJosePivot4.Show = false;
+                        lDCASanJosePivot4.Show = true;
                     }
                     else
                     {
-                        lDCASanJosePivot1.Show = false;
+                        lDCASanJosePivot1.Show = true;
                         lDCASanJosePivot2.Show = true;
                         lDCASanJosePivot3.Show = true;
-                        lDCASanJosePivot4.Show = false;
+                        lDCASanJosePivot4.Show = true;
                     }
                     #endregion
 
@@ -5617,7 +5617,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     var lCecchiniPivot2 = new Pivot
                     {
                         Name = Utils.NamePivotCecchini2,
-                        ShortName = "Pivot 2",
+                        ShortName = "Pivot 2 Canon",
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
