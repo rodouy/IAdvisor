@@ -19751,10 +19751,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
                     Console.Write(" - DCA - San Jose");
-                    //DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot1_2019(context, Program.DateOfReference);
+                    DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot1_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot2_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot3_2019(context, Program.DateOfReference);
-                    //DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot4_2019(context, Program.DateOfReference);
+                    DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot4_2019(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
