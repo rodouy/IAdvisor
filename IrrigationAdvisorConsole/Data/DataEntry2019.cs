@@ -199,8 +199,8 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationMainName_DCASanJose_2019 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_DCASanJose_2019 = Utils.NameWeatherStationLasBrujas;
 
-        public static DateTime SowingDate_CornSouth_DCASanJosePivot1_2019 = new DateTime(2019, 11, 10);
-        public static DateTime HarvestDate_CornSouth_DCASanJosePivot1_2019 = new DateTime(2020, 04, 05);
+        public static DateTime SowingDate_CornSouth_DCASanJosePivot1_2019 = new DateTime(2019, 12, 07);
+        public static DateTime HarvestDate_CornSouth_DCASanJosePivot1_2019 = new DateTime(2020, 05, 05);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot1_2019 = 14;
         public static DateTime SowingDate_CornSouth_DCASanJosePivot2_2019 = new DateTime(2019, 10, 25);
         public static DateTime HarvestDate_CornSouth_DCASanJosePivot2_2019 = new DateTime(2020, 04, 30);
@@ -208,8 +208,8 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime SowingDate_CornSouth_DCASanJosePivot3_2019 = new DateTime(2019, 10, 25);
         public static DateTime HarvestDate_CornSouth_DCASanJosePivot3_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot3_2019 = 14;
-        public static DateTime SowingDate_CornSouth_DCASanJosePivot4_2019 = new DateTime(2019, 11, 10);
-        public static DateTime HarvestDate_CornSouth_DCASanJosePivot4_2019 = new DateTime(2020, 04, 05);
+        public static DateTime SowingDate_CornSouth_DCASanJosePivot4_2019 = new DateTime(2019, 12, 07);
+        public static DateTime HarvestDate_CornSouth_DCASanJosePivot4_2019 = new DateTime(2020, 05, 05);
         public static Double PredeterminatedIrrigationQuantity_DCASanJosePivot4_2019 = 14;
         #endregion
         #region Del Lago - San Pedro

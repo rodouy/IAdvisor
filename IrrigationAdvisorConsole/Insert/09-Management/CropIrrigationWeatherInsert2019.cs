@@ -18905,7 +18905,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-
+#if false
                     #region La Zenaida Pivot 1a 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -19407,7 +19407,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
-#if true
+
 #endif
                 }
                 #endregion
@@ -19751,10 +19751,10 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
                     Console.Write(" - DCA - San Jose");
-                    //DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot1_2019(context, Program.DateOfReference);
+                    DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot1_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot2_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot3_2019(context, Program.DateOfReference);
-                    //DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot4_2019(context, Program.DateOfReference);
+                    DataEntry2019.AddInformationToIrrigationUnitsDCASanJosePivot4_2019(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
