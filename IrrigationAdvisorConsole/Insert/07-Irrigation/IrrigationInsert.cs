@@ -5621,11 +5621,11 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         IrrigationType = Utils.IrrigationUnitType.Pivot,
                         IrrigationEfficiency = 0.90,
                         IrrigationList = new List<Pair<DateTime, double>>(),
-                        Surface = 90,
+                        Surface = 30,
                         BombId = lBomb.BombId,
                         PositionId = lPosition.PositionId,
                         PredeterminatedIrrigationQuantity = 14,
-                        Radius = 45,
+                        Radius = 15,
                         Show = false,
                         FarmId = lFarm.FarmId,
                     };
