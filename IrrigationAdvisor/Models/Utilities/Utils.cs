@@ -2287,7 +2287,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #endregion
         #region El Rincon
         public static String NameCropIrrigationWeatherElRinconPivot1a_S1920 = NamePivotElRincon1a + " " + NameSpecieCornSouthShort + " S1920";
-        public static String NameCropIrrigationWeatherElRinconPivot1b_S1920 = NamePivotElRincon1b + " " + NameSpecieSoyaSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElRinconPivot1b_S1920 = NamePivotElRincon1b + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElRinconPivot2a_S1920 = NamePivotElRincon2a + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElRinconPivot2b_S1920 = NamePivotElRincon2b + " " + NameSpecieCornSouthShort + " S1920";
         #endregion

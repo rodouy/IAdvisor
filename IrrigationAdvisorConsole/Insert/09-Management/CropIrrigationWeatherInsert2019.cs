@@ -19864,7 +19864,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
                     Console.Write(" - El Rincon");
                     //DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot1a_2019(context, Program.DateOfReference);
-                    //DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot1b_2019(context, Program.DateOfReference);
+                    DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot1b_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot2a_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot2b_2019(context, Program.DateOfReference);
                     context.SaveChanges();

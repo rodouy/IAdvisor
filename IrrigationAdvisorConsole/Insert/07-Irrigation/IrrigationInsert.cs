@@ -4534,14 +4534,14 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
                     {
                         lElRinconPivot1a.Show = false;
-                        lElRinconPivot1b.Show = false;
+                        lElRinconPivot1b.Show = true;
                         lElRinconPivot2a.Show = false;
                         lElRinconPivot2b.Show = true;
                     }
                     else
                     {
                         lElRinconPivot1a.Show = false;
-                        lElRinconPivot1b.Show = false;
+                        lElRinconPivot1b.Show = true;
                         lElRinconPivot2a.Show = false;
                         lElRinconPivot2b.Show = true;
                     }
