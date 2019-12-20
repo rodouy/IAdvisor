@@ -4536,14 +4536,14 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lElRinconPivot1a.Show = false;
                         lElRinconPivot1b.Show = true;
                         lElRinconPivot2a.Show = false;
-                        lElRinconPivot2b.Show = true;
+                        lElRinconPivot2b.Show = false;
                     }
                     else
                     {
                         lElRinconPivot1a.Show = false;
                         lElRinconPivot1b.Show = true;
                         lElRinconPivot2a.Show = false;
-                        lElRinconPivot2b.Show = true;
+                        lElRinconPivot2b.Show = false;
                     }
                     #endregion
 
