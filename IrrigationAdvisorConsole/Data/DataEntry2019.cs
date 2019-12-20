@@ -462,8 +462,8 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime SowingDate_CornSouth_ElRinconPivot1a_2019 = new DateTime(2019, 11, 07);
         public static DateTime HarvestDate_CornSouth_ElRinconPivot1a_2019 = new DateTime(2020, 04, 01);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1a_2019 = 14;
-        public static DateTime SowingDate_SoyaSouth_ElRinconPivot1b_2019 = new DateTime(2019, 11, 07);
-        public static DateTime HarvestDate_SoyaSouth_ElRinconPivot1b_2019 = new DateTime(2020, 04, 10);
+        public static DateTime SowingDate_CornSouth_ElRinconPivot1b_2019 = new DateTime(2019, 12, 18);
+        public static DateTime HarvestDate_CornSouth_ElRinconPivot1b_2019 = new DateTime(2020, 05, 15);
         public static Double PredeterminatedIrrigationQuantity_ElRinconPivot1b_2019 = 10;
         public static DateTime SowingDate_CornSouth_ElRinconPivot2a_2019 = new DateTime(2019, 10, 26);
         public static DateTime HarvestDate_CornSouth_ElRinconPivot2a_2019 = new DateTime(2020, 04, 01);

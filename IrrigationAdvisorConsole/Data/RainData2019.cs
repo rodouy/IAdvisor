@@ -4714,11 +4714,12 @@ namespace IrrigationAdvisorConsole.Data
                                               && ciw.HarvestDate.Year >= pDateOfReference.Year
                                           select ciw).ToList<CropIrrigationWeather>();
             #endregion
-            #region Rain 2019/10/15 90 mm
+
+            #region Rain 2019/12/15 90 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
-                lRainDate = new DateTime(2019, 10, 15);
+                lRainDate = new DateTime(2019, 12, 15);
                 lRainQuantity = 90;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
@@ -4754,11 +4755,12 @@ namespace IrrigationAdvisorConsole.Data
                                               && ciw.HarvestDate.Year >= pDateOfReference.Year
                                           select ciw).ToList<CropIrrigationWeather>();
             #endregion
-            #region Rain 2019/10/15 90 mm
+
+            #region Rain 2019/12/15 90 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Rain
-                lRainDate = new DateTime(2019, 10, 15);
+                lRainDate = new DateTime(2019, 12, 15);
                 lRainQuantity = 90;
                 /////////////////////////////////////////////////////////////////////////////////////////////
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
