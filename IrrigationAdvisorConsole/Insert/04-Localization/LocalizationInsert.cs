@@ -1422,7 +1422,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -57.8287611,
             };
             #endregion
-            #region Pivots El Alba #4
+            #region Pivots El Alba #5
             var lElAlbaPivot32 = new Position()
             {
                 Name = Utils.NamePositionPivotElAlba32,
@@ -1434,6 +1434,12 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Name = Utils.NamePositionPivotElAlba33,
                 Latitude = -33.9872139,
                 Longitude = -57.9744972,
+            };
+            var lElAlbaPivot36 = new Position()
+            {
+                Name = Utils.NamePositionPivotElAlba36,
+                Latitude = -33.99055556,
+                Longitude = -57.94138889,
             };
             var lElAlbaPivot38 = new Position()
             {
@@ -1569,7 +1575,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosOlivos);
                 context.Positions.Add(lViveroSanFrancisco);
                 #endregion
-                #region Pivots #161
+                #region Pivots #162
                 #region Pivots - Demo #14
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1754,9 +1760,10 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lCecchiniPivot1);
                 context.Positions.Add(lCecchiniPivot2);
                 #endregion
-                #region Pivots - El Alba #4
+                #region Pivots - El Alba #5
                 context.Positions.Add(lElAlbaPivot32);
                 context.Positions.Add(lElAlbaPivot33);
+                context.Positions.Add(lElAlbaPivot36);
                 context.Positions.Add(lElAlbaPivot38);
                 context.Positions.Add(lElAlbaPivot40);
                 #endregion

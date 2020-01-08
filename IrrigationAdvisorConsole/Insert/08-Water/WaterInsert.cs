@@ -3020,6 +3020,7 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
 
                     //RainData2019.AddRainDataElAlbaPivot32_2019(context, Program.DateOfReference);
                     //RainData2019.AddRainDataElAlbaPivot33_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataElAlbaPivot36_2019(context, Program.DateOfReference);
                     RainData2019.AddRainDataElAlbaPivot38_2019(context, Program.DateOfReference);
                     RainData2019.AddRainDataElAlbaPivot40_2019(context, Program.DateOfReference);
                     context.SaveChanges();

@@ -7814,6 +7814,67 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                         SoilId = lSoil.SoilId,
                     };
                     #endregion
+                    #region Pivot 36
+                    lSoil = (from soil in context.Soils
+                             where soil.Name == Utils.NamePivotElAlba36
+                             select soil).FirstOrDefault();
+                    var lElAlbaPivot_36_1 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba36 + " 1",
+                        Order = 1,
+                        HorizonLayer = "A",
+                        HorizonLayerDepth = 18,
+                        Sand = 30,
+                        Limo = 50,
+                        Clay = 20,
+                        OrganicMatter = 3.2,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.4,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElAlbaPivot_36_2 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba36 + " 2",
+                        Order = 2,
+                        HorizonLayer = "B",
+                        HorizonLayerDepth = 36,
+                        Sand = 28,
+                        Limo = 44,
+                        Clay = 28,
+                        OrganicMatter = 2.1,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElAlbaPivot_36_3 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba36 + " 3",
+                        Order = 3,
+                        HorizonLayer = "Bt1",
+                        HorizonLayerDepth = 45,
+                        Sand = 25,
+                        Limo = 37,
+                        Clay = 38,
+                        OrganicMatter = 0.7,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    var lElAlbaPivot_36_4 = new Horizon
+                    {
+                        Name = Utils.NamePivotElAlba36 + " 4",
+                        Order = 4,
+                        HorizonLayer = "Bt2",
+                        HorizonLayerDepth = 60,
+                        Sand = 22,
+                        Limo = 35,
+                        Clay = 43,
+                        OrganicMatter = 0.5,
+                        NitrogenAnalysis = 0,
+                        BulkDensitySoil = 1.5,
+                        SoilId = lSoil.SoilId,
+                    };
+                    #endregion
                     #region Pivot 38
                     lSoil = (from soil in context.Soils
                              where soil.Name == Utils.NamePivotElAlba38
@@ -7946,6 +8007,10 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     context.Horizons.Add(lElAlbaPivot_33_2);
                     context.Horizons.Add(lElAlbaPivot_33_3);
                     context.Horizons.Add(lElAlbaPivot_33_4);
+                    context.Horizons.Add(lElAlbaPivot_36_1);
+                    context.Horizons.Add(lElAlbaPivot_36_2);
+                    context.Horizons.Add(lElAlbaPivot_36_3);
+                    context.Horizons.Add(lElAlbaPivot_36_4);
                     context.Horizons.Add(lElAlbaPivot_38_1);
                     context.Horizons.Add(lElAlbaPivot_38_2);
                     context.Horizons.Add(lElAlbaPivot_38_3);
@@ -13208,6 +13273,39 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
                     lElAlbaPivot33.HorizonList.Add(lHorizon3);
                     lElAlbaPivot33.HorizonList.Add(lHorizon4);
                     #endregion
+                    #region Pivot 36
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElAlba36
+                                 select pos).FirstOrDefault();
+                    lHorizon1 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba36 + " 1"
+                                 select hor).FirstOrDefault();
+                    lHorizon2 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba36 + " 2"
+                                 select hor).FirstOrDefault();
+                    lHorizon3 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba36 + " 3"
+                                 select hor).FirstOrDefault();
+                    lHorizon4 = (from hor in context.Horizons
+                                 where hor.Name == Utils.NamePivotElAlba36 + " 4"
+                                 select hor).FirstOrDefault();
+                    var lElAlbaPivot36 = new Soil
+                    {
+                        Name = Utils.NamePivotElAlba36,
+                        Description = "Suelo del Pivot 36 en El Alba. "
+                         + "Brunosoles Éutricos Lúvicos. Grupo CONEAT 10.5.",
+                        PositionId = lPosition.PositionId,
+                        TestDate = new DateTime(2018, 10, 24),
+                        DepthLimit = 60,
+                        ShortName = Utils.NamePivotElAlba36,
+                        FarmId = lFarm.FarmId,
+                        HorizonList = new List<Horizon>(),
+                    };
+                    lElAlbaPivot36.HorizonList.Add(lHorizon1);
+                    lElAlbaPivot36.HorizonList.Add(lHorizon2);
+                    lElAlbaPivot36.HorizonList.Add(lHorizon3);
+                    lElAlbaPivot36.HorizonList.Add(lHorizon4);
+                    #endregion
                     #region Pivot 38
                     lPosition = (from pos in context.Positions
                                  where pos.Name == Utils.NamePositionPivotElAlba38
@@ -13277,6 +13375,7 @@ namespace IrrigationAdvisorConsole.Insert._06_Agriculture
 
                     context.Soils.Add(lElAlbaPivot32);
                     context.Soils.Add(lElAlbaPivot33);
+                    context.Soils.Add(lElAlbaPivot36);
                     context.Soils.Add(lElAlbaPivot38);
                     context.Soils.Add(lElAlbaPivot40);
                     context.SaveChanges();

@@ -5724,6 +5724,30 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         FarmId = lFarm.FarmId,
                     };
                     #endregion
+                    #region Pivot 36
+                    lBomb = (from b in context.Bombs
+                             where b.Name == Utils.NameBombElAlba
+                             select b).FirstOrDefault();
+                    lPosition = (from pos in context.Positions
+                                 where pos.Name == Utils.NamePositionPivotElAlba36
+                                 select pos).FirstOrDefault();
+
+                    var lElAlbaPivot36 = new Pivot
+                    {
+                        Name = Utils.NamePivotElAlba36,
+                        ShortName = "Pivot 36",
+                        IrrigationType = Utils.IrrigationUnitType.Pivot,
+                        IrrigationEfficiency = 0.85,
+                        IrrigationList = new List<Pair<DateTime, double>>(),
+                        Surface = 75,
+                        BombId = lBomb.BombId,
+                        PositionId = lPosition.PositionId,
+                        PredeterminatedIrrigationQuantity = 14,
+                        Radius = 37,
+                        Show = true,
+                        FarmId = lFarm.FarmId,
+                    };
+                    #endregion
                     #region Pivot 38
                     lBomb = (from b in context.Bombs
                              where b.Name == Utils.NameBombElAlba
@@ -5778,6 +5802,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     {
                         lElAlbaPivot32.Show = false;
                         lElAlbaPivot33.Show = false;
+                        lElAlbaPivot36.Show = false;
                         lElAlbaPivot32.Show = false;
                         lElAlbaPivot33.Show = false;
                     }
@@ -5785,6 +5810,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     {
                         lElAlbaPivot32.Show = true;
                         lElAlbaPivot33.Show = true;
+                        lElAlbaPivot36.Show = false;
                         lElAlbaPivot38.Show = false;
                         lElAlbaPivot40.Show = false;
                     }
@@ -5794,6 +5820,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     {
                         lElAlbaPivot32.Show = false;
                         lElAlbaPivot33.Show = false;
+                        lElAlbaPivot36.Show = true;
                         lElAlbaPivot38.Show = true;
                         lElAlbaPivot40.Show = true;
                     }
@@ -5801,6 +5828,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     {
                         lElAlbaPivot32.Show = false;
                         lElAlbaPivot33.Show = false;
+                        lElAlbaPivot36.Show = true;
                         lElAlbaPivot38.Show = true;
                         lElAlbaPivot40.Show = true;
                     }
@@ -5808,6 +5836,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
 
                     context.Pivots.Add(lElAlbaPivot32);
                     context.Pivots.Add(lElAlbaPivot33);
+                    context.Pivots.Add(lElAlbaPivot36);
                     context.Pivots.Add(lElAlbaPivot38);
                     context.Pivots.Add(lElAlbaPivot40);
                     context.SaveChanges();

@@ -1419,6 +1419,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #region El Alba
         public static String NameSoilElAlba32 = NameFarmElAlba + " Pivot 32";
         public static String NameSoilElAlba33 = NameFarmElAlba + " Pivot 33";
+        public static String NameSoilElAlba36 = NameFarmElAlba + " Pivot 36";
         public static String NameSoilElAlba38 = NameFarmElAlba + " Pivot 38";
         public static String NameSoilElAlba40 = NameFarmElAlba + " Pivot 40";
         #endregion
@@ -1685,6 +1686,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #region El Alba
         public static String NamePivotElAlba32 = NameFarmElAlba + " Pivot 32";
         public static String NamePivotElAlba33 = NameFarmElAlba + " Pivot 33";
+        public static String NamePivotElAlba36 = NameFarmElAlba + " Pivot 36";
         public static String NamePivotElAlba38 = NameFarmElAlba + " Pivot 38";
         public static String NamePivotElAlba40 = NameFarmElAlba + " Pivot 40";
         #endregion
@@ -2340,6 +2342,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #region El Alba
         public static String NameCropIrrigationWeatherElAlbaPivot32_S1920 = NamePivotElAlba32 + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElAlbaPivot33_S1920 = NamePivotElAlba33 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElAlbaPivot36_S1920 = NamePivotElAlba36 + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElAlbaPivot38_S1920 = NamePivotElAlba38 + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElAlbaPivot40_S1920 = NamePivotElAlba40 + " " + NameSpecieCornSouthShort + " S1920";
         #endregion
@@ -2723,6 +2726,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #region El Alba
         public static String NamePositionPivotElAlba32 = NamePivotElAlba32;
         public static String NamePositionPivotElAlba33 = NamePivotElAlba33;
+        public static String NamePositionPivotElAlba36 = NamePivotElAlba36;
         public static String NamePositionPivotElAlba38 = NamePivotElAlba38;
         public static String NamePositionPivotElAlba40 = NamePivotElAlba40;
         #endregion
