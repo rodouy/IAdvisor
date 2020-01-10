@@ -1422,7 +1422,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Longitude = -57.8287611,
             };
             #endregion
-            #region Pivots El Alba #4
+            #region Pivots El Alba #5
             var lElAlbaPivot32 = new Position()
             {
                 Name = Utils.NamePositionPivotElAlba32,
@@ -1434,6 +1434,12 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 Name = Utils.NamePositionPivotElAlba33,
                 Latitude = -33.9872139,
                 Longitude = -57.9744972,
+            };
+            var lElAlbaPivot36 = new Position()
+            {
+                Name = Utils.NamePositionPivotElAlba36,
+                Latitude = -33.99055556,
+                Longitude = -57.94138889,
             };
             var lElAlbaPivot38 = new Position()
             {
@@ -1569,7 +1575,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lLosOlivos);
                 context.Positions.Add(lViveroSanFrancisco);
                 #endregion
-                #region Pivots #161
+                #region Pivots #162
                 #region Pivots - Demo #14
                 context.Positions.Add(lDemoPivot11);
                 context.Positions.Add(lDemoPivot12);
@@ -1754,9 +1760,10 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 context.Positions.Add(lCecchiniPivot1);
                 context.Positions.Add(lCecchiniPivot2);
                 #endregion
-                #region Pivots - El Alba #4
+                #region Pivots - El Alba #5
                 context.Positions.Add(lElAlbaPivot32);
                 context.Positions.Add(lElAlbaPivot33);
+                context.Positions.Add(lElAlbaPivot36);
                 context.Positions.Add(lElAlbaPivot38);
                 context.Positions.Add(lElAlbaPivot40);
                 #endregion
@@ -2524,6 +2531,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2016_2017
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCASanJose)
             {
@@ -2909,6 +2917,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElRincon)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -3056,6 +3065,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2017_2018
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -3154,6 +3164,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaPortuguesa)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -3287,6 +3298,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Cecchini)
             {
                 using (var context = new IrrigationAdvisorContext())
@@ -3313,7 +3325,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
                         Address = "Ruta 21, km 4, Colonia del Sacramento",
                         Phone = "091 097 912",
                         PositionId = lPosition.PositionId,
-                        Has = 470,
+                        Has = 130,
                         WeatherStationId = lWeatherStation.WeatherStationId,
                         SoilList = null,
                         BombList = null,
@@ -3380,6 +3392,7 @@ namespace IrrigationAdvisorConsole.Insert._04_Localization
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
             {
                 using (var context = new IrrigationAdvisorContext())
