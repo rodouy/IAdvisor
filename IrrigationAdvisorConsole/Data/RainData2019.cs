@@ -911,6 +911,8 @@ namespace IrrigationAdvisorConsole.Data
             }
             #endregion
 
+
+
         }
 
         public static void AddRainDataDCASanJosePivot2_2019(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -1131,6 +1133,8 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
 
 
+
+
         }
 
         public static void AddRainDataDCASanJosePivot3_2019(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -1349,6 +1353,7 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddRainDataToList(lRainDate, lRainQuantity);
             }
             #endregion
+
 
 
         }
