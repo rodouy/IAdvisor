@@ -1140,6 +1140,18 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameSpeciePastureNorthShort = "Pastura " + NameSpecieCycleNorthShort;
         public static String NameSpeciePastureNorthMedium = "Pastura " + NameSpecieCycleNorthShort;
         #endregion
+        #region Paspalum
+        public static String NameSpeciePaspalumSouthShort = "Paspalum " + NameSpecieCycleSouthShort;
+        public static String NameSpeciePaspalumSouthMedium = "Paspalum " + NameSpecieCycleSouthMedium;
+        public static String NameSpeciePaspalumNorthShort = "Paspalum " + NameSpecieCycleNorthShort;
+        public static String NameSpeciePaspalumNorthMedium = "Paspalum " + NameSpecieCycleNorthShort;
+        #endregion
+        #region Prairie
+        public static String NameSpeciePrairieSouthShort = "Pradera " + NameSpecieCycleSouthShort;
+        public static String NameSpeciePrairieSouthMedium = "Pradera " + NameSpecieCycleSouthMedium;
+        public static String NameSpeciePrairieNorthShort = "Pradera " + NameSpecieCycleNorthShort;
+        public static String NameSpeciePrairieNorthMedium = "Pradera " + NameSpecieCycleNorthShort;
+        #endregion
         #region Sorghum Forage
         public static String NameSpecieSorghumForageSouthShort = "Sorgo Forraje " + NameSpecieCycleSouthShort;
         public static String NameSpecieSorghumForageSouthMedium = "Sorgo Forraje " + NameSpecieCycleSouthMedium;
@@ -1195,6 +1207,8 @@ namespace IrrigationAdvisor.Models.Utilities
         public static String NameStagesSoya = "Soja";
         public static String NameStagesOat = "Avena";
         public static String NameStagesPasture = "Pastura";
+        public static String NameStagesPaspalum = "Paspalum";
+        public static String NameStagesPrairie = "Pradera";
         public static String NameStagesSorghumForage = "Sorgo Forrajero";
         public static String NameStagesSorghumGrain = "Sorgo Granifero";
         public static String NameStagesAlfalfa = "Alfalfa";
@@ -2342,16 +2356,16 @@ namespace IrrigationAdvisor.Models.Utilities
         #region El Alba
         public static String NameCropIrrigationWeatherElAlbaPivot32_S1920 = NamePivotElAlba32 + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElAlbaPivot33_S1920 = NamePivotElAlba33 + " " + NameSpecieCornSouthShort + " S1920";
-        public static String NameCropIrrigationWeatherElAlbaPivot36_S1920 = NamePivotElAlba36 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElAlbaPivot36_S1920 = NamePivotElAlba36 + " " + NameSpecieSoyaSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElAlbaPivot38_S1920 = NamePivotElAlba38 + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElAlbaPivot40_S1920 = NamePivotElAlba40 + " " + NameSpecieCornSouthShort + " S1920";
         #endregion
         #region La Zenaida
-        public static String NameCropIrrigationWeatherLaZenaidaPivot1_S1920 = NamePivotLaZenaida1 + " " + NameSpecieFescueForageSouthMedium + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot1_S1920 = NamePivotLaZenaida1 + " " + NameSpeciePaspalumSouthMedium + " S1920";
         public static String NameCropIrrigationWeatherLaZenaidaPivot2_S1920 = NamePivotLaZenaida2 + " " + NameSpecieFescueForageSouthMedium + " S1920";
-        public static String NameCropIrrigationWeatherLaZenaidaPivot3_S1920 = NamePivotLaZenaida3 + " " + NameSpecieFescueForageSouthMedium + " S1920";
-        public static String NameCropIrrigationWeatherLaZenaidaPivot4_S1920 = NamePivotLaZenaida4 + " " + NameSpecieSudanGrassSouthShort + " S1920";
-        public static String NameCropIrrigationWeatherLaZenaidaPivot5_S1920 = NamePivotLaZenaida5 + " " + NameSpecieSudanGrassSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot3_S1920 = NamePivotLaZenaida3 + " " + NameSpecieSudanGrassSouthMedium + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot4_S1920 = NamePivotLaZenaida4 + " " + NameSpeciePrairieSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherLaZenaidaPivot5_S1920 = NamePivotLaZenaida5 + " " + NameSpeciePrairieSouthShort + " S1920";
         public static String NameCropIrrigationWeatherLaZenaidaPivot1a_S1920 = NamePivotLaZenaida1a + " " + NameSpecieOatSouthMedium + " S1920";
         public static String NameCropIrrigationWeatherLaZenaidaPivot4a_S1920 = NamePivotLaZenaida4a + " " + NameSpeciePastureSouthShort + " S1920";
         public static String NameCropIrrigationWeatherLaZenaidaPivot5a_S1920 = NamePivotLaZenaida5a + " " + NameSpeciePastureSouthShort + " S1920";
@@ -2774,6 +2788,10 @@ namespace IrrigationAdvisor.Models.Utilities
         public static int MinEvapotranspirationToIrrigate_Oat = 25;
         public static int MaxEvapotranspirationToIrrigate_Pasture = 30;
         public static int MinEvapotranspirationToIrrigate_Pasture = 25;
+        public static int MaxEvapotranspirationToIrrigate_Paspalum = 30;
+        public static int MinEvapotranspirationToIrrigate_Paspalum = 25;
+        public static int MaxEvapotranspirationToIrrigate_Prairie = 30;
+        public static int MinEvapotranspirationToIrrigate_Prairie = 25;
         public static int MaxEvapotranspirationToIrrigate_SorghumForage = 30;
         public static int MinEvapotranspirationToIrrigate_SorghumForage = 25;
         public static int MaxEvapotranspirationToIrrigate_SorghumGrain = 30;
