@@ -1605,8 +1605,8 @@ namespace IrrigationAdvisorConsole.Data
             #region Irrigation 2020/01/15 to 2020/01/17  00 mm - Can't Irrigate
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
-                lFromDate = new DateTime(2020, 01, 13);
-                lToDate = new DateTime(2020, 01, 15);
+                lFromDate = new DateTime(2020, 01, 15);
+                lToDate = new DateTime(2020, 01, 17);
                 lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
                 for (int i = 0; i <= lDiffDays; i++)
                 {
