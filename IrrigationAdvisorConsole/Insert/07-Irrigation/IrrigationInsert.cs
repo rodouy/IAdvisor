@@ -6066,9 +6066,9 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
                           || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
                     {
-                        lLaZenaidaPivot1.Show = false;
+                        lLaZenaidaPivot1.Show = true;
                         lLaZenaidaPivot2.Show = true;
-                        lLaZenaidaPivot3.Show = false;
+                        lLaZenaidaPivot3.Show = true;
                         lLaZenaidaPivot4.Show = true;
                         lLaZenaidaPivot5.Show = true;
                         lLaZenaidaPivot1a.Show = false;
@@ -7094,6 +7094,384 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
 
                 #endregion
 
+                #region Paspalum South Short
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpeciePaspalumSouthShort
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpeciePaspalumSouthShort
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesPaspalum)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesPaspalum)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_PASTURE)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesPaspalum)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE)
+                                        select st).FirstOrDefault();
+
+                var lCropPaspalumSouthShort = new Crop
+                {
+                    Name = Utils.NameSpeciePaspalumSouthShort,
+                    ShortName = "Pastura",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Paspalum,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Paspalum,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+                #region Paspalum South Medium
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpeciePaspalumSouthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpeciePaspalumSouthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesPaspalum)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesPaspalum)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_PASTURE)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesPaspalum)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE)
+                                        select st).FirstOrDefault();
+
+                var lCropPaspalumSouthMedium = new Crop
+                {
+                    Name = Utils.NameSpeciePaspalumSouthMedium,
+                    ShortName = "Pastura",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Paspalum,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Paspalum,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+                #region Paspalum North Short
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpeciePaspalumNorthShort
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpeciePaspalumNorthShort
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesPaspalum)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesPaspalum)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_PASTURE)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesPaspalum)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE)
+                                        select st).FirstOrDefault();
+
+                var lCropPaspalumNorthShort = new Crop
+                {
+                    Name = Utils.NameSpeciePaspalumNorthShort,
+                    ShortName = "Pastura",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Paspalum,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Paspalum,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+                #region Paspalum North Medium
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpeciePaspalumNorthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpeciePaspalumNorthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesPaspalum)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesPaspalum)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_PASTURE)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesPaspalum)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE)
+                                        select st).FirstOrDefault();
+
+                var lCropPaspalumNorthMedium = new Crop
+                {
+                    Name = Utils.NameSpeciePaspalumNorthMedium,
+                    ShortName = "Pastura",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Paspalum,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Paspalum,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+
+                #region Prairie South Short
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpeciePrairieSouthShort
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpeciePrairieSouthShort
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesPrairie)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesPrairie)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_PASTURE)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesPrairie)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE)
+                                        select st).FirstOrDefault();
+
+                var lCropPrairieSouthShort = new Crop
+                {
+                    Name = Utils.NameSpeciePrairieSouthShort,
+                    ShortName = "Pastura",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Prairie,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Prairie,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+                #region Prairie South Medium
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionSouth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpeciePrairieSouthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpeciePrairieSouthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesPrairie)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesPrairie)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_PASTURE)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesPrairie)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE)
+                                        select st).FirstOrDefault();
+
+                var lCropPrairieSouthMedium = new Crop
+                {
+                    Name = Utils.NameSpeciePrairieSouthMedium,
+                    ShortName = "Pastura",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Prairie,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Prairie,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+                #region Prairie North Short
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpeciePrairieNorthShort
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpeciePrairieNorthShort
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesPrairie)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesPrairie)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_PASTURE)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesPrairie)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE)
+                                        select st).FirstOrDefault();
+
+                var lCropPrairieNorthShort = new Crop
+                {
+                    Name = Utils.NameSpeciePrairieNorthShort,
+                    ShortName = "Pastura",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Prairie,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Prairie,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+                #region Prairie North Medium
+
+                lRegion = (from reg in context.Regions
+                           where reg.Name == Utils.NameRegionNorth
+                           select reg).FirstOrDefault();
+                lSpecie = (from sp in context.Species
+                           where sp.Name == Utils.NameSpeciePrairieNorthMedium
+                           select sp).FirstOrDefault();
+                lCropCoefficient = (from cc in context.CropCoefficients
+                                    where cc.Name == Utils.NameSpeciePrairieNorthMedium
+                                    select cc).FirstOrDefault();
+                lStages = (from st in context.Stages
+                           where st.Name.Contains(Utils.NameStagesPrairie)
+                           select st).ToList<Stage>();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lSpecie.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lMinStageToConsiderETinHBCalculation = (from st in context.Stages
+                                                        where st.Name.Contains(Utils.NameStagesPrairie)
+                                                           && st.Name.Contains(InitialTables.STAGE_TO_CALCULATE_IRRIGATION_ADVICE_BY_HB_USING_ET_FOR_PASTURE)
+                                                        select st).FirstOrDefault();
+                lStopIrrigationStage = (from st in context.Stages
+                                        where st.Name.Contains(Utils.NameStagesPrairie)
+                                           && st.Name.Contains(InitialTables.STAGE_TO_STOP_IRRIGATION_ADVICE_FOR_PASTURE)
+                                        select st).FirstOrDefault();
+
+                var lCropPrairieNorthMedium = new Crop
+                {
+                    Name = Utils.NameSpeciePrairieNorthMedium,
+                    ShortName = "Pastura",
+                    RegionId = lRegion.RegionId,
+                    Region = lRegion,
+                    SpecieId = lSpecie.SpecieId,
+                    Specie = lSpecie,
+                    MinStageToConsiderETinHBCalculationId = lMinStageToConsiderETinHBCalculation.StageId,
+                    MinStageToConsiderETinHBCalculation = lMinStageToConsiderETinHBCalculation,
+                    MaxEvapotranspirationToIrrigate = Utils.MaxEvapotranspirationToIrrigate_Prairie,
+                    MinEvapotranspirationToIrrigate = Utils.MinEvapotranspirationToIrrigate_Prairie,
+                    CropCoefficientId = lCropCoefficient.CropCoefficientId,
+                    CropCoefficient = lCropCoefficient,
+                    StageList = lStages,
+                    PhenologicalStageList = lPhenologicalStages,
+                    StopIrrigationStageId = lStopIrrigationStage.StageId,
+                    StopIrrigationStage = lStopIrrigationStage,
+                };
+
+                #endregion
+
                 #region Alfalfa South Short
 
                 lRegion = (from reg in context.Regions
@@ -7680,6 +8058,14 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 context.Crops.Add(lCropPastureSouthMedium);
                 context.Crops.Add(lCropPastureNorthShort);
                 context.Crops.Add(lCropPastureNorthMedium);
+                context.Crops.Add(lCropPaspalumSouthShort);
+                context.Crops.Add(lCropPaspalumSouthMedium);
+                context.Crops.Add(lCropPaspalumNorthShort);
+                context.Crops.Add(lCropPaspalumNorthMedium);
+                context.Crops.Add(lCropPrairieSouthShort);
+                context.Crops.Add(lCropPrairieSouthMedium);
+                context.Crops.Add(lCropPrairieNorthShort);
+                context.Crops.Add(lCropPrairieNorthMedium);
                 context.Crops.Add(lCropAlfalfaSouthShort);
                 context.Crops.Add(lCropAlfalfaSouthMedium);
                 context.Crops.Add(lCropAlfalfaNorthShort);
@@ -7932,6 +8318,106 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     RootDepth = 0,
                 };
                 #endregion
+                #region Paspalum South Short
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpeciePaspalumSouthShort
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lPaspalumSouthShort = new CropInformationByDate
+                {
+                    Name = Utils.NameSpeciePaspalumSouthShort,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Paspalum South Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpeciePaspalumSouthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lPaspalumSouthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpeciePaspalumSouthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Prairie South Short
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpeciePrairieSouthShort
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lPrairieSouthShort = new CropInformationByDate
+                {
+                    Name = Utils.NameSpeciePrairieSouthShort,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Prairie South Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpeciePrairieSouthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lPrairieSouthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpeciePrairieSouthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
                 #region Alfalfa South Short
                 lCrop = (from crop in context.Crops
                          where crop.Name == Utils.NameSpecieAlfalfaSouthShort
@@ -8091,6 +8577,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 context.CropInformationByDates.Add(lOatSouthMedium);
                 context.CropInformationByDates.Add(lPastureSouthShort);
                 context.CropInformationByDates.Add(lPastureSouthMedium);
+                context.CropInformationByDates.Add(lPaspalumSouthShort);
+                context.CropInformationByDates.Add(lPaspalumSouthMedium);
+                context.CropInformationByDates.Add(lPrairieSouthShort);
+                context.CropInformationByDates.Add(lPrairieSouthMedium);
                 context.CropInformationByDates.Add(lAlfalfaSouthShort);
                 context.CropInformationByDates.Add(lAlfalfaSouthMedium);
                 context.CropInformationByDates.Add(lSudanGrassSouthShort);
@@ -8307,6 +8797,106 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                     RootDepth = 0,
                 };
                 #endregion
+                #region Paspalum North Short
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpeciePaspalumNorthShort
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lPaspalumNorthShort = new CropInformationByDate
+                {
+                    Name = Utils.NameSpeciePaspalumNorthShort,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Paspalum North Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpeciePaspalumNorthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lPaspalumNorthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpeciePaspalumNorthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Prairie North Short
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpeciePrairieNorthShort
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lPrairieNorthShort = new CropInformationByDate
+                {
+                    Name = Utils.NameSpeciePrairieNorthShort,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
+                #region Prairie North Medium
+                lCrop = (from crop in context.Crops
+                         where crop.Name == Utils.NameSpeciePrairieNorthMedium
+                         select crop).FirstOrDefault();
+                lPhenologicalStages = (from ps in context.PhenologicalStages
+                                       where ps.SpecieId == lCrop.SpecieId
+                                       select ps).ToList<PhenologicalStage>();
+                lStage = lPhenologicalStages.FirstOrDefault().Stage;
+
+                var lPrairieNorthMedium = new CropInformationByDate
+                {
+                    Name = Utils.NameSpeciePrairieNorthMedium,
+                    SowingDate = Utils.MIN_DATETIME,
+                    DaysAfterSowing = 0,
+                    SpecieId = lCrop.SpecieId,
+                    CropCoefficientId = lCrop.CropCoefficientId,
+                    RegionId = lRegion.RegionId,
+                    PhenologicalStageList = lPhenologicalStages,
+                    CurrentDate = DateTime.Now,
+                    AccumulatedGrowingDegreeDays = 0,
+                    StageId = lStage.StageId,
+                    CropCoefficientValue = 0,
+                    RootDepth = 0,
+                };
+                #endregion
                 #region Alfalfa North Short
                 lCrop = (from crop in context.Crops
                          where crop.Name == Utils.NameSpecieAlfalfaNorthShort
@@ -8467,6 +9057,10 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                 context.CropInformationByDates.Add(lOatNorthMedium);
                 context.CropInformationByDates.Add(lPastureNorthShort);
                 context.CropInformationByDates.Add(lPastureNorthMedium);
+                context.CropInformationByDates.Add(lPaspalumNorthShort);
+                context.CropInformationByDates.Add(lPaspalumNorthMedium);
+                context.CropInformationByDates.Add(lPrairieNorthShort);
+                context.CropInformationByDates.Add(lPrairieNorthMedium);
                 context.CropInformationByDates.Add(lAlfalfaNorthShort);
                 context.CropInformationByDates.Add(lAlfalfaNorthMedium);
                 context.CropInformationByDates.Add(lSudanGrassNorthShort);

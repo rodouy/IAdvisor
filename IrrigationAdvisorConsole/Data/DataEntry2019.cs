@@ -52,6 +52,16 @@ namespace IrrigationAdvisorConsole.Data
         public static double BaseTemperature_PastureNorth_2019 = 8;
         public static double StressTemperature_PastureNorth_2019 = 35;
 
+        public static double BaseTemperature_PaspalumSouth_2019 = 8;
+        public static double StressTemperature_PaspalumSouth_2019 = 35;
+        public static double BaseTemperature_PaspalumNorth_2019 = 8;
+        public static double StressTemperature_PaspalumNorth_2019 = 35;
+
+        public static double BaseTemperature_PrairieSouth_2019 = 8;
+        public static double StressTemperature_PrairieSouth_2019 = 35;
+        public static double BaseTemperature_PrairieNorth_2019 = 8;
+        public static double StressTemperature_PrairieNorth_2019 = 35;
+
         public static double BaseTemperature_SorghumForageSouth_2019 = 8;
         public static double StressTemperature_SorghumForageSouth_2019 = 35;
         public static double BaseTemperature_SorghumForageNorth_2019 = 8;
@@ -636,20 +646,20 @@ namespace IrrigationAdvisorConsole.Data
         public static String WeatherStationMainName_LaZenaida_2019 = Utils.NameWeatherStationLaEstanzuela;
         public static String WeatherStationAlternativeName_LaZenaida_2019 = Utils.NameWeatherStationLasBrujas;
 
-        public static DateTime SowingDate_FescueForageSouth_LaZenaidaPivot1_2019 = new DateTime(2019, 09, 25);
-        public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot1_2019 = new DateTime(2020, 04, 30);
+        public static DateTime SowingDate_PaspalumSouth_LaZenaidaPivot1_2019 = new DateTime(2019, 12, 14);
+        public static DateTime HarvestDate_PaspalumSouth_LaZenaidaPivot1_2019 = new DateTime(2021, 06, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot1_2019 = 14;
         public static DateTime SowingDate_FescueForageSouth_LaZenaidaPivot2_2019 = new DateTime(2019, 09, 25);
         public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot2_2019 = new DateTime(2021, 06, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot2_2019 = 14;
-        public static DateTime SowingDate_FescueForageSouth_LaZenaidaPivot3_2019 = new DateTime(2019, 09, 25);
-        public static DateTime HarvestDate_FescueForageSouth_LaZenaidaPivot3_2019 = new DateTime(2020, 06, 30);
+        public static DateTime SowingDate_SudanGrassSouth_LaZenaidaPivot3_2019 = new DateTime(2019, 11, 20);
+        public static DateTime HarvestDate_SudanGrassSouth_LaZenaidaPivot3_2019 = new DateTime(2020, 06, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot3_2019 = 14;
-        public static DateTime SowingDate_SudanGrassSouth_LaZenaidaPivot4_2019 = new DateTime(2019, 04, 15);
-        public static DateTime HarvestDate_SudanGrassSouth_LaZenaidaPivot4_2019 = new DateTime(2020, 04, 30);
+        public static DateTime SowingDate_PrairieSouth_LaZenaidaPivot4_2019 = new DateTime(2019, 04, 15);
+        public static DateTime HarvestDate_PrairieSouth_LaZenaidaPivot4_2019 = new DateTime(2023, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot4_2019 = 14;
-        public static DateTime SowingDate_SudanGrassSouth_LaZenaidaPivot5_2019 = new DateTime(2019, 04, 15);
-        public static DateTime HarvestDate_SudanGrassSouth_LaZenaidaPivot5_2019 = new DateTime(2020, 04, 30);
+        public static DateTime SowingDate_PrairieSouth_LaZenaidaPivot5_2019 = new DateTime(2019, 04, 15);
+        public static DateTime HarvestDate_PrairieSouth_LaZenaidaPivot5_2019 = new DateTime(2023, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_LaZenaidaPivot5_2019 = 14;
 
         public static DateTime SowingDate_OatSouth_LaZenaidaPivot1a_2019 = new DateTime(2020, 03, 27);
@@ -26472,7 +26482,7 @@ namespace IrrigationAdvisorConsole.Data
         #region La Zenaida
 
         /// <summary>
-        /// Add Information To IrrigationUnits - La Zenaida Pivot 1 2019-19
+        /// Add Information To IrrigationUnits - La Zenaida Pivot 1 2019-20
         /// </summary>
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaZenaidaPivot1_2019(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -26510,11 +26520,11 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieFescueForageSouthMedium
+                       where sp.Name == Utils.NameSpeciePaspalumSouthMedium
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
-                       where st.Name.Contains(Utils.NameStagesFescueForage)
+                       where st.Name.Contains(Utils.NameStagesPaspalum)
                        select st).ToList<Stage>();
             lPhenologicalStages = (from ps in context.PhenologicalStages
                                    where ps.SpecieId == lSpecie.SpecieId
@@ -26523,7 +26533,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmLaZenaida
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieFescueForageSouthMedium
+                     where crop.Name == Utils.NameSpeciePaspalumSouthMedium
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
@@ -26549,7 +26559,7 @@ namespace IrrigationAdvisorConsole.Data
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieFescueForageSouthMedium
+                                      where cid.Name == Utils.NameSpeciePaspalumSouthMedium
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -26576,10 +26586,10 @@ namespace IrrigationAdvisorConsole.Data
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieFescueForageSouthMedium
+                                where cc.Name == Utils.NameSpeciePaspalumSouthMedium
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieFescueForageSouthMedium
+                       where cc.Name == Utils.NameSpeciePaspalumSouthMedium
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilLaZenaida1
@@ -26683,7 +26693,7 @@ namespace IrrigationAdvisorConsole.Data
         }
 
         /// <summary>
-        /// Add Information To IrrigationUnits - La Zenaida Pivot 2 2019-19
+        /// Add Information To IrrigationUnits - La Zenaida Pivot 2 2019-20
         /// </summary>
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaZenaidaPivot2_2019(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -26892,7 +26902,7 @@ namespace IrrigationAdvisorConsole.Data
         }
 
         /// <summary>
-        /// Add Information To IrrigationUnits - La Zenaida Pivot 3 2019-19
+        /// Add Information To IrrigationUnits - La Zenaida Pivot 3 2019-20
         /// </summary>
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaZenaidaPivot3_2019(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -26930,11 +26940,11 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieFescueForageSouthMedium
+                       where sp.Name == Utils.NameSpecieSudanGrassSouthMedium
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
-                       where st.Name.Contains(Utils.NameStagesFescueForage)
+                       where st.Name.Contains(Utils.NameStagesSudanGrass)
                        select st).ToList<Stage>();
             lPhenologicalStages = (from ps in context.PhenologicalStages
                                    where ps.SpecieId == lSpecie.SpecieId
@@ -26943,7 +26953,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmLaZenaida
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieFescueForageSouthMedium
+                     where crop.Name == Utils.NameSpecieSudanGrassSouthMedium
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
@@ -26969,7 +26979,7 @@ namespace IrrigationAdvisorConsole.Data
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieFescueForageSouthMedium
+                                      where cid.Name == Utils.NameSpecieSudanGrassSouthMedium
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -26996,10 +27006,10 @@ namespace IrrigationAdvisorConsole.Data
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieFescueForageSouthMedium
+                                where cc.Name == Utils.NameSpecieSudanGrassSouthMedium
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieFescueForageSouthMedium
+                       where cc.Name == Utils.NameSpecieSudanGrassSouthMedium
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilLaZenaida3
@@ -27101,7 +27111,7 @@ namespace IrrigationAdvisorConsole.Data
         }
 
         /// <summary>
-        /// Add Information To IrrigationUnits - La Zenaida Pivot 4 2019-19
+        /// Add Information To IrrigationUnits - La Zenaida Pivot 4 2019-20
         /// </summary>
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaZenaidaPivot4_2019(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -27139,11 +27149,11 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieSudanGrassSouthShort
+                       where sp.Name == Utils.NameSpeciePrairieSouthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
-                       where st.Name.Contains(Utils.NameStagesSudanGrass)
+                       where st.Name.Contains(Utils.NameStagesPrairie)
                        select st).ToList<Stage>();
             lPhenologicalStages = (from ps in context.PhenologicalStages
                                    where ps.SpecieId == lSpecie.SpecieId
@@ -27152,7 +27162,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmLaZenaida
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieSudanGrassSouthShort
+                     where crop.Name == Utils.NameSpeciePrairieSouthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
@@ -27178,7 +27188,7 @@ namespace IrrigationAdvisorConsole.Data
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieSudanGrassSouthShort
+                                      where cid.Name == Utils.NameSpeciePrairieSouthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -27205,10 +27215,10 @@ namespace IrrigationAdvisorConsole.Data
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                                where cc.Name == Utils.NameSpeciePrairieSouthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                       where cc.Name == Utils.NameSpeciePrairieSouthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilLaZenaida4
@@ -27310,7 +27320,7 @@ namespace IrrigationAdvisorConsole.Data
         }
 
         /// <summary>
-        /// Add Information To IrrigationUnits - La Zenaida Pivot 5 2019-19
+        /// Add Information To IrrigationUnits - La Zenaida Pivot 5 2019-20
         /// </summary>
         /// <param name="context"></param>
         public static void AddInformationToIrrigationUnitsLaZenaidaPivot5_2019(IrrigationAdvisorContext context, DateTime pDateOfReference)
@@ -27348,11 +27358,11 @@ namespace IrrigationAdvisorConsole.Data
             #endregion
             #region Crop
             lSpecie = (from sp in context.Species
-                       where sp.Name == Utils.NameSpecieSudanGrassSouthShort
+                       where sp.Name == Utils.NameSpeciePrairieSouthShort
                        select sp).FirstOrDefault();
             if (lSpecie == null) return;
             lStages = (from st in context.Stages
-                       where st.Name.Contains(Utils.NameStagesSudanGrass)
+                       where st.Name.Contains(Utils.NameStagesPrairie)
                        select st).ToList<Stage>();
             lPhenologicalStages = (from ps in context.PhenologicalStages
                                    where ps.SpecieId == lSpecie.SpecieId
@@ -27361,7 +27371,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmLaZenaida
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieSudanGrassSouthShort
+                     where crop.Name == Utils.NameSpeciePrairieSouthShort
                      select crop).FirstOrDefault();
             #endregion
             #region Weather
@@ -27387,7 +27397,7 @@ namespace IrrigationAdvisorConsole.Data
                                       select ciw).FirstOrDefault();
             if (lCropIrrigationWeather == null) return;
             lCropInformationByDate = (from cid in context.CropInformationByDates
-                                      where cid.Name == Utils.NameSpecieSudanGrassSouthShort
+                                      where cid.Name == Utils.NameSpeciePrairieSouthShort
                                       select cid).FirstOrDefault();
             lIrrigationList = (from ilist in context.Irrigations
                                where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
@@ -27414,10 +27424,10 @@ namespace IrrigationAdvisorConsole.Data
                                                 weatherstation.WeatherStationId == lWeatherStationAlternative.WeatherStationId
                                            select weatherdata).ToList<WeatherData>();
             lCropCoefficient = (from cc in context.CropCoefficients
-                                where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                                where cc.Name == Utils.NameSpeciePrairieSouthShort
                                 select cc).FirstOrDefault();
             lKCList = (from cc in context.CropCoefficients
-                       where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                       where cc.Name == Utils.NameSpeciePrairieSouthShort
                        select cc.KCList).FirstOrDefault();
             lSoil = (from soil in context.Soils
                      where soil.Name == Utils.NameSoilLaZenaida5

@@ -157,6 +157,8 @@ namespace IrrigationAdvisorConsole
                 AgricultureInsert.InsertStagesSoya();
                 AgricultureInsert.InsertStagesOat();
                 AgricultureInsert.InsertStagesPasture();
+                AgricultureInsert.InsertStagesPaspalum();
+                AgricultureInsert.InsertStagesPrairie();
                 AgricultureInsert.InsertStagesSorghumForage();
                 AgricultureInsert.InsertStagesSorghumGrain();
                 AgricultureInsert.InsertStagesAlfalfa();
@@ -226,8 +228,7 @@ namespace IrrigationAdvisorConsole
                     AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2017();
                     #endregion
                 }
-                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                 {
                     #region Agriculure-PhenologicalStage-Production-Season2018_2019
                     AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2018();
@@ -267,44 +268,105 @@ namespace IrrigationAdvisorConsole
                     AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2018();
                     #endregion
                 }
-                else 
+                else if (ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    || ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
                 {
-                    #region Agriculure-PhenologicalStage-Production-Season2018_2019
-                    AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesCornSouthMedium_2018();
-                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium_2018();
+                    #region Agriculure-PhenologicalStage-Production-Season2019_2020
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium_2019();
 
-                    AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesCornNorthMedium_2018();
-                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium_2019();
 
 
-                    AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2018();
-                    AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2019();
 
-                    AgricultureInsert.InsertPhenologicalStagesPastureSouthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesPastureSouthMedium_2018();
-                    AgricultureInsert.InsertPhenologicalStagesPastureNorthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesPastureNorthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthMedium_2019();
 
-                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2018();
-                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPaspalumSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPaspalumSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPaspalumNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPaspalumNorthMedium_2019();
 
-                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2018();
-                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesPrairieSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPrairieSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPrairieNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPrairieNorthMedium_2019();
 
-                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2018();
-                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2018();
-                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2018();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2019();
+
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2019();
+
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2019();
+                    #endregion
+                }
+                else
+                {
+                    #region Agriculure-PhenologicalStage-Production-Season2019_2020
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesCornSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaSouthMedium_2019();
+
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesCornNorthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSoyaNorthMedium_2019();
+
+
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesOatSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesOatNorthMedium_2019();
+
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPastureSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPastureNorthMedium_2019();
+
+                    AgricultureInsert.InsertPhenologicalStagesPaspalumSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPaspalumSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPaspalumNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPaspalumNorthMedium_2019();
+
+                    AgricultureInsert.InsertPhenologicalStagesPrairieSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPrairieSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPrairieNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesPrairieNorthMedium_2019();
+
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesAlfalfaNorthMedium_2019();
+
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesSudanGrassNorthMedium_2019();
+
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageSouthMedium_2019();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthShort_2019();
+                    AgricultureInsert.InsertPhenologicalStagesFescueForageNorthMedium_2019();
                     #endregion
                 }
                 #endregion
