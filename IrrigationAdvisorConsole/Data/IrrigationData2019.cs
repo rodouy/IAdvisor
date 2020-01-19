@@ -11383,7 +11383,7 @@ namespace IrrigationAdvisorConsole.Data
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 lFromDate = new DateTime(2020, 01, 08);
-                lToDate = new DateTime(2020, 01, 11);
+                lToDate = new DateTime(2020, 01, 18);
                 lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
                 for (int i = 0; i <= lDiffDays; i++)
                 {

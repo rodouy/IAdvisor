@@ -13775,8 +13775,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region Santa Emilia
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                    || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                    //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.SantaEmilia)
                 {
                     lWeatherStationMainName = DataEntry2019.WeatherStationMainName_SantaEmilia_2019;
@@ -18590,23 +18590,23 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #region Crop //////////////////////////////////////////////////////////////////////
                     lSpecie = (from sp in context.Species
-                               where sp.Name == Utils.NameSpecieSudanGrassSouthShort
+                               where sp.Name == Utils.NameSpecieSudanGrassSouthMedium
                                select sp).FirstOrDefault();
                     lCrop = (from crop in context.Crops
-                             where crop.Name == Utils.NameSpecieSudanGrassSouthShort
+                             where crop.Name == Utils.NameSpecieSudanGrassSouthMedium
                              select crop).FirstOrDefault();
                     lCropCoefficient = (from cc in context.CropCoefficients
-                                        where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                                        where cc.Name == Utils.NameSpecieSudanGrassSouthMedium
                                         select cc).FirstOrDefault();
                     lPhenologicalStages = (from ps in context.PhenologicalStages
                                            where ps.SpecieId == lSpecie.SpecieId
                                            select ps).ToList<PhenologicalStage>();
                     lKCList = (from cc in context.CropCoefficients
-                               where cc.Name == Utils.NameSpecieSudanGrassSouthShort
+                               where cc.Name == Utils.NameSpecieSudanGrassSouthMedium
                                select cc.KCList)
                                          .FirstOrDefault();
                     lCropInformationByDate = (from cid in context.CropInformationByDates
-                                              where cid.Name == Utils.NameSpecieSudanGrassSouthShort
+                                              where cid.Name == Utils.NameSpecieSudanGrassSouthMedium
                                               select cid).FirstOrDefault();
                     #endregion
                     #region Agriculture //////////////////////////////////////////////////////////////////////

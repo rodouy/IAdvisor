@@ -2356,7 +2356,7 @@ namespace IrrigationAdvisor.Models.Utilities
         #region El Alba
         public static String NameCropIrrigationWeatherElAlbaPivot32_S1920 = NamePivotElAlba32 + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElAlbaPivot33_S1920 = NamePivotElAlba33 + " " + NameSpecieCornSouthShort + " S1920";
-        public static String NameCropIrrigationWeatherElAlbaPivot36_S1920 = NamePivotElAlba36 + " " + NameSpecieCornSouthShort + " S1920";
+        public static String NameCropIrrigationWeatherElAlbaPivot36_S1920 = NamePivotElAlba36 + " " + NameSpecieSoyaSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElAlbaPivot38_S1920 = NamePivotElAlba38 + " " + NameSpecieCornSouthShort + " S1920";
         public static String NameCropIrrigationWeatherElAlbaPivot40_S1920 = NamePivotElAlba40 + " " + NameSpecieCornSouthShort + " S1920";
         #endregion
