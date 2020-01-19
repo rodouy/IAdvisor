@@ -7008,7 +7008,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmLaZenaida
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieFescueForageSouthMedium
+                     where crop.Name == Utils.NameSpeciePaspalumSouthMedium
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotLaZenaida1
@@ -7070,7 +7070,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmLaZenaida
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieFescueForageSouthMedium
+                     where crop.Name == Utils.NameSpecieSudanGrassSouthMedium
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotLaZenaida3
@@ -7102,7 +7102,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmLaZenaida
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieSudanGrassSouthShort
+                     where crop.Name == Utils.NameSpeciePrairieSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotLaZenaida4
@@ -7133,7 +7133,7 @@ namespace IrrigationAdvisorConsole.Data
                      where farm.Name == Utils.NameFarmLaZenaida
                      select farm).FirstOrDefault();
             lCrop = (from crop in context.Crops
-                     where crop.Name == Utils.NameSpecieSudanGrassSouthShort
+                     where crop.Name == Utils.NameSpeciePrairieSouthShort
                      select crop).FirstOrDefault();
             lIrrigationUnit = (from iu in context.Pivots
                                where iu.Name == Utils.NamePivotLaZenaida5

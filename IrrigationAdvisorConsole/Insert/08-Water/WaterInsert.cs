@@ -3035,9 +3035,9 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.LaZenaida)
                 {
 
-                    //RainData2019.AddRainDataLaZenaidaPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLaZenaidaPivot1_2019(context, Program.DateOfReference);
                     RainData2019.AddRainDataLaZenaidaPivot2_2019(context, Program.DateOfReference);
-                    //RainData2019.AddRainDataLaZenaidaPivot3_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataLaZenaidaPivot3_2019(context, Program.DateOfReference);
                     RainData2019.AddRainDataLaZenaidaPivot4_2019(context, Program.DateOfReference);
                     RainData2019.AddRainDataLaZenaidaPivot5_2019(context, Program.DateOfReference);
 
@@ -3463,9 +3463,9 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    //IrrigationData2019.AddIrrigationDataLaZenaidaPivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot1_2019(context, Program.DateOfReference);
                     IrrigationData2019.AddIrrigationDataLaZenaidaPivot2_2019(context, Program.DateOfReference);
-                    //IrrigationData2019.AddIrrigationDataLaZenaidaPivot3_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataLaZenaidaPivot3_2019(context, Program.DateOfReference);
                     IrrigationData2019.AddIrrigationDataLaZenaidaPivot4_2019(context, Program.DateOfReference);
                     IrrigationData2019.AddIrrigationDataLaZenaidaPivot5_2019(context, Program.DateOfReference);
                     //IrrigationData2019.AddIrrigationDataLaZenaidaPivot1a_2019(context, Program.DateOfReference);
