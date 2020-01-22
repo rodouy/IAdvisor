@@ -154,17 +154,19 @@ namespace IrrigationAdvisorConsole.Data
         public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot1_2019 = new DateTime(2020, 04, 30);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot1_2019 = 14;
 
-        public static DateTime SowingDate_CornSouth_DCALaPerdizPivot2_2019 = new DateTime(2019, 10, 29);
-        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot2_2019 = new DateTime(2020, 04, 15);
+        public static DateTime SowingDate_CornSouth_DCALaPerdizPivot2_2019 = new DateTime(2019, 12, 24);
+        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot2_2019 = new DateTime(2020, 05, 15);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot2_2019 = 10;
+
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot3_2019 = new DateTime(2019, 11, 03);
         public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot3_2019 = new DateTime(2020, 04, 15);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot3_2019 = 10;
         public static DateTime SowingDate_SoyaSouth_DCALaPerdizPivot4_2019 = new DateTime(2019, 11, 15);
         public static DateTime HarvestDate_SoyaSouth_DCALaPerdizPivot4_2019 = new DateTime(2020, 04, 15);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot4_2019 = 10;
-        public static DateTime SowingDate_CornSouth_DCALaPerdizPivot5_2019 = new DateTime(2019, 11, 01);
-        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot5_2019 = new DateTime(2020, 04, 15);
+
+        public static DateTime SowingDate_CornSouth_DCALaPerdizPivot5_2019 = new DateTime(2019, 12, 24);
+        public static DateTime HarvestDate_CornSouth_DCALaPerdizPivot5_2019 = new DateTime(2020, 05, 15);
         public static Double PredeterminatedIrrigationQuantity_DCALaPerdizPivot5_2019 = 10;
 
         public static DateTime SowingDate_CornSouth_DCALaPerdizPivot6_2019 = new DateTime(2019, 12, 08);

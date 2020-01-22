@@ -2774,17 +2774,17 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                     || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
-                    RainData2019.AddRainDataDCALaPerdizPivot1_2019(context, Program.DateOfReference);
-                    //RainData2019.AddRainDataDCALaPerdizPivot2_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot1_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCALaPerdizPivot2_2019(context, Program.DateOfReference);
                     //RainData2019.AddRainDataDCALaPerdizPivot3_2019(context, Program.DateOfReference);
                     //RainData2019.AddRainDataDCALaPerdizPivot4_2019(context, Program.DateOfReference);
-                    //RainData2019.AddRainDataDCALaPerdizPivot5_2019(context, Program.DateOfReference);
-                    RainData2019.AddRainDataDCALaPerdizPivot6_2019(context, Program.DateOfReference);
-                    RainData2019.AddRainDataDCALaPerdizPivot7_2019(context, Program.DateOfReference);
-                    RainData2019.AddRainDataDCALaPerdizPivot10a_2019(context, Program.DateOfReference);
+                    RainData2019.AddRainDataDCALaPerdizPivot5_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot6_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot7_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot10a_2019(context, Program.DateOfReference);
                     //RainData2019.AddRainDataDCALaPerdizPivot10b_2019(context, Program.DateOfReference);
-                    RainData2019.AddRainDataDCALaPerdizPivot14_2019(context, Program.DateOfReference);
-                    RainData2019.AddRainDataDCALaPerdizPivot15_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot14_2019(context, Program.DateOfReference);
+                    //RainData2019.AddRainDataDCALaPerdizPivot15_2019(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
                 #endregion
@@ -3172,16 +3172,16 @@ namespace IrrigationAdvisorConsole.Insert._08_Water
             {
                 using (var context = new IrrigationAdvisorContext())
                 {
-                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot1_2019(context, Program.DateOfReference);
-                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot2_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot1_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot2_2019(context, Program.DateOfReference);
                     //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot3_2019(context, Program.DateOfReference);
-                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot5_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot6_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot7_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot10a_2019(context, Program.DateOfReference);
+                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot5_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot6_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot7_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot10a_2019(context, Program.DateOfReference);
                     //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot10b_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot14_2019(context, Program.DateOfReference);
-                    IrrigationData2019.AddIrrigationDataDCALaPerdizPivot15_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot14_2019(context, Program.DateOfReference);
+                    //IrrigationData2019.AddIrrigationDataDCALaPerdizPivot15_2019(context, Program.DateOfReference);
                     context.SaveChanges();
 
                 }
