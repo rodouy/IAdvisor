@@ -2740,11 +2740,11 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
             }
             #endregion
-            #region Irrigation 2020/01/19 to 2020/01/20  00 mm - Can't Irrigate
+            #region Irrigation 2020/01/19 to 2020/01/21  00 mm - Can't Irrigate
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 lFromDate = new DateTime(2020, 01, 19);
-                lToDate = new DateTime(2020, 01, 20);
+                lToDate = new DateTime(2020, 01, 21);
                 lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
                 for (int i = 0; i <= lDiffDays; i++)
                 {
@@ -2767,12 +2767,12 @@ namespace IrrigationAdvisorConsole.Data
                 }
             }
             #endregion
-            #region Irrigation 2020/01/21 14 mm
+            #region Irrigation 2020/01/22 10 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Irrigation
-                lIrrigationDate = new DateTime(2020, 01, 21);
-                lIrrigationQuantity = 14;
+                lIrrigationDate = new DateTime(2020, 01, 22);
+                lIrrigationQuantity = 10;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.Other;
                 lObservations = "Add Irrigation OK.";
@@ -3141,6 +3141,54 @@ namespace IrrigationAdvisorConsole.Data
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2020, 01, 19);
                 lIrrigationQuantity = 10;
+                lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
+                lWaterInputType = Utils.WaterInputType.Irrigation;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lIrrigationList = (from ilist in context.Irrigations
+                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                   select ilist).ToList<Irrigation>();
+                lRainList = (from rlist in context.Rains
+                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                             select rlist).ToList<Rain>();
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+            }
+            #endregion
+            #region Irrigation 2020/01/20 to 2020/01/22  00 mm - Can't Irrigate
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                lFromDate = new DateTime(2020, 01, 20);
+                lToDate = new DateTime(2020, 01, 22);
+                lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+                for (int i = 0; i <= lDiffDays; i++)
+                {
+                    //Data to change about Irrigation
+                    lIrrigationDate = lFromDate.AddDays(i);
+                    lIrrigationQuantity = 0;
+                    lIsExtraIrrigation = true;
+                    lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
+                    lObservations = "Cant Irrigate.";
+                    lWaterInputType = Utils.WaterInputType.CantIrrigate;
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    lIrrigationList = (from ilist in context.Irrigations
+                                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                       select ilist).ToList<Irrigation>();
+                    lRainList = (from rlist in context.Rains
+                                 where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                 select rlist).ToList<Rain>();
+                    lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                }
+            }
+            #endregion
+            #region Irrigation 2020/01/23 05 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Irrigation
+                lIrrigationDate = new DateTime(2020, 01, 23);
+                lIrrigationQuantity = 5;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.Other;
                 lObservations = "Add Irrigation OK.";
@@ -11045,6 +11093,75 @@ namespace IrrigationAdvisorConsole.Data
                 }
             }
             #endregion
+            #region Irrigation 2020/01/19 14 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Irrigation
+                lIrrigationDate = new DateTime(2020, 01, 19);
+                lIrrigationQuantity = 14;
+                lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
+                lWaterInputType = Utils.WaterInputType.Irrigation;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lIrrigationList = (from ilist in context.Irrigations
+                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                   select ilist).ToList<Irrigation>();
+                lRainList = (from rlist in context.Rains
+                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                             select rlist).ToList<Rain>();
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+            }
+            #endregion
+            #region Irrigation 2020/01/20 to 2020/01/21  00 mm - Can't Irrigate
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                lFromDate = new DateTime(2020, 01, 20);
+                lToDate = new DateTime(2020, 01, 21);
+                lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+                for (int i = 0; i <= lDiffDays; i++)
+                {
+                    //Data to change about Irrigation
+                    lIrrigationDate = lFromDate.AddDays(i);
+                    lIrrigationQuantity = 0;
+                    lIsExtraIrrigation = true;
+                    lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
+                    lObservations = "Cant Irrigate.";
+                    lWaterInputType = Utils.WaterInputType.CantIrrigate;
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    lIrrigationList = (from ilist in context.Irrigations
+                                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                       select ilist).ToList<Irrigation>();
+                    lRainList = (from rlist in context.Rains
+                                 where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                 select rlist).ToList<Rain>();
+                    lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                }
+            }
+            #endregion
+            #region Irrigation 2020/01/22 14 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Irrigation
+                lIrrigationDate = new DateTime(2020, 01, 22);
+                lIrrigationQuantity = 14;
+                lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
+                lWaterInputType = Utils.WaterInputType.Irrigation;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lIrrigationList = (from ilist in context.Irrigations
+                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                   select ilist).ToList<Irrigation>();
+                lRainList = (from rlist in context.Rains
+                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                             select rlist).ToList<Rain>();
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+            }
+            #endregion
 
 
 
@@ -11345,6 +11462,54 @@ namespace IrrigationAdvisorConsole.Data
             {
                 //Data to change about Irrigation
                 lIrrigationDate = new DateTime(2020, 01, 19);
+                lIrrigationQuantity = 14;
+                lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
+                lWaterInputType = Utils.WaterInputType.Irrigation;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lIrrigationList = (from ilist in context.Irrigations
+                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                   select ilist).ToList<Irrigation>();
+                lRainList = (from rlist in context.Rains
+                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                             select rlist).ToList<Rain>();
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+            }
+            #endregion
+            #region Irrigation 2020/01/20 to 2020/01/21  00 mm - Can't Irrigate
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                lFromDate = new DateTime(2020, 01, 20);
+                lToDate = new DateTime(2020, 01, 21);
+                lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+                for (int i = 0; i <= lDiffDays; i++)
+                {
+                    //Data to change about Irrigation
+                    lIrrigationDate = lFromDate.AddDays(i);
+                    lIrrigationQuantity = 0;
+                    lIsExtraIrrigation = true;
+                    lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
+                    lObservations = "Cant Irrigate.";
+                    lWaterInputType = Utils.WaterInputType.CantIrrigate;
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    lIrrigationList = (from ilist in context.Irrigations
+                                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                       select ilist).ToList<Irrigation>();
+                    lRainList = (from rlist in context.Rains
+                                 where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                 select rlist).ToList<Rain>();
+                    lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                }
+            }
+            #endregion
+            #region Irrigation 2020/01/22 14 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Irrigation
+                lIrrigationDate = new DateTime(2020, 01, 22);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.Other;
@@ -12357,11 +12522,11 @@ namespace IrrigationAdvisorConsole.Data
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
             }
             #endregion
-            #region Irrigation 2020/01/15 to 2020/01/18  00 mm - Can't Irrigate
+            #region Irrigation 2020/01/15 to 2020/01/20  00 mm - Can't Irrigate
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 lFromDate = new DateTime(2020, 01, 15);
-                lToDate = new DateTime(2020, 01, 18);
+                lToDate = new DateTime(2020, 01, 20);
                 lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
                 for (int i = 0; i <= lDiffDays; i++)
                 {
@@ -12384,11 +12549,11 @@ namespace IrrigationAdvisorConsole.Data
                 }
             }
             #endregion
-            #region Irrigation 2020/01/19 14 mm
+            #region Irrigation 2020/01/21 14 mm
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 //Data to change about Irrigation
-                lIrrigationDate = new DateTime(2020, 01, 19);
+                lIrrigationDate = new DateTime(2020, 01, 21);
                 lIrrigationQuantity = 14;
                 lIsExtraIrrigation = true;
                 lReason = Utils.NoIrrigationReason.Other;
@@ -13432,7 +13597,7 @@ namespace IrrigationAdvisorConsole.Data
                 lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
                 lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
             }
-            #endregion 
+            #endregion
             #region Irrigation 2019/12/14 to 2019/12/31  00 mm - Can't Irrigate
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
@@ -13460,10 +13625,58 @@ namespace IrrigationAdvisorConsole.Data
                 }
             }
             #endregion
-            #region Irrigation 2020/01/01 to 2020/01/31  00 mm - Can't Irrigate
+            #region Irrigation 2020/01/01 to 2020/01/21  00 mm - Can't Irrigate
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 lFromDate = new DateTime(2020, 01, 01);
+                lToDate = new DateTime(2020, 01, 21);
+                lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+                for (int i = 0; i <= lDiffDays; i++)
+                {
+                    //Data to change about Irrigation
+                    lIrrigationDate = lFromDate.AddDays(i);
+                    lIrrigationQuantity = 0;
+                    lIsExtraIrrigation = true;
+                    lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
+                    lObservations = "Cant Irrigate.";
+                    lWaterInputType = Utils.WaterInputType.CantIrrigate;
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    lIrrigationList = (from ilist in context.Irrigations
+                                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                       select ilist).ToList<Irrigation>();
+                    lRainList = (from rlist in context.Rains
+                                 where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                 select rlist).ToList<Rain>();
+                    lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                }
+            }
+            #endregion
+            #region Irrigation 2020/01/22 15 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Irrigation
+                lIrrigationDate = new DateTime(2020, 01, 22);
+                lIrrigationQuantity = 15;
+                lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
+                lWaterInputType = Utils.WaterInputType.Irrigation;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lIrrigationList = (from ilist in context.Irrigations
+                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                   select ilist).ToList<Irrigation>();
+                lRainList = (from rlist in context.Rains
+                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                             select rlist).ToList<Rain>();
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+            }
+            #endregion
+            #region Irrigation 2020/01/23 to 2020/01/31  00 mm - Can't Irrigate
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                lFromDate = new DateTime(2020, 01, 23);
                 lToDate = new DateTime(2020, 01, 31);
                 lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
                 for (int i = 0; i <= lDiffDays; i++)
@@ -13723,10 +13936,58 @@ namespace IrrigationAdvisorConsole.Data
                 }
             }
             #endregion
-            #region Irrigation 2020/01/01 to 2020/01/31  00 mm - Can't Irrigate
+            #region Irrigation 2020/01/01 to 2020/01/20  00 mm - Can't Irrigate
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 lFromDate = new DateTime(2020, 01, 01);
+                lToDate = new DateTime(2020, 01, 20);
+                lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+                for (int i = 0; i <= lDiffDays; i++)
+                {
+                    //Data to change about Irrigation
+                    lIrrigationDate = lFromDate.AddDays(i);
+                    lIrrigationQuantity = 0;
+                    lIsExtraIrrigation = true;
+                    lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
+                    lObservations = "Cant Irrigate.";
+                    lWaterInputType = Utils.WaterInputType.CantIrrigate;
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    lIrrigationList = (from ilist in context.Irrigations
+                                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                       select ilist).ToList<Irrigation>();
+                    lRainList = (from rlist in context.Rains
+                                 where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                 select rlist).ToList<Rain>();
+                    lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                }
+            }
+            #endregion
+            #region Irrigation 2020/01/21 15 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Irrigation
+                lIrrigationDate = new DateTime(2020, 01, 21);
+                lIrrigationQuantity = 15;
+                lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
+                lWaterInputType = Utils.WaterInputType.Irrigation;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lIrrigationList = (from ilist in context.Irrigations
+                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                   select ilist).ToList<Irrigation>();
+                lRainList = (from rlist in context.Rains
+                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                             select rlist).ToList<Rain>();
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+            }
+            #endregion
+            #region Irrigation 2020/01/22 to 2020/01/31  00 mm - Can't Irrigate
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                lFromDate = new DateTime(2020, 01, 22);
                 lToDate = new DateTime(2020, 01, 31);
                 lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
                 for (int i = 0; i <= lDiffDays; i++)
@@ -14217,10 +14478,58 @@ namespace IrrigationAdvisorConsole.Data
                 }
             }
             #endregion
-            #region Irrigation 2020/01/01 to 2020/01/31  00 mm - Can't Irrigate
+            #region Irrigation 2020/01/01 to 2020/01/22  00 mm - Can't Irrigate
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 lFromDate = new DateTime(2020, 01, 01);
+                lToDate = new DateTime(2020, 01, 22);
+                lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+                for (int i = 0; i <= lDiffDays; i++)
+                {
+                    //Data to change about Irrigation
+                    lIrrigationDate = lFromDate.AddDays(i);
+                    lIrrigationQuantity = 0;
+                    lIsExtraIrrigation = true;
+                    lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
+                    lObservations = "Cant Irrigate.";
+                    lWaterInputType = Utils.WaterInputType.CantIrrigate;
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    lIrrigationList = (from ilist in context.Irrigations
+                                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                       select ilist).ToList<Irrigation>();
+                    lRainList = (from rlist in context.Rains
+                                 where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                 select rlist).ToList<Rain>();
+                    lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                }
+            }
+            #endregion
+            #region Irrigation 2020/01/23 15 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Irrigation
+                lIrrigationDate = new DateTime(2020, 01, 23);
+                lIrrigationQuantity = 15;
+                lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
+                lWaterInputType = Utils.WaterInputType.Irrigation;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lIrrigationList = (from ilist in context.Irrigations
+                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                   select ilist).ToList<Irrigation>();
+                lRainList = (from rlist in context.Rains
+                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                             select rlist).ToList<Rain>();
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+            }
+            #endregion
+            #region Irrigation 2020/01/24 to 2020/01/31  00 mm - Can't Irrigate
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                lFromDate = new DateTime(2020, 01, 24);
                 lToDate = new DateTime(2020, 01, 31);
                 lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
                 for (int i = 0; i <= lDiffDays; i++)
@@ -14709,10 +15018,58 @@ namespace IrrigationAdvisorConsole.Data
                 }
             }
             #endregion
-            #region Irrigation 2020/01/01 to 2020/01/31  00 mm - Can't Irrigate
+            #region Irrigation 2020/01/01 to 2020/01/23  00 mm - Can't Irrigate
             foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
             {
                 lFromDate = new DateTime(2020, 01, 01);
+                lToDate = new DateTime(2020, 01, 23);
+                lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
+                for (int i = 0; i <= lDiffDays; i++)
+                {
+                    //Data to change about Irrigation
+                    lIrrigationDate = lFromDate.AddDays(i);
+                    lIrrigationQuantity = 0;
+                    lIsExtraIrrigation = true;
+                    lReason = Utils.NoIrrigationReason.CropDontNeedIrrigation;
+                    lObservations = "Cant Irrigate.";
+                    lWaterInputType = Utils.WaterInputType.CantIrrigate;
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    lIrrigationList = (from ilist in context.Irrigations
+                                       where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                       select ilist).ToList<Irrigation>();
+                    lRainList = (from rlist in context.Rains
+                                 where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                 select rlist).ToList<Rain>();
+                    lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                    lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+                }
+            }
+            #endregion
+            #region Irrigation 2020/01/24 15 mm
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                //Data to change about Irrigation
+                lIrrigationDate = new DateTime(2020, 01, 24);
+                lIrrigationQuantity = 15;
+                lIsExtraIrrigation = true;
+                lReason = Utils.NoIrrigationReason.Other;
+                lObservations = "Add Irrigation OK.";
+                lWaterInputType = Utils.WaterInputType.Irrigation;
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                lIrrigationList = (from ilist in context.Irrigations
+                                   where ilist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                                   select ilist).ToList<Irrigation>();
+                lRainList = (from rlist in context.Rains
+                             where rlist.CropIrrigationWeatherId == lCropIrrigationWeather.CropIrrigationWeatherId
+                             select rlist).ToList<Rain>();
+                lQuantityOfWaterToIrrigateAndTypeOfIrrigation = new Pair<double, Utils.WaterInputType>(lIrrigationQuantity, lWaterInputType);
+                lCropIrrigationWeather.AddOrUpdateIrrigationDataToList(lIrrigationDate, lQuantityOfWaterToIrrigateAndTypeOfIrrigation, lIsExtraIrrigation, lReason, lObservations);
+            }
+            #endregion
+            #region Irrigation 2020/01/25 to 2020/01/31  00 mm - Can't Irrigate
+            foreach (CropIrrigationWeather lCropIrrigationWeather in lCropIrrigationWeatherList)
+            {
+                lFromDate = new DateTime(2020, 01, 25);
                 lToDate = new DateTime(2020, 01, 31);
                 lDiffDays = lToDate.Subtract(lFromDate).TotalDays;
                 for (int i = 0; i <= lDiffDays; i++)

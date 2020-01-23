@@ -848,6 +848,70 @@ namespace IrrigationAdvisorConsole.Data
 
         #endregion
 
+        #region El Alba
+
+        #region 2019
+
+        public static void AddPhenologicalStageAdjustementsElAlbaPivot36_2019(IrrigationAdvisorContext context, DateTime pDateOfReference)
+        {
+            #region local variables
+            Farm lFarm = null;
+            Crop lCrop = null;
+            IrrigationUnit lIrrigationUnit = null;
+            WeatherStation lWeatherStationMain = null;
+            CropIrrigationWeather lCropIrrigationWeather = null;
+            String lName = "";
+            DateTime lDateTimeToChange;
+            PhenologicalStage lPhenologicalStage;
+            Stage lStageToChange;
+            String lObservation = "";
+            #endregion
+            #region Crop
+            lFarm = (from farm in context.Farms
+                     where farm.Name == Utils.NameFarmElAlba
+                     select farm).FirstOrDefault();
+            lCrop = (from crop in context.Crops
+                     where crop.Name == Utils.NameSpecieSoyaSouthShort
+                     select crop).FirstOrDefault();
+            lIrrigationUnit = (from iu in context.Pivots
+                               where iu.Name == Utils.NamePivotElAlba36
+                               select iu).FirstOrDefault();
+            if (lIrrigationUnit == null) return;
+            lWeatherStationMain = (from ws in context.WeatherStations
+                                   where ws.Name == DataEntry2019.WeatherStationMainName_ElAlba_2019
+                                   select ws).FirstOrDefault();
+            lCropIrrigationWeather = (from ciw in context.CropIrrigationWeathers
+                                      where ciw.CropId == lCrop.CropId
+                                          && ciw.IrrigationUnitId == lIrrigationUnit.IrrigationUnitId
+                                          && ciw.SowingDate <= pDateOfReference
+                                          && ciw.HarvestDate.Year >= pDateOfReference.Year
+                                      select ciw).FirstOrDefault();
+            if (lCropIrrigationWeather == null) return;
+            #endregion
+
+            //First Change
+            lStageToChange = (from stage in context.Stages
+                              where stage.Name.Contains(Utils.NameStagesSoya + " R2")
+                              select stage).FirstOrDefault();
+            lPhenologicalStage = (from phenologicalstage in context.PhenologicalStages
+                                  where phenologicalstage.SpecieId.Equals(lCrop.SpecieId)
+                                  && phenologicalstage.StageId.Equals(lStageToChange.StageId)
+                                  select phenologicalstage).FirstOrDefault();
+            lDateTimeToChange = new DateTime(2020, 01, 21);
+            lObservation = "Real Stage is " + lStageToChange.Name
+                + ", " + lStageToChange.Description + ".";
+            lName = "Adjustement " + lStageToChange.Name + " "
+                                                + lDateTimeToChange.ToString();
+
+            lCropIrrigationWeather.AddPhenologicalStageAdjustmentToList(lName, lCrop, lDateTimeToChange,
+                                                            lStageToChange, lPhenologicalStage, lObservation);
+
+        }
+
+        #endregion
+
+        #endregion
+
         #endregion
 
         #region Information To IrrigationUnits 2019
