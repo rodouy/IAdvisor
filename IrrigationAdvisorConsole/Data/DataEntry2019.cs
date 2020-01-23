@@ -891,7 +891,7 @@ namespace IrrigationAdvisorConsole.Data
 
             //First Change
             lStageToChange = (from stage in context.Stages
-                              where stage.Name.Contains(Utils.NameStagesSoya + " R2")
+                              where stage.Name.Contains(Utils.NameStagesSoya + " R1")
                               select stage).FirstOrDefault();
             lPhenologicalStage = (from phenologicalstage in context.PhenologicalStages
                                   where phenologicalstage.SpecieId.Equals(lCrop.SpecieId)
