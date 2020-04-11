@@ -2006,9 +2006,7 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDCALaPerdizPivot14.Show = true;
                         lDCALaPerdizPivot15.Show = false;
                     }
-                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2018_2019)
                     {
                         lDCALaPerdizPivot1.Show = true;
                         lDCALaPerdizPivot2.Show = false;
@@ -2027,24 +2025,45 @@ namespace IrrigationAdvisorConsole.Insert._07_Irrigation
                         lDCALaPerdizPivot14.Show = true;
                         lDCALaPerdizPivot15.Show = true;
                     }
-                    else 
+                    else if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                          || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020)
                     {
-                        lDCALaPerdizPivot1.Show = true;
-                        lDCALaPerdizPivot2.Show = false;
+                        lDCALaPerdizPivot1.Show = false;
+                        lDCALaPerdizPivot2.Show = true;
                         lDCALaPerdizPivot3.Show = false;
                         lDCALaPerdizPivot4.Show = false;
-                        lDCALaPerdizPivot5.Show = false;
-                        lDCALaPerdizPivot6.Show = true;
-                        lDCALaPerdizPivot7.Show = true;
+                        lDCALaPerdizPivot5.Show = true;
+                        lDCALaPerdizPivot6.Show = false;
+                        lDCALaPerdizPivot7.Show = false;
                         lDCALaPerdizPivot8.Show = false;
                         lDCALaPerdizPivot9.Show = false;
-                        lDCALaPerdizPivot10a.Show = true;
+                        lDCALaPerdizPivot10a.Show = false;
                         lDCALaPerdizPivot10b.Show = false;
                         lDCALaPerdizPivot11.Show = false;
                         lDCALaPerdizPivot12.Show = false;
                         lDCALaPerdizPivot13.Show = false;
-                        lDCALaPerdizPivot14.Show = true;
-                        lDCALaPerdizPivot15.Show = true;
+                        lDCALaPerdizPivot14.Show = false;
+                        lDCALaPerdizPivot15.Show = false;
+                    }
+                    else 
+                    {
+                        lDCALaPerdizPivot1.Show = false;
+                        lDCALaPerdizPivot2.Show = true;
+                        lDCALaPerdizPivot3.Show = false;
+                        lDCALaPerdizPivot4.Show = false;
+                        lDCALaPerdizPivot5.Show = true;
+                        lDCALaPerdizPivot6.Show = false;
+                        lDCALaPerdizPivot7.Show = false;
+                        lDCALaPerdizPivot8.Show = false;
+                        lDCALaPerdizPivot9.Show = false;
+                        lDCALaPerdizPivot10a.Show = false;
+                        lDCALaPerdizPivot10b.Show = false;
+                        lDCALaPerdizPivot11.Show = false;
+                        lDCALaPerdizPivot12.Show = false;
+                        lDCALaPerdizPivot13.Show = false;
+                        lDCALaPerdizPivot14.Show = false;
+                        lDCALaPerdizPivot15.Show = false;
                     }
                     #endregion
 
