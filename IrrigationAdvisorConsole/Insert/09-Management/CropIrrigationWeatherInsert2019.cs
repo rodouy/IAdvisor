@@ -995,8 +995,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 #endregion
                 #region DCA La Perdiz
                 if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                        //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                        //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                        || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                        || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                         || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
                 {
@@ -1004,7 +1004,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lWeatherStationAlternativeName = DataEntry2019.WeatherStationAlternativeName_DCALaPerdiz_2019;
 
                     Console.Write(" DCA - La Perdiz | ");
-#if true
+#if false
                     #region DCA - La Perdiz Pivot 1 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -1171,7 +1171,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #endregion
 #endif
-#if false
+#if true
                     #region DCA - La Perdiz Pivot 2 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -1337,6 +1337,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
+#endif
+#if false
                     #region DCA - La Perdiz Pivot 3 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -1503,6 +1505,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
+#endif
+#if true
                     #region DCA - La Perdiz Pivot 5 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -1668,6 +1672,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
+#endif
+#if false
                     #region DCA - La Perdiz Pivot 10b 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -1834,7 +1840,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #endregion
 #endif
-#if true
+#if false
                     #region DCA - La Perdiz Pivot 6 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -2001,7 +2007,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     #endregion
                     #endregion
 #endif
-#if true
+#if False
                     #region DCA - La Perdiz Pivot 7 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -17386,7 +17392,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     lWeatherStationAlternativeName = DataEntry2019.WeatherStationAlternativeName_ElAlba_2019;
 
                     Console.Write(" El Alba | ");
-
+#if false
                     #region El Alba Pivot 32 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -17721,6 +17727,7 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     context.SaveChanges();
                     #endregion
                     #endregion
+#endif
                     #region El Alba Pivot 36 2019
                     #region Farm //////////////////////////////////////////////////////////////////////
                     lFarm = (from farm in context.Farms
@@ -19612,8 +19619,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region La Perdiz
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCALaPerdiz)
             {
@@ -19642,8 +19649,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region Del Lago - El Mirador
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -19680,6 +19687,20 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
 
+                    context.SaveChanges();
+                }
+            }
+            #endregion
+
+            #region El Alba
+            if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.ElAlba)
+            {
+                using (var context = new IrrigationAdvisorContext())
+                {
+                    DataEntry2019.AddPhenologicalStageAdjustementsElAlbaPivot36_2019(context, Program.DateOfReference);
                     context.SaveChanges();
                 }
             }
@@ -19866,8 +19887,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
 
             #region DCA - El Paraiso
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCA
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DCAElParaiso)
             {
@@ -19894,16 +19915,16 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                 using (var context = new IrrigationAdvisorContext())
                 {
                     Console.Write(" - DCA - La Perdiz");
-                    DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot1_2019(context, Program.DateOfReference);
-                    //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot2_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot1_2019(context, Program.DateOfReference);
+                    DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot2_2019(context, Program.DateOfReference);
                     //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot3_2019(context, Program.DateOfReference);
-                    //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot5_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot6_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot7_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot10a_2019(context, Program.DateOfReference);
+                    DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot5_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot6_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot7_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot10a_2019(context, Program.DateOfReference);
                     //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot10b_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot14_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot14_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsDCALaPerdizPivot15_2019(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
@@ -19964,8 +19985,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
             #endregion
             #region Del Lago - El Mirador
             if (Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.All
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
-                || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Production
+                //|| Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.Season_2019_2020
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLago
                 || Program.ProcessFarm == Utils.IrrigationAdvisorProcessFarm.DelLagoElMirador)
             {
@@ -20033,8 +20054,8 @@ namespace IrrigationAdvisorConsole.Insert._09_Management
                     Console.Write(" - El Rincon");
                     //DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot1a_2019(context, Program.DateOfReference);
                     DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot1b_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot2a_2019(context, Program.DateOfReference);
-                    DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot2b_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot2a_2019(context, Program.DateOfReference);
+                    //DataEntry2019.AddInformationToIrrigationUnitsElRinconPivot2b_2019(context, Program.DateOfReference);
                     context.SaveChanges();
                     Console.WriteLine(" - Completed.");
                 }
